@@ -1,0 +1,34 @@
+/* Small (sm) */
+@mixin sm {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+/* Medium (md) */
+@mixin md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+/* Large (lg) */
+@mixin lg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+} 
+
+/* Extra Large (xl) */
+@mixin xl {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+/* Two Extra Large (xxl) */
+@mixin xxl {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}

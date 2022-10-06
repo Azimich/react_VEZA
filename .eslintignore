@@ -1,0 +1,6 @@
+.idea
+.next
+.storybook
+figma-imports
+node_modules
+storybook-static

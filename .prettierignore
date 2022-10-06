@@ -1,0 +1,10 @@
+node_modules
+coverage
+.eslintrc
+.storybook
+.next
+tsconfig.json
+README.md
+next-env.d.ts
+storage
+storybook-static
