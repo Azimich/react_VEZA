@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Container } from "components/common/container";
-import { HeaderNav } from "./headerNav/HeaderNav";
-import { HeaderLogo } from "./HeaderLogo/HeaderLogo";
-import { HeaderIcon } from "./headerIcon/HeaderIcon";
 import Styles from "./Header.module.scss";
+import { HeaderLogo } from "./HeaderLogo/HeaderLogo";
+import { HeaderNav } from "./headerNav/HeaderNav";
+import { HeaderIcon } from "./headerIcon/HeaderIcon";
 
 const HeaderContainer: FC = () => {
   return (
