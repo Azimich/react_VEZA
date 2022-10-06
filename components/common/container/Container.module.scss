@@ -1,0 +1,34 @@
+@import "styles/mixins";
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+}
+
+.wrapper_layout {
+  padding: 0;
+  @include adaptive("xl"){
+    padding: 0 20px;
+  }
+}
+
+.wrapper_grid {
+  display: grid;
+  column-gap: 20px;
+}
+
+.wrapper_grid_3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wrapper_grid_4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.wrapper_grid_5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.wrapper_grid_6 {
+  grid-template-columns: repeat(6, 1fr);
+}

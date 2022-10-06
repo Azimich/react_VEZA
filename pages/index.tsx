@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "../store/store";
+import { HomeContainer } from "../features/home/HomeContainer";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async () => {
@@ -11,10 +12,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const HomeContainer = () => {
-  return (<div>111</div>);
-};
-
-const Home = () => <HomeContainer />;
+const Home = (props: any) => <HomeContainer {...props} />;
 
 export default Home;
