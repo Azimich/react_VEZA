@@ -3,7 +3,7 @@ import React from "react";
 const HeaderLogo = () => {
   return (
     <div>
-      <a href="index.html" className="header__logo">
+      <a href="/" className="header__logo">
         <img src="/images/logo.svg" alt="vezalogo" />
       </a>
     </div>

@@ -1,0 +1,203 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.footer {
+
+  &__container {
+    background: #F6F6F3;
+    padding: 50px 0;
+
+    @include ipadScreen {
+      padding: 25px 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 40px 0;
+
+    @media (max-width: 1200px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    width: 120px;
+
+    @include ipadScreen {
+      width: 90px;
+      z-index: 98;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+
+    li {
+      margin: 0 0 0 40px;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      @include tabletScreen {
+        margin: 0 0 0 25px;
+      }
+
+      @include ipadScreen {
+        margin: 0 0 0 15px;
+      }
+
+      @include phoneScreen {
+        margin: 0;
+        padding: 10px 0;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 1130px) {
+      margin: 30px 0;
+    }
+
+    @include phoneScreen {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: 20px 0;
+    }
+  }
+
+  &__menu_link {
+    font-size: 16px;
+    font-weight: 400;
+    color: green;
+    letter-spacing: 0.025em;
+    transition: 0.3s;
+    position: relative;
+
+    &:hover {
+      color: color(lightgreen);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background-color: color(green);
+      transition: width 0.3s;
+    }
+
+    &:hover:after {
+      content: "";
+      width: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      height: 2px;
+      background-color:  color(lightgreen);
+      transition: width 0.3s;
+    }
+  }
+
+  &__social_item:hover path {
+    fill: #fff;
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1130px) {
+      flex-direction: column;
+    }
+  }
+
+  &__contacts_list {
+
+    &:first-child {
+      margin-right: 40px;
+
+      @media (max-width: 1130px) {
+        margin: 0 0 12px 0;
+      }
+    }
+  }
+
+  &__contacts_phone {
+    color: green;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+
+    &:hover {
+      color: color(lightgreen);
+
+      path {
+        fill: green;
+      }
+    }
+
+    svg {
+      width: 23px;
+      height: 23px;
+      transition: all 0.3s;
+      margin-right: 8px;
+
+      path {
+        fill: green;
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 1130px) {
+      justify-content: center;
+    }
+  }
+
+  &__social_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 0 6px;
+    padding: 6px;
+    color: color(lightgreen);
+    transition: 0.3s;
+
+    &:hover {
+      background-color: green;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    svg {
+      width: 23px;
+      height: 23px;
+      transition: all 0.3s;
+
+      path {
+        fill: green;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
