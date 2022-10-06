@@ -11,7 +11,7 @@ const HeaderNav = () => {
     <ul className={Styles.header__menu}>
       {menu.map((item) => {
         return (
-          <li>
+          <li key={item.id}>
             <Link href={item.url}>
               <a>{item.title}</a>
             </Link>
