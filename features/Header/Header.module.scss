@@ -1,0 +1,23 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 0;
+
+   @media (max-width: 1200px) {
+    padding: 25px 0 30px 0;
+  }
+}
+
+.header__logo {
+  height: 30px;
+
+  @media (max-width: 1200px) {
+   width: 90px;
+  }
+}
+
