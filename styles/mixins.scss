@@ -1,19 +1,38 @@
-@mixin adaptive($point) {
-  @if $point == xl {
-    @media only screen and (max-width: 1599px) {
-      @content;
-    }
-  } @else if $point == lg {
-    @media only screen and (max-width: 1365px) {
-      @content;
-    }
-  } @else if $point == md {
-    @media only screen and (max-width: 1279px) {
-      @content;
-    }
-  } @else if $point == sm {
-    @media only screen and (max-width: 1023px) {
+  @mixin bgWhite {
+    background-color: #FFF;
+  }
+
+  @mixin backgroundImage($bgSize: 100% 100%) {
+    background-repeat: no-repeat;
+    background-size: $bgSize;
+  }
+
+  @mixin pcScreen {
+    @media screen and (max-width: screenWidth(pc)) {
       @content;
     }
   }
+
+  @mixin tabletScreen {
+    @media screen and (max-width: screenWidth(tablet)) {
+      @content;
+    }
+  }
+
+  @mixin ipadScreen {
+    @media screen and (max-width: screenWidth(ipad)) {
+      @content;
+    }
+  }
+
+  @mixin phoneScreen {
+    @media screen and (max-width: screenWidth(phone)) {
+      @content;
+    }
+  }
+
+  @mixin SEScreen {
+    @media screen and (max-width: screenWidth(SE)) {
+      @content;
+    }
 }
