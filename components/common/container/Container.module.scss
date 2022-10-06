@@ -1,34 +1,25 @@
 @import "styles/mixins";
 
-.container {
-  margin: 0 auto;
-  max-width: 1600px;
-}
+.wrapper {
+  max-width: 1500px;
+  padding: 0 90px;
+  margin: auto;
+  overflow: hidden;
 
-.wrapper_layout {
-  padding: 0;
-  @include adaptive("xl"){
-    padding: 0 20px;
+  @include pcScreen{
+    max-width: 1500px;
   }
-}
 
-.wrapper_grid {
-  display: grid;
-  column-gap: 20px;
-}
+  @include tabletScreen{
+    padding: 0 60px;
+  }
 
-.wrapper_grid_3 {
-  grid-template-columns: repeat(3, 1fr);
-}
+  @include ipadScreen{
+    padding: 0 25px;
+  }
 
-.wrapper_grid_4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.wrapper_grid_5 {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.wrapper_grid_6 {
-  grid-template-columns: repeat(6, 1fr);
+  @include phoneScreen {
+    padding: 0 15px;
+  }
+  background: #000;
 }

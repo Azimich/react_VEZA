@@ -1,55 +1,24 @@
-$opacity-02: '0.2';
-$opacity-05: '0.5';
+$colors: (
+  black: #000,
+  dark: #212121,
+  white: #FFF,
+  lightgreen: #2E6143,
+  green: #009247
+);
 
-:root {
-  //colors text
-  --color-text-primary: #646464;
-  --color-text-primary-active: #f24040;
-  --color-text-secondary: #ffc850;
-  --color-text-disable-hints: #A0A0AD;
-  --color-text-link: #03a6d8;
-  --color-text-link-hover: #03a6d8;
-  --color-text-color-background: #ffffff;
-  --color-text-color-header: #000000;
+$screenWidth: (
+  pc: 1920px,
+  tablet: 1300px,
+  ipad: 1024px,
+  phone: 768px,
+  SE: 375px,
+);
 
-  --color-secondary: #fe7798;
 
-  //colors border
-  --color-border-primary: #CECED6; //0.8
-  --color-border-primary-hover: #CECED6; //0.8
-  --color-border-primary-focus: #646464; //0.8
-  --color-border-secondary: #f24040;
-  --color-border-bottom: #e1e1e1;
-  --color-border-modal: #fe7798;
-
-  --color-shadow-primary: rgba(0, 0, 0, 0.2);
-
-  --color-payment-mir-primary: #4DB45E;
-  --color-payment-mir-stop20: #00B4E6;
-  --color-payment-mir-stop22: #088CCB;
-  --color-payment-visa-st0: #1b2fce;
-  --color-payment-visa-st1: #EFC75E;
-
-  --color-social-hover-insta: #FD5949;
-  --color-social-hover-vk: #597da3;
-  --color-social-hover-ok: #ed812b;
-  --color-social-hover-fb: #3b5998;
-  --color-social-hover-yt: #c4302b;
-
-  --color-background-primary: #ffffff;
-  --color-background-primary-hover: #f24040;
-  --color-background-secondary: #F3F3F6;
-  --color-background-tertiary: #646464;
-  --color-background-wrapper-modal: rgba(255, 255, 255, 0.7);
-  --color-background-subscribe: #f24040;
-  --color-background-primary-dark: #000000;
-
-  --color-icon-primary: #737381;
-  --color-icon-primary-hover: #f24040;
-
-  --color-icon-disable-hints: #CECED6;
-  --color-icon-link-primary: #00c3ff;
-  --color-icon-link-primary-hover: #00c3ff;
-  --color-icon-link-secondary: #f24040;
-  --color-icon-link-secondary-hover: #f24040;
+@function screenWidth($key) {
+  @return map-get($map: $screenWidth, $key: $key);
+}
+  
+@function color($key) {
+  @return map-get($map: $colors, $key: $key);
 }
