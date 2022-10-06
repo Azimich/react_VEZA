@@ -7,8 +7,43 @@
 
 html {
   font-family: sans-serif; /* 1 */
+  scroll-behavior: smooth;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+
+ul {
+  list-style: none;
+}
+
+input,
+textarea,
+label,
+button {
+  background-color: transparent;
+  font-family: inherit;
+  outline: none;
+  display: block;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+textarea{
+  resize: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+h1,h2,h3,h4,h5 {
+  margin: 0;
 }
 
 /**
@@ -92,6 +127,7 @@ template, /* 1 */
 
 a {
   background-color: transparent; /* 1 */
+  text-decoration: none;
   -webkit-text-decoration-skip: objects; /* 2 */
 }
 

@@ -34,4 +34,4 @@ const Container: FC<IContainer> = ({
   return React.createElement(el, { className: rootClassName, children });
 };
 
-export default Container;
+export { Container };
