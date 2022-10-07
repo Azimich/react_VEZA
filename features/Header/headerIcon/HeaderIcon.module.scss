@@ -1,0 +1,18 @@
+.header__icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+a.support__phone {
+
+  position: absolute;
+  top: 33px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  left: -15px;
+  width: 170px;
+  color: #009247;
+}
