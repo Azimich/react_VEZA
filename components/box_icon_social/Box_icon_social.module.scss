@@ -1,0 +1,303 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.banner {
+  margin: 70px auto 130px;
+
+  @include ipadScreen {
+    margin: 60px auto 100px;
+  }
+
+  @include phoneScreen {
+    margin-bottom: 80px;
+  }
+
+  .swiper-pagination .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    background-color: color(white);
+
+    @include phoneScreen {
+      font-size: 12px;
+      height: 12px;
+      width: 12px;
+    }
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next::after {
+    color: color(white);
+    font-size: 35px;
+    position: absolute;
+  }
+
+
+  &__icon_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 280px;
+    left: 95%;
+    z-index: 95 !important;
+
+    &::after,
+    &:before {
+      content: '';
+      background-color: #1BC47D;
+      position: absolute;
+      width: 2px;
+      height: 100px;
+      right: 50%;
+    }
+
+    &::after {
+      bottom: -120px;
+    }
+
+    &:before {
+      top: -110px;
+    }
+
+    @include ipadScreen {
+      display: none;
+    }
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+
+    path {
+      fill: green;
+    }
+
+    &:hover {
+      path {
+        fill: #1BC47D;
+      }
+    }
+  }
+
+  .ok__ru {
+    svg {
+      width: 26px !important;
+      height: 26px !important;
+      position: absolute;
+      left: 3px;
+    }
+  }
+
+  // Анимация иконки телефона
+  .btn_call {
+    margin: 9px 0 0 5px;
+    border-radius: 50%;
+    transition: .3s;
+    -webkit-animation: hoverWave linear 1s infinite;
+    animation: hoverWave linear 2s infinite;
+  }
+
+  .btn_call__ico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: 3s ease 10s normal none 0 running shake;
+    animation-iteration-count: infinite;
+    color: green;
+    transition: .3s all;
+
+    svg {
+      width: 30px !important;
+      height: 30px !important;
+    }
+
+    path {
+      fill: green;
+      width: 30px;
+
+      &:hover {
+        fill: #1BC47D;
+      }
+    }
+  }
+
+
+  @-webkit-keyframes hoverWave {
+    0% {
+      box-shadow: 0 8px 10px rgba(13, 122, 15, 0.41), 0 0 0 0 rgba(18, 156, 52, 0.2), 0 0 0 0 rgba(9, 185, 47, 0.2)
+    }
+
+    40% {
+      box-shadow: 0 8px 10px rgba(34, 177, 15, 0.3), 0 0 0 15px rgba(11, 162, 13, 0.2), 0 0 0 0 rgba(34, 162, 12, 0.2)
+    }
+
+    80% {
+      box-shadow: 0 8px 10px rgba(10, 160, 23, 0.3), 0 0 0 30px rgba(39, 168, 7, 0), 0 0 0 26.7px rgba(30, 159, 13, 0.067)
+    }
+
+    100% {
+      box-shadow: 0 8px 10px rgba(69, 181, 5, 0.3), 0 0 0 30px rgba(122, 253, 56, 0), 0 0 0 40px rgba(45, 204, 24, 0)
+    }
+  }
+
+  @keyframes hoverWave {
+    0% {
+      box-shadow: 0 8px 10px rgba(59, 220, 11, 0.3), 0 0 0 0 rgba(108, 253, 56, 0.2), 0 0 0 0 rgba(84, 236, 19, 0.2)
+    }
+
+    40% {
+      box-shadow: 0 8px 10px rgba(63, 223, 27, 0.3), 0 0 0 15px rgba(14, 190, 11, 0.2), 0 0 0 0 rgba(34, 209, 18, 0.2)
+    }
+
+    80% {
+      box-shadow: 0 8px 10px rgba(21, 193, 21, 0.3), 0 0 0 30px rgba(16, 177, 32, 0), 0 0 0 26.7px rgba(28, 197, 16, 0.067)
+    }
+
+    100% {
+      box-shadow: 0 8px 10px rgba(44, 214, 18, 0.3), 0 0 0 30px rgba(50, 173, 12, 0), 0 0 0 40px rgba(28, 214, 59, 0)
+    }
+  }
+
+  /* animations icon */
+  @keyframes shake {
+    0% {
+      transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -webkit-transform: rotateZ(0deg);
+    }
+
+    10% {
+      transform: rotateZ(-30deg);
+      -ms-transform: rotateZ(-30deg);
+      -webkit-transform: rotateZ(-30deg);
+    }
+
+    20% {
+      transform: rotateZ(15deg);
+      -ms-transform: rotateZ(15deg);
+      -webkit-transform: rotateZ(15deg);
+    }
+
+    30% {
+      transform: rotateZ(-10deg);
+      -ms-transform: rotateZ(-10deg);
+      -webkit-transform: rotateZ(-10deg);
+    }
+
+    40% {
+      transform: rotateZ(7.5deg);
+      -ms-transform: rotateZ(7.5deg);
+      -webkit-transform: rotateZ(7.5deg);
+    }
+
+    50% {
+      transform: rotateZ(-6deg);
+      -ms-transform: rotateZ(-6deg);
+      -webkit-transform: rotateZ(-6deg);
+    }
+
+    60% {
+      transform: rotateZ(5deg);
+      -ms-transform: rotateZ(5deg);
+      -webkit-transform: rotateZ(5deg);
+    }
+
+    70% {
+      transform: rotateZ(-4.28571deg);
+      -ms-transform: rotateZ(-4.28571deg);
+      -webkit-transform: rotateZ(-4.28571deg);
+    }
+
+    80% {
+      transform: rotateZ(3.75deg);
+      -ms-transform: rotateZ(3.75deg);
+      -webkit-transform: rotateZ(3.75deg);
+    }
+
+    90% {
+      transform: rotateZ(-3.33333deg);
+      -ms-transform: rotateZ(-3.33333deg);
+      -webkit-transform: rotateZ(-3.33333deg);
+    }
+
+    100% {
+      transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -webkit-transform: rotateZ(0deg);
+    }
+  }
+
+  @-webkit-keyframes shake {
+    0% {
+      transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -webkit-transform: rotateZ(0deg);
+    }
+
+    10% {
+      transform: rotateZ(-30deg);
+      -ms-transform: rotateZ(-30deg);
+      -webkit-transform: rotateZ(-30deg);
+    }
+
+    20% {
+      transform: rotateZ(15deg);
+      -ms-transform: rotateZ(15deg);
+      -webkit-transform: rotateZ(15deg);
+    }
+
+    30% {
+      transform: rotateZ(-10deg);
+      -ms-transform: rotateZ(-10deg);
+      -webkit-transform: rotateZ(-10deg);
+    }
+
+    40% {
+      transform: rotateZ(7.5deg);
+      -ms-transform: rotateZ(7.5deg);
+      -webkit-transform: rotateZ(7.5deg);
+    }
+
+    50% {
+      transform: rotateZ(-6deg);
+      -ms-transform: rotateZ(-6deg);
+      -webkit-transform: rotateZ(-6deg);
+    }
+
+    60% {
+      transform: rotateZ(5deg);
+      -ms-transform: rotateZ(5deg);
+      -webkit-transform: rotateZ(5deg);
+    }
+
+    70% {
+      transform: rotateZ(-4.28571deg);
+      -ms-transform: rotateZ(-4.28571deg);
+      -webkit-transform: rotateZ(-4.28571deg);
+    }
+
+    80% {
+      transform: rotateZ(3.75deg);
+      -ms-transform: rotateZ(3.75deg);
+      -webkit-transform: rotateZ(3.75deg);
+    }
+
+    90% {
+      transform: rotateZ(-3.33333deg);
+      -ms-transform: rotateZ(-3.33333deg);
+      -webkit-transform: rotateZ(-3.33333deg);
+    }
+
+    100% {
+      transform: rotateZ(0deg);
+      -ms-transform: rotateZ(0deg);
+      -webkit-transform: rotateZ(0deg);
+    }
+  }
+}
