@@ -1,9 +1,20 @@
 import { Container } from "components/common/container";
+import { Box_icon_social_container } from "../../components/box_icon_social";
+import { SliderContainer } from "../../components/slider/SliderContainer";
+import { sliderData } from "../../components/slider/mockData";
 
 const HomeContainer = () => {
   return (
-    <Container className="wrapper" el="section">
-      <div>
+    <>
+      <Container className="wrapper" el="section">
+        <div>
+          <Box_icon_social_container />
+        </div>
+      </Container>
+      <SliderContainer items={sliderData.items}
+                       style={"home"}
+      />
+      <Container className="wrapper" el="section">
         <h1>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
           provident incidunt corporis soluta ab amet est sed impedit esse
@@ -233,8 +244,8 @@ const HomeContainer = () => {
           tempore accusantium molestiae sapiente facere quia non vitae est!
           Voluptate, quia?
         </h1>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 };
 export { HomeContainer };
