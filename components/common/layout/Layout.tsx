@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import Styles from "./Layout.module.scss";
-import { HeaderContainer } from "../../../features/Header";
+import { FooterContainer } from "../../../features/footer/FooterContainer";
+import { HeaderContainer } from "../../../features/header";
 
 const Layout: FC = ({ children }) => (
   <>
@@ -9,8 +10,11 @@ const Layout: FC = ({ children }) => (
       <HeaderContainer />
     </header>
     <main>{children}</main>
-    <footer></footer>
-  </>
+
+    <footer>
+      <FooterContainer/>
+    </footer>
+</>
 );
 
 export { Layout };
