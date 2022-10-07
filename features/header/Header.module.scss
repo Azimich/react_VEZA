@@ -1,23 +1,33 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import '/styles/mixins.scss';
+@import '/styles/variables.scss';
 
+.header {
+  box-shadow: 0px 3px 5px rgb(30 158 0 / 90%);
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 
-.header__nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 35px 0;
-
-   @media (max-width: 1200px) {
-    padding: 25px 0 30px 0;
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+  
+     @media (max-width: 1200px) {
+      padding: 25px 0 30px 0;
+    }
+  }
+  
+  &__logo {
+    img {
+      width: 130px;
+    }
   }
 }
 
-.header__logo {
-  height: 30px;
 
-  @media (max-width: 1200px) {
-   width: 90px;
-  }
-}
+
+
 

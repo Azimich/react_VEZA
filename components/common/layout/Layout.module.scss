@@ -1,8 +1,10 @@
-.wrapper {
-  display: flex;
-  /* font-family: 'SF Pro Display';*/
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 100vh;
+
+.header {
+  box-shadow: 0px 3px 5px rgb(30 158 0 / 90%);
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 }
+

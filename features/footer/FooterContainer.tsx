@@ -2,9 +2,9 @@ import Styles from "./Footer.module.scss";
 import { Container } from "../../components/common/container";
 import Link from "next/link";
 import React, { useState } from "react";
+import { TelegaIcon, VkIcon, YouTubeIcon,TelefoneIcon } from "../../components/icons";
 import { IMenuData } from "../header/headerNav/Header.d";
 import { menuData } from "../header/mockdata";
-import { TelegaIcon, VkIcon, YouTubeIcon,TelefoneIcon } from "../../components/icons";
 
 const FooterContainer = () => {
   const [menu] = useState<IMenuData[]>(menuData);
