@@ -1,32 +1,25 @@
 import Styles from "./HeaderIcon.module.scss";
-import Link from "next/link";
-import { SearchIcon, UserIcon, PhoneIcon } from "components/icons";
+import { SearchIcon, UserIcon, TelefoneIcon, BellIcon } from "components/icons";
+import { IconItem } from "../../../components/icons/IconItem";
 
 const HeaderIcon = () => {
   return (
-    <div className={Styles.header__icons}>
-      {/* Поиск */}
-      <Link href="#popup__search">
-        <a className="header__icon">
-          <SearchIcon />
-        </a>
-      </Link>
-
-      {/* Авторизация */}
-      <Link href="/">
-        <a className="header__icon">
-          <UserIcon />
-        </a>
-      </Link>
-
-      {/* Телефон */}
-      <Link href="tel: +7 (495) 223-01-92">
-        <a className="support__phone">
-          <PhoneIcon />
-          <span>+7 (495) 223-01-92</span>
-        </a>
-      </Link>
-    </div>
+    <>
+      <div className={Styles.header__icon__box}>
+        {/* Поиск */}
+        <IconItem url={""} className={"header__icon"}><SearchIcon /></IconItem>
+        {/* Авторизация */}
+        <IconItem url={""} className={"header__icon"}><UserIcon /></IconItem>
+        {/* Телефон */}
+        <IconItem
+          url={"tel:"+process.env.NEXT_PUBLIC_PHONE}
+          className={"header__icon"}
+        >
+          <TelefoneIcon />
+        </IconItem>
+        <IconItem url={""} className={"header__icon"}><BellIcon /></IconItem>
+      </div>
+    </>
   );
 };
 
