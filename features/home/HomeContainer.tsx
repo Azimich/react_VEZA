@@ -2,6 +2,8 @@ import { Container } from "components/common/container";
 import { Box_icon_social_container } from "../../components/box_icon_social";
 import { SliderContainer } from "../../components/slider/SliderContainer";
 import { sliderData } from "../../components/slider/mockData";
+import { SeparatorContainer } from "../../components/separator/SeparatorContainer";
+import { AboutContainer } from "./about/AboutContainer";
 
 const HomeContainer = () => {
   return (
@@ -14,6 +16,8 @@ const HomeContainer = () => {
       <SliderContainer items={sliderData.items}
                        style={"home"}
       />
+      <SeparatorContainer title={"О нас"} />
+      <AboutContainer/>
       <Container className="wrapper" el="section">
         <h1>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore

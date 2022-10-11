@@ -1,0 +1,129 @@
+@import "styles/mixins";
+
+.header {
+  &__icon {
+    margin: 5px 8px 0 8px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: rgb(0, 155, 0);
+      transition: all 0.3s;
+
+      &:hover {
+        path {
+          fill: green;
+        }
+      }
+
+      .search__icon {
+        width: 23px;
+      }
+    }
+
+    .search-icon {
+      width: 30px !important;
+    }
+  }
+
+  &__icon__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include ipadScreen {
+      display: none;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+
+    @include ipadScreen {
+      display: block;
+      z-index: 2;
+    }
+
+    &:after {
+      content: "";
+      width: 35px;
+      height: 36px;
+      background-color: #FFF;
+      box-shadow: 0px 0px 6px rgb(0 0 0 / 25%);
+      border-radius: 50%;
+      position: absolute;
+      top: 14px;
+      right: 22px;
+      z-index: -1;
+
+      @include phoneScreen {
+        width: 35px;
+        height: 36px;
+        top: 14px;
+        right: 12px;
+      }
+    }
+  }
+
+  &__line-1,
+  &__line-2,
+  &__line-3 {
+    width: 20px;
+    height: 1.5px;
+    margin: 4px;
+    background-color: #212121;
+    transition: all 0.3s ease;
+  }
+}
+
+.header__mobile-menu.toggle .header__line-1 {
+  transform: rotate(-45deg) translate(-5px, 4px)
+}
+
+.header__mobile-menu.toggle .header__line-3 {
+  transform: rotate(45deg) translate(-4px, -3px);
+}
+
+.header__mobile-menu.toggle .header__line-2 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.footer {
+  &__social_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 0 6px;
+    padding: 6px;
+    color: color(lightgreen);
+    transition: 0.3s;
+
+    &:hover {
+      background-color: green;
+
+      svg {
+        path {
+          fill: white
+        }
+      }
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+
+    svg {
+      width: 23px;
+      height: 23px;
+      transition: all 0.3s;
+
+      path {
+        fill: green;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

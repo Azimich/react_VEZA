@@ -2,7 +2,7 @@ import { FC } from "react";
 import { ISliderProps } from "./Slider.d";
 import { SlideItem } from "./SlideItem";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -17,8 +17,9 @@ const SliderContainer: FC<ISliderProps> = ({
   }
   return (
     <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       slidesPerView={1}
+      autoplay={true}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >

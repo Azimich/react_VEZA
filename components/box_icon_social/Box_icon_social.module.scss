@@ -2,7 +2,7 @@
 @import '../../styles/variables.scss';
 
 .banner {
-  margin: 70px auto 130px;
+  margin: 70px auto 100px;
 
   @include ipadScreen {
     margin: 60px auto 100px;
@@ -36,7 +36,6 @@
   &__icon_box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     justify-content: center;
     align-items: center;
     text-align: center;

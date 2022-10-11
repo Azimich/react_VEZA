@@ -1,0 +1,18 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.separator{
+  margin: 80px 0 50px 0;
+  text-align: center;
+  .separator_title{
+    font-family: 'Ubuntu', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 57px;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+
+    color: color(dark);
+  }
+}
