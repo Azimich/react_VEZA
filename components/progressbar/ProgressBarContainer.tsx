@@ -42,10 +42,9 @@ const ProgressBar = (props: {
     radius =
       center - (trackWidth > indicatorWidth ? trackWidth : indicatorWidth),
     dashArray = 2 * Math.PI * radius,
-    dashOffset = dashArray * ((progressLabel - progress) / 100);
+    dashOffset = dashArray * (progress / progressLabel);
 
   let hideLabel = size < 100 || !label.length || spinnerMode ? true : false;
-  console.log("dashOffset", dashOffset);
   return (
     <>
       <div
@@ -69,10 +68,11 @@ const ProgressBar = (props: {
             cy={center}
             fill="transparent"
             r={radius}
+            strokeLinecap="round"
             stroke={indicatorColor}
             strokeWidth={indicatorWidth}
-            strokeDasharray={dashArray}
-            strokeDashoffset={dashOffset}
+            strokeDasharray={`${dashOffset} ${dashArray}`}
+            strokeDashoffset={1}
           />
         </svg>
 
