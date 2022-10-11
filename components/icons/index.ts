@@ -6,3 +6,4 @@ export { VkIcon } from "./includes/VkIcon";
 export { YouTubeIcon } from "./includes/YouTubeIcon";
 export { TelefoneIcon } from "./includes/TelefoneIcon";
 export { BellIcon } from "./includes/BellIcon";
+export { CircleIcon } from "./includes/CircleIcon";

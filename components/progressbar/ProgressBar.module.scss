@@ -1,0 +1,49 @@
+.svg_pi_wrapper {
+  position: relative;
+  margin: 0 auto;
+}
+
+.svg_pi {
+  transform: rotate(-180deg); /* Fix the orientation */
+}
+
+/* Animated spinner version */
+.svg_pi_indicator__spinner {
+  animation: spinner .75s linear infinite;
+  transform-origin: center;
+}
+
+.svg_pi_label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.svg_pi_label__loading {
+  opacity: .5;
+  font-size: 0.75em;
+}
+
+.svg_pi_label__progress {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFF;
+}
+
+.svg_pi_label__loading,
+.svg_pi_label__progress {
+  display: block;
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
