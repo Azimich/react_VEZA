@@ -16,7 +16,7 @@
     width: 100%;
     height: 660px;
     @include backgroundImage(cover);
-    background-image: url('/images/about_banner.jpg');
+    //background-image: url('/images/about_banner.jpg');
     margin: auto;
 
     @media (max-width: 1650px) {
@@ -27,7 +27,7 @@
       width: 100%;
       height: auto;
       @include backgroundImage(cover);
-      background-image: url('/images/about_banner-ipad.jpg');
+      //background-image: url('/images/about_banner-ipad.jpg');
       padding: 40px;
     }
 
