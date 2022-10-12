@@ -1,8 +1,8 @@
 import { Container } from "components/common/container";
 import { Box_icon_social_container } from "../../components/box_icon_social";
 import { SliderContainer } from "../../components/slider/SliderContainer";
-import { sliderData } from "../../components/slider/mockData";
-import { SeparatorContainer } from "../../components/separator/SeparatorContainer";
+import { sliderData, sliderCategory } from "../../components/slider/mockData";
+import { SeparatorContainer } from "../../components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 
 const HomeContainer = () => {
@@ -13,11 +13,16 @@ const HomeContainer = () => {
           <Box_icon_social_container />
         </div>
       </Container>
-      <SliderContainer items={sliderData.items}
-                       style={"home"}
-      />
+      <SliderContainer items={sliderData.items} theme={"home"} />
       <SeparatorContainer title={"О нас"} />
-      <AboutContainer/>
+      <AboutContainer />
+      <SeparatorContainer title={"Категория продукции"} />
+      <SliderContainer
+        items={sliderCategory.items}
+        dots={true}
+        autoplay={false}
+        theme={"homecategory"}
+      />
       <Container className="wrapper" el="section">
         <h1>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore

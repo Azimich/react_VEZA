@@ -1,0 +1,34 @@
+.swiper-pagination {
+  margin: 0 auto;
+
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 20px;
+    font-size: 12px;
+    opacity: 0;
+    background: #2E6143;
+    cursor: pointer;
+
+  }
+
+  .swiper-pagination-bullet-active {
+    color: #fff;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active-next,
+  .swiper-pagination-bullet-active-prev{
+    transform: scale(0.66);
+    opacity: 0.2;
+  }
+
+  .swiper-pagination-bullet-active-next-next,
+  .swiper-pagination-bullet-active-prev-prev{
+    transform: scale(0.33);
+    opacity: 0.2;
+  }
+}
