@@ -1,10 +1,12 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import Styles from "./About.module.scss";
 import { PeopleData, staticAboutData } from "./mockData";
 import { AboutItems } from "./AboutItem";
 import { ProgressBar } from "../../../components/progressbar/ProgressBarContainer";
+import { useIsInViewport } from "../../../store/hooks/useIsInViewPort";
 
 const AboutContainer: FC = () => {
+  const ref1 = useRef(null);
   return (
     <div className={Styles.about}>
       <div className={Styles.about__container}>
@@ -17,6 +19,7 @@ const AboutContainer: FC = () => {
               {PeopleData.map((e, i: number) => {
                 return (
                   <AboutItems
+                    keyLink={i}
                     key={i}
                     LinkClassName={"tile__item_" + e.id}
                     img={`/images/man-${e.id}.png`}
@@ -51,13 +54,16 @@ const AboutContainer: FC = () => {
             </p>
             <div
               className={`${Styles.about__progress_box} cards__progress-bar`}
+              ref={ref1}
             >
               {staticAboutData.map((e) => {
                 return (
                   <div
                     className={`${Styles.about__progress} progress__container`}
+                    key={e.id}
                   >
                     <ProgressBar
+                      isView={useIsInViewport(ref1)}
                       trackWidth={2}
                       indicatorWidth={2}
                       progressLabel={e.data_circle}

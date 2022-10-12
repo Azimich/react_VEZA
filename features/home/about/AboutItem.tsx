@@ -6,6 +6,7 @@ interface AboutItem {
   LinkClassName: string;
   title: string;
   desc: string;
+  keyLink: number;
   img: string;
   alt: string;
   ImgClassName: string;
@@ -13,6 +14,7 @@ interface AboutItem {
 
 const AboutItems: FC<AboutItem> = ({
   alt = "",
+  keyLink = 0,
   img = "",
   title = "",
   desc = "",
@@ -20,7 +22,7 @@ const AboutItems: FC<AboutItem> = ({
   LinkClassName = "",
 }) => {
   return (
-    <Link href={""}>
+    <Link href={""} key={keyLink}>
       <a className={`${Styles.tile} ${Styles[LinkClassName]}`}>
         <img src={img} alt={alt} className={Styles[ImgClassName]} />
         <div className={Styles.details}>

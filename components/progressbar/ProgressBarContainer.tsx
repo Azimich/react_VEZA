@@ -10,12 +10,14 @@ const ProgressBar = (props: {
   indicatorColor?: string;
   indicatorCap?: string;
   label?: string;
+  isView?: boolean;
   labelColor?: string;
   spinnerMode?: boolean;
   spinnerSpeed?: number;
 }) => {
-  let {
+  const {
     size = 100,
+    isView = false,
     progressLabel = 185,
     trackWidth = 10,
     trackColor = ``,
@@ -29,14 +31,17 @@ const ProgressBar = (props: {
 
   const [progress, setProgress] = useState(0);
   const loadingDuration = 3000; // 3 seconds
+
   useEffect(() => {
-    let loadingTimeout = setTimeout(() => {
-      progress < progressLabel && setProgress(progress + 1);
-    }, loadingDuration / 100);
+    !isView && setProgress(0);
+    const loadingTimeout = setTimeout(() => {
+      progress < progressLabel && isView && setProgress(progress + 1);
+    }, loadingDuration / 400);
+
     return () => {
       clearTimeout(loadingTimeout);
     };
-  }, [progress]);
+  }, [progress, isView]);
 
   const center = size / 2,
     radius =
@@ -46,47 +51,45 @@ const ProgressBar = (props: {
 
   let hideLabel = size < 100 || !label.length || spinnerMode ? true : false;
   return (
-    <>
-      <div
-        className={Styles.svg_pi_wrapper}
-        style={{ width: size, height: size }}
-      >
-        <svg className={Styles.svg_pi} style={{ width: size, height: size }}>
-          <circle
-            className={Styles.svg_pi_track}
-            cx={center}
-            cy={center}
-            fill="transparent"
-            r={radius}
-            stroke={trackColor}
-            strokeWidth={trackWidth}
-          />
-          <circle
-            className={`${spinnerMode ? Styles.svg_pi_indicator__spinner : ""}`}
-            style={{ animationDuration: String(spinnerSpeed * 1000) }}
-            cx={center}
-            cy={center}
-            fill="transparent"
-            r={radius}
-            strokeLinecap="round"
-            stroke={indicatorColor}
-            strokeWidth={indicatorWidth}
-            strokeDasharray={`${dashOffset} ${dashArray}`}
-            strokeDashoffset={1}
-          />
-        </svg>
+    <div
+      className={Styles.svg_pi_wrapper}
+      style={{ width: size, height: size }}
+    >
+      <svg className={Styles.svg_pi} style={{ width: size, height: size }}>
+        <circle
+          className={Styles.svg_pi_track}
+          cx={center}
+          cy={center}
+          fill="transparent"
+          r={radius}
+          stroke={trackColor}
+          strokeWidth={trackWidth}
+        />
+        <circle
+          className={`${spinnerMode ? Styles.svg_pi_indicator__spinner : ""}`}
+          style={{ animationDuration: String(spinnerSpeed * 1000) }}
+          cx={center}
+          cy={center}
+          fill="transparent"
+          r={radius}
+          strokeLinecap="round"
+          stroke={indicatorColor}
+          strokeWidth={indicatorWidth}
+          strokeDasharray={`${dashOffset} ${dashArray}`}
+          strokeDashoffset={1}
+        />
+      </svg>
 
-        {!hideLabel && (
-          <div className={Styles.svg_pi_label} style={{ color: labelColor }}>
-            {!spinnerMode && (
-              <span className={Styles.svg_pi_label__progress}>
-                {`${progress > progressLabel ? progressLabel : progress}`}
-              </span>
-            )}
-          </div>
-        )}
-      </div>
-    </>
+      {!hideLabel && (
+        <div className={Styles.svg_pi_label} style={{ color: labelColor }}>
+          {!spinnerMode && (
+            <span className={Styles.svg_pi_label__progress}>
+              {`${progress > progressLabel ? progressLabel : progress}`}
+            </span>
+          )}
+        </div>
+      )}
+    </div>
   );
 };
 

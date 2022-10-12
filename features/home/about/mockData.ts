@@ -8,6 +8,7 @@ interface IPeople {
 interface IStaticAboutData {
   title: string;
   data_circle: number;
+  id: number;
 }
 
 const PeopleData: IPeople[] = [
@@ -88,18 +89,22 @@ const staticAboutData: IStaticAboutData[] = [
   {
     title: "IT СПЕЦИАЛИСТОВ",
     data_circle: 185,
+    id: 1,
   },
   {
     title: "ИНЖИНЕРОВ",
     data_circle: 157,
+    id: 2,
   },
   {
     title: "МЕНЕДЖЕРОВ",
     data_circle: 122,
+    id: 3,
   },
   {
     title: "СОТРУДНИКОВ",
     data_circle: 185,
+    id: 4,
   },
 ];
 export { PeopleData, staticAboutData };
