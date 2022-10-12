@@ -2,8 +2,10 @@ import { Container } from "components/common/container";
 import { Box_icon_social_container } from "../../components/box_icon_social";
 import { SliderContainer } from "../../components/slider/SliderContainer";
 import { sliderData, sliderCategory } from "../../components/slider/mockData";
+import { newsData } from "./news/mockData";
 import { SeparatorContainer } from "../../components/separator";
 import { AboutContainer } from "./about/AboutContainer";
+import { NewsContainer } from "./news";
 
 const HomeContainer = () => {
   return (
@@ -23,6 +25,8 @@ const HomeContainer = () => {
         autoplay={false}
         theme={"homecategory"}
       />
+      <SeparatorContainer title={"Новости"} />
+      <NewsContainer props={newsData} />
       <Container className="wrapper" el="section">
         <h1>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
