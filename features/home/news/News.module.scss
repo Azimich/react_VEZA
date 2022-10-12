@@ -1,0 +1,113 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.news_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0 0;
+  grid-template-areas:
+    "col1 col2 col2"
+    "col1 col3 col4";
+}
+.col1 { grid-area: col1; }
+.col2 { grid-area: col2; }
+.col3 { grid-area: col3; }
+.col4 { grid-area: col4; }
+
+.col1{
+  .news {
+    margin-bottom: 130px;
+    @include ipadScreen {
+      margin-bottom: 80px;
+    }
+    @include phoneScreen {
+      margin-bottom: 70px;
+    }
+    &__item{
+      margin-right: 12px;
+      border-radius: 20px 0 0 0;
+      overflow: hidden;
+      background-color: color(green);
+
+      @media (max-width: 1520px) {
+        display: flex;
+        align-items: center;
+        margin: 0 0 12px 0;
+      }
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+      &_left{
+        position: relative;
+
+        @media (max-width: 1520px) {
+          height: 300px;
+          width: 50%;
+
+          img {
+            object-fit: cover;
+          }
+        }
+      }
+      &_info{
+        padding: 30px 20px;
+        height: 215px;
+
+
+        p {
+          margin-bottom: 20px;
+          color: color(white);
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          color: color(white);
+        }
+
+        svg {
+          margin-left: 2%;
+          width: 22px;
+          height: 22px;
+        }
+
+        path {
+          fill: #fff;
+        }
+
+        @media (max-width: 1520px) {
+          width: 50%;
+        }
+
+        @media (max-width: 600px) {
+          width: 100%;
+        }
+      }
+    }
+    &__counter{
+      &_icon{
+        position: absolute;
+        display: flex;
+        top: 0;
+        align-items: center;
+        background: color(green);
+        color: color(white);
+        padding: 10px 12px 10px 12px;
+        border-radius: 0 0 6px 0;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 5%;
+
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
