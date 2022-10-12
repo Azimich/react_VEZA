@@ -3,7 +3,7 @@ module.exports = {
     forceSwcTransforms: true,
   },
   images: {
-    domains: ["del"],
+    domains: ["localhost:3000"],
   },
   webpack: true,
 };
