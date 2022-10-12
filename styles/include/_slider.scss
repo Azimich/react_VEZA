@@ -18,17 +18,20 @@
   .swiper-pagination-bullet-active {
     color: #fff;
     opacity: 1;
+    margin: 0 2px;
   }
 
   .swiper-pagination-bullet-active-next,
   .swiper-pagination-bullet-active-prev{
     transform: scale(0.66);
     opacity: 0.2;
+    margin-right: 2px;
   }
 
   .swiper-pagination-bullet-active-next-next,
   .swiper-pagination-bullet-active-prev-prev{
     transform: scale(0.33);
     opacity: 0.2;
+    margin-left: -5px;
   }
 }

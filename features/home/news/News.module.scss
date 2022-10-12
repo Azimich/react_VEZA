@@ -4,8 +4,8 @@
 .news_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0 0;
+  grid-template-rows:0.5fr 0.5fr;
+  gap: 12px 12px;
   grid-template-areas:
     "col1 col2 col2"
     "col1 col3 col4";
@@ -17,18 +17,11 @@
 
 .col1{
   .news {
-    margin-bottom: 130px;
-    @include ipadScreen {
-      margin-bottom: 80px;
-    }
-    @include phoneScreen {
-      margin-bottom: 70px;
-    }
     &__item{
-      margin-right: 12px;
-      border-radius: 20px 0 0 0;
+      border-radius: 20px 0 0 20px;
       overflow: hidden;
       background-color: color(green);
+      height: 100%;
 
       @media (max-width: 1520px) {
         display: flex;
@@ -53,11 +46,11 @@
       }
       &_info{
         padding: 30px 20px;
-        height: 215px;
-
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
 
         p {
-          margin-bottom: 20px;
           color: color(white);
         }
 
@@ -110,4 +103,225 @@
     }
   }
 }
+
+.col2{
+  .news {
+    &__item{
+      display: flex;
+      align-items: center;
+      background: #f3f3f3;
+      border-radius: 0 20px 0 0;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+      &_left{
+        position: relative;
+        height: 300px;
+        width: 50%;
+
+        img {
+          object-fit: cover;
+        }
+
+        @media (max-width: 600px) {
+          width: 100%;
+        }
+      }
+      &_info{
+        width: 48%;
+        margin-left: 2%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        p {
+          font-size: 14px;
+          opacity: 0.8;
+          padding-right: 20px;
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          color: color(dark);
+        }
+
+        svg {
+          margin-left: 2%;
+          width: 22px;
+          height: 22px;
+        }
+
+        path {
+          fill: #212121;
+        }
+
+        @media (max-width: 600px) {
+          width: 100%;
+          margin-left: 0;
+          padding: 20px;
+        }
+      }
+    }
+    &__counter{
+      &_icon{
+        position: absolute;
+        display: flex;
+        top: 0;
+        align-items: center;
+        background: color(green);
+        color: color(white);
+        padding: 10px 12px 10px 12px;
+        border-radius: 0 0 6px 0;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 5%;
+
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.col3{
+  .news {
+    &__item{
+
+      @media (max-width: 800px) {
+        margin: 0 0 12px 0;
+      }
+
+      &_left{
+        position: relative;
+      }
+      &_info{
+        background-color: #f3f3f3;
+        padding: 18px 12px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        p {
+          color: color(dark);
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          color: color(dark);
+        }
+
+        svg {
+          margin-left: 2%;
+          width: 22px;
+          height: 22px;
+        }
+
+        path {
+          fill: #212121;
+        }
+
+        @media (max-width: 600px) {
+          height: 100%;
+        }
+      }
+    }
+    &__counter{
+      &_icon{
+        position: absolute;
+        display: flex;
+        top: 0;
+        align-items: center;
+        background: color(green);
+        color: color(white);
+        padding: 10px 12px 10px 12px;
+        border-radius: 0 0 6px 0;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 5%;
+
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.col4{
+  .news {
+    &__item{
+      @media (max-width: 800px) {
+        margin: 0 0 12px 0;
+      }
+
+      &_left{
+        position: relative;
+      }
+      &_info{
+        background-color: color(green);
+        padding: 18px 12px;
+        height: 100%;
+        border-radius: 0 0 20px 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        p {
+          color: color(white);
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          color: color(white);
+        }
+
+        svg {
+          margin-left: 2%;
+          width: 22px;
+          height: 22px;
+        }
+
+        path {
+          fill: #fff;
+        }
+
+        @media (max-width: 600px) {
+          height: 100%;
+        }
+      }
+    }
+    &__counter{
+      &_icon{
+        position: absolute;
+        display: flex;
+        top: 0;
+        align-items: center;
+        background: color(green);
+        color: color(white);
+        padding: 10px 12px 10px 12px;
+        border-radius: 0 0 6px 0;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 5%;
+
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
 
