@@ -3,16 +3,20 @@ import { ISlideItem } from "./Slider.d";
 import { FC, useEffect, useState } from "react";
 import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "../button/Button";
+import { ArrowRightIcon } from "../icons";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
   typeSlider = "img",
   theme = "home",
+  themeButton = "banner",
   alt = "",
+  color = "white",
   block_description = false,
   title = "",
   description = "",
   url = "",
+  size = "medium",
   //OnClick = () => {},
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
@@ -56,8 +60,11 @@ const SlideItem: FC<ISlideItem> = ({
             {description}
           </p>
 
-          <Button theme={"banner"} size={"medium"} link={url} color={"white"}>
-            Продукция
+          <Button theme={themeButton} size={size} link={url} color={color}>
+            <div>
+              <span>Подробнее</span>
+              {color === "link" && <ArrowRightIcon />}
+            </div>
           </Button>
         </div>
       )}
