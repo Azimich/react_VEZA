@@ -2,7 +2,8 @@ import Styles from "./News.module.scss";
 import { FC } from "react";
 import { INewsProps } from "./News";
 import { ArrowRightIcon, EyeIcon } from "../../../components/icons";
-import Link from "next/link";
+
+import { Button } from "../../../components/button/Button";
 
 interface INewsItemProps {
   className: string;
@@ -27,12 +28,13 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
             blanditiis! Beatae quod nobis optio voluptatem, ipsum quas veniam
             hic est incidunt cupiditate?
           </p>
-          <Link href={props.url}>
-            <a>
-              Подробнее
+
+          <Button link={props.url} theme={"news"} size={"context"}>
+            <div>
+              <span>Подробнее</span>
               <ArrowRightIcon />
-            </a>
-          </Link>
+            </div>
+          </Button>
         </div>
       </div>
     </div>

@@ -52,6 +52,10 @@
 
         p {
           color: color(white);
+          line-height: 150%;
+          + button{
+            span{color: color(white);}
+          }
         }
 
         a {
@@ -138,6 +142,7 @@
           font-size: 14px;
           opacity: 0.8;
           padding-right: 20px;
+          line-height: 150%;
         }
 
         a {
@@ -208,6 +213,7 @@
         row-gap: 20px;
         p {
           color: color(dark);
+          line-height: 150%;
         }
 
         a {
@@ -259,6 +265,10 @@
 .col4{
   .news {
     &__item{
+      border-radius: 0 0 20px 0;
+      overflow: hidden;
+      background-color: #009247;
+      height: 100%;
       @media (max-width: 800px) {
         margin: 0 0 12px 0;
       }
@@ -276,6 +286,10 @@
         row-gap: 20px;
         p {
           color: color(white);
+          line-height: 150%;
+          + button{
+              span{color: color(white);}
+          }
         }
 
         a {
