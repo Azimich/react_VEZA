@@ -33,7 +33,7 @@ const FooterContainer = () => {
 
             <div className={Styles.footer__social}>
               <IconItem
-                url={"tel:+74952230192"}
+                url={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
                 className={"footer__social_item"}
               >
                 <TelegaIcon />
