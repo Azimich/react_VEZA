@@ -5,7 +5,10 @@ const Box_icon_social_container = () => {
   return (
     <section className={Styles.banner}>
       <div className={Styles.banner__icon_box}>
-        <a href="" className={`${Styles.banner__icon} ${Styles.telega}`}>
+        <a
+          href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+          className={`${Styles.banner__icon} ${Styles.telega}`}
+        >
           <TelegaIcon />
         </a>
         <a
@@ -21,7 +24,7 @@ const Box_icon_social_container = () => {
           <YouTubeIcon />
         </a>
         <a
-          href="tel: +7 495 989-47-20"
+          href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
           rel="nofollow"
           className={Styles.btn_call}
         >

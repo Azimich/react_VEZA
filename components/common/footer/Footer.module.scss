@@ -163,6 +163,23 @@
   &__social {
     display: flex;
     justify-content: center;
+    column-gap: 16px;
+    height: 24px;
+    a{
+      svg{
+        height: 24px;
+        transition: all 0.3s;
+        path{
+          fill: green;
+        }
+        &:hover {
+          transition: all 0.3s;
+          path {
+            fill: #1BC47D;
+          }
+      }
+      }
+    }
 
     @media (max-width: 1130px) {
       justify-content: center;

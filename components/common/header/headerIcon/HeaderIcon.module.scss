@@ -30,6 +30,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 16px;
+    height: 24px;
+    a{
+      svg{
+        height: 24px;
+        transition: all 0.3s;
+        &:hover {
+          transition: all 0.3s;
+          path {
+            fill: #1BC47D;
+          }
+        }
+      }
+    }
 
     @include ipadScreen {
       display: none;
