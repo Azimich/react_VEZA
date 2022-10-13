@@ -2,6 +2,7 @@ import Styles from "./Slider.module.scss";
 import { ISlideItem } from "./Slider.d";
 import { FC, useEffect, useState } from "react";
 import { isMobile, isTablet, isDesktop } from "react-device-detect";
+import { Button } from "../button/Button";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -12,7 +13,7 @@ const SlideItem: FC<ISlideItem> = ({
   title = "",
   description = "",
   url = "",
-  OnClick = () => {},
+  //OnClick = () => {},
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
@@ -55,11 +56,9 @@ const SlideItem: FC<ISlideItem> = ({
             {description}
           </p>
 
-          <div onClick={() => OnClick(url)}>
-            <a className={Styles[`${theme}_banner__right_element_button`]}>
-              Продукция
-            </a>
-          </div>
+          <Button theme={"banner"} size={"medium"} link={url}>
+            Продукция
+          </Button>
         </div>
       )}
     </div>

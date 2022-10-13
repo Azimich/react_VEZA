@@ -13,7 +13,7 @@ const NewsContainer: FC<INewsData> = ({ props }) => {
     <Container className={"wrapper"}>
       <div className={`${Styles.news_container}`}>
         {props.map((e, i) => {
-          return <NewsItem className={`col${i + 1}`} props={e} />;
+          return <NewsItem className={`col${i + 1}`} props={e} key={e.id} />;
         })}
       </div>
     </Container>
