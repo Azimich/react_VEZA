@@ -6,6 +6,6 @@ export interface ButtonI {
   onClick?: (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   size?: "large" | "medium" | "small" | "max" | "context";
   theme?: "banner" | "news";
-
+  color?: "white" | "green" | "link";
   link?: string;
 }

@@ -11,8 +11,8 @@ const Button: FC<ButtonI> = ({
   disabled = false,
   onClick = () => {},
   theme = "banner",
-
   size = "medium",
+  color = "green",
   link,
 }) => {
   const router = useRouter();
@@ -23,7 +23,7 @@ const Button: FC<ButtonI> = ({
         router?.push(`/${link}`);
       } else onClick(evt);
     };
-  const themeSize = theme + "__" + size;
+  const themeSize = theme + "__" + size + "_" + color;
   return (
     <button
       type={type}
