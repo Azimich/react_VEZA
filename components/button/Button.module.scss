@@ -155,6 +155,101 @@
     }
   }
 }
+.industries{
+  div{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    color: white;
+    svg{
+      path{
+        fill: white;
+      }
+    }
+    span {
+      padding-right: 10px
+    }
+  }
+  &__medium {
+    @extend %mediumSize;
+
+    &_green {
+      @extend %colorGreen;
+    }
+
+    &_white {
+      @extend %colorWhite;
+    }
+
+    &_link {
+      @extend %colorLink
+    }
+  }
+
+  &__large {
+    @extend %largeSize;
+
+    &_green {
+      @extend %colorGreen;
+    }
+
+    &_white {
+      @extend %colorWhite;
+    }
+
+    &_link {
+      @extend %colorLink
+    }
+  }
+
+  &__small {
+    @extend %smallSize;
+
+    &_green {
+      @extend %colorGreen;
+    }
+
+    &_white {
+      @extend %colorWhite;
+    }
+
+    &_link {
+      @extend %colorLink
+    }
+  }
+
+  &__max {
+    @extend %maxSize;
+
+    &_green {
+      @extend %colorGreen;
+    }
+
+    &_white {
+      @extend %colorWhite;
+    }
+
+    &_link {
+      @extend %colorLink
+    }
+  }
+
+  &__context {
+    @extend %context;
+
+    &_green {
+      @extend %colorGreen;
+    }
+
+    &_white {
+      @extend %colorWhite;
+    }
+
+    &_link {
+      @extend %colorLink
+    }
+  }
+}
 
 .news {
   div {

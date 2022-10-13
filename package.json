@@ -122,7 +122,7 @@
     "react-slick": "^0.29.0",
     "react-spinners": "^0.13.4",
     "redux": "^4.1.1",
-    "swiper": "^8.4.3",
+    "swiper": "^8.4.4",
     "webpack": "^5.53.0"
   }
 }

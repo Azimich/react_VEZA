@@ -38,8 +38,12 @@ const HomeContainer = () => {
         <SliderContainer
           items={sliderIndustries.items}
           dots={true}
-          autoplay={true}
+          autoplay={false}
           theme={"industries"}
+          themeButton={"industries"}
+          size={"medium"}
+          effectSlide={"cards"}
+          color={"link"}
         />
         <SeparatorContainer
           title={"Выполнить подбор необходимого оборудования?"}
