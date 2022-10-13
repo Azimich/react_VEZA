@@ -1,10 +1,7 @@
 interface ISliderProps {
   items: ISlideItem[];
   dots?: boolean;
-  theme?: "home" | "vacancy" | "homecategory";
-  block_description?: boolean;
-  title?: string;
-  description?: string;
+  theme?: "home" | "industries" | "homecategory";
   url?: string;
   OnClick?: () => void;
   autoplay?: boolean;
@@ -17,10 +14,11 @@ interface ISlideImages {
 }
 
 interface ISlideItem {
+  id?: number;
   images: ISlideImages | string;
   typeSlider: "img" | "video";
   alt?: string;
-  theme?: "home" | "vacancy" | "homecategory";
+  theme?: "home" | "industries" | "homecategory";
   block_description?: boolean;
   title?: string;
   description?: string;

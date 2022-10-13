@@ -2,15 +2,6 @@
 @import '../../../styles/variables.scss';
 
 .about {
-  margin-bottom: 130px;
-
-  @include ipadScreen {
-    margin-bottom: 80px;
-  }
-
-  @include SEScreen {
-    margin-bottom: 50px;
-  }
 
   &__container {
     width: 100%;

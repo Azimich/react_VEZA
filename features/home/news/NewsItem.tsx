@@ -3,7 +3,7 @@ import { FC } from "react";
 import { INewsProps } from "./News";
 import { ArrowRightIcon, EyeIcon } from "../../../components/icons";
 
-import { Button } from "../../../components/button/Button";
+import { Button } from "../../../components/button";
 
 interface INewsItemProps {
   className: string;
@@ -29,7 +29,12 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
             hic est incidunt cupiditate?
           </p>
 
-          <Button link={props.url} theme={"news"} size={"context"}>
+          <Button
+            link={props.url}
+            theme={"news"}
+            size={"context"}
+            color={"link"}
+          >
             <div>
               <span>Подробнее</span>
               <ArrowRightIcon />
