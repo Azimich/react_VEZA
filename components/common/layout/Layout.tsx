@@ -16,7 +16,7 @@ const Layout: FC = ({ children }) => (
     <header className={Styles.header}>
       <HeaderContainer />
     </header>
-    <main>{children}</main>
+    <main className={Styles.main}>{children}</main>
     <footer>
       <FooterContainer />
     </footer>
