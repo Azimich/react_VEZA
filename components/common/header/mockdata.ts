@@ -1,5 +1,5 @@
 const menuData = [
-  { id: 1, title: "Решение", alias: "solution", url: "decision" },
+  { id: 1, title: "Решение", alias: "solution", url: "/decision" },
   { id: 2, title: "Продукция", alias: "production", url: "production" },
   { id: 3, title: "Новости", alias: "news", url: "news" },
   { id: 4, title: "О компании", alias: "about", url: "company" },
