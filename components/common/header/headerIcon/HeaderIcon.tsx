@@ -11,7 +11,7 @@ const HeaderIcon = () => {
           <SearchIcon />
         </IconItem>
         {/* Авторизация */}
-        <IconItem url={""} className={"header__icon"}>
+        <IconItem url={"/auth"} className={"header__icon"}>
           <UserIcon />
         </IconItem>
         {/* Телефон */}
