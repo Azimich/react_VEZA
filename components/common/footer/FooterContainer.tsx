@@ -33,26 +33,26 @@ const FooterContainer = () => {
 
             <div className={Styles.footer__social}>
               <IconItem
-                url={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                url={process.env.NEXT_PUBLIC_TELEGA}
                 className={"footer__social_item"}
               >
                 <TelegaIcon />
               </IconItem>
 
               <IconItem
-                url={"https://vk.com/veza_official"}
+                url={process.env.NEXT_PUBLIC_VK}
                 className={"footer__social_item"}
               >
                 <VkIcon />
               </IconItem>
               <IconItem
-                url={"https://www.youtube.com/channel/UCsNlnQ7uhAc_cOgHJPYMnRQ"}
+                url={process.env.NEXT_PUBLIC_YOUTUBE}
                 className={"footer__social_item"}
               >
                 <YouTubeIcon />
               </IconItem>
               <IconItem
-                url={process.env.NEXT_PUBLIC_PHONE}
+                url={"tel:" + process.env.NEXT_PUBLIC_PHONE}
                 className={"footer__social_item"}
               >
                 <PhoneFooterIcon />
@@ -61,7 +61,7 @@ const FooterContainer = () => {
           </div>
           <ul className={Styles.footer__contacts}>
             <li className={Styles.footer__contacts_list}>
-              <Link href={process.env.NEXT_PUBLIC_PHONE}>
+              <Link href={"tel:" + process.env.NEXT_PUBLIC_PHONE}>
                 <a className={Styles.footer__contacts_phone}>
                   <PhoneFooterIcon />
                   {process.env.NEXT_PUBLIC_PHONE}

@@ -6,19 +6,19 @@ const Box_icon_social_container = () => {
     <section className={Styles.banner}>
       <div className={Styles.banner__icon_box}>
         <a
-          href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+          href={process.env.NEXT_PUBLIC_TELEGA}
           className={`${Styles.banner__icon} ${Styles.telega}`}
         >
           <TelegaIcon />
         </a>
         <a
-          href="https://vk.com/veza_official"
+          href={process.env.NEXT_PUBLIC_VK}
           className={`${Styles.banner__icon} ${Styles.vk}`}
         >
           <VkIcon />
         </a>
         <a
-          href="https://www.youtube.com/channel/UCsNlnQ7uhAc_cOgHJPYMnRQ"
+          href={process.env.NEXT_PUBLIC_YOUTUBE}
           className={`${Styles.banner__icon} ${Styles.ok__ru}`}
         >
           <YouTubeIcon />
