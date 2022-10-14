@@ -1,0 +1,53 @@
+.banner_img {
+  height: 450px;
+  position: relative;
+}
+
+.decision__container {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  column-gap: 40px;
+  row-gap: 40px;
+  justify-content: center;
+  position: relative;
+  top: -50px;
+
+  &_item {
+    width: 315px;
+    filter: drop-shadow(0 -5px 1px rgba(255, 255, 255, .5));
+    position: relative;
+    &_way_box {
+      position: absolute;
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      box-sizing: border-box;
+      &_title {
+        color: #fff;
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 90%;
+        letter-spacing: .025em;
+        margin-bottom: 15px;
+        position: absolute;
+        padding: 20px;
+
+      }
+
+      &_description {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 135%;
+        letter-spacing: .025em;
+        color: #ddd;
+        top: 40px;
+        position: absolute;
+        padding: 20px;
+      }
+    }
+  }
+
+}
