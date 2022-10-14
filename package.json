@@ -1,5 +1,5 @@
 {
-  "name": "Veza",
+  "name": "veza",
   "version": "1.2.1",
   "description": "Next build",
   "main": "index.tsx",
@@ -93,6 +93,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "formik": "^2.2.9",
     "fs": "^0.0.2",
     "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
@@ -110,7 +111,8 @@
     "sass-loader": "^13.0.2",
     "slick-carousel": "^1.8.1",
     "ts-jest": "^29.0.3",
-    "typescript": "4.8.3"
+    "typescript": "4.8.3",
+    "yup": "^0.32.11"
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1",
