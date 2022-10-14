@@ -2,9 +2,7 @@
 
 .wrapper {
   max-width: 1500px;
-  padding: 0 90px;
   margin: auto;
-  overflow: hidden;
 
   @include pcScreen{
     max-width: 1500px;

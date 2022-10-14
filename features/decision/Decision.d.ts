@@ -3,5 +3,6 @@ interface IDecisionData {
   title: string;
   description: string;
   image: string;
+  url: string;
 }
 export { IDecisionData };

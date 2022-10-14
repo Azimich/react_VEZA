@@ -4,6 +4,8 @@ import Styles from "./Layout.module.scss";
 import { FooterContainer } from "../footer";
 import { HeaderContainer } from "../header";
 import Head from "next/head";
+import { Container } from "../container";
+import { Box_icon_social_container } from "../../box_icon_social";
 
 const Layout: FC = ({ children }) => (
   <>
@@ -16,7 +18,14 @@ const Layout: FC = ({ children }) => (
     <header className={Styles.header}>
       <HeaderContainer />
     </header>
-    <main className={Styles.main}>{children}</main>
+    <main className={Styles.main}>
+      {children}
+      <Container className="wrapper" el="section">
+        <div>
+          <Box_icon_social_container />
+        </div>
+      </Container>
+    </main>
     <footer>
       <FooterContainer />
     </footer>
