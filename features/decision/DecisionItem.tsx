@@ -12,7 +12,7 @@ const DecisionItem: FC<IDecisionData> = ({
   return (
     <Link href={url}>
       <a className={Styles.decision__container_item}>
-        <img src={image} alt="ФОто" />
+        <img src={image} alt={title} />
         <div className={Styles.decision__container_item_way_box}>
           <h3 className={Styles.decision__container_item_way_box_title}>
             {title}
