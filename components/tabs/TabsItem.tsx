@@ -1,9 +1,9 @@
 import React from "react";
 import { FC } from "react";
-import { ITabs } from "./Tabs.d";
+import { ITab } from "./Tabs.d";
 import Styles from "./Tabs.module.scss";
 
-const TabsItem: FC<ITabs> = ({ id, title, tabsActive = 1, onClick }) => {
+const TabsItem: FC<ITab> = ({ id, title, tabsActive = 1, onClick }) => {
   return (
     <li
       data-index={id}

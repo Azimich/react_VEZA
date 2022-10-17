@@ -1,0 +1,116 @@
+@import "styles/variables";
+
+.pagination_container {
+  display: flex;
+  list-style-type: none;
+  margin-top: 24px;
+  column-gap: 15px;
+  justify-content: center;
+
+  .pagination_item {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    padding: 8px 12px;
+    background-color: rgba(99, 99, 99, 0.337);
+    color: #212121;
+    transition: all 0.3s;
+      -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                           not supported by any browser */
+    &.width {
+      width: auto;
+    }
+
+    &.dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+
+    &:hover {
+      color: #FFF;
+      background-color: #009247;
+    }
+
+    .arrow {
+      &::before {
+        position: relative;
+        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+      }
+    }
+
+    .left {
+      padding: 0 16px 0 32px;
+      color:#FFF;
+
+      &::before {
+        transform: rotate(-135deg) translate(-50%);
+        position: absolute;
+        margin-right: 11px;
+        top: 12px;
+        left: 14px;
+        /* Icon [day] / Secondary */
+        content: "";
+        /* By using an em scale, the arrows will size with the font */
+        display: inline-block;
+        width: 0.4em;
+        height: 0.4em;
+
+      }
+    }
+
+    .right {
+      padding: 0 32px 0 16px;
+color:#FFF;
+      &::after {
+        transform: rotate(45deg);
+        position: absolute;
+        margin-left: 11px;
+        top: 15px;
+        right: 17px;
+        /* Icon [day] / Secondary */
+        content: "";
+        /* By using an em scale, the arrows will size with the font */
+        display: inline-block;
+        width: 0.4em;
+        height: 0.4em;
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+      display: none;
+
+      .arrow::before {
+        border-right: 0.12em solid rgba(0, 0, 0, 0.43);
+        border-top: 0.12em solid rgba(0, 0, 0, 0.43);
+      }
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+
+  .active {
+    color: #FFF;
+    background-color: #009247;
+  }
+}
+
+.inactive {
+  opacity: 0.6;
+  pointer-events: none;
+}

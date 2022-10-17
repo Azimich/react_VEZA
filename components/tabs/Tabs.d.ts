@@ -1,10 +1,13 @@
-interface ITabs {
+import { ReactNode } from "react";
+
+interface ITab {
   id?: number;
   title: string;
+  content: ReactNode;
   tabsActive?: number;
-  onClick?: () => void;
+  onClick?: (id: number) => void;
 }
 interface ITabsProps {
-  props: ITabs[];
+  props: ITab[];
 }
-export { ITabsProps, ITabs };
+export { ITabsProps, ITab };
