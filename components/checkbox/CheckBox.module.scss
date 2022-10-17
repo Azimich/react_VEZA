@@ -1,11 +1,6 @@
 .checkbox {
-  // &__label {
-    
-  // }
 
-  
   &__label {
-    margin-top: 350px;
     -ms-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -18,7 +13,8 @@
     --tick: #fff;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    margin-bottom: 12px;
 
     input,
     svg {

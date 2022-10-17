@@ -1,4 +1,4 @@
-import { SingIn } from "features/auth";
+import { SingContainer } from "features/auth";
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
 
@@ -11,6 +11,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const SingInPage = (props: any) => <SingIn {...props} />;
+const SingContainerPage = (props: any) => <SingContainer {...props} />;
 
-export default SingInPage;
+export default SingContainerPage;

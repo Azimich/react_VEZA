@@ -1,0 +1,20 @@
+@import '../../styles/mixins.scss';
+@import '../../styles//variables.scss';
+
+.authorization__form {
+  max-width: 550px;
+  margin: 0 auto;
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 20px;
+
+  &__item__forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: color(dark);
+    }
+  }
+}
