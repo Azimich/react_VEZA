@@ -5,7 +5,8 @@ import { CatalogEquipmentData } from "../mockData";
 
 import { ICatalogEquipmentData } from "../Equipment";
 import { useState } from "react";
-import { getNested } from "../../../utils";
+
+import { getLevel } from "../../../utils/helpers";
 
 const Menu = () => {
   const [menu, setMenu] = useState<ICatalogEquipmentData[]>(
@@ -13,7 +14,7 @@ const Menu = () => {
   );
 
   const handleOnClick = (data: number) => {
-    console.log("getNested", getNested(CatalogEquipmentData));
+    console.log("getNested", getLevel(CatalogEquipmentData, data), data);
     setMenu(CatalogEquipmentData.filter((e) => data === e.parent_id));
   };
   return (
