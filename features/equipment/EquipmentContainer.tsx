@@ -9,7 +9,6 @@ const EquipmentContainer: FC = () => {
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
         <Menu />
-
         <Catalog />
       </div>
     </Container>
