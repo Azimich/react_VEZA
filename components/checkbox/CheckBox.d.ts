@@ -1,5 +1,5 @@
 interface ICheckBox {
-  title: string;
+  title?: string;
   turnOn?: boolean;
   turnOff?: boolean;
 }
