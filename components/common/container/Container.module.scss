@@ -1,22 +1,25 @@
-@import "styles/mixins";
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
 .wrapper {
   max-width: 1500px;
   margin: auto;
+  padding: 0 30px;
 
-  @include pcScreen{
+  @include pcScreen {
     max-width: 1500px;
+    padding: 0 30px;
   }
 
-  @include tabletScreen{
-    padding: 0 60px;
+  @include tabletScreen {
+    padding: 0 30px;
   }
 
-  @include ipadScreen{
-    padding: 0 25px;
+  @include ipadScreen {
+    padding: 0 15px;
   }
 
   @include phoneScreen {
-    padding: 0 15px;
+    padding: 0 10px;
   }
 }

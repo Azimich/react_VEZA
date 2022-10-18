@@ -9,7 +9,7 @@
   border-radius: 10px;
   padding: 5px 20px 30px 20px;
   input {
-    width: 100% ;
+    width: 100%;
   }
 
   &__item__forgot {
@@ -17,9 +17,18 @@
     justify-content: space-between;
     align-items: start;
     margin: 22px 0;
+    input {
+      width: 21px !important;
+    }
 
     a {
       color: color(dark);
+      transition: all 0.3s;
+
+      &:hover {
+        color: color(green);
+        transform: translateX(3px);
+      }
     }
   }
 }
@@ -89,6 +98,31 @@
         margin-bottom: 20px;
       }
     }
+  }
+}
+
+//форма для Восстановление пароля
+.forgot__form {
+  max-width: 550px;
+  margin: 200px auto 0;
+  h1 {
+    font-size: 40px;
+    color: color(dark);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  &__item {
+    background: #f3f3f3;
+    border-radius: 10px;
+    padding: 20px 20px 30px 20px;
+    input {
+      width: 100%;
+    }
+  }
+
+  button {
+    margin: 30px 0 0 0;
   }
 }
 

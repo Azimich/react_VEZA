@@ -9,11 +9,13 @@ const SingInForm: FC = () => {
   return (
     <div className={Styles.authorization__form}>
       <form className={Styles.authorization__form__item}>
-        <Input placeholder={"Логин*"} />
-        <Input placeholder={"Пароль*"} />
+        <div className={Styles.authorization__form__item__input}>
+          <Input placeholder={"Логин *"} />
+          <Input placeholder={"Пароль *"} />
+        </div>
         <div className={Styles.authorization__form__item__forgot}>
           <CheckboxWithLabel title="Запомни меня" />
-          <Link href={"#"}>Забыл пароль?</Link>
+          <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>
         <Button children={"Войти"} />
       </form>
