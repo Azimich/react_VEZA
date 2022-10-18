@@ -56,7 +56,7 @@ const Menu = () => {
             <MenuItem
               key={e.id}
               {...e}
-              onClick={(e, level, id) => handleOnClick(e, level, id)}
+              onClick={(e, level) => handleOnClick(e, level)}
             />
           );
         })}
