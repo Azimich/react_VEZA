@@ -18,3 +18,51 @@
     }
   }
 }
+
+//Форма регистрации
+.registration__form {
+  max-width: 550px;
+  margin: 30px auto 0;
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 20px 20px;
+
+  &__items {
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include phoneScreen {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 100% !important;
+      }
+    }
+
+    &:nth-child(4) {
+      width: 100% !important;
+      input {
+        width: 100% !important;
+      }
+    }
+  }
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  &__select {
+    width: 46%;
+  }
+}
+
+
+    
