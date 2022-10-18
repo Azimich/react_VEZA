@@ -1,20 +1,14 @@
 import Styles from "./Tabs.module.scss";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { TabsItem } from "./TabsItem";
 import { ITab, ITabsProps } from "./Tabs";
-import { SingInForm } from "../../features/auth";
-import { SingUpForm } from "../../features/auth/SingUpForm";
 
-const TabsContainer: FC<ITabsProps> = ({ props }) => {
-  const [activeTab, setActiveTab] = useState<number>(1);
-  const components: { [index: string]: any } = {
-    tab_1: SingInForm,
-    tab_2: SingUpForm,
-  };
-  const handleOnClick = (e: number) => {
-    setActiveTab(e);
-  };
-
+const TabsContainer: FC<ITabsProps> = ({
+  props,
+  children,
+  onClick = () => {},
+  activeTab,
+}) => {
   return (
     <div className={Styles.tabs__container}>
       <ul className={Styles.tabs__container__menu}>
@@ -24,16 +18,14 @@ const TabsContainer: FC<ITabsProps> = ({ props }) => {
               <TabsItem
                 {...e}
                 key={e.id}
-                onClick={() => handleOnClick(e.id)}
+                onClick={() => onClick(e.id)}
                 tabsActive={activeTab}
               />
             );
           })}
       </ul>
       <div className={Styles.tabs__container__line}></div>
-      <div className={Styles.tabs__container_context}>
-        {React.createElement(components[`tab_${activeTab}`])}
-      </div>
+      <div className={Styles.tabs__container_context}>{children}</div>
     </div>
   );
 };
