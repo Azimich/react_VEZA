@@ -1,5 +1,5 @@
-import React from "react";
+import React, { FC } from "react";
 
-export const SingUpForm = () => {
+export const SingUpForm: FC = () => {
   return <div>SingUpForm</div>;
 };

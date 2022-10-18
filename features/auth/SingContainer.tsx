@@ -3,11 +3,7 @@ import { Tabs } from "components/tabs";
 import { tabsAuthData } from "components/tabs/mockdata";
 
 const SingContainer = () => {
-  return (
-    <>
-      <Tabs props={tabsAuthData} />
-    </>
-  );
+  return <Tabs props={tabsAuthData} />;
 };
 
 export { SingContainer };
