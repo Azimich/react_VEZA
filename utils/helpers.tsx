@@ -11,4 +11,20 @@ const eachRecursive = (obj: ICatalogEquipmentData[]) => {
 
   return resData;
 };
-export { eachRecursive };
+const getData = (
+  obj: ICatalogEquipmentData[],
+  url: string,
+  resData: ICatalogEquipmentData[] = []
+) => {
+  for (let k in obj) {
+    if (obj[k].alias === url) {
+      resData.push(obj[k]);
+    }
+    if (obj[k].childrenData && obj[k].childrenData.length > 0) {
+      getData(obj[k].childrenData, url, resData);
+    }
+  }
+
+  return resData;
+};
+export { eachRecursive, getData };
