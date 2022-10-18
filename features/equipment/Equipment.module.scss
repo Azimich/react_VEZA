@@ -98,4 +98,19 @@
       }
     }
   }
+  &__button_back{
+    display: flex;
+    align-items: center;
+    background-color: #45563c;
+    border-top: 0.5px solid #b4bdb27d;
+    border-bottom: 0.5px solid #b4bdb27d;
+    color: #FFF;
+    padding: 16px;
+    transition: all 0.3s;
+    cursor: pointer;
+    svg{
+      margin-right: 12px;
+
+    }
+  }
 }

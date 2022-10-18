@@ -11,3 +11,4 @@ export { ArrowRightIcon } from "./includes/ArrowRightIcon";
 export { EyeIcon } from "./includes/EyeIcon";
 export { CategoryIcon } from "./includes/CategoryIcon";
 export { ArrowRightWhiteIcon } from "./includes/ArrowRightWhiteIcon";
+export { ArrowBackIcon } from "./includes/ArrowBackIcon";

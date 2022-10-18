@@ -1,10 +1,13 @@
 interface ICatalogEquipmentData {
   title: string;
   id: number;
-  parent_id: number;
+  parent_id?: number;
   alias?: string;
   img?: string;
-  onClick?: (e: any) => void;
+  back?: boolean;
+  childrenData?: ICatalogEquipmentData[];
+  onClick?: (e: ICatalogEquipmentData[], level: number, id: number) => void;
+  level?: number;
 }
 interface ICatalogData {
   title: string;

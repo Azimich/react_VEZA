@@ -1,17 +1,14 @@
-interface IgetNested {
-  [key: string]: any;
+import { ICatalogEquipmentData } from "../features/equipment";
 
-  id?: number;
-  parent_id?: 0;
-}
-
-function getLevel(obj: IgetNested = {}, id = 0) {
-  for (let key in obj) {
-    console.log("---", key);
-    if (obj.filter(() => id === obj[key].parent_id).length > 0) {
-      // console.log("+++", obj.filter(() => id === obj[key].parent_id));
+const eachRecursive = (obj: ICatalogEquipmentData[]) => {
+  const resData = [];
+  for (let k in obj) {
+    resData.push({ params: { slug: obj[k].alias } });
+    if (obj[k].childrenData && obj[k].childrenData.length > 0) {
+      eachRecursive(obj[k].childrenData);
     }
   }
-}
 
-export { getLevel };
+  return resData;
+};
+export { eachRecursive };

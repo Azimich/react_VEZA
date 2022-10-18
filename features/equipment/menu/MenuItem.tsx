@@ -1,34 +1,31 @@
 import { ArrowRightWhiteIcon } from "components/icons";
 import { FC } from "react";
 import { ICatalogEquipmentData } from "../Equipment";
-import { CatalogEquipmentData } from "../mockData";
 import { Link } from "../../../components/link";
 
 const MenuItem: FC<ICatalogEquipmentData> = ({
   title = "",
-  id,
   alias,
-  onClick,
+  /*                                                 id,
+                                                 onClick,
+                                                 back = false,
+                                                 level,
+                                                 childrenData*/
 }) => {
-  const wichoutLink =
-    CatalogEquipmentData.filter(
-      (e: { parent_id: number }) => id === e.parent_id
-    ).length > 0 ? (
-      <a onClick={() => onClick(id)}>
-        <li>
-          <span>{title}</span>
-          <ArrowRightWhiteIcon />
-        </li>
-      </a>
-    ) : (
-      <Link url={alias}>
-        <li>
-          <span>{title}</span>
-          <ArrowRightWhiteIcon />
-        </li>
-      </Link>
-    );
-  return wichoutLink;
+  /*back ?
+        <a className={Styles.equipment__container__button_back}>
+            <div ><ArrowBackIcon/></div>
+            <span>{title}</span></a>
+        :*/
+
+  return (
+    <Link url={alias}>
+      <li>
+        <span>{title}</span>
+        <ArrowRightWhiteIcon />
+      </li>
+    </Link>
+  );
 };
 
 export { MenuItem };
