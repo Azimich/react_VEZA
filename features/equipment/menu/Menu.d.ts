@@ -3,6 +3,7 @@ interface IbreadcrumbsData {
   id: number;
   parent_id?: number;
   level?: number;
+  alias?: string;
   back?: boolean;
 }
 

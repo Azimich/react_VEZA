@@ -8,7 +8,7 @@ interface ILink {
 }
 const LinkContainer: FC<ILink> = ({ children, url = "", classLink = "" }) => {
   return (
-    <Link href={url}>
+    <Link href={url} passHref>
       <a className={classLink}>{children}</a>
     </Link>
   );
