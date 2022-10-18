@@ -7,7 +7,15 @@ interface ITab {
   tabsActive?: number;
   onClick?: (id: number) => void;
 }
+
 interface ITabsProps {
   props: ITab[];
+  onClick: (id: number) => void;
+  activeTab?: number;
 }
-export { ITabsProps, ITab };
+
+interface IComponents {
+  [index: string]: any;
+}
+
+export { ITabsProps, ITab, IComponents };
