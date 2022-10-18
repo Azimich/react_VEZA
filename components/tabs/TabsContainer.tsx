@@ -10,23 +10,25 @@ const TabsContainer: FC<ITabsProps> = ({
   activeTab,
 }) => {
   return (
-    <div className={Styles.tabs__container}>
-      <ul className={Styles.tabs__container__menu}>
-        {props.length > 0 &&
-          props.map((e: ITab) => {
-            return (
-              <TabsItem
-                {...e}
-                key={e.id}
-                onClick={() => onClick(e.id)}
-                tabsActive={activeTab}
-              />
-            );
-          })}
-      </ul>
-      <div className={Styles.tabs__container__line}></div>
+    <>
+      <div className={Styles.tabs__container}>
+        <ul className={Styles.tabs__container__menu}>
+          {props.length > 0 &&
+            props.map((e: ITab) => {
+              return (
+                <TabsItem
+                  {...e}
+                  key={e.id}
+                  onClick={() => onClick(e.id)}
+                  tabsActive={activeTab}
+                />
+              );
+            })}
+        </ul>
+        <div className={Styles.tabs__container__line}></div>
+      </div>
       <div className={Styles.tabs__container_context}>{children}</div>
-    </div>
+    </>
   );
 };
 

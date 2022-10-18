@@ -18,19 +18,19 @@ const SingUpForm: FC = () => {
     <div className={Styles.registration__form}>
       <form className={Styles.registration__form__items}>
         <div className={Styles.registration__form__item}>
-          <Input />
-          <Input placeholder={"gtueiu"} />
+          <Input placeholder={"Имя*"} />
+          <Input placeholder={"Фамилия*"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input />
-          <Input />
+          <Input placeholder={"Почта*"} />
+          <Input placeholder={"Телефон*"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input />
-          <Input />
+          <Input placeholder={"ИНН компании*"} />
+          <Input placeholder={"Дата рождения*"} />
         </div>
-        <div className={Styles.registration__form__job}>
-          <Input />
+        <div className={Styles.registration__form__item}>
+          <Input placeholder={"Укажите должность*"} />
         </div>
         <div className={Styles.registration__form__selected}>
           <Select
@@ -47,13 +47,15 @@ const SingUpForm: FC = () => {
           />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input />
-          <Input />
+          <Input placeholder={"Пароль*"} />
+          <Input placeholder={"Подтвердите пароль*"} />
         </div>
         <div className={Styles.registration__form__item__forgot}>
-          <CheckboxWithLabel />
+          <CheckboxWithLabel
+            title={"Согласие на обработку персональных данных с условиями"}
+          />
         </div>
-        <Button />
+        <Button children={"Зарегистрироваться"} />
       </form>
     </div>
   );

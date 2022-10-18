@@ -1,17 +1,22 @@
 @import '../../styles/mixins.scss';
 @import '../../styles//variables.scss';
 
+//Форма авторизации
 .authorization__form {
   max-width: 550px;
   margin: 0 auto;
   background: #f3f3f3;
   border-radius: 10px;
-  padding: 20px;
+  padding: 5px 20px 30px 20px;
+  input {
+    width: 100% ;
+  }
 
   &__item__forgot {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
+    margin: 22px 0;
 
     a {
       color: color(dark);
@@ -26,6 +31,10 @@
   background: #f3f3f3;
   border-radius: 10px;
   padding: 20px 20px;
+  button {
+    margin: 30px 0 20px 0;
+    width: 220px;
+  }
 
   &__items {
     overflow: hidden;
@@ -35,20 +44,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-gap: 40px;
+    row-gap: 40px;
+
     @include phoneScreen {
       display: flex;
       flex-direction: column;
-
-      input {
-        width: 100% !important;
-      }
+      row-gap: 0px;
     }
 
     &:nth-child(4) {
-      width: 100% !important;
+      width: 100%;
+
       input {
-        width: 100% !important;
+        width: 100%;
       }
+    }
+
+    &:nth-child(6) {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
     }
   }
 
@@ -57,10 +75,20 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 30px;
+    @include phoneScreen {
+      flex-direction: column;
+      margin-top: 33px;
+    }
   }
 
   &__select {
     width: 46%;
+    @include phoneScreen {
+      width: 100%;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
   }
 }
 
