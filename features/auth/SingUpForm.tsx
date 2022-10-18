@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { useState } from "react";
 import Select from "react-select";
 import Styles from "../../features/auth/SignContainer.module.scss";
@@ -6,7 +6,7 @@ import { Input } from "../../components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 
-const SingUpForm = () => {
+const SingUpForm: FC = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const options = [
     { value: "Россия", label: "Москва" },
