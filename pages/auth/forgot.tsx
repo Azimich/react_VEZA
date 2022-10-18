@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
-import { Forgot } from "features/auth";
+import { SingForgotContainer } from "features/auth/SingForgotContain";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async () => {
@@ -11,6 +11,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const ForgotPage = (props: any) => <Forgot {...props} />;
+const ForgotPage = (props: any) => <SingForgotContainer {...props} />;
 
 export default ForgotPage;

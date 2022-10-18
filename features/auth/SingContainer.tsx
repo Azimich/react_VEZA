@@ -4,6 +4,7 @@ import { tabsAuthData } from "components/tabs/mockdata";
 import { SingInForm } from "./SingInForm";
 import { SingUpForm } from "./SingUpForm";
 import { IComponents } from "components/tabs/Tabs";
+import { Container } from "components/common/container";
 
 const SingContainer = () => {
   const [activeTab, setActiveTabs] = useState(1);
@@ -17,13 +18,15 @@ const SingContainer = () => {
   };
 
   return (
-    <Tabs
-      props={tabsAuthData}
-      onClick={(id) => handleOnClick(id)}
-      activeTab={activeTab}
-    >
-      {React.createElement(components[`tab_${activeTab}`])}
-    </Tabs>
+    <Container className="wrapper">
+      <Tabs
+        props={tabsAuthData}
+        onClick={(id) => handleOnClick(id)}
+        activeTab={activeTab}
+      >
+        {React.createElement(components[`tab_${activeTab}`])}
+      </Tabs>
+    </Container>
   );
 };
 

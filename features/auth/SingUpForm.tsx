@@ -18,19 +18,19 @@ const SingUpForm: FC = () => {
     <div className={Styles.registration__form}>
       <form className={Styles.registration__form__items}>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Имя*"} />
-          <Input placeholder={"Фамилия*"} />
+          <Input placeholder={"Имя *"} />
+          <Input placeholder={"Фамилия *"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Почта*"} />
-          <Input placeholder={"Телефон*"} />
+          <Input placeholder={"Почта *"} />
+          <Input placeholder={"Телефон *"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"ИНН компании*"} />
-          <Input placeholder={"Дата рождения*"} />
+          <Input placeholder={"ИНН компании *"} />
+          <Input placeholder={"Дата рождения *"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Укажите должность*"} />
+          <Input placeholder={"Укажите должность *"} />
         </div>
         <div className={Styles.registration__form__selected}>
           <Select
@@ -47,8 +47,8 @@ const SingUpForm: FC = () => {
           />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Пароль*"} />
-          <Input placeholder={"Подтвердите пароль*"} />
+          <Input placeholder={"Пароль *"} />
+          <Input placeholder={"Подтвердите пароль *"} />
         </div>
         <div className={Styles.registration__form__item__forgot}>
           <CheckboxWithLabel

@@ -5,3 +5,4 @@ export { Error } from "./answer/Error";
 export { Success } from "./answer/Success";
 export { SingInForm } from "./SingInForm";
 export { SingUpForm } from "./SingUpForm";
+export { SingForgotForm } from "./SingForgotForm";
