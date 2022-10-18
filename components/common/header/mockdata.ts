@@ -1,4 +1,6 @@
-const menuData = [
+import { IMenuData } from "./headerNav/Header.d";
+
+const menuData: IMenuData[] = [
   { id: 1, title: "Решение", alias: "solution", url: "/decision" },
   { id: 2, title: "Продукция", alias: "production", url: "/equipment" },
   { id: 3, title: "Новости", alias: "news", url: "news" },
