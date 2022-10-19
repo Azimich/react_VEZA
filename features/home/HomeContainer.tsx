@@ -7,7 +7,7 @@ import {
   sliderIndustries,
 } from "../../components/slider/mockData";
 import { newsData } from "./news/mockData";
-import { SeparatorContainer } from "../../components/separator";
+import { Separator } from "../../components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
@@ -22,19 +22,19 @@ const HomeContainer = () => {
       </Container>
       <SliderContainer items={sliderData.items} theme={"home"} />
 
-      <SeparatorContainer title={"О нас"} />
+      <Separator title={"О нас"} />
       <AboutContainer />
       <Container className="wrapper" el="section">
-        <SeparatorContainer title={"Категория продукции"} />
+        <Separator title={"Категория продукции"} />
         <SliderContainer
           items={sliderCategory.items}
           dots={true}
           autoplay={true}
           theme={"homecategory"}
         />
-        <SeparatorContainer title={"Новости"} />
+        <Separator title={"Новости"} />
         <NewsContainer props={newsData} />
-        <SeparatorContainer title={"Отрасли"} />
+        <Separator title={"Отрасли"} />
         <SliderContainer
           items={sliderIndustries.items}
           dots={true}
@@ -45,7 +45,7 @@ const HomeContainer = () => {
           effectSlide={"cards"}
           color={"link"}
         />
-        <SeparatorContainer
+        <Separator
           title={"Выполнить подбор необходимого оборудования?"}
           fontSize={"35px"}
         />

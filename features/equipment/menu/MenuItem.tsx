@@ -7,7 +7,7 @@ const MenuItem: FC<ICatalogEquipmentData> = ({
   title = "",
   alias,
   back = false,
-  level,
+  /*  level*/
   /*parent_id*/
   /*                                                 id,
                                                  onClick,
@@ -15,7 +15,6 @@ const MenuItem: FC<ICatalogEquipmentData> = ({
                                                  level,
                                                  childrenData*/
 }) => {
-  console.log(level);
   return (
     <>
       {back ? (
