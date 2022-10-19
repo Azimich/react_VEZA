@@ -4,10 +4,10 @@ import { IOwnObjects } from "../../features/decision/Decision";
 
 const OwnObjectItem: FC<IOwnObjects> = ({
   titleObject,
-  /*titleDeliveryObject,*/
+  titleDeliveryObject,
   image,
-  /*deliveryProducts,*/
-  /*address,*/
+  deliveryProducts,
+  address,
   slide_position,
 }) => {
   const slide_class = `col${slide_position}`;
@@ -15,8 +15,15 @@ const OwnObjectItem: FC<IOwnObjects> = ({
   return (
     <li className={Styles[slide_class]}>
       <img src={image} alt="ФОто" />
-      <div>
-        <div className={Styles.title}>{titleObject}</div>
+      <div className={Styles.object__slider}>
+        <span>
+          <p className={Styles.title}>{titleObject}</p>
+          <p className={Styles.address}>{address}</p>
+          <p className={Styles.sub__title}>{titleDeliveryObject}</p>
+          {deliveryProducts.map((data) => {
+            return <p>{data.name}</p>;
+          })}
+        </span>
       </div>
     </li>
   );

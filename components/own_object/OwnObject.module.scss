@@ -1,41 +1,99 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 40px 40px;
+  gap: 25px 25px;
   grid-template-areas:
     "col1 col2 col3"
     "col4 col5 col5";
+
   .col1 { grid-area: col1; }
   .col2 { grid-area: col2; }
   .col3 { grid-area: col3; }
   .col4 { grid-area: col4; }
   .col5 { grid-area: col5; }
-  img{
-    border-radius: 20px;
+
+  @include ipadScreen {
+    gap: 12px 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+    gap: 20px;
   }
-  .effect_right{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    text-align: left;
-    opacity: 0;
-    background: linear-gradient(227.96deg, rgba(123, 169, 0, 0.86) -21.84%, #337700 103.24%);
-    transition: all 0.5s;
-    color: #FFF;
-    transform: translate(-250px, 0px) rotate(0deg);
-    &:hover{
+
+  li {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    max-height: 350px;
+    &:hover {
+      .object__slider {
+        left: 0;
+      }
+    }
+
+    img {
+      object-fit: cover;
+    }
+
+    .object__slider {
       position: absolute;
-      overflow: hidden;
       top: 0;
-      left: 0;
-      opacity: 1;
-      transform: translate(0px, 0px) rotate(0deg);
-    }
-    .title{
-      color: #FFF;
-      font-size: 25px;
-      font-weight: 400;
+      left: -130%;
+      width: 100%;
+      height: 100%;
+      transition: all 0.4s ease-in-out;
+      background: linear-gradient(227.96deg, rgba(123, 169, 0, 0.86) -21.84%, #337700 103.24%);
+      backdrop-filter: blur(5.5px);
+      padding: 50px 40px 20px 30px;
+      @include ipadScreen {
+        padding: 20px;
+      }
+      span {
+        position: relative;
+        &:after {
+          display: block;
+          content: "";
+          background: linear-gradient(227.96deg, rgba(123, 169, 0, 0.86) -21.84%, #337700 103.24%);
+          height: 1px;
+          width: 0%;
+          bottom: -12px;
+          left: 50%;
+          position: absolute;
+          -webkit-transition: width .3s ease-in-out;
+          -moz--transition: width .3s ease-in-out;
+          transition: width .3s ease-in-out;
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          transform: translateX(-50%);
+          background-color: color(white);
+        }
+
+        .title {
+          font-size: 25px;
+          margin-bottom: 8px;
+        }
+
+        .address {
+          margin-bottom: 20px;
+        }
+
+        .sub__title {
+          font-size: 18px;
+          margin-bottom: 12px; 
+        }
+        
+        p {
+          color: color(white);
+          margin-bottom: 8px;
+          font-size: 14px;
+        }
+      }
     }
   }
+
+
+  
 }
