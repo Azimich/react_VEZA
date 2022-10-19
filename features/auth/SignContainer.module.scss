@@ -1,5 +1,5 @@
 @import '../../styles/mixins.scss';
-@import '../../styles//variables.scss';
+@import '../../styles/variables.scss';
 
 //Форма авторизации
 .authorization__form {
@@ -53,8 +53,9 @@
   &__item__forgot {
     display: flex;
     justify-content: space-between;
-    align-items: start;
-    margin: 0 0 20px 0;
+    align-items: flex-start;
+    margin: 22px 0;
+
     input {
       width: 21px !important;
     }
@@ -99,7 +100,7 @@
     @include phoneScreen {
       display: flex;
       flex-direction: column;
-      row-gap: 0px;
+      row-gap: 0;
     }
 
     &:nth-child(4) {

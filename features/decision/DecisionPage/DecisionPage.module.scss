@@ -1,0 +1,28 @@
+.Decision_container{
+  display: flex;
+  margin-bottom: 100px;
+  align-items: flex-start;
+  padding-top: 60px;
+  img{
+    display: block;
+    min-width: 40%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  &_info{
+    margin-left: 30px;
+    h1{
+      margin-bottom: 10px;
+      line-height: 50px;
+      font-size: 38px;
+      font-weight: 500;
+    }
+    p{
+      font-family: "Ubuntu", sans-serif;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 150%;
+      color: #212121;
+    }
+  }
+}
