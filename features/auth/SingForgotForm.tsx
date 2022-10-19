@@ -9,7 +9,7 @@ const SingForgotForm: FC = () => {
       <h1>Восстановить пароль</h1>
       <form className={Styles.forgot__form__item}>
         <div className={Styles.forgot__form__item__input}>
-          <Input placeholder={"Введите почту *"} />
+          <Input value={""} name={"forgot"} placeholder={"Введите почту *"} />
         </div>
         <Button children={"Восстановить"} />
       </form>

@@ -18,19 +18,23 @@ const SingUpForm: FC = () => {
     <div className={Styles.registration__form}>
       <form className={Styles.registration__form__items}>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Имя *"} />
-          <Input placeholder={"Фамилия *"} />
+          <Input value={""} name={"forgot"} placeholder={"Имя *"} />
+          <Input value={""} name={"forgot"} placeholder={"Фамилия *"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Почта *"} />
-          <Input placeholder={"Телефон *"} />
+          <Input value={""} name={"forgot"} placeholder={"Почта *"} />
+          <Input value={""} name={"forgot"} placeholder={"Телефон *"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"ИНН компании *"} />
-          <Input placeholder={"Дата рождения *"} />
+          <Input value={""} name={"forgot"} placeholder={"ИНН компании *"} />
+          <Input value={""} name={"forgot"} placeholder={"Дата рождения *"} />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Укажите должность *"} />
+          <Input
+            value={""}
+            name={"forgot"}
+            placeholder={"Укажите должность *"}
+          />
         </div>
         <div className={Styles.registration__form__selected}>
           <Select
@@ -47,11 +51,16 @@ const SingUpForm: FC = () => {
           />
         </div>
         <div className={Styles.registration__form__item}>
-          <Input placeholder={"Пароль *"} />
-          <Input placeholder={"Подтвердите пароль *"} />
+          <Input value={""} name={"forgot"} placeholder={"Пароль *"} />
+          <Input
+            value={""}
+            name={"forgot"}
+            placeholder={"Подтвердите пароль *"}
+          />
         </div>
         <div className={Styles.registration__form__item__forgot}>
           <CheckboxWithLabel
+            name={"private_police"}
             title={"Согласие на обработку персональных данных с условиями"}
           />
         </div>

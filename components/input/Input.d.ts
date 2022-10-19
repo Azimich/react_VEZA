@@ -4,7 +4,7 @@ interface IInput {
   hidden?: boolean;
   type?: "text" | "password" | "file" | "checkbox";
   name: string;
-  className: string;
+  className?: string;
   value: string;
 }
 
