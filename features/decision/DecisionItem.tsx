@@ -5,7 +5,7 @@ import Styles from "./Decision.module.scss";
 
 const DecisionItem: FC<IDecisionData> = ({
   title = "",
-  description = "",
+  description_title = "",
   url = "",
   image = "",
 }) => {
@@ -18,7 +18,7 @@ const DecisionItem: FC<IDecisionData> = ({
             {title}
           </h3>
           <p className={Styles.decision__container_item_way_box_description}>
-            {description}
+            {description_title}
           </p>
         </div>
       </a>

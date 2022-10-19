@@ -33,12 +33,10 @@
       &_title {
         color: #fff;
         font-weight: 700;
-        font-size: 35px;
-        line-height: 90%;
-        letter-spacing: .025em;
-        margin-bottom: 15px;
-        position: absolute;
-        padding: 20px;
+        font-size: 25px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        padding: 20px 20px 0 20px;
       }
 
       &_description {
@@ -47,9 +45,13 @@
         line-height: 135%;
         letter-spacing: .025em;
         color: #ddd;
-        top: 40px;
-        position: absolute;
-        padding: 20px;
+        padding: 10px 20px 3px 20px;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 11;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }

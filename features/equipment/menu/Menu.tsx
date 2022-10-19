@@ -17,12 +17,6 @@ const Menu = () => {
 
   useEffect(() => {
     if (router.query.slug) {
-      console.log(
-        "---",
-        router.query.slug,
-        getData(CatalogEquipmentData, router.asPath)[0]?.level
-      );
-
       let resData: ICatalogEquipmentData[] = [];
       for (
         let i = 0;
@@ -41,7 +35,6 @@ const Menu = () => {
           })
         );
       }
-      console.log("resData", resData);
       let bySortId = resData.slice(0);
       bySortId.sort((a, b) => a.id - b.id);
 
