@@ -30,18 +30,17 @@ const SingInForm = () => {
       login: Yup.string()
         .min(3, "Минимум 3 символа!")
         .max(15, "Must be 15 characters or less")
-        .required("Required"),
+        .required("Обязательно для заполнения!"),
       password: Yup.string()
+        .min(6, "Минимум 6 символов!")
         .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .required("Обязательно для заполнения!"),
     }),
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
-
-  console.log("324", formik);
-
+  console.log("formik.touched", formik.touched, formik.errors);
   return (
     <div className={Styles.authorization__form}>
       <form
@@ -50,41 +49,51 @@ const SingInForm = () => {
       >
         <div
           className={`${
-            !formik.errors?.login
-              ? Styles.authorization__form__item__input
-              : Styles.authorization__form__item__input_error
+            formik.errors?.login && formik.touched?.login
+              ? Styles.authorization__form__item__input_error
+              : Styles.authorization__form__item__input
           }`}
         >
           <Input
             name={"login"}
-            placeholder={"Логин *"}
+            title={"Логин*"}
             className={Styles.input__item}
-            // onChange={formik.handleChange}
-            // onChange={formik.handleChange}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             // onBlur={formik.handleBlur}
             value={formik.values.login}
           />
           <div
             className={`${
-              !formik.errors?.login && !formik.touched?.login
-                ? Styles.overflow
-                : Styles.overflow__auto
+              formik.errors?.login && formik.touched?.login
+                ? Styles.overflow__auto
+                : Styles.overflow
             }`}
           >
-            <span>{formik.errors.password}</span>
+            <span>{formik.errors.login}</span>
           </div>
+        </div>
+        <div
+          className={`${
+            formik.errors?.password && formik.touched.password
+              ? Styles.authorization__form__item__input_error
+              : Styles.authorization__form__item__input
+          }`}
+        >
           <Input
             name={"password"}
             type={"password"}
-            placeholder={"Пароль *"}
+            onBlur={formik.handleBlur}
+            title={"Пароль *"}
             className={Styles.input__item}
             value={formik.values.password}
+            onChange={formik.handleChange}
           />
           <div
             className={`${
-              !formik.errors?.password && !formik.touched?.password
-                ? Styles.overflow
-                : Styles.overflow__auto
+              formik.errors?.password && formik.touched.password
+                ? Styles.overflow__auto
+                : Styles.overflow
             }`}
           >
             <span>{formik.errors.password}</span>
