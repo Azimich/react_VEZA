@@ -20,8 +20,8 @@ const OwnObjectItem: FC<IOwnObjects> = ({
           <p className={Styles.title}>{titleObject}</p>
           <p className={Styles.address}>{address}</p>
           <p className={Styles.sub__title}>{titleDeliveryObject}</p>
-          {deliveryProducts.map((data) => {
-            return <p>{data.name}</p>;
+          {deliveryProducts.map((data, i) => {
+            return <p key={i}>{data.name}</p>;
           })}
         </span>
       </div>

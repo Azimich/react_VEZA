@@ -7,18 +7,6 @@ import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import Link from "next/link";
 
-// const SingInForm: FC = () => {
-//   const SignupSchema = Yup.object().shape({
-//     login: Yup.string()
-//       .min(3, 'Минимум 3 символа!')
-//       .max(50, 'Максимум 50 символов!')
-//       .required('Это обязательное поле!'),
-//       password: Yup.string()
-//       .min(2, 'Минимум 3 символа!')
-//       .max(50, 'Максимум 50 символов!')
-//       .required('Это обязательное поле!'),
-//   });
-
 const SingInForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -36,7 +24,7 @@ const SingInForm = () => {
         .max(20, "Must be 20 characters or less")
         .required("Обязательно для заполнения!"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values: any) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });

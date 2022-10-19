@@ -11,6 +11,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const equipment = (props: any) => <EquipmentContainer {...props} />;
+const equipmentServer = (props: any) => <EquipmentContainer {...props} />;
 
-export default equipment;
+export default equipmentServer;
