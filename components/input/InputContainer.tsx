@@ -3,25 +3,29 @@ import { IInput } from "./Input";
 import Styles from "./input.module.scss";
 
 const InputContainer: FC<IInput> = ({
-  placeholder = "",
+  placeholder = " ",
   hidden = false,
-  onChange = () => {},
+  onChange,
+  onBlur,
   type = "text",
   name = "",
   className = "",
   value = "",
+  title = "",
 }) => {
   return (
     <div className={Styles.input__container}>
       <input
         type={type}
         onChange={onChange}
+        onBlur={onBlur}
         hidden={hidden}
         name={name}
         className={className}
         value={value}
+        placeholder={placeholder}
       />
-      <label>{placeholder}</label>
+      <label>{title}</label>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 @import '../../styles/mixins.scss';
-@import '../../styles//variables.scss';
+@import '../../styles/variables.scss';
 
 .input__container {
   position: relative;
@@ -19,7 +19,7 @@
     position: absolute;
     transition: all 200ms;
     transform: translateY(-30px) scale(1);
-    left: 0px;
+    left: 0;
   }
 
   &:focus-within {
@@ -35,15 +35,23 @@
     border-bottom: 1px solid grey;
     padding: 15px 0 6px 11px;
     transition: all 0.2s;
+    font-size: 14px;
+
     &:focus {
-      border-bottom: 1px solid green; 
+      border-bottom: 1px solid green;
       color: color(green);
     }
   }
 
   input:focus + label,
-  input:not(:placeholder-shown) + label {
-    // transform: translateY(-40px) scale(0.8);
-    opacity: 0.8;
+  input {
+    &:focus,
+    &:not(:placeholder-shown),
+    &:-webkit-autofill {
+      & + label {
+        transform: translateY(-45px) scale(0.8);
+        opacity: 0.8;
+      }
+    }
   }
 }
