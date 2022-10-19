@@ -7,10 +7,20 @@ const InputContainer: FC<IInput> = ({
   hidden = false,
   onChange = () => {},
   type = "text",
+  name = "",
+  className = "",
+  value = "",
 }) => {
   return (
     <div className={Styles.input__container}>
-      <input type={type} onChange={onChange} hidden={hidden} />
+      <input
+        type={type}
+        onChange={onChange}
+        hidden={hidden}
+        name={name}
+        className={className}
+        value={value}
+      />
       <label>{placeholder}</label>
     </div>
   );

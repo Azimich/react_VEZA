@@ -2,7 +2,10 @@ import React, { FC, useState } from "react";
 import Styles from "./CheckBox.module.scss";
 import { ICheckBox } from "./CheckBox";
 
-const CheckboxWithLabel: FC<ICheckBox> = ({ title = "" }) => {
+const CheckboxWithLabel: FC<ICheckBox> = ({
+  title = "",
+  name = "checkbox",
+}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const onChange = () => {
@@ -21,6 +24,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({ title = "" }) => {
           type="checkbox"
           checked={isChecked}
           onChange={onChange}
+          name={name}
         />
         {title}
         <svg viewBox="0 0 21 21">
