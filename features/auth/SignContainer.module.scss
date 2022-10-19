@@ -7,22 +7,62 @@
   margin: 0 auto;
   background: #f3f3f3;
   border-radius: 10px;
-  padding: 5px 20px 30px 20px;
+  padding: 25px 20px 30px 20px;
   input {
     width: 100%;
   }
+
+  &__item__input {
+    font-size: 12px;
+    margin-top: 10px;
+
+    .overflow {
+      margin-top: 5px;
+      transition: all 0.3s;
+      height: 23px;
+      opacity: 0;
+      transform: translateY(-10px);
+      span {
+        margin: 0 0 0 10px;
+      }
+    }
+
+    &_error {
+      color: red;
+      border-radius: 8px;
+      font-size: 12px;
+      position: relative;
+      .overflow__auto {
+        margin-top: 5px;
+        opacity: 1;
+        transition: all 0.3s;
+        transform: translateY(0px);
+        height: 23px;
+        span {
+          margin: 0 0 0 10px;
+        }
+      }
+
+      .input__item {
+        border-color: red;
+      }
+    } 
+  }
+  
 
   &__item__forgot {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin: 22px 0;
+
     input {
       width: 21px !important;
     }
 
     a {
       color: color(dark);
+      margin-top: 5px;
       transition: all 0.3s;
 
       &:hover {
@@ -32,6 +72,7 @@
     }
   }
 }
+
 
 //Форма регистрации
 .registration__form {
