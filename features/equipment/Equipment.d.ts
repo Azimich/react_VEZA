@@ -14,7 +14,7 @@ interface ICatalogData {
   img?: string;
   id: number;
   cat_id: number;
-  url: string;
+  alias: string;
 }
 
 export { ICatalogEquipmentData, ICatalogData };
