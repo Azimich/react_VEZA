@@ -1,14 +1,12 @@
+import { Link } from "components/link";
 import { FC } from "react";
 import { ICatalogData } from "../Equipment";
 import Styles from "../Equipment.module.scss";
-import Link from "next/link";
 
-const CategoryItem: FC<ICatalogData> = ({ img }) => {
+const CategoryItem: FC<ICatalogData> = ({ img, url }) => {
   return (
-    <Link href={"#"}>
-      <a className={Styles.equipment__container_catalog_product_a}>
-        <img src={img} />
-      </a>
+    <Link url={url} classLink={Styles.equipment__container_catalog_product_a}>
+      <img src={img} />
     </Link>
   );
 };

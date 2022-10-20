@@ -1,9 +1,13 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
-import { CatalogEquipmentData } from "../../features/equipment/mockData";
+import {
+  CatalogData,
+  CatalogEquipmentData,
+} from "../../features/equipment/mockData";
 import { EquipmentContainer } from "features/equipment";
 import { GetStaticPaths } from "next";
 import { eachRecursive } from "../../utils";
+import { getData } from "../../utils/helpers";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slug = eachRecursive(CatalogEquipmentData);
@@ -14,9 +18,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async () => {
+  () => async (context) => {
+    const { params } = context;
     return {
-      props: {},
+      props: {
+        data: CatalogData.filter(
+          (e) =>
+            e.cat_id ===
+            getData(CatalogEquipmentData, "/equipment/" + params.slug).shift()
+              ?.id
+        ),
+      },
       revalidate: 10,
     };
   }

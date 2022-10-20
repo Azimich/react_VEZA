@@ -7,13 +7,6 @@ const MenuItem: FC<ICatalogEquipmentData> = ({
   title = "",
   alias,
   back = false,
-  /*  level*/
-  /*parent_id*/
-  /*                                                 id,
-                                                 onClick,
-
-                                                 level,
-                                                 childrenData*/
 }) => {
   return (
     <>
