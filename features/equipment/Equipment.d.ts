@@ -10,9 +10,11 @@ interface ICatalogEquipmentData {
   level?: number;
 }
 interface ICatalogData {
-  title: string;
-  img: string;
+  title?: string;
+  img?: string;
   id: number;
+  cat_id: number;
+  url: string;
 }
 
 export { ICatalogEquipmentData, ICatalogData };

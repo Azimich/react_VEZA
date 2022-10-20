@@ -58,11 +58,17 @@
   }
 
   &_catalog {
-    margin-bottom: 30px;
-    font-size: 40px;
-    text-transform: uppercase;
-    position: relative;
-
+    h1 {
+      margin-bottom: 30px;
+      font-size: 40px;
+      text-transform: uppercase;
+      position: relative;
+    }
+    &_banner{
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
     &_product {
       display: grid;
       column-gap: 40px;
@@ -78,26 +84,25 @@
         transition: all 0.2s;
         position: relative;
         display: flex;
-
         &:hover img {
           object-fit: contain;
-          transition: all 0.2s linear;
           transform: scale(1.1);
           box-shadow: 0 0 10px #212121;
         }
 
         &:hover {
           box-shadow: 0 0 10px #212121;
-          transition: all 0.2s linear;
         }
 
         img {
           display: flex;
+          transition: all 0.2s linear;
           border-radius: 8px;
         }
       }
     }
   }
+
   &__button_back{
     display: flex;
     align-items: center;
@@ -113,4 +118,5 @@
 
     }
   }
+
 }

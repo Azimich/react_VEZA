@@ -6,11 +6,10 @@ import { ICatalogEquipmentData } from "../Equipment";
 import { useEffect, useState } from "react";
 import { CatalogEquipmentData } from "../mockData";
 import { useRouter } from "next/router";
-import { getData } from "../../../utils/helpers";
+import { getData, getParents } from "../../../utils/helpers";
 
 const Menu = () => {
   const router = useRouter();
-
   const [menu, setMenu] = useState<ICatalogEquipmentData[]>(
     CatalogEquipmentData.filter((e) => e.parent_id === 0)
   );
@@ -23,18 +22,23 @@ const Menu = () => {
         i < getData(CatalogEquipmentData, router.asPath)[0]?.level;
         i++
       ) {
+        const parentsData = getParents(
+          CatalogEquipmentData,
+          getData(CatalogEquipmentData, router.asPath)[0]?.parent_id
+        );
+        let bySortLevel = parentsData.slice(0);
+        bySortLevel.sort((a, b) => a.level - b.level);
+
         resData.push(
           (breadcrumbsData[i] = {
-            title: breadcrumbsData[i].title,
-            id: breadcrumbsData[i].id,
-            alias:
-              getData(CatalogEquipmentData, router.asPath)[0]?.parent_id === 0
-                ? "/equipment"
-                : getData(CatalogEquipmentData, router.asPath)[0]?.alias,
+            title: breadcrumbsData[i]?.title,
+            id: breadcrumbsData[i]?.id,
+            alias: i === 0 ? "/equipment" : bySortLevel[i - 1]?.alias,
             back: true,
           })
         );
       }
+
       let bySortId = resData.slice(0);
       bySortId.sort((a, b) => a.id - b.id);
 
@@ -47,26 +51,6 @@ const Menu = () => {
       setMenu(CatalogEquipmentData.filter((e) => e.parent_id === 0));
     }
   }, [router.query.slug]);
-  /*
-        const handleOnClick = (data: ICatalogEquipmentData[], level: number) => {
-            console.log("hjhj")
-            let resData: ICatalogEquipmentData[] = [];
-            for (let i = 0; i < level; i++) {
-                resData.push(
-                    (breadcrumbsData[i] = {
-                        title: breadcrumbsData[i].title,
-                        id: breadcrumbsData[i].id,
-                        back: true,
-                    })
-                );
-            }
-
-            let bySortId = resData.slice(0);
-            bySortId.sort((a, b) => b.id - a.id);
-            console.log("888", bySortId.concat(data))
-            setMenu(bySortId.concat(data));
-        };
-    */
 
   return (
     <div className={Styles.equipment__container_menu}>
@@ -75,8 +59,8 @@ const Menu = () => {
         продукция
       </h2>
       <ul>
-        {menu?.map((e) => {
-          return <MenuItem key={e.id} {...e} />;
+        {menu?.map((e, i) => {
+          return <MenuItem key={i} {...e} />;
         })}
       </ul>
     </div>
