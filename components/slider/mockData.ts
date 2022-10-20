@@ -9,7 +9,6 @@ const sliderData: ISliderProps = {
         mobile: "/images/banner__phone.jpg",
       },
       block_description: false,
-
       typeSlider: "img",
       alt: "banner",
     },

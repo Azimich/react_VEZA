@@ -171,42 +171,121 @@ const CatalogData: ICatalogData[] = [
   {
     title: "product_1",
     id: 1,
-    img: "/images/production_1.jpg",
+    img: [
+      {
+        images: {
+          pc: "/images/production_1.jpg",
+          ipad: "/images/production_1.jpg",
+          mobile: "/images/production_1.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+        alt: "banner",
+      },
+      {
+        images: {
+          pc: "/images/production_1.jpg",
+          ipad: "/images/production_1.jpg",
+          mobile: "/images/production_1.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+      {
+        images: {
+          pc: "/images/production_1.jpg",
+          ipad: "/images/production_1.jpg",
+          mobile: "/images/production_1.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+    ],
     cat_id: 2,
     alias: "/equipment/vent/prod_1",
   },
   {
     title: "product_2",
     id: 2,
-    img: "/images/production_2.jpg",
+    img: [
+      {
+        images: {
+          pc: "/images/production_2.jpg",
+          ipad: "/images/production_2.jpg",
+          mobile: "/images/production_2.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+    ],
     cat_id: 2,
     alias: "/equipment/vent/prod_2",
   },
   {
     title: "product_3",
     id: 3,
-    img: "/images/production_3.jpg",
+    img: [
+      {
+        images: {
+          pc: "/images/production_3.jpg",
+          ipad: "/images/production_3.jpg",
+          mobile: "/images/production_3.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+    ],
     cat_id: 2,
     alias: "/equipment/vent/prod_3",
   },
   {
     title: "product_4",
     id: 4,
-    img: "/images/production_4.jpg",
+    img: [
+      {
+        images: {
+          pc: "/images/production_4.jpg",
+          ipad: "/images/production_4.jpg",
+          mobile: "/images/production_4.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+    ],
     cat_id: 9,
     alias: "/equipment/vent/prod_4",
   },
   {
     title: "product_5",
     id: 5,
-    img: "/images/production_5.jpg",
+    img: [
+      {
+        images: {
+          pc: "/images/production_5.jpg",
+          ipad: "/images/production_5.jpg",
+          mobile: "/images/production_5.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+    ],
     cat_id: 9,
     alias: "/equipment/vent/prod_5",
   },
   {
     title: "product_6",
     id: 6,
-    img: "/images/production_6.jpg",
+    img: [
+      {
+        images: {
+          pc: "/images/production_6.jpg",
+          ipad: "/images/production_6.jpg",
+          mobile: "/images/production_6.jpg",
+        },
+        typeSlider: "img",
+        block_description: false,
+      },
+    ],
     cat_id: 9,
     alias: "/equipment/vent/prod_6",
   },

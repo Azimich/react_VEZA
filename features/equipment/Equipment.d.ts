@@ -1,3 +1,5 @@
+import { ISlideItem } from "../../components/slider/Slider.d";
+
 interface ICatalogEquipmentData {
   title: string;
   id: number;
@@ -11,7 +13,7 @@ interface ICatalogEquipmentData {
 }
 interface ICatalogData {
   title?: string;
-  img?: string;
+  img?: ISlideItem[];
   id: number;
   cat_id: number;
   alias: string;
