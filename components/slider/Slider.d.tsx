@@ -1,7 +1,7 @@
 interface ISliderProps {
   items: ISlideItem[];
   dots?: boolean;
-  theme?: "home" | "industries" | "homecategory";
+  theme?: "home" | "industries" | "homecategory" | "pageProduct";
   size?: "large" | "medium" | "small" | "max" | "context";
   themeButton?: "banner" | "news" | "industries";
   url?: string;
@@ -30,7 +30,7 @@ interface ISlideItem {
   typeSlider: "img" | "video";
   color?: "white" | "green" | "link";
   alt?: string;
-  theme?: "home" | "industries" | "homecategory";
+  theme?: "home" | "industries" | "homecategory" | "pageProduct";
   themeButton?: "banner" | "news" | "industries";
   size?: "large" | "medium" | "small" | "max" | "context";
   block_description?: boolean;

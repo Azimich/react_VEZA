@@ -24,6 +24,7 @@ const SliderContainer: FC<ISliderProps> = ({
   autoplay = true,
   effectSlide = "slide",
 }) => {
+  console.log("items", items);
   const pagination = {
     clickable: true,
     dynamicBullets: true,
