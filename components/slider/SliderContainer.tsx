@@ -38,7 +38,7 @@ const SliderContainer: FC<ISliderProps> = ({
   const handleOnClick = (url: string) => {
     console.log("add ctatic click button", url);
   };
-
+  console.log("item", items);
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCards]}

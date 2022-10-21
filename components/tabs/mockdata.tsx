@@ -1,10 +1,15 @@
-import { SingInForm } from "features/auth/SingInForm";
-import { ITab } from "./Tabs.d";
-import { SingUpForm } from "../../features/auth/SingUpForm";
+import { ITab } from "./Tabs";
 
 const tabsAuthData: ITab[] = [
-  { id: 1, title: "Вход", content: <SingInForm /> },
-  { id: 2, title: "Регистрация", content: <SingUpForm /> },
+  { id: 1, title: "Вход" },
+  { id: 2, title: "Регистрация" },
 ];
 
-export { tabsAuthData };
+const tabsTypoSizeData: ITab[] = [
+  { id: 1, title: "Описание" },
+  { id: 2, title: "Технические характеристики" },
+  { id: 3, title: "Сертификаты" },
+  { id: 4, title: "Расчёты" },
+];
+
+export { tabsAuthData, tabsTypoSizeData };
