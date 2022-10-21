@@ -7,6 +7,7 @@ const InputContainer: FC<IInput> = ({
   hidden = false,
   onChange,
   onBlur,
+  onKeyUp,
   type = "text",
   name = "",
   className = "",
@@ -24,6 +25,7 @@ const InputContainer: FC<IInput> = ({
         className={className}
         value={value}
         placeholder={placeholder}
+        onKeyUp={onKeyUp}
       />
       <label>{title}</label>
     </div>

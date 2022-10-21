@@ -5,8 +5,9 @@ interface IInput {
   placeholder?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
   hidden?: boolean;
-  type?: "text" | "password" | "file" | "checkbox";
+  type?: "text" | "password" | "file" | "checkbox" | "date" | "number";
   name: string;
   className?: string;
   value: string;
