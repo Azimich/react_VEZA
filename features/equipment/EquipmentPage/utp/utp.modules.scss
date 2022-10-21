@@ -1,0 +1,116 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+.utp__container {
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    @include ipadScreen {
+      flex-direction: column;
+    }
+
+    &__calculation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 20px 0;
+      @include ipadScreen {
+        padding: 0 12px;
+      }
+      p {
+        line-height: 145%;
+        max-width: 230px;
+        @media (max-width: 500px) {
+          margin-bottom: 3%;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+    }
+
+    &__download {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include ipadScreen {
+        padding: 0 12px;
+      }
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+
+      p {
+        line-height: 145%;
+        max-width: 300px;
+        @media (max-width: 500px) {
+          margin-bottom: 3%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &__top__list {
+    width: 49%;
+    background: #f3f3f3;
+    padding: 25px;
+    border-radius: 12px;
+    @include ipadScreen {
+      width: 100%;
+      padding: 25px 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 25px;
+      font-weight: 500;
+      @include ipadScreen {
+        padding: 0 0 0 12px;
+      }
+    }
+
+    p {
+      margin-bottom: 8px;
+      color: grey;
+      @include ipadScreen {
+        padding: 0 0 0 12px;
+      }
+
+      b {
+        color: color(dark);
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &__top__buttons {
+    padding: 38px 25px;
+    border-radius: 12px;
+    width: 49%;
+    background: #f3f3f3;
+    @include ipadScreen {
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+
+  &__bottom {
+    background-color: #f3f3f3;
+    color: color(dark);
+    padding: 25px;
+    font-size: 16px;
+    line-height: 160%;
+    border-radius: 10px;
+    @include ipadScreen {
+      padding: 12px;
+    }
+  }
+}
