@@ -36,6 +36,8 @@
     padding: 15px 0 6px 11px;
     transition: all 0.2s;
     font-size: 14px;
+    box-sizing: border-box;
+    transition: background-color 600000s 0s, color 600000s 0s;
 
     &:focus {
       border-bottom: 1px solid green;

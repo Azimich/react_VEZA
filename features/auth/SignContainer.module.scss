@@ -12,10 +12,17 @@
     width: 100%;
   }
 
+  &__item__title {
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: grey;
+    }
+  }
+
   &__item__input {
     font-size: 12px;
     margin-top: 10px;
-
     .overflow {
       margin-top: 5px;
       transition: all 0.3s;
@@ -49,13 +56,11 @@
     } 
   }
   
-
   &__item__forgot {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin: 0 0 20px 0;
-
     input {
       width: 21px !important;
     }
@@ -64,15 +69,36 @@
       color: color(dark);
       margin-top: 5px;
       transition: all 0.3s;
-
       &:hover {
         color: color(green);
         transform: translateX(3px);
       }
     }
   }
-}
 
+  &__item__answer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ff0000;
+      padding: 11px 12px;
+      text-align: right;
+      border: 1px solid rgb(253, 253, 253);
+      background: #fff;
+      border-radius: 5px;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
 
 //Форма регистрации
 .registration__form {
@@ -82,12 +108,48 @@
   border-radius: 10px;
   padding: 20px 20px;
   button {
-    margin: 30px 0 20px 0;
     width: 220px;
   }
 
   &__items {
     overflow: hidden;
+    &__title {
+      h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: grey;
+      }
+    }
+
+    &__input {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+  }
+
+  &__item__answer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 30px 0 20px 0;
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ff0000;
+      padding: 11px 12px;
+      text-align: right;
+      border: 1px solid rgb(253, 253, 253);
+      background: #fff;
+      border-radius: 5px;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+    }
   }
 
   &__item {
@@ -96,19 +158,14 @@
     justify-content: space-between;
     column-gap: 40px;
     row-gap: 40px;
-
     @include phoneScreen {
       display: flex;
       flex-direction: column;
       row-gap: 0;
     }
-
-    &:nth-child(4) {
+    
+    ul {
       width: 100%;
-
-      input {
-        width: 100%;
-      }
     }
 
     &:nth-child(6) {
@@ -118,6 +175,53 @@
     input {
       width: 100%;
     }
+
+    &__forgot {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &__item__input {
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 100%;
+    }
+
+    .overflow {
+      margin-top: 5px;
+      transition: all 0.3s;
+      height: 23px;
+      opacity: 0;
+      transform: translateY(-10px);
+      span {
+        margin: 0 0 0 10px;
+      }
+    }
+
+    &_error {
+      color: red;
+      border-radius: 8px;
+      font-size: 12px;
+      width: 100%;
+      .overflow__auto {
+        margin-top: 5px;
+        opacity: 1;
+        transition: all 0.3s;
+        transform: translateY(0px);
+        height: 23px;
+        span {
+          margin: 0 0 0 10px;
+        }
+      }
+
+      .input__item {
+        border-color: red;
+        width: 100%;
+      }
+    } 
   }
 
   &__selected {
@@ -132,7 +236,7 @@
   }
 
   &__select {
-    width: 46%;
+    width: 100%;
     @include phoneScreen {
       width: 100%;
       &:first-child {
@@ -147,10 +251,9 @@
   max-width: 550px;
   margin: 200px auto 0;
   h1 {
-    font-size: 40px;
-    color: color(dark);
-    margin-bottom: 18px;
-    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: grey;
   }
 
   &__item {
@@ -160,6 +263,42 @@
     input {
       width: 100%;
     }
+  }
+
+  &__item__input {
+    font-size: 12px;
+    margin-top: 10px;
+    .overflow {
+      margin-top: 5px;
+      transition: all 0.3s;
+      height: 23px;
+      opacity: 0;
+      transform: translateY(-10px);
+      span {
+        margin: 0 0 0 10px;
+      }
+    }
+
+    &_error {
+      color: red;
+      border-radius: 8px;
+      font-size: 12px;
+      position: relative;
+      .overflow__auto {
+        margin-top: 5px;
+        opacity: 1;
+        transition: all 0.3s;
+        transform: translateY(0px);
+        height: 23px;
+        span {
+          margin: 0 0 0 10px;
+        }
+      }
+
+      .input__item {
+        border-color: red;
+      }
+    } 
   }
 
   button {
