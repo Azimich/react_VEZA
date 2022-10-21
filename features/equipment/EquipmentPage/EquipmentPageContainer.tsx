@@ -1,7 +1,6 @@
 import { Container } from "../../../components/common/container";
 import { Menu } from "../menu/Menu";
 import Styles from "../Equipment.module.scss";
-import { SliderContainer } from "../../../components/slider";
 import { useRouter } from "next/router";
 import { CatalogData } from "../mockData";
 import { FC, useEffect, useState } from "react";
@@ -23,14 +22,6 @@ const EquipmentPageContainer: FC = () => {
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
         <Menu />
-        {productItem.length > 0 && (
-          <SliderContainer
-            theme={"pageProduct"}
-            size={"context"}
-            dots={true}
-            items={productItem.shift().imgSlider}
-          />
-        )}
       </div>
     </Container>
   );

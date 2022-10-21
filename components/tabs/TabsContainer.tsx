@@ -8,9 +8,12 @@ const TabsContainer: FC<ITabsProps> = ({
   children,
   onClick = () => {},
   activeTab,
+  size,
 }) => {
+  console.log("23", size);
+
   return (
-    <div className={Styles.small300}>
+    <div className={Styles[size]}>
       <div className={Styles.tabs__container}>
         <ul className={Styles.tabs__container__menu}>
           {props.length > 0 &&

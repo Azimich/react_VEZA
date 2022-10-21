@@ -23,6 +23,7 @@ const SingContainer = () => {
         props={tabsAuthData}
         onClick={(id) => handleOnClick(id)}
         activeTab={activeTab}
+        size={"small300"}
       >
         {React.createElement(components[`tab_${activeTab}`])}
       </Tabs>
