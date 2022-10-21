@@ -10,7 +10,7 @@ const TabsContainer: FC<ITabsProps> = ({
   activeTab,
 }) => {
   return (
-    <>
+    <div className={Styles.small300}>
       <div className={Styles.tabs__container}>
         <ul className={Styles.tabs__container__menu}>
           {props.length > 0 &&
@@ -28,7 +28,7 @@ const TabsContainer: FC<ITabsProps> = ({
         <div className={Styles.tabs__container__line}></div>
       </div>
       <div className={Styles.tabs__container_context}>{children}</div>
-    </>
+    </div>
   );
 };
 

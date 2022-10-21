@@ -1,4 +1,3 @@
-// import React, { FC } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import Styles from "../../features/auth/SignContainer.module.scss";
@@ -28,7 +27,6 @@ const SingInForm = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
-  console.log("formik.touched", formik.touched, formik.errors);
   return (
     <div className={Styles.authorization__form}>
       <form

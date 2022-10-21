@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
-import { wrapper } from "../../../store/store";
+import { wrapper } from "../../../../store/store";
 import { GetStaticPaths } from "next";
-import { EquipmentPage } from "../../../features/equipment/EquipmentPage";
+import { EquipmentPage } from "../../../../features/equipment/EquipmentPage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
