@@ -1,7 +1,11 @@
-import { Container } from "../../../components/common/container";
+import { Accordeon } from "../../../components/accordeon";
 
 const SpecificationContainer = () => {
-  return <Container className={"wrapper"}>Specification</Container>;
+  return (
+    <div>
+      <Accordeon />
+    </div>
+  );
 };
 
 export { SpecificationContainer };

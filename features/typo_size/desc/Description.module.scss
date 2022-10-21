@@ -1,3 +1,45 @@
-.Description_container{
-  display: flex;
+.Description_container {
+  max-width: 1000px;
+  margin-left: 20px;
+  display: block;
+
+  &_models {
+    text-align: right;
+    margin: -50px 0 0 0;
+
+    &_img {
+      margin: 0;
+
+      .card {
+        max-width: 50%;
+        margin: 0 auto;
+        height: auto;
+        border-radius: 10px;
+        background: #fff;
+        padding: 70px 25px;
+        transform-style: preserve-3d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease-out;
+
+        .photo {
+          cursor: pointer;
+          width: 350px;
+          margin: 0 auto;
+          transition: all 0.75s ease-out;
+
+          &:hover img {
+            transform: rotate(400deg);
+          }
+
+          img {
+            border-radius: 50%;
+            transition: all 1s ease-out;
+          }
+        }
+      }
+    }
+  }
 }
