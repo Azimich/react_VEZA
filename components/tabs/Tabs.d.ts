@@ -12,6 +12,7 @@ interface ITabsProps {
   props: ITab[];
   onClick: (id: number) => void;
   activeTab?: number;
+  size?: "small300" | "max";
 }
 
 interface IComponents {
