@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { CatalogData } from "../mockData";
 import { FC, useEffect, useState } from "react";
 import { ICatalogData } from "../Equipment";
+import { UtpContainer } from "./utp/UtpContainer";
 
 const EquipmentPageContainer: FC = () => {
   const router = useRouter();
@@ -22,6 +23,7 @@ const EquipmentPageContainer: FC = () => {
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
         <Menu />
+        <UtpContainer />
       </div>
     </Container>
   );

@@ -1,20 +1,28 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+
 .equipment__container {
   display: grid;
   grid-template-columns: 250px 1fr;
-  column-gap: 80px;
+  column-gap: 50px;
   padding-top: 40px;
+  @media (max-width: 1270px) {
+    grid-template-rows: min-content min-content;
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+    grid-template-columns: none;
+  }
 
   &_menu {
     border-radius: 10px;
     height: max-content;
-    background: #FFFFFF;
-    box-shadow: 0 0 8px #00000085;
+    background: color(white);
+    box-shadow: 0 0px 28px #00000034;
     overflow: hidden;
     width: 100%;
-
     ul {
       background: #8B9C88;
-
       li {
         display: flex;
         justify-content: space-between;
@@ -23,21 +31,22 @@
         padding: 20px 20px;
         border-bottom: 0.5px solid #b4bdb27d;
         transition: all 0.3s;
-        border-bottom: 0.5px solid #b4bdb27d;
+        color: white;
         span {
           width: 80%;
+        }
+
+        svg {
+          transition: all 0.3s;
         }
 
         &:hover {
           background-color: #748371;
           cursor: pointer;
-          svg{
+          svg {
             margin-right: -10px;
-            transition: all 0.3s;
           }
         }
-        color: white;
-
       }
     }
 
