@@ -12,8 +12,10 @@ interface ICatalogEquipmentData {
   level?: number;
 }
 interface ICatalogData {
+  typo_size_id?: number;
   title?: string;
-  img?: ISlideItem[];
+  imgSlider?: ISlideItem[];
+  image?: string;
   id: number;
   cat_id: number;
   alias: string;

@@ -3,7 +3,8 @@ import { ReactNode } from "react";
 interface ITab {
   id?: number;
   title: string;
-  content: ReactNode;
+  size?: "small300" | "max";
+  content?: ReactNode;
   tabsActive?: number;
   onClick?: (id: number) => void;
 }

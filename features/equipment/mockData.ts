@@ -34,21 +34,21 @@ const CatalogEquipmentData: ICatalogEquipmentData[] = [
             alias: "/equipment/vran",
             childrenData: [
               {
-                title: "Вентиляторы Радиальные ВРАВ",
+                title: "Типоразмер 1",
                 parent_id: 9,
                 id: 16,
                 alias: "/equipment/vrav",
                 level: 3,
               },
               {
-                title: "Вентиляторы Радиальные ВРАВ",
+                title: "Типоразмер 2",
                 parent_id: 9,
                 id: 16,
                 level: 3,
                 alias: "/equipment/vrav_1",
               },
               {
-                title: "Вентиляторы крышные КРОС",
+                title: "Типоразмер 3",
                 parent_id: 9,
                 id: 17,
                 level: 3,
@@ -171,7 +171,7 @@ const CatalogData: ICatalogData[] = [
   {
     title: "product_1",
     id: 1,
-    img: [
+    imgSlider: [
       {
         images: {
           pc: "/images/production_1.jpg",
@@ -190,6 +190,7 @@ const CatalogData: ICatalogData[] = [
         },
         typeSlider: "img",
         block_description: false,
+        alt: "banner",
       },
       {
         images: {
@@ -199,15 +200,18 @@ const CatalogData: ICatalogData[] = [
         },
         typeSlider: "img",
         block_description: false,
+        alt: "banner",
       },
     ],
+    image: "/images/production_1.jpg",
     cat_id: 2,
+    typo_size_id: 16,
     alias: "/equipment/vent/prod_1",
   },
   {
     title: "product_2",
     id: 2,
-    img: [
+    imgSlider: [
       {
         images: {
           pc: "/images/production_2.jpg",
@@ -218,13 +222,15 @@ const CatalogData: ICatalogData[] = [
         block_description: false,
       },
     ],
+    image: "/images/production_2.jpg",
     cat_id: 2,
+    typo_size_id: 16,
     alias: "/equipment/vent/prod_2",
   },
   {
     title: "product_3",
     id: 3,
-    img: [
+    imgSlider: [
       {
         images: {
           pc: "/images/production_3.jpg",
@@ -235,13 +241,15 @@ const CatalogData: ICatalogData[] = [
         block_description: false,
       },
     ],
+    image: "/images/production_3.jpg",
     cat_id: 2,
+    typo_size_id: 16,
     alias: "/equipment/vent/prod_3",
   },
   {
     title: "product_4",
     id: 4,
-    img: [
+    imgSlider: [
       {
         images: {
           pc: "/images/production_4.jpg",
@@ -252,13 +260,15 @@ const CatalogData: ICatalogData[] = [
         block_description: false,
       },
     ],
+    image: "/images/production_4.jpg",
     cat_id: 9,
+    typo_size_id: 16,
     alias: "/equipment/vent/prod_4",
   },
   {
     title: "product_5",
     id: 5,
-    img: [
+    imgSlider: [
       {
         images: {
           pc: "/images/production_5.jpg",
@@ -266,16 +276,19 @@ const CatalogData: ICatalogData[] = [
           mobile: "/images/production_5.jpg",
         },
         typeSlider: "img",
+
         block_description: false,
       },
     ],
+    image: "/images/production_5.jpg",
     cat_id: 9,
+    typo_size_id: 16,
     alias: "/equipment/vent/prod_5",
   },
   {
     title: "product_6",
     id: 6,
-    img: [
+    imgSlider: [
       {
         images: {
           pc: "/images/production_6.jpg",
@@ -287,6 +300,8 @@ const CatalogData: ICatalogData[] = [
       },
     ],
     cat_id: 9,
+    typo_size_id: 16,
+    image: "/images/production_6.jpg",
     alias: "/equipment/vent/prod_6",
   },
 ];
