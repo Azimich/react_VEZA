@@ -4,6 +4,7 @@ import Styles from "../Equipment.module.scss";
 import { SliderContainer } from "../../../components/slider";
 import { useRouter } from "next/router";
 import { CatalogData } from "../mockData";
+import { UtpContainer } from "./utp/UtpContainer";
 
 const EquipmentPageContainer = () => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const EquipmentPageContainer = () => {
       <Container className={"wrapper"}>
         <div className={Styles.equipment__container}>
           <Menu />
+          <UtpContainer />
         </div>
       </Container>
       ;
