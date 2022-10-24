@@ -7,10 +7,6 @@ const content = <ModalForm />;
 
 const UtpContainer = () => {
   const { isShow, toggle } = useModal();
-  // const toggleModal = () => {
-  //   console.log("122", toggle);
-
-  // }
 
   return (
     <div className={Styles.utp__container}>
@@ -81,7 +77,7 @@ const UtpContainer = () => {
         hide={toggle}
         modalContent={content}
         theme={"modal"}
-        headerText={"Выбрать модель"}
+        headerText={"Тип файла"}
       ></Modal>
     </div>
   );
