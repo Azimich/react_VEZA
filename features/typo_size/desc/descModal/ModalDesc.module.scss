@@ -1,0 +1,64 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+.documentation {
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+
+  &__modeles {
+    width: 50%;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px 10px 30px;
+        background-color: #F0F0F0;
+        color: color(dark);
+        transition: all 0.3s;
+        border-radius: 5px;
+        margin-bottom: 12px;
+        position: relative;
+        @media (max-width: 430px) {
+          padding: 5px;
+        }
+
+        &:hover {
+          background-color: #009247;
+          color: color(white);
+          svg {
+            right: 18px;
+            path {
+              fill: #fff;
+            }
+          }
+        }
+
+        svg {
+          position: absolute;
+          transition: all 0.3s;
+          right: 25px;
+          path {
+            fill: #212121;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.download {
+  
+  &__items {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    gap: 100px;
+  }
+}

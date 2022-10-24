@@ -2,6 +2,11 @@
   max-width: 1000px;
   margin-left: 70px;
   display: block;
+  button {
+    margin: 0 auto;
+    width: 280px;
+    padding: 25px 0;
+  }
 
   &_models {
     text-align: right;
@@ -9,7 +14,6 @@
 
     &_img {
       margin: 0;
-
       .card {
         max-width: 50%;
         margin: 0 auto;

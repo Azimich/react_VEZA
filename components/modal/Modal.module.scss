@@ -24,7 +24,6 @@
     border-radius: 10px;
     background: color(white);
     position: relative;
-    max-height: calc(100vh - 40px);
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -68,7 +67,13 @@
     }
 
     &__full_modal {
-      max-width: 1600px;
+      max-width: 1920px;
+      height: 100vh;
+
+      .modal_dialog  {
+        border-radius: 0;
+        max-height: calc(100vh - 80px);
+      }
     }
   }
 }
