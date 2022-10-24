@@ -1,8 +1,17 @@
-import React from "react";
 import Styles from "./Utp.module.scss";
 import { Button } from "components/button";
+import { Modal, useModal } from "components/modal";
+import { ModalForm } from "./ModalForm";
+
+const content = <ModalForm />;
 
 const UtpContainer = () => {
+  const { isShow, toggle } = useModal();
+  // const toggleModal = () => {
+  //   console.log("122", toggle);
+
+  // }
+
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
@@ -20,7 +29,7 @@ const UtpContainer = () => {
           </div>
           <div className={Styles.utp__container__top__download}>
             <p>Скачать BIM-модель</p>
-            <Button children={"Скачать"} />
+            <Button children={"Скачать"} onClick={toggle} />
           </div>
         </div>
       </div>
@@ -67,6 +76,13 @@ const UtpContainer = () => {
           нескольких вентиляторов.
         </p>
       </div>
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={content}
+        theme={"modal"}
+        headerText={"Выбрать модель"}
+      ></Modal>
     </div>
   );
 };
