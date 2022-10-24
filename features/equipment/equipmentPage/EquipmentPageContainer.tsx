@@ -23,7 +23,9 @@ const EquipmentPageContainer: FC = () => {
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
         <Menu />
-        <UtpContainer />
+        <div>
+          <UtpContainer />
+        </div>
       </div>
     </Container>
   );
