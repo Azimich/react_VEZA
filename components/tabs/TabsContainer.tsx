@@ -10,8 +10,6 @@ const TabsContainer: FC<ITabsProps> = ({
   activeTab,
   size,
 }) => {
-  console.log("23", size);
-
   return (
     <div className={Styles[size]}>
       <div className={Styles.tabs__container}>

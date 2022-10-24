@@ -4,9 +4,8 @@ import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () =>
   configureStore({
-    reducer: {
-    },
-    devTools: process.env.NODE_ENV === "development",
+    reducer: {},
+    devTools: true,
   });
 
 // eslint-disable-next-line no-undef

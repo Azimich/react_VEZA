@@ -24,7 +24,6 @@ const SliderContainer: FC<ISliderProps> = ({
   autoplay = true,
   effectSlide = "slide",
 }) => {
-  console.log("items", items);
   const pagination = {
     clickable: true,
     dynamicBullets: true,
@@ -38,7 +37,7 @@ const SliderContainer: FC<ISliderProps> = ({
   const handleOnClick = (url: string) => {
     console.log("add ctatic click button", url);
   };
-  console.log("item", items);
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCards]}

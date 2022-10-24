@@ -17,11 +17,6 @@ const Menu = () => {
   useEffect(() => {
     if (router.query.slug) {
       let resData: ICatalogEquipmentData[] = [];
-      console.log(
-        "level",
-        getData(CatalogEquipmentData, "/equipment/" + router.query.slug)[0]
-          ?.level
-      );
       for (
         let i = 0;
         i <
