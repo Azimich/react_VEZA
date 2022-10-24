@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import ReactDOM from "react-dom";
 import Styles from "./Modal.module.scss";
 import { IModalProps } from "./Modal.d";
+import { CloseIcon } from "components/icons";
 
 export const Modal: FC<IModalProps> = ({
   isShow,
@@ -16,6 +17,9 @@ export const Modal: FC<IModalProps> = ({
         className={`${Styles.modal_dialog} ${Styles[`theme__${theme}`]}`}
         onClick={(e) => e.stopPropagation()}
       >
+        <div onClick={hide}>
+          <CloseIcon />
+        </div>
         <div className={Styles.modal_header}>
           <h3 className={Styles.modal_title}>{headerText}</h3>
           <span className={Styles.modal_close} onClick={hide}></span>

@@ -3,6 +3,7 @@ interface ICheckBox {
   turnOn?: boolean;
   turnOff?: boolean;
   name: string;
+  id?: number;
 }
 
 export { ICheckBox };
