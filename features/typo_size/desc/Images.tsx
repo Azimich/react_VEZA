@@ -1,6 +1,13 @@
+import { Button } from "components/button";
 import Styles from "./Description.module.scss";
+import { Modal, useModal } from "components/modal";
+import { ModalForm } from "./descModal/ModalForm";
+
+const content = <ModalForm />;
 
 const Description_Images = () => {
+  const { isShow, toggle } = useModal();
+
   return (
     <div className={Styles.Description_container}>
       <div className={Styles.Description_container_models}>
@@ -12,6 +19,14 @@ const Description_Images = () => {
           </div>
         </div>
       </div>
+      <Button children={"Документация"} onClick={toggle} />
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={content}
+        theme={"full_modal"}
+        headerText={"Тип файла"}
+      />
     </div>
   );
 };
