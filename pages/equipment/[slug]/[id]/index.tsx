@@ -26,7 +26,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 );
 
 const equipment = (props: ICatalogData[]) => {
-  console.log("111", props);
   return <EquipmentPage data={props} />;
 };
 
