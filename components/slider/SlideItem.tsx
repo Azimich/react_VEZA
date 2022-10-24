@@ -2,7 +2,7 @@ import Styles from "./Slider.module.scss";
 import { ISlideItem } from "./Slider.d";
 import { FC, useEffect, useState } from "react";
 import { isMobile, isTablet, isDesktop } from "react-device-detect";
-import { Button } from "../button/Button";
+import { Button } from "../button";
 import { ArrowRightIcon } from "../icons";
 
 const SlideItem: FC<ISlideItem> = ({

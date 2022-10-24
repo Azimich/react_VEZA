@@ -1,31 +1,32 @@
 import { Container } from "../../../components/common/container";
 import { Menu } from "../menu/Menu";
 import Styles from "../Equipment.module.scss";
-import { useRouter } from "next/router";
-import { CatalogData } from "../mockData";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { ICatalogData } from "../Equipment";
+import { SliderContainer } from "../../../components/slider";
 import { UtpContainer } from "./utp/UtpContainer";
 
-const EquipmentPageContainer: FC = () => {
-  const router = useRouter();
-  const [productItem, setProductItem] = useState<ICatalogData[]>([]);
+interface IPageData {
+  data?: ICatalogData[];
+}
 
-  useEffect(() => {
-    console.log(
-      "productItem",
-      CatalogData.filter((e) => e.alias === router.asPath),
-      productItem
-    );
-    setProductItem(CatalogData.filter((e) => e.alias === router.asPath));
-  }, []);
+const EquipmentPageContainer: FC<IPageData> = ({ data }) => {
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
         <Menu />
-        <div>
+        <>
+          {data && (
+            <SliderContainer
+              items={data[0]?.imgSlider}
+              theme={"pageProduct"}
+              dots={true}
+              autoplay={false}
+            />
+          )}
+          <div></div>
           <UtpContainer />
-        </div>
+        </>
       </div>
     </Container>
   );
