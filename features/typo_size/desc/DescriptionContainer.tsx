@@ -5,6 +5,7 @@ import { Button } from "../../../components/button";
 import Styles from "./Description.module.scss";
 import { Accordeon } from "../../../components/accordeon";
 import { DescriptionTable } from "./DescriptionTable";
+import { Separator } from "../../../components/separator";
 
 const DescriptionContainer: FC = () => {
   const handleButtonClick = () => {
@@ -22,9 +23,13 @@ const DescriptionContainer: FC = () => {
           Документация
         </Button>
       </div>
-      <Accordeon title={"Название таблицы"} icon_show={true}>
+      <Accordeon title={"Название таблицы"} icon_show={false}>
         <DescriptionTable />
       </Accordeon>
+      <Separator title={"Процесс монтажа"} />
+      <div className={Styles.video}>
+        <video src="/images/banner_2.mp4" autoPlay={true}></video>
+      </div>
     </Container>
   );
 };
