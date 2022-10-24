@@ -12,4 +12,6 @@ export { EyeIcon } from "./includes/EyeIcon";
 export { CategoryIcon } from "./includes/CategoryIcon";
 export { ArrowRightWhiteIcon } from "./includes/ArrowRightWhiteIcon";
 export { ArrowBackIcon } from "./includes/ArrowBackIcon";
+export { ArrowDownIcon } from "./includes/ArrowDownIcon";
+export { ArrowUpIcon } from "./includes/ArrowUpIcon";
 export { CloseIcon } from "./includes/CloseIcon";

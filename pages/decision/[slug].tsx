@@ -7,7 +7,7 @@ import { DecisionPage } from "features/decision/DecisionPage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slug = [];
-  for (let k in decisionData) {
+  for (const k in decisionData) {
     slug.push({ params: { slug: decisionData[k].url } });
   }
   return {
