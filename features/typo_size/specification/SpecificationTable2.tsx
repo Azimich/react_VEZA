@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Styles from "./Specification.module.scss";
 
-const SpecificationTable1: FC = () => {
+const SpecificationTable2: FC = () => {
   return (
     <div className={Styles.specification_table1_box}>
       <div className={Styles.specification_table1_box_left_item}>
@@ -426,4 +426,4 @@ const SpecificationTable1: FC = () => {
   );
 };
 
-export { SpecificationTable1 };
+export { SpecificationTable2 };
