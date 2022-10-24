@@ -6,22 +6,23 @@ import Styles from "./Description.module.scss";
 import { Accordeon } from "../../../components/accordeon";
 import { DescriptionTable } from "./DescriptionTable";
 import { Separator } from "../../../components/separator";
+import { Modal, useModal } from "../../../components/modal";
+import { ModalForm } from "./descModal/ModalForm";
 
 const DescriptionContainer: FC = () => {
-  const handleButtonClick = () => {
-    console.log("1111");
-  };
+  const { isShow, toggle } = useModal();
   return (
     <Container className={"wrapper"}>
       <Description_Images />
       <div className={Styles.button}>
-        <Button
-          theme={"news"}
-          size={"small"}
-          onClick={() => handleButtonClick()}
-        >
-          Документация
-        </Button>
+        <Button children={"Документация"} size={"large"} onClick={toggle} />
+        <Modal
+          isShow={isShow}
+          hide={toggle}
+          modalContent={<ModalForm />}
+          theme={"full_modal"}
+          headerText={"Тип файла"}
+        />
       </div>
       <Accordeon title={"Название таблицы"} icon_show={false}>
         <DescriptionTable />
