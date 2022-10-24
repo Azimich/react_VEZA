@@ -8,13 +8,13 @@ const Container: FC<IContainer> = ({
   el = "section",
   clean = true,
 }) => {
-  let arrStyles: string[] = [];
-  for (let stylesKey in Styles) {
+  const arrStyles: string[] = [];
+  for (const stylesKey in Styles) {
     arrStyles.push(stylesKey);
   }
-  let arrClassName = className && className.split(" ");
+  const arrClassName = className && className.split(" ");
 
-  let arrRes =
+  const arrRes =
     arrClassName &&
     arrClassName
       .map((e) =>

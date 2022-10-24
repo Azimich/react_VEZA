@@ -6,7 +6,7 @@ import { ITab, ITabsProps } from "./Tabs";
 const TabsContainer: FC<ITabsProps> = ({
   props,
   children,
-  onClick = () => {},
+  onClick,
   activeTab,
   size,
 }) => {

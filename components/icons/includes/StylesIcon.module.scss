@@ -19,10 +19,12 @@
     width: 150px;
     height: 130px;
   }
+
   &__track {
     fill: transparent;
     stroke-width: 1px;
   }
+
   &__thumb {
     fill: transparent;
     stroke: color(white);
@@ -31,7 +33,25 @@
     stroke-dasharray: 0 1;
     transform: rotate(180deg);
   }
+
   text tspan {
     fill: color(white);
+  }
+}
+
+.arrowDownIcon {
+  transform: rotate(90deg);
+  transition: all 0.3s;
+  color: #414141;
+  path{
+    fill: #414141;
+  }
+}
+.arrowUpIcon{
+  transform: rotate(-90deg);
+  transition: all 0.3s;
+  color: #414141;
+  path{
+    fill: #414141;
   }
 }

@@ -9,7 +9,7 @@ const Button: FC<ButtonI> = ({
   children,
   type = "button",
   disabled = false,
-  onClick = () => {},
+  onClick,
   theme = "banner",
   size = "medium",
   color = "green",

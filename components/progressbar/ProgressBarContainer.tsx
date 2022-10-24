@@ -49,7 +49,7 @@ const ProgressBar = (props: {
     dashArray = 2 * Math.PI * radius,
     dashOffset = dashArray * (progress / progressLabel);
 
-  let hideLabel = size < 100 || !label.length || spinnerMode;
+  const hideLabel = size < 100 || !label.length || spinnerMode;
   return (
     <div
       className={Styles.svg_pi_wrapper}
