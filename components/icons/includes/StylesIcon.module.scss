@@ -35,3 +35,20 @@
     fill: color(white);
   }
 }
+
+.modal__close {
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  cursor: pointer;
+  &:hover {
+    path {
+      fill: #212121;
+    }
+  }
+
+  path {
+    fill: grey;
+    transition: all 0.2s;
+  }
+}

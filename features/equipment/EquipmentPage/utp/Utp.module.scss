@@ -115,3 +115,21 @@
     }
   }
 }
+
+//Стили для окна БИМ
+.download {
+  &__items {
+    margin-bottom: 30px;
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      color: color(dark);
+      label {
+        margin: 0 6px 0 0;
+      }
+    }
+  }
+}

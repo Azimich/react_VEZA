@@ -5,6 +5,7 @@ import { ICheckBox } from "./CheckBox";
 const CheckboxWithLabel: FC<ICheckBox> = ({
   title = "",
   name = "checkbox",
+  id,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -15,12 +16,12 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   return (
     <>
       <label
-        htmlFor={"customCheckbox"}
+        htmlFor={String(id)}
         className={`${Styles.checkbox__label} ${Styles.bounce}`}
       >
         <input
           className={Styles.checkbox__input}
-          id={"customCheckbox"}
+          id={String(id)}
           type="checkbox"
           checked={isChecked}
           onChange={onChange}
