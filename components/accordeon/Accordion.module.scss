@@ -1,4 +1,23 @@
 .header_container{
-display: grid;
-  grid-template-columns: 1fr;
+display: flex;
+
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 30px;
+  background: #E0EFDE;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #414141;
+  cursor: pointer;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }

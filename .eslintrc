@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": ["eslint:recommended"],
   "env": {
     "browser": true,
@@ -7,13 +7,15 @@
     "es6": true
   },
   "rules": {
-    "no-unused-vars": 2,
+    "no-unused-vars": 1,
     "no-undef": 2,
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "import/prefer-default-export": "off"
+
   },
   "parserOptions": {
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "plugins": ["react"]
