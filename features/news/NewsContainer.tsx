@@ -3,9 +3,9 @@ import { INewDataItem, INewsData } from "./News";
 import { FC, useEffect, useState } from "react";
 import { NewsItem } from "./NewsItem";
 
-const NewsContainer: FC<INewsData> = (props) => {
+const NewsContainer: FC<INewsData> = ({ newsData }) => {
   const [newsWithDesc, setNewsWithDesc] = useState<INewDataItem[]>(
-    props.newsData.slice(0, 4)
+    newsData.slice(0, 4)
   );
 
   useEffect(() => {
