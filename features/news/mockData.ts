@@ -11,7 +11,7 @@ const NewsData: INewDataItem[] = [
     alias: "kaluga1",
     count_view: 125,
     image_category: "/images/news_activ_1.jpg",
-    image_full_news: "/images/news_activ_1.jpg",
+    image_full_news: "/images/news_activ-1.jpg",
     images_list_news: [
       {
         image: "/images/news_activ_1.jpg",
