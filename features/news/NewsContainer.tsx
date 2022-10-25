@@ -1,15 +1,24 @@
 import { Container } from "../../components/common/container";
-import { INewsData } from "./News";
+import { INewDataItem, INewsData } from "./News";
 import { FC, useEffect, useState } from "react";
+import { NewsItem } from "./NewsItem";
 
-const NewsContainer: FC<INewsData[]> = (props) => {
-  const [newsWithDesc, setNewsWithDesc] = useState<INewsData[]>(props);
+const NewsContainer: FC<INewsData> = (props) => {
+  const [newsWithDesc, setNewsWithDesc] = useState<INewDataItem[]>(
+    props.newsData.slice(0, 4)
+  );
 
   useEffect(() => {
-    console.log("data", newsWithDesc);
+    setNewsWithDesc(newsWithDesc.slice(0, 4));
   }, []);
 
-  return <Container className={"wrapper"}>111</Container>;
+  return (
+    <Container className={"wrapper"}>
+      {newsWithDesc.map((e) => {
+        return <NewsItem {...e} />;
+      })}
+    </Container>
+  );
 };
 
 export { NewsContainer };

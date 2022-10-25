@@ -1,4 +1,7 @@
 interface INewsData {
+  newsData: INewDataItem[];
+}
+interface INewDataItem {
   id: number;
   title: string;
   desc_small: string;
@@ -14,4 +17,4 @@ interface INewsImg {
   image: string;
 }
 
-export { INewsData };
+export { INewsData, INewDataItem };

@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
 
-import { NewsContainer } from "features/news";
+import { News } from "features/news";
 import { NewsData } from "../../features/news/mockData";
 import { INewsData } from "features/news/News";
 
@@ -18,6 +18,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const newsSSR = (props: INewsData[]) => <NewsContainer {...props} />;
+const newsSSR = (props: INewsData[]) => <News {...props} />;
 
 export default newsSSR;
