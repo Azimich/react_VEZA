@@ -1,2 +1,3 @@
 const equipmentPath = "/equipment/";
-export { equipmentPath };
+const newsPath = "/news/";
+export { equipmentPath, newsPath };
