@@ -112,9 +112,31 @@
   grid-template-columns: repeat(3, 1fr);
   margin-top: 100px;
   gap: 40px;
+
   &_item{
     &:hover img{
       box-shadow: 0 0 17px #088122;
+    }
+    &:hover{
+      button{
+        padding-left: 20px;
+        transition: all 0.3s;
+      }
+    }
+    button{
+      transition: all 0.3s;
+
+      position: absolute;
+      top: 3%;
+      left: 3%;
+      color: white;
+      svg{
+        width: 22px;
+        height: 22px;
+        path{
+          fill: white;
+        }
+      }
     }
     position: relative;
     &_desc{
