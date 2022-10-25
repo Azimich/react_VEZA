@@ -18,6 +18,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const newsSSR = (props: INewsData[]) => <News {...props} />;
+const newsSSR = (props: INewsData) => <News {...props} />;
 
 export default newsSSR;
