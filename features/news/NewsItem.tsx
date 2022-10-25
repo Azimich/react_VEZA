@@ -1,7 +1,9 @@
-import React from "react";
+import { FC } from "react";
+import { INewDataItem } from "./News";
 
-const NewsItem = () => {
-  return <div>NewsItem</div>;
+const NewsItem: FC<INewDataItem> = ({ title }) => {
+  console.log("title", { title });
+  return <div>{title}</div>;
 };
 
 export { NewsItem };
