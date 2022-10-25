@@ -11,7 +11,6 @@ const NewsWithOutItem: FC<INewDataItem> = ({
   title_wthout_desc,
   alias,
 }) => {
-  console.log("111", title_wthout_desc);
   return (
     <div className={Styles.new_with_out_container_item}>
       <img src={image_category} alt={title} />
