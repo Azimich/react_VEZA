@@ -3,10 +3,22 @@
 
 .documentation {
   padding: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
+  &__items {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  .modal__title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: color(dark);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
 
   &__modeles {
     width: 50%;
@@ -54,11 +66,16 @@
 }
 
 .download {
-  
   &__items {
     display: flex;
     align-items: flex-start;
     margin-bottom: 50px;
     gap: 100px;
+    &__block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 50px;
+    }
   }
 }
+

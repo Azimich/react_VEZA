@@ -8,7 +8,6 @@ export const Modal: FC<IModalProps> = ({
   isShow,
   hide,
   modalContent,
-  headerText,
   theme = "modal",
 }) => {
   const modal = (
@@ -17,12 +16,8 @@ export const Modal: FC<IModalProps> = ({
         className={`${Styles.modal_dialog} ${Styles[`theme__${theme}`]}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div onClick={hide}>
+        <div className={Styles.modal_close} onClick={hide}>
           <CloseIcon />
-        </div>
-        <div className={Styles.modal_header}>
-          <h3 className={Styles.modal_title}>{headerText}</h3>
-          <span className={Styles.modal_close} onClick={hide}></span>
         </div>
         <div className={Styles.modal_body}>
           <div className={Styles.modal_content}>{modalContent}</div>

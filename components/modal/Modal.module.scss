@@ -19,6 +19,13 @@
     padding: 0 10px;
   }
 
+  &_close {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    cursor: pointer;
+  }
+
   .modal_dialog {
     width: 100%;
     border-radius: 10px;
@@ -41,14 +48,6 @@
     .modal_header {
       padding: 30px 30px 0 30px;
       justify-content: space-between;
-      .modal_title {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 28px;
-        color: color(dark);
-        text-transform: uppercase;
-      }
     }
 
     .modal_body {
@@ -69,11 +68,7 @@
     &__full_modal {
       max-width: 1920px;
       height: 100vh;
-
-      .modal_dialog  {
-        border-radius: 0;
-        max-height: calc(100vh - 80px);
-      }
+      border-radius: 0;
     }
   }
 }
