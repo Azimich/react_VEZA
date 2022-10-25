@@ -3,420 +3,1265 @@ import Styles from "./Specification.module.scss";
 
 const SpecificationTable2: FC = () => {
   return (
-    <div className={Styles.specification_table1_box}>
-      <div className={Styles.specification_table1_box_left_item}>
-        <h2>Тип DHA 560 D4P 30 ID 131119</h2>
-        <table>
+    <div className={Styles.specification_table2_box}>
+      <table className={Styles.specification_table2_box_header}>
+        <tbody>
+          <tr>
+            <th className={Styles.specification_table2_box_header_title}>
+              Измерение шума (октавы)
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>М</th>
+            <th className={Styles.specification_table2_box_header_title}>
+              63Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              125Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              250Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              500Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              1kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              2kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              4kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              8kHz
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div className={Styles.specification_table2_box_table_container}>
+        <div
+          className={
+            Styles.specification_table2_box_table_container_right_block
+          }
+        >
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            УЗМ на выходе
+          </div>
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            LWA6
+          </div>
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            dW(A)
+          </div>
+        </div>
+        <table
+          className={
+            Styles.specification_table2_box_table_container_right_block_line
+          }
+        >
           <tbody>
             <tr>
-              <th className={Styles.specification_table1_box_left_item_title}>
-                Данные подключенной электрической установки
-              </th>
-            </tr>
-          </tbody>
-        </table>
-        <table>
-          <tbody>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Номин. частота
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                Hz
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                50
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Номин. напряжение
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                V
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                400
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Номин. мощность потребования
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                W
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                1958
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Макс. рабочий ток
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                А
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                4.8
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Фазы
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                1
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                3~
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Тип двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                85
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                3~
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Вид управления двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                63
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                V
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Защита двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                71
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                TAE
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Ёмкость конденсатора
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                uF
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                -
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Напряжение конденсатора
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                V
-              </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                -
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Класс изоляция двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                78
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                F
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                80
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                79
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                77
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                68
               </th>
             </tr>
             <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Количество полюсов
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                2
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                81
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                56
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                68
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                74
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                65
+              </th>
+            </tr>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                3
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                81
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                59
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                74
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                71
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                65
+              </th>
+            </tr>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
                 4
               </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Степень защиты двигателя IP
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                81
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                IP54
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Степень защиты соединительной коробки IP
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                61
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                IP44
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Степ. защиты устан. IP
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                69
               </th>
               <th
-                className={Styles.specification_table1_box_left_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                IPX4
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                76
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                68
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
               </th>
             </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_left_item_long}>
-                Мин. рабочая температура
+            <tr className="bottom__box-size">
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                5
               </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                °C
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                84
               </th>
-              <th className={Styles.specification_table1_box_left_item_col}>
-                -30
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                58
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                77
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                76
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                74
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                70
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                79
               </th>
             </tr>
           </tbody>
         </table>
       </div>
-      <div className={Styles.specification_table1_box_right_item}>
-        <table>
+      <table className={Styles.specification_table2_box_header}>
+        <tbody>
+          <tr>
+            <th className={Styles.specification_table2_box_header_title}>
+              Измерение шума (октавы)
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>М</th>
+            <th className={Styles.specification_table2_box_header_title}>
+              63Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              125Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              250Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              500Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              1kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              2kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              4kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              8kHz
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div className={Styles.specification_table2_box_table_container}>
+        <div
+          className={
+            Styles.specification_table2_box_table_container_right_block
+          }
+        >
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            УЗМ на входе
+          </div>
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            LWA5
+          </div>
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            dW(A)
+          </div>
+        </div>
+        <table
+          className={
+            Styles.specification_table2_box_table_container_right_block_line
+          }
+        >
           <tbody>
             <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Номин. частота
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                Hz
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                50
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Номин. напряжение
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                V
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                400
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Номин. мощность потребования
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                W
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                1958
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Макс. рабочий ток
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                А
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                4.8
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Фазы
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                1
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                3~
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Тип двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                85
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                3~
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Вид управления двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                63
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                V
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Защита двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                71
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                TAE
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Ёмкость конденсатора
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                uF
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                -
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Напряжение конденсатора
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                V
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                -
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Класс изоляция двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                78
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                F
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                80
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                79
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                77
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                68
               </th>
             </tr>
             <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Количество полюсов
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                2
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                81
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                56
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                68
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                74
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                65
+              </th>
+            </tr>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                3
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                81
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                59
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                74
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                71
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                65
+              </th>
+            </tr>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
                 4
               </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Степень защиты двигателя IP
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                81
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                IP54
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Степень защиты соединительной коробки IP
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                61
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                IP44
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Степ. защиты устан. IP
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                69
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                IPX4
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Мин. рабочая температура
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                °C
-              </th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                -30
-              </th>
-            </tr>
-            <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Тип двигателя
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                3~
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                76
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                68
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                73
               </th>
             </tr>
             <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Вид управления двигателя
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                5
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                V
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                84
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                58
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                72
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                75
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                77
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                76
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                74
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                70
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                79
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <table className={Styles.specification_table2_box_header}>
+        <tbody>
+          <tr>
+            <th className={Styles.specification_table2_box_header_title}>
+              Измерение шума (октавы)
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>М</th>
+            <th className={Styles.specification_table2_box_header_title}>
+              63Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              125Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              250Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              500Hz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              1kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              2kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              4kHz
+            </th>
+            <th className={Styles.specification_table2_box_header_title}>
+              8kHz
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div className={Styles.specification_table2_box_table_container}>
+        <div
+          className={
+            Styles.specification_table2_box_table_container_right_block
+          }
+        >
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            УЗМ на входе
+          </div>
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            LWA5
+          </div>
+          <div
+            className={
+              Styles.specification_table2_box_table_container_right_block_item
+            }
+          >
+            dW(A)
+          </div>
+        </div>
+        <table
+          className={
+            Styles.specification_table2_box_table_container_right_block_line
+          }
+        >
+          <tbody>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                1
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
               </th>
             </tr>
             <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Защита двигателя
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                2
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                TAE
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
               </th>
             </tr>
             <tr>
-              <th className={Styles.specification_table1_box_right_item_long}>
-                Защита двигателя
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                3
               </th>
               <th
-                className={Styles.specification_table1_box_right_item_col}
-              ></th>
-              <th className={Styles.specification_table1_box_right_item_col}>
-                TAE
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+            </tr>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                4
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+            </tr>
+            <tr>
+              <th
+                className={Styles.specification_table2_box_table_container_gray}
+              >
+                5
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
+              </th>
+              <th
+                className={
+                  Styles.specification_table2_box_table_container_green
+                }
+              >
+                -
               </th>
             </tr>
           </tbody>
