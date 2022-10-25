@@ -3,11 +3,18 @@
 
 .documentation {
   padding: 5%;
+  @include phoneScreen {
+    padding: 5% 0 0 0;
+  }
+
   &__items {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 50px;
+    @include ipadScreen {
+      flex-direction: column;
+    }
   }
 
   .modal__title {
@@ -18,10 +25,17 @@
     color: color(dark);
     text-transform: uppercase;
     margin-bottom: 25px;
+    @include phoneScreen {
+      margin-bottom: 10px;
+    }
   }
 
   &__modeles {
     width: 50%;
+    @include ipadScreen {
+      width: 100%;
+    }
+    
     &__item {
       display: flex;
       flex-direction: column;
@@ -36,8 +50,9 @@
         border-radius: 5px;
         margin-bottom: 12px;
         position: relative;
-        @media (max-width: 430px) {
-          padding: 5px;
+        @include phoneScreen {
+          padding: 10px;
+          font-size: 14px;
         }
 
         &:hover {
@@ -55,6 +70,10 @@
           position: absolute;
           transition: all 0.3s;
           right: 25px;
+          @include phoneScreen {
+            right: 10px;
+          }
+
           path {
             fill: #212121;
           }
@@ -69,12 +88,22 @@
   &__items {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 50px;
+    margin-bottom: 5%;
     gap: 100px;
+
     &__block {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 50px;
+      @include ipadScreen {
+        display: block;
+      }
+
+      li {
+        label {
+          cursor: pointer
+        }
+      }
     }
   }
 }

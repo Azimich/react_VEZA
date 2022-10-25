@@ -56,6 +56,9 @@
         padding: 20px 30px 30px 30px;
         color: color(dark);
         line-height: 20px;
+        @include phoneScreen {
+          padding: 20px;
+        }
       }
     }
   }
@@ -69,6 +72,7 @@
       max-width: 1920px;
       height: 100vh;
       border-radius: 0;
+      padding: 0;
     }
   }
 }
