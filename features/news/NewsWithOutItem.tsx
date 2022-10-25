@@ -12,26 +12,28 @@ const NewsWithOutItem: FC<INewDataItem> = ({
   alias,
 }) => {
   return (
-    <div className={Styles.new_with_out_container_item}>
-      <img src={image_category} alt={title} />
-      <div className={Styles.new_with_out_container_item_desc}>
-        {title_wthout_desc}
-      </div>
-      <div className={Styles.new_with_out_container_item_svg}>
-        <ReactAngleIcon />
-      </div>
-      <Button
-        link={newsPath + alias}
-        theme={"news"}
-        size={"context"}
-        color={"link"}
-      >
-        <div>
-          <span>Подробнее</span>
-          <ArrowRightIcon />
+    <li>
+      <div className={Styles.new_with_out_container_item}>
+        <img src={image_category} alt={title} />
+        <div className={Styles.new_with_out_container_item_desc}>
+          {title_wthout_desc}
         </div>
-      </Button>
-    </div>
+        <div className={Styles.new_with_out_container_item_svg}>
+          <ReactAngleIcon />
+        </div>
+        <Button
+          link={newsPath + alias}
+          theme={"news"}
+          size={"context"}
+          color={"link"}
+        >
+          <div>
+            <span>Подробнее</span>
+            <ArrowRightIcon />
+          </div>
+        </Button>
+      </div>
+    </li>
   );
 };
 
