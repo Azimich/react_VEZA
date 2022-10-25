@@ -1,6 +1,6 @@
-import { INewsData } from "./News";
+import { INewDataItem } from "./News";
 
-const NewsData: INewsData[] = [
+const NewsData: INewDataItem[] = [
   {
     id: 1,
     title: "Семинар-выставку в Калугу",
