@@ -3,10 +3,10 @@ import { FC } from "react";
 import { INewDataItem } from "../News";
 import Styles from "./NewsPageItem.module.scss";
 
-const NeswPageItem: FC<INewDataItem> = ({
+const NewsPageItem: FC<INewDataItem> = ({
   title,
-  image_full_news,
   desc_full,
+  image_full_news,
 }) => {
   return (
     <div className={Styles.news__active}>
@@ -27,4 +27,4 @@ const NeswPageItem: FC<INewDataItem> = ({
   );
 };
 
-export { NeswPageItem };
+export { NewsPageItem };
