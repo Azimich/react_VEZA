@@ -8,6 +8,7 @@ import { Button } from "components/button";
 const ModalForm: FC = () => {
   return (
     <div className={Styles.download}>
+      <h1 className={Styles.download__title}>Тип файла</h1>
       <ul className={Styles.download__items}>
         {modalFormData.map((e) => {
           return (

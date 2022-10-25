@@ -15,7 +15,7 @@ const DescriptionContainer: FC = () => {
     <Container className={"wrapper"}>
       <Description_Images />
       <div className={Styles.button}>
-        <Button children={"Документация"} size={"large"} onClick={toggle} />
+        <Button children={"Документация"} size={"max"} onClick={toggle} />
         <Modal
           isShow={isShow}
           hide={toggle}

@@ -1,12 +1,5 @@
 .Description_container {
-  max-width: 1000px;
-  margin-left: 70px;
   display: block;
-  button {
-    margin: 0 auto;
-    width: 280px;
-    padding: 25px 0;
-  }
 
   &_models {
     text-align: right;
@@ -51,6 +44,11 @@
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+  button {
+    margin: 0 auto;
+    width: 280px;
+    padding: 25px 0;
+  }
 }
 .typesizes__table_container {
   max-height: 470px;

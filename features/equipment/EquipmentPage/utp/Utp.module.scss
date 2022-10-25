@@ -118,6 +118,16 @@
 
 //Стили для окна БИМ
 .download {
+  &__title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: color(dark);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
   &__items {
     margin-bottom: 30px;
     li {
