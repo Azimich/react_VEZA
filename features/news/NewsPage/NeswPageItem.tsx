@@ -1,14 +1,28 @@
 import React from "react";
-// import NewsData from "../../news/mockData";
 import { FC } from "react";
+import { INewDataItem } from "../News";
+import Styles from "./NewsPageItem.module.scss";
 
-const NeswPageItem: FC = () => {
+const NeswPageItem: FC<INewDataItem> = ({
+  title,
+  image_full_news,
+  desc_full,
+}) => {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima autem vel
-      repudiandae vero distinctio nihil dolor assumenda aut repellendus saepe,
-      soluta ducimus hic, omnis facere commodi sequi? Voluptatum, consectetur
-      odio.
+    <div className={Styles.news__active}>
+      <div className={Styles.news__active__top}>
+        <div className={Styles.news__active__top__img}>
+          <img src={image_full_news} alt="news" />
+        </div>
+        <div className={Styles.news__active__info}>
+          <h1>{title}</h1>
+          <p>{desc_full}</p>
+        </div>
+        <p className={Styles.news__active__top__subtext}>{desc_full}</p>
+      </div>
+      <ul className={Styles.news__active__bottom}>
+        <li></li>
+      </ul>
     </div>
   );
 };

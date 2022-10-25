@@ -1,8 +1,9 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
-
+import { NewsData } from "../../features/news/mockData";
 import { NewsPage } from "features/news";
 import { GetStaticPaths } from "next";
+import { INewsData } from "features/news/News";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -12,16 +13,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async () => {
+  () => async (context) => {
+    const { params } = context;
+    console.log("2355", params.alias);
+
+    const mockData = NewsData.filter((item) => {
+      return item.alias === params.alias && item;
+    });
+
     return {
       props: {
-        data: "",
+        newsData: mockData,
       },
       revalidate: 10,
     };
   }
 );
 
-const newsSSR = (props: any) => <NewsPage {...props} />;
+const newsSSR = (props: INewsData) => <NewsPage {...props} />;
 
 export default newsSSR;
