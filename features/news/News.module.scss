@@ -1,3 +1,143 @@
-.news_container{
-  border: 1px solid red;
+.news_container {
+  &_item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: transparent;
+    margin-top: 40px;
+    transition: all 0.3s;
+    border-radius: 10px;
+
+    &:first-child {
+      margin-top: 140px;
+      transition: all 0.3s;
+    }
+
+    &:nth-child(even) {
+      .news_container_item_right {
+        order: 0;
+        border-radius: 10px 0 0 10px;
+      }
+
+      img {
+        order: 1;
+        border-radius: 0 10px 10px 0;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 17px #088122;
+      transition: all 0.3s;
+    }
+
+    &:hover &_right {
+      background-color: #0AB016;
+      transition: all 0.3s;
+
+      span {
+        color: white;
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+
+        path {
+
+          fill: white;
+        }
+      }
+
+      &_title {
+        color: white;
+        transition: all 0.3s;
+      }
+
+      &_desc {
+        color: white;
+        transition: all 0.3s;
+        padding-top: 20px;
+      }
+    }
+
+    img {
+      width: 543px;
+      height: 362px;
+      border-radius: 10px 0 0 10px;
+      overflow: hidden;
+      order: 0;
+    }
+
+    &_right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 40px;
+      transition: all 0.3s;
+      border-radius: 0 10px 10px 0;
+      order: 1;
+
+      span {
+        color: #212121;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      &_title {
+        font-weight: 600;
+        font-size: 35px;
+        font-style: normal;
+        line-height: 50px;
+        letter-spacing: 0.025em;
+        color: #212121;
+      }
+
+      &_desc {
+        font-family: "Ubuntu", sans-serif;
+        font-size: 16px;
+        line-height: 150%;
+        color: #212121;
+        padding-top: 20px;
+      }
+    }
+  }
+}
+.new_with_out_container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 100px;
+  gap: 40px;
+  &_item{
+    position: relative;
+    &_desc{
+      font-size: 16px;
+      line-height: 150%;
+      color: #212121;
+      text-align: center;
+      margin-top: 25px;
+      font-weight: 400;
+      transition: all 0.3s;
+    }
+    &_svg{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 406px;
+      height: 309px;
+      overflow: hidden;
+    }
+  }
+  img{
+    width: 100%;
+    border-radius: 20px;
+    transition: all 0.3s;
+    &:hover{
+      box-shadow: 0 0 17px #088122;
+    }
+  }
 }

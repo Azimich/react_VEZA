@@ -4,6 +4,7 @@ interface INewsData {
 interface INewDataItem {
   id: number;
   title: string;
+  title_wthout_desc: string;
   desc_small: string;
   desc_full: string;
   alias: string;
@@ -17,4 +18,4 @@ interface INewsImg {
   image: string;
 }
 
-export { INewsData, INewDataItem };
+export { INewsData, INewDataItem, INewsImg };
