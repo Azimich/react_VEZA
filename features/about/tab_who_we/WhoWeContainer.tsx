@@ -5,8 +5,9 @@ import { tabsAboutData } from "../../../components/tabs/mockdata";
 import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";
-import { WhoWeAbout } from "../index";
+import { Achievements, WhoWeAbout } from "../index";
 import { HistoryIcon } from "../../../components/icons";
+import { Separator } from "../../../components/separator";
 
 const WhoWeContainer = () => {
   const router = useRouter();
@@ -37,6 +38,8 @@ const WhoWeContainer = () => {
           allow={"allowfullscreen"}
         ></iframe>
       </div>
+      <Separator title={"наши достижения"} />
+      <Achievements />
     </Container>
   );
 };
