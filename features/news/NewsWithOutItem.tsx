@@ -17,9 +17,7 @@ const NewsWithOutItem: FC<INewDataItem> = ({
       <div className={Styles.new_with_out_container_item}>
         <img src={image_category} alt={title} />
         <div className={Styles.new_with_out_container_item_desc}>
-          <Link url={newsPath + alias}>
-            <a>{title_wthout_desc}</a>
-          </Link>
+          <Link url={newsPath + alias}>{title_wthout_desc}</Link>
         </div>
         <div className={Styles.new_with_out_container_item_svg}>
           <ReactAngleIcon />
