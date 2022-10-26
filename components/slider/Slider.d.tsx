@@ -1,13 +1,22 @@
 interface ISliderProps {
   items: ISlideItem[];
   dots?: boolean;
-  theme?: "home" | "industries" | "homecategory" | "pageProduct";
+  theme?:
+    | "home"
+    | "industries"
+    | "homecategory"
+    | "pageProduct"
+    | "zavodSlider";
   size?: "large" | "medium" | "small" | "max" | "context";
   themeButton?: "banner" | "news" | "industries";
   url?: string;
   color?: "white" | "green" | "link";
   OnClick?: () => void;
   autoplay?: boolean;
+  loop?: boolean;
+  slidesPerView?: number;
+  spaceBetween?: number;
+  navigation?: boolean;
   effectSlide?:
     | "slide"
     | "fade"
@@ -26,11 +35,16 @@ interface ISlideImages {
 
 interface ISlideItem {
   id?: number;
-  images: ISlideImages | string;
-  typeSlider: "img" | "video";
+  images?: ISlideImages | string;
+  typeSlider: "img" | "video" | "text";
   color?: "white" | "green" | "link";
   alt?: string;
-  theme?: "home" | "industries" | "homecategory" | "pageProduct";
+  theme?:
+    | "home"
+    | "industries"
+    | "homecategory"
+    | "pageProduct"
+    | "zavodSlider";
   themeButton?: "banner" | "news" | "industries";
   size?: "large" | "medium" | "small" | "max" | "context";
   block_description?: boolean;

@@ -23,6 +23,9 @@ const SliderContainer: FC<ISliderProps> = ({
   color = "white",
   autoplay = true,
   effectSlide = "slide",
+  spaceBetween = 0,
+  slidesPerView = 1,
+  loop = true,
 }) => {
   const pagination = {
     clickable: true,
@@ -31,9 +34,18 @@ const SliderContainer: FC<ISliderProps> = ({
       return '<span class="' + className + '">' + "</span>";
     },
   };
+
+  // const navigationButton = {
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  // };
+
   const slideEffect = {
     slideShadows: false,
   };
+
   const handleOnClick = (url: string) => {
     console.log("add ctatic click button", url);
   };
@@ -41,7 +53,10 @@ const SliderContainer: FC<ISliderProps> = ({
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCards]}
-      slidesPerView={1}
+      loop={loop}
+      slidesPerView={slidesPerView}
+      spaceBetween={spaceBetween}
+      // navigation={navigationButton}
       pagination={dots ? pagination : false}
       cardsEffect={slideEffect}
       effect={effectSlide}
