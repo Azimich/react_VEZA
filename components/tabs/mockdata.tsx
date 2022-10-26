@@ -11,6 +11,15 @@ const tabsAboutData: ITab[] = [
   { id: 3, title: "Вакансии", url: "job" },
 ];
 
+const tabsResourcesData: ITab[] = [
+  { id: 1, title: "BIM", url: "bim" },
+  { id: 2, title: "Каталоги", url: "catalog" },
+  { id: 3, title: "Вопросы", url: "questions" },
+  { id: 4, title: "Серетификаты", url: "certificates" },
+  { id: 5, title: "Документация", url: "doc" },
+  { id: 6, title: "Обучение", url: "training" },
+];
+
 const tabsTypoSizeData: ITab[] = [
   { id: 1, title: "Описание" },
   { id: 2, title: "Технические характеристики" },
@@ -18,4 +27,4 @@ const tabsTypoSizeData: ITab[] = [
   { id: 4, title: "Расчёты" },
 ];
 
-export { tabsAuthData, tabsTypoSizeData, tabsAboutData };
+export { tabsAuthData, tabsTypoSizeData, tabsAboutData, tabsResourcesData };

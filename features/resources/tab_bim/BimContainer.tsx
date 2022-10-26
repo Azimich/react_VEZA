@@ -1,30 +1,33 @@
 import { Container } from "../../../components/common/container";
-import Styles from "../references/References.module.scss";
+import Styles from "./Bim.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsAboutData } from "../../../components/tabs/mockdata";
+import { tabsResourcesData } from "../../../components/tabs/mockdata";
+
 import { useRouter } from "next/router";
 import { ITab } from "../../../components/tabs/Tabs";
-import { aboutPath } from "../../../utils/bootstrap";
+import { resourcesPath } from "../../../utils/bootstrap";
 
-const ReferencesContainer = () => {
+const BimContainer = () => {
   const router = useRouter();
 
   const handleOnClickTabs = (e: ITab) => {
-    router.push(aboutPath + e.url);
+    router.push(resourcesPath + e.url);
   };
   return (
     <Container className={"wrapper"}>
-      <div className={Styles.references_container}>
+      <div className={Styles.bim_container}>
         <Tabs
-          props={tabsAboutData}
+          props={tabsResourcesData}
           onClick={(e) => {
             handleOnClickTabs(e);
           }}
-          activeTab={2}
+          activeTab={1}
           size={"max"}
         />
       </div>
+      BIM OK
     </Container>
   );
 };
-export { ReferencesContainer };
+
+export { BimContainer };
