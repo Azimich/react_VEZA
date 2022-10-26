@@ -2,16 +2,17 @@ import { ReactNode } from "react";
 
 interface ITab {
   id?: number;
+  url?: string;
   title: string;
   size?: "small300" | "max";
   content?: ReactNode;
   tabsActive?: number;
-  onClick?: (id: number) => void;
+  onClick?: (e: ITab) => void;
 }
 
 interface ITabsProps {
   props: ITab[];
-  onClick: (id: number) => void;
+  onClick: (e: ITab) => void;
   activeTab?: number;
   size?: "small300" | "max";
 }

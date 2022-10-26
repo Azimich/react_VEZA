@@ -20,7 +20,7 @@ const TabsContainer: FC<ITabsProps> = ({
                 <TabsItem
                   {...e}
                   key={e.id}
-                  onClick={() => onClick(e.id)}
+                  onClick={() => onClick(e)}
                   tabsActive={activeTab}
                 />
               );

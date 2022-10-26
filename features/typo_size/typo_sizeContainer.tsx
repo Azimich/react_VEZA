@@ -4,7 +4,7 @@ import React, { FC, useState } from "react";
 import Styles from "./typo_size.module.scss";
 import { Menu } from "../equipment/menu/Menu";
 import { Tabs } from "../../components/tabs";
-import { IComponents } from "../../components/tabs/Tabs";
+import { IComponents, ITab } from "../../components/tabs/Tabs";
 import { tabsTypoSizeData } from "../../components/tabs/mockdata";
 import {
   TypeSizeSertificates,
@@ -15,8 +15,8 @@ import {
 
 const typo_sizeContainer: FC<{ data: ICatalogData[] }> = () => {
   const [activeTab, setActiveTabs] = useState(1);
-  const handleOnClick = (id: number) => {
-    setActiveTabs(id);
+  const handleOnClick = (e: ITab) => {
+    setActiveTabs(e.id);
   };
 
   const components: IComponents = {
@@ -33,7 +33,7 @@ const typo_sizeContainer: FC<{ data: ICatalogData[] }> = () => {
         <div className={Styles.typo_size_container_right}>
           <Tabs
             props={tabsTypoSizeData}
-            onClick={(id) => handleOnClick(id)}
+            onClick={(e: ITab) => handleOnClick(e)}
             activeTab={activeTab}
             size={"max"}
           >
