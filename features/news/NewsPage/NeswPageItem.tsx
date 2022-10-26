@@ -35,9 +35,6 @@ const NewsPageItem: FC<INewDataItem> = ({
             </li>
           );
         })}
-
-        {/* <li><img src={image_full_news} alt="news" /></li>
-        <li><img src={image_full_news} alt="news" /></li> */}
       </ul>
     </div>
   );
