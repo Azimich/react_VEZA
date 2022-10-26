@@ -1,11 +1,16 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .news_container {
   &_item {
     display: grid;
-    grid-template-columns: auto 1fr;
-    background-color: transparent;
     margin-top: 40px;
     transition: all 0.3s;
     border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
+    background-color: transparent;
+    row-gap: 10px;
+    margin-left: 5px;
 
     &:first-child {
       margin-top: 140px;
@@ -13,12 +18,22 @@
     }
 
     &:nth-child(even) {
+
       .news_container_item_right {
+        @include ipadScreen(){
+          order: 1;
+          border-radius:  0 0 10px 10px;
+        }
         order: 0;
         border-radius: 10px 0 0 10px;
       }
 
       img {
+        @include ipadScreen(){
+          order: 0;
+          border-radius: 10px 10px 0 0;
+
+        }
         order: 1;
         border-radius: 0 10px 10px 0;
       }
@@ -60,11 +75,15 @@
     }
 
     img {
-      width: 543px;
-      height: 362px;
+      width: 100%;
+      height: 376px;
       border-radius: 10px 0 0 10px;
       overflow: hidden;
       order: 0;
+      object-fit: cover;
+      @include ipadScreen(){
+        border-radius: 10px 10px 0 0;
+      }
     }
 
     &_right {
@@ -75,6 +94,9 @@
       transition: all 0.3s;
       border-radius: 0 10px 10px 0;
       order: 1;
+      @include ipadScreen(){
+        border-radius: 0 0 10px 10px;
+      }
 
       span {
         color: #212121;
@@ -107,61 +129,77 @@
     }
   }
 }
-.new_with_out_container{
+
+.new_with_out_container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
   margin-top: 100px;
   gap: 40px;
 
-  &_item{
-    &:hover img{
+  &_item {
+    &:hover img {
       box-shadow: 0 0 17px #088122;
     }
-    &:hover{
-      button{
+
+    &:hover {
+      button {
         padding-left: 20px;
         transition: all 0.3s;
       }
     }
-    button{
+
+    button {
       transition: all 0.3s;
 
       position: absolute;
       top: 3%;
       left: 3%;
       color: white;
-      svg{
+
+      svg {
         width: 22px;
         height: 22px;
-        path{
+
+        path {
           fill: white;
         }
       }
     }
+
     position: relative;
-    &_desc{
-      font-size: 16px;
-      line-height: 150%;
-      color: #212121;
+
+    &_desc {
       text-align: center;
       margin-top: 25px;
-      font-weight: 400;
-      transition: all 0.3s;
+
+      a {
+        font-size: 16px;
+        line-height: 150%;
+        color: #212121;
+        font-weight: 400;
+        transition: all 0.3s;
+
+        &:hover {
+          color: #088122;
+        }
+      }
     }
-    &_svg{
+
+    &_svg {
 
       svg {
         position: absolute;
         top: 0;
         left: 0;
-        width: 406px;
-        height: 309px;
+        width: 276px;
+        height: 209px;
         overflow: hidden;
         border-radius: 20px 0 0 0;
       }
     }
   }
-  img{
+
+  img {
     width: 100%;
     height: 330px;
     object-fit: cover;
