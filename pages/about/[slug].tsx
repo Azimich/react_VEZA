@@ -1,15 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
-import { About, WhoWe } from "../../features/about";
+import { Job, References, WhoWe } from "../../features/about";
+import React from "react";
+import { IComponents } from "../../components/tabs/Tabs";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [
-      { params: { slug: "/whowe" } },
-      { params: { slug: "/references" } },
-      { params: { slug: "/job" } },
-      { params: { slug: "/factory" } },
-    ],
+    paths: [],
     fallback: "blocking",
   };
 };
@@ -17,16 +14,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async (context) => {
     const { params } = context;
-
     return {
-      props: {},
+      props: { slug: params.slug },
       revalidate: 10,
     };
   }
 );
 
-const ContactsSSR = (props: any) => {
-  return <WhoWe {...props} />;
+const ContactsSSR = (props: { slug: string }) => {
+  const components: IComponents = {
+    tab_whowe: WhoWe,
+    tab_references: References,
+    tab_job: Job,
+  };
+  return React.createElement(components[`tab_${props.slug}`]);
 };
 
 export default ContactsSSR;

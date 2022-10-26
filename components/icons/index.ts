@@ -16,3 +16,4 @@ export { ArrowDownIcon } from "./includes/ArrowDownIcon";
 export { ArrowUpIcon } from "./includes/ArrowUpIcon";
 export { CloseIcon } from "./includes/CloseIcon";
 export { ReactAngleIcon } from "./includes/ReactAngleIcon";
+export { HistoryIcon } from "./includes/HistoryIcon";
