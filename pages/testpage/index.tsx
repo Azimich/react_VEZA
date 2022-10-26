@@ -1,4 +1,4 @@
-import { SliderTest } from "features/slider";
+import { SliderTest } from "features/testpage";
 import { GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
 
@@ -11,6 +11,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const HomeSSR = () => <SliderTest />;
+const testpageSSR = () => <SliderTest />;
 
-export default HomeSSR;
+export default testpageSSR;
