@@ -20,7 +20,7 @@ const ModalForm: FC = () => {
                   <li key={e.id}>
                     <CheckboxWithLabel
                       id={e.id}
-                      name={"bim" + e.id}
+                      name={"tab_bim" + e.id}
                       title={e.title}
                     />
                   </li>
