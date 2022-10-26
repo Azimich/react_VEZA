@@ -4,6 +4,7 @@ import Styles from "./News.module.scss";
 import { newsPath } from "../../utils/bootstrap";
 import { ArrowRightIcon, ReactAngleIcon } from "../../components/icons";
 import { Button } from "../../components/button";
+import { Link } from "../../components/link";
 
 const NewsWithOutItem: FC<INewDataItem> = ({
   title,
@@ -16,7 +17,9 @@ const NewsWithOutItem: FC<INewDataItem> = ({
       <div className={Styles.new_with_out_container_item}>
         <img src={image_category} alt={title} />
         <div className={Styles.new_with_out_container_item_desc}>
-          {title_wthout_desc}
+          <Link url={newsPath + alias}>
+            <a>{title_wthout_desc}</a>
+          </Link>
         </div>
         <div className={Styles.new_with_out_container_item_svg}>
           <ReactAngleIcon />
