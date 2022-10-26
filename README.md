@@ -93,7 +93,7 @@ npm run format
 Не глобальные компоненты необходимо хранить в месте применения, чаще всего в features. 
 
    Для каждого компонента создается папка с его названием в PascalCase. Код 
-   компонента описывается в файле, имеющем аналогичное название ExampleComponent.tsx Также создается файл index.ts в  
+   компонента описывается в файле, имеющем аналогичное название ExampleComponent.tsx Также создается файл index.tsx в  
    котором необходимо определить дефолтный/обычный экспорт, экспорт типов, любые экспорты необходимые для прямого доступа  
    к компоненту снаружи папки. 
 
@@ -128,7 +128,7 @@ npm run format
 
       Слайсов в одном модуле может быть несколько для более 
       удобной декомпозиции
-        - index.ts 
+        - index.tsx 
 
       Входная точка, в которой можно получить дефолтный экспорт для  
       подключения модуля. 
@@ -261,7 +261,7 @@ taken from components and "glued" in one container, or personal components creat
 
       There can be several slices in one module for more
       convenient decomposition
-    - index.ts
+    - index.tsx
     The input point at which you can get the default export for
     connecting the module.
  
