@@ -6,7 +6,7 @@ interface ISliderProps {
     | "industries"
     | "homecategory"
     | "pageProduct"
-    | "zavodSlider";
+    | "factorySlider";
   size?: "large" | "medium" | "small" | "max" | "context";
   themeButton?: "banner" | "news" | "industries";
   url?: string;
@@ -44,7 +44,7 @@ interface ISlideItem {
     | "industries"
     | "homecategory"
     | "pageProduct"
-    | "zavodSlider";
+    | "factorySlider";
   themeButton?: "banner" | "news" | "industries";
   size?: "large" | "medium" | "small" | "max" | "context";
   block_description?: boolean;

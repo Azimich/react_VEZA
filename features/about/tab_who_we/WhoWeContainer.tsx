@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";
 import { Achievements, WhoWeAbout } from "../index";
-import { HistoryIcon } from "../../../components/icons";
+import { HistoryIcon, WhoWeMapIcon } from "../../../components/icons";
 import { Separator } from "../../../components/separator";
 
 const WhoWeContainer = () => {
@@ -27,6 +27,7 @@ const WhoWeContainer = () => {
           size={"max"}
         />
       </div>
+      <WhoWeMapIcon />
       <WhoWeAbout />
       <div className={Styles.whowe_container_history_svg}>
         <HistoryIcon />

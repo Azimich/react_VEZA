@@ -13,6 +13,8 @@ import {
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import { NavigationOptions } from "swiper/types/modules/navigation";
+import Styles from "./Slider.module.scss";
 
 const SliderContainer: FC<ISliderProps> = ({
   items = [],
@@ -35,12 +37,11 @@ const SliderContainer: FC<ISliderProps> = ({
     },
   };
 
-  // const navigationButton = {
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  // };
+  const navigationButton: NavigationOptions = {
+    enabled: true,
+    nextEl: ".swiper-next",
+    prevEl: ".swiper-prev",
+  };
 
   const slideEffect = {
     slideShadows: false,
@@ -51,41 +52,55 @@ const SliderContainer: FC<ISliderProps> = ({
   };
 
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCards]}
-      loop={loop}
-      slidesPerView={slidesPerView}
-      spaceBetween={spaceBetween}
-      // navigation={navigationButton}
-      pagination={dots ? pagination : false}
-      cardsEffect={slideEffect}
-      effect={effectSlide}
-      autoplay={autoplay}
-      grabCursor={true}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {items.map((e, i) => {
-        return (
-          <SwiperSlide key={i}>
-            <SlideItem
-              images={e.images}
-              typeSlider={e.typeSlider}
-              theme={theme}
-              themeButton={themeButton}
-              size={size}
-              color={color}
-              alt={e.alt}
-              block_description={e.block_description}
-              title={e.title}
-              description={e.description}
-              url={e.url}
-              OnClick={(url) => handleOnClick(url)}
-            />
-          </SwiperSlide>
-        );
-      })}
-    </Swiper>
+    <>
+      {" "}
+      <div className={Styles.block_arrow}>
+        <div className={`swiper-next ${Styles.block_arrow_all}`}></div>
+        <div className={`swiper-prev ${Styles.block_arrow_all}`}></div>
+      </div>
+      <Swiper
+        modules={[
+          Navigation,
+          Pagination,
+          Scrollbar,
+          A11y,
+          Autoplay,
+          EffectCards,
+        ]}
+        loop={loop}
+        slidesPerView={slidesPerView}
+        spaceBetween={spaceBetween}
+        navigation={navigationButton}
+        pagination={dots ? pagination : false}
+        cardsEffect={slideEffect}
+        effect={effectSlide}
+        autoplay={autoplay}
+        grabCursor={true}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        {items.map((e, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <SlideItem
+                images={e.images}
+                typeSlider={e.typeSlider}
+                theme={theme}
+                themeButton={themeButton}
+                size={size}
+                color={color}
+                alt={e.alt}
+                block_description={e.block_description}
+                title={e.title}
+                description={e.description}
+                url={e.url}
+                OnClick={(url) => handleOnClick(url)}
+              />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ const AchievementsContainer: FC = () => {
     <div className={Styles.achievements_container}>
       <ul className={Styles.achievements_container}>
         {AchievementsData.map((e) => {
-          return <AchievementsItem {...e} />;
+          return <AchievementsItem {...e} key={e.id} />;
         })}
       </ul>
     </div>
