@@ -951,18 +951,39 @@
   }
 }
 
-.block_arrow{
+.block_arrow {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  margin-top: 3px;
+  transform: translateY(3px);
+  position: relative;
   z-index: 2;
-  &_all{
-    border: 1px solid red;
+
+  .button__next {
+    @include backgroundImage(cover);
+    background-image: url('../../public/images/arrow_next.svg'); 
+    right: 0;
+    left: auto;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 100%;
+  }
+
+  .button__prev {
+    @include backgroundImage(cover);
+    background-image: url('../../public/images/arrow_prev.svg'); 
+    left: 0;
+    right: auto;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 100%;
+  }
+
+  &_all {
     border-radius: 50%;
     height: 30px;
     width: 30px;
     cursor: pointer;
-
   }
 }
