@@ -924,9 +924,7 @@
     }
   }
 }
-
-.zavodSlider__history {
-
+.factorySlider__history {
 
   &__items {}
 
@@ -950,5 +948,21 @@
     &:hover {
       background-color: #c8c8c8;
     }
+  }
+}
+
+.block_arrow{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: 3px;
+  z-index: 2;
+  &_all{
+    border: 1px solid red;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+
   }
 }

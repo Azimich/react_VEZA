@@ -7,10 +7,10 @@ import Styles from "./SliderContainer.module.scss";
 const SliderTestContainer = () => {
   return (
     <Container className="wrapper">
-      <div className={Styles.zavod}>
+      <div className={Styles.factory}>
         <SliderContainer
           items={sliderFactoryData.items}
-          theme={"zavodSlider"}
+          theme={"factorySlider"}
           autoplay={true}
           loop={true}
           slidesPerView={6}
