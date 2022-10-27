@@ -6,19 +6,21 @@ import { ArrowRightIcon } from "../../components/icons";
 import { newsPath } from "../../utils/bootstrap";
 
 const NewsWithItem: FC<INewDataItem> = ({
-  title,
+  news_name,
   image_category,
-  desc_small,
+  short_description,
   alias,
 }) => {
   return (
     <div className={Styles.news_container_item}>
-      <img src={image_category} alt={title} />
+      <img src={image_category} alt={news_name} />
       <div className={Styles.news_container_item_right}>
         <div>
-          <h1 className={Styles.news_container_item_right_title}>{title}</h1>
+          <h1 className={Styles.news_container_item_right_title}>
+            {news_name}
+          </h1>
           <div className={Styles.news_container_item_right_desc}>
-            {desc_small}
+            {short_description}
           </div>
         </div>
         <Button

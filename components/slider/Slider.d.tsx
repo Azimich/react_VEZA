@@ -1,6 +1,7 @@
 interface ISliderProps {
   items: ISlideItem[];
   dots?: boolean;
+  navigations?: boolean;
   theme?:
     | "home"
     | "industries"

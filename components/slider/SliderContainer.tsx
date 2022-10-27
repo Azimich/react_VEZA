@@ -28,6 +28,7 @@ const SliderContainer: FC<ISliderProps> = ({
   spaceBetween = 0,
   slidesPerView = 1,
   loop = true,
+  navigations = false,
 }) => {
   const pagination = {
     clickable: true,
@@ -53,15 +54,16 @@ const SliderContainer: FC<ISliderProps> = ({
 
   return (
     <>
-      {" "}
-      <div className={Styles.block_arrow}>
-        <div
-          className={`swiper-next ${Styles.block_arrow_all} ${Styles.button__next}`}
-        ></div>
-        <div
-          className={`swiper-prev ${Styles.block_arrow_all} ${Styles.button__prev}`}
-        ></div>
-      </div>
+      {navigations && (
+        <div className={Styles.block_arrow}>
+          <div
+            className={`swiper-next ${Styles.block_arrow_all} ${Styles.button__next}`}
+          ></div>
+          <div
+            className={`swiper-prev ${Styles.block_arrow_all} ${Styles.button__prev}`}
+          ></div>
+        </div>
+      )}
       <Swiper
         modules={[
           Navigation,
