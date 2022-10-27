@@ -27,7 +27,9 @@ const WhoWeContainer = () => {
           size={"max"}
         />
       </div>
-      <WhoWeMapIcon />
+      <div className={Styles.whowe_map_container}>
+        <WhoWeMapIcon />
+      </div>
       <WhoWeAbout />
       <div className={Styles.whowe_container_history_svg}>
         <HistoryIcon />

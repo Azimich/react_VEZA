@@ -1,10 +1,11 @@
 import React from "react";
 import { FC } from "react";
+import Styles from "./StylesIcon.module.scss";
 
 const WhoWeMapIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      className="company__map-svg"
+      className={Styles.company__map_svg}
       width="1100"
       height="603"
       viewBox="0 0 1100 603"
