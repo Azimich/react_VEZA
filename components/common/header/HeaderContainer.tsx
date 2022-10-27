@@ -7,14 +7,22 @@ import { HeaderIcon } from "./headerIcon/HeaderIcon";
 
 const HeaderContainer: FC = () => {
   const [scrollData, setScrollData] = useState<number>(0);
-  useEffect(() => {
+
+  const handleScroll = () => {
     setScrollData(window.scrollY);
-    console.log(window.scrollY);
-  }, [scrollData]);
-  console.log(scrollData);
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Container className="wrapper">
-      <nav className={Styles.header__nav}>
+      <nav
+        className={
+          scrollData > 0 ? Styles.header__nav_active : Styles.header__nav
+        }
+      >
         <HeaderLogo />
         <HeaderNav />
         <HeaderIcon />

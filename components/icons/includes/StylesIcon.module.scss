@@ -76,3 +76,19 @@
     }
   }
 }
+
+.company__map_svg{
+  display: block;
+  width: 110%;
+  position: relative;
+
+  a {
+    &:hover {
+      path {
+        fill: #50944E;
+        stroke-width: 1px;
+        stroke: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+}
