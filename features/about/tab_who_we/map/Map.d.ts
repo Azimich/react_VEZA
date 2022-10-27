@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactNode } from "react";
 
 interface IMapData {
   id: number;
@@ -6,7 +6,6 @@ interface IMapData {
   alias: string;
   alt?: string;
   factory?: IFactory[];
-  icon?: React.SVGProps<SVGAElement>;
 }
 
 interface IFactory {

@@ -6,11 +6,15 @@ import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";
 import { Achievements, WhoWeAbout, WhoWeMap } from "../index";
-import { HistoryIcon } from "../../../components/icons";
+import { FactoryIcon, HistoryIcon } from "../../../components/icons";
 import { Separator } from "../../../components/separator";
+import { useEffect } from "react";
 
 const WhoWeContainer = () => {
   const router = useRouter();
+  useEffect(() => {
+    console.log(document.getElementById("arhangelskaya_obl"));
+  }, []);
 
   const handleOnClickTabs = (e: ITab) => {
     router.push(aboutPath + e.url);
