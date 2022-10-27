@@ -3,7 +3,6 @@ import { IAchievementsData } from "./Achievements";
 import Styles from "./Achievements.module.scss";
 
 const AchievementsItem: FC<IAchievementsData> = ({
-  id,
   description,
   video,
   poster,
