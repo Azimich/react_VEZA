@@ -35,12 +35,12 @@ const SliderContainer: FC<ISliderProps> = ({
     },
   };
 
-  // const navigationButton = {
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  // };
+  const navigationButton = {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  };
 
   const slideEffect = {
     slideShadows: false,
@@ -56,7 +56,6 @@ const SliderContainer: FC<ISliderProps> = ({
       loop={loop}
       slidesPerView={slidesPerView}
       spaceBetween={spaceBetween}
-      // navigation={navigationButton}
       pagination={dots ? pagination : false}
       cardsEffect={slideEffect}
       effect={effectSlide}
