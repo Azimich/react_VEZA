@@ -15,7 +15,7 @@ const SliderTestContainer = () => {
           loop={true}
           slidesPerView={6}
           spaceBetween={8}
-          navigation={true}
+          navigations={true}
         />
       </div>
     </Container>
