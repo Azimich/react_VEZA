@@ -5,8 +5,8 @@ import { tabsAboutData } from "../../../components/tabs/mockdata";
 import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";
-import { Achievements, WhoWeAbout } from "../index";
-import { HistoryIcon, WhoWeMapIcon } from "../../../components/icons";
+import { Achievements, WhoWeAbout, WhoWeMap } from "../index";
+import { HistoryIcon } from "../../../components/icons";
 import { Separator } from "../../../components/separator";
 
 const WhoWeContainer = () => {
@@ -28,7 +28,7 @@ const WhoWeContainer = () => {
         />
       </div>
       <div className={Styles.whowe_map_container}>
-        <WhoWeMapIcon />
+        <WhoWeMap />
       </div>
       <WhoWeAbout />
       <div className={Styles.whowe_container_history_svg}>

@@ -1,5 +1,6 @@
 interface IPeople {
   title: string;
+
   job: string;
   id: number;
   bigBoss?: boolean;
