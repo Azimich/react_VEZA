@@ -1,5 +1,5 @@
 import { Container } from "../../../components/common/container";
-import { NewsPageItem } from "./NeswPageFerst";
+import { NewsPageItem } from "./NewsPageFirst";
 import { FC } from "react";
 import { INewsData } from "../News";
 

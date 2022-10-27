@@ -23,18 +23,6 @@ interface INewDataItem {
   image_full_news: string;
 }
 
-// interface INewsImg {
-//   id?: number;
-//   images?: ISlideImages | string;
-//   typeSlider: "img" | "video" | "text";
-// }
-
-// interface ISlideImages {
-//   pc?: string;
-//   ipad?: string;
-//   mobile?: string;
-// }
-
 interface IKeyWord {
   paragraph: string;
 }
