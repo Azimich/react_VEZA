@@ -7,16 +7,16 @@ import { Button } from "../../components/button";
 import { Link } from "../../components/link";
 
 const NewsWithOutItem: FC<INewDataItem> = ({
-  title,
+  news_name,
   image_category,
   alias,
 }) => {
   return (
     <li>
       <div className={Styles.new_with_out_container_item}>
-        <img src={image_category} alt={title} />
+        <img src={image_category} alt={news_name} />
         <div className={Styles.new_with_out_container_item_desc}>
-          <Link url={newsPath + alias}>{title}</Link>
+          <Link url={newsPath + alias}>{news_name}</Link>
         </div>
         <div className={Styles.new_with_out_container_item_svg}>
           <ReactAngleIcon />
