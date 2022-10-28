@@ -79,16 +79,23 @@
 
 .company__map_svg{
   display: block;
-  width: 110%;
+  width: 100%;
+  height: 100%;
   position: relative;
 
   a {
+    cursor: pointer;
+    transition: all 0.3s;
     &:hover {
-      path {
+      transition: all 0.3s;
+      path, polygon {
+
+        transition: all 0.3s;
         fill: #50944E;
-        stroke-width: 1px;
+        stroke-width: 2px;
         stroke: rgba(255, 255, 255, 0.4);
       }
+
     }
   }
 }

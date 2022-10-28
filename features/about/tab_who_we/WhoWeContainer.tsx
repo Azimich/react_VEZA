@@ -5,12 +5,16 @@ import { tabsAboutData } from "../../../components/tabs/mockdata";
 import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";
-import { Achievements, WhoWeAbout } from "../index";
-import { HistoryIcon, WhoWeMapIcon } from "../../../components/icons";
+import { Achievements, WhoWeAbout, WhoWeMap } from "../index";
+import { FactoryIcon, HistoryIcon } from "../../../components/icons";
 import { Separator } from "../../../components/separator";
+import { useEffect } from "react";
 
 const WhoWeContainer = () => {
   const router = useRouter();
+  useEffect(() => {
+    console.log(document.getElementById("arhangelskaya_obl"));
+  }, []);
 
   const handleOnClickTabs = (e: ITab) => {
     router.push(aboutPath + e.url);
@@ -28,7 +32,7 @@ const WhoWeContainer = () => {
         />
       </div>
       <div className={Styles.whowe_map_container}>
-        <WhoWeMapIcon />
+        <WhoWeMap />
       </div>
       <WhoWeAbout />
       <div className={Styles.whowe_container_history_svg}>
