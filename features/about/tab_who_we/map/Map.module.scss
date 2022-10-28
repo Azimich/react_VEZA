@@ -1,6 +1,86 @@
-.whowe_map_container{
-  display: flex;
+.whowe_map_container {
+
   justify-content: center;
+  flex-direction: column;
   margin-bottom: 40px;
   position: relative;
+
+  .marker {
+
+    width: fit-content;
+    position: absolute;
+    cursor: pointer;
+    top: 561px;
+    left: 417px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+
+}
+.company__map_svg {
+
+  a {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.russia {
+      path, polygon {
+        fill: #207812;
+        stroke: rgba(255, 255, 255, 0.4);
+      }
+    }
+    &:hover {
+      transition: all 0.3s;
+
+      path, polygon {
+
+        transition: all 0.3s;
+        fill: #50944E;
+        stroke: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+.modal_title{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #009247;
+  margin-bottom: 20px;
+
+}
+.factory_info{
+  margin-bottom: 16px;
+  &_services{
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+}
+.factory_button{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0.025em;
+  color: #009247;
+  display: flex;
+  align-items: center;
+  svg{
+    width: 22px;
+    height: 22px;
+    transition: all 0.3s;
+    margin-left: 20px;
+    path{
+      fill: #009b00;
+    }
+
+  }
 }

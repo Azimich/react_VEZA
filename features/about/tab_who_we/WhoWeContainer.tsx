@@ -31,7 +31,7 @@ const WhoWeContainer = () => {
           size={"max"}
         />
       </div>
-      <div className={Styles.whowe_map_container}>
+      <div>
         <WhoWeMap />
       </div>
       <WhoWeAbout />

@@ -5,8 +5,8 @@ const FactoryIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="117"
-      height="118"
+      width="25"
+      height="25"
       viewBox="0 0 117 118"
       fill="none"
       {...props}

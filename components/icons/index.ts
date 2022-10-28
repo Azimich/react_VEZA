@@ -17,5 +17,5 @@ export { ArrowUpIcon } from "./includes/ArrowUpIcon";
 export { CloseIcon } from "./includes/CloseIcon";
 export { ReactAngleIcon } from "./includes/ReactAngleIcon";
 export { HistoryIcon } from "./includes/HistoryIcon";
-export { WhoWeMapIcon } from "./includes/WhoWeMapIcon";
 export { FactoryIcon } from "./includes/FactoryIcon";
+export { ArrowRightWithOutCircle } from "./includes/ArrowRightWithOutCircleIcon";
