@@ -1,4 +1,12 @@
+import { Container } from "components/common/container";
+import { FactoryItem } from "./FactoryItem";
+
 const FactoryContainer = () => {
-  return <div>Factory Container OK</div>;
+  return (
+    <Container className={"wrapper"}>
+      <FactoryItem />
+    </Container>
+  );
 };
+
 export { FactoryContainer };
