@@ -947,8 +947,8 @@ const factoryData: IFactory[] = [
     alias: "miass",
     factory: [
       {
-        xpx: 32,
-        ypx: 12,
+        xpx: 22,
+        ypx: 8,
         name: "Веза-Миасс",
         production_area: "16 900 м2",
         service_phone: "Тел: +7 495 989-47-20",
