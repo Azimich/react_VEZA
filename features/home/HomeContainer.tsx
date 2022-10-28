@@ -45,10 +45,7 @@ const HomeContainer = () => {
           effectSlide={"cards"}
           color={"link"}
         />
-        <Separator
-          title={"Выполнить подбор необходимого оборудования?"}
-          fontSize={"35px"}
-        />
+        <Separator title={"Выполнить подбор необходимого оборудования?"} />
         <SelectionContainer />
       </Container>
     </>

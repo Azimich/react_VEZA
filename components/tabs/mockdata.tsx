@@ -11,6 +11,12 @@ const tabsAboutData: ITab[] = [
   { id: 3, title: "Вакансии", url: "job" },
 ];
 
+const tabsContactsData: ITab[] = [
+  { id: 1, title: "Офис Продаж", url: "sale_office" },
+  { id: 2, title: "Взаимодействие", url: "interaction" },
+  { id: 3, title: "Техническая поддержка", url: "support" },
+];
+
 const tabsResourcesData: ITab[] = [
   { id: 1, title: "BIM", url: "bim" },
   { id: 2, title: "Каталоги", url: "catalog" },
@@ -27,4 +33,10 @@ const tabsTypoSizeData: ITab[] = [
   { id: 4, title: "Расчёты" },
 ];
 
-export { tabsAuthData, tabsTypoSizeData, tabsAboutData, tabsResourcesData };
+export {
+  tabsAuthData,
+  tabsTypoSizeData,
+  tabsAboutData,
+  tabsResourcesData,
+  tabsContactsData,
+};

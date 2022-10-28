@@ -2,8 +2,10 @@
 
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 40px;
+
   position: relative;
+  max-width: 1100px;
+  margin: 0 auto 40px;
 
   .marker {
 
