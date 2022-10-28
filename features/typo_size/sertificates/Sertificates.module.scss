@@ -1,29 +1,44 @@
-.sertificates_container{
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.sertificates_container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  &_titleimg{
+  &_titleimg {
     display: flex;
     flex-direction: column;
 
+  } 
+
+  span {
+    overflow: hidden;
+    margin-bottom: 3%;
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    img {
+      object-fit: cover;
+      transition: all 0.3s;
+    }
   }
+
   .title{
-    display: flex;
-    justify-content: center;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
     line-height: 140%;
-    color: #548848;
-    font-size: 18px;
-    max-width: 200px;
+    color: color(green);
+    font-size: 20px;
     margin: 0 auto 8px auto;
     transition: all 0.3s;
-    margin-top: 10px;
-
   }
-  .desc{
-    display: flex;
-    justify-content: center;
+
+  .desc {
     text-align: center;
+    line-height: 145%;
+    color: color(dark);
   }
 }

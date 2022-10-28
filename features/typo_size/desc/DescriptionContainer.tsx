@@ -29,7 +29,11 @@ const DescriptionContainer: FC = () => {
       </Accordeon>
       <Separator title={"Процесс монтажа"} />
       <div className={Styles.video}>
-        <video src="/images/banner_2.mp4" autoPlay={true}></video>
+        <video
+          src="/images/banner_2.mp4"
+          autoPlay={true}
+          controls={true}
+        ></video>
       </div>
     </Container>
   );

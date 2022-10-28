@@ -4,8 +4,6 @@ import { INewDataItem } from "../News";
 import Styles from "./NewsPageItem.module.scss";
 import { EyeIcon } from "components/icons";
 import { SliderContainer } from "../../../components/slider";
-import { sliderIndustries } from "../../../components/slider/mockData";
-import { NewsData } from "../mockData";
 
 const NewsPageItem: FC<INewDataItem> = ({
   news_name,

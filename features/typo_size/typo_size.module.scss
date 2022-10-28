@@ -4,6 +4,9 @@
   align-content: center;
   gap: 40px;
   padding-top: 40px;
+  @media (max-width: 1270px) {
+    display: block;
+  }
   &_right{
 
   }
