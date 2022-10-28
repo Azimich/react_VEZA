@@ -5,4 +5,5 @@ export { WhoWeAboutContainer as WhoWeAbout } from "./tab_who_we/about/WhoWeAbout
 export { AchievementsContainer as Achievements } from "./tab_who_we/achievements/AchievementsContainer";
 export { AchievementsItem } from "./tab_who_we/achievements/AchievementsItem";
 export { MapContainer as WhoWeMap } from "./tab_who_we/map/MapContainer";
+export { MapItem } from "./tab_who_we/map/MapItem";
 export type { IWhoWeAboutData } from "./tab_who_we/about/WhoWeAbout";
