@@ -5,6 +5,7 @@ interface ITab {
   url?: string;
   title: string;
   size?: "small300" | "max";
+  menu_style?: "link" | "button";
   content?: ReactNode;
   tabsActive?: number;
   onClick?: (e: ITab) => void;
@@ -12,6 +13,8 @@ interface ITab {
 
 interface ITabsProps {
   props: ITab[];
+  line?: boolean;
+  menu_style?: "link" | "button";
   onClick: (e: ITab) => void;
   activeTab?: number;
   size?: "small300" | "max";
