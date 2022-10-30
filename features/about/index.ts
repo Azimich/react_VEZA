@@ -9,4 +9,6 @@ export { CommercialContainer as Commercial } from "./tab_references/CommercialCo
 export { IndustrialContainer as Industrial } from "./tab_references/IndustrialContainer";
 export { SocialContainer as Social } from "./tab_references/SocialContainer";
 export { MapItem } from "./tab_who_we/map/MapItem";
+export { commercialData, socialData } from "./tab_references/mockData";
+export type { IReferencesImages } from "./tab_references/References";
 export type { IWhoWeAboutData } from "./tab_who_we/about/WhoWeAbout";
