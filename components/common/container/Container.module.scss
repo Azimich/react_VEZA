@@ -2,13 +2,12 @@
 @import '../../../styles/variables.scss';
 
 .wrapper {
-  max-width: 1500px;
-  margin: auto;
-  padding: 0 30px;
+  max-width: 1390px;
+  margin: 0  auto 30px;
 
   @include pcScreen {
-    max-width: 1500px;
-    padding: 0 30px;
+    max-width: 1390px;
+    margin: 0 30px;
   }
 
   @include tabletScreen {

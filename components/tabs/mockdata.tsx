@@ -10,7 +10,11 @@ const tabsAboutData: ITab[] = [
   { id: 2, title: "Референсы", url: "references" },
   { id: 3, title: "Вакансии", url: "job" },
 ];
-
+const tabsSocialData: ITab[] = [
+  { id: 1, title: "Комерческие", url: "commercial", tabsActive: 1 },
+  { id: 2, title: "Социальные", url: "social", tabsActive: 2 },
+  { id: 3, title: "Промышленные", url: "industrial", tabsActive: 3 },
+];
 const tabsContactsData: ITab[] = [
   { id: 1, title: "Офис Продаж", url: "sale_office" },
   { id: 2, title: "Взаимодействие", url: "interaction" },
@@ -39,4 +43,5 @@ export {
   tabsAboutData,
   tabsResourcesData,
   tabsContactsData,
+  tabsSocialData,
 };

@@ -5,5 +5,10 @@ export { WhoWeAboutContainer as WhoWeAbout } from "./tab_who_we/about/WhoWeAbout
 export { AchievementsContainer as Achievements } from "./tab_who_we/achievements/AchievementsContainer";
 export { AchievementsItem } from "./tab_who_we/achievements/AchievementsItem";
 export { MapContainer as WhoWeMap } from "./tab_who_we/map/MapContainer";
+export { CommercialContainer as Commercial } from "./tab_references/CommercialContainer";
+export { IndustrialContainer as Industrial } from "./tab_references/IndustrialContainer";
+export { SocialContainer as Social } from "./tab_references/SocialContainer";
 export { MapItem } from "./tab_who_we/map/MapItem";
+export { commercialData, socialData } from "./tab_references/mockData";
+export type { IReferencesImages } from "./tab_references/References";
 export type { IWhoWeAboutData } from "./tab_who_we/about/WhoWeAbout";
