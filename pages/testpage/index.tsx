@@ -1,4 +1,4 @@
-import { SliderTest } from "features/testpage";
+import { SliderTest } from "features/factory/factorySlider";
 import { GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
 

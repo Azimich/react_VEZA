@@ -3,6 +3,7 @@ import ISlideImages from "../../components/slider/Slider.d";
 interface INewsData {
   newsData: INewDataItem[];
 }
+
 interface INewDataItem {
   id: number;
   news_name: string;
