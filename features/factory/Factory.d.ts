@@ -1,13 +1,14 @@
 interface IFactory {
+  id?: number;
   firstTitle?: string;
-  text?: string;
-  img?: string;
-  items?: IFactoryItems[];
+  descroptionTop?: string;
+  items?: IFactoryItems;
 }
 
 interface IFactoryItems {
-  subText?: string;
   secondTitle?: string;
+  subText?: string;
+  img?: string;
 }
 
 export { IFactory, IFactoryItems };

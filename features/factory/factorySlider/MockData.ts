@@ -1,4 +1,4 @@
-import { ISliderProps } from "components/slider/Slider.d";
+import { ISliderProps } from "../../../components/slider/Slider.d";
 
 const sliderFactoryData: ISliderProps = {
   items: [

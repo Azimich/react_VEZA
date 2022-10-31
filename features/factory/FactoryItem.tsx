@@ -1,40 +1,31 @@
-import React from "react";
+import { FC } from "react";
+
+import { IFactory } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
 
-const FactoryItem = () => {
+const FactoryItem: FC<IFactory> = ({ firstTitle, descroptionTop, items }) => {
   return (
-    <div className={Styles.factory}>
-      <div className={Styles.factory__items}>
-        <div className={Styles.factory__item}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Dignissimos earum blanditiis rem laudantium corporis aut modi
-            assumenda explicabo. Repellendus, molestiae laboriosam? Vel facere
-            vitae dolor expedita aspernatur, id corporis natus in perferendis
-            magni neque, rerum commodi doloribus, quaerat nam sed laboriosam
-            harum voluptatem nulla quibusdam voluptate. Quaerat dicta pariatur
-            distinctio ut maiores ratione velit iure cum, facere repudiandae qui
-            est hic. Blanditiis perspiciatis odit vitae dicta eligendi, ipsum
-            asperiores nobis. Nulla dignissimos quo cumque rerum quos explicabo
-            dolores officiis dicta hic delectus, corrupti iure saepe ea quia
-            fugit consectetur facere tempore impedit aliquam architecto autem
-            voluptas nemo? Accusantium quidem itaque dolores qui nostrum,
-            consectetur ipsum. Voluptatibus harum ea magnam repellendus? Atque
-            expedita voluptatem, reiciendis totam libero minus nam velit
-            officiis sapiente, maiores fugit cupiditate laboriosam, voluptatum
-            ducimus magnam praesentium rem quod molestiae inventore. Sunt sint
-            porro optio, veritatis consectetur et excepturi nam dolor numquam?
-            Provident, ipsum. Tempore laboriosam impedit repellendus consectetur
-            suscipit necessitatibus, voluptatem rem illo deserunt corporis
-            reprehenderit! Ipsam vitae nisi facilis qui, ducimus labore libero
-            ipsa quae, porro voluptates repudiandae atque vero optio eligendi
-            incidunt iusto. Ipsum accusamus reiciendis culpa repellat incidunt
-            sit ad explicabo, illum, perferendis cum dolorum placeat amet ipsa,
-            unde nemo. Nostrum esse expedita sit.
-          </p>
+    <>
+      {items && (
+        <div className={Styles.factory__items}>
+          <div className={Styles.factory__items__top}>
+            <h1>{firstTitle}</h1>
+            <p>{descroptionTop}</p>
+          </div>
+          <div className={Styles.factory__items__bottom}>
+            <div className={Styles.factory__items__item}>
+              <div className={Styles.factory__items__item__unfo}>
+                <h2>{items?.secondTitle}</h2>
+                <p>{items?.subText}</p>
+              </div>
+              <div className={Styles.factory__items__image}>
+                <img src={"/images/" + items?.img} alt="factory" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
