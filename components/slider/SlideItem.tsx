@@ -15,9 +15,10 @@ const SlideItem: FC<ISlideItem> = ({
   block_description = false,
   title = "",
   description = "",
+  code,
   url = "",
   size = "medium",
-  //OnClick = () => {},
+  OnClick,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
@@ -99,7 +100,10 @@ const SlideItem: FC<ISlideItem> = ({
 
   const Text = () => {
     return (
-      <div className={Styles[`${theme}__history`]}>
+      <div
+        className={Styles[`${theme}__history`]}
+        onClick={() => OnClick(code)}
+      >
         <div className={Styles[`${theme}__history__items`]}>
           <div className={Styles[`${theme}__history__slide`]}>{title}</div>
         </div>

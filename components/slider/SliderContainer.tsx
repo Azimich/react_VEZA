@@ -28,6 +28,7 @@ const SliderContainer: FC<ISliderProps> = ({
   spaceBetween = 0,
   slidesPerView = 1,
   loop = true,
+  OnClick,
   navigations = false,
 }) => {
   const pagination = {
@@ -90,6 +91,7 @@ const SliderContainer: FC<ISliderProps> = ({
             <SwiperSlide key={i}>
               <SlideItem
                 images={e.images}
+                code={e.code}
                 typeSlider={e.typeSlider}
                 theme={theme}
                 themeButton={themeButton}
@@ -100,7 +102,7 @@ const SliderContainer: FC<ISliderProps> = ({
                 title={e.title}
                 description={e.description}
                 url={e.url}
-                OnClick={(url) => handleOnClick(url)}
+                OnClick={(url) => OnClick(url)}
               />
             </SwiperSlide>
           );

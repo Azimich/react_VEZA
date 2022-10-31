@@ -11,7 +11,6 @@ const FactoryContainer = () => {
   return (
     <Container className="wrapper">
       <FactorySliderContainer onClick={() => onClickFactory()} />
-      <FactoryItem />
       {FactoryData &&
         FactoryData.map((item) => {
           return <FactoryItem {...item} />;
