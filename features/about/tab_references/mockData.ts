@@ -1,68 +1,426 @@
 import { IReferencesImages } from "./References.d";
 
-const commercialData: IReferencesImages[] = [
+const referenceData: IReferencesImages[] = [
   {
     id: 1,
     image: "/images/inside.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "commercial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/bridge.jpg",
+          ipad: "/images/bridge.jpg",
+          mobile: "/images/bridge.jpg",
+        },
+      },
+    ],
   },
   {
     id: 2,
     image: "/images/bridge.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "commercial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
     id: 3,
     image: "/images/workplace.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "commercial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
     id: 4,
     image: "/images/bridge.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "commercial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
-    id: 4,
+    id: 15,
     image: "/images/inside.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "commercial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
-];
-const socialData: IReferencesImages[] = [
   {
-    id: 1,
+    id: 5,
     image: "/images/inside.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "social",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
-    id: 2,
+    id: 6,
     image: "/images/bridge.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "social",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
-    id: 3,
+    id: 7,
     image: "/images/workplace.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "social",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
-    id: 4,
+    id: 8,
     image: "/images/bridge.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "social",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
   {
-    id: 4,
+    id: 9,
     image: "/images/inside.jpg",
-    full_image: "",
     title: "название объекта",
+    type_code: "social",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
+  },
+  {
+    id: 10,
+    image: "/images/inside.jpg",
+    title: "название объекта",
+    type_code: "industrial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
+  },
+  {
+    id: 11,
+    image: "/images/bridge.jpg",
+    title: "название объекта",
+    type_code: "industrial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
+  },
+  {
+    id: 12,
+    image: "/images/workplace.jpg",
+    title: "название объекта",
+    type_code: "industrial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
+  },
+  {
+    id: 13,
+    image: "/images/bridge.jpg",
+    title: "название объекта",
+    type_code: "industrial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
+  },
+  {
+    id: 14,
+    image: "/images/inside.jpg",
+    title: "название объекта",
+    type_code: "industrial",
+    items: [
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+      {
+        id: 1,
+        block_description: false,
+        typeSlider: "img",
+        images: {
+          pc: "/images/inside.jpg",
+          ipad: "/images/inside.jpg",
+          mobile: "/images/inside.jpg",
+        },
+      },
+    ],
   },
 ];
 
-export { commercialData, socialData };
+export { referenceData };

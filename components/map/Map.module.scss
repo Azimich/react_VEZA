@@ -20,10 +20,14 @@
       transform: scale(1.5);
     }
   }
-
-
 }
+
 .company__map_svg {
+  width: 1100px;
+  margin: 0 auto 40px;
+  display: flex;
+  justify-content: center;
+  height: 590px;
 
   a {
     cursor: pointer;
@@ -34,21 +38,30 @@
         fill: #207812;
         stroke: rgba(255, 255, 255, 0.4);
       }
-    }
-    &:hover {
-      transition: all 0.3s;
 
-      path, polygon {
-
+      &.depro {
         transition: all 0.3s;
-        fill: #50944E;
-        stroke: rgba(255, 255, 255, 0.1);
+
+        &:hover {
+          path,
+          polygon {
+            transition: all 0.3s;
+            fill: #50944E;
+            stroke: rgba(255, 255, 255, 0.1);
+          }
+        }
       }
+
+    }
+
+    &.belarus {
+      transform: translate(-21px, -14px);
     }
   }
+
 }
 
-.modal_title{
+.modal_title {
   font-size: 20px;
   font-weight: 500;
   line-height: 23px;
@@ -57,9 +70,11 @@
   margin-bottom: 20px;
 
 }
-.factory_info{
+
+.factory_info {
   margin-bottom: 16px;
-  &_services{
+
+  &_services {
     display: flex;
     justify-content: space-between;
     color: gray;
@@ -67,7 +82,8 @@
     margin-bottom: 6px;
   }
 }
-.factory_button{
+
+.factory_button {
   font-size: 16px;
   font-weight: 500;
   line-height: 23px;
@@ -75,14 +91,17 @@
   color: #009247;
   display: flex;
   align-items: center;
-  svg{
+
+  svg {
     width: 22px;
     height: 22px;
     transition: all 0.3s;
     margin-left: 20px;
-    path{
+
+    path {
       fill: #009b00;
     }
 
   }
 }
+

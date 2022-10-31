@@ -5,7 +5,7 @@ import Styles from "./Map.module.scss";
 const MapItem: FC<IMapData> = (props) => {
   return (
     <a
-      className={Styles[props.country]}
+      className={`${Styles[props.country]} ${Styles[props.className]}`}
       data-region={props.alias}
       id={props.alias}
       dangerouslySetInnerHTML={{ __html: props.piece_svg }}

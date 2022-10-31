@@ -4,6 +4,7 @@ interface IMapData {
   country: "russia" | "belarus" | "tadjikistan";
   alias: string;
   alt?: string;
+  className?: string;
 }
 
 interface IFactoryItem {

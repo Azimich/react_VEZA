@@ -1,6 +1,69 @@
-.job_container{
+.job_container {
   max-width: 600px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  flex-direction: column;
+}
+
+.job_container_item {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 20px;
+  flex-direction: column;
+
+  li {
+
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 30px 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+
+    & > div {
+      &:last-child{
+        display: flex;
+        justify-content: flex-end;
+      }
+      div {
+        &.title {
+          font-size: 25px;
+          color: #212121;
+          margin-bottom: 12px;
+        }
+
+        &.address {
+          font-size: 18px;
+          font-weight: 600;
+          color: #212121b5;
+          margin-bottom: 8px;
+        }
+
+        &.desc {
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 150%;
+          color: #212121;
+        }
+      }
+
+    }
+  }
+}
+.vacancies__search_box{
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 970px;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  gap: 40px;
+  justify-content: center;
 }

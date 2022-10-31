@@ -1,5 +1,5 @@
 import Styles from "./Map.module.scss";
-import { FactoryIcon } from "../../../../components/icons";
+import { FactoryIcon } from "../icons";
 import React, { FC, useEffect, useState } from "react";
 import { IFactory } from "./Map";
 
@@ -25,7 +25,7 @@ const FactoryItem: FC<IFactory> = (props) => {
       relative_left: Child_Coord.left - Parent_Coord.left,
     });
   }, []);
-
+  console.log("relative_top", connection, relative_coord);
   return (
     <>
       {factory.map((e) => {
