@@ -3,9 +3,10 @@ import { FC } from "react";
 import { IFactory } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
 
-const FactoryItem: FC<IFactory> = ({ firstTitle, descroptionTop, items }) => {
+const FactoryItem: FC<IFactory> = (props) => {
   return (
-    <>
+    <></>
+    /*    <>
       {items && (
         <div className={Styles.factory__items}>
           <div className={Styles.factory__items__top}>
@@ -25,7 +26,7 @@ const FactoryItem: FC<IFactory> = ({ firstTitle, descroptionTop, items }) => {
           </div>
         </div>
       )}
-    </>
+    </>*/
   );
 };
 

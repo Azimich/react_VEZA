@@ -1,15 +1,20 @@
+interface IFactoryData {
+  code?: string;
+  itemsData?: IFactory[];
+}
 interface IFactory {
   id?: number;
   firstTitle?: string;
+  code?: string;
   descroptionTop?: string;
-  items?: IFactoryItems;
+  items?: IFactoryItems[];
 }
 
 interface IFactoryItems {
-  code?: string; //опредлеяем что за год выбран
+  code?: string;
   secondTitle?: string;
   subText?: string;
   img?: string;
 }
 
-export { IFactory, IFactoryItems };
+export { IFactory, IFactoryItems, IFactoryData };

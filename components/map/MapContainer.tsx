@@ -10,6 +10,7 @@ import { ModalFormFactory } from "./ModalFormFactory";
 const MapContainer: FC = () => {
   const { isShow, toggle } = useModal();
   const [contentForm, setContentForm] = useState<IFactoryItem>();
+
   const handleOnClick = (e: IFactoryItem, alias: string) => {
     e.alias = alias;
     setContentForm(e);
@@ -23,7 +24,7 @@ const MapContainer: FC = () => {
         width="100%"
         height="100%"
         id={"parent_map"}
-        viewBox="0 0 1100 620"
+        viewBox="0 0 1225 719"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
