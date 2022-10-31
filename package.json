@@ -123,7 +123,6 @@
     "react-dom": "^18.2.0",
     "react-player": "^2.11.0",
     "react-redux": "^8.0.4",
-    "react-slick": "^0.29.0",
     "react-spinners": "^0.13.4",
     "redux": "^4.1.1",
     "swiper": "^8.4.4",

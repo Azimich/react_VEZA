@@ -3,11 +3,11 @@
 
 .wrapper {
   max-width: 1390px;
-  margin: 0  auto 30px;
+  margin: 0 auto;
 
   @include pcScreen {
     max-width: 1390px;
-    margin: 0 30px;
+    margin: 0 auto;
   }
 
   @include tabletScreen {
