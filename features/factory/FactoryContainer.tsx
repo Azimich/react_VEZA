@@ -4,9 +4,13 @@ import { FactorySliderContainer } from "./factorySlider";
 import { FactoryData } from "./mockData";
 
 const FactoryContainer = () => {
+  const onClickFactory = () => {
+    console.log("12324");
+  };
+
   return (
-    <Container className={"wrapper"}>
-      <FactorySliderContainer />
+    <Container className="wrapper">
+      <FactorySliderContainer onClick={() => onClickFactory()} />
       <FactoryItem />
       {FactoryData &&
         FactoryData.map((item) => {
