@@ -2,8 +2,8 @@ import { IFactoryItem } from "./Map";
 import React, { FC } from "react";
 import Styles from "./Map.module.scss";
 import { ArrowRightWithOutCircle } from "components/icons";
-import { factoryPath } from "../../../../utils/bootstrap";
-import { Link } from "../../../../components/link";
+import { factoryPath } from "../../utils/bootstrap";
+import { Link } from "../link";
 
 const ModalFormFactory: FC<IFactoryItem> = (e) => {
   return (

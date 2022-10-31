@@ -1,9 +1,9 @@
 import Styles from "./Map.module.scss";
 import { factoryData, WhoWeMapData } from "./mockData";
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, useState } from "react";
 import { MapItem } from "./MapItem";
 import { FactoryItem } from "./FactoryItem";
-import { Modal, useModal } from "../../../../components/modal";
+import { Modal, useModal } from "../modal";
 import { IFactoryItem } from "./Map";
 import { ModalFormFactory } from "./ModalFormFactory";
 
@@ -12,10 +12,10 @@ const MapContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IFactoryItem>();
   const handleOnClick = (e: IFactoryItem, alias: string) => {
     e.alias = alias;
-    console.log("alias", e);
     setContentForm(e);
     toggle();
   };
+
   return (
     <div className={Styles.whowe_map_container}>
       <svg

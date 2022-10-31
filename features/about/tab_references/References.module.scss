@@ -1,9 +1,48 @@
-.references_container{
+.references_container {
   max-width: 600px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
 }
-.tabs_container{
+
+.tabs_container {
   display: block;
+
+  .tab_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+    padding: 0 0 8px 0;
+    margin-bottom: 80px;
+
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+
+      li {
+        padding-bottom: 22px;
+
+        span {
+          cursor: pointer;
+          transition: all 0.3s;
+          overflow: hidden;
+          object-fit: cover;
+
+          &:hover{
+            transform: scale(1.1);
+          }
+        }
+
+        p {
+          text-align: center;
+          color: #009247;
+          font-weight: 500;
+          font-size: 18px;
+          margin-top: 12px;
+        }
+      }
+    }
+
+  }
 }
