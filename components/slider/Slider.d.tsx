@@ -12,12 +12,13 @@ interface ISliderProps {
   themeButton?: "banner" | "news" | "industries";
   url?: string;
   color?: "white" | "green" | "link";
-  OnClick?: () => void;
+  OnClick?: (url: string) => void;
   autoplay?: boolean;
   loop?: boolean;
   slidesPerView?: number;
   spaceBetween?: number;
   navigation?: boolean;
+  code?: string;
   effectSlide?:
     | "slide"
     | "fade"
@@ -40,6 +41,7 @@ interface ISlideItem {
   typeSlider: "img" | "video" | "text";
   color?: "white" | "green" | "link";
   alt?: string;
+  code?: string;
   theme?:
     | "home"
     | "industries"

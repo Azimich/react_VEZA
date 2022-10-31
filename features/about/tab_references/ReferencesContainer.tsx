@@ -22,6 +22,7 @@ const ReferencesContainer = () => {
     tab_industrial: Industrial,
     tab_social: Social,
   };
+
   const handleOnClickTabs = (e: ITab) => {
     setData({ slug: e.url, activeTab: e.tabsActive });
   };
