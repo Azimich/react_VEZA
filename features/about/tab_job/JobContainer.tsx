@@ -10,6 +10,7 @@ import { JobItem } from "./JobItem";
 import { Separator } from "../../../components/separator";
 import { SelectorContainer } from "../../../components/selector/SelectorContainer";
 import { Button } from "components/button";
+import { MapContainer } from "../../../components/map/MapContainer";
 
 const JobContainer = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const JobContainer = () => {
         <SelectorContainer />
         <Button type={"button"} children={"Поиск"} />
       </div>
-
+      <MapContainer />
       <Separator title={"наши вакансии"} />
       <ul className={Styles.job_container_item}>
         {MockJob.map((e) => {
