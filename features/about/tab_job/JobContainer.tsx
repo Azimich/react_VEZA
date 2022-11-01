@@ -31,7 +31,7 @@ const JobContainer = () => {
       </div>
       <div className={Styles.vacancies__search_box}>
         <SelectorContainer />
-        <Button type={"button"}>Поиск</Button>
+        <Button type={"button"} children={"Поиск"} />
       </div>
 
       <Separator title={"наши вакансии"} />
