@@ -3,30 +3,34 @@ import { FC } from "react";
 import { IFactory } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
 
-const FactoryItem: FC<IFactory> = (props) => {
+const FactoryItem: FC<IFactory[]> = (props) => {
+  // console.log(props?.[0]?.items?.shift());
+  const topItems = props?.[0];
+  console.log(topItems);
+
+  const items = props?.[0]?.items?.shift();
+  console.log(items);
+
   return (
-    <></>
-    /*    <>
-      {items && (
-        <div className={Styles.factory__items}>
-          <div className={Styles.factory__items__top}>
-            <h1>{firstTitle}</h1>
-            <p>{descroptionTop}</p>
-          </div>
-          <div className={Styles.factory__items__bottom}>
-            <div className={Styles.factory__items__item}>
-              <div className={Styles.factory__items__item__unfo}>
-                <h2>{items?.secondTitle}</h2>
-                <p>{items?.subText}</p>
-              </div>
-              <div className={Styles.factory__items__image}>
-                <img src={"/images/" + items?.img} alt="factory" />
-              </div>
+    <>
+      <div className={Styles.factory__items}>
+        <div className={Styles.factory__items__top}>
+          <h1>{topItems?.firstTitle}</h1>
+          <p>{topItems?.descroptionTop}</p>
+        </div>
+        <div className={Styles.factory__items__bottom}>
+          <div className={Styles.factory__items__item}>
+            <div className={Styles.factory__items__item__unfo}>
+              <h2>{items?.secondTitle}</h2>
+              <p>{items?.subText}</p>
+            </div>
+            <div className={Styles.factory__items__image}>
+              <img src={"/images/" + items?.img} alt="factory" />
             </div>
           </div>
         </div>
-      )}
-    </>*/
+      </div>
+    </>
   );
 };
 

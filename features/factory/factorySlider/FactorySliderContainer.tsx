@@ -3,14 +3,22 @@ import { sliderFactoryData } from "../factorySlider/MockData";
 import { SliderContainer } from "../../../components/slider";
 import Styles from "./FactorySliderContainer.module.scss";
 import { ISliderData } from "./FactorySlider";
+import { FactoryItem } from "../FactoryItem";
+import { IFactoryData } from "../Factory";
+import { FactoryData } from "../mockData";
 
 const FactorySliderContainer: FC<ISliderData> = () => {
-  const [activePage, setActivePage] = useState<string>("2005");
+  const [activePage, setActivePage] = useState<string>("2000");
+  const [currentFactory, setcurrentFactory] = useState<IFactoryData[]>(() =>
+    FactoryData.filter((e) => e.code === "2000")
+  );
+
   const handleOnClick = (code: string) => {
     setActivePage(code);
+    setcurrentFactory(() => FactoryData.filter((e) => e.code === code));
   };
 
-  console.log("ooo", activePage);
+  console.log("ooo", currentFactory);
   return (
     <div className={Styles.factory}>
       <SliderContainer
@@ -18,12 +26,13 @@ const FactorySliderContainer: FC<ISliderData> = () => {
         theme={"factorySlider"}
         autoplay={false}
         loop={false}
-        slidesPerView={6}
+        slidesPerView={5}
         spaceBetween={8}
         navigations={true}
-        OnClick={(code) => handleOnClick(code)}
+        OnClick={(code: string) => handleOnClick(code)}
       />
       <div>{activePage}</div>
+      <FactoryItem {...currentFactory.shift().itemsData} />
     </div>
   );
 };

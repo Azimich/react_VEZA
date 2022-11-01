@@ -12,7 +12,7 @@ interface ISliderProps {
   themeButton?: "banner" | "news" | "industries";
   url?: string;
   color?: "white" | "green" | "link";
-  OnClick?: (url: string) => void;
+  OnClick?: (code: string) => void;
   autoplay?: boolean;
   loop?: boolean;
   slidesPerView?: number;
@@ -54,7 +54,7 @@ interface ISlideItem {
   title?: string;
   description?: string;
   url?: string;
-  OnClick?: (url: string) => void;
+  OnClick?: (code: string) => void;
   url_banner?: string;
 }
 
