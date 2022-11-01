@@ -17,6 +17,7 @@ const ReferencesContainer = () => {
     slug: "commercial",
     activeTab: 1,
   });
+
   const components: IComponents = {
     tab_commercial: Commercial,
     tab_industrial: Industrial,
