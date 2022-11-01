@@ -1,0 +1,36 @@
+.interaction_container {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  &_title {
+    h1 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 50px;
+      line-height: 70px;
+      letter-spacing: 0.015em;
+      text-transform: uppercase;
+      color: #212121;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 60px;
+      color: #515151;
+      text-align: center;
+    }
+
+    h3 {
+      font-style: normal;
+      font-size: 40px;
+      line-height: 50px;
+      letter-spacing: 0.025em;
+      color: #212121;
+      text-align: left;
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+  }
+}

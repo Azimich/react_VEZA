@@ -9,6 +9,7 @@ import { InteractionData } from "./InteractionData";
 import { Interaction } from "./Interaction";
 import { InteractionItem } from "./InteractionItem";
 import { TitleInteration } from "./TitleInteration";
+import { TitleTabs } from "../../../components/title_tabs";
 
 const InteractionContainer = () => {
   const router = useRouter();
@@ -28,7 +29,12 @@ const InteractionContainer = () => {
           size={"max"}
         />
       </div>
-      <TitleInteration />
+      <TitleTabs
+        title={"СВЯЖИТЕСЬ С НАМИ"}
+        desc={
+          "Чтобы получить ответы на ваши вопросы и быть в курсе всего происходящего"
+        }
+      />
       <h3 className={Styles.interaction_container_h3}>Наши отделы продаж</h3>
       <ul className={Styles.interaction_items}>
         {InteractionData.filter((e) => e.type === "sales").map(
