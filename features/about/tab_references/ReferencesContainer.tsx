@@ -10,6 +10,7 @@ import { Commercial, Industrial, Social } from "../index";
 import React, { useState } from "react";
 import { aboutPath } from "../../../utils/bootstrap";
 import { useRouter } from "next/router";
+import { MapContainer } from "../../../components/map/MapContainer";
 
 const ReferencesContainer = () => {
   const router = useRouter();
@@ -43,7 +44,7 @@ const ReferencesContainer = () => {
           size={"max"}
         />
       </div>
-
+      <MapContainer />
       <div className={Styles.tabs_container}>
         <Tabs
           props={tabsSocialData}

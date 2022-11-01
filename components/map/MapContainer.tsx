@@ -10,13 +10,19 @@ import { ModalFormFactory } from "./ModalFormFactory";
 const MapContainer: FC = () => {
   const { isShow, toggle } = useModal();
   const [contentForm, setContentForm] = useState<IFactoryItem>();
+  const [currentClass, setCurrentClass] = useState<string>("");
 
   const handleOnClick = (e: IFactoryItem, alias: string) => {
     e.alias = alias;
     setContentForm(e);
     toggle();
   };
-
+  const handleMouseHover: React.MouseEventHandler<HTMLElement> = (e) => {
+    setCurrentClass(e.currentTarget.dataset.class);
+  };
+  const handleMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
+    setCurrentClass("none");
+  };
   return (
     <div className={Styles.whowe_map_container}>
       <svg
@@ -29,7 +35,19 @@ const MapContainer: FC = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         {WhoWeMapData.map((e) => {
-          return <MapItem {...e} key={"map" + e.id} />;
+          return (
+            <MapItem
+              {...e}
+              key={"map" + e.id}
+              currentClass={currentClass}
+              onMouseEnter={(
+                e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+              ) => handleMouseHover(e)}
+              onMouseLeave={(
+                e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+              ) => handleMouseLeave(e)}
+            />
+          );
         })}
       </svg>
       {factoryData.map((e) => {
