@@ -1,25 +1,16 @@
-.banner_img {
-  height: 450px;
-  position: relative;
-}
 
 .decision__container {
   display: grid;
-  grid-template-columns: max-content max-content max-content;
-  column-gap: 40px;
-  row-gap: 40px;
-  justify-content: center;
-  position: relative;
-  top: -100px;
-  img{
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  img {
     border-radius: 20px;
   }
 
   &_item {
-    width: 315px;
-    /*
     filter: drop-shadow(0 -5px 1px rgba(255, 255, 255, .5));
-    */
+    border-radius: 20px;
+    overflow: hidden;
     position: relative;
     &_way_box {
       position: absolute;
@@ -34,7 +25,7 @@
         color: #fff;
         font-weight: 700;
         font-size: 25px;
-        line-height: 100%;
+        line-height: 120%;
         letter-spacing: 1px;
         padding: 20px 20px 0 20px;
       }
@@ -46,7 +37,6 @@
         letter-spacing: .025em;
         color: #ddd;
         padding: 10px 20px 3px 20px;
-
         display: -webkit-box;
         -webkit-line-clamp: 10;
         -webkit-box-orient: vertical;

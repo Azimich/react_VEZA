@@ -1,4 +1,6 @@
-.job_container{
-  min-width: 600px;
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 
+.job_container{
+  width: 100%;
 }

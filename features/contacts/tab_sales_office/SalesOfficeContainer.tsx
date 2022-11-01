@@ -5,6 +5,7 @@ import { ITab } from "../../../components/tabs/Tabs";
 import { contactsPath } from "../../../utils/bootstrap";
 import { useRouter } from "next/router";
 import Styles from "./SalesOffice.module.scss";
+import { SerchContainer } from "./serch/SerchContainer";
 
 const SalesOfficeContainer = () => {
   const router = useRouter();
@@ -25,6 +26,8 @@ const SalesOfficeContainer = () => {
           size={"max"}
         />
       </div>
+
+      <SerchContainer />
     </Container>
   );
 };
