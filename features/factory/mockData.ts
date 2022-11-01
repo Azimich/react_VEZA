@@ -69,6 +69,22 @@ const FactoryData: IFactoryData[] = [
       },
     ],
   },
+  {
+    code: "2022",
+    itemsData: [
+      {
+        id: 4,
+        items: [
+          {
+            secondTitle: "1995-2000 г.",
+            subText:
+              "Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+            img: "history_4.jpg",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export { FactoryData };

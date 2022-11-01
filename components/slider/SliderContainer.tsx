@@ -15,6 +15,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { NavigationOptions } from "swiper/types/modules/navigation";
 import Styles from "./Slider.module.scss";
+import { IFactoryData } from "features/factory/Factory";
 
 const SliderContainer: FC<ISliderProps> = ({
   items = [],
@@ -47,10 +48,6 @@ const SliderContainer: FC<ISliderProps> = ({
 
   const slideEffect = {
     slideShadows: false,
-  };
-
-  const handleOnClick = (url: string) => {
-    console.log("add ctatic click button", url);
   };
 
   return (
@@ -102,7 +99,7 @@ const SliderContainer: FC<ISliderProps> = ({
                 title={e.title}
                 description={e.description}
                 url={e.url}
-                OnClick={(url) => OnClick(url)}
+                OnClick={(code: string) => OnClick(code)}
               />
             </SwiperSlide>
           );
