@@ -13,6 +13,7 @@ const SelectorContainer = () => {
       isMulti
       options={SelectData}
       className={Styles.job_container}
+      placeholder={"Введите город"}
     />
   );
 };
