@@ -1,72 +1,80 @@
 import { ISalles } from "./SalesOffice";
+import { IOptionItem } from "../../../components/select/Select";
 
-const sallesOfficeData: ISalles[] = [
+const salesOfficeData: ISalles[] = [
   {
     code: "MSK",
     items: [
       {
         id: 1,
-        image: "/images/managers_1",
+        image: "/images/managers_1.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 2,
-        image: "/images/managers_1",
+        image: "/images/managers_2.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 3,
-        image: "/images/managers_1",
+        image: "/images/managers_3.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 4,
-        image: "/images/managers_1",
+        image: "/images/managers_4.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 5,
-        image: "/images/managers_1",
+        image: "/images/managers_5.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 6,
-        image: "/images/managers_1",
+        image: "/images/managers_1.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 7,
-        image: "/images/managers_3",
+        image: "/images/managers_1.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
       },
       {
         id: 8,
-        image: "/images/managers_3",
+        image: "/images/managers_3.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
       },
       {
         id: 9,
-        image: "/images/managers_3",
+        image: "/images/managers_2.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
       },
       {
         id: 10,
-        image: "/images/managers_3",
+        image: "/images/managers_4.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
       },
       {
         id: 11,
-        image: "/images/managers_3",
+        image: "/images/managers_5.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
       },
@@ -77,9 +85,9 @@ const sallesOfficeData: ISalles[] = [
     items: [
       {
         id: 12,
-        image: "/images/managers_3",
+        image: "/images/managers_3.jpg",
         title: "Фамилия Имя Отчество",
-        type_code: "secretary",
+        type_code: "director",
       },
       {
         id: 13,
@@ -121,4 +129,8 @@ const sallesOfficeData: ISalles[] = [
   },
 ];
 
-export { sallesOfficeData };
+const dataContactsCitySelect: IOptionItem[] = [
+  { value: "MSK", label: "Моска" },
+  { value: "PET", label: "Санкт-Петербург" },
+];
+export { salesOfficeData, dataContactsCitySelect };

@@ -5,8 +5,8 @@ import Styles from "./Support.module.scss";
 import { Input } from "../../../components/input/Index";
 import { CheckboxWithLabel } from "../../../components/checkbox";
 import { Button } from "../../../components/button";
-import { SelectorContainer } from "components/selector/SelectorContainer";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
+import { SelectContainer } from "components/select/SelectContainer";
 
 const SupportForm = () => {
   // Валидация формы
@@ -96,7 +96,7 @@ const SupportForm = () => {
         className={Styles.support__form__items}
         onSubmit={formik.handleSubmit}
       >
-        <SelectorContainer placeholder="Выберите тему" />
+        <SelectContainer optionsData={[]} placeholder="Выберите тему" />
         <div className={Styles.support__form__items__input}>
           <ul
             className={`${
@@ -255,8 +255,8 @@ const SupportForm = () => {
           </ul>
         </div>
         <div className={Styles.support__form__items__select}>
-          <SelectorContainer placeholder="Выберите страну" />
-          <SelectorContainer placeholder="Выберите город" />
+          <SelectContainer optionsData={[]} placeholder="Выберите страну" />
+          <SelectContainer optionsData={[]} placeholder="Выберите город" />
         </div>
         <div className={Styles.support__form__items__input}>
           <ul

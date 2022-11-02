@@ -32,7 +32,7 @@ const FactorySliderContainer: FC<ISliderData> = () => {
         OnClick={(code: string) => handleOnClick(code)}
       />
       <div>{activePage}</div>
-      <FactoryItem {...currentFactory.shift().itemsData} />
+      {/* <FactoryItem {...currentFactory} /> */}
     </div>
   );
 };
