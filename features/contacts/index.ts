@@ -5,4 +5,4 @@ export { DirectorContainer as Director } from "./tab_sales_office/DirectorContai
 export { SecretaryContainer as Secretary } from "./tab_sales_office/SecretaryContainer";
 export { LogisticContainer as Logistic } from "./tab_sales_office/LogisticContainer";
 export { SalesOfficeItem } from "./tab_sales_office/SalesOfficeItem";
-export { SerchContainer } from "./tab_sales_office/search/SerchContainer";
+export { SearchContainer } from "./tab_sales_office/search/SearchContainer";

@@ -9,7 +9,7 @@ import { IComponents, ITab } from "../../../components/tabs/Tabs";
 import { contactsPath } from "../../../utils/bootstrap";
 import { useRouter } from "next/router";
 import Styles from "./SalesOffice.module.scss";
-import { SerchContainer } from "./search/SerchContainer";
+import { SearchContainer } from "./search/SearchContainer";
 import { Director, Logistic, Secretary } from "../index";
 
 const SalesOfficeContainer = () => {
@@ -48,7 +48,7 @@ const SalesOfficeContainer = () => {
       </div>
       <div className={Styles.sales_office_container_items}>
         <h1>НАШИ МЕНЕДЖЕРЫ</h1>
-        <SerchContainer />
+        <SearchContainer />
         <Tabs
           props={tabsSalesData}
           onClick={(e) => {

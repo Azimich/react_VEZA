@@ -8,7 +8,7 @@ import { tabsAboutData } from "../../../components/tabs/mockdata";
 import { MockJob } from "./mockJob";
 import { JobItem } from "./JobItem";
 import { Separator } from "../../../components/separator";
-import { SelectorContainer } from "../../../components/selector/SelectorContainer";
+import { SelectContainer } from "../../../components/select/SelectContainer";
 import { Button } from "components/button";
 import { MapContainer } from "../../../components/map/MapContainer";
 
@@ -31,7 +31,7 @@ const JobContainer = () => {
         />
       </div>
       <div className={Styles.vacancies__search_box}>
-        <SelectorContainer />
+        <SelectContainer optionsData={[]} />
         <Button type={"button"} children={"Поиск"} />
       </div>
       <MapContainer />
