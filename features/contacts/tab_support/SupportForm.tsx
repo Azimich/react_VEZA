@@ -1,20 +1,14 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Styles from "../../auth/SignContainer.module.scss";
+import Styles from "./Support.module.scss";
 import { Input } from "../../../components/input/Index";
-import Select from "react-select";
 import { CheckboxWithLabel } from "../../../components/checkbox";
 import { Button } from "../../../components/button";
+import { SelectorContainer } from "components/selector/SelectorContainer";
+import { TextareaContainer } from "components/textarea/TextareaContainer";
 
 const SupportForm = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const options = [
-    { value: "Россия", label: "Москва" },
-    { value: "Казахстан", label: "Саратов" },
-    { value: "Белорусия", label: "Астрахань" },
-  ];
-
   // Валидация формы
   const formik = useFormik({
     initialValues: {
@@ -23,10 +17,8 @@ const SupportForm = () => {
       email: "",
       phone: "",
       company: "",
-      birthdate: "",
+      order: "",
       post: "",
-      password: "",
-      confirmPassword: "",
       forgot: false,
     },
     validationSchema: Yup.object({
@@ -48,23 +40,12 @@ const SupportForm = () => {
         .max(50, "Максимум 50 символов!")
         .required("Обязательно для заполнения!"),
       company: Yup.string()
-        // .min(6, "Минимум 6 символов!")
         .max(10, "Максимум 10 символов!")
         .required("Обязательно для заполнения!"),
-      birthdate: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
+      order: Yup.string()
+        .max(10, "Максимум 10 символов!")
         .required("Обязательно для заполнения!"),
       post: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      password: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Пароли должны совпадать")
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
         .required("Обязательно для заполнения!"),
@@ -73,6 +54,7 @@ const SupportForm = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
+
   const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
     const alhpabet = /[^а-яёa-z,]/iu;
     const target = e.target.value;
@@ -99,22 +81,28 @@ const SupportForm = () => {
       target.length > 20 ? target.substring(0, 20) : target
     );
   };
+  const handleOnChangeOrder = (e: ChangeEvent<HTMLInputElement>) => {
+    const numb = /[^0-9]/g;
+    const target = e.target.value.replace(numb, "");
+    formik.setFieldValue(
+      "order",
+      target.length > 10 ? target.substring(0, 10) : target
+    );
+  };
 
   return (
-    <div className={Styles.registration__form}>
+    <div className={Styles.support__form}>
       <form
-        className={Styles.registration__form__items}
+        className={Styles.support__form__items}
         onSubmit={formik.handleSubmit}
       >
-        <div className={Styles.registration__form__items__title}>
-          <h1>Регистрация</h1>
-        </div>
-        <div className={Styles.registration__form__items__input}>
+        <SelectorContainer placeholder="Выберите тему" />
+        <div className={Styles.support__form__items__input}>
           <ul
             className={`${
               formik.errors?.firstName && formik.touched?.firstName
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
@@ -139,8 +127,8 @@ const SupportForm = () => {
           <ul
             className={`${
               formik.errors?.lastName && formik.touched?.lastName
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
@@ -162,12 +150,12 @@ const SupportForm = () => {
             </div>
           </ul>
         </div>
-        <div className={Styles.registration__form__items__input}>
+        <div className={Styles.support__form__items__input}>
           <ul
             className={`${
               formik.errors?.email && formik.touched?.email
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
@@ -191,8 +179,8 @@ const SupportForm = () => {
           <ul
             className={`${
               formik.errors?.phone && formik.touched?.phone
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
@@ -214,12 +202,12 @@ const SupportForm = () => {
             </div>
           </ul>
         </div>
-        <div className={Styles.registration__form__items__input}>
+        <div className={Styles.support__form__items__input}>
           <ul
             className={`${
               formik.errors?.company && formik.touched?.company
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
@@ -242,37 +230,9 @@ const SupportForm = () => {
           </ul>
           <ul
             className={`${
-              formik.errors?.birthdate && formik.touched?.birthdate
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"birthdate"}
-              type={"date"}
-              title={"Дата рождения *"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.birthdate}
-            />
-            <div
-              className={`${
-                formik.errors?.birthdate && formik.touched?.birthdate
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.birthdate}</li>
-            </div>
-          </ul>
-        </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
               formik.errors?.post && formik.touched?.post
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
@@ -294,99 +254,46 @@ const SupportForm = () => {
             </div>
           </ul>
         </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.post && formik.touched?.post
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Select
-              className={Styles.registration__form__select}
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={options}
-            />
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.post && formik.touched?.post
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Select
-              className={Styles.registration__form__select}
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={options}
-            />
-          </ul>
+        <div className={Styles.support__form__items__select}>
+          <SelectorContainer placeholder="Выберите страну" />
+          <SelectorContainer placeholder="Выберите город" />
         </div>
-        <div className={Styles.registration__form__items__input}>
+        <div className={Styles.support__form__items__input}>
           <ul
             className={`${
-              formik.errors?.password && formik.touched?.password
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+              formik.errors?.order && formik.touched?.order
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
             <Input
-              name={"password"}
-              type={"password"}
-              title={"Пароль *"}
+              name={"order"}
+              title={"Номер заказа *"}
               className={Styles.input__item}
-              onChange={formik.handleChange}
+              onChange={(e) => handleOnChangeOrder(e)}
               onBlur={formik.handleBlur}
-              value={formik.values.password}
+              value={formik.values.order}
             />
             <div
               className={`${
-                formik.errors?.password && formik.touched?.password
+                formik.errors?.order && formik.touched?.order
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <li>{formik.errors.password}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.confirmPassword && formik.touched?.confirmPassword
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"confirmPassword"}
-              type={"password"}
-              title={"Подтвердите пароль *"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.confirmPassword}
-            />
-            <div
-              className={`${
-                formik.errors?.confirmPassword &&
-                formik.touched?.confirmPassword
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.confirmPassword}</li>
+              <li>{formik.errors.order}</li>
             </div>
           </ul>
         </div>
-        <div className={Styles.registration__form__item__forgot}>
-          <CheckboxWithLabel
-            name={"private_police"}
-            title={"Согласие на обработку персональных данных с условиями"}
-          />
+        <div className={Styles.support__form__items__textarea}>
+          <TextareaContainer children={"Ваше сообщение"} />
         </div>
-        <div className={Styles.registration__form__item__answer}>
-          <Button type={"submit"} children={"Зарегистрироваться"} />
+        <CheckboxWithLabel
+          name={"private_police"}
+          title={"Согласие на обработку персональных данных с условиями"}
+        />
+        <div className={Styles.support__form__item__answer}>
+          <Button type={"submit"} children={"Отпарвить"} />
           <span>
             <svg
               width="20"

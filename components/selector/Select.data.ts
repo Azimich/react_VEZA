@@ -5,4 +5,11 @@ const SelectData: IStateOption[] = [
   { value: "PET", label: "Санкт-Петербург" },
 ];
 
-export { SelectData };
+const SelectCitiesData: IStateOption[] = [
+  { value: "MSK", label: "Моска" },
+  { value: "PET", label: "Санкт-Петербург" },
+  { value: "MSK", label: "Моска" },
+  { value: "PET", label: "Санкт-Петербург" },
+];
+
+export { SelectData, SelectCitiesData };
