@@ -2,7 +2,7 @@ interface ISallesOffice {
   id: number;
   title: string;
   image: string;
-  type_code?: "director" | "logistician" | "secretary";
+  type_code?: "director" | "logistic" | "secretary";
   onClick?: (e) => void;
 }
 
