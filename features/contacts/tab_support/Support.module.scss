@@ -1,6 +1,159 @@
-.support_container{
-  max-width: 600px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+//Форма регистрации
+.support__form {
+  max-width: 850px;
+  margin: 30px auto 0;
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 40px 20px 25px 20px;
+  button {
+    width: 220px;
+  }
+
+  &__items {
+    overflow: hidden;
+    &__title {
+      h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: grey;
+      }
+    }
+
+    &__input {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    &__select {
+      margin: 20px 0 0 0;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    &__textarea { 
+      margin: 10px 0 20px 0; 
+    }    
+  }
+
+  &__item__answer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 30px 0 20px 0;
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: #ff0000;
+      padding: 11px 12px;
+      text-align: right;
+      border: 1px solid rgb(253, 253, 253);
+      background: #fff;
+      border-radius: 5px;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 40px;
+    row-gap: 40px;
+    @include phoneScreen {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0;
+    }
+    
+    ul {
+      width: 100%;
+    }
+
+    &:nth-child(6) {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    &__forgot {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &__item__input {
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 100%;
+    }
+
+    .overflow {
+      margin-top: 5px;
+      transition: all 0.3s;
+      height: 23px;
+      opacity: 0;
+      transform: translateY(-10px);
+      span {
+        margin: 0 0 0 10px;
+      }
+    }
+
+    &_error {
+      color: red;
+      border-radius: 8px;
+      font-size: 12px;
+      width: 100%;
+      .overflow__auto {
+        margin-top: 5px;
+        opacity: 1;
+        transition: all 0.3s;
+        transform: translateY(0px);
+        height: 23px;
+        span {
+          margin: 0 0 0 10px;
+        }
+      }
+
+      .input__item {
+        border-color: red;
+        width: 100%;
+      }
+    } 
+  }
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    @include phoneScreen {
+      flex-direction: column;
+      margin-top: 33px;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    @include phoneScreen {
+      width: 100%;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
