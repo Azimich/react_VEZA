@@ -1,29 +1,24 @@
 import React from "react";
-import { sallesOfficeData } from "./mockData";
 import Styles from "../Contacts.module.scss";
-import { ISalles } from "./SalesOffice";
+import { useAppSelector } from "../../../store/hooks";
+import { getSelectedOfficeSalesCity } from "../ContactsSlice";
+import { SalesOfficeItem } from "./SalesOfficeItem";
+import { salesOfficeData } from "./mockData";
 
 const DirectorContainer = () => {
-  // const [currentDirector, setCurrentDirector] = React.useState(() => sallesOfficeData.filter((e: ISalles) => e.code = "director"));
-
-  const directorsItems = sallesOfficeData.filter(
-    (e: ISalles) => e.items?.shift()?.type_code === "director"
-  );
-
-  console.log();
-
+  const selectedCity = useAppSelector(getSelectedOfficeSalesCity);
   return (
     <div className={Styles.director}>
       <div className={Styles.director__items}>
-        <div className={Styles.director__item}>
-          <div className={Styles.director__item__img}>
-            <img src="" alt="" />
-          </div>
-          <div className={Styles.director__item__info}>
-            <h3></h3>
-            <p></p>
-          </div>
-        </div>
+        {salesOfficeData
+          .filter((e) => e.code === selectedCity.value)
+          .map((data) => {
+            return data.items
+              .filter((dir) => dir.type_code === "director")
+              .map((itemData) => {
+                return <SalesOfficeItem key={itemData.id} {...itemData} />;
+              });
+          })}
       </div>
     </div>
   );

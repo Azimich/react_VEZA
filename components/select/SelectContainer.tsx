@@ -1,32 +1,31 @@
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import { SelectData } from "./Select.data";
-import Styles from "./Selector.module.scss";
+import Styles from "./Select.module.scss";
 import { FC } from "react";
-import { IStateOption } from "./Select";
+import { IOptionSetting } from "./Select";
+
 const animatedComponents = makeAnimated();
 
-const SelectorContainer: FC<IStateOption> = ({
+const SelectContainer: FC<IOptionSetting> = ({
   closeMenuOnSelect = true,
+  optionsData = [],
+  defaultValue = {},
   isMulti = false,
   placeholder = "",
   onChange,
 }) => {
-  const handleOnChange = (e: IStateOption) => {
-    return onChange(e);
-  };
-
   return (
     <Select
       closeMenuOnSelect={closeMenuOnSelect}
       components={animatedComponents}
+      defaultValue={defaultValue}
       isMulti={isMulti}
-      options={SelectData}
+      options={optionsData}
       className={Styles.job_container}
       placeholder={placeholder}
-      onChange={handleOnChange}
+      onChange={(e) => onChange(e)}
     />
   );
 };
 
-export { SelectorContainer };
+export { SelectContainer };
