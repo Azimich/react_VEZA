@@ -4,12 +4,9 @@ import { IFactory } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
 
 const FactoryItem: FC<IFactory> = (props) => {
-  // console.log(props?.[0]?.items?.shift());
   const topItems = props;
-  console.log(topItems);
 
-  const items = props.items?.shift();
-  console.log(items);
+  const items = props?.items?.shift();
 
   return (
     <>
