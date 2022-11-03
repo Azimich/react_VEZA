@@ -4,6 +4,7 @@ export { SupportContainer as Support } from "./tab_support/SupportContainer";
 export { DirectorContainer as Director } from "./tab_sales_office/DirectorContainer";
 export { SecretaryContainer as Secretary } from "./tab_sales_office/SecretaryContainer";
 export { LogisticContainer as Logistic } from "./tab_sales_office/LogisticContainer";
+export { YandexMap } from "./tab_sales_office/yandexMap/YandexMap";
 export { SalesOfficeItem } from "./tab_sales_office/SalesOfficeItem";
 export { SearchContainer } from "./tab_sales_office/search/SearchContainer";
 export { SupportGroups } from "./tab_support/SupportGroups";
