@@ -90,3 +90,35 @@
     }
   }
 }
+
+.support__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: rgb(108, 109, 112);
+    opacity: 0.9;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
+
+    &:first-child {
+      margin-right: 20px;
+      svg {
+        width: 26px;
+      }
+    }
+
+    svg {
+      margin-right: 5px;
+      path {
+        fill: #33953A;
+      }
+    }
+  }
+}
