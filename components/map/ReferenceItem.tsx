@@ -1,9 +1,9 @@
 import Styles from "./Map.module.scss";
-import { FactoryIcon } from "../icons";
+import { ReferenceIcon } from "../icons";
 import React, { FC, useEffect, useState } from "react";
 import { IObject } from "./Map";
 
-const FactoryItem: FC<IObject> = (props) => {
+const ReferenceItem: FC<IObject> = (props) => {
   const { alias, onClick, connection, factory } = props;
   const [relative_coord, setRelative_coord] = useState<{
     relative_top: number;
@@ -36,8 +36,8 @@ const FactoryItem: FC<IObject> = (props) => {
       }}
       onClick={() => onClick(factory, alias)}
     >
-      <FactoryIcon />
+      <ReferenceIcon />
     </div>
   );
 };
-export { FactoryItem };
+export { ReferenceItem };

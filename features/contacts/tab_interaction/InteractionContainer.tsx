@@ -1,6 +1,6 @@
 import Styles from "./Interaction.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsContactsData } from "../../../components/tabs/mockdata";
+import { tabsContactsData } from "../mockData";
 import { Container } from "../../../components/common/container";
 import { ITab } from "../../../components/tabs/Tabs";
 import { contactsPath } from "../../../utils/bootstrap";

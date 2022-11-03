@@ -1,9 +1,6 @@
 import React from "react";
 import { Tabs } from "../../../components/tabs";
-import {
-  tabsContactsData,
-  tabsSalesData,
-} from "../../../components/tabs/mockdata";
+import { tabsContactsData, tabsSalesData } from "../mockData";
 import { Container } from "../../../components/common/container";
 import { IComponents, ITab } from "../../../components/tabs/Tabs";
 import { contactsPath } from "../../../utils/bootstrap";

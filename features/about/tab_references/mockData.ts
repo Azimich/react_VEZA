@@ -1,4 +1,5 @@
 import { IReferencesImages } from "./References.d";
+import { IObject } from "../../../components/map/Map";
 
 const referenceData: IReferencesImages[] = [
   {
@@ -423,4 +424,106 @@ const referenceData: IReferencesImages[] = [
   },
 ];
 
-export { referenceData };
+const referenceObject: IObject[] = [
+  {
+    id: 1,
+    type_object: "social",
+    connection: "moskovskaya_obl",
+    factory: {
+      name: "miass",
+      xpx: 0,
+      ypx: 0,
+      items: [
+        {
+          id: 1,
+          block_description: false,
+          typeSlider: "img",
+          images: {
+            pc: "/images/inside.jpg",
+            ipad: "/images/inside.jpg",
+            mobile: "/images/inside.jpg",
+          },
+        },
+        {
+          id: 1,
+          block_description: false,
+          typeSlider: "img",
+          images: {
+            pc: "/images/bridge.jpg",
+            ipad: "/images/bridge.jpg",
+            mobile: "/images/bridge.jpg",
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: 2,
+    connection: "belgorodskaya_obl",
+    type_object: "commercial",
+    factory: {
+      xpx: 0,
+      ypx: 0,
+      name: "Название объекта",
+      address: "Адрес объекта",
+
+      items: [
+        {
+          id: 1,
+          block_description: false,
+          typeSlider: "img",
+          images: {
+            pc: "/images/inside.jpg",
+            ipad: "/images/inside.jpg",
+            mobile: "/images/inside.jpg",
+          },
+        },
+        {
+          id: 1,
+          block_description: false,
+          typeSlider: "img",
+          images: {
+            pc: "/images/inside.jpg",
+            ipad: "/images/inside.jpg",
+            mobile: "/images/inside.jpg",
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: 3,
+    type_object: "industrial",
+    connection: "Chelyabinskaya_obl",
+    factory: {
+      name: "Название объекта",
+      address: "Адрес объекта",
+      xpx: 0,
+      ypx: 0,
+      items: [
+        {
+          id: 1,
+          block_description: false,
+          typeSlider: "img",
+          images: {
+            pc: "/images/inside.jpg",
+            ipad: "/images/inside.jpg",
+            mobile: "/images/inside.jpg",
+          },
+        },
+        {
+          id: 1,
+          block_description: false,
+          typeSlider: "img",
+          images: {
+            pc: "/images/inside.jpg",
+            ipad: "/images/inside.jpg",
+            mobile: "/images/inside.jpg",
+          },
+        },
+      ],
+    },
+  },
+];
+
+export { referenceData, referenceObject };

@@ -1,10 +1,7 @@
 import { Container } from "../../../components/common/container";
 import Styles from "./References.module.scss";
 import { Tabs } from "../../../components/tabs";
-import {
-  tabsAboutData,
-  tabsSocialData,
-} from "../../../components/tabs/mockdata";
+import { tabsAboutData, tabsSocialData } from "../../contacts/mockData";
 import { IComponents, ITab } from "../../../components/tabs/Tabs";
 import { Commercial, Industrial, Social } from "../index";
 import React, { useState } from "react";

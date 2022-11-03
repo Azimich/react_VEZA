@@ -1,4 +1,4 @@
-.whowe_map_container {
+.map_container {
 
   justify-content: center;
   flex-direction: column;
@@ -111,4 +111,19 @@
 
   }
 }
-
+.side_bar{
+  position: absolute;
+  left: -60px;
+  top: 5px;
+  z-index: 1;
+  &_title{
+    font-weight: 400;
+    color: #9c9c9c;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  &_checkbox{
+    color: #9c9c9c;
+    cursor: pointer;
+  }
+}

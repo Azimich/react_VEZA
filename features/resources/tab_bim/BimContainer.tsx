@@ -1,7 +1,7 @@
 import { Container } from "../../../components/common/container";
 import Styles from "./Bim.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsResourcesData } from "../../../components/tabs/mockdata";
+import { tabsResourcesData } from "../../contacts/mockData";
 
 import { useRouter } from "next/router";
 import { ITab } from "../../../components/tabs/Tabs";

@@ -4,7 +4,7 @@ import { resourcesPath } from "../../../utils/bootstrap";
 import { Container } from "../../../components/common/container";
 import Styles from "./Questions.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsResourcesData } from "../../../components/tabs/mockdata";
+import { tabsResourcesData } from "../../contacts/mockData";
 
 const QuestionsContainer = () => {
   const router = useRouter();

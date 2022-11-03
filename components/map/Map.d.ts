@@ -1,4 +1,5 @@
 import React from "react";
+import { ISlideItem } from "../slider/Slider.d";
 
 interface IMapData {
   id: number;
@@ -13,20 +14,24 @@ interface IMapData {
 }
 
 interface IObjectItem {
-  xpx: number;
-  ypx: number;
-  name: string;
+  xpx?: number;
+  ypx?: number;
+  name?: string;
   alias?: string;
-  production_area: string;
-  service_phone: string;
-  logistic_phone: string;
-  address: string;
+  production_area?: string;
+  service_phone?: string;
+  logistic_phone?: string;
+  address?: string;
+  block_title?: string;
+  items?: ISlideItem[];
 }
+
 interface IObject {
-  id: number;
-  alias: string;
-  connection: string;
-  factory?: IObjectItem[];
+  id?: number;
+  alias?: string;
+  connection?: string;
+  type_object?: "commercial" | "social" | "industrial";
+  factory?: IObjectItem;
   onClick?: (e, alias) => void;
 }
 
