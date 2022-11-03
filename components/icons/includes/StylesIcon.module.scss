@@ -39,11 +39,18 @@
   }
 }
 
+.email__icon {
+  transition: all 0.3s;
+  color: #414141;
+  path {
+    fill: #414141;
+  }
+}
+
 .arrowDownIcon {
   transform: rotate(90deg);
   transition: all 0.3s;
   color: #414141;
-
   path {
     fill: #414141;
   }
@@ -53,16 +60,13 @@
   transform: rotate(-90deg);
   transition: all 0.3s;
   color: #414141;
-
   path {
     fill: #414141;
-
     .modal__close {
       position: absolute;
       right: 15px;
       top: 18px;
       cursor: pointer;
-
       &:hover {
         path {
           fill: #212121;

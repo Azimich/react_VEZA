@@ -7,6 +7,9 @@ import { Tabs } from "../../../components/tabs";
 import { tabsContactsData } from "../mockData";
 import { SupportForm } from "./SupportForm";
 import { TitleTabs } from "../../../components/title_tabs";
+import { SupportGroups } from "./SupportGroups";
+import { supportData } from "./mockData";
+import { Email, PhoneFooterIcon } from "components/icons";
 
 const SupportContainer = () => {
   const router = useRouter();
@@ -33,6 +36,21 @@ const SupportContainer = () => {
         }
       />
       <SupportForm />
+
+      <div className={Styles.support__phone}>
+        <a href="tel: +7 999 999 99 99">
+          <PhoneFooterIcon />
+          +7 999 999 99 99
+        </a>
+        <a href="msk@veza.ru">
+          <Email />
+          msk@veza.ru
+        </a>
+      </div>
+
+      {supportData.map((item, i) => {
+        return <SupportGroups key={i} {...item} />;
+      })}
     </Container>
   );
 };

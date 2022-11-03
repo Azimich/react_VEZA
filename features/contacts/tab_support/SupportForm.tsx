@@ -7,6 +7,11 @@ import { CheckboxWithLabel } from "../../../components/checkbox";
 import { Button } from "../../../components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
+import {
+  dataSupportCitySelect,
+  dataSupportCountrySelect,
+  dataSupportSubjectSelect,
+} from "./mockData";
 
 const SupportForm = () => {
   // Валидация формы
@@ -96,7 +101,12 @@ const SupportForm = () => {
         className={Styles.support__form__items}
         onSubmit={formik.handleSubmit}
       >
-        <SelectContainer optionsData={[]} placeholder="Выберите тему" />
+        {/* Доработать placeholder */}
+        <SelectContainer
+          optionsData={dataSupportSubjectSelect}
+          placeholder={"grfwv"}
+          onChange={() => {}}
+        />
         <div className={Styles.support__form__items__input}>
           <ul
             className={`${
@@ -255,8 +265,16 @@ const SupportForm = () => {
           </ul>
         </div>
         <div className={Styles.support__form__items__select}>
-          <SelectContainer optionsData={[]} placeholder="Выберите страну" />
-          <SelectContainer optionsData={[]} placeholder="Выберите город" />
+          <SelectContainer
+            optionsData={dataSupportCountrySelect}
+            placeholder="Выберите страну"
+            onChange={() => {}}
+          />
+          <SelectContainer
+            optionsData={dataSupportCitySelect}
+            placeholder="Выберите город"
+            onChange={() => {}}
+          />
         </div>
         <div className={Styles.support__form__items__input}>
           <ul

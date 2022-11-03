@@ -20,3 +20,4 @@ export { HistoryIcon } from "./includes/HistoryIcon";
 export { FactoryIcon } from "./includes/FactoryIcon";
 export { ArrowRightWithOutCircle } from "./includes/ArrowRightWithOutCircleIcon";
 export { ReferenceIcon } from "./includes/ReferenceIcon";
+export { Email } from "./includes/Email";

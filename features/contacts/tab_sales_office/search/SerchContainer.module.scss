@@ -17,17 +17,7 @@
     gap: 20px;
   }
 
-  button {
-    height: 38px;
-    @include ipadScreen {
-      height: 42px;
-    }
-  }
-
   &__select {
-    width: 80%;
-    @include ipadScreen {
-      width: 100%;
-    }
+    width: 100%;
   }
 }
