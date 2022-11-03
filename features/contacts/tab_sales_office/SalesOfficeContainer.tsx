@@ -11,6 +11,8 @@ import { useRouter } from "next/router";
 import Styles from "./SalesOffice.module.scss";
 import { SearchContainer } from "./search/SearchContainer";
 import { Director, Logistic, Secretary } from "../index";
+import { YandexMap } from "../index";
+import { SeparatorContainer } from "components/separator/SeparatorContainer";
 
 const SalesOfficeContainer = () => {
   const router = useRouter();
@@ -61,6 +63,11 @@ const SalesOfficeContainer = () => {
         >
           {React.createElement(components[`tab_${data.slug}`])}
         </Tabs>
+
+        <div>
+          <SeparatorContainer title={"Филиалы"} />
+          <YandexMap />
+        </div>
       </div>
     </Container>
   );
