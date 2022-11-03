@@ -4,10 +4,14 @@
 //Форма регистрации
 .support__form {
   max-width: 850px;
-  margin: 30px auto 0;
+  margin: 30px auto 60px;
   background: #f3f3f3;
   border-radius: 10px;
   padding: 40px 20px 25px 20px;
+  @media (max-width: 500px) {
+    padding: 40px 10px 25px 10px;
+  }
+
   button {
     width: 220px;
   }
@@ -26,13 +30,21 @@
       display: flex;
       justify-content: space-between;
       gap: 40px;
+      @include phoneScreen {
+        flex-direction: column;
+        gap: 0;
+      }
     }
 
     &__select {
-      margin: 20px 0 0 0;
+      margin: 18px 0 0 0;
       display: flex;
       align-items: center;
       gap: 40px;
+      @include phoneScreen {
+        flex-direction: column;
+        gap: 35px;
+      }
     }
 
     &__textarea { 
@@ -45,6 +57,13 @@
     align-items: flex-end;
     justify-content: space-between;
     margin: 30px 0 20px 0;
+    @include phoneScreen {
+      flex-direction: column-reverse;
+      justify-content: start;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
     span {
       display: flex;
       align-items: center;
@@ -157,3 +176,41 @@
     }
   }
 }
+
+//Теплеграм каналы
+.group__items {
+  margin-bottom: 20px;  
+  .group__item {
+    background-color: #f3f3f3;
+    opacity: 0.8;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease 0s;
+      &:hover {
+      box-shadow: 0px 5px 30px rgba(20, 20, 20, 0.3);
+      transform: translateY(-3px);
+      transition: all 0.3s;
+    }
+    
+    h2 {
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: color(dark);
+      font-weight: 500;
+    }
+
+    h4 {
+      font-weight: 500;
+      color: color(dark);
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 145%;
+    }
+  }
+}
+

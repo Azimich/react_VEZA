@@ -6,3 +6,4 @@ export { SecretaryContainer as Secretary } from "./tab_sales_office/SecretaryCon
 export { LogisticContainer as Logistic } from "./tab_sales_office/LogisticContainer";
 export { SalesOfficeItem } from "./tab_sales_office/SalesOfficeItem";
 export { SearchContainer } from "./tab_sales_office/search/SearchContainer";
+export { SupportGroups } from "./tab_support/SupportGroups";

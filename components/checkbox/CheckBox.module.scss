@@ -19,6 +19,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 12px;
+    color: #525252;
+    line-height: 125%;
     @include phoneScreen {
       align-items: start;
     }
