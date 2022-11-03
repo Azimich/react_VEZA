@@ -5,7 +5,7 @@ import Styles from "./typo_size.module.scss";
 import { Menu } from "../equipment/menu/Menu";
 import { Tabs } from "../../components/tabs";
 import { IComponents, ITab } from "../../components/tabs/Tabs";
-import { tabsTypoSizeData } from "../../components/tabs/mockdata";
+import { tabsTypoSizeData } from "../contacts/mockData";
 import {
   TypeSizeSertificates,
   TypoSizeSpecification,

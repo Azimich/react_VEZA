@@ -4,7 +4,7 @@ import { aboutPath } from "../../../utils/bootstrap";
 import { Container } from "../../../components/common/container";
 import Styles from ".//Job.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsAboutData } from "../../../components/tabs/mockdata";
+import { tabsAboutData } from "../../contacts/mockData";
 import { MockJob } from "./mockJob";
 import { JobItem } from "./JobItem";
 import { Separator } from "../../../components/separator";

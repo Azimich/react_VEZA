@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tabs } from "components/tabs";
-import { tabsAuthData } from "components/tabs/mockdata";
+import { tabsAuthData } from "features/contacts/mockData";
 import { SingInForm } from "./SingInForm";
 import { SingUpForm } from "./SingUpForm";
 import { IComponents, ITab } from "components/tabs/Tabs";

@@ -1,4 +1,4 @@
-import { ITab } from "./Tabs";
+import { ITab } from "../../components/tabs/Tabs";
 
 const tabsAuthData: ITab[] = [
   { id: 1, title: "Вход" },

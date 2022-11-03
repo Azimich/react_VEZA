@@ -1,7 +1,7 @@
 import { ITab } from "components/tabs/Tabs";
 import { Container } from "../../../components/common/container";
 import { Tabs } from "../../../components/tabs";
-import { tabsAboutData } from "../../../components/tabs/mockdata";
+import { tabsAboutData } from "../../contacts/mockData";
 import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";

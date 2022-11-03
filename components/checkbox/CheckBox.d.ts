@@ -2,6 +2,8 @@ interface ICheckBox {
   title?: string;
   turnOn?: boolean;
   turnOff?: boolean;
+  classCheck?: string;
+  onChange?: () => void;
   name: string;
   id?: number;
 }

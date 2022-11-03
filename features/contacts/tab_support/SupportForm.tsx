@@ -12,7 +12,6 @@ import {
   dataSupportCountrySelect,
   dataSupportSubjectSelect,
 } from "./mockData";
-import { Placeholder } from "react-select/animated";
 
 const SupportForm = () => {
   // Валидация формы

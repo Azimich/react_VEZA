@@ -4,7 +4,7 @@ import { resourcesPath } from "../../../utils/bootstrap";
 import { Container } from "../../../components/common/container";
 import Styles from "./Certificates.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsResourcesData } from "../../../components/tabs/mockdata";
+import { tabsResourcesData } from "../../contacts/mockData";
 
 const CertificatesContainer = () => {
   const router = useRouter();

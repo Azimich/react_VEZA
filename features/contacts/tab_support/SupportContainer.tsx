@@ -4,7 +4,7 @@ import { contactsPath } from "../../../utils/bootstrap";
 import { Container } from "../../../components/common/container";
 import Styles from "../tab_interaction/Interaction.module.scss";
 import { Tabs } from "../../../components/tabs";
-import { tabsContactsData } from "../../../components/tabs/mockdata";
+import { tabsContactsData } from "../mockData";
 import { SupportForm } from "./SupportForm";
 import { TitleTabs } from "../../../components/title_tabs";
 import { SupportGroups } from "../tab_support/SupportGroups";
