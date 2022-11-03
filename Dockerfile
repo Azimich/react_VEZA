@@ -1,22 +1,29 @@
-FROM node:lts as dependencies
-WORKDIR /veza_front
-COPY package.json ./
-RUN npm install --frozen-lockfile
+FROM node:latest
 
-FROM node:lts as builder
-WORKDIR /veza_front
-COPY . .
-COPY --from=dependencies /veza_front/node_modules ./node_modules
-RUN yarn build
+#Creates directories
+RUN mkdir -p /veza/front
+#Sets an environment variable
+ENV PORT 3000
 
-FROM node:lts as runner
-WORKDIR /veza_front
-ENV NODE_ENV production
+#Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD commands
+WORKDIR /veza/front
 
-COPY --from=builder /veza_front/public ./public
-COPY --from=builder /veza_front/package.json ./package.json
-COPY --from=builder /veza_front/.next ./.next
-COPY --from=builder /veza_front/node_modules ./node_modules
+#Copy new files or directories into the filesystem of the container
+COPY package.json /veza/front
+COPY package-lock.json /veza/front
 
+#Execute commands in a new layer on top of the current image and commit the results
+RUN npm install
+
+##Copy new files or directories into the filesystem of the container
+COPY . /veza/front
+
+
+#Execute commands in a new layer on top of the current image and commit the results
+RUN npm run build
+
+#Informs container runtime that the container listens on the specified network ports at runtime
 EXPOSE 3000
-CMD ["npm", "start"]
+
+#Allows you to configure a container that will run as an executable
+ENTRYPOINT ["npm", "run"]
