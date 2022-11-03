@@ -1,11 +1,11 @@
-import { IFactoryItem } from "./Map";
+import { IObjectItem } from "./Map";
 import React, { FC } from "react";
 import Styles from "./Map.module.scss";
 import { ArrowRightWithOutCircle } from "components/icons";
 import { factoryPath } from "../../utils/bootstrap";
 import { Link } from "../link";
 
-const ModalFormFactory: FC<IFactoryItem> = (e) => {
+const ModalFormFactory: FC<IObjectItem> = (e) => {
   return (
     <div>
       <div className={Styles.modal_title}>{e.name}</div>

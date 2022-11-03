@@ -32,7 +32,9 @@ const FactorySliderContainer: FC<ISliderData> = () => {
         OnClick={(code: string) => handleOnClick(code)}
       />
       <div>{activePage}</div>
-      {/* <FactoryItem {...currentFactory} /> */}
+      {currentFactory.map((item) => {
+        return <FactoryItem {...item} />;
+      })}
     </div>
   );
 };

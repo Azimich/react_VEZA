@@ -1,18 +1,19 @@
 import Styles from "./Map.module.scss";
-import { factoryData, WhoWeMapData } from "./mockData";
+import { WhoWeMapData } from "./mockData";
 import React, { FC, useState } from "react";
 import { MapItem } from "./MapItem";
 import { FactoryItem } from "./FactoryItem";
 import { Modal, useModal } from "../modal";
-import { IFactoryItem } from "./Map";
+import { IObjectItem } from "./Map";
 import { ModalFormFactory } from "./ModalFormFactory";
+import { whoweData } from "../../features/about/mockData";
 
 const MapContainer: FC = () => {
   const { isShow, toggle } = useModal();
-  const [contentForm, setContentForm] = useState<IFactoryItem>();
+  const [contentForm, setContentForm] = useState<IObjectItem>();
   const [currentClass, setCurrentClass] = useState<string>("");
 
-  const handleOnClick = (e: IFactoryItem, alias: string) => {
+  const handleOnClick = (e: IObjectItem, alias: string) => {
     e.alias = alias;
     setContentForm(e);
     toggle();
@@ -50,13 +51,11 @@ const MapContainer: FC = () => {
           );
         })}
       </svg>
-      {factoryData.map((e) => {
+      {whoweData.map((e) => {
         return (
           <FactoryItem
             {...e}
-            onClick={(e: IFactoryItem, alias: string) =>
-              handleOnClick(e, alias)
-            }
+            onClick={(e: IObjectItem, alias: string) => handleOnClick(e, alias)}
             key={"fac" + e.id}
           />
         );

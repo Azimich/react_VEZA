@@ -12,7 +12,7 @@ interface IMapData {
   onMouseLeave?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
-interface IFactoryItem {
+interface IObjectItem {
   xpx: number;
   ypx: number;
   name: string;
@@ -22,12 +22,12 @@ interface IFactoryItem {
   logistic_phone: string;
   address: string;
 }
-interface IFactory {
+interface IObject {
   id: number;
   alias: string;
   connection: string;
-  factory: IFactoryItem[];
+  factory?: IObjectItem[];
   onClick?: (e, alias) => void;
 }
 
-export { IFactory, IMapData, IFactoryItem };
+export { IObject, IMapData, IObjectItem };
