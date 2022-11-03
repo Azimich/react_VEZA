@@ -6,6 +6,9 @@ import { tabsResourcesData } from "../../../components/tabs/mockdata";
 import { useRouter } from "next/router";
 import { ITab } from "../../../components/tabs/Tabs";
 import { resourcesPath } from "../../../utils/bootstrap";
+import { BimItem } from "./BimItem";
+import { bimData } from "../mockData";
+import { Button } from "components/button";
 
 const BimContainer = () => {
   const router = useRouter();
@@ -25,7 +28,12 @@ const BimContainer = () => {
           size={"max"}
         />
       </div>
-      BIM OK
+      <Button theme="banner" children={"Скачать модель"} />
+      <div className={Styles.bim__items}>
+        {bimData.map((item) => {
+          return <BimItem {...item} />;
+        })}
+      </div>
     </Container>
   );
 };

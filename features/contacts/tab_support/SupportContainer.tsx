@@ -7,8 +7,8 @@ import { Tabs } from "../../../components/tabs";
 import { tabsContactsData } from "../../../components/tabs/mockdata";
 import { SupportForm } from "./SupportForm";
 import { TitleTabs } from "../../../components/title_tabs";
-import { SupportGroups } from "./SupportGroups";
-import { supportData } from "./mockData";
+import { SupportGroups } from "../tab_support/SupportGroups";
+import { supportData } from "../tab_support/mockData";
 import { Email, PhoneFooterIcon } from "components/icons";
 
 const SupportContainer = () => {
