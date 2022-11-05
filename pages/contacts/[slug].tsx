@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
-import { Job } from "../../features/about";
 import React from "react";
 import { IComponents } from "../../components/tabs/Tabs";
 import { Interaction, SalesOffice, Support } from "../../features/contacts";

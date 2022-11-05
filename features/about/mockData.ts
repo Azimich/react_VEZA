@@ -6,7 +6,7 @@ const whoweData: IObject[] = [
     connection: "Chelyabinskaya_obl",
     alias: "miass",
 
-    factory: {
+    object: {
       xpx: 22,
       ypx: 8,
       name: "Веза-Миасс",
@@ -20,7 +20,7 @@ const whoweData: IObject[] = [
     id: 2,
     connection: "moskovskaya_obl",
     alias: "hrapunovo",
-    factory: {
+    object: {
       xpx: 0,
       ypx: 0,
       name: "ВЕЗА-Храпуново",
@@ -34,7 +34,7 @@ const whoweData: IObject[] = [
     id: 3,
     connection: "moskovskaya_obl",
     alias: "fryazino",
-    factory: {
+    object: {
       xpx: 16,
       ypx: 24,
       name: "ВЕЗА-Фрязино",
@@ -48,7 +48,7 @@ const whoweData: IObject[] = [
     id: 4,
     connection: "bryanskaya_obl",
     alias: "bryansk",
-    factory: {
+    object: {
       xpx: 16,
       ypx: 10,
       name: "ВЕЗА-Брянск",
@@ -62,7 +62,7 @@ const whoweData: IObject[] = [
     id: 5,
     connection: "belgorodskaya_obl",
     alias: "karachev",
-    factory: {
+    object: {
       xpx: 20,
       ypx: 10,
       name: "ВЕЗА-Карачев",
@@ -76,7 +76,7 @@ const whoweData: IObject[] = [
     id: 6,
     connection: "belarus",
     alias: "gomel",
-    factory: {
+    object: {
       xpx: 35,
       ypx: 30,
       name: "ВЕЗА-Гомель",
@@ -90,7 +90,7 @@ const whoweData: IObject[] = [
     id: 7,
     connection: "moskovskaya_obl",
     alias: "holod",
-    factory: {
+    object: {
       xpx: 100,
       ypx: 100,
       name: "ВЕЗА-холод",

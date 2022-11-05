@@ -1,10 +1,10 @@
-import Styles from "./Map.module.scss";
-import { ReferenceIcon } from "../icons";
+import Styles from "../../../components/map/Map.module.scss";
+import { FactoryIcon } from "../../../components/icons";
 import React, { FC, useEffect, useState } from "react";
-import { IObject } from "./Map";
+import { IObject } from "../../../components/map/Map";
 
-const ReferenceItem: FC<IObject> = (props) => {
-  const { alias, onClick, connection, factory } = props;
+const ObjectItem: FC<IObject> = (props) => {
+  const { alias, onClick, connection, object, icon } = props;
   const [relative_coord, setRelative_coord] = useState<{
     relative_top: number;
     relative_left: number;
@@ -12,7 +12,7 @@ const ReferenceItem: FC<IObject> = (props) => {
     relative_top: 0,
     relative_left: 0,
   });
-
+  console.log("675", props);
   useEffect(() => {
     const Parent_Coord = document
       .getElementById("parent_map")
@@ -29,15 +29,15 @@ const ReferenceItem: FC<IObject> = (props) => {
   return (
     <div
       className={Styles.marker}
-      key={factory.name}
+      key={object?.name}
       style={{
-        top: relative_coord.relative_top + factory.ypx,
-        left: relative_coord.relative_left + factory.xpx,
+        top: relative_coord.relative_top + object?.ypx,
+        left: relative_coord.relative_left + object?.xpx,
       }}
-      onClick={() => onClick(factory, alias)}
+      onClick={() => onClick(object, alias)}
     >
-      <ReferenceIcon />
+      {icon}
     </div>
   );
 };
-export { ReferenceItem };
+export { ObjectItem };
