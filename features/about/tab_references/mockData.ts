@@ -429,7 +429,7 @@ const referenceObject: IObject[] = [
     id: 1,
     type_object: "social",
     connection: "moskovskaya_obl",
-    factory: {
+    object: {
       name: "miass",
       xpx: 0,
       ypx: 0,
@@ -461,7 +461,7 @@ const referenceObject: IObject[] = [
     id: 2,
     connection: "belgorodskaya_obl",
     type_object: "commercial",
-    factory: {
+    object: {
       xpx: 0,
       ypx: 0,
       name: "Название объекта",
@@ -495,7 +495,7 @@ const referenceObject: IObject[] = [
     id: 3,
     type_object: "industrial",
     connection: "Chelyabinskaya_obl",
-    factory: {
+    object: {
       name: "Название объекта",
       address: "Адрес объекта",
       xpx: 0,

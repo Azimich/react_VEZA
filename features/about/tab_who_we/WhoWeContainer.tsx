@@ -5,16 +5,45 @@ import { tabsAboutData } from "../../contacts/mockData";
 import { useRouter } from "next/router";
 import { aboutPath } from "../../../utils/bootstrap";
 import Styles from "./Whowe.module.scss";
-import { Achievements, WhoWeAbout, WhoWeMap } from "../index";
-import { HistoryIcon } from "../../../components/icons";
+import { Achievements, WhoWeAbout } from "../index";
+import { FactoryIcon, HistoryIcon } from "../../../components/icons";
 import { Separator } from "../../../components/separator";
+import React, { FC, ReactNode, useState } from "react";
+import { Modal, useModal } from "../../../components/modal";
+import { IObjectItem } from "../../../components/map/Map";
+import { Map } from "../../../components/map";
+import { ModalFormFactory } from "./ModalFormFactory";
+import { whoweData } from "../mockData";
+import { ObjectItem } from "./ObjectItem";
 
-const WhoWeContainer = () => {
+const WhoWeContainer: FC = () => {
+  const [contentForm, setContentForm] = useState<IObjectItem>();
+  const { isShow, toggle } = useModal();
   const router = useRouter();
+
+  const FormOutPut: ReactNode[] = whoweData.map((e) => {
+    return (
+      <ObjectItem
+        {...e}
+        onClick={(e: IObjectItem, alias: string) =>
+          handleOnClickModal(e, alias)
+        }
+        key={"fac" + e.id}
+        icon={<FactoryIcon />}
+      />
+    );
+  });
 
   const handleOnClickTabs = (e: ITab) => {
     router.push(aboutPath + e.url);
   };
+
+  const handleOnClickModal = (e: IObjectItem, alias: string) => {
+    e.alias = alias;
+    setContentForm(e);
+    toggle();
+  };
+
   return (
     <Container className={"wrapper"}>
       <div className={Styles.whowe_container}>
@@ -28,7 +57,7 @@ const WhoWeContainer = () => {
         />
       </div>
       <div>
-        <WhoWeMap />
+        <Map formOutPut={FormOutPut} />
       </div>
       <WhoWeAbout />
       <div className={Styles.whowe_container_history_svg}>
@@ -43,6 +72,13 @@ const WhoWeContainer = () => {
       </div>
       <Separator title={"наши достижения"} />
       <Achievements />
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={<ModalFormFactory {...contentForm} />}
+        theme={"modal"}
+        headerText={"Тип файла"}
+      ></Modal>
     </Container>
   );
 };

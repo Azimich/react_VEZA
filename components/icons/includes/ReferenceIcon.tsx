@@ -9,6 +9,7 @@ const ReferenceIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
       height="26"
       viewBox="0 0 99 99"
       fill="none"
+      {...props}
     >
       <path
         fillRule="evenodd"

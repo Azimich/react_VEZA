@@ -1,85 +1,12 @@
 import Styles from "./Map.module.scss";
 import { WhoWeMapData } from "./mockData";
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { MapItem } from "./MapItem";
-import { FactoryItem } from "./FactoryItem";
-import { Modal, useModal } from "../modal";
-import { IObject, IObjectItem } from "./Map";
-import { ModalFormFactory } from "./ModalFormFactory";
-import { whoweData } from "../../features/about/mockData";
-import { useRouter } from "next/router";
-import { referenceObject } from "../../features/about/tab_references/mockData";
-import { ReferenceItem } from "./ReferenceItem";
-import { SideBar } from "./SideBar";
-import { tabsSocialData } from "features/contacts/mockData";
-import { ITab } from "components/tabs/Tabs";
+import { IMapProps } from "./Map";
 
-const MapContainer: FC = () => {
-  const { isShow, toggle } = useModal();
-  const [contentForm, setContentForm] = useState<IObjectItem>();
+const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
   const [currentClass, setCurrentClass] = useState<string>("");
-  const [sideBarData] = useState(tabsSocialData);
-  const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
-  const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
-    []
-  );
 
-  let FormOutPut: ReactNode[];
-  const router = useRouter();
-  switch (router.query.slug) {
-    case "whowe":
-      FormOutPut = whoweData.map((e) => {
-        return (
-          <FactoryItem
-            {...e}
-            onClick={(e: IObjectItem, alias: string) => handleOnClick(e, alias)}
-            key={"fac" + e.id}
-          />
-        );
-      });
-      break;
-    case "references":
-      FormOutPut =
-        selectedReferenceData.length > 0 &&
-        selectedReferenceData.map((e) => {
-          return (
-            <ReferenceItem
-              {...e}
-              onClick={(e: IObjectItem, alias: string) =>
-                handleOnClick(e, alias)
-              }
-              key={"fac" + e.id}
-            />
-          );
-        });
-      break;
-  }
-
-  useEffect(() => {
-    setSelectedReferenceData(
-      referenceObject.filter(
-        (item) =>
-          selectedCheckBox
-            .map((e) => e.url)
-            .flat()
-            .indexOf(item.type_object) !== -1
-      )
-    );
-  }, [selectedCheckBox]);
-
-  const handleSideBarClick = (e: ITab) => {
-    setSelectedCheckBox(
-      selectedCheckBox.filter((item) => item.id === e.id).length > 0
-        ? selectedCheckBox.filter((item) => item.id !== e.id)
-        : [...selectedCheckBox, e]
-    );
-  };
-
-  const handleOnClick = (e: IObjectItem, alias: string) => {
-    e.alias = alias;
-    setContentForm(e);
-    toggle();
-  };
   const handleMouseHover: React.MouseEventHandler<HTMLElement> = (e) => {
     setCurrentClass(e.currentTarget.dataset.class);
   };
@@ -89,10 +16,7 @@ const MapContainer: FC = () => {
   return (
     <div>
       <div className={Styles.map_container}>
-        <SideBar
-          onChange={(e: ITab) => handleSideBarClick(e)}
-          tabsSocialData={sideBarData}
-        />
+        {sideBar}
         <svg
           className={Styles.company__map_svg}
           width="100%"
@@ -118,14 +42,7 @@ const MapContainer: FC = () => {
             );
           })}
         </svg>
-        {FormOutPut}
-        <Modal
-          isShow={isShow}
-          hide={toggle}
-          modalContent={<ModalFormFactory {...contentForm} />}
-          theme={"modal"}
-          headerText={"Тип файла"}
-        ></Modal>
+        {formOutPut}
       </div>
     </div>
   );
