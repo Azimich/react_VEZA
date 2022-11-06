@@ -5,6 +5,8 @@ import { Container } from "../../../components/common/container";
 import Styles from "./Catalog.module.scss";
 import { Tabs } from "../../../components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
+import { catalogData } from "../mockData";
+import { CatalogItem } from "./CatalogItem";
 
 const CatalogContainer = () => {
   const router = useRouter();
@@ -24,7 +26,12 @@ const CatalogContainer = () => {
           size={"max"}
         />
       </div>
-      catalog OK
+      <div>
+        {catalogData &&
+          catalogData.map((e) => {
+            return <CatalogItem {...e} key={e.id} />;
+          })}
+      </div>
     </Container>
   );
 };

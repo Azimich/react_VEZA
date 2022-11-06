@@ -18,6 +18,7 @@ const SideBar: FC<ISideBarData> = ({ tabsSocialData, onChange }) => {
             name={e.url}
             title={e.title}
             id={e.id}
+            key={e.id}
             onChange={() => onChange(e)}
             classCheck={Styles.side_bar_checkbox}
           />
