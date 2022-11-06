@@ -96,10 +96,15 @@
 
     &_green {
       @extend %colorGreen;
+      @extend %largeSize;
+      width: 300px;
+
     }
 
     &_white {
       @extend %colorWhite;
+      @extend %largeSize;
+
     }
 
     &_link {
