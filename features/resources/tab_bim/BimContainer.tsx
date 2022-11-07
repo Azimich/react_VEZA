@@ -16,6 +16,7 @@ const BimContainer = () => {
   const handleOnClickTabs = (e: ITab) => {
     router.push(resourcesPath + e.url);
   };
+
   return (
     <Container className={"wrapper"}>
       <div className={Styles.bim_container}>
