@@ -3,6 +3,7 @@ interface IBim {
   title?: string;
   desc?: string;
   img?: string;
+  alias?: string;
 }
 interface ICatalog {
   id: number;
@@ -11,5 +12,11 @@ interface ICatalog {
   download_url?: string;
   alias?: string;
 }
+interface ICertificates {
+  id?: number;
+  image?: string;
+  download_url?: string;
+  alias?: string;
+}
 
-export { IBim, ICatalog };
+export { IBim, ICatalog, ICertificates };
