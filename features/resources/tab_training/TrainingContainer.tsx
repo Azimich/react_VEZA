@@ -5,6 +5,7 @@ import { Container } from "../../../components/common/container";
 import Styles from "./Training.module.scss";
 import { Tabs } from "../../../components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
+import { TraningItem } from "./TraningItem";
 
 const TrainingContainer = () => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const TrainingContainer = () => {
           size={"max"}
         />
       </div>
-      training OK
+      <TraningItem />
     </Container>
   );
 };
