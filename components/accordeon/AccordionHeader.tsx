@@ -1,5 +1,5 @@
 import Styles from "./Accordion.module.scss";
-import { ArrowDownIcon, ArrowUpIcon } from "../icons";
+import { ArrowDownIcon } from "../icons";
 import { FC } from "react";
 import { IAccordionHeader } from "./Accordion";
 import { AccordionFooter } from "./AccordionFooter";
@@ -14,9 +14,11 @@ const AccordionHeader: FC<IAccordionHeader> = ({
     <>
       <div className={Styles.header_container} onClick={() => onClick()}>
         <span>{title}</span>
-        {icon_show ? <ArrowDownIcon /> : <ArrowUpIcon />}
+        <ArrowDownIcon
+          className={`${icon_show ? Styles.arrow : Styles.arrow__show}`}
+        />
       </div>
-      {icon_show && <AccordionFooter children={children} />}
+      <div className={Styles.accordion__container__item}>{children}</div>
     </>
   );
 };

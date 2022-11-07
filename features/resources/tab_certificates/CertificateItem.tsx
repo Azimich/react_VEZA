@@ -4,8 +4,6 @@ import { ICertificates } from "../tab_bim/Bim";
 import Styles from "./Certificates.module.scss";
 
 const CertificateItem: FC<ICertificates> = ({ image }) => {
-  console.log(image);
-
   return (
     <a href="#" className={Styles.certificates__items__item}>
       <div className={Styles.certificates__items__item__img}>
