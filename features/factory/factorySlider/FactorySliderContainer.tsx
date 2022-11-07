@@ -30,9 +30,8 @@ const FactorySliderContainer: FC<ISliderData> = () => {
         navigations={true}
         OnClick={(code: string) => handleOnClick(code)}
       />
-      <div>{activePage}</div>
       {currentFactory.map((item) => {
-        return <FactoryItem {...item} />;
+        return <FactoryItem {...item} key={item.code} />;
       })}
     </div>
   );
