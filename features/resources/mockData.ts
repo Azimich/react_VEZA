@@ -1,4 +1,4 @@
-import { IBim, ICatalog } from "./tab_bim/Bim";
+import { IBim, ICatalog, ICertificates } from "./tab_bim/Bim";
 
 const bimData: IBim[] = [
   {
@@ -32,6 +32,7 @@ const bimData: IBim[] = [
     img: "/images/BIM-5.png",
   },
 ];
+
 const catalogData: ICatalog[] = [
   {
     id: 1,
@@ -70,4 +71,37 @@ const catalogData: ICatalog[] = [
   },
 ];
 
-export { bimData, catalogData };
+const sertificatesData: ICertificates[] = [
+  {
+    id: 1,
+    image: "sertificat_1.jpg",
+    download_url: "",
+  },
+  {
+    id: 2,
+    image: "sertificat_2.jpg",
+    download_url: "",
+  },
+  {
+    id: 3,
+    image: "sertificat_3.jpg",
+    download_url: "",
+  },
+  {
+    id: 4,
+    image: "sertificat_4.jpg",
+    download_url: "",
+  },
+  {
+    id: 5,
+    image: "sertificat_5.jpg",
+    download_url: "",
+  },
+  {
+    id: 6,
+    image: "sertificat_6.jpg",
+    download_url: "",
+  },
+];
+
+export { bimData, catalogData, sertificatesData };
