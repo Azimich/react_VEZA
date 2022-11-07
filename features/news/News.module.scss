@@ -11,6 +11,15 @@
     background-color: transparent;
     row-gap: 10px;
     margin-left: 5px;
+    button {
+      transition: all 0.3s;
+    }
+    
+    &:hover {
+      button {
+        padding-left: 20px;
+      }
+    }
 
     &:first-child {
       margin-top: 140px;
@@ -47,7 +56,6 @@
     &:hover &_right {
       background-color: #0AB016;
       transition: all 0.3s;
-
       span {
         color: white;
       }
@@ -55,7 +63,6 @@
       svg {
         width: 22px;
         height: 22px;
-
         path {
 
           fill: white;
@@ -103,6 +110,7 @@
         font-weight: 500;
         display: flex;
         align-items: center;
+        gap: 10px;
       }
 
       svg {
@@ -150,16 +158,18 @@
 
     button {
       transition: all 0.3s;
-
       position: absolute;
       top: 3%;
       left: 3%;
       color: white;
-
+      span {
+        display: flex;
+        align-items: center;
+        gap:10px;
+      }
       svg {
         width: 22px;
         height: 22px;
-
         path {
           fill: white;
         }
