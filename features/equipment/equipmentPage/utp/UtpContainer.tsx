@@ -1,7 +1,7 @@
 import Styles from "./Utp.module.scss";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
-import { ModalForm } from "./ModalForm";
+import { ModalForm } from "../utp/ModalForm";
 
 const content = <ModalForm />;
 
