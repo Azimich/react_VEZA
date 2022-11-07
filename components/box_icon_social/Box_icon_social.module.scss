@@ -2,16 +2,6 @@
 @import '../../styles/variables.scss';
 
 .banner {
-  margin: 70px auto 100px;
-
-  @include ipadScreen {
-    margin: 60px auto 100px;
-  }
-
-  @include phoneScreen {
-    margin-bottom: 80px;
-  }
-
   .swiper-pagination .swiper-pagination-bullet {
     width: 15px;
     height: 15px;
@@ -72,7 +62,6 @@
     height: 25px;
     margin-bottom: 12px;
     transition: all 0.3s;
-
     path {
       fill: green;
     }
@@ -110,7 +99,6 @@
     animation-iteration-count: infinite;
     color: green;
     transition: .3s all;
-
     svg {
       width: 30px !important;
       height: 30px !important;

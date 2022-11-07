@@ -59,10 +59,10 @@ const SlideItem: FC<ISlideItem> = ({
             </p>
 
             <Button theme={themeButton} size={size} link={url} color={color}>
-              <div>
-                <span>Подробнее</span>
+              <span>
+                <p>Подробнее</p>
                 {color === "link" && <ArrowRightIcon />}
-              </div>
+              </span>
             </Button>
           </div>
         )}

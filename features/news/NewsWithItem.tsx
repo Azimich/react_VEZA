@@ -11,6 +11,7 @@ const NewsWithItem: FC<INewDataItem> = ({
   short_description,
   alias,
 }) => {
+  console.log(newsPath + alias, "5643");
   return (
     <div className={Styles.news_container_item}>
       <img src={image_category} alt={news_name} />

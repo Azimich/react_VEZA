@@ -9,11 +9,47 @@
   grid-template-areas:
     "col1 col2 col2"
     "col1 col3 col4";
+  button {
+    transition: all 0.3s;
+    span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
 }
-.col1 { grid-area: col1; }
-.col2 { grid-area: col2; }
-.col3 { grid-area: col3; }
-.col4 { grid-area: col4; }
+.col1 { 
+  grid-area: col1; 
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
+.col2 { 
+  grid-area: col2; 
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
+.col3 { 
+  grid-area: col3; 
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
+.col4 { 
+  grid-area: col4; 
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
 
 .col1{
   .news {
@@ -22,7 +58,6 @@
       overflow: hidden;
       background-color: color(green);
       height: 100%;
-
       @media (max-width: 1520px) {
         display: flex;
         align-items: center;
@@ -32,9 +67,9 @@
       @media (max-width: 600px) {
         flex-direction: column;
       }
+
       &_left{
         position: relative;
-
         @media (max-width: 1520px) {
           height: 300px;
           width: 50%;
@@ -141,7 +176,6 @@
         p {
           font-size: 14px;
           opacity: 0.8;
-          padding-right: 20px;
           line-height: 150%;
         }
 

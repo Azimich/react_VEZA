@@ -520,6 +520,27 @@
         @media (max-width: 400px) {
           height: 220px;
         }
+
+        button {
+          transition: all 0.3s;
+          span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            p {
+              color: color(white);
+            }
+            path {
+              fill: #fff;
+            }
+          }
+        }
+        
+        &:hover {
+          button {
+            padding-left: 20px;
+          }
+        }
       }
 
       &_img {

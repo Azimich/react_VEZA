@@ -35,10 +35,10 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
             size={"context"}
             color={"link"}
           >
-            <div>
-              <span>Подробнее</span>
+            <span>
+              <p>Подробнее</p>
               <ArrowRightIcon />
-            </div>
+            </span>
           </Button>
         </div>
       </div>
