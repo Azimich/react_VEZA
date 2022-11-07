@@ -3,7 +3,7 @@ import { ICatalog } from "../tab_bim/Bim";
 import Styles from "./Catalog.module.scss";
 import { Button } from "../../../components/button";
 
-const CatalogItem: FC<ICatalog> = ({ title, image, download_url }) => {
+const CatalogItem: FC<ICatalog> = ({ title, image }) => {
   return (
     <div className={Styles.box_item}>
       <div className={Styles.box_item__images}>
