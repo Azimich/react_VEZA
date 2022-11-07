@@ -5,6 +5,7 @@ import { Container } from "../../../components/common/container";
 import Styles from "./Doc.module.scss";
 import { Tabs } from "../../../components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
+import { DocItem } from "./DocItem";
 
 const DocContainer = () => {
   const router = useRouter();
@@ -24,7 +25,7 @@ const DocContainer = () => {
           size={"max"}
         />
       </div>
-      doc OK
+      <DocItem />
     </Container>
   );
 };
