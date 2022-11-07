@@ -3,9 +3,7 @@
 
 .input__container {
   position: relative;
-  margin: 18px 0 0 0;
-  overflow: hidden;
-  width: 100%;
+
   @include phoneScreen {
     width: 100%;
   }
@@ -34,7 +32,6 @@
     outline: none;
     border-bottom: 1px solid grey;
     padding: 15px 0 6px 11px;
-    transition: all 0.2s;
     font-size: 14px;
     box-sizing: border-box;
     transition: background-color 600000s 0s, color 600000s 0s;

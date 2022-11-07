@@ -7,16 +7,36 @@ import { Tabs } from "../../../components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { catalogData } from "../mockData";
 import { CatalogItem } from "./CatalogItem";
+import { Input } from "../../../components/input/Index";
+import { SearchInputIcon } from "../../../components/icons/includes/SearchInputIcon";
+import { ChangeEvent, useEffect, useState } from "react";
+import { ICatalog } from "../tab_bim/Bim";
 
 const CatalogContainer = () => {
   const router = useRouter();
+  const [inputValue, setInputValue] = useState<string>();
+  const [filteredData, setFilteredData] = useState<ICatalog[]>(catalogData);
+  const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  useEffect(() => {
+    setFilteredData(
+      inputValue?.length > 0
+        ? catalogData.filter((e) => {
+            return e.title.toLowerCase().includes(inputValue.toLowerCase());
+          })
+        : catalogData
+    );
+  }, [inputValue]);
 
   const handleOnClickTabs = (e: ITab) => {
     router.push(resourcesPath + e.url);
   };
+
   return (
     <Container className={"wrapper"}>
-      <div className={Styles.bim_container}>
+      <div className={Styles.catalog_container}>
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
@@ -26,9 +46,23 @@ const CatalogContainer = () => {
           size={"max"}
         />
       </div>
-      <div>
-        {catalogData &&
-          catalogData.map((e) => {
+      <div className={Styles.catalog_title}>
+        <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
+        <div className={Styles.input_box}>
+          <Input
+            value={inputValue}
+            onChange={(event) => handleOnChangeSearch(event)}
+            type={"text"}
+            name={"search_catalog"}
+            placeholder={"Поиск"}
+            className={Styles.input_field}
+          />
+          <SearchInputIcon />
+        </div>
+      </div>
+      <div className={Styles.catalog_box}>
+        {filteredData &&
+          filteredData.map((e) => {
             return <CatalogItem {...e} key={e.id} />;
           })}
       </div>

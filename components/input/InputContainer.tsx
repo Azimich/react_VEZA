@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { IInput } from "./Input";
 import Styles from "./input.module.scss";
+import { SearchIcon } from "../icons";
+import { SearchInputIcon } from "../icons/includes/SearchInputIcon";
 
 const InputContainer: FC<IInput> = ({
   placeholder = " ",
