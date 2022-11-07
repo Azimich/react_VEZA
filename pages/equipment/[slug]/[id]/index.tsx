@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
-import { wrapper } from "../../../../store/store";
+import { wrapper } from "store/store";
 import { GetStaticPaths } from "next";
-import { EquipmentPage } from "../../../../features/equipment/EquipmentPage";
-import { CatalogData } from "../../../../features/equipment/mockData";
+import { EquipmentPage } from "features/equipment/EquipmentPage";
+import { CatalogData } from "features/equipment/mockData";
 import { equipmentPath } from "../../../../utils";
 import { ICatalogData } from "features/equipment/Equipment";
 
