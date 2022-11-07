@@ -9,16 +9,15 @@ import { FactoryData } from "../mockData";
 
 const FactorySliderContainer: FC<ISliderData> = () => {
   const [activePage, setActivePage] = useState<string>("2000");
-  const [currentFactory, setcurrentFactory] = useState<IFactoryData[]>(() =>
+  const [currentFactory, setCurrentFactory] = useState<IFactoryData[]>(() =>
     FactoryData.filter((e) => e.code === "2000")
   );
 
   const handleOnClick = (code: string) => {
     setActivePage(code);
-    setcurrentFactory(() => FactoryData.filter((e) => e.code === code));
+    setCurrentFactory(() => FactoryData.filter((e) => e.code === code));
   };
 
-  console.log("ooo", currentFactory);
   return (
     <div className={Styles.factory}>
       <SliderContainer

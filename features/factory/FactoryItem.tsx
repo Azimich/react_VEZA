@@ -1,19 +1,16 @@
 import { FC } from "react";
 
-import { IFactory } from "./Factory";
+import { IFactoryData } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
 
-const FactoryItem: FC<IFactory> = (props) => {
-  const topItems = props;
-
-  const items = props?.items?.shift();
-
+const FactoryItem: FC<IFactoryData> = ({ itemsData, code }) => {
+  const items = itemsData?.shift()?.items?.shift();
   return (
     <>
       <div className={Styles.factory__items}>
         <div className={Styles.factory__items__top}>
-          <h1>{topItems?.firstTitle}</h1>
-          <p>{topItems?.descroptionTop}</p>
+          <h1>{itemsData?.shift()?.firstTitle}</h1>
+          <p>{itemsData?.shift()?.descroptionTop}</p>
         </div>
         <div className={Styles.factory__items__bottom}>
           <div className={Styles.factory__items__item}>
