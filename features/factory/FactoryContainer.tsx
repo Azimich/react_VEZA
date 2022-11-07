@@ -1,18 +1,15 @@
 import { Container } from "components/common/container";
-import { FactoryItem } from "./FactoryItem";
 import { FactorySliderContainer } from "./factorySlider";
-import { FactoryData } from "./mockData";
+import { FC } from "react";
 
-const FactoryContainer = () => {
-  const onClickFactory = () => {};
-
+const FactoryContainer: FC = () => {
   return (
     <Container className="wrapper">
-      <FactorySliderContainer onClick={() => onClickFactory()} />
-      {FactoryData &&
+      <FactorySliderContainer />
+      {/*      {FactoryData &&
         FactoryData.map((item) => {
           return <FactoryItem {...item} />;
-        })}
+        })}*/}
     </Container>
   );
 };
