@@ -24,7 +24,10 @@
     "jsx": "preserve",
     "downlevelIteration": true,
     "incremental": true,
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "features/*": ["./features/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
