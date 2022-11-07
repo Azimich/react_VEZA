@@ -27,7 +27,8 @@
     "baseUrl": "./",
     "paths": {
       "features/*": ["./features/*"],
-      "store/*": ["./store/*"]
+      "store/*": ["./store/*"],
+      "utils/*": ["./utils/*"]
     }
   },
   "include": [

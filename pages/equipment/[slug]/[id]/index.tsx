@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
 import { GetStaticPaths } from "next";
-import { EquipmentPage } from "../../../../features/equipment/EquipmentPage";
+import { EquipmentPage } from "features/equipment/EquipmentPage";
 import { CatalogData } from "features/equipment/mockData";
-import { equipmentPath } from "../../../../utils";
+import { equipmentPath } from "utils";
 import { ICatalogData } from "features/equipment/Equipment";
 
 export const getStaticPaths: GetStaticPaths = async () => {
