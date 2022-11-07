@@ -2,10 +2,13 @@ import React from "react";
 import { FC } from "react";
 import Styles from "./StylesIcon.module.scss";
 
-const ArrowDownIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
+const ArrowDownIcon: FC<{ className?: string }> = (
+  props: React.SVGProps<SVGSVGElement>,
+  { className }
+) => {
   return (
     <svg
-      className={Styles.arrowDownIcon}
+      className={className}
       width="20"
       height="20"
       viewBox="0 0 20 20"

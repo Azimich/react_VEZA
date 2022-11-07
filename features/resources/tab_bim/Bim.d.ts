@@ -18,5 +18,11 @@ interface ICertificates {
   download_url?: string;
   alias?: string;
 }
+interface IQuestions {
+  id?: number;
+  title?: string;
+  desc?: string;
+  alias?: string;
+}
 
-export { IBim, ICatalog, ICertificates };
+export { IBim, ICatalog, ICertificates, IQuestions };

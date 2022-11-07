@@ -37,8 +37,8 @@ const BimContainer = () => {
         />
       </div>
       <div className={Styles.bim__items}>
-        {bimData.map((item) => {
-          return <BimItem {...item} />;
+        {bimData.map((item, i) => {
+          return <BimItem key={i} {...item} />;
         })}
       </div>
     </Container>
