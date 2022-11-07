@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
-import { wrapper } from "../../../../store/store";
+import { wrapper } from "store/store";
 import { GetStaticPaths } from "next";
-import { TypoSize } from "../../../../features/typo_size";
+import { TypoSize } from "features/typo_size";
 import { CatalogData } from "features/equipment/mockData";
 import { ICatalogData } from "features/equipment/Equipment";
 
