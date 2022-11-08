@@ -1,0 +1,113 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+.search {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include ipadScreen {
+    padding: 0;
+  }
+
+  button {
+    margin-top: 30px;
+  }
+
+  &__content {
+    max-width: 1000px;
+  }
+
+  &__logo {
+    width: 130px;
+    margin-bottom: 50px;
+    @include phoneScreen {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__items {
+    &__info {
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-radius: 12px;
+      color: color(dark);
+      margin-bottom: 12px;
+      h1 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    &__input {
+      width: 100%;
+      position: relative;
+      margin-bottom: 30px;
+      .clear {
+        width: 18px;
+        height: 18px;
+        opacity: 0.5;
+        position: absolute;
+        left: auto;
+        top: 13px !important;
+        transition: all 0.3s;
+        right: 10px;
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+
+        svg {
+          left: auto;
+          top: 0px !important;
+          transition: all 0.3s;
+          right: 0;
+        }
+      }
+
+      input {
+        padding: 10px 30px 10px 35px !important;
+      }
+    
+      svg {
+        position: absolute;
+        left: 8px;
+        top: 9px;
+        width: 19px !important;
+        cursor: pointer;
+      }
+    
+      .input_field {
+        + label{
+          transform: translateY(-30px) scale(1) !important;
+        }
+        padding: 10px 10px 10px 35px;
+        border-radius: 5px;
+        border: 1px solid #9494949c;
+        width: 100%;
+        min-width: 300px;
+        transition: none;
+        &:-webkit-autofill {
+          & + label {
+            transform: translateY(0px) scale(1);
+          }
+        }
+        &:focus{
+        border: 1px solid color(green)
+        }
+        svg {
+          width: 22px;
+          height: 22px;
+          path{
+            fill: gray;
+          }
+        }
+      }
+    }
+  }
+}
+

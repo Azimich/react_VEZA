@@ -5,5 +5,6 @@ export interface IModalProps {
   hide: () => void;
   modalContent: ReactNode;
   headerText?: string;
-  theme?: "modal" | "full_modal";
+  bgModal?: "black" | "white";
+  theme?: "modal" | "full_modal" | "freedom_modal";
 }

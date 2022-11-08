@@ -11,6 +11,7 @@ import { ModalForm } from "./descModal/ModalForm";
 
 const DescriptionContainer: FC = () => {
   const { isShow, toggle } = useModal();
+
   return (
     <Container className={"wrapper"}>
       <Description_Images />
@@ -20,8 +21,9 @@ const DescriptionContainer: FC = () => {
           isShow={isShow}
           hide={toggle}
           modalContent={<ModalForm />}
-          theme={"full_modal"}
+          theme={"freedom_modal"}
           headerText={"Тип файла"}
+          bgModal={"white"}
         />
       </div>
       <Accordeon title={"Название таблицы"} icon_show={false}>
