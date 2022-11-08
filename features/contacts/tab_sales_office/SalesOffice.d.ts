@@ -3,6 +3,8 @@ interface ISallesOffice {
   title: string;
   desc?: string;
   image: string;
+  email?: string;
+  phone?: string;
   type_code?: "director" | "logistic" | "secretary";
   onClick?: (e) => void;
 }

@@ -16,6 +16,38 @@
       transform: translateY(-2px);
       transition: all 0.3s;
     }
+    
+    &_calls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px 10px 10px;
+      a {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: rgb(108, 109, 112);
+        opacity: 0.9;
+        transition: all 0.3s;
+        &:hover {
+          opacity: 1;
+        }
+
+        &:first-child {
+          margin-right: 20px;
+          svg {
+            width: 26px;
+          }
+        }
+
+        svg {
+          margin-right: 5px;
+          path {
+            fill: #33953A;
+          }
+        }
+      }
+    }
 
     &_img {
       img {
@@ -24,6 +56,7 @@
         display: block;
       }
     }
+
     &_info{
       background: #3b9900;
       padding: 15px 10px;

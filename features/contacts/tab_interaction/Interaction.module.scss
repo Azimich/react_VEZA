@@ -53,15 +53,19 @@
     margin-bottom: 40px;
   }
   &_item{
-    box-shadow: 0 0 8px #33953a;
-    border-color: #33953A;
     background-color: #FFF;
     border-radius: 10px;
     overflow: hidden;
     padding: 15px;
-    border-bottom: 3px solid transparent;
-
+    background-color: rgb(245, 245, 245);
     transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 0 30px rgba(20, 20, 20, 0.2);
+      transform: translateY(-2px);
+      transition: all 0.3s;
+    }
+
     h2{
       font-size: 20px;
       font-weight: 600;
@@ -74,21 +78,20 @@
       display: flex;
       justify-content: space-between;
       color: gray;
-      font-size: 15px;
+      font-size: 16px;
       span{
         max-width: 200px;
         text-align: right;
+        line-height: 145%;
       }
+
       &:nth-child(2){
         margin: 8px 0;
       }
     }
+
     &_box{
       margin: 20px 0;
-    }
-    &:hover{
-      box-shadow: 0 0 8px #33953a;
-      border-color: #33953A;
     }
   }
 }
