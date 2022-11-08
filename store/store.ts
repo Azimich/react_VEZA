@@ -2,11 +2,13 @@ import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
 import { createWrapper } from "next-redux-wrapper";
 import contactsSlice from "../features/contacts/ContactsSlice";
+import factorySlice from "../features/factory/FactorySlice";
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [contactsSlice.name]: contactsSlice.reducer,
+      [factorySlice.name]: factorySlice.reducer,
     },
     devTools: true,
   });

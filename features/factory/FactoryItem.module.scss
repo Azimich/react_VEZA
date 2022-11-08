@@ -3,9 +3,8 @@
 
 
 .factory__items {
-
   &__top {
-    margin-bottom: 50px;
+    margin-top: 40px;
     h1 {
       font-weight: 400;
       font-size: 25px;
@@ -24,7 +23,8 @@
     display: flex;
     align-items: center;
     gap: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
+    padding-top: 40px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.363);
     @include ipadScreen {
       flex-direction: column;

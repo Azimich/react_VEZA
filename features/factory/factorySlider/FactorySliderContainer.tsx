@@ -1,22 +1,29 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { sliderFactoryData } from "../factorySlider/MockData";
 import { SliderContainer } from "../../../components/slider";
 import Styles from "./FactorySliderContainer.module.scss";
 import { ISliderData } from "./FactorySlider";
 import { FactoryItem } from "../FactoryItem";
 import { IFactoryData } from "../Factory";
-import { FactoryData } from "../mockData";
+import { useAppSelector } from "store/hooks";
+import { getFactory } from "features/factory/FactorySlice";
 
 const FactorySliderContainer: FC<ISliderData> = () => {
+  const factoryData = useAppSelector(getFactory);
+  console.log("factoryData", factoryData);
   const [activePage, setActivePage] = useState<string>("2000");
-  const [currentFactory, setCurrentFactory] = useState<IFactoryData[]>(() =>
-    FactoryData.filter((e) => e.code === "2000")
-  );
+  const [currentFactory, setCurrentFactory] = useState([]);
 
   const handleOnClick = (code: string) => {
     setActivePage(code);
-    setCurrentFactory(() => FactoryData.filter((e) => e.code === code));
   };
+
+  useEffect(() => {
+    const aaa = factoryData.filter((e: IFactoryData) => {
+      return e.code === activePage && e;
+    });
+    setCurrentFactory(aaa);
+  }, [activePage]);
 
   return (
     <div className={Styles.factory}>
