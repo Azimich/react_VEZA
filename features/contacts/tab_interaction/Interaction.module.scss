@@ -2,7 +2,7 @@
   max-width: 600px;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 60px auto;
   &_title {
     h1 {
       font-style: normal;
@@ -49,7 +49,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
   gap: 20px;
-
+  &:last-child{
+    margin-bottom: 40px;
+  }
   &_item{
     box-shadow: 0 0 8px #33953a;
     border-color: #33953A;
