@@ -2,27 +2,21 @@ import { FC } from "react";
 
 import { IFactoryData } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
+import { FactoryItemDesc } from "features/factory/FactoryItemDesc";
 
-const FactoryItem: FC<IFactoryData> = ({ itemsData, code }) => {
-  const items = itemsData?.shift()?.items?.shift();
+const FactoryItem: FC<IFactoryData> = ({ itemsData }) => {
+  const items = itemsData.length > 0 && itemsData[0]?.items;
   return (
     <>
       <div className={Styles.factory__items}>
         <div className={Styles.factory__items__top}>
-          <h1>{itemsData?.shift()?.firstTitle}</h1>
-          <p>{itemsData?.shift()?.descroptionTop}</p>
+          <h1>{itemsData.length > 0 && itemsData[0]?.firstTitle}</h1>
+          <p>{itemsData.length > 0 && itemsData[0]?.descriptionTop}</p>
         </div>
-        <div className={Styles.factory__items__bottom}>
-          <div className={Styles.factory__items__item}>
-            <div className={Styles.factory__items__item__unfo}>
-              <h2>{items?.secondTitle}</h2>
-              <p>{items?.subText}</p>
-            </div>
-            <div className={Styles.factory__items__image}>
-              <img src={"/images/" + items?.img} alt="factory" />
-            </div>
-          </div>
-        </div>
+        {items.map((e, i) => {
+          console.log("eee", e);
+          return <FactoryItemDesc {...e} key={i} />;
+        })}
       </div>
     </>
   );
