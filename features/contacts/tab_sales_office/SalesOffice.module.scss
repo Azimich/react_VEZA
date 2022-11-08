@@ -5,7 +5,7 @@
   max-width: 600px;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 60px auto;
   &_items {
     h1 {
       font-size: 45px;
@@ -21,7 +21,7 @@
 .yandex__map {
   height: 500px;
   width: 100%;
-  
+
   [class*="copyrights-pane"] {
     display: none !important;
   }

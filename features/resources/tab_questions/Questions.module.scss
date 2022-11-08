@@ -4,7 +4,7 @@
 .questions_container{
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 60px auto;
 }
 
 .input_box {
@@ -73,12 +73,12 @@
         display: flex;
         justify-content: space-between;
       }
-  
+
       path {
         fill: #212121;
       }
     }
-  
+
     p {
       padding: 0 15px 25px;
       font-size: 16px;
@@ -90,5 +90,5 @@
       transition: all .1s;
     }
   }
- 
+
 }
