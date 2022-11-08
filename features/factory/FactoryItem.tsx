@@ -14,7 +14,6 @@ const FactoryItem: FC<IFactoryData> = ({ itemsData }) => {
           <p>{itemsData.length > 0 && itemsData[0]?.descriptionTop}</p>
         </div>
         {items.map((e, i) => {
-          console.log("eee", e);
           return <FactoryItemDesc {...e} key={i} />;
         })}
       </div>
