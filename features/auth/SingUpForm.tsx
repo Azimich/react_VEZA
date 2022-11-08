@@ -12,6 +12,12 @@ import { Button } from "components/button";
 const SingUpForm: FC = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const options = [
+    { value: "Россия", label: "Россия" },
+    { value: "Казахстан", label: "Казахстан" },
+    { value: "Белорусия", label: "Белорусия" },
+  ];
+
+  const option = [
     { value: "Россия", label: "Москва" },
     { value: "Казахстан", label: "Саратов" },
     { value: "Белорусия", label: "Астрахань" },
@@ -310,6 +316,7 @@ const SingUpForm: FC = () => {
               defaultValue={selectedOption}
               onChange={setSelectedOption}
               options={options}
+              placeholder={"Введите страну"}
             />
           </ul>
           <ul
@@ -323,7 +330,8 @@ const SingUpForm: FC = () => {
               className={Styles.registration__form__select}
               defaultValue={selectedOption}
               onChange={setSelectedOption}
-              options={options}
+              options={option}
+              placeholder={"Введите город"}
             />
           </ul>
         </div>
