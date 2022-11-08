@@ -1,22 +1,44 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
 .Decision_container{
   display: flex;
-  margin-bottom: 100px;
+  gap: 20px;
   align-items: flex-start;
   padding-top: 60px;
-  img{
-    display: block;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  &_img {
+    height: 500px;
     min-width: 40%;
-    height: 100%;
     border-radius: 20px;
+    overflow: hidden;
+    @media (max-width: 1200px) {
+      min-width: 100%;
+    }
+
+    @include phoneScreen {
+      height: 350px;
+    }
+  }
+
+  img {
+    display: block;
+    object-fit: cover;
   }
 
   &_info{
-    margin-left: 30px;
     h1{
       margin-bottom: 10px;
       line-height: 50px;
       font-size: 38px;
       font-weight: 500;
+      @include phoneScreen {
+        font-size: 30px;
+        line-height: 145%;
+      }
     }
     
     p{

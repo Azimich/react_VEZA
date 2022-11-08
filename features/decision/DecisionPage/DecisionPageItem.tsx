@@ -14,7 +14,9 @@ const DecisionPageItem: FC<IDecision> = ({ data }) => {
 
   return (
     <div className={Styles.Decision_container}>
-      <img src={dataPage?.image} alt="Фото" />
+      <div className={Styles.Decision_container_img}>
+        <img src={dataPage?.image} alt="Фото" />
+      </div>
       <div className={Styles.Decision_container_info}>
         <h1>{dataPage?.title}</h1>
         <p>{dataPage?.description_full}</p>
