@@ -4,6 +4,7 @@ interface Interaction {
   service_tel: string;
   logistic_tel: string;
   address: string;
+  email: string;
   type: "sales" | "factory";
 }
 export { Interaction };

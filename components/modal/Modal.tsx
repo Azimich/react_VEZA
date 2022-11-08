@@ -9,17 +9,18 @@ export const Modal: FC<IModalProps> = ({
   hide,
   modalContent,
   theme = "modal",
+  bgModal = "white",
 }) => {
   const modal = (
-    <section className={Styles.modal} onClick={hide}>
+    <section className={`${Styles.modal} ${Styles[bgModal]}`} onClick={hide}>
       <div
         className={`${Styles.modal_dialog} ${Styles[`theme__${theme}`]}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={Styles.modal_close} onClick={hide}>
-          <CloseIcon />
-        </div>
         <div className={Styles.modal_body}>
+          <div className={Styles.modal_close} onClick={hide}>
+            <CloseIcon />
+          </div>
           <div className={Styles.modal_content}>{modalContent}</div>
         </div>
       </div>

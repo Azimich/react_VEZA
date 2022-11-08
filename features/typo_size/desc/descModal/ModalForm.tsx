@@ -4,10 +4,10 @@ import { modalFormData, modalHrefData } from "./MockData";
 import { CheckboxWithLabel } from "components/checkbox";
 import Styles from "../descModal/ModalDesc.module.scss";
 import { Button } from "components/button";
-// import Link  from 'next/link';
 import { ArrowRightWhiteIcon } from "components/icons";
+import { IModalFormData } from "./ModalFormI";
 
-const ModalForm: FC = () => {
+const ModalForm: FC<IModalFormData> = () => {
   return (
     <div className={Styles.documentation}>
       <h1 className={Styles.modal__title}>Тип файла</h1>

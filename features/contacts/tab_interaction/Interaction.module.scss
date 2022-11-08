@@ -79,14 +79,11 @@
       justify-content: space-between;
       color: gray;
       font-size: 16px;
+      margin: 8px 0;
       span{
         max-width: 200px;
         text-align: right;
-        line-height: 145%;
-      }
-
-      &:nth-child(2){
-        margin: 8px 0;
+        line-height: 150%;
       }
     }
 
