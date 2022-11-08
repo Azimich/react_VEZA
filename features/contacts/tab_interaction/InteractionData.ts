@@ -8,6 +8,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 495 626-99-30",
     address: "Зеленый проспект 20 111397, Москва Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Рабочая, д 10а 142460, Московская область Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 31,
@@ -32,6 +35,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 32,
@@ -40,6 +44,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 33,
@@ -48,6 +53,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 34,
@@ -56,6 +62,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 4,
@@ -64,6 +71,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "sales",
+    email: "veza@mail.ru",
   },
   {
     id: 5,
@@ -72,6 +80,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 495 626-99-30",
     address: "Зеленый проспект 20 111397, Москва Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 6,
@@ -80,6 +89,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Рабочая, д 10а 142460, Московская область Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 7,
@@ -88,6 +98,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 8,
@@ -96,6 +107,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 9,
@@ -104,6 +116,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 10,
@@ -112,6 +125,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 11,
@@ -120,6 +134,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
   {
     id: 12,
@@ -128,6 +143,7 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "factory",
+    email: "veza@mail.ru",
   },
 ];
 

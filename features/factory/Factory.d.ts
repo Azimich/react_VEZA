@@ -3,10 +3,10 @@ interface IFactoryData {
   itemsData?: IFactory[];
 }
 interface IFactory {
-  id?: number;
-  firstTitle?: string;
+  id: number;
+  firstTitle: string;
   code?: string;
-  descroptionTop?: string;
+  descriptionTop?: string;
   items?: IFactoryItems[];
 }
 
@@ -16,5 +16,9 @@ interface IFactoryItems {
   subText?: string;
   img?: string;
 }
+interface IFactoryState {
+  factoryState: IFactoryData[];
+  currentFactoryState?: IFactoryData;
+}
 
-export { IFactory, IFactoryItems, IFactoryData };
+export { IFactory, IFactoryItems, IFactoryData, IFactoryState };

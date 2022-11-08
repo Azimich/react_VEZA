@@ -28,6 +28,11 @@ const SingInForm = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
+
+  const handleOnclickCheck = () => {
+    console.log("Чекед авторизации");
+  };
+
   return (
     <div className={Styles.authorization__form}>
       <form
@@ -89,7 +94,11 @@ const SingInForm = () => {
           </div>
         </div>
         <div className={Styles.authorization__form__item__forgot}>
-          <CheckboxWithLabel name={"forgot"} title="Запомни меня" />
+          <CheckboxWithLabel
+            name={"forgot"}
+            title={"Запомни меня"}
+            onClick={() => handleOnclickCheck()}
+          />
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>
         <div className={Styles.authorization__form__item__answer}>

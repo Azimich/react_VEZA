@@ -16,14 +16,47 @@
       transform: translateY(-2px);
       transition: all 0.3s;
     }
+    
+    &_calls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px 10px 10px;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 16px;
+        color: rgb(108, 109, 112);
+        opacity: 0.9;
+        transition: all 0.3s;
+        &:hover {
+          opacity: 1;
+        }
+
+        &:first-child {
+          svg {
+            width: 22px;
+          }
+        }
+
+        svg {
+          margin-right: 5px;
+          path {
+            fill: #33953A;
+          }
+        }
+      }
+    }
 
     &_img {
       img {
-        width: 100%;
-        height: 100%;
-        display: block;
+       width: 100%;
+       height: 100%;
+       display: block;
       }
     }
+
     &_info{
       background: #3b9900;
       padding: 15px 10px;

@@ -6,6 +6,7 @@ interface IHeaderIconProps {
   url: string;
   children: ReactJSXElement;
   className: string;
+  onClick?: () => void;
 }
 const IconItem: FC<IHeaderIconProps> = ({ url, children, className }) => {
   return (

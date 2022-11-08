@@ -20,7 +20,11 @@ const HomeContainer = () => {
           <Box_icon_social_container />
         </div>
       </Container>
-      <SliderContainer items={sliderData.items} theme={"home"} />
+      <SliderContainer
+        autoplay={false}
+        items={sliderData.items}
+        theme={"home"}
+      />
 
       <Separator title={"О нас"} />
       <AboutContainer />

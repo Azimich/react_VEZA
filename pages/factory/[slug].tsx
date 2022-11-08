@@ -2,6 +2,9 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { wrapper } from "../../store/store";
 import React from "react";
 import { FactoryContainer } from "../../features/factory/FactoryContainer";
+import { FactoryData } from "../../features/factory/mockData";
+import { IFactoryData } from "features/factory/Factory";
+import { fetchDataFactory } from "features/factory/FactorySlice";
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
@@ -10,7 +13,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async () => {
+  (store) => async () => {
+    store.dispatch(fetchDataFactory({ factoryState: FactoryData }));
     return {
       props: {},
       revalidate: 10,

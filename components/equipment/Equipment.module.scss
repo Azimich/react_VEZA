@@ -1,33 +1,30 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .equipment_container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
-  grid-template-areas:
-    "col1 col1 col2 col2 col3 col3"
-    "col4 col4 col4 col5 col5 col5";
-
-
-  .col1 { grid-area: col1; }
-
-  .col2 { grid-area: col2; }
-
-  .col3 { grid-area: col3; }
-
-  .col4 { grid-area: col4; }
-  .col5 { grid-area: col5; }
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+  @include ipadScreen {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
   &_item{
     overflow: hidden;
     border-radius: 12px;
-
+    height: 267px;
     &:hover img{
       transform: scale(1.1);
+
     }
+
     img{
       width:100%;
+      object-fit: cover;
       transition: all 0.3s;
-
     }
   }
 }
