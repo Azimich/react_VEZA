@@ -6,17 +6,16 @@ import Styles from "./News.module.scss";
 import { NewsWithOutItem } from "./NewsWithOutItem";
 import { Pagination } from "../../components/pagination/Pagination";
 
-const NewsContainer: FC<INewsData> = ({ newsData }) => {
+const NewsContainer: FC<INewsData> = ({ newsData, newsItem }) => {
   const [newsWithDesc] = useState<INewDataItem[]>(newsData.slice(0, 4));
   const [newsWithOutDesc] = useState<INewDataItem[]>(newsData.slice(4));
-
+  console.log("newsItem", newsItem);
   return (
     <>
       <Container className={"wrapper"}>
         {newsWithDesc.map((e) => {
           return <NewsWithItem {...e} key={e.id} />;
         })}
-
         <ul className={Styles.new_with_out_container}>
           {newsWithOutDesc.map((e) => {
             return <NewsWithOutItem {...e} key={e.id} />;
