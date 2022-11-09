@@ -17,7 +17,7 @@ const AchievementsItem: FC<IAchievementsData> = ({
       </div>
       <div className={Styles.info}>
         <h2>{name}</h2>
-        <div className={Styles.info_desc}>{description}</div>
+        <p className={Styles.info_desc}>{description}</p>
       </div>
     </li>
   );

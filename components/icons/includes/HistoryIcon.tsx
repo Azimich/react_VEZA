@@ -5,8 +5,8 @@ const HistoryIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1302"
-      height="281"
+      width="1390"
+      height="414"
       viewBox="0 0 1302 281"
       fill="none"
       {...props}
