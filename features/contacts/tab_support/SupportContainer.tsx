@@ -10,6 +10,7 @@ import { TitleTabs } from "../../../components/title_tabs";
 import { SupportGroups } from "../tab_support/SupportGroups";
 import { supportData } from "../tab_support/mockData";
 import { EmailIcon, PhoneFooterIcon } from "components/icons";
+import { Separator } from "components/separator";
 
 const SupportContainer = () => {
   const router = useRouter();
@@ -38,16 +39,16 @@ const SupportContainer = () => {
       <SupportForm />
 
       <div className={Styles.support__phone}>
-        <a href="tel: +7 999 999 99 99">
+        <a href={"tel:" + process.env.NEXT_PUBLIC_PHONE}>
           <PhoneFooterIcon />
-          +7 999 999 99 99
+          {process.env.NEXT_PUBLIC_PHONE}
         </a>
-        <a href="msk@veza.ru">
+        <a href={"mailto:" + process.env.NEXT_PUBLIC_EMAIL}>
           <EmailIcon />
           msk@veza.ru
         </a>
       </div>
-
+      <Separator title={"Наши телеграм каналы"} />
       {supportData.map((item, i) => {
         return <SupportGroups key={i} {...item} />;
       })}
