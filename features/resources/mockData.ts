@@ -6,30 +6,35 @@ const bimData: IBim[] = [
     title: "Противопожарные клапаны",
     desc: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae",
     img: "/images/BIM-1.png",
+    date: "24.09.2019",
   },
   {
     id: 2,
     title: "AEROSTART",
     desc: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae",
     img: "/images/BIM-2.svg",
+    date: "09.09.2018",
   },
   {
     id: 3,
     title: "Воздушные каналы",
     desc: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae",
     img: "/images/BIM-3.png",
+    date: "04.09.2022",
   },
   {
     id: 4,
     title: "ЭКСПОРТ",
     desc: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae",
     img: "/images/BIM-4.png",
+    date: "11.10.2021",
   },
   {
     id: 5,
     title: "Вероса",
     desc: "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae",
     img: "/images/BIM-5.png",
+    date: "12.09.2020",
   },
 ];
 

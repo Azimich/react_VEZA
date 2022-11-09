@@ -23,3 +23,4 @@ export { ReferenceIcon } from "./includes/ReferenceIcon";
 export { EmailIcon } from "./includes/EmailIcon";
 export { MapIcon } from "./includes/MapIcon";
 export { LogoIcon } from "./includes/LogoIcon";
+export { CalendarIcon } from "./includes/CalendarIcon";
