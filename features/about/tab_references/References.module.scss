@@ -1,3 +1,6 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
 .references_container {
   max-width: 600px;
   display: flex;
@@ -9,28 +12,25 @@
   display: block;
 
   .tab_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 20px;
-    padding: 0 0 8px 0;
-    margin-bottom: 80px;
-
     ul {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 20px;
-
+      grid-row-gap: 40px;
       li {
-        padding-bottom: 22px;
-
+        padding-bottom: 50px;
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+        }
         span {
+          overflow: hidden;
           cursor: pointer;
           transition: all 0.3s;
-          overflow: hidden;
           object-fit: cover;
-
-          &:hover{
-            transform: scale(1.1);
+          img {
+            transition: all 0.3s;
           }
         }
 

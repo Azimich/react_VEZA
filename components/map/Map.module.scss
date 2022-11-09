@@ -1,21 +1,23 @@
-.map_container {
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 
+.map_container {
   justify-content: center;
   flex-direction: column;
-
   position: relative;
   max-width: 1100px;
   margin: 0 auto 40px;
+  @include ipadScreen {
+    display: none;
+  }
 
   .marker {
-
     width: fit-content;
     position: absolute;
     cursor: pointer;
     top: 561px;
     left: 417px;
     transition: all 0.3s;
-
     &:hover {
       transform: scale(1.5);
     }
@@ -28,11 +30,9 @@
   display: flex;
   justify-content: center;
   height: 590px;
-
   a {
     cursor: pointer;
     transition: all 0.3s;
-
     &.russia {
       &:hover {
         path, polygon {

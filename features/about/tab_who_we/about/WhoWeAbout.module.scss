@@ -1,3 +1,6 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
 .WhoweAbout_container{
   display: flex;
   flex-direction: column;
@@ -7,20 +10,32 @@
     margin: 0 auto;
     object-fit: cover;
     height: 600px;
+    @include ipadScreen {
+      height: 300px;
+    }
   }
   &_about{
     background-color: #FFF;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     border-radius: 20px;
-
     text-align: center;
     margin: -220px auto 80px;
     max-width: 800px;
     display: flex;
     padding: 50px;
     flex-direction: column;
-    font-size: 16px;
-    line-height: 170%;
+    @include ipadScreen {
+      border-radius: 10px;
+      margin: -130px auto 30px;
+      padding: 30px;
+    }
+
+    @include phoneScreen {
+      border-radius: 10px;
+      margin: -130px auto 30px;
+      padding: 15px 10px;
+    }
+
     &_title{
       text-align: center;
       font-weight: 600;
@@ -28,12 +43,20 @@
       text-transform: uppercase;
       color: #212121;
       margin-bottom: 50px;
+      @include ipadScreen {
+        margin-bottom: 4%;
+        font-size: 35px;
+      }
     }
     &_text{
       font-size: 16px;
       line-height: 170%;
       font-weight: normal;
       color: #212121;
-
+      @include ipadScreen {
+        line-height: 145%;
+        font-size: 14px;
+      }
+    }
   }
-}}
+}
