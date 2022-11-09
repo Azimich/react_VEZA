@@ -37,7 +37,7 @@
     }
 
     &__select {
-      margin: 18px 0 0 0;
+      margin: 18px 0 18px 0;
       display: flex;
       align-items: center;
       gap: 40px;
@@ -47,9 +47,9 @@
       }
     }
 
-    &__textarea { 
-      margin: 10px 0 20px 0; 
-    }    
+    &__textarea {
+      margin: 10px 0 20px 0;
+    }
   }
 
   &__item__answer {
@@ -94,7 +94,7 @@
       flex-direction: column;
       row-gap: 0;
     }
-    
+
     ul {
       width: 100%;
     }
@@ -152,7 +152,7 @@
         border-color: red;
         width: 100%;
       }
-    } 
+    }
   }
 
   &__selected {
@@ -179,7 +179,7 @@
 
 //Теплеграм каналы
 .group__items {
-  margin-bottom: 20px;  
+  margin-bottom: 20px;
   .group__item {
     background-color: #f3f3f3;
     opacity: 0.8;
@@ -191,7 +191,7 @@
       transform: translateY(-3px);
       transition: all 0.3s;
     }
-    
+
     h2 {
       font-size: 18px;
       text-transform: uppercase;

@@ -17,7 +17,7 @@ services:
     networks:
       - veza
   nginx:
-    build:
+    build:  
       context: ./front/deploy/.nginx/
     ports:
       - "80:80"
