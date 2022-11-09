@@ -1,0 +1,50 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+.bim__modal {
+  padding: 5%;
+  @include phoneScreen {
+    padding: 5% 0 0 0;
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 28px;
+    color: color(dark);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    @include phoneScreen {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__download {
+    background-color: transparent;
+    button {
+      margin-top: 30px;
+    }
+
+    &__items {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 5%;
+      gap: 100px;
+  
+      &__block {  
+        li {
+          label {
+            cursor: pointer
+          }
+        }
+      }
+    }
+  }
+}

@@ -30,24 +30,23 @@
     }
 
     &:nth-child(even) {
-
       .news_container_item_right {
-        @include ipadScreen {
-          order: 1;
-          border-radius:  0 0 10px 10px;
-        }
         order: 0;
         border-radius: 10px 0 0 10px;
+        @include ipadScreen {
+          order: 1;
+          border-radius: 0 0 10px 10px;
+          gap: 20px;
+        }
       }
 
       img {
+        order: 1;
+        border-radius: 0 10px 10px 0;
         @include ipadScreen {
           order: 0;
           border-radius: 10px 10px 0 0;
-
         }
-        order: 1;
-        border-radius: 0 10px 10px 0;
       }
     }
 
@@ -107,6 +106,7 @@
       @include ipadScreen {
         border-radius: 0 0 10px 10px;
         padding: 10px 10px 20px 10px;
+        gap: 30px;
       }
 
       span {
@@ -148,7 +148,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
   margin-top: 100px;
-  gap: 40px;
+  gap: 25px;
   margin-bottom: 50px;
 
   &_item {

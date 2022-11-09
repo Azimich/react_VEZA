@@ -78,6 +78,7 @@ const WhoWeContainer: FC = () => {
         modalContent={<ModalFormFactory {...contentForm} />}
         theme={"modal"}
         headerText={"Тип файла"}
+        bgModal={"black"}
       ></Modal>
     </Container>
   );

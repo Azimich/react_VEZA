@@ -9,7 +9,7 @@ export const Modal: FC<IModalProps> = ({
   hide,
   modalContent,
   theme = "modal",
-  bgModal = "white",
+  bgModal = "",
 }) => {
   const modal = (
     <section className={`${Styles.modal} ${Styles[bgModal]}`} onClick={hide}>
