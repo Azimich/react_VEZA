@@ -3,6 +3,7 @@ interface IOptionSetting {
   options?: boolean;
   placeholder?: string;
   closeMenuOnSelect?: boolean;
+  name?: string;
   onChange?: (e) => void;
   optionsData: IOptionItem[];
   defaultValue?: IOptionItem;

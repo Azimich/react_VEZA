@@ -9,16 +9,20 @@ const animatedComponents = makeAnimated();
 const SelectContainer: FC<IOptionSetting> = ({
   closeMenuOnSelect = true,
   optionsData = [],
-  defaultValue = {},
+  defaultValue,
+  name = "select",
   isMulti = false,
   placeholder = "",
   onChange,
 }) => {
   return (
     <Select
+      name={name}
       closeMenuOnSelect={closeMenuOnSelect}
       components={animatedComponents}
       defaultValue={defaultValue}
+      isSearchable
+      isClearable
       isMulti={isMulti}
       options={optionsData}
       className={Styles.job_container}

@@ -22,6 +22,9 @@ const SupportForm = () => {
       email: "",
       phone: "",
       company: "",
+      service: "",
+      city: "",
+      country: "",
       order: "",
       post: "",
       forgot: false,
@@ -54,6 +57,9 @@ const SupportForm = () => {
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
         .required("Обязательно для заполнения!"),
+      service: Yup.string().required("Обязательно для заполнения!"),
+      city: Yup.string().required("Заполните город"),
+      country: Yup.string().required("Заполните страну"),
     }),
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
@@ -101,16 +107,18 @@ const SupportForm = () => {
         className={Styles.support__form__items}
         onSubmit={formik.handleSubmit}
       >
-        {/* Доработать placeholder */}
         <SelectContainer
           optionsData={dataSupportSubjectSelect}
-          placeholder={"grfwv"}
-          onChange={() => {}}
+          name={"service"}
+          placeholder={"Выберите тему сообщения"}
+          onChange={(e) => {
+            formik.setFieldValue("service", e?.value ? e?.value : "");
+          }}
         />
         <div className={Styles.support__form__items__input}>
           <ul
             className={`${
-              formik.errors?.firstName && formik.touched?.firstName
+              formik.errors?.service && formik.touched?.firstName
                 ? Styles.support__form__item__input_error
                 : Styles.support__form__item__input
             }`}
@@ -264,17 +272,66 @@ const SupportForm = () => {
             </div>
           </ul>
         </div>
-        <div className={Styles.support__form__items__select}>
-          <SelectContainer
-            optionsData={dataSupportCountrySelect}
-            placeholder="Выберите страну"
-            onChange={() => {}}
-          />
-          <SelectContainer
-            optionsData={dataSupportCitySelect}
-            placeholder="Выберите город"
-            onChange={() => {}}
-          />
+        <div className={Styles.support__form__items__input}>
+          <div className={Styles.support__form__item__input}>
+            <ul
+              className={`${
+                formik.errors?.country && formik.touched?.country
+                  ? Styles.support__form__item__input_error
+                  : Styles.support__form__item__input
+              }`}
+            >
+              <Input
+                name={"country"}
+                title={"Страна *"}
+                className={Styles.input__item}
+                onChange={(e) => {
+                  formik.setFieldValue("country", e.target.value);
+                }}
+                onBlur={formik.handleBlur}
+                value={formik.values.country}
+              />
+              <div
+                className={`${
+                  formik.errors?.country && formik.touched?.country
+                    ? Styles.overflow__auto
+                    : Styles.overflow
+                }`}
+              >
+                <li>{formik.errors.country}</li>
+              </div>
+            </ul>
+          </div>
+
+          <div className={Styles.support__form__item__input}>
+            <ul
+              className={`${
+                formik.errors?.city && formik.touched?.city
+                  ? Styles.support__form__item__input_error
+                  : Styles.support__form__item__input
+              }`}
+            >
+              <Input
+                name={"city"}
+                title={"Город *"}
+                className={Styles.input__item}
+                onChange={(e) => {
+                  formik.setFieldValue("city", e.target.value);
+                }}
+                onBlur={formik.handleBlur}
+                value={formik.values.city}
+              />
+              <div
+                className={`${
+                  formik.errors?.city && formik.touched?.city
+                    ? Styles.overflow__auto
+                    : Styles.overflow
+                }`}
+              >
+                <li>{formik.errors.city}</li>
+              </div>
+            </ul>
+          </div>
         </div>
         <div className={Styles.support__form__items__input}>
           <ul
