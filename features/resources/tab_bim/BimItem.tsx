@@ -1,3 +1,4 @@
+import { CalendarIcon } from "components/icons";
 import React from "react";
 import { FC } from "react";
 import { IBim } from "./Bim";
@@ -13,6 +14,10 @@ const BimItem: FC<IBim> = ({ title, img, desc }) => {
         <h1>{title}</h1>
         <p>{desc}</p>
       </div>
+      <ul className={Styles.bim__items__item}>
+        <CalendarIcon />
+        <li>12.12.2020</li>
+      </ul>
     </div>
   );
 };
