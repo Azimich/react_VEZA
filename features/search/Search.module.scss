@@ -1,0 +1,16 @@
+.search__box_item{
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 12px;
+  color: #212121;
+  margin-bottom: 12px;
+  &_title{
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  &_desc{
+    font-size: 14px;
+    line-height: 1.3
+  ;
+  }
+}
