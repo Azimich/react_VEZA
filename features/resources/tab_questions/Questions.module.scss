@@ -7,6 +7,16 @@
   margin: 0 auto;
 }
 
+.title {
+  margin-bottom: 25px;
+  p {
+    text-align: center;
+    margin: -15px 0 0 0;
+    line-height: 145%;
+    font-size: 18px;
+  }
+}
+
 .input_box {
   margin: auto 0 20px auto;
   width: 300px;
@@ -51,9 +61,6 @@
     }
   }
 }
-
-
-
 
 .faq__items__item {
   background: #f5f5f5;
