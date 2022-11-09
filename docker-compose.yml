@@ -1,16 +1,24 @@
 version: "3.9"
 services:
-  fronend:
+  frontend:
     build:
-      context: .
+      context: ./front
     ports:
       - "3000:3000"
     command: start
     networks:
       - veza
+  backend:
+    build:
+      context: ./back
+    ports:
+      - "5000:80"
+    command: dotnet run
+    networks:
+      - veza
   nginx:
     build:
-      context: ./deploy/.nginx/
+      context: ./front/deploy/.nginx/
     ports:
       - "80:80"
     links:

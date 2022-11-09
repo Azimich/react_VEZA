@@ -28,7 +28,8 @@
     "paths": {
       "features/*": ["./features/*"],
       "store/*": ["./store/*"],
-      "utils/*": ["./utils/*"]
+      "utils/*": ["./utils/*"],
+      "components/*": ["./components/*"]
     }
   },
   "include": [

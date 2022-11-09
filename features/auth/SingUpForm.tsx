@@ -394,6 +394,9 @@ const SingUpForm: FC = () => {
           <CheckboxWithLabel
             name={"private_police"}
             title={"Согласие на обработку персональных данных с условиями"}
+            onChange={() => {
+              console.log("checked");
+            }}
           />
         </div>
         <div className={Styles.registration__form__item__answer}>

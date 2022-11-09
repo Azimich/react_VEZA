@@ -20,5 +20,7 @@ export { HistoryIcon } from "./includes/HistoryIcon";
 export { FactoryIcon } from "./includes/FactoryIcon";
 export { ArrowRightWithOutCircle } from "./includes/ArrowRightWithOutCircleIcon";
 export { ReferenceIcon } from "./includes/ReferenceIcon";
-export { Email } from "./includes/Email";
+export { EmailIcon } from "./includes/EmailIcon";
+export { MapIcon } from "./includes/MapIcon";
+export { LogoIcon } from "./includes/LogoIcon";
 export { CalendarIcon } from "./includes/CalendarIcon";

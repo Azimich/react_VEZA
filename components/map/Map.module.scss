@@ -69,24 +69,52 @@
 }
 
 .modal_title {
-  font-size: 20px;
   font-weight: 500;
-  line-height: 23px;
-  text-transform: uppercase;
-  color: #009247;
-  margin-bottom: 20px;
-
+  font-size: 25px;
+  color: #404040;
+  margin-bottom: 15px;
 }
 
-.factory_info {
-  margin-bottom: 16px;
 
+.factory_info {
+margin-top: 16px;
+
+  &_fio{
+    font-weight: 400;
+    font-size: 16px;
+    color: #5c5c5c;
+    p{
+      font-weight: 500;
+      font-size: 18px;
+      color: #5c5c5c;
+      margin-top: 6px;
+    }
+  }
   &_services {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     color: gray;
     font-size: 15px;
-    margin-bottom: 6px;
+    gap: 10px;
+    margin-bottom: 15px;
+    a{
+      color: gray;
+    }
+    p{
+      font-weight: 500;
+      font-size: 18px;
+      color: #5c5c5c;
+      margin-top: 6px;
+    }
+    svg{
+      width: 24px;
+      height: 24px;
+
+      path {
+        fill: #2E6143;
+      }
+    }
   }
 }
 

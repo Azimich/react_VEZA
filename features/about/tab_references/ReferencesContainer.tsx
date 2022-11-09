@@ -5,12 +5,12 @@ import { tabsAboutData, tabsSocialData } from "../../contacts/mockData";
 import { IComponents, ITab } from "../../../components/tabs/Tabs";
 import { Commercial, Industrial, Social } from "../index";
 import React, { FC, ReactNode, useEffect, useState } from "react";
-import { aboutPath } from "../../../utils/bootstrap";
+import { aboutPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
 import { MapContainer } from "../../../components/map/MapContainer";
 import { IObject, IObjectItem } from "../../../components/map/Map";
 import { Modal, useModal } from "../../../components/modal";
-import { ObjectItem } from "../tab_who_we/ObjectItem";
+import { ObjectItem } from "../ObjectItem";
 import { ReferenceIcon } from "../../../components/icons";
 import { ModalFormFactory } from "../tab_who_we/ModalFormFactory";
 import { referenceObject } from "./mockData";
@@ -29,6 +29,7 @@ const ReferencesContainer: FC = () => {
     slug: "commercial",
     activeTab: 1,
   });
+
   const handleSideBarClick = (e: ITab) => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0

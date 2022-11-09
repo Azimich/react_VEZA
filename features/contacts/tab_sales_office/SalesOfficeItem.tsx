@@ -1,7 +1,7 @@
 import Styles from "../Contacts.module.scss";
 import React, { FC } from "react";
 import { ISallesOffice } from "./SalesOffice";
-import { Email, PhoneFooterIcon } from "components/icons";
+import { EmailIcon, PhoneFooterIcon } from "components/icons";
 
 const SalesOfficeItem: FC<ISallesOffice> = ({
   image,
@@ -20,12 +20,12 @@ const SalesOfficeItem: FC<ISallesOffice> = ({
       </div>
       <p>{desc}</p>
       <ul className={Styles.director__items_item_calls}>
-        <a href="tel: +7 999 999 99 99">
+        <a href={"tel:" + phone}>
           <PhoneFooterIcon />
           {phone}
         </a>
-        <a href="mailto: msk@veza.ru">
-          <Email />
+        <a href={"mailto:" + email}>
+          <EmailIcon />
           {email}
         </a>
       </ul>

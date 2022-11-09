@@ -1,5 +1,6 @@
 import { ISalles } from "./SalesOffice";
 import { IOptionItem } from "../../../components/select/Select";
+import { IObject } from "../../../components/map/Map";
 
 const salesOfficeData: ISalles[] = [
   {
@@ -343,4 +344,67 @@ const dataContactsCitySelect: IOptionItem[] = [
   { value: "PET", label: "Санкт-Петербург" },
 ];
 
-export { salesOfficeData, dataContactsCitySelect };
+const office_sales_data: IObject[] = [
+  {
+    id: 1,
+    connection: "belarus",
+    alias: "minsk",
+
+    object: {
+      xpx: 22,
+      ypx: 8,
+      name: "Веза-Миасс",
+      fio: "Сергиенко Алексей Сергеевич",
+      service_phone: "Тел: +7 999 999 00 99",
+      address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
+    },
+  },
+  {
+    id: 2,
+    connection: "moskovskaya_obl",
+    alias: "msk",
+
+    object: {
+      xpx: 22,
+      ypx: 8,
+      name: "Веза-Миасс",
+      fio: "Сергиенко Алексей Сергеевич",
+      service_phone: "Тел: +7 999 999 00 99",
+      address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
+    },
+  },
+  {
+    id: 3,
+    connection: "hanty_mansiyskiy",
+    alias: "hant",
+
+    object: {
+      xpx: 22,
+      ypx: 8,
+      name: "Веза-Миасс",
+      fio: "Сергиенко Алексей Сергеевич",
+      service_phone: "Тел: +7 999 999 00 99",
+      address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
+    },
+  },
+  {
+    id: 4,
+    connection: "amurskaya_obl",
+    alias: "saha_yakutia_office",
+
+    object: {
+      xpx: 22,
+      ypx: 8,
+      name: "Веза-Миасс",
+      fio: "Сергиенко Алексей Сергеевич",
+      service_phone: "Тел: +7 999 999 00 99",
+      address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
+    },
+  },
+];
+
+export { salesOfficeData, dataContactsCitySelect, office_sales_data };

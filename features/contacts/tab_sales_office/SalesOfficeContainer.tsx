@@ -1,18 +1,27 @@
-import React from "react";
-import { Tabs } from "../../../components/tabs";
+import React, { FC, ReactNode, useState } from "react";
+import { Tabs } from "components/tabs";
 import { tabsContactsData, tabsSalesData } from "../mockData";
-import { Container } from "../../../components/common/container";
-import { IComponents, ITab } from "../../../components/tabs/Tabs";
-import { contactsPath } from "../../../utils/bootstrap";
+import { Container } from "components/common/container";
+import { IComponents, ITab } from "components/tabs/Tabs";
+import { contactsPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
 import Styles from "./SalesOffice.module.scss";
-import { SearchContainer } from "./search/SearchContainer";
+import { SearchContainer } from "features/contacts";
 import { Director, Logistic, Secretary } from "../index";
 import { YandexMap } from "../index";
 import { SeparatorContainer } from "components/separator/SeparatorContainer";
+import { ObjectItem } from "features/about/ObjectItem";
+import { IObjectItem } from "components/map/Map";
+import { Modal, useModal } from "components/modal";
+import { LogoIcon, MapIcon } from "components/icons";
+import { Map } from "components/map";
+import { office_sales_data } from "features/contacts/tab_sales_office/mockData";
+import { ModalFormOffice } from "./ModalFormOffice";
 
-const SalesOfficeContainer = () => {
+const SalesOfficeContainer: FC = () => {
   const router = useRouter();
+  const [contentForm, setContentForm] = useState<IObjectItem>();
+  const { isShow, toggle } = useModal();
 
   const [data, setData] = React.useState<{ slug: string; activeTab: number }>({
     slug: "director",
@@ -23,6 +32,25 @@ const SalesOfficeContainer = () => {
     tab_director: Director,
     tab_logistic: Logistic,
     tab_secretary: Secretary,
+  };
+
+  const FormOutPut: ReactNode[] = office_sales_data.map((e) => {
+    return (
+      <ObjectItem
+        {...e}
+        onClick={(e: IObjectItem, alias: string) =>
+          handleOnClickModal(e, alias)
+        }
+        key={"fac" + e.id}
+        icon={<MapIcon />}
+      />
+    );
+  });
+
+  const handleOnClickModal = (e: IObjectItem, alias: string) => {
+    e.alias = alias;
+    setContentForm(e);
+    toggle();
   };
 
   const handleTabsButton = (e: ITab) => {
@@ -45,6 +73,7 @@ const SalesOfficeContainer = () => {
           size={"max"}
         />
       </div>
+      <Map formOutPut={FormOutPut} />
       <div className={Styles.sales_office_container_items}>
         <h1>НАШИ МЕНЕДЖЕРЫ</h1>
         <SearchContainer />
@@ -63,9 +92,20 @@ const SalesOfficeContainer = () => {
 
         <div>
           <SeparatorContainer title={"Филиалы"} />
+          <p className={Styles.styles_map}>
+            <MapIcon />
+            Наш адрес: Зелёный проспект, 20, Москва
+          </p>
           <YandexMap />
         </div>
       </div>
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={<ModalFormOffice {...contentForm} />}
+        theme={"modal"}
+        headerText={<LogoIcon />}
+      ></Modal>
     </Container>
   );
 };

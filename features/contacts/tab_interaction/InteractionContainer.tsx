@@ -3,12 +3,13 @@ import { Tabs } from "../../../components/tabs";
 import { tabsContactsData } from "../mockData";
 import { Container } from "../../../components/common/container";
 import { ITab } from "../../../components/tabs/Tabs";
-import { contactsPath } from "../../../utils/bootstrap";
+import { contactsPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
 import { InteractionData } from "./InteractionData";
 import { Interaction } from "./Interaction";
 import { InteractionItem } from "./InteractionItem";
 import { TitleTabs } from "../../../components/title_tabs";
+import { Pagination } from "components/pagination/Pagination";
 
 const InteractionContainer = () => {
   const router = useRouter();
@@ -41,7 +42,8 @@ const InteractionContainer = () => {
             return <InteractionItem {...e} key={e.id} />;
           }
         )}
-      </ul>{" "}
+      </ul>
+      <Pagination currentPage={1} totalPageCount={20} pageSize={3} />
       <h3 className={Styles.interaction_container_h3}>Наши заводы</h3>
       <ul className={Styles.interaction_items}>
         {InteractionData.filter((e) => e.type === "factory").map(

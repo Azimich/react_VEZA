@@ -13,7 +13,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
 
   const onChangeData = () => {
     setIsChecked(!isChecked);
-    // return onChange();
+    return onChange();
   };
 
   return (

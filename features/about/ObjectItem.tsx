@@ -1,7 +1,6 @@
-import Styles from "../../../components/map/Map.module.scss";
-import { FactoryIcon } from "../../../components/icons";
+import Styles from "components/map/Map.module.scss";
 import React, { FC, useEffect, useState } from "react";
-import { IObject } from "../../../components/map/Map";
+import { IObject } from "components/map/Map";
 
 const ObjectItem: FC<IObject> = (props) => {
   const { alias, onClick, connection, object, icon } = props;
@@ -12,7 +11,7 @@ const ObjectItem: FC<IObject> = (props) => {
     relative_top: 0,
     relative_left: 0,
   });
-  console.log("675", props);
+
   useEffect(() => {
     const Parent_Coord = document
       .getElementById("parent_map")
