@@ -92,6 +92,10 @@ const SalesOfficeContainer: FC = () => {
 
         <div>
           <SeparatorContainer title={"Филиалы"} />
+          <p className={Styles.styles_map}>
+            <MapIcon />
+            Наш адрес: Зелёный проспект, 20, Москва
+          </p>
           <YandexMap />
         </div>
       </div>

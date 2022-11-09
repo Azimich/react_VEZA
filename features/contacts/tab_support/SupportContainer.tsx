@@ -9,7 +9,7 @@ import { SupportForm } from "./SupportForm";
 import { TitleTabs } from "../../../components/title_tabs";
 import { SupportGroups } from "../tab_support/SupportGroups";
 import { supportData } from "../tab_support/mockData";
-import { Email, PhoneFooterIcon } from "components/icons";
+import { EmailIcon, PhoneFooterIcon } from "components/icons";
 
 const SupportContainer = () => {
   const router = useRouter();
@@ -43,7 +43,7 @@ const SupportContainer = () => {
           +7 999 999 99 99
         </a>
         <a href="msk@veza.ru">
-          <Email />
+          <EmailIcon />
           msk@veza.ru
         </a>
       </div>
