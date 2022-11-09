@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { InteractionData } from "./InteractionData";
 import { Interaction } from "./Interaction";
 import { InteractionItem } from "./InteractionItem";
-import { TitleInteration } from "./TitleInteration";
 import { TitleTabs } from "../../../components/title_tabs";
 
 const InteractionContainer = () => {
