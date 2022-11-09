@@ -3,6 +3,7 @@ interface IBim {
   title?: string;
   desc?: string;
   img?: string;
+  date?: string;
   alias?: string;
 }
 interface ICatalog {
