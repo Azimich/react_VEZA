@@ -357,6 +357,7 @@ const office_sales_data: IObject[] = [
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
     },
   },
   {
@@ -371,6 +372,7 @@ const office_sales_data: IObject[] = [
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
     },
   },
   {
@@ -385,6 +387,7 @@ const office_sales_data: IObject[] = [
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
     },
   },
   {
@@ -399,6 +402,7 @@ const office_sales_data: IObject[] = [
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
+      email: "veza@veza.ru",
     },
   },
 ];

@@ -8,6 +8,7 @@ export const Modal: FC<IModalProps> = ({
   isShow,
   hide,
   modalContent,
+  headerText = "",
   theme = "modal",
   bgModal = "",
 }) => {
@@ -19,6 +20,7 @@ export const Modal: FC<IModalProps> = ({
       >
         <div className={Styles.modal_body}>
           <div className={Styles.modal_close} onClick={hide}>
+            <div>{headerText}</div>
             <CloseIcon />
           </div>
           <div className={Styles.modal_content}>{modalContent}</div>

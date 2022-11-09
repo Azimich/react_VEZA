@@ -13,7 +13,7 @@ import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import { ObjectItem } from "features/about/ObjectItem";
 import { IObjectItem } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
-import { MapIcon } from "components/icons";
+import { LogoIcon, MapIcon } from "components/icons";
 import { Map } from "components/map";
 import { office_sales_data } from "features/contacts/tab_sales_office/mockData";
 import { ModalFormOffice } from "./ModalFormOffice";
@@ -100,7 +100,7 @@ const SalesOfficeContainer: FC = () => {
         hide={toggle}
         modalContent={<ModalFormOffice {...contentForm} />}
         theme={"modal"}
-        headerText={"Тип файла"}
+        headerText={<LogoIcon />}
       ></Modal>
     </Container>
   );
