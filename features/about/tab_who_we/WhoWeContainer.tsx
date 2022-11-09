@@ -3,7 +3,7 @@ import { Container } from "../../../components/common/container";
 import { Tabs } from "../../../components/tabs";
 import { tabsAboutData } from "../../contacts/mockData";
 import { useRouter } from "next/router";
-import { aboutPath } from "../../../utils/bootstrap";
+import { aboutPath } from "utils/bootstrap";
 import Styles from "./Whowe.module.scss";
 import { Achievements, WhoWeAbout } from "../index";
 import { FactoryIcon, HistoryIcon } from "../../../components/icons";
@@ -14,7 +14,7 @@ import { IObjectItem } from "../../../components/map/Map";
 import { Map } from "../../../components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
 import { whoweData } from "../mockData";
-import { ObjectItem } from "./ObjectItem";
+import { ObjectItem } from "../ObjectItem";
 
 const WhoWeContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IObjectItem>();

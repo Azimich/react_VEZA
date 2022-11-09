@@ -3,7 +3,7 @@ import { Tabs } from "../../../components/tabs";
 import { tabsContactsData } from "../mockData";
 import { Container } from "../../../components/common/container";
 import { ITab } from "../../../components/tabs/Tabs";
-import { contactsPath } from "../../../utils/bootstrap";
+import { contactsPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
 import { InteractionData } from "./InteractionData";
 import { Interaction } from "./Interaction";

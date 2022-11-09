@@ -1,10 +1,9 @@
-import { Button } from "components/button";
 import { SelectContainer } from "components/select/SelectContainer";
 import React, { FC, useEffect } from "react";
 import { dataContactsCitySelect } from "../mockData";
 import Styles from "./SerchContainer.module.scss";
 import { IOptionItem } from "../../../../components/select/Select";
-import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
   getOptionsOfficeSalesCity,
   getSelectedOfficeSalesCity,

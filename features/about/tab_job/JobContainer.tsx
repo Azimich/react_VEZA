@@ -13,7 +13,7 @@ import { Button } from "components/button";
 import { Map } from "../../../components/map";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { IObject, IObjectItem } from "../../../components/map/Map";
-import { ObjectItem } from "../tab_who_we/ObjectItem";
+import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "../../../components/map/SideBar";
 
 const JobContainer: FC = () => {

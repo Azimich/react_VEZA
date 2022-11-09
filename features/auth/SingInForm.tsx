@@ -98,6 +98,7 @@ const SingInForm = () => {
             name={"forgot"}
             title={"Запомни меня"}
             onClick={() => handleOnclickCheck()}
+            onChange={() => handleOnclickCheck()}
           />
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>

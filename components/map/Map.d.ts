@@ -24,6 +24,8 @@ interface IObjectItem {
   name?: string;
   alias?: string;
   production_area?: string;
+  fio?: string;
+  email?: string;
   service_phone?: string;
   logistic_phone?: string;
   address?: string;

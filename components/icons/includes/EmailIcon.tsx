@@ -1,7 +1,7 @@
 import React from "react";
 import { FC } from "react";
 
-const Email: FC = (props: React.SVGProps<SVGSVGElement>) => {
+const EmailIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       className="email__icon"
@@ -20,4 +20,4 @@ const Email: FC = (props: React.SVGProps<SVGSVGElement>) => {
   );
 };
 
-export { Email };
+export { EmailIcon };
