@@ -11,6 +11,10 @@
     background-color: transparent;
     row-gap: 10px;
     margin-left: 5px;
+    @include ipadScreen {
+      row-gap: 0;
+    }
+
     button {
       transition: all 0.3s;
     }
@@ -29,7 +33,7 @@
     &:nth-child(even) {
 
       .news_container_item_right {
-        @include ipadScreen(){
+        @include ipadScreen {
           order: 1;
           border-radius:  0 0 10px 10px;
         }
@@ -38,7 +42,7 @@
       }
 
       img {
-        @include ipadScreen(){
+        @include ipadScreen {
           order: 0;
           border-radius: 10px 10px 0 0;
 
@@ -77,7 +81,7 @@
       &_desc {
         color: white;
         transition: all 0.3s;
-        padding-top: 20px;
+        
       }
     }
 
@@ -88,7 +92,7 @@
       overflow: hidden;
       order: 0;
       object-fit: cover;
-      @include ipadScreen(){
+      @include ipadScreen {
         border-radius: 10px 10px 0 0;
       }
     }
@@ -101,8 +105,9 @@
       transition: all 0.3s;
       border-radius: 0 10px 10px 0;
       order: 1;
-      @include ipadScreen(){
+      @include ipadScreen {
         border-radius: 0 0 10px 10px;
+        padding: 10px 10px 20px 10px;
       }
 
       span {
@@ -128,11 +133,13 @@
       }
 
       &_desc {
-        font-family: "Ubuntu", sans-serif;
         font-size: 16px;
         line-height: 150%;
         color: #212121;
         padding-top: 20px;
+        @include ipadScreen {
+          padding-top: 0;
+        }
       }
     }
   }
@@ -143,6 +150,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
   margin-top: 100px;
   gap: 40px;
+  margin-bottom: 50px;
 
   &_item {
     &:hover img {
