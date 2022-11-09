@@ -15,7 +15,7 @@ import { SelectionContainer } from "./selection";
 const HomeContainer = () => {
   return (
     <>
-      <Container className="wrapper" el="section">
+      <Container el="section">
         <div>
           <Box_icon_social_container />
         </div>
@@ -28,7 +28,7 @@ const HomeContainer = () => {
 
       <Separator title={"О нас"} />
       <AboutContainer />
-      <Container className="wrapper" el="section">
+      <Container className="wrapper_clear" el="section">
         <Separator title={"Категория продукции"} />
         <SliderContainer
           items={sliderCategory.items}

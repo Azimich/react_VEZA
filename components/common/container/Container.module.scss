@@ -4,6 +4,8 @@
 .wrapper {
   max-width: 1390px;
   margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 40px;
 
   @include pcScreen {
     max-width: 1390px;
@@ -21,4 +23,8 @@
   @include phoneScreen {
     padding: 0 10px;
   }
+}
+.wrapper_clear{
+  max-width: 1390px;
+  margin: 0 auto;
 }

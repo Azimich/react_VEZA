@@ -26,6 +26,7 @@
     padding-bottom: 40px;
     padding-top: 40px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.363);
+
     @include ipadScreen {
       flex-direction: column;
       gap: 20px;

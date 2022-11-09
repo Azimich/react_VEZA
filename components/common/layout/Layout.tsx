@@ -20,7 +20,7 @@ const Layout: FC = ({ children }) => (
     </header>
     <main className={Styles.main}>
       {children}
-      <Container className="wrapper" el="section">
+      <Container el="section">
         <div>
           <Box_icon_social_container />
         </div>
