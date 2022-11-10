@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-import { Container } from "../../../components/common/container";
+import { Container } from "components/common/container";
 import Styles from "./Bim.module.scss";
-import { Tabs } from "../../../components/tabs";
+import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
-import { ITab } from "../../../components/tabs/Tabs";
-import { resourcesPath } from "../../../utils/bootstrap";
+import { ITab } from "components/tabs/Tabs";
+import { resourcesPath } from "utils/bootstrap";
 import { BimItem } from "./";
 import { bimData } from "../mockData";
 import { Button } from "components/button";

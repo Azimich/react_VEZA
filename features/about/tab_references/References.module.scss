@@ -10,21 +10,19 @@
 
 .tabs_container {
   display: block;
-
   .tab_container {
     ul {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 20px;
       grid-row-gap: 40px;
-      li {
-        padding-bottom: 50px;
+      .image_block_item {
         &:hover {
           img {
             transform: scale(1.1);
           }
         }
-        span {
+        .image_block {
           overflow: hidden;
           cursor: pointer;
           transition: all 0.3s;
@@ -39,7 +37,7 @@
           color: #009247;
           font-weight: 500;
           font-size: 18px;
-          margin-top: 12px;
+          padding: 10px 0;
         }
       }
     }
