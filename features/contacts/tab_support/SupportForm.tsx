@@ -8,6 +8,7 @@ import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
+import { UploadIcon } from "components/icons";
 
 const SupportForm = () => {
   // Валидация формы
@@ -377,33 +378,14 @@ const SupportForm = () => {
         <div className={Styles.support__form__items__textarea}>
           <TextareaContainer children={"Ваше сообщение"} />
         </div>
-        <div className={Styles.support__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.order && formik.touched?.order
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"files"}
-              title={"Прикрепить файл"}
-              className={Styles.input__item}
-              type={"file"}
-              onChange={(e) => handleOnChangeOrder(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.order}
-            />
-            <div
-              className={`${
-                formik.errors?.order && formik.touched?.order
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.order}</li>
-            </div>
-          </ul>
+        <div className={Styles.support__form__added__file}>
+          <label className={Styles.support__form_file}>
+            <Input name={"files"} type={"file"} value={""} />
+            <span>
+              <UploadIcon />
+              Прикрепить
+            </span>
+          </label>
         </div>
         <CheckboxWithLabel
           name={"private_police"}
