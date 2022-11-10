@@ -4,14 +4,13 @@ import { wrapper } from "store/store";
 import { News } from "features/news";
 import { NewsData } from "features/news/mockData";
 import { INewsData } from "features/news/News";
-import { newsList } from "../../service/list/servers/newsList";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async () => {
     const newsData = NewsData.slice(0, 7);
     return {
       props: {
-        newsItem: await newsList(),
+        /* newsItem: await newsList(),*/
         newsData,
       },
       revalidate: 10,
