@@ -70,9 +70,13 @@ const WhoWeContainer: FC = () => {
       </div>
       <div className={Styles.whowe_container_video}>
         <iframe
-          src="https://www.youtube-nocookie.com/embed/Fc1rEkIzOS4?autoplay=0&mute=1"
-          frameBorder={0}
-          allow={"allowfullscreen"}
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Fc1rEkIzOS4"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
         ></iframe>
       </div>
       <Separator title={"наши достижения"} />
