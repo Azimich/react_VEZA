@@ -1,13 +1,13 @@
-import { Container } from "../../../components/common/container";
+import { Container } from "components/common/container";
 import { Menu } from "../menu/Menu";
 import Styles from "../Equipment.module.scss";
 import { FC } from "react";
 import { ICatalogData } from "../Equipment";
-import { SliderContainer } from "../../../components/slider";
+import { SliderContainer } from "components/slider";
 import { UtpContainer } from "./utp/UtpContainer";
-import { Separator } from "../../../components/separator";
-import { Equipment } from "../../../components/equipment";
-import { equipmentData } from "../../../components/equipment/mockData";
+import { Separator } from "components/separator";
+import { Equipment } from "components/equipment";
+import { equipmentData } from "components/equipment/mockData";
 
 interface IPageData {
   data?: ICatalogData[];
