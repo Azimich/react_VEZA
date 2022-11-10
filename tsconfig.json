@@ -29,7 +29,8 @@
       "features/*": ["./features/*"],
       "store/*": ["./store/*"],
       "utils/*": ["./utils/*"],
-      "components/*": ["./components/*"]
+      "components/*": ["./components/*"],
+      "service/*": ["./service/*"]
     }
   },
   "include": [
