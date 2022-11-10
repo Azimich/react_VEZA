@@ -1,9 +1,9 @@
-import { IObjectItem } from "../../../components/map/Map";
+import { IObjectItem } from "components/map/Map";
 import React, { FC } from "react";
-import Styles from "../../../components/map/Map.module.scss";
+import Styles from "components/map/Map.module.scss";
 import { ArrowRightWithOutCircle } from "components/icons";
-import { factoryPath } from "../../../utils/bootstrap";
-import { Link } from "../../../components/link";
+import { factoryPath } from "utils/bootstrap";
+import { Link } from "components/link";
 
 const ModalFormFactory: FC<IObjectItem> = (e) => {
   return (
