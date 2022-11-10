@@ -1,5 +1,3 @@
-import { Property } from "csstype";
-import Resize = Property.Resize;
 import { Response } from "next/dist/compiled/@edge-runtime/primitives/fetch";
 
 const headers = new Headers();
@@ -10,8 +8,7 @@ class Request {
     return await fetch(url, options)
       .then((res) => res.json())
       .catch((err: Response) => {
-        console.log("err", err);
-        return { error: 1, response: [] };
+        return err.json();
       });
   };
 
