@@ -7,10 +7,25 @@
   justify-content: center;
   margin: 0 auto;
   &_history{
-    &_svg{
+    &_svg {
       display: flex;
-      justify-content: center;
-      margin-bottom: 80px;
+      justify-content: flex-start;
+      margin-bottom: 6%;
+      @include phoneScreen {
+        margin-bottom: 3%;
+      }
+      &_pc {
+        display: block;
+        @include ipadScreen {
+          display: none;
+        }
+      }
+      &_mobile {
+        display: none;
+        @include ipadScreen {
+          display: block;
+        }
+      }
     }
   }
   &_video{
