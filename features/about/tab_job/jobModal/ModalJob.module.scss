@@ -1,0 +1,104 @@
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
+
+//Форма заказа
+.job__modal {
+
+  &__inputs {
+    .job__modal__form__items__input {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      @include phoneScreen {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .job__modal__form__item__input,
+      .job__modal__form__items__input__bottom {
+        font-size: 12px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 100%;
+        }
+
+        .overflow {
+          margin-top: 5px;
+          transition: all 0.3s;
+          height: 23px;
+          opacity: 0;
+          transform: translateY(-10px);
+          span {
+            margin: 0 0 0 10px;
+          }
+        }
+
+        &_error {
+          color: red;
+          border-radius: 8px;
+          font-size: 12px;
+          width: 100%;
+          .overflow__auto {
+            margin-top: 5px;
+            opacity: 1;
+            transition: all 0.3s;
+            transform: translateY(0px);
+            height: 23px;
+            span {
+              margin: 0 0 0 10px;
+            }
+          }
+
+          .input__item {
+            border-color: red;
+            width: 100%;
+          }
+        }
+      }
+      .job__modal__form__items__input__bottom {
+        display: flex;
+        align-items: center;
+        ul {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+
+
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 40px;
+    row-gap: 40px;
+    @include phoneScreen {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0;
+    }
+
+    ul {
+      width: 100%;
+    }
+
+    &:nth-child(6) {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    &__forgot {
+      margin: 0 0 20px 0;
+    }
+  }
+
+
+}

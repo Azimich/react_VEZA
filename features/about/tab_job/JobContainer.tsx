@@ -1,20 +1,22 @@
 import { useRouter } from "next/router";
-import { ITab } from "../../../components/tabs/Tabs";
-import { aboutPath } from "../../../utils/bootstrap";
-import { Container } from "../../../components/common/container";
-import Styles from ".//Job.module.scss";
-import { Tabs } from "../../../components/tabs";
+import { ITab } from "components/tabs/Tabs";
+import { aboutPath } from "utils/bootstrap";
+import { Container } from "components/common/container";
+import Styles from "./Job.module.scss";
+import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsJobData } from "../../contacts/mockData";
 import { jobObject, MockJob } from "./mockJob";
 import { JobItem } from "./JobItem";
-import { Separator } from "../../../components/separator";
-import { SelectContainer } from "../../../components/select/SelectContainer";
+import { Separator } from "components/separator";
+import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
-import { Map } from "../../../components/map";
+import { Map } from "components/map";
 import React, { FC, ReactNode, useEffect, useState } from "react";
-import { IObject, IObjectItem } from "../../../components/map/Map";
+import { IObject, IObjectItem } from "components/map/Map";
 import { ObjectItem } from "../ObjectItem";
-import { SideBar } from "../../../components/map/SideBar";
+import { SideBar } from "components/map/SideBar";
+import { Modal, useModal } from "components/modal";
+import { ModalJob } from "features/about";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -22,6 +24,7 @@ const JobContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     []
   );
+  const { isShow, toggle } = useModal();
   const router = useRouter();
   const handleOnClickModal = (e: IObjectItem, alias: string) => {
     console.log(e, alias);
@@ -96,6 +99,21 @@ const JobContainer: FC = () => {
           return <JobItem {...e} key={e.id} />;
         })}
       </ul>
+      <div className={Styles.vacancies__bottom_info}>
+        <Separator title={"НЕ НАШЛИ ПОДХОДЯЩУЮ ВАКАНСИЮ?"} />
+        <p>
+          Присылайте нам свое резюме, и мы свяжемся с Вами, как только появится
+          подходящая позиция для Вас!
+        </p>
+        <Button onClick={toggle} size={"max"} children={"Отправить резюме"} />
+      </div>
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={<ModalJob />}
+        theme={"modal"}
+        bgModal={"black"}
+      />
     </Container>
   );
 };
