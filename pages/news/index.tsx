@@ -9,7 +9,6 @@ import { newsList } from "service/list/servers/newsList";
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async () => {
     const newsData = NewsData.slice(0, 7);
-    console.log("666", await newsList());
     return {
       props: {
         newsItem: await newsList(),

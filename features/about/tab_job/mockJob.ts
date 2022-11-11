@@ -53,6 +53,7 @@ const jobObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: true,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -63,6 +64,7 @@ const jobObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: true,
           images: {
             pc: "/images/bridge.jpg",
             ipad: "/images/bridge.jpg",
@@ -87,6 +89,7 @@ const jobObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: true,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -97,8 +100,10 @@ const jobObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: true,
           images: {
             pc: "/images/inside.jpg",
+
             ipad: "/images/inside.jpg",
             mobile: "/images/inside.jpg",
           },
@@ -121,6 +126,7 @@ const jobObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: true,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -131,6 +137,7 @@ const jobObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: true,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",

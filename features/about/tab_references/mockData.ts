@@ -12,6 +12,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -22,6 +23,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/bridge.jpg",
           ipad: "/images/bridge.jpg",
@@ -40,6 +42,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -50,6 +53,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -68,6 +72,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -78,6 +83,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -96,6 +102,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -106,6 +113,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -124,6 +132,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -134,6 +143,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -152,6 +162,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -162,6 +173,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -180,6 +192,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -190,6 +203,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -208,6 +222,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -218,6 +233,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -236,6 +252,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -246,6 +263,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -264,6 +282,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -274,6 +293,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -292,6 +312,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -302,6 +323,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -320,6 +342,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -330,6 +353,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -348,6 +372,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -358,6 +383,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -376,6 +402,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -386,6 +413,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -404,6 +432,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -414,6 +443,7 @@ const referenceData: IReferencesImages[] = [
         id: 1,
         block_description: false,
         typeSlider: "img",
+        link_slider: false,
         images: {
           pc: "/images/inside.jpg",
           ipad: "/images/inside.jpg",
@@ -438,6 +468,7 @@ const referenceObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: false,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -448,6 +479,7 @@ const referenceObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: false,
           images: {
             pc: "/images/bridge.jpg",
             ipad: "/images/bridge.jpg",
@@ -472,6 +504,7 @@ const referenceObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: false,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -482,6 +515,7 @@ const referenceObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: false,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -505,6 +539,7 @@ const referenceObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: false,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
@@ -515,6 +550,7 @@ const referenceObject: IObject[] = [
           id: 1,
           block_description: false,
           typeSlider: "img",
+          link_slider: false,
           images: {
             pc: "/images/inside.jpg",
             ipad: "/images/inside.jpg",
