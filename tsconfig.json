@@ -30,7 +30,7 @@
       "store/*": ["./store/*"],
       "utils/*": ["./utils/*"],
       "components/*": ["./components/*"],
-      "service/*": ["./service/*"]
+      "service/*": ["./service/*"],
       "styles/*": ["./styles/*"]
     }
   },
