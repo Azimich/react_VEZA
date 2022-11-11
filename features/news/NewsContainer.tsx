@@ -15,10 +15,10 @@ const NewsContainer: FC<INewsData> = ({ newsData, newsItem }) => {
   console.log("newsItem", newsItem);
 
   useEffect(() => {
-    const { listNewsData, loading, error } = listNewsFunc;
+    /*    const { listNewsData, loading, error } = listNewsFunc;
     listNewsData().then((e) => {
       console.log("listNewsData", e, loading, error);
-    });
+    });*/
   }, []);
 
   return (
