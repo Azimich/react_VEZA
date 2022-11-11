@@ -15,7 +15,6 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { NavigationOptions } from "swiper/types/modules/navigation";
 import Styles from "./Slider.module.scss";
-import { IFactoryData } from "features/factory/Factory";
 
 const SliderContainer: FC<ISliderProps> = ({
   items = [],
@@ -40,11 +39,13 @@ const SliderContainer: FC<ISliderProps> = ({
     },
   };
 
+  /*
   const navigationButton: NavigationOptions = {
     enabled: true,
     nextEl: ".swiper-next",
     prevEl: ".swiper-prev",
   };
+*/
 
   const slideEffect = {
     slideShadows: false,
@@ -74,7 +75,7 @@ const SliderContainer: FC<ISliderProps> = ({
         loop={loop}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
-        navigation={navigationButton}
+        navigation={navigations}
         pagination={dots ? pagination : false}
         cardsEffect={slideEffect}
         effect={effectSlide}
@@ -84,10 +85,12 @@ const SliderContainer: FC<ISliderProps> = ({
         onSwiper={(swiper) => console.log(swiper)}
       >
         {items.map((e, i) => {
+          console.log("e.url", e.url);
           return (
             <SwiperSlide key={i}>
               <SlideItem
                 images={e.images}
+                link_slider={e.link_slider}
                 code={e.code}
                 typeSlider={e.typeSlider}
                 theme={theme}

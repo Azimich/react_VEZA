@@ -6,7 +6,7 @@
   margin-top: 24px;
   column-gap: 15px;
   justify-content: center;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
 
   .pagination_item {
     cursor: pointer;
@@ -20,7 +20,7 @@
     font-weight: normal;
     padding: 8px 12px;
     background-color: rgba(99, 99, 99, 0.337);
-    color: #212121;
+    color: color(black);
     transition: all 0.3s;
       -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -40,8 +40,8 @@
     }
 
     &:hover {
-      color: #FFF;
-      background-color: #009247;
+      color: color(white);
+      background-color: color(green);
     }
 
     .arrow {

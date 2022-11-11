@@ -37,6 +37,7 @@ interface ISlideImages {
 
 interface ISlideItem {
   id?: number;
+  link_slider: boolean;
   images?: ISlideImages | string;
   typeSlider: "img" | "video" | "text";
   color?: "white" | "green" | "link";

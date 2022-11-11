@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from "react";
 import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "../button";
 import { ArrowRightIcon } from "../icons";
+import { Link } from "components/link";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -18,6 +19,7 @@ const SlideItem: FC<ISlideItem> = ({
   code,
   url = "",
   size = "medium",
+  link_slider = false,
   OnClick,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
@@ -114,10 +116,15 @@ const SlideItem: FC<ISlideItem> = ({
   useEffect(() => {
     isWindow && setHasWindow(true);
   }, [isWindow]);
-
   switch (typeSlider) {
     case "img":
-      return <Img />;
+      return link_slider ? (
+        <Link url={url}>
+          <Img />
+        </Link>
+      ) : (
+        <Img />
+      );
     case "video":
       return <Video />;
     case "text":

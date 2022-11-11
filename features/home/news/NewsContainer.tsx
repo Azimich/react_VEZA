@@ -10,7 +10,7 @@ interface INewsData {
 
 const NewsContainer: FC<INewsData> = ({ props }) => {
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
       <div className={`${Styles.news_container}`}>
         {props.map((e, i) => {
           return <NewsItem className={`col${i + 1}`} props={e} key={e.id} />;

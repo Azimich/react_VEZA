@@ -1,5 +1,3 @@
-import { Response } from "next/dist/compiled/@edge-runtime/primitives/fetch";
-
 const headers = new Headers();
 headers.append("Content-Type", "application/json");
 
