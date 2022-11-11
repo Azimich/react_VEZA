@@ -91,3 +91,14 @@
   color: white;
   box-shadow: 0 0 2px 1px rgba(221, 221, 221, 1);
 }
+.vacancies__bottom_info {
+  margin-bottom: 100px;
+  p {
+    text-align: center;
+    margin-top: -15px;
+  }
+  button {
+    margin: 30px auto 0;
+    width: 240px;
+  }
+}

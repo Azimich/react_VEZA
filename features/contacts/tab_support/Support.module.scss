@@ -48,6 +48,14 @@
 
     &__textarea {
       margin: 10px 0 20px 0;
+      textarea {
+        box-sizing: border-box;
+        &::placeholder {
+          box-sizing: border-box;
+          font-size: 14px;
+        }
+      }
+
     }
 
     .support__form__added__file {

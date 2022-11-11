@@ -23,6 +23,7 @@
     line-height: 125%;
     @include phoneScreen {
       align-items: start;
+      font-size: 13px;
     }
 
     input,
@@ -31,7 +32,6 @@
       height: 21px;
       display: block;
     }
-
     input {
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -39,8 +39,6 @@
       outline: none;
       background: #fff;
       border: none;
-      margin: 0;
-      padding: 0;
       cursor: pointer;
       border-radius: 4px;
       transition: box-shadow .3s;
