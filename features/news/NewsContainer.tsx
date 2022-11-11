@@ -10,9 +10,9 @@ import { useGetListNews } from "service/getListNews";
 const NewsContainer: FC<INewsData> = ({ newsData, newsItem }) => {
   const [newsWithDesc] = useState<INewDataItem[]>(newsData.slice(0, 4));
   const [newsWithOutDesc] = useState<INewDataItem[]>(newsData.slice(4));
-  const listNewsFunc = useGetListNews();
+  /*  const listNewsFunc = useGetListNews();*/
 
-  console.log("newsItem", newsItem);
+  console.log("newsItem444", newsItem);
 
   useEffect(() => {
     /*    const { listNewsData, loading, error } = listNewsFunc;
