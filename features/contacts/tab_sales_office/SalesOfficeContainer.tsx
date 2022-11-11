@@ -105,6 +105,7 @@ const SalesOfficeContainer: FC = () => {
         modalContent={<ModalFormOffice {...contentForm} />}
         theme={"modal"}
         headerText={<LogoIcon />}
+        bgModal={"black"}
       ></Modal>
     </Container>
   );
