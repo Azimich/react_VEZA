@@ -1,5 +1,5 @@
 import Styles from "./Selection.module.scss";
-import { Button } from "../../../components/button";
+import { Button } from "components/button";
 const SelectionContainer = () => {
   return (
     <>
@@ -9,7 +9,7 @@ const SelectionContainer = () => {
         fugiat?
       </div>
       <div className={Styles.selectionButton}>
-        <Button link={""} size={"small"} theme={"banner"}>
+        <Button link={""} size={"medium"} theme={"banner"}>
           Расчитать
         </Button>
       </div>

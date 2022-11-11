@@ -1,13 +1,13 @@
 import { Container } from "components/common/container";
-import { Box_icon_social_container } from "../../components/box_icon_social";
-import { SliderContainer } from "../../components/slider";
+import { Box_icon_social_container } from "components/box_icon_social";
+import { SliderContainer } from "components/slider";
 import {
   sliderData,
   sliderCategory,
   sliderIndustries,
-} from "../../components/slider/mockData";
+} from "components/slider/mockData";
 import { newsData } from "./news/mockData";
-import { Separator } from "../../components/separator";
+import { Separator } from "components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
@@ -33,7 +33,7 @@ const HomeContainer = () => {
         <SliderContainer
           items={sliderCategory.items}
           dots={true}
-          autoplay={true}
+          autoplay={false}
           theme={"homecategory"}
         />
         <Separator title={"Новости"} />
@@ -46,6 +46,7 @@ const HomeContainer = () => {
           theme={"industries"}
           themeButton={"industries"}
           size={"medium"}
+          navigations={true}
           effectSlide={"cards"}
           color={"link"}
         />
