@@ -14,7 +14,7 @@ class Request {
   static postRequest = async (url: string, options: {}, header: {}) => {
     return await fetch(url, {
       method: "POST",
-      mode: "no-cors",
+      mode: "cors",
       headers: header ? header : headers,
       body: JSON.stringify(options),
     })
