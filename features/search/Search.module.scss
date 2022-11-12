@@ -17,7 +17,9 @@
   ;
   }
 }
-.search__items__info{
+.search__items__info,
+.search__items__input
+{
   border-bottom: 1px solid color(border_bottom);
   padding: 10px 0;
   &:last-child{

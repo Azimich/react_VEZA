@@ -1,1 +1,1 @@
-export { Input } from "./InputContainer";
+export { InputContainer as Input } from "./InputContainer";
