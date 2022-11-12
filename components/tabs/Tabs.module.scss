@@ -7,7 +7,6 @@
 }
 .max {
   width: 100%;
-
 }
 .tabs__container {
   margin-bottom: 3%;
@@ -19,7 +18,6 @@
       @media (max-width: 650px) {
         flex-direction: column;
         justify-content: center;
-        align-items: center;
         gap: 15px;
       }
       &.line_fix {
@@ -28,10 +26,11 @@
         background: rgba(0, 0, 0, .247);
         border-radius: 5px;
         cursor: pointer;
-
         &_active {
           color: color(green);
-
+          @media (max-width: 650px) {
+            color: color(white);
+          }
           &:after {
             content: "";
             position: absolute;

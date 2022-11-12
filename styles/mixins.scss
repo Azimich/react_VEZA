@@ -2,6 +2,14 @@
     background-color: #FFF;
   }
 
+  @mixin mediumSize {
+    width: 220px;
+  }
+
+  @mixin largeSize {
+    width: 300px;
+  }
+
   @mixin backgroundImage($bgSize: 100% 100%) {
     background-repeat: no-repeat;
     background-size: $bgSize;

@@ -3,15 +3,12 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Styles from "./Support.module.scss";
 import { Input } from "../../../components/input/Index";
-import { CheckboxWithLabel } from "../../../components/checkbox";
-import { Button } from "../../../components/button";
+import { CheckboxWithLabel } from "components/checkbox";
+import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
-import {
-  dataSupportCitySelect,
-  dataSupportCountrySelect,
-  dataSupportSubjectSelect,
-} from "./mockData";
+import { dataSupportSubjectSelect } from "./mockData";
+import { UploadIcon } from "components/icons";
 
 const SupportForm = () => {
   // Валидация формы
@@ -33,26 +30,25 @@ const SupportForm = () => {
       firstName: Yup.string()
         .min(2, "Минимум 2 символа!")
         .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
+        .required("Заполните Ваше Имя!"),
       lastName: Yup.string()
         .min(2, "Минимум 2 символов!")
         .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
+        .required("Заполните Вашу фамилию!"),
       email: Yup.string()
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
         .email("Неверный email!")
-        .required("Обязательно для заполнения!"),
+        .required("Заполните Email!"),
       phone: Yup.string()
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
+        .required("Заполните телефон!"),
       company: Yup.string()
         .max(10, "Максимум 10 символов!")
-        .required("Обязательно для заполнения!"),
-      order: Yup.string()
-        .max(10, "Максимум 10 символов!")
-        .required("Обязательно для заполнения!"),
+        .required("Укажите ИНН компании!"),
+      order: Yup.string().max(10, "Максимум 10 символов!"),
+      /*        .required("Укажите номер заказа!"),*/
       post: Yup.string()
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
@@ -107,18 +103,37 @@ const SupportForm = () => {
         className={Styles.support__form__items}
         onSubmit={formik.handleSubmit}
       >
-        <SelectContainer
-          optionsData={dataSupportSubjectSelect}
-          name={"service"}
-          placeholder={"Выберите тему сообщения"}
-          onChange={(e) => {
-            formik.setFieldValue("service", e?.value ? e?.value : "");
-          }}
-        />
+        <div className={Styles.support__form__items__select}>
+          <ul
+            className={`${
+              formik.errors?.service && formik.touched?.service
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
+            }`}
+          >
+            <SelectContainer
+              optionsData={dataSupportSubjectSelect}
+              name={"service"}
+              placeholder={"Выберите тему сообщения"}
+              onChange={(e) => {
+                formik.setFieldValue("service", e?.value ? e?.value : "");
+              }}
+            />
+            <div
+              className={`${
+                formik.errors?.service && formik.touched?.service
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors.service}</li>
+            </div>
+          </ul>
+        </div>
         <div className={Styles.support__form__items__input}>
           <ul
             className={`${
-              formik.errors?.service && formik.touched?.firstName
+              formik.errors?.firstName && formik.touched?.firstName
                 ? Styles.support__form__item__input_error
                 : Styles.support__form__item__input
             }`}
@@ -343,7 +358,7 @@ const SupportForm = () => {
           >
             <Input
               name={"order"}
-              title={"Номер заказа *"}
+              title={"Номер заказа"}
               className={Styles.input__item}
               onChange={(e) => handleOnChangeOrder(e)}
               onBlur={formik.handleBlur}
@@ -363,9 +378,19 @@ const SupportForm = () => {
         <div className={Styles.support__form__items__textarea}>
           <TextareaContainer children={"Ваше сообщение"} />
         </div>
+        <div className={Styles.support__form__added__file}>
+          <label className={Styles.support__form_file}>
+            <Input name={"files"} type={"file"} value={""} />
+            <span>
+              <UploadIcon />
+              Прикрепить
+            </span>
+          </label>
+        </div>
         <CheckboxWithLabel
           name={"private_police"}
           title={"Согласие на обработку персональных данных с условиями"}
+          onChange={() => {}}
         />
         <div className={Styles.support__form__item__answer}>
           <Button type={"submit"} children={"Отпарвить"} />

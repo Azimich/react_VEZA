@@ -2,19 +2,19 @@ import { Container } from "../../../components/common/container";
 import Styles from "./References.module.scss";
 import { Tabs } from "../../../components/tabs";
 import { tabsAboutData, tabsSocialData } from "../../contacts/mockData";
-import { IComponents, ITab } from "../../../components/tabs/Tabs";
+import { IComponents, ITab } from "components/tabs/Tabs";
 import { Commercial, Industrial, Social } from "../index";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { aboutPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
-import { MapContainer } from "../../../components/map/MapContainer";
-import { IObject, IObjectItem } from "../../../components/map/Map";
-import { Modal, useModal } from "../../../components/modal";
+import { MapContainer } from "components/map/MapContainer";
+import { IObject, IObjectItem } from "components/map/Map";
+import { Modal, useModal } from "components/modal";
 import { ObjectItem } from "../ObjectItem";
-import { ReferenceIcon } from "../../../components/icons";
+import { ReferenceIcon } from "components/icons";
 import { ModalFormFactory } from "../tab_who_we/ModalFormFactory";
 import { referenceObject } from "./mockData";
-import { SideBar } from "../../../components/map/SideBar";
+import { SideBar } from "components/map/SideBar";
 
 const ReferencesContainer: FC = () => {
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
@@ -121,6 +121,7 @@ const ReferencesContainer: FC = () => {
         modalContent={<ModalFormFactory {...contentForm} />}
         theme={"modal"}
         headerText={"Тип файла"}
+        bgModal={"black"}
       ></Modal>
     </Container>
   );

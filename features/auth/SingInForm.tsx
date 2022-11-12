@@ -28,7 +28,6 @@ const SingInForm = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
-
   const handleOnclickCheck = () => {
     console.log("Чекед авторизации");
   };

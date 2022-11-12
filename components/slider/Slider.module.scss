@@ -280,13 +280,14 @@
       }
 
       &_img {
-        max-width: 1320px;
+        max-width: 1390px;
         margin: 0 auto;
 
         img {
           border-radius: 15px;
           object-fit: cover;
           height: 500px;
+          width: 100%;
         }
       }
     }
@@ -973,39 +974,3 @@
   }
 }
 
-.block_arrow {
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(3px);
-  position: relative;
-  z-index: 2;
-
-  .button__next {
-    @include backgroundImage(cover);
-    background-image: url('../../public/images/arrow_next.svg'); 
-    right: 0;
-    left: auto;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 100%;
-  }
-
-  .button__prev {
-    @include backgroundImage(cover);
-    background-image: url('../../public/images/arrow_prev.svg'); 
-    left: 0;
-    right: auto;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 100%;
-  }
-
-  &_all {
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-  }
-}

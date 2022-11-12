@@ -1,3 +1,6 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
 .job_container {
   max-width: 600px;
   display: flex;
@@ -5,31 +8,38 @@
   margin: 0 auto;
   flex-direction: column;
 }
-
 .job_container_item {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 5%;
   gap: 20px;
   flex-direction: column;
-
   li {
-
     justify-content: space-between;
     align-items: center;
     background-color: #eaeaea;
     padding: 30px 40px;
     border-radius: 10px;
-    margin-bottom: 30px;
     border-bottom: 3px solid transparent;
-    transition: all 0.3s;
     display: grid;
     grid-template-columns: 1fr 0.3fr;
-
+    transition: all 0.3s ease 0s;
+    &:hover {
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.14);
+      transform: translateY(-3px);
+      transition: all 0.3s;
+    }
+    @include phoneScreen{
+      display: block;
+      padding: 15px 10px;
+    }
     & > div {
       &:last-child{
         display: flex;
         justify-content: flex-end;
+        @include phoneScreen{
+          justify-content: flex-start;
+        }
       }
       div {
         &.title {
@@ -37,22 +47,22 @@
           color: #212121;
           margin-bottom: 12px;
         }
-
         &.address {
           font-size: 18px;
           font-weight: 600;
           color: #212121b5;
           margin-bottom: 8px;
         }
-
         &.desc {
           font-weight: normal;
           font-size: 16px;
           line-height: 150%;
           color: #212121;
+          @include phoneScreen{
+            margin-bottom: 18px;
+          }
         }
       }
-
     }
   }
 }
@@ -66,6 +76,11 @@
   padding: 50px;
   gap: 40px;
   justify-content: center;
+  @include phoneScreen {
+    padding: 30px;
+    gap: 20px;
+    flex-direction: column;
+  }
 }
 .job_count{
   border: 2px solid white;
@@ -75,4 +90,15 @@
   border-radius: 50%;
   color: white;
   box-shadow: 0 0 2px 1px rgba(221, 221, 221, 1);
+}
+.vacancies__bottom_info {
+  margin-bottom: 100px;
+  p {
+    text-align: center;
+    margin-top: -15px;
+  }
+  button {
+    margin: 30px auto 0;
+    width: 240px;
+  }
 }

@@ -2,7 +2,7 @@ import ISlideImages from "../../components/slider/Slider.d";
 
 interface INewsData {
   newsData: INewDataItem[];
-  newsItem?: [];
+  newsItem: [];
 }
 
 interface INewDataItem {

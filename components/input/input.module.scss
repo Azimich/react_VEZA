@@ -3,7 +3,6 @@
 
 .input__container {
   position: relative;
-
   @include phoneScreen {
     width: 100%;
   }
@@ -30,12 +29,11 @@
   input {
     border: none;
     outline: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #bcbdc0;
     padding: 15px 0 6px 11px;
     font-size: 14px;
     box-sizing: border-box;
     transition: background-color 600000s 0s, color 600000s 0s;
-
     &:focus {
       border-bottom: 1px solid green;
       color: color(green);

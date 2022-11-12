@@ -4,7 +4,7 @@ import { wrapper } from "store/store";
 import { News } from "features/news";
 import { NewsData } from "features/news/mockData";
 import { INewsData } from "features/news/News";
-import { newsList } from "../../service/list/servers/newsList";
+import { newsList } from "service/list/servers/newsList";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async () => {

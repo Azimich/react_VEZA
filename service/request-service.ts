@@ -1,5 +1,6 @@
 const headers = new Headers();
 headers.append("Content-Type", "application/json");
+headers.append("Access-Control-Allow-Origin", "*");
 
 class Request {
   static getRequest = async (url: string, options: {}) => {
@@ -18,8 +19,8 @@ class Request {
       body: JSON.stringify(options),
     })
       .then((res) => res.json())
-      .catch(() => {
-        return { error: 1, response: [] };
+      .catch((err) => {
+        return err.json({ error: 1, response: [], err: err });
       });
   };
 }

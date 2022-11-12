@@ -56,7 +56,6 @@ const SingUpForm: FC = () => {
         .max(50, "Максимум 50 символов!")
         .required("Обязательно для заполнения!"),
       company: Yup.string()
-        // .min(6, "Минимум 6 символов!")
         .max(10, "Максимум 10 символов!")
         .required("Обязательно для заполнения!"),
       birthdate: Yup.string()
@@ -118,111 +117,7 @@ const SingUpForm: FC = () => {
         <div className={Styles.registration__form__items__title}>
           <h1>Регистрация</h1>
         </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.firstName && formik.touched?.firstName
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"firstName"}
-              title={"Имя *"}
-              type={"text"}
-              className={Styles.input__item}
-              onChange={(e) => handleOnChangeFirstName(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.firstName}
-            />
-            <div
-              className={`${
-                formik.errors?.firstName && formik.touched?.firstName
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.firstName}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.lastName && formik.touched?.lastName
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"lastName"}
-              title={"Фамилия *"}
-              className={Styles.input__item}
-              onChange={(e) => handleOnChangeLastName(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.lastName}
-            />
-            <div
-              className={`${
-                formik.errors?.lastName && formik.touched?.lastName
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.lastName}</li>
-            </div>
-          </ul>
-        </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.email && formik.touched?.email
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"email"}
-              title={"Почта *"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            <div
-              className={`${
-                formik.errors?.email && formik.touched?.email
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.email}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.phone && formik.touched?.phone
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"phone"}
-              title={"Телефон *"}
-              className={Styles.input__item}
-              onChange={(e) => handleOnChangeTel(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.phone}
-            />
-            <div
-              className={`${
-                formik.errors?.phone && formik.touched?.phone
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.phone}</li>
-            </div>
-          </ul>
-        </div>
+        <Input name={"name"} value={""} title={"Телефон *"} />
         <div className={Styles.registration__form__items__input}>
           <ul
             className={`${

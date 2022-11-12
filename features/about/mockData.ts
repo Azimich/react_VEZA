@@ -1,4 +1,4 @@
-import { IObject } from "../../components/map/Map";
+import { IObject } from "components/map/Map";
 
 const whoweData: IObject[] = [
   {
