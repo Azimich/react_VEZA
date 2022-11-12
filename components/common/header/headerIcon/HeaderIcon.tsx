@@ -3,11 +3,14 @@ import { SearchIcon, UserIcon, TelefoneIcon } from "components/icons";
 import { IconItem } from "../../../icons/IconItem";
 import { Modal, useModal } from "../../../../components/modal";
 import { SearchModal } from "../search/SearchModal";
+import { useRouter } from "next/router";
 
 const HeaderIcon = () => {
+  const router = useRouter();
   const { isShow, toggle } = useModal();
-  console.log(isShow);
-
+  const handleOnClickMore = (inputValue: string) => {
+    router.push("/search/" + inputValue).then(() => toggle());
+  };
   return (
     <>
       <div className={Styles.header__icon__box}>
@@ -33,9 +36,13 @@ const HeaderIcon = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
-        modalContent={<SearchModal />}
+        modalContent={
+          <SearchModal
+            onClick={(inputValue) => handleOnClickMore(inputValue)}
+          />
+        }
         theme={"full_modal"}
-        headerText={"Поиск по сайту"}
+        headerText={""}
         bgModal={"white"}
       />
     </>

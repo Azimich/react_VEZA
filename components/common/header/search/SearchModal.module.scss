@@ -1,5 +1,5 @@
-@import '../../../../styles/mixins.scss';
-@import '../../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .search {
   padding: 50px;
@@ -16,6 +16,8 @@
 
   &__content {
     max-width: 1000px;
+    width: 100%;
+
   }
 
   &__logo {
@@ -72,7 +74,7 @@
       input {
         padding: 10px 30px 10px 35px !important;
       }
-    
+
       svg {
         position: absolute;
         left: 8px;
@@ -80,7 +82,7 @@
         width: 19px !important;
         cursor: pointer;
       }
-    
+
       .input_field {
         + label{
           transform: translateY(-30px) scale(1) !important;
