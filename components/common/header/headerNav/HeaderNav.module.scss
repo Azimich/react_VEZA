@@ -9,23 +9,32 @@
   @media (max-width: 1200px) {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 85px;
+    display: none;
     background: rgba(255, 255, 255, 0.99);
     backdrop-filter: blur(5px);
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 80px 0 900px 0;
     transform: translateX(100%);
     transition: transform 0.3s ease-in;
     z-index: 1;
   }
 
   &.active {
+    top: 85px;
+    display: flex;
     transform: translateX(0%);
-  }
+    transition: transform 0.3s ease-in;
 
+  }
+  &.active_small {
+    top: 50px;
+    display: flex;
+    transform: translateX(0%);
+    transition: transform 0.3s ease-in;
+
+  }
   li {
     margin: 0 15px;
     font-size: 16px;
@@ -64,14 +73,14 @@
       right: 0;
       bottom: -8px;
       width: 0;
-      height: 2px; 
-      background-color: color(dark); 
-      transition: width 0.3s; 
+      height: 2px;
+      background-color: color(dark);
+      transition: width 0.3s;
 
       @media (max-width: 1200px) {
         display: none;
       }
-    }           
+    }
 
     &:hover {
       color: color(lightgreen);
@@ -83,15 +92,15 @@
         position: absolute;
         left: 0;
         bottom: -8px;
-        height: 2px; 
-        background-color:  color(green); 
-        transition: width 0.3s;  
-  
+        height: 2px;
+        background-color:  color(green);
+        transition: width 0.3s;
+
         @media (max-width: 1200px) {
           display: none;
         }
       }
-    }           
+    }
   }
 }
 
