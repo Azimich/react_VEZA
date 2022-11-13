@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 
 const SearchContainer: FC<ISearch> = ({ q }) => {
   const router = useRouter();
-  console.log(router.query.q);
   const [inputValue, setInputValue] = React.useState<string>(
     router.query.q as string
   );

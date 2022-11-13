@@ -1,0 +1,20 @@
+@import '/styles/variables.scss';
+.hamburger_container{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  .bar{
+    display: block;
+    width: 24px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: color(green);
+  }
+  .bar_small{
+    display: block;
+    width: 15px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: color(green);
+  }
+}

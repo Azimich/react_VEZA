@@ -1,16 +1,29 @@
 import Styles from "./HeaderIcon.module.scss";
 import { SearchIcon, UserIcon, TelefoneIcon } from "components/icons";
 import { IconItem } from "../../../icons/IconItem";
-import { Modal, useModal } from "../../../../components/modal";
+import { Modal, useModal } from "components/modal";
 import { SearchModal } from "../search/SearchModal";
 import { useRouter } from "next/router";
+import { HamburgerContainer } from "components/hamburger/HamburgerContainer";
+import { isMobile } from "react-device-detect";
+import { FC, useEffect, useState } from "react";
 
-const HeaderIcon = () => {
+interface IHeaderMenu {
+  onClick?: () => void;
+  isShowMenu?: boolean;
+}
+
+const HeaderIcon: FC<IHeaderMenu> = ({ onClick }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
+  const [mobile, setMobile] = useState<boolean>();
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
+  useEffect(() => {
+    isMobile ? setMobile(true) : setMobile(false);
+  }, [isMobile]);
+
   return (
     <>
       <div className={Styles.header__icon__box}>
@@ -31,6 +44,7 @@ const HeaderIcon = () => {
         >
           <TelefoneIcon />
         </IconItem>
+        {mobile && <HamburgerContainer onClick={onClick} />}
       </div>
 
       <Modal
