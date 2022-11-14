@@ -10,6 +10,7 @@ import { Interaction } from "./Interaction";
 import { InteractionItem } from "./InteractionItem";
 import { TitleTabs } from "../../../components/title_tabs";
 import { Pagination } from "components/pagination/Pagination";
+import { SeparatorContainer } from "components/separator/SeparatorContainer";
 
 const InteractionContainer = () => {
   const router = useRouter();
@@ -35,7 +36,7 @@ const InteractionContainer = () => {
           "Чтобы получить ответы на ваши вопросы и быть в курсе всего происходящего"
         }
       />
-      <h3 className={Styles.interaction_container_h3}>Наши отделы продаж</h3>
+      <SeparatorContainer title={"Наши отделы продаж"} />
       <ul className={Styles.interaction_items}>
         {InteractionData.filter((e) => e.type === "sales").map(
           (e: Interaction) => {
@@ -44,7 +45,7 @@ const InteractionContainer = () => {
         )}
       </ul>
       <Pagination currentPage={1} totalPageCount={20} pageSize={3} />
-      <h3 className={Styles.interaction_container_h3}>Наши заводы</h3>
+      <SeparatorContainer title={"Наши заводы"} />
       <ul className={Styles.interaction_items}>
         {InteractionData.filter((e) => e.type === "factory").map(
           (e: Interaction) => {

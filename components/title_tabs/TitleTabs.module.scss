@@ -1,9 +1,13 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
 .interaction_container {
   max-width: 600px;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 0;
   &_title {
+    margin: 3% 0;
     h1 {
       font-style: normal;
       font-weight: bold;
@@ -14,23 +18,19 @@
       color: #212121;
       text-align: center;
       margin-bottom: 12px;
+      @include ipadScreen {
+        font-size: 35px;
+        line-height: 40px;           
+      }
+      @include phoneScreen {
+        font-size: 28px;
+        line-height: 28px;           
+      }
     }
 
     p {
-      margin-bottom: 60px;
       color: #515151;
       text-align: center;
-    }
-
-    h3 {
-      font-style: normal;
-      font-size: 40px;
-      line-height: 50px;
-      letter-spacing: 0.025em;
-      color: #212121;
-      text-align: left;
-      font-weight: 500;
-      margin-bottom: 40px;
     }
   }
 }

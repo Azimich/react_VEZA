@@ -1,16 +1,10 @@
 import { IObjectItem } from "components/map/Map";
 import React, { FC } from "react";
 import Styles from "components/map/Map.module.scss";
-import {
-  EmailIcon,
-  MapIcon,
-  PhoneFooterIcon,
-  TelefoneIcon,
-} from "components/icons";
+import { EmailIcon, MapIcon, PhoneFooterIcon } from "components/icons";
 import { Link } from "components/link";
 
 const ModalFormOffice: FC<IObjectItem> = (e) => {
-  console.log("eee", e);
   return (
     <div>
       <div className={Styles.modal_title}>{e.name}</div>
