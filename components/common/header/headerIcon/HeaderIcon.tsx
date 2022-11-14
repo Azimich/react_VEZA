@@ -13,7 +13,7 @@ interface IHeaderMenu {
   isShowMenu?: boolean;
 }
 
-const HeaderIcon: FC<IHeaderMenu> = ({ onClick }) => {
+const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
@@ -44,7 +44,9 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick }) => {
         >
           <TelefoneIcon />
         </IconItem>
-        {mobile && <HamburgerContainer onClick={onClick} />}
+        {mobile && (
+          <HamburgerContainer isShowMenu={isShowMenu} onClick={onClick} />
+        )}
       </div>
 
       <Modal

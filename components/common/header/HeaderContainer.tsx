@@ -13,19 +13,23 @@ const HeaderContainer: FC = () => {
   const handleScroll = () => {
     setScrollData(window.scrollY);
   };
+
   const handleHamburgerOnClick = () => {
     toggle();
   };
+
   useEffect(() => {
     isShow
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
   }, [isShow]);
+
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
   }, []);
+
   return (
-    <Container className="wrapper_clear">
+    <Container className="wrapper_clear no_padding">
       <nav
         className={
           scrollData > 0 ? Styles.header__nav_active : Styles.header__nav
@@ -33,7 +37,10 @@ const HeaderContainer: FC = () => {
       >
         <HeaderLogo />
         <HeaderNav isShowMenu={isShow} scroll={scrollData} />
-        <HeaderIcon onClick={() => handleHamburgerOnClick()} />
+        <HeaderIcon
+          isShowMenu={isShow}
+          onClick={() => handleHamburgerOnClick()}
+        />
       </nav>
     </Container>
   );
