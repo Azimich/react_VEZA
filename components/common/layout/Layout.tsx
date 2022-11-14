@@ -15,20 +15,22 @@ const Layout: FC = ({ children }) => (
       <title>{process.env.NEXT_PUBLIC_TITLE}</title>
       <meta name="keyword" content={process.env.NEXT_PUBLIC_KEYWORD} />
     </Head>
-    <header className={Styles.header}>
-      <HeaderContainer />
-    </header>
-    <main className={Styles.main}>
-      {children}
-      <Container el="section">
-        <div>
-          <Box_icon_social_container />
-        </div>
-      </Container>
-    </main>
-    <footer>
-      <FooterContainer />
-    </footer>
+    <div className={Styles.main}>
+      <header className={Styles.header}>
+        <HeaderContainer />
+      </header>
+      <main>
+        {children}
+        <Container el="section">
+          <div>
+            <Box_icon_social_container />
+          </div>
+        </Container>
+      </main>
+      <footer>
+        <FooterContainer />
+      </footer>
+    </div>
   </>
 );
 
