@@ -1,11 +1,11 @@
 import { Button } from "components/button";
 import { Input } from "components/input/InputContainer";
-import React, { ChangeEvent } from "react";
 import Styles from "./ModalJob.module.scss";
 import { UploadIcon } from "components/icons";
 import { CheckboxWithLabel } from "components/checkbox";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { ChangeEvent } from "react";
 
 const ModalJob = () => {
   const formik = useFormik({
@@ -35,64 +35,71 @@ const ModalJob = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
-  // const handleOnChangeTel = (e: ChangeEvent<HTMLInputElement>) => {
-  //     const numb = /[^0-9-+]/g;
-  //     const target = e.target.value.replace(numb, "");
-  //     formik.setFieldValue(
-  //         "phone",
-  //         target.length > 20 ? target.substring(0, 20) : target
-  //     );
-  // };
-  // const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
-  //     const alhpabet = /[^а-яёa-z,]/iu;
-  //     const target = e.target.value;
-  //     formik.setFieldValue("firstName", target.replace(alhpabet, ""));
-  // };
-  // const handleOnclickCheck = () => {
-  //     console.log("Чекед авторизации");
-  // };
+
+  const handleOnChangeTel = (e: ChangeEvent<HTMLInputElement>) => {
+    const numb = /[^0-9-+]/g;
+    const target = e.target.value.replace(numb, "");
+    formik.setFieldValue(
+      "phone",
+      target.length > 20 ? target.substring(0, 20) : target
+    );
+  };
+  const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
+    const alhpabet = /[^а-яёa-z,]/iu;
+    const target = e.target.value;
+    formik.setFieldValue("firstName", target.replace(alhpabet, ""));
+  };
+
+  const handleOnclickCheck = () => {
+    console.log("Чекед авторизации");
+  };
 
   return (
     <div className={Styles.job__modal}>
-      <h2 className={Styles.job__modal__title}>Оформить заявку</h2>
-      <p className={Styles.job__modal__text}>
-        Хотите стать частью нашей команды? Или нашли ваканcию, которая вам
-        подходит ? Оставьте Ваши данные и мы обязательно свяжемся с Вами!
-      </p>
-      <form className={Styles.job__modal__inputs}>
-        <div className={Styles.job__modal__form__items__input}>
+      <form className={Styles.job__modal__items} onSubmit={formik.handleSubmit}>
+        <div className={Styles.job__modal__items__title}>
+          <h2>Оформить заявку</h2>
+          <p>
+            Хотите стать частью нашей команды? Или нашли ваканcию, которая вам
+            подходит? Оставьте Ваши данные и мы обязательно свяжемся с Вами!
+          </p>
+        </div>
+        <div className={Styles.job__modal__items__input}>
           <ul
             className={`${
-              formik.errors?.name && formik.touched?.name
-                ? Styles.job__modal__form__item__input_error
-                : Styles.job__modal__form__item__input
+              formik.errors?.firstName && formik.touched?.firstName
+                ? Styles.job__modal__item__input_error
+                : Styles.job__modal__item__input
             }`}
           >
             <Input
-              name={"name"}
-              title={"Имя *"}
+              name={"firstName"}
+              title={"Имя"}
+              type={"text"}
               className={Styles.input__item}
-              onChange={formik.handleChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleOnChangeFirstName(e)
+              }
               onBlur={formik.handleBlur}
-              value={formik.values.name}
+              value={formik.values.firstName}
             />
             <div
               className={`${
-                formik.errors?.name && formik.touched?.name
+                formik.errors?.firstName && formik.touched?.firstName
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <li>{formik.errors.name}</li>
+              <li>{formik.errors.firstName}</li>
             </div>
           </ul>
         </div>
-        <div className={Styles.job__modal__form__items__input__bottom}>
+        <div className={Styles.job__modal__items__input}>
           <ul
             className={`${
               formik.errors?.email && formik.touched?.email
-                ? Styles.job__modal__form__item__input_error
-                : Styles.job__modal__form__item__input
+                ? Styles.job__modal__item__input_error
+                : Styles.job__modal__item__input
             }`}
           >
             <Input
@@ -101,7 +108,7 @@ const ModalJob = () => {
               className={Styles.input__item}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.company}
+              value={formik.values.email}
             />
             <div
               className={`${
@@ -116,17 +123,19 @@ const ModalJob = () => {
           <ul
             className={`${
               formik.errors?.phone && formik.touched?.phone
-                ? Styles.job__modal__form__item__input_error
-                : Styles.job__modal__form__item__input
+                ? Styles.job__modal__item__input_error
+                : Styles.job__modal__item__input
             }`}
           >
             <Input
               name={"phone"}
               title={"Телефон *"}
               className={Styles.input__item}
-              onChange={formik.handleChange}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleOnChangeTel(e)
+              }
               onBlur={formik.handleBlur}
-              value={formik.values.birthdate}
+              value={formik.values.phone}
             />
             <div
               className={`${
@@ -139,9 +148,11 @@ const ModalJob = () => {
             </div>
           </ul>
         </div>
-        <textarea className={Styles.textarea} placeholder={"Другое описание"} />
-        <div className={Styles.support__form__added__file}>
-          <label className={Styles.support__form_file}>
+        <div className={Styles.job__modal__items__input}>
+          <textarea placeholder={"Другое описание"} />
+        </div>
+        <div className={Styles.job__modal__items__added__file}>
+          <label className={Styles.job__modal__items__added__file__items}>
             <Input name={"files"} type={"file"} value={""} />
             <span>
               <UploadIcon />
@@ -149,14 +160,19 @@ const ModalJob = () => {
             </span>
           </label>
         </div>
-        <p>Расскажите больше о себе. Прикрепите Ваши резюме или портфолио.</p>
-        <CheckboxWithLabel
-          name={"private_police"}
-          title={"Согласие на обработку персональных данных *"}
-          onChange={() => {}}
-        />
+        <div className={Styles.job__modal__item__forgot}>
+          <CheckboxWithLabel
+            name={"private_police"}
+            title={"Согласие на обработку персональных данных *"}
+            onChange={() => {
+              console.log("checked");
+            }}
+          />
+        </div>
+        <div className={Styles.job__modal__item__answer}>
+          <Button type={"submit"} children={"Отправить"} theme={"banner"} />
+        </div>
       </form>
-      <Button type={"submit"} children={"Отправить"} />
     </div>
   );
 };
