@@ -9,8 +9,30 @@
   grid-template-areas:
     "col1 col2 col2"
     "col1 col3 col4";
+  @include pcScreen {
+
+  }
+
+  @include tabletScreen {
+
+  }
+
+  @include ipadScreen {
+
+  }
+
+  @include phoneScreen {
+    display: flex;
+    flex-direction: column;
+  }
+  @include SEScreen {
+    display: flex;
+    flex-direction: column;
+  }
+
   button {
     transition: all 0.3s;
+
     span {
       display: flex;
       align-items: center;
@@ -18,32 +40,10 @@
     }
   }
 }
-.col1 { 
-  grid-area: col1; 
-  &:hover {
-    button {
-      padding-left: 20px;
-    }
-  }
-}
-.col2 { 
-  grid-area: col2; 
-  &:hover {
-    button {
-      padding-left: 20px;
-    }
-  }
-}
-.col3 { 
-  grid-area: col3; 
-  &:hover {
-    button {
-      padding-left: 20px;
-    }
-  }
-}
-.col4 { 
-  grid-area: col4; 
+
+.col1 {
+  grid-area: col1;
+
   &:hover {
     button {
       padding-left: 20px;
@@ -51,45 +51,81 @@
   }
 }
 
-.col1{
+.col2 {
+  grid-area: col2;
+
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
+
+.col3 {
+  grid-area: col3;
+
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
+
+.col4 {
+  grid-area: col4;
+
+  &:hover {
+    button {
+      padding-left: 20px;
+    }
+  }
+}
+
+.col1 {
   .news {
-    &__item{
+    &__item {
       border-radius: 20px 0 0 20px;
       overflow: hidden;
       background-color: color(green);
       height: 100%;
-      @media (max-width: 1520px) {
+      @include tabletScreen {
         display: flex;
         align-items: center;
-        margin: 0 0 12px 0;
-      }
-
-      @media (max-width: 600px) {
+        border-radius: 20px;
         flex-direction: column;
       }
 
-      &_left{
+      &_left {
         position: relative;
-        @media (max-width: 1520px) {
-          height: 300px;
-          width: 50%;
-
+        @include tabletScreen {
+          height: auto;
           img {
             object-fit: cover;
           }
         }
       }
-      &_info{
+
+      &_info {
         padding: 30px 20px;
         display: flex;
         flex-direction: column;
         row-gap: 20px;
+        @include SEScreen {
+          padding: 0;
+          row-gap: 0;
+        }
 
         p {
           color: color(white);
           line-height: 150%;
-          + button{
-            span{color: color(white);}
+          @include tabletScreen {
+            padding: 10px;
+          }
+
+          + button {
+            span {
+              color: color(white);
+            }
           }
         }
 
@@ -109,17 +145,14 @@
           fill: #fff;
         }
 
-        @media (max-width: 1520px) {
-          width: 50%;
-        }
-
-        @media (max-width: 600px) {
+       @media (max-width: 600px) {
           width: 100%;
         }
       }
     }
-    &__counter{
-      &_icon{
+
+    &__counter {
+      &_icon {
         position: absolute;
         display: flex;
         top: 0;
@@ -143,40 +176,55 @@
   }
 }
 
-.col2{
+.col2 {
   .news {
-    &__item{
+    &__item {
       display: flex;
       align-items: center;
       background: #f3f3f3;
       border-radius: 0 20px 0 0;
-
-      @media (max-width: 600px) {
+      @include tabletScreen {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
       }
-      &_left{
+
+      &_left {
         position: relative;
         height: 300px;
-        width: 50%;
+        @include tabletScreen {
+          height: auto;
+          img {
+            object-fit: cover;
+          }
+        }
+        //width: 50%;
 
         img {
           object-fit: cover;
-        }
-
-        @media (max-width: 600px) {
-          width: 100%;
+          border-radius: 20px 20px 0 0;
         }
       }
-      &_info{
+
+      &_info {
         width: 48%;
-        margin-left: 2%;
         display: flex;
         flex-direction: column;
         row-gap: 20px;
+        @include tabletScreen {
+          width: 100%;
+          padding: 0;
+          row-gap: 0;
+        }
         p {
           font-size: 14px;
           opacity: 0.8;
           line-height: 150%;
+          @include tabletScreen {
+            display: block;
+            padding: 10px;
+          }
         }
 
         a {
@@ -194,16 +242,11 @@
         path {
           fill: #212121;
         }
-
-        @media (max-width: 600px) {
-          width: 100%;
-          margin-left: 0;
-          padding: 20px;
-        }
       }
     }
-    &__counter{
-      &_icon{
+
+    &__counter {
+      &_icon {
         position: absolute;
         display: flex;
         top: 0;
@@ -212,7 +255,9 @@
         color: color(white);
         padding: 10px 12px 10px 12px;
         border-radius: 0 0 6px 0;
-
+        @include tabletScreen {
+          border-radius: 20px 0 6px 0;
+        }
         svg {
           width: 18px;
           height: 18px;
@@ -227,24 +272,43 @@
   }
 }
 
-.col3{
+.col3 {
   .news {
-    &__item{
-
-      @media (max-width: 800px) {
-        margin: 0 0 12px 0;
+    &__item {
+      @include tabletScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-
-      &_left{
+      &_left {
         position: relative;
+        @include tabletScreen {
+          height: auto;
+          img {
+            object-fit: cover;
+            @include tabletScreen {
+              width: 100%;
+              padding: 0;
+              row-gap: 0;
+              border-radius: 20px 20px 0 0;
+            }
+          }
+        }
       }
-      &_info{
+
+      &_info {
         background-color: #f3f3f3;
         padding: 18px 12px;
         height: 100%;
         display: flex;
         flex-direction: column;
         row-gap: 20px;
+        @include tabletScreen {
+          display: flex;
+          flex-direction: column;
+          border-radius:  0 0 20px 20px;
+
+        }
         p {
           color: color(dark);
           line-height: 150%;
@@ -266,13 +330,11 @@
           fill: #212121;
         }
 
-        @media (max-width: 600px) {
-          height: 100%;
-        }
       }
     }
-    &__counter{
-      &_icon{
+
+    &__counter {
+      &_icon {
         position: absolute;
         display: flex;
         top: 0;
@@ -281,7 +343,9 @@
         color: color(white);
         padding: 10px 12px 10px 12px;
         border-radius: 0 0 6px 0;
-
+        @include tabletScreen {
+          border-radius: 20px 0 6px 0;
+        }
         svg {
           width: 18px;
           height: 18px;
@@ -296,21 +360,25 @@
   }
 }
 
-.col4{
+.col4 {
   .news {
-    &__item{
+    &__item {
       border-radius: 0 0 20px 0;
       overflow: hidden;
       background-color: #009247;
       height: 100%;
-      @media (max-width: 800px) {
-        margin: 0 0 12px 0;
+      @include tabletScreen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
       }
 
-      &_left{
+      &_left {
         position: relative;
       }
-      &_info{
+
+      &_info {
         background-color: color(green);
         padding: 18px 12px;
         height: 100%;
@@ -318,11 +386,15 @@
         display: flex;
         flex-direction: column;
         row-gap: 20px;
+
         p {
           color: color(white);
           line-height: 150%;
-          + button{
-              span{color: color(white);}
+
+          + button {
+            span {
+              color: color(white);
+            }
           }
         }
 
@@ -347,8 +419,9 @@
         }
       }
     }
-    &__counter{
-      &_icon{
+
+    &__counter {
+      &_icon {
         position: absolute;
         display: flex;
         top: 0;

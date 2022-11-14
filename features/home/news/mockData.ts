@@ -7,7 +7,11 @@ const newsData: INewsProps[] = [
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat officia totam, laudantium rerum assumenda maxime velit blanditiis! Beatae quod nobis optio voluptatem, ipsum quas veniam hic est incidunt cupiditate?",
     url: "new-page",
-    img: "/images/news_1.jpg",
+    img: {
+      pc: "/images/news_1.jpg",
+      ipad: "/images/news_3.jpg",
+      mobile: "/images/news_3.jpg",
+    },
   },
   {
     id: 2,
@@ -15,7 +19,11 @@ const newsData: INewsProps[] = [
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat officia totam, laudantium rerum assumenda maxime velit blanditiis! Beatae quod nobis optio voluptatem, ipsum quas veniam hic est incidunt cupiditate?",
     url: "new-page",
-    img: "/images/news_2.jpg",
+    img: {
+      pc: "/images/news_1.jpg",
+      ipad: "/images/news_3.jpg",
+      mobile: "/images/news_3.jpg",
+    },
   },
   {
     id: 3,
@@ -23,7 +31,11 @@ const newsData: INewsProps[] = [
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat officia totam, laudantium rerum assumenda maxime velit blanditiis! Beatae quod nobis optio voluptatem, ipsum quas veniam hic est incidunt cupiditate?",
     url: "new-page",
-    img: "/images/news_3.jpg",
+    img: {
+      pc: "/images/news_1.jpg",
+      ipad: "/images/news_3.jpg",
+      mobile: "/images/news_3.jpg",
+    },
   },
   {
     id: 4,
@@ -31,7 +43,11 @@ const newsData: INewsProps[] = [
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam placeat officia totam, laudantium rerum assumenda maxime velit blanditiis! Beatae quod nobis optio voluptatem, ipsum quas veniam hic est incidunt cupiditate?",
     url: "new-page",
-    img: "/images/news_4.jpg",
+    img: {
+      pc: "/images/news_1.jpg",
+      ipad: "/images/news_3.jpg",
+      mobile: "/images/news_3.jpg",
+    },
   },
 ];
 export { newsData };
