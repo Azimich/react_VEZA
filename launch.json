@@ -1,0 +1,5 @@
+{
+  "skipFiles" : [
+    "${workspaceRoot}/node_modules/**/*.js"
+  ]
+}
