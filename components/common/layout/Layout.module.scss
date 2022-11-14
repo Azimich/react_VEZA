@@ -1,12 +1,11 @@
 .header {
   box-shadow: 0 3px 5px rgb(30 158 0 / 90%);
   background-color: #fff;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 99;
 }
 
  .main{
-   overflow: hidden;
  }
