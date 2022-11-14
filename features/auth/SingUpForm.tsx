@@ -81,6 +81,7 @@ const SingUpForm: FC = () => {
     },
   });
   console.log("formik.touched", formik.touched, formik.errors);
+
   const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
     const alhpabet = /[^а-яёa-z,]/iu;
     const target = e.target.value;
@@ -117,7 +118,117 @@ const SingUpForm: FC = () => {
         <div className={Styles.registration__form__items__title}>
           <h1>Регистрация</h1>
         </div>
-        <Input name={"name"} value={""} title={"Телефон *"} />
+        <div className={Styles.registration__form__items__input}>
+          <ul
+            className={`${
+              formik.errors?.firstName && formik.touched?.firstName
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
+            }`}
+          >
+            <Input
+              name={"firstName"}
+              title={"Имя *"}
+              type={"text"}
+              className={Styles.input__item}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleOnChangeFirstName(e)
+              }
+              onBlur={formik.handleBlur}
+              value={formik.values.firstName}
+            />
+            <div
+              className={`${
+                formik.errors?.firstName && formik.touched?.firstName
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors.firstName}</li>
+            </div>
+          </ul>
+          <ul
+            className={`${
+              formik.errors?.lastName && formik.touched?.lastName
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
+            }`}
+          >
+            <Input
+              name={"lastName"}
+              title={"Фамилия *"}
+              className={Styles.input__item}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleOnChangeLastName(e)
+              }
+              onBlur={formik.handleBlur}
+              value={formik.values.lastName}
+            />
+            <div
+              className={`${
+                formik.errors?.lastName && formik.touched?.lastName
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors.lastName}</li>
+            </div>
+          </ul>
+        </div>
+        <div className={Styles.registration__form__items__input}>
+          <ul
+            className={`${
+              formik.errors?.email && formik.touched?.email
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
+            }`}
+          >
+            <Input
+              name={"email"}
+              title={"Почта *"}
+              className={Styles.input__item}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            <div
+              className={`${
+                formik.errors?.email && formik.touched?.email
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors.email}</li>
+            </div>
+          </ul>
+          <ul
+            className={`${
+              formik.errors?.phone && formik.touched?.phone
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
+            }`}
+          >
+            <Input
+              name={"phone"}
+              title={"Телефон *"}
+              className={Styles.input__item}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleOnChangeTel(e)
+              }
+              onBlur={formik.handleBlur}
+              value={formik.values.phone}
+            />
+            <div
+              className={`${
+                formik.errors?.phone && formik.touched?.phone
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors.phone}</li>
+            </div>
+          </ul>
+        </div>
         <div className={Styles.registration__form__items__input}>
           <ul
             className={`${
@@ -130,7 +241,9 @@ const SingUpForm: FC = () => {
               name={"company"}
               title={"ИНН компании *"}
               className={Styles.input__item}
-              onChange={(e) => handleOnChangeCompany(e)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleOnChangeCompany(e)
+              }
               onBlur={formik.handleBlur}
               value={formik.values.company}
             />
