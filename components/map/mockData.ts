@@ -1,6 +1,6 @@
 import { IMapData } from "./Map";
 
-const WhoWeMapData: IMapData[] = [
+const MapData: IMapData[] = [
   {
     id: 1,
     alias: "saha_yakutia",
@@ -1018,4 +1018,4 @@ const WhoWeMapData: IMapData[] = [
   },*/
 ];
 
-export { WhoWeMapData };
+export { MapData };

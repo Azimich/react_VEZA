@@ -366,6 +366,7 @@
         @media (max-width: 600px) {
           font-size: 16px;
           padding: 5px 0 26px 0;
+
         }
 
       }
@@ -521,6 +522,12 @@
         height: 461px;
         max-width: 950px;
         margin: 0 auto;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
         @media (max-width: 1530px) {
           height: 600px;
         }
@@ -580,6 +587,9 @@
           border-radius: 20px;
           object-fit: cover;
           height: 461px;
+          @include tabletScreen {
+            height: 220px;
+          }
         }
       }
     }
@@ -607,8 +617,8 @@
           max-width: 490px;
         }
 
-        @media (max-width: 600px) {
-          font-size: 18px;
+        @include tabletScreen {
+          font-size: 16px;
           max-width: 350px;
         }
       }
@@ -629,8 +639,13 @@
         }
 
         @media (max-width: 600px) {
-          font-size: 16px;
+          font-size: 15px;
           padding: 5px 0 26px 0;
+          height: 80px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
         }
       }
 
@@ -650,19 +665,13 @@
         left: 6%;
       }
 
-      @media (max-width: 1100px) {
-        top: 16%;
-        left: 5%;
-        padding: 25px 20px;
+
+      @include tabletScreen {
+        top: 10px;
+        bottom: 10px;
         border-radius: 20px;
-      }
-
-      @media (max-width: 600px) {
-        right: 5%;
-      }
-
-      @media (max-width: 500px) {
-        top: 12%;
+        padding: 10px;
+        min-width: 200px;
       }
     }
 
@@ -827,9 +836,10 @@
           padding: 5px 0 35px 0;
         }
 
-        @media (max-width: 600px) {
-          font-size: 16px;
+        @include tabletScreen {
+          font-size: 15px;
           padding: 5px 0 26px 0;
+
         }
 
       }
@@ -893,19 +903,8 @@
         left: 6%;
       }
 
-      @media (max-width: 1100px) {
-        top: 16%;
-        left: 5%;
-        padding: 25px 20px;
-        border-radius: 20px;
-      }
-
-      @media (max-width: 600px) {
-        right: 5%;
-      }
-
-      @media (max-width: 500px) {
-        top: 12%;
+      @include tabletScreen {
+        top: 10px;
       }
     }
 

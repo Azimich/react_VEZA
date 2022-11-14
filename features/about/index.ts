@@ -10,4 +10,4 @@ export { SocialContainer as Social } from "./tab_references/SocialContainer";
 export { MapItem } from "../../components/map/MapItem";
 export type { IReferencesImages } from "./tab_references/References";
 export type { IWhoWeAboutData } from "./tab_who_we/about/WhoWeAbout";
-export { ModalJob } from "./tab_job/jobModal/ModalJob";
+export { ModalFormJob } from "./tab_job/jobModal/ModalFormJob";

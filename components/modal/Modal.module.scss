@@ -21,19 +21,20 @@
   &.black {
     background: rgba(19, 28, 8, 0.8);
     backdrop-filter: blur(3px);
-  }  
+  }
 
   &.white {
     background: color(white);
     backdrop-filter: blur(3px);
-  }  
+  }
 
   &_close {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
     padding: 20px 20px 0 20px;
-    >div{
+
+    > div {
       text-align: left;
     }
   }
@@ -51,6 +52,7 @@
     animation-name: slide-in;
     animation-duration: 0.3s;
     box-shadow: 0 0 30px rgb(20 20 20 / 30%);
+
     .modal_header,
     .modal_footer {
       display: flex;
@@ -64,6 +66,7 @@
 
     .modal_body {
       overflow: auto;
+
       .modal_content {
         padding: 20px 20px 30px 20px;
         color: color(dark);
@@ -81,11 +84,26 @@
       background: color(white);
     }
 
+    &__empty_modal {
+      width: 80%;
+      background: transparent;
+      box-shadow: 0 0 0 rgb(0.0 .0 .0);
+
+      &.modal_close {
+        svg {
+          path {
+              fill: white;
+          }
+        }
+      }
+    }
+
     &__full_modal {
       max-width: 1920px;
       border-radius: 0;
       padding: 0 0 0 0;
       height: 100vh;
+
       .modal_content {
         height: 100vh;
       }
@@ -94,6 +112,7 @@
         padding: 30px 0 0 0;
         .modal_content {
           padding: 10px !important;
+
           .modal_close {
             position: relative !important;
             padding: 10px !important;

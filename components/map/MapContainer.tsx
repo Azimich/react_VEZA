@@ -1,5 +1,5 @@
 import Styles from "./Map.module.scss";
-import { WhoWeMapData } from "./mockData";
+import { MapData } from "./mockData";
 import React, { FC, useState } from "react";
 import { MapItem } from "./MapItem";
 import { IMapProps } from "./Map";
@@ -10,7 +10,7 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
   const handleMouseHover: React.MouseEventHandler<HTMLElement> = (e) => {
     setCurrentClass(e.currentTarget.dataset.class);
   };
-  const handleMouseLeave: React.MouseEventHandler<HTMLElement> = (e) => {
+  const handleMouseLeave: React.MouseEventHandler<HTMLElement> = () => {
     setCurrentClass("none");
   };
   return (
@@ -26,7 +26,7 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {WhoWeMapData.map((e) => {
+          {MapData.map((e) => {
             return (
               <MapItem
                 {...e}
