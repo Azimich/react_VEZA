@@ -45,7 +45,6 @@ const SearchContainer: FC = () => {
           />
         )}
       </div>
-      {/* <Button type={"button"} children={"Поиск"} /> */}
     </div>
   );
 };

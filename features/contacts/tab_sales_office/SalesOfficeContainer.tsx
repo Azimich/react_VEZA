@@ -75,7 +75,7 @@ const SalesOfficeContainer: FC = () => {
       </div>
       <Map formOutPut={FormOutPut} />
       <div className={Styles.sales_office_container_items}>
-        <h1>НАШИ МЕНЕДЖЕРЫ</h1>
+        <SeparatorContainer title={"НАШИ МЕНЕДЖЕРЫ"} />
         <SearchContainer />
         <Tabs
           props={tabsSalesData}
