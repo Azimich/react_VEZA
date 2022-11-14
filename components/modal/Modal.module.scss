@@ -33,7 +33,11 @@
     justify-content: space-between;
     cursor: pointer;
     padding: 20px 20px 0 20px;
-
+    svg{
+      path{
+        fill:white;
+      }
+    }
     > div {
       text-align: left;
     }
