@@ -1,9 +1,11 @@
+import { ISlideImages } from "components/slider/Slider.d";
+
 interface INewsProps {
   id: number;
   countView: number;
   description: string;
   url: string;
-  img: string;
+  images: ISlideImages;
 }
 
 export { INewsProps };

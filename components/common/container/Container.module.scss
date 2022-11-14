@@ -24,8 +24,14 @@
     padding: 50px 10px;
   }
 }
-.wrapper_clear{
+
+.wrapper_clear {
   max-width: 1390px;
   margin: 0 auto;
   overflow: hidden;
+  padding: 10px;
+}
+
+.no_padding {
+  padding: 0;
 }

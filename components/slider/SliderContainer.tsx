@@ -13,7 +13,6 @@ import {
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
-import { NavigationOptions } from "swiper/types/modules/navigation";
 import Styles from "./Slider.module.scss";
 
 const SliderContainer: FC<ISliderProps> = ({

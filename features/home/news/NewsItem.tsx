@@ -1,9 +1,9 @@
 import Styles from "./News.module.scss";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { INewsProps } from "./News";
-import { ArrowRightIcon, EyeIcon } from "../../../components/icons";
-
-import { Button } from "../../../components/button";
+import { ArrowRightIcon, EyeIcon } from "components/icons";
+import { isMobile, isTablet, isDesktop } from "react-device-detect";
+import { Button } from "components/button";
 
 interface INewsItemProps {
   className: string;
@@ -11,6 +11,14 @@ interface INewsItemProps {
 }
 
 const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
+  const [device, setDevice] = useState<"mobile" | "tablet" | "desktop">(
+    "desktop"
+  );
+  useEffect(() => {
+    isMobile && setDevice("mobile");
+    isTablet && setDevice("tablet");
+    isDesktop && setDevice("desktop");
+  }, [isMobile, isTablet, isDesktop]);
   return (
     <div className={Styles[className]}>
       <div className={Styles.news__item}>
@@ -19,15 +27,18 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
             <EyeIcon />
             {props.countView}
           </div>
-          <img src={props.img} alt="foto" />
+          {device === "mobile" && (
+            <img src={props.img.mobile} alt={props.description} />
+          )}
+          {device === "tablet" && (
+            <img src={props.img.ipad} alt={props.description} />
+          )}
+          {device === "desktop" && (
+            <img src={props.img.pc} alt={props.description} />
+          )}
         </div>
         <div className={Styles.news__item_info}>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam
-            placeat officia totam, laudantium rerum assumenda maxime velit
-            blanditiis! Beatae quod nobis optio voluptatem, ipsum quas veniam
-            hic est incidunt cupiditate?
-          </p>
+          <p>{props.description}</p>
 
           <Button
             link={props.url}

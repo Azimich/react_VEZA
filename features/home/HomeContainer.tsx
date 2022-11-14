@@ -28,12 +28,13 @@ const HomeContainer = () => {
 
       <Separator title={"О нас"} />
       <AboutContainer />
-      <Container className="wrapper_clear" el="section">
+      <Container className={`wrapper_clear`} el="section">
         <Separator title={"Категория продукции"} />
         <SliderContainer
           items={sliderCategory.items}
           dots={true}
           autoplay={false}
+          spaceBetween={10}
           theme={"homecategory"}
         />
         <Separator title={"Новости"} />

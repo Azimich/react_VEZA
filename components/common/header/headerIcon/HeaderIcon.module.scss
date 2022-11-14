@@ -27,11 +27,11 @@
   }
 
   &__icon__box {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 16px;
     height: 24px;
+    display: flex;
     a{
       svg{
         height: 24px;
@@ -43,10 +43,6 @@
           }
         }
       }
-    }
-
-    @include ipadScreen {
-      display: none;
     }
   }
 
