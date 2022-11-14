@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ChangeEvent } from "react";
 
-const ModalJob = () => {
+const ModalFormJob = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -35,7 +35,6 @@ const ModalJob = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
-
   const handleOnChangeTel = (e: ChangeEvent<HTMLInputElement>) => {
     const numb = /[^0-9-+]/g;
     const target = e.target.value.replace(numb, "");
@@ -177,4 +176,4 @@ const ModalJob = () => {
   );
 };
 
-export { ModalJob };
+export { ModalFormJob };

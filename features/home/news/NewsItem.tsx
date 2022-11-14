@@ -28,13 +28,13 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
             {props.countView}
           </div>
           {device === "mobile" && (
-            <img src={props.img.mobile} alt={props.description} />
+            <img src={props.images.mobile} alt={props.description} />
           )}
           {device === "tablet" && (
-            <img src={props.img.ipad} alt={props.description} />
+            <img src={props.images.ipad} alt={props.description} />
           )}
           {device === "desktop" && (
-            <img src={props.img.pc} alt={props.description} />
+            <img src={props.images.pc} alt={props.description} />
           )}
         </div>
         <div className={Styles.news__item_info}>

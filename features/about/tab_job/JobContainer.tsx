@@ -5,7 +5,7 @@ import { Container } from "components/common/container";
 import Styles from "./Job.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsJobData } from "../../contacts/mockData";
-import { jobObject, MockJob } from "./mockJob";
+import { jobGalleryData, jobObject, MockJob } from "./mockJob";
 import { JobItem } from "./JobItem";
 import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
@@ -16,7 +16,8 @@ import { IObject, IObjectItem } from "components/map/Map";
 import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "components/map/SideBar";
 import { Modal, useModal } from "components/modal";
-import { ModalJob } from "features/about";
+import { ModalFormJob } from "features/about";
+import { ModalFormGallery } from "features/about/tab_job/jobModal/ModalFormGalery";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -24,10 +25,12 @@ const JobContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     []
   );
+  const { isShow: isShowGallery, toggle: toggleGallery } = useModal();
   const { isShow, toggle } = useModal();
+
   const router = useRouter();
-  const handleOnClickModal = (e: IObjectItem, alias: string) => {
-    console.log(e, alias);
+  const handleOnClickModal = () => {
+    toggleGallery();
   };
 
   useEffect(() => {
@@ -46,9 +49,7 @@ const JobContainer: FC = () => {
     return (
       <ObjectItem
         {...e}
-        onClick={(e: IObjectItem, alias: string) =>
-          handleOnClickModal(e, alias)
-        }
+        onClick={() => handleOnClickModal()}
         key={"job" + e.id}
         icon={<div className={Styles.job_count}>{e.count}</div>}
       />
@@ -110,8 +111,15 @@ const JobContainer: FC = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
-        modalContent={<ModalJob />}
+        modalContent={<ModalFormJob />}
         theme={"modal"}
+        bgModal={"black"}
+      />
+      <Modal
+        isShow={isShowGallery}
+        hide={toggleGallery}
+        modalContent={<ModalFormGallery items={jobGalleryData.items} />}
+        theme={"empty_modal"}
         bgModal={"black"}
       />
     </Container>
