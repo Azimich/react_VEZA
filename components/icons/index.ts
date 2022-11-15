@@ -26,3 +26,4 @@ export { LogoIcon } from "./includes/LogoIcon";
 export { CalendarIcon } from "./includes/CalendarIcon";
 export { HistoryMobileIcon } from "./includes/HistoryMobileIcon";
 export { UploadIcon } from "./includes/UploadIcon";
+export { HomeIcon } from "./includes/HomeIcon";
