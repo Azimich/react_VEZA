@@ -5,7 +5,7 @@ const useGetListNews = () => {
 
   const listNewsData = () => {
     return request(
-      process.env.NEXT_PUBLIC_APP_URL + "api/News/get_all_news",
+      process.env.NEXT_PUBLIC_APP_FETCH + "api/News/get_all_news",
       "GET"
     );
   };

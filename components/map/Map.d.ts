@@ -46,7 +46,7 @@ interface IObject {
     | "office_sales";
   object?: IObjectItem;
   icon?: ReactNode;
-  onClick?: () => void;
+  onClick?: (e, alias) => void;
 }
 
 export { IObject, IMapData, IObjectItem, IMapProps };

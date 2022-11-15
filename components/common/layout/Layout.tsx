@@ -15,7 +15,7 @@ const Layout: FC = ({ children }) => (
       <title>{process.env.NEXT_PUBLIC_TITLE}</title>
       <meta name="keyword" content={process.env.NEXT_PUBLIC_KEYWORD} />
     </Head>
-    <div className={Styles.main}>
+    <div className={Styles.main} id={"main"}>
       <header className={Styles.header}>
         <HeaderContainer />
       </header>
@@ -26,10 +26,11 @@ const Layout: FC = ({ children }) => (
             <Box_icon_social_container />
           </div>
         </Container>
+
+        <footer>
+          <FooterContainer />
+        </footer>
       </main>
-      <footer>
-        <FooterContainer />
-      </footer>
     </div>
   </>
 );
