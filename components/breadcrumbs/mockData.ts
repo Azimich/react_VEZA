@@ -1,5 +1,5 @@
 import { IBreadCrumbs } from "components/breadcrumbs/BreadCrumbs.d";
-import { newsPath } from "utils/bootstrap";
+import { aboutPath, newsPath } from "utils/bootstrap";
 
 const dataBreadNews: IBreadCrumbs[] = [
   {
@@ -14,5 +14,10 @@ const dataDecisionNews: IBreadCrumbs[] = [
     url: process.env.NEXT_PUBLIC_APP_URL + newsPath,
   },
 ];
-
-export { dataBreadNews, dataDecisionNews };
+const dataAboutNews: IBreadCrumbs[] = [
+  {
+    title: "О компании",
+    url: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
+  },
+];
+export { dataBreadNews, dataDecisionNews, dataAboutNews };
