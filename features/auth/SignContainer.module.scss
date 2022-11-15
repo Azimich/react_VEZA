@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 //Форма авторизации
 .authorization__form {
@@ -53,9 +53,9 @@
       .input__item {
         border-color: red;
       }
-    } 
+    }
   }
-  
+
   &__item__forgot {
     display: flex;
     justify-content: space-between;
@@ -164,7 +164,7 @@
       flex-direction: column;
       row-gap: 0;
     }
-    
+
     ul {
       width: 100%;
     }
@@ -222,7 +222,7 @@
         border-color: red;
         width: 100%;
       }
-    } 
+    }
   }
 
   &__selected {
@@ -299,7 +299,7 @@
       .input__item {
         border-color: red;
       }
-    } 
+    }
   }
 
   button {
@@ -308,4 +308,3 @@
 }
 
 
-    
