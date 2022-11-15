@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { wrapper } from "../../store/store";
+import { wrapper } from "store/store";
 import React from "react";
-import { FactoryContainer } from "../../features/factory/FactoryContainer";
-import { FactoryData } from "../../features/factory/mockData";
+import { FactoryContainer } from "features/factory/FactoryContainer";
+import { FactoryData } from "features/factory/mockData";
 import { IFactoryData } from "features/factory/Factory";
 import { fetchDataFactory } from "features/factory/FactorySlice";
 export const getStaticPaths: GetStaticPaths = async () => {

@@ -6,8 +6,9 @@ class Request {
   static getRequest = async (url: string, options: {}) => {
     return await fetch(url, options)
       .then((res) => res.json())
-      .catch(() => {
-        return { error: 1, response: [] };
+      .catch((error) => {
+        console.log("error", error);
+        return { error: 2, response: [] };
       });
   };
 

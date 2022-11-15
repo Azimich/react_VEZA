@@ -1,0 +1,69 @@
+@import 'styles/variables.scss';
+
+.breadcrumbs_container {
+  ul {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: color(bredcrumbs_link);
+    margin-top: 15px;
+
+    li {
+      align-items: center;
+      display: flex;
+
+      &:first-child {
+        padding-right: 5px;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+
+        > svg {
+          width: 15px;
+          height: 15px;
+          padding-right: 10px;
+          fill: color(bredcrumbs);
+        }
+
+        &:last-child {
+          a {
+            padding: 0 0 0 5px;
+          }
+        }
+      }
+
+      span {
+
+        svg {
+          width: 10px;
+          height: 10px;
+          position: relative;
+          top: 1px;
+
+          path {
+            fill: color(bredcrumbs);
+          }
+        }
+      }
+
+      a {
+        transition: all 0.3s;
+        font-size: 14px;
+        color: color(bredcrumbs_link);
+        padding: 0 5px;
+        text-transform: capitalize;
+
+        &:hover {
+          color: (green);
+
+          svg {
+            transition: all 0.3s;
+            fill: color(green);
+          }
+        }
+      }
+    }
+  }
+}

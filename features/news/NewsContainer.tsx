@@ -6,23 +6,26 @@ import Styles from "./News.module.scss";
 import { NewsWithOutItem } from "./NewsWithOutItem";
 import { Pagination } from "components/pagination/Pagination";
 import { useGetListNews } from "service/getListNews";
+import { dataBreadNews } from "components/breadcrumbs/mockData";
+import { BreadCrumbs } from "components/breadcrumbs";
 
 const NewsContainer: FC<INewsData> = ({ newsData, newsItem }) => {
   const [newsWithDesc] = useState<INewDataItem[]>(newsData.slice(0, 4));
   const [newsWithOutDesc] = useState<INewDataItem[]>(newsData.slice(4));
-
+  console.log("SERVER API", newsItem);
   const listNewsFunc = useGetListNews();
-  console.log("newsItem444", newsItem);
   useEffect(() => {
     const { listNewsData, loading, error } = listNewsFunc;
     listNewsData().then((e) => {
-      console.log("listNewsData", e, loading, error);
+      console.log("FRONT API", newsItem, loading, error);
     });
   }, []);
 
   return (
     <>
-      <Container className={"wrapper"}>
+      <Container className={"wrapper_clear"}>
+        <BreadCrumbs data={dataBreadNews} />
+
         {newsWithDesc.map((e) => {
           return <NewsWithItem {...e} key={e.id} />;
         })}
