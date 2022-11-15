@@ -19,9 +19,12 @@ const HeaderContainer: FC = () => {
   };
 
   useEffect(() => {
-    isShow
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
+    if (isShow) {
+      document.getElementById("main").style.overflow = "hidden";
+    } else {
+      document.getElementById("main").style.overflowX = "hidden";
+      document.getElementById("main").style.overflowY = "auto";
+    }
   }, [isShow]);
 
   useEffect(() => {

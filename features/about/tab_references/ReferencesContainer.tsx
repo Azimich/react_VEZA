@@ -1,4 +1,4 @@
-import { Container } from "../../../components/common/container";
+import { Container } from "components/common/container";
 import Styles from "./References.module.scss";
 import { Tabs } from "../../../components/tabs";
 import { tabsAboutData, tabsSocialData } from "../../contacts/mockData";
