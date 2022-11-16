@@ -46,11 +46,11 @@
     }
 
     .bar_1 {
-      transform: rotateZ(45deg) translate(6px, 6px);
+      transform: rotateZ(-45deg) translate(-5px, 6px);
     }
 
     .bar_2 {
-      transform: rotateZ(-45deg) translate(1px, -1px);
+      transform: rotateZ(45deg) translate(0px, -1.8px);
     }
   
     .bar_small {

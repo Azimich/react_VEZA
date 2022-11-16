@@ -4,21 +4,13 @@
 .about {
   &__container {
     width: 100%;
-    height: 660px;
+    padding: 50px;
     @include backgroundImage(cover);
     background-image: url('/images/about_banner.jpg');
     margin: auto;
-
-    @media (max-width: 1650px) {
-     // padding: 0 80px;
-    }
-
-    @media (max-width: 1220px) {
-      width: 100%;
-      height: auto;
-      @include backgroundImage(cover);
-      //background-image: url('/images/about_banner-ipad.jpg');
+    @media (max-width: 1200px) {
       padding: 40px;
+      width: auto;
     }
 
     @include phoneScreen {
@@ -28,26 +20,26 @@
 
   &__elem_box {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 40px;
     margin: 0 auto;
-    max-width: 1330px;
-    height: 100%;
-
-    @media (max-width: 1220px) {
+    max-width: 1390px;
+    @media (max-width: 1200px) {
       flex-direction: column;
+    }
+    
+    @include phoneScreen {
+      gap: 0;
     }
   }
 
   &__right_block {
     max-width: 690px;
-
     @media (max-width: 1200px) {
-      max-width: 100%;
-      margin: 0 auto;
+     max-width: 100%;
     }
-
   }
+
   &__text {
     font-weight: 300;
     font-size: 16px;
@@ -55,7 +47,6 @@
     letter-spacing: 0.025em;
     color: color(white);
     margin: 0 0 30px 0;
-
     @media (max-width: 1435px) {
       line-height: 145%;
     }
@@ -74,15 +65,17 @@
 
     @include ipadScreen {
       text-align: left;
-      padding: 20px;
+      padding: 10px;
+      font-size: 14px;
     }
   }
 
 
   &__left_block {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 580px !important;
 
     @media (max-width: 1200px) {
       width: 100% !important;
@@ -102,10 +95,9 @@
 
   .tiles {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 650px !important;
-    margin: 30px 0 0 0;
-
     @media (max-width: 1200px) {
       justify-content: center;
     }
@@ -473,29 +465,30 @@
   &__progress_box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 auto;
+    gap: 40px;
+    @media (max-width: 1200px) {
+      justify-content: center;
+    }
 
     @include ipadScreen {
-      justify-content: space-around;
+      padding: 10px;
+      justify-content: flex-start;
+      gap: 25px;
+      margin-bottom: 5%;
+    }
+
+    @include SEScreen {
+      justify-content: center;;
     }
   }
 
   &__progress {
     text-align: center;
-
-    @include phoneScreen {
-      margin: 0 0 40px 0;
-    }
   }
-
-
-
-
 
   .progressbar text {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 28px;
 
     @include tabletScreen {
       font-weight: 700;
