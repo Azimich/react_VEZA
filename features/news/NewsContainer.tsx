@@ -9,10 +9,9 @@ import { BreadCrumbs } from "components/breadcrumbs";
 
 const NewsContainer: FC<{ props: INewsData }> = ({ props }) => {
   console.log("props", props);
-  const [newsWithDesc] = useState<INewsData[]>(props.newsItem?.slice(0, 4));
-  const [newsWithOutDesc] = useState<INewsData[]>(props.newsItem?.slice(4));
+  /*  const [newsWithDesc] = useState<INewsData[]>(props.newsItem?.slice(0, 4));
+  const [newsWithOutDesc] = useState<INewsData[]>(props.newsItem?.slice(4));*/
 
-  console.log("SERVER API", newsWithDesc);
   const listNewsFunc = useGetListNews();
   useEffect(() => {
     const { listNewsData, loading, error } = listNewsFunc;
@@ -26,7 +25,7 @@ const NewsContainer: FC<{ props: INewsData }> = ({ props }) => {
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
 
-        {/*                        {newsWithDesc.map((e) => {
+        {/* {newsWithDesc.map((e) => {
           return <NewsWithItem {...e} key={e.newsItem} />;
         })}
         <ul className={Styles.new_with_out_container}>

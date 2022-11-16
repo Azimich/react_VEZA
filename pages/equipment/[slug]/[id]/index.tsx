@@ -4,7 +4,7 @@ import { GetStaticPaths } from "next";
 import { CatalogData } from "features/equipment/mockData";
 import { equipmentPath } from "utils";
 import { ICatalogData } from "features/equipment/Equipment";
-import { EquipmentPage } from "features/equipment/EquipmentPage";
+import { EquipmentPage } from "features/equipment/equipmentPage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
