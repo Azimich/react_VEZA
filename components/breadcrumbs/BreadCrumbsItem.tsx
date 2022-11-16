@@ -11,7 +11,7 @@ const BreadCrumbsItem: FC<IBreadCrumbsProps> = ({ data, last }) => {
   return (
     <>
       <li>
-        {!last ? <Link url={data.url}>{data?.title}</Link> : data?.title}
+        {!last ? <Link url={data.alias}>{data?.title}</Link> : data?.title}
         {!last && (
           <span>
             <ArrowDownIcon />

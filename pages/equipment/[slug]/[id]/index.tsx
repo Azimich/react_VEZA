@@ -5,6 +5,8 @@ import { CatalogData } from "features/equipment/mockData";
 import { equipmentPath } from "utils";
 import { ICatalogData } from "features/equipment/Equipment";
 import { EquipmentPage } from "features/equipment/equipmentPage";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -14,7 +16,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
     return {
       props: CatalogData.filter(

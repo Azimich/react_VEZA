@@ -19,7 +19,7 @@ import { Modal, useModal } from "components/modal";
 import { ModalFormJob } from "features/about";
 import { ModalFormGallery } from "features/about/tab_job/jobModal/ModalFormGalery";
 import { BreadCrumbs } from "components/breadcrumbs";
-import { dataAboutNews } from "components/breadcrumbs/mockData";
+import { dataBreadAbout } from "components/breadcrumbs/mockData";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -72,7 +72,7 @@ const JobContainer: FC = () => {
 
   return (
     <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={dataAboutNews} />
+      <BreadCrumbs data={dataBreadAbout} />
 
       <div className={Styles.job_container}>
         <Tabs

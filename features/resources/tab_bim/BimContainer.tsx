@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Container } from "components/common/container";
 import Styles from "./Bim.module.scss";
@@ -12,17 +12,26 @@ import { bimData } from "../mockData";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
 import { ModalBim } from "./bimModal/ModalBim";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { dataBreadResources } from "components/breadcrumbs/mockData";
 
 const BimContainer = () => {
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadResources);
   const router = useRouter();
   const handleOnClickTabs = (e: ITab) => {
     router.push(resourcesPath + e.url);
   };
 
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "BIM" }]);
+  }, [dataBreadResources]);
+
   const { isShow, toggle } = useModal();
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear no_padding"}>
+      <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.bim_container}>
         <Tabs
           props={tabsResourcesData}

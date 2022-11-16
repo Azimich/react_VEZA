@@ -4,6 +4,8 @@ import { NewsData } from "features/news/mockData";
 import { NewsPage } from "features/news";
 import { GetStaticPaths } from "next";
 import { INewsData } from "features/news/News";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -13,7 +15,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
 
     const mockData = NewsData.filter((item) => {

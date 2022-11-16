@@ -1,8 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { wrapper } from "../../store/store";
+import { wrapper } from "store/store";
 import React from "react";
-import { IComponents } from "../../components/tabs/Tabs";
+import { IComponents } from "components/tabs/Tabs";
 import { Interaction, SalesOffice, Support } from "../../features/contacts";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -12,7 +14,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
+
     const { params } = context;
     return {
       props: { slug: params.slug },

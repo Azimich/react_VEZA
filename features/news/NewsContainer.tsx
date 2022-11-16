@@ -1,17 +1,12 @@
 import { Container } from "components/common/container";
-import Styles from "./News.module.scss";
 import { INewsData } from "./News";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { Pagination } from "components/pagination/Pagination";
 import { useGetListNews } from "service/getListNews";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";
 
-const NewsContainer: FC<{ props: INewsData }> = ({ props }) => {
-  console.log("props", props);
-  /*  const [newsWithDesc] = useState<INewsData[]>(props.newsItem?.slice(0, 4));
-  const [newsWithOutDesc] = useState<INewsData[]>(props.newsItem?.slice(4));*/
-
+const NewsContainer: FC<{ props: INewsData }> = () => {
   const listNewsFunc = useGetListNews();
   useEffect(() => {
     const { listNewsData, loading, error } = listNewsFunc;

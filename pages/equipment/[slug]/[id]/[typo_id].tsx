@@ -4,6 +4,8 @@ import { GetStaticPaths } from "next";
 import { TypoSize } from "features/typo_size";
 import { CatalogData } from "features/equipment/mockData";
 import { ICatalogData } from "features/equipment/Equipment";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -13,7 +15,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
     const productData = CatalogData.filter(
       (e: ICatalogData) =>

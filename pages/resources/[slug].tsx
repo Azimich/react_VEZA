@@ -10,6 +10,8 @@ import {
   tab_questions,
   tab_training,
 } from "../../features/resources";
+import { fetchMenu } from "../../store/slice/MenuSlice";
+import { menuListServer } from "../../service";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -19,7 +21,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
     return {
       props: { slug: params.slug },
