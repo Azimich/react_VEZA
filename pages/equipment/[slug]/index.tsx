@@ -1,12 +1,9 @@
 import { GetStaticProps } from "next";
-import { wrapper } from "../../../store/store";
-import {
-  CatalogData,
-  CatalogEquipmentData,
-} from "../../../features/equipment/mockData";
+import { wrapper } from "store/store";
+import { CatalogData, CatalogEquipmentData } from "features/equipment/mockData";
 import { EquipmentContainer } from "features/equipment";
 import { GetStaticPaths } from "next";
-import { getData } from "../../../utils/helpers";
+import { getData } from "utils/helpers";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slug = CatalogData.map((e) => {

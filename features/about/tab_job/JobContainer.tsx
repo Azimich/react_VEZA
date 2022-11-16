@@ -12,12 +12,14 @@ import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
 import { Map } from "components/map";
 import React, { FC, ReactNode, useEffect, useState } from "react";
-import { IObject, IObjectItem } from "components/map/Map";
+import { IObject } from "components/map/Map";
 import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "components/map/SideBar";
 import { Modal, useModal } from "components/modal";
 import { ModalFormJob } from "features/about";
 import { ModalFormGallery } from "features/about/tab_job/jobModal/ModalFormGalery";
+import { BreadCrumbs } from "components/breadcrumbs";
+import { dataAboutNews } from "components/breadcrumbs/mockData";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -69,7 +71,9 @@ const JobContainer: FC = () => {
   };
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
+      <BreadCrumbs data={dataAboutNews} />
+
       <div className={Styles.job_container}>
         <Tabs
           props={tabsAboutData}

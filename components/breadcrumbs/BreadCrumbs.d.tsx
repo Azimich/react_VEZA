@@ -1,7 +1,6 @@
 interface IBreadCrumbs {
   title: string;
-  url: string;
-  active?: boolean;
+  url?: string;
 }
 
 export type { IBreadCrumbs };

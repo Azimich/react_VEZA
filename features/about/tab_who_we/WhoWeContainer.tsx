@@ -15,6 +15,8 @@ import { Map } from "components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
 import { whoweData } from "../mockData";
 import { ObjectItem } from "../ObjectItem";
+import { BreadCrumbs } from "components/breadcrumbs";
+import { dataAboutNews } from "components/breadcrumbs/mockData";
 
 const WhoWeContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IObjectItem>();
@@ -45,7 +47,8 @@ const WhoWeContainer: FC = () => {
   };
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
+      <BreadCrumbs data={dataAboutNews} />
       <div className={Styles.whowe_container}>
         <Tabs
           props={tabsAboutData}

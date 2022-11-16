@@ -1,5 +1,5 @@
-@import '../../../styles/mixins.scss';
-@import '../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .Decision_container{
   display: flex;
@@ -40,7 +40,7 @@
         line-height: 145%;
       }
     }
-    
+
     p{
       font-weight: normal;
       font-size: 16px;

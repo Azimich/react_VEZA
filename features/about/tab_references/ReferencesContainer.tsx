@@ -15,6 +15,8 @@ import { ReferenceIcon } from "components/icons";
 import { ModalFormFactory } from "../tab_who_we/ModalFormFactory";
 import { referenceObject } from "./mockData";
 import { SideBar } from "components/map/SideBar";
+import { dataAboutNews } from "components/breadcrumbs/mockData";
+import { BreadCrumbs } from "components/breadcrumbs";
 
 const ReferencesContainer: FC = () => {
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
@@ -81,7 +83,9 @@ const ReferencesContainer: FC = () => {
     toggle();
   };
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
+      <BreadCrumbs data={dataAboutNews} />
+
       <div className={Styles.references_container}>
         <Tabs
           props={tabsAboutData}
