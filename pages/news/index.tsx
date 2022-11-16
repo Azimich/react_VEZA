@@ -3,8 +3,17 @@ import { wrapper } from "store/store";
 
 import { News } from "features/news";
 import { NewsData } from "features/news/mockData";
-import { INewsData } from "features/news/News";
+import { INewDataItem, INewsData } from "features/news/News";
 import { newsList } from "service/list/servers/newsList";
+
+interface INewsPropsServer {
+  props: {
+    newsItem: INewsData[];
+    newsData: INewDataItem[];
+  };
+}
+
+export type { INewsPropsServer };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   () => async () => {
@@ -12,13 +21,15 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     return {
       props: {
         newsItem: await newsList(),
-        newsData,
+        newsData: newsData,
       },
       revalidate: 10,
     };
   }
 );
 
-const newsSSR = (props: INewsData) => <News {...props} />;
+const newsSSR = (props: INewsData) => {
+  return <News props={props} />;
+};
 
 export default newsSSR;

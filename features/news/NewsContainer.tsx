@@ -1,23 +1,22 @@
 import { Container } from "components/common/container";
-import { INewDataItem, INewsData } from "./News";
-import { FC, useEffect, useState } from "react";
-import { NewsWithItem } from "./NewsWithItem";
 import Styles from "./News.module.scss";
-import { NewsWithOutItem } from "./NewsWithOutItem";
+import { INewsData } from "./News";
+import { FC, useEffect, useState } from "react";
 import { Pagination } from "components/pagination/Pagination";
 import { useGetListNews } from "service/getListNews";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";
 
-const NewsContainer: FC<INewsData> = ({ newsData, newsItem }) => {
-  const [newsWithDesc] = useState<INewDataItem[]>(newsData.slice(0, 4));
-  const [newsWithOutDesc] = useState<INewDataItem[]>(newsData.slice(4));
-  console.log("SERVER API", newsItem);
+const NewsContainer: FC<{ props: INewsData }> = ({ props }) => {
+  console.log("props", props);
+  /*  const [newsWithDesc] = useState<INewsData[]>(props.newsItem?.slice(0, 4));
+  const [newsWithOutDesc] = useState<INewsData[]>(props.newsItem?.slice(4));*/
+
   const listNewsFunc = useGetListNews();
   useEffect(() => {
     const { listNewsData, loading, error } = listNewsFunc;
     listNewsData().then((e) => {
-      console.log("FRONT API", newsItem, loading, error);
+      console.log("FRONT API", e, loading, error);
     });
   }, []);
 
@@ -26,14 +25,14 @@ const NewsContainer: FC<INewsData> = ({ newsData, newsItem }) => {
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
 
-        {newsWithDesc.map((e) => {
-          return <NewsWithItem {...e} key={e.id} />;
+        {/* {newsWithDesc.map((e) => {
+          return <NewsWithItem {...e} key={e.newsItem} />;
         })}
         <ul className={Styles.new_with_out_container}>
           {newsWithOutDesc.map((e) => {
             return <NewsWithOutItem {...e} key={e.id} />;
           })}
-        </ul>
+        </ul>*/}
         <Pagination currentPage={1} totalPageCount={5} pageSize={3} />
       </Container>
     </>
