@@ -1,16 +1,21 @@
 import React, { FC, useState } from "react";
-import Link from "next/link";
-import { menuData } from "../mockdata";
 import { IMenuData } from "./Header.d";
 import Styles from "./HeaderNav.module.scss";
+import { useAppSelector } from "store/hooks/useAppSelector";
+import { getMenu } from "store/slice/MenuSlice";
+import { useRouter } from "next/router";
+import { Link } from "components/link";
+
 interface IHeaderNav {
   isShowMenu?: boolean;
   scroll?: number;
 }
 
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
-  const [menu] = useState<IMenuData[]>(menuData);
-
+  const [menu] = useState<IMenuData[]>(
+    useAppSelector(getMenu)?.Response as IMenuData[]
+  );
+  const router = useRouter();
   return (
     <div>
       <ul
@@ -20,9 +25,16 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
       >
         {menu.map((item) => {
           return (
-            <li key={item.id}>
-              <Link href={item.url}>
-                <a>{item.title}</a>
+            <li key={item.MenuId}>
+              <Link
+                url={"/" + item.Alias}
+                classLink={
+                  router.pathname.split("/")[1] === item.Alias
+                    ? Styles.active_menu
+                    : ""
+                }
+              >
+                {item.Title}
               </Link>
             </li>
           );

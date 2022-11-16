@@ -15,8 +15,8 @@ import { ReferenceIcon } from "components/icons";
 import { ModalFormFactory } from "../tab_who_we/ModalFormFactory";
 import { referenceObject } from "./mockData";
 import { SideBar } from "components/map/SideBar";
-import { dataAboutNews } from "components/breadcrumbs/mockData";
-import { BreadCrumbs } from "components/breadcrumbs";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { dataBreadAbout } from "components/breadcrumbs/mockData";
 
 const ReferencesContainer: FC = () => {
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
@@ -24,6 +24,8 @@ const ReferencesContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     []
   );
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadAbout);
   const [contentForm, setContentForm] = useState<IObjectItem>();
   const { isShow, toggle } = useModal();
   const router = useRouter();
@@ -70,6 +72,10 @@ const ReferencesContainer: FC = () => {
     tab_social: Social,
   };
 
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Референсы" }]);
+  }, [dataBreadAbout]);
+
   const handleOnClickTabs = (e: ITab) => {
     setData({ slug: e.url, activeTab: e.tabsActive });
   };
@@ -77,6 +83,7 @@ const ReferencesContainer: FC = () => {
   const handleOnClickTabsLink = (e: ITab) => {
     router.push(aboutPath + e.url);
   };
+
   const handleOnClickModal = (e: IObjectItem, alias: string) => {
     e.alias = alias;
     setContentForm(e);
@@ -84,7 +91,7 @@ const ReferencesContainer: FC = () => {
   };
   return (
     <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={dataAboutNews} />
+      <BreadCrumbs data={breadCrumbs} />
 
       <div className={Styles.references_container}>
         <Tabs

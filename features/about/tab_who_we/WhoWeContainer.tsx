@@ -8,20 +8,26 @@ import Styles from "./Whowe.module.scss";
 import { Achievements, WhoWeAbout } from "../index";
 import { FactoryIcon, HistoryIcon, HistoryMobileIcon } from "components/icons";
 import { Separator } from "components/separator";
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Modal, useModal } from "components/modal";
 import { IObjectItem } from "components/map/Map";
 import { Map } from "components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
 import { whoweData } from "../mockData";
 import { ObjectItem } from "../ObjectItem";
-import { BreadCrumbs } from "components/breadcrumbs";
-import { dataAboutNews } from "components/breadcrumbs/mockData";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { dataBreadAbout } from "components/breadcrumbs/mockData";
 
 const WhoWeContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IObjectItem>();
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
   const router = useRouter();
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Кто мы" }]);
+  }, [dataBreadAbout]);
 
   const FormOutPut: ReactNode[] = whoweData.map((e) => {
     return (
@@ -48,7 +54,7 @@ const WhoWeContainer: FC = () => {
 
   return (
     <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={dataAboutNews} />
+      <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.whowe_container}>
         <Tabs
           props={tabsAboutData}

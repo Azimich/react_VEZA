@@ -4,6 +4,8 @@ import { CatalogData, CatalogEquipmentData } from "features/equipment/mockData";
 import { EquipmentContainer } from "features/equipment";
 import { GetStaticPaths } from "next";
 import { getData } from "utils/helpers";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const slug = CatalogData.map((e) => {
@@ -16,7 +18,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
     return {
       props: {

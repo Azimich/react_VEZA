@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { AppState } from "../../store/store";
+import type { AppState } from "store/store";
 import { IContactsSlice } from "./tab_sales_office/Contacts";
 
 const initialState: IContactsSlice = {

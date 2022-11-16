@@ -1,23 +1,29 @@
 import { IBreadCrumbs } from "components/breadcrumbs/BreadCrumbs.d";
-import { aboutPath, newsPath } from "utils/bootstrap";
+import { aboutPath, newsPath, resourcesPath } from "utils/bootstrap";
 
 const dataBreadNews: IBreadCrumbs[] = [
   {
     title: "Новости",
-    url: process.env.NEXT_PUBLIC_APP_URL + newsPath,
+    alias: process.env.NEXT_PUBLIC_APP_URL + newsPath,
   },
 ];
 
-const dataDecisionNews: IBreadCrumbs[] = [
+const dataBreadDecision: IBreadCrumbs[] = [
   {
     title: "Решения",
-    url: process.env.NEXT_PUBLIC_APP_URL + newsPath,
+    alias: process.env.NEXT_PUBLIC_APP_URL + newsPath,
   },
 ];
-const dataAboutNews: IBreadCrumbs[] = [
+const dataBreadAbout: IBreadCrumbs[] = [
   {
     title: "О компании",
-    url: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
+    alias: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
   },
 ];
-export { dataBreadNews, dataDecisionNews, dataAboutNews };
+const dataBreadResources: IBreadCrumbs[] = [
+  {
+    title: "Ресурсы",
+    alias: process.env.NEXT_PUBLIC_APP_URL + resourcesPath,
+  },
+];
+export { dataBreadNews, dataBreadDecision, dataBreadAbout, dataBreadResources };

@@ -2,6 +2,8 @@ import { Search } from "features/search";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { wrapper } from "store/store";
 import { ISearch } from "features/search/Search";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -11,7 +13,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async (context) => {
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
+
     const { params } = context;
     console.log("param", params);
     return {

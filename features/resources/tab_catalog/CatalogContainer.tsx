@@ -9,16 +9,24 @@ import { catalogData } from "../mockData";
 import { CatalogItem } from "./CatalogItem";
 import { Input } from "../../../components/input/Index";
 import { SearchInputIcon } from "../../../components/icons/includes/SearchInputIcon";
-import { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { ICatalog } from "../tab_bim/Bim";
+import { dataBreadResources } from "components/breadcrumbs/mockData";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 
 const CatalogContainer = () => {
   const router = useRouter();
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadResources);
   const [inputValue, setInputValue] = useState<string>();
   const [filteredData, setFilteredData] = useState<ICatalog[]>(catalogData);
   const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
+  }, [dataBreadResources]);
 
   useEffect(() => {
     setFilteredData(
@@ -35,7 +43,8 @@ const CatalogContainer = () => {
   };
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear no_padding"}>
+      <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.catalog_container}>
         <Tabs
           props={tabsResourcesData}

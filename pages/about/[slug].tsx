@@ -3,6 +3,8 @@ import { wrapper } from "store/store";
 import { Job, References, WhoWe } from "features/about";
 import React from "react";
 import { IComponents } from "components/tabs/Tabs";
+import { menuListServer } from "service/index";
+import { fetchMenu } from "store/slice/MenuSlice";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -11,13 +13,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-  return {
-    props: { slug: params.slug },
-    revalidate: 10,
-  };
-};
+export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
+  (store) => async (context) => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
+    const { params } = context;
+    return {
+      props: { slug: params.slug },
+      revalidate: 10,
+    };
+  }
+);
 
 const ContactsSSR = (props: { slug: string }) => {
   const components: IComponents = {

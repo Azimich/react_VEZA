@@ -10,13 +10,8 @@
   //  const { categories, brands } = /!*await commerce.getSiteInfo({ config, preview })*!/["aaa","sddsds"]
 
   return {
-    props: {
-      pages: "pages err",
-      categories: "categories err",
-      brands: "brands err",
-      config: config,
-    },
-    revalidate: 200,
+    props: {},
+    revalidate: 10,
   };
 }*/
 

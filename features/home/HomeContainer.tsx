@@ -11,8 +11,9 @@ import { Separator } from "components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
+import { FC } from "react";
 
-const HomeContainer = () => {
+const HomeContainer: FC = () => {
   return (
     <>
       <Container el="section">

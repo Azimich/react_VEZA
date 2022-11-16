@@ -5,6 +5,8 @@ import { News } from "features/news";
 import { NewsData } from "features/news/mockData";
 import { INewDataItem, INewsData } from "features/news/News";
 import { newsList } from "service/list/servers/newsList";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
 interface INewsPropsServer {
   props: {
@@ -16,7 +18,8 @@ interface INewsPropsServer {
 export type { INewsPropsServer };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  () => async () => {
+  (store) => async () => {
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const newsData = NewsData.slice(0, 7);
     return {
       props: {

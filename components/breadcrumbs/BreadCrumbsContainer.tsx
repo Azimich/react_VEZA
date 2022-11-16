@@ -14,7 +14,7 @@ const BreadCrumbsContainer: FC<IBreadCrumbsProps> = ({ data }) => {
   return (
     <Container
       el={"section"}
-      className={`wrapper_clear ${Styles.breadcrumbs_container}`}
+      className={`wrapper_clear ${Styles.breadcrumbs_container} no_padding`}
       clean={true}
     >
       <ul>

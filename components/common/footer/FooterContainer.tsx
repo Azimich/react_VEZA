@@ -1,30 +1,40 @@
 import Styles from "./Footer.module.scss";
 import { Container } from "../container";
-import Link from "next/link";
 import React, { useState } from "react";
 import { TelegaIcon, VkIcon, YouTubeIcon, PhoneFooterIcon } from "../../icons";
 import { IconItem } from "../../icons/IconItem";
 import { IMenuData } from "../header/headerNav/Header.d";
-import { menuData } from "../header/mockdata";
+import { useAppSelector } from "store/hooks/useAppSelector";
+import { getMenu } from "store/slice/MenuSlice";
+import { useRouter } from "next/router";
+import { Link } from "components/link";
 
 const FooterContainer = () => {
-  const [menu] = useState<IMenuData[]>(menuData);
-
+  const [menu] = useState<IMenuData[]>(
+    useAppSelector(getMenu)?.Response as IMenuData[]
+  );
+  const router = useRouter();
   return (
-    <>
-      <div className={Styles.footer}></div>
+    <div className={Styles.footer}>
       <div className={Styles.footer__container}>
         <Container className="wrapper">
           <div className={Styles.footer__content}>
-            <a href="/pages" className={Styles.footer__logo}>
+            <Link url="/" classLink={Styles.footer__logo}>
               <img src="/images/logo.svg" alt="logo" />
-            </a>
+            </Link>
             <ul className={Styles.footer__navigation}>
               {menu.map((item) => {
                 return (
-                  <li key={item.id}>
-                    <Link href={item.url}>
-                      <a className={Styles.footer__menu_link}>{item.title}</a>
+                  <li key={item.MenuId}>
+                    <Link
+                      url={"/" + item.Alias}
+                      classLink={
+                        router.pathname.split("/")[1] === item.Alias
+                          ? Styles.active_menu
+                          : ""
+                      }
+                    >
+                      {item.Title}
                     </Link>
                   </li>
                 );
@@ -61,17 +71,18 @@ const FooterContainer = () => {
           </div>
           <ul className={Styles.footer__contacts}>
             <li className={Styles.footer__contacts_list}>
-              <Link href={"tel:" + process.env.NEXT_PUBLIC_PHONE}>
-                <a className={Styles.footer__contacts_phone}>
-                  <PhoneFooterIcon />
-                  {process.env.NEXT_PUBLIC_PHONE}
-                </a>
+              <Link
+                url={"tel:" + process.env.NEXT_PUBLIC_PHONE}
+                classLink={Styles.footer__contacts_phone}
+              >
+                <PhoneFooterIcon />
+                {process.env.NEXT_PUBLIC_PHONE}
               </Link>
             </li>
             <li className={Styles.footer__contacts_list}>
-              <a
-                href={"mailto:" + process.env.NEXT_PUBLIC_EMAIL}
-                className={Styles.footer__contacts_phone}
+              <Link
+                url={"mailto:" + process.env.NEXT_PUBLIC_EMAIL}
+                classLink={Styles.footer__contacts_phone}
               >
                 <svg
                   width="20"
@@ -86,12 +97,12 @@ const FooterContainer = () => {
                   ></path>
                 </svg>
                 {process.env.NEXT_PUBLIC_EMAIL}
-              </a>
+              </Link>
             </li>
           </ul>
         </Container>
       </div>
-    </>
+    </div>
   );
 };
 export { FooterContainer };
