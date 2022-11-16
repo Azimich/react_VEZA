@@ -23,7 +23,7 @@ const FooterContainer = () => {
               <img src="/images/logo.svg" alt="logo" />
             </Link>
             <ul className={Styles.footer__navigation}>
-              {menu.map((item) => {
+              {menu?.map((item) => {
                 return (
                   <li key={item.MenuId}>
                     <Link

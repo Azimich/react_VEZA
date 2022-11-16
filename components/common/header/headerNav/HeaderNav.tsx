@@ -23,7 +23,7 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
           isShowMenu ? (scroll > 0 ? Styles.active_small : Styles.active) : ""
         }`}
       >
-        {menu.map((item) => {
+        {menu?.map((item) => {
           return (
             <li key={item.MenuId}>
               <Link
