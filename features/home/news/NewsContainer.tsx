@@ -2,7 +2,7 @@ import { FC } from "react";
 import { INewsProps } from "./News";
 import Styles from "./News.module.scss";
 import { NewsItem } from "./NewsItem";
-import { Container } from "../../../components/common/container";
+import { Container } from "components/common/container";
 
 interface INewsData {
   props: INewsProps[];

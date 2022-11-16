@@ -4,7 +4,6 @@ import { NewsData } from "features/news/mockData";
 import { NewsPage } from "features/news";
 import { GetStaticPaths } from "next";
 import { INewsData } from "features/news/News";
-import { newsList } from "service/list/servers/newsList";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {

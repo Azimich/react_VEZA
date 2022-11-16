@@ -91,9 +91,9 @@ const NewsData: INewDataItem[] = [
       {
         id: 1,
         images: {
-          pc: "/images/news_activ_1.jpg",
-          ipad: "/images/news_activ_1.jpg",
-          mobile: "/images/news_activ_1.jpg",
+          pc: "/images/news_2.jpg",
+          ipad: "/images/news_2.jpg",
+          mobile: "/images/news_2jpg",
         },
         typeSlider: "img",
       },
