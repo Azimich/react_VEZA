@@ -12,9 +12,14 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
-
 ul {
   list-style: none;
+}
+
+@media (max-width: 1024px) {
+  .swiper .swiper-button-next, .swiper .swiper-button-prev {
+    display: none !important;
+  }
 }
 
 input,

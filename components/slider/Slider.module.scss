@@ -3,7 +3,9 @@
 
 .home {
   &_banner {
+    margin-bottom: 100p;
     &__slider {
+      margin-bottom: 100px;
       &_slide {
         position: relative;
         height: 800px;
@@ -44,93 +46,10 @@
 
       &_img {
         width: 100%;
-        
       }
     }
 
     &__right_element {
-      &_title {
-        font-size: 45px;
-        font-weight: bold;
-        text-transform: uppercase;
-        max-width: 540px;
-        line-height: 128%;
-        letter-spacing: 0.025em;
-        color: color(white);
-
-        @media (max-width: 1100px) {
-          font-size: 40px;
-          max-width: 490px;
-        }
-
-        @media (max-width: 600px) {
-          font-size: 28px;
-          max-width: 350px;
-        }
-
-        @media (max-width: 400px) {
-          font-size: 25px;
-          max-width: 350px;
-        }
-      }
-
-      &_text {
-        font-style: normal;
-        font-weight: 300;
-        font-size: 20px;
-        line-height: 136.5%;
-        letter-spacing: 0.02em;
-        color: color(white);
-        max-width: 500px;
-        padding: 5px 0 50px 0;
-
-        @media (max-width: 1100px) {
-          font-size: 18px;
-          padding: 5px 0 35px 0;
-        }
-
-        @media (max-width: 600px) {
-          font-size: 16px;
-          padding: 5px 0 26px 0;
-        }
-
-      }
-
-      &_button {
-        width: 300px;
-        padding: 16px 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 136.5%;
-        letter-spacing: 0.08em;
-        border: 2px solid #fff;
-        color: color(white);
-        text-shadow: 4px 3px 6px rgba(0, 0, 0, 0.31);
-        border-radius: 10px;
-        transition: all 0.3s ease-in;
-
-        &:hover {
-          background: #33953A;
-          border-color: #33953A;
-          box-shadow: 0 0 123px rgba(22, 131, 8, 0.6);
-          cursor: pointer;
-        }
-
-        @media (max-width: 1100px) {
-          padding: 15px 50px;
-          width: 250px;
-        }
-
-        @media (max-width: 600px) {
-          font-size: 16px;
-          padding: 13px 50px;
-          border: 1.5px solid #fff;
-        }
-      }
-
       position: absolute;
       top: 20%;
       left: 16%;
@@ -138,7 +57,6 @@
       backdrop-filter: blur(20px);
       padding: 40px 30px;
       border-radius: 20px;
-
       @media (max-width: 1800px) {
         left: 13%;
       }
@@ -167,7 +85,104 @@
       }
 
       @media (max-width: 500px) {
-        top: 12%;
+        top: 7%;
+        left: 3%;
+        right: 3%;
+        padding: 15px;
+      }
+
+      &_title {
+        font-size: 45px;
+        font-weight: bold;
+        text-transform: uppercase;
+        max-width: 540px;
+        line-height: 128%;
+        letter-spacing: 0.025em;
+        color: color(white);
+        @include tabletScreen {
+          font-size: 35px;
+          max-width: 370px;
+          letter-spacing: 0.010em;
+        }
+
+        @media (max-width: 1100px) {
+          font-size: 40px;
+          max-width: 490px;
+        }
+
+        @media (max-width: 600px) {
+          font-size: 20px;
+          max-width: 210px;
+        }
+
+        @media (max-width: 400px) {
+          font-size: 20px;
+          max-width: 210px;
+        }
+      }
+
+      &_text {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 136.5%;
+        letter-spacing: 0.02em;
+        color: color(white);
+        max-width: 500px;
+        padding: 5px 0 50px 0;
+        @include tabletScreen {
+          font-size: 18px;
+          line-height: 136.5%;
+          letter-spacing: 0.01em;
+          color: #FFF;
+          max-width: 400px;
+          padding: 5px 0 35px 0;
+        }
+
+        @media (max-width: 1100px) {
+          font-size: 18px;
+          padding: 5px 0 35px 0;
+        }
+
+        @include phoneScreen {
+          font-size: 14px;
+          padding: 5px 0 20px;
+        }
+      }
+
+      &_button {
+        width: 300px;
+        padding: 16px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 136.5%;
+        letter-spacing: 0.08em;
+        border: 2px solid #fff;
+        color: color(white);
+        text-shadow: 4px 3px 6px rgba(0, 0, 0, 0.31);
+        border-radius: 10px;
+        transition: all 0.3s ease-in;
+        &:hover {
+          background: #33953A;
+          border-color: #33953A;
+          box-shadow: 0 0 123px rgba(22, 131, 8, 0.6);
+          cursor: pointer;
+        }
+
+        @media (max-width: 1100px) {
+          padding: 15px 50px;
+          width: 250px;
+        }
+
+        @include phoneScreen {
+          font-size: 16px;
+          padding: 6px 20px;
+          border: 1.5px solid #fff;
+          letter-spacing: 0.04em;
+        }
       }
     }
 
@@ -190,6 +205,9 @@
         left: 0;
         right: 0;
         z-index: 2 !important;
+        @include phoneScreen {
+          top: 18%;
+        }
       }
 
       &_info {
@@ -522,46 +540,16 @@
         height: 461px;
         max-width: 950px;
         margin: 0 auto;
+        height: 100%;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        @media (max-width: 1530px) {
-          height: 600px;
-        }
-
-        @media (max-width: 1400px) {
-          height: 550px;
-        }
-
-        @media (max-width: 1240px) {
-          height: 500px;
-        }
-
-        @media (max-width: 830px) {
-          height: 420px;
-        }
-
-        @media (max-width: 610px) {
-          height: 350px;
-        }
-
-        @media (max-width: 500px) {
-          height: 280px;
-        }
-
-        @media (max-width: 450px) {
-          height: 240px;
-        }
-
-        @media (max-width: 400px) {
-          height: 210px;
-        }
-
         button {
           transition: all 0.3s;
+          margin: 12px 0;
           span {
             display: flex;
             align-items: center;
@@ -587,8 +575,16 @@
           border-radius: 20px;
           object-fit: cover;
           height: 461px;
-          @include tabletScreen {
-            height: 220px;
+          @include ipadScreen {
+            height: 350px;
+          }
+
+          @media (max-width: 450px) {
+            height: 100%;
+          }
+
+          @include SEScreen {
+            height: 100%;
           }
         }
       }
@@ -604,6 +600,18 @@
       padding: 40px 30px;
       border-radius: 20px 0 0 20px;
       width: 50%;
+      @include tabletScreen {
+        border-radius: 20px;
+        padding: 10px;
+        min-width: 200px;
+      }
+
+      @media (max-width: 550px) {
+        padding: 10px;
+        min-width: 80%;
+        border-radius: 20px 0 0 20px;
+      }
+      
       &_title {
         font-size: 25px;
         font-weight: bold;
@@ -615,11 +623,6 @@
         @media (max-width: 1100px) {
           font-size: 20px;
           max-width: 490px;
-        }
-
-        @include tabletScreen {
-          font-size: 16px;
-          max-width: 350px;
         }
       }
 
@@ -634,44 +637,24 @@
         padding: 5px 0 10px 0;
 
         @media (max-width: 1100px) {
-          font-size: 18px;
+          font-size: 16px;
           padding: 5px 0 35px 0;
-        }
-
-        @media (max-width: 600px) {
-          font-size: 15px;
-          padding: 5px 0 26px 0;
           height: 80px;
           overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 5;
           -webkit-box-orient: vertical;
         }
-      }
 
-      @media (max-width: 1800px) {
-        left: 13%;
-      }
-
-      @media (max-width: 1700px) {
-        left: 10%;
-      }
-
-      @media (max-width: 1600px) {
-        left: 8%;
-      }
-
-      @media (max-width: 1500px) {
-        left: 6%;
-      }
-
-
-      @include tabletScreen {
-        top: 10px;
-        bottom: 10px;
-        border-radius: 20px;
-        padding: 10px;
-        min-width: 200px;
+        @include phoneScreen {
+          font-size: 15px;
+          padding: 5px 0 26px 0;
+          height: 60%;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+        }
       }
     }
 
@@ -976,6 +959,7 @@
     }
   }
 }
+
 .factorySlider__history {
 
   &__items {}
