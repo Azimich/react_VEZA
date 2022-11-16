@@ -1,5 +1,5 @@
 import { IBreadCrumbs } from "components/breadcrumbs/BreadCrumbs.d";
-import { ArrowDownIcon } from "components/icons";
+import { ArrowDownIcon, RombIcon } from "components/icons";
 import { Link } from "components/link";
 import { FC } from "react";
 interface IBreadCrumbsProps {
@@ -14,7 +14,7 @@ const BreadCrumbsItem: FC<IBreadCrumbsProps> = ({ data, last }) => {
         {!last ? <Link url={data.alias}>{data?.title}</Link> : data?.title}
         {!last && (
           <span>
-            <ArrowDownIcon />
+            <RombIcon />
           </span>
         )}
       </li>
