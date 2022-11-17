@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { IDecisionData } from "../Decision";
 import { Container } from "../../../components/common/container";
@@ -7,14 +7,24 @@ import { Separator } from "../../../components/separator";
 import { OwnObject } from "../../../components/own_object";
 import { Equipment } from "../../../components/equipment";
 import { equipmentData } from "../../../components/equipment/mockData";
+import { dataBreadDecision } from "components/breadcrumbs/mockData";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 
 interface IDecision {
   data: IDecisionData[];
 }
 
 const DecisionPageContainer: FC<IDecision> = ({ data }) => {
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadDecision);
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Отрасли" }]);
+  }, [dataBreadDecision]);
+
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear no_padding"}>
+      <BreadCrumbs data={breadCrumbs} />
       <DecisionPageItem data={data} />
       <Separator title={"Наши объекты"} />
       <OwnObject />

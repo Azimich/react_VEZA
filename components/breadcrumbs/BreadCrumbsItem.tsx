@@ -1,5 +1,5 @@
 import { IBreadCrumbs } from "components/breadcrumbs/BreadCrumbs.d";
-import { ArrowDownIcon, RombIcon } from "components/icons";
+import { RombIcon } from "components/icons";
 import { Link } from "components/link";
 import { FC } from "react";
 interface IBreadCrumbsProps {

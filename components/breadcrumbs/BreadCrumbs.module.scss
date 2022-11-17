@@ -13,47 +13,50 @@
     li {
       align-items: center;
       display: flex;
+      padding: 6px 0;
 
       a {
-        display: flex;
-        align-items: center;
-        text-decoration: underline;
+        color: #BDBDBD;
+        font-size: 14px;
+        transition: all 0.3s;
+        letter-spacing: 0.025em;
+        position: relative;
+        &:hover {
+          color: #7D7D7D;
+          &::after {
+            width: 100%;
+            background-color: #7D7D7D;
+            @media (max-width: 1200px) {
+              display: none;
+            }
+          }
+        }
 
-        > svg {
-          width: 15px;
-          height: 15px;
-          padding-right: 10px;
-          fill: color(bredcrumbs);
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          bottom: -6px;
+          width: 0;
+          height: 1px;
+          background-color: transparent;
+          transition: width 0.3s;
+          @media (max-width: 1200px) {
+            display: none;
+          }
         }
       }
 
       span {
-        padding: 0 5px;
-
+        padding: 0 8px;
         svg {
           width: 10px;
           height: 10px;
           position: relative;
           top: 1px;
-
           path {
             fill: color(bredcrumbs);
-          }
-        }
-      }
-
-      a {
-        transition: all 0.3s;
-        font-size: 14px;
-        color: color(bredcrumbs_link);
-        text-transform: capitalize;
-
-        &:hover {
-          color: (green);
-
-          svg {
-            transition: all 0.3s;
-            fill: color(green);
           }
         }
       }
