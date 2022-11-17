@@ -1,24 +1,23 @@
 @import 'styles/variables.scss';
 
 .breadcrumbs_container {
+
   ul {
     display: flex;
     align-items: center;
     font-size: 14px;
+    justify-content: center;
     color: color(bredcrumbs_link);
-    margin-top: 15px;
+    margin-top: 40px;
 
     li {
       align-items: center;
       display: flex;
 
-      &:first-child {
-        padding-right: 5px;
-      }
-
       a {
         display: flex;
         align-items: center;
+        text-decoration: underline;
 
         > svg {
           width: 15px;
@@ -26,15 +25,10 @@
           padding-right: 10px;
           fill: color(bredcrumbs);
         }
-
-        &:last-child {
-          a {
-            padding: 0 0 0 5px;
-          }
-        }
       }
 
       span {
+        padding: 0 5px;
 
         svg {
           width: 10px;
@@ -52,7 +46,6 @@
         transition: all 0.3s;
         font-size: 14px;
         color: color(bredcrumbs_link);
-        padding: 0 5px;
         text-transform: capitalize;
 
         &:hover {
