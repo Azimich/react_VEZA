@@ -2,7 +2,6 @@ import Styles from "./Accordion.module.scss";
 import { ArrowDownIcon } from "../icons";
 import { FC } from "react";
 import { IAccordionHeader } from "./Accordion";
-import { AccordionFooter } from "./AccordionFooter";
 
 const AccordionHeader: FC<IAccordionHeader> = ({
   onClick,

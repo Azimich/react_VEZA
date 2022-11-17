@@ -112,6 +112,7 @@ const SupportForm = () => {
             }`}
           >
             <SelectContainer
+              instanceId={"Select_support"}
               optionsData={dataSupportSubjectSelect}
               name={"service"}
               placeholder={"Выберите тему сообщения"}

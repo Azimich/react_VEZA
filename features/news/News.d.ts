@@ -1,4 +1,4 @@
-import ISlideImages from "../../components/slider/Slider.d";
+import ISlideImages from "components/slider/Slider.d";
 
 interface INewsData {
   newsData: INewDataItem[];
@@ -20,7 +20,6 @@ interface INewDataItem {
   access?: boolean;
   items: ISlideImages[];
   alias: string;
-
   image_category: string;
   image_full_news: string;
 }

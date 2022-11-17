@@ -18,7 +18,7 @@ import { SideBar } from "components/map/SideBar";
 import { Modal, useModal } from "components/modal";
 import { ModalFormJob } from "features/about";
 import { ModalFormGallery } from "features/about/tab_job/jobModal/ModalFormGalery";
-import { BreadCrumbs } from "components/breadcrumbs";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 
 const JobContainer: FC = () => {
@@ -27,8 +27,15 @@ const JobContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     []
   );
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadAbout);
+
   const { isShow: isShowGallery, toggle: toggleGallery } = useModal();
   const { isShow, toggle } = useModal();
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Вакансии" }]);
+  }, [dataBreadAbout]);
 
   const router = useRouter();
   const handleOnClickModal = () => {
@@ -72,7 +79,7 @@ const JobContainer: FC = () => {
 
   return (
     <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={dataBreadAbout} />
+      <BreadCrumbs data={breadCrumbs} />
 
       <div className={Styles.job_container}>
         <Tabs
@@ -95,7 +102,7 @@ const JobContainer: FC = () => {
       />
 
       <div className={Styles.vacancies__search_box}>
-        <SelectContainer optionsData={[]} />
+        <SelectContainer optionsData={[]} instanceId={"Select_Job"} />
         <Button type={"button"} children={"Поиск"} />
       </div>
       <Separator title={"наши вакансии"} />
