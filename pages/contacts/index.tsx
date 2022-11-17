@@ -21,7 +21,7 @@ RedirectPage.getInitialProps = (ctx: {
     ctx.res.writeHead(302, { Location: contactsPath + "sale_office" });
     ctx.res.end();
   }
-  return {};
+  return { data: "" };
 };
 
 export default RedirectPage;

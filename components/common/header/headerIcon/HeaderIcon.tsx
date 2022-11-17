@@ -28,11 +28,11 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
     <>
       <div className={Styles.header__icon__box}>
         {/* Поиск */}
-        <IconItem url={""} className={"header__icon"}>
+        <div className={Styles.header__icon}>
           <span onClick={toggle}>
             <SearchIcon />
           </span>
-        </IconItem>
+        </div>
         {/* Авторизация */}
         <IconItem url={"/auth"} className={"header__icon"}>
           <UserIcon />

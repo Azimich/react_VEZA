@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Styles from "../common/header/Header.module.scss";
 import { FC } from "react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import { Link } from "components/link";
 interface IHeaderIconProps {
   url: string;
   children: ReactJSXElement;
@@ -10,8 +10,8 @@ interface IHeaderIconProps {
 }
 const IconItem: FC<IHeaderIconProps> = ({ url, children, className }) => {
   return (
-    <Link href={url}>
-      <a className={Styles[className]}>{children}</a>
+    <Link url={url} classLink={Styles[className]}>
+      {children}
     </Link>
   );
 };

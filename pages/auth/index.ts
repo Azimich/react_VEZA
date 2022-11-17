@@ -20,7 +20,7 @@ RedirectPage.getInitialProps = (ctx: {
     ctx.res.writeHead(302, { Location: "/auth/singin" });
     ctx.res.end();
   }
-  return {};
+  return { data: "" };
 };
 
 export default RedirectPage;

@@ -13,7 +13,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const pathNews = await newsList();
   return {
     paths: pathNews.Response.map((e: { Alias: string }) => ({
-      params: { alias: newsPath + e.Alias },
+      params: { alias: e.Alias },
     })),
     fallback: "blocking",
   };

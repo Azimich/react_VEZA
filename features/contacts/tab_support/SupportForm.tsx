@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Styles from "./Support.module.scss";
@@ -11,6 +11,7 @@ import { dataSupportSubjectSelect } from "./mockData";
 import { UploadIcon } from "components/icons";
 
 const SupportForm = () => {
+  const [inputValue, setInputValue] = useState();
   // Валидация формы
   const formik = useFormik({
     initialValues: {
@@ -96,7 +97,9 @@ const SupportForm = () => {
       target.length > 10 ? target.substring(0, 10) : target
     );
   };
-
+  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("111", e.target);
+  };
   return (
     <div className={Styles.support__form}>
       <form
@@ -381,7 +384,12 @@ const SupportForm = () => {
         </div>
         <div className={Styles.support__form__added__file}>
           <label className={Styles.support__form_file}>
-            <Input name={"files"} type={"file"} value={""} />
+            <Input
+              name={"files"}
+              type={"file"}
+              value={""}
+              onChange={(e) => handleInputFileOnChange(e)}
+            />
             <span>
               <UploadIcon />
               Прикрепить
