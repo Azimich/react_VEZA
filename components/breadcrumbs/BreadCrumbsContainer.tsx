@@ -1,10 +1,8 @@
 import Styles from "./BreadCrumbs.module.scss";
 import { Container } from "components/common/container";
-import { FC } from "react";
+import React, { FC } from "react";
 import { IBreadCrumbs } from "components/breadcrumbs/BreadCrumbs.d";
 import { BreadCrumbsItem } from "components/breadcrumbs/BreadCrumbsItem";
-import { HomeIcon } from "components/icons";
-import { Link } from "components/link";
 
 interface IBreadCrumbsProps {
   data: IBreadCrumbs[];
