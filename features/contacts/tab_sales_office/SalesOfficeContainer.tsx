@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Tabs } from "components/tabs";
 import { tabsContactsData, tabsSalesData } from "../mockData";
 import { Container } from "components/common/container";
@@ -17,16 +17,24 @@ import { LogoIcon, MapIcon } from "components/icons";
 import { Map } from "components/map";
 import { office_sales_data } from "features/contacts/tab_sales_office/mockData";
 import { ModalFormOffice } from "./ModalFormOffice";
+import { dataBreadContacts } from "components/breadcrumbs/mockData";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
   const [contentForm, setContentForm] = useState<IObjectItem>();
   const { isShow, toggle } = useModal();
 
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadContacts);
+
   const [data, setData] = React.useState<{ slug: string; activeTab: number }>({
     slug: "director",
     activeTab: 1,
   });
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Оффис продаж" }]);
+  }, [dataBreadContacts]);
 
   const components: IComponents = {
     tab_director: Director,
@@ -62,7 +70,9 @@ const SalesOfficeContainer: FC = () => {
   };
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
+      <BreadCrumbs data={breadCrumbs} />
+
       <div className={Styles.sales_office_container}>
         <Tabs
           props={tabsContactsData}

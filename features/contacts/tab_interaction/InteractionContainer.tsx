@@ -1,25 +1,36 @@
 import Styles from "./Interaction.module.scss";
-import { Tabs } from "../../../components/tabs";
+import { Tabs } from "components/tabs";
 import { tabsContactsData } from "../mockData";
-import { Container } from "../../../components/common/container";
-import { ITab } from "../../../components/tabs/Tabs";
+import { Container } from "components/common/container";
+import { ITab } from "components/tabs/Tabs";
 import { contactsPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
 import { InteractionData } from "./InteractionData";
 import { Interaction } from "./Interaction";
 import { InteractionItem } from "./InteractionItem";
-import { TitleTabs } from "../../../components/title_tabs";
+import { TitleTabs } from "components/title_tabs";
 import { Pagination } from "components/pagination/Pagination";
 import { SeparatorContainer } from "components/separator/SeparatorContainer";
+import React, { useEffect, useState } from "react";
+import { dataBreadContacts } from "components/breadcrumbs/mockData";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 
 const InteractionContainer = () => {
   const router = useRouter();
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadContacts);
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Взаимодействие" }]);
+  }, [dataBreadContacts]);
   const handleOnClickTabs = (e: ITab) => {
     router.push(contactsPath + e.url);
   };
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
+      <BreadCrumbs data={breadCrumbs} />
+
       <div className={Styles.interaction_container}>
         <Tabs
           props={tabsContactsData}

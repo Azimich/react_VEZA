@@ -20,10 +20,22 @@ const dataBreadAbout: IBreadCrumbs[] = [
     alias: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
   },
 ];
+const dataBreadContacts: IBreadCrumbs[] = [
+  {
+    title: "Контакты",
+    alias: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
+  },
+];
 const dataBreadResources: IBreadCrumbs[] = [
   {
     title: "Ресурсы",
     alias: process.env.NEXT_PUBLIC_APP_URL + resourcesPath,
   },
 ];
-export { dataBreadNews, dataBreadDecision, dataBreadAbout, dataBreadResources };
+export {
+  dataBreadNews,
+  dataBreadDecision,
+  dataBreadAbout,
+  dataBreadResources,
+  dataBreadContacts,
+};
