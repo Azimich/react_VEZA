@@ -8,6 +8,14 @@
   margin: 40px auto;
   flex-direction: column;
 }
+
+.separator__title__container {
+  margin: 50px 0 30px 0;
+  @include ipadScreen {
+    margin-bottom: 3%;
+  }
+}
+
 .job_container_item {
   display: flex;
   justify-content: center;
@@ -92,10 +100,19 @@
   box-shadow: 0 0 2px 1px rgba(221, 221, 221, 1);
 }
 .vacancies__bottom_info {
-  margin-bottom: 100px;
+  margin-bottom: 130px;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+
+  @include phoneScreen {
+    margin-bottom: 50px;
+  }
+
   p {
     text-align: center;
-    margin-top: -15px;
+    margin-top: 0px;
+    color: color(dark);
   }
   button {
     margin: 30px auto 0;

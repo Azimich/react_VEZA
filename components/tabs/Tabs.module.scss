@@ -4,10 +4,16 @@
 .small300 {
   max-width: 300px;
   margin: auto;
-  padding: 0 10px;
+  @include SEScreen {
+    padding: 0 10px;
+  }
 }
 .max {
   width: 100%;
+  padding: 0 10px;
+  // @include SEScreen {
+  //   padding: 0;
+  // }
 }
 .tabs__container {
   margin-bottom: 3%;

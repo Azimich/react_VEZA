@@ -1,4 +1,6 @@
-@import '../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
 
 .bim_container {
   display: flex;
@@ -10,8 +12,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  padding: 0 0 8px 0;
-  margin-bottom: 80px;
+  padding: 0 10px 8px 10px;
+  margin-bottom: 130px;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+
+  @include phoneScreen {
+    margin-bottom: 50px;
+  }
+
   &__item {
     margin-bottom: 20px;
     padding: 0 0 50px 0;

@@ -1,13 +1,33 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
+.forms__container {
+  margin: 80px 0 130px 0;
+  padding: 0 10px;
+  @include ipadScreen {
+    margin: 50px 0 80px 0;
+  }
+}
+
 //Форма авторизации
 .authorization__form {
   max-width: 550px;
-  margin: 0 auto;
+  margin: 50px auto 0;
   background: #f3f3f3;
   border-radius: 10px;
   padding: 25px 20px 30px 20px;
+  @include phoneScreen {
+    padding: 25px 12px 30px 12px;
+  }
+
+  button {
+    @include phoneScreen {
+      width: auto;
+      padding: 10px 50px;
+      font-size: 14px;
+    }
+  }
+
   input {
     width: 100%;
   }
@@ -17,12 +37,14 @@
       font-size: 30px;
       margin-bottom: 20px;
       color: grey;
+      @include phoneScreen {
+        font-size: 26px;
+      }
     }
   }
 
   &__item__input {
     font-size: 12px;
-    margin-top: 10px;
     .overflow {
       margin-top: 5px;
       transition: all 0.3s;
@@ -67,6 +89,7 @@
 
     a {
       color: color(dark);
+      font-size: 14px;
       margin-top: 5px;
       transition: all 0.3s;
       &:hover {
@@ -80,6 +103,12 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    @include phoneScreen {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 22px;
+    }
+
     span {
       display: flex;
       align-items: center;
@@ -91,6 +120,11 @@
       border: 1px solid rgb(253, 253, 253);
       background: #fff;
       border-radius: 5px;
+      @include phoneScreen {
+        width: 100%;
+        box-sizing: border-box;
+        padding: auto;
+      }
       svg {
         width: 20px;
         height: 20px;
@@ -108,7 +142,11 @@
   border-radius: 10px;
   padding: 20px 20px;
   button {
-    width: 220px;
+    @include phoneScreen {
+      width: auto;
+      padding: 10px 22px;
+      font-size: 14px;
+    }
   }
 
   &__items {
@@ -126,6 +164,10 @@
       justify-content: space-between;
       gap: 40px;
       margin: 0 0 10px 0;
+      @media (max-width: 550px) {
+        flex-direction: column;
+        gap: 0;
+      }
     }
   }
 
@@ -134,6 +176,11 @@
     align-items: flex-end;
     justify-content: space-between;
     margin: 30px 0 20px 0;
+    @media (max-width: 550px) {
+      flex-direction: column-reverse;
+      align-items: self-start;
+      gap: 20px;
+    }
     span {
       display: flex;
       align-items: center;
@@ -145,6 +192,12 @@
       border: 1px solid rgb(253, 253, 253);
       background: #fff;
       border-radius: 5px;
+      @media (max-width: 550px) {
+        width: 100%;
+        box-sizing: border-box;
+        padding: auto;
+      }
+
       svg {
         width: 20px;
         height: 20px;
@@ -250,11 +303,23 @@
 //форма для Восстановление пароля
 .forgot__form {
   max-width: 550px;
-  margin: 200px auto 0;
+  margin: 200px auto;
+  padding: 0 10px;
+  button {
+    @include phoneScreen {
+      width: auto;
+      padding: 10px 22px;
+      font-size: 14px;
+    }
+  }
+
   h1 {
     font-size: 30px;
     margin-bottom: 20px;
     color: grey;
+    @include SEScreen {
+      font-size: 26px;
+    }
   }
 
   &__item {
@@ -300,10 +365,6 @@
         border-color: red;
       }
     }
-  }
-
-  button {
-    margin: 30px 0 0 0;
   }
 }
 

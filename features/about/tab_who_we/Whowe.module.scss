@@ -1,12 +1,13 @@
 @import '../../../styles/mixins.scss';
 @import '../../../styles/variables.scss';
 
-.whowe_container{
+.whowe_container {
   max-width: 600px;
   display: flex;
   justify-content: center;
-  margin: 40px auto;
-  &_history{
+  margin: 40px auto 130px;
+
+  &_history {
     &_svg {
       display: flex;
       justify-content: flex-start;
@@ -45,5 +46,12 @@
       border-radius: 10px;
 
     }
+  }
+}
+
+.separator__container__title {
+  margin: 80px 0 20px 0;
+  @include ipadScreen {
+    margin-bottom: 3%;
   }
 }

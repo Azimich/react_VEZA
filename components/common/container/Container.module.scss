@@ -1,28 +1,26 @@
-@import '../../../styles/mixins.scss';
-@import '../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .wrapper {
   max-width: 1390px;
   margin: 0 auto;
-  padding-top: 60px;
-  padding-bottom: 40px;
 
   @include pcScreen {
     max-width: 1390px;
     margin: 0 auto;
   }
 
-  @include tabletScreen {
-    padding: 50px 30px;
-  }
+  // @include tabletScreen {
+  //   padding: 50px 30px;
+  // }
 
-  @include ipadScreen {
-    padding: 50px 15px;
-  }
+  // @include ipadScreen {
+  //   padding: 50px 15px;
+  // }
 
-  @include phoneScreen {
-    padding: 50px 10px;
-  }
+  // @include phoneScreen {
+  //   padding: 50px 10px;
+  // }
 }
 
 .wrapper_clear {

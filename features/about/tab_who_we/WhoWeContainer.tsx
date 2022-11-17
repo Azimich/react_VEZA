@@ -88,14 +88,15 @@ const WhoWeContainer: FC = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <Separator title={"наши достижения"} />
+      <div className={Styles.separator__container__title}>
+        <Separator title={"Наши достижения"} />
+      </div>
       <Achievements />
       <Modal
         isShow={isShow}
         hide={toggle}
         modalContent={<ModalFormFactory {...contentForm} />}
         theme={"modal"}
-        headerText={"Тип файла"}
         bgModal={"black"}
       ></Modal>
     </Container>

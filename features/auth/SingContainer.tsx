@@ -5,6 +5,7 @@ import { SingInForm } from "./SingInForm";
 import { SingUpForm } from "./SingUpForm";
 import { IComponents, ITab } from "components/tabs/Tabs";
 import { Container } from "components/common/container";
+import Styles from "./SignContainer.module.scss";
 
 const SingContainer = () => {
   const [activeTab, setActiveTabs] = useState(1);
@@ -19,14 +20,16 @@ const SingContainer = () => {
 
   return (
     <Container className="wrapper">
-      <Tabs
-        props={tabsAuthData}
-        onClick={(id: ITab) => handleOnClick(id)}
-        activeTab={activeTab}
-        size={"small300"}
-      >
-        {React.createElement(components[`tab_${activeTab}`])}
-      </Tabs>
+      <div className={Styles.forms__container}>
+        <Tabs
+          props={tabsAuthData}
+          onClick={(id: ITab) => handleOnClick(id)}
+          activeTab={activeTab}
+          size={"small300"}
+        >
+          {React.createElement(components[`tab_${activeTab}`])}
+        </Tabs>
+      </div>
     </Container>
   );
 };

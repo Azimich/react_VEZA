@@ -1,13 +1,27 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
 .certificates_container{
   display: flex;
   justify-content: center;
-  margin: 40px auto;
+  margin: 40px auto 0;
+  padding: 0 10px;
 }
 
 .certificates__items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  padding: 0 10px;
+  margin-bottom: 130px;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+
+  @include phoneScreen {
+    margin-bottom: 50px;
+  }
+
   &__item {
     border-radius: 10px;
     overflow: hidden;
