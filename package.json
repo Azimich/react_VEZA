@@ -16,7 +16,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "test": "jest --coverage",
+    "test": "jest",
     "lint": "eslint  ./**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint  ./**/*.{js,jsx,ts,tsx} --fix",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx}",

@@ -4,4 +4,5 @@ module.exports = {
   moduleNameMapper: {
     "^.*.(css|scss)$": "identity-obj-proxy",
   },
+  moduleDirectories: ["node_modules", "<rootDir>"],
 };
