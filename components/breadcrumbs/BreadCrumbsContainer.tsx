@@ -18,12 +18,6 @@ const BreadCrumbsContainer: FC<IBreadCrumbsProps> = ({ data }) => {
       clean={true}
     >
       <ul>
-        <li>
-          <Link url={process.env.NEXT_PUBLIC_APP_URL}>
-            <HomeIcon />
-            Главная:
-          </Link>
-        </li>
         {data.map((e, i) => {
           return (
             <BreadCrumbsItem data={e} key={i} last={data.length === i + 1} />
