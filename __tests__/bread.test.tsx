@@ -1,11 +1,12 @@
 import React from "react";
-import { describe, test } from "@jest/globals";
-import { render } from "@testing-library/react";
-import { BreadCrumbs } from "components/breadcrumbs";
-import { dataBreadNews } from "components/breadcrumbs/mockData";
+import { describe, test, expect } from "@jest/globals";
+import { render, screen, waitFor } from "@testing-library/react";
+import { HomeContainer } from "features/home/HomeContainer";
 
 describe("Header", () => {
-  test("Visible Header container", () => {
-    render(<BreadCrumbs data={dataBreadNews} />);
+  test("Visible Header Home", async () => {
+    render(<HomeContainer />);
+    await waitFor(() => screen.getByRole("heading"));
+    expect(screen.getByRole("heading"));
   });
 });

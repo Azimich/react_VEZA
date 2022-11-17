@@ -1,20 +1,18 @@
-//import type { GetStaticPropsContext } from "next";
-/*import { Layout } from "../components/common";*/
+import { Page404Container } from "features/404/page404Container";
+import { GetStaticProps } from "next";
+import { wrapper } from "store/store";
+import { fetchMenu } from "store/slice/MenuSlice";
+import { menuListServer } from "service/index";
 
-/*export async function getStaticProps({
-  locale,
-  locales,
-}: GetStaticPropsContext) {
-  const config = { locale, locales };
-  //  const { pages } = await commerce.getAllPages({ config, preview })
-  //  const { categories, brands } = /!*await commerce.getSiteInfo({ config, preview })*!/["aaa","sddsds"]
+export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
+  (store) => async () => {
+    store.dispatch(fetchMenu({ menuState: await menuListServer() }));
+    return {
+      props: {},
+      revalidate: 10,
+    };
+  }
+);
 
-  return {
-    props: {},
-    revalidate: 10,
-  };
-}*/
-
-export default function NotFound() {
-  return <div>404</div>;
-}
+const NotFound = () => <Page404Container />;
+export default NotFound;

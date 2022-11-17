@@ -39,6 +39,7 @@ const SearchContainer: FC = () => {
       <div className={Styles.search__select}>
         {optionCity.length > 0 && (
           <SelectContainer
+            instanceId={"Select_search"}
             onChange={(evt: IOptionItem) => handleOnClickSelect(evt)}
             optionsData={optionCity}
             defaultValue={selectedCity}

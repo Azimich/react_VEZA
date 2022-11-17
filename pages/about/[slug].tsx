@@ -5,10 +5,14 @@ import React from "react";
 import { IComponents } from "components/tabs/Tabs";
 import { menuListServer } from "service/index";
 import { fetchMenu } from "store/slice/MenuSlice";
+import { tabsAboutData } from "features/contacts/mockData";
+import { aboutPath } from "utils/bootstrap";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [],
+    paths: tabsAboutData.map((e) => {
+      return { params: { slug: e.url } };
+    }) as [],
     fallback: "blocking",
   };
 };

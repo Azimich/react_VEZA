@@ -22,6 +22,7 @@ const InputContainer: FC<IInput> = ({
         onBlur={onBlur}
         hidden={hidden}
         name={name}
+        id={name + "id"}
         className={className}
         value={value}
         placeholder={placeholder}
