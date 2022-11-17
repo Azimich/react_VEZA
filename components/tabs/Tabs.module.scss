@@ -4,6 +4,7 @@
 .small300 {
   max-width: 300px;
   margin: auto;
+  padding: 0 10px;
 }
 .max {
   width: 100%;
@@ -15,6 +16,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      
       @media (max-width: 650px) {
         flex-direction: column;
         justify-content: center;

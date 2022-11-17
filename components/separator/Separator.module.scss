@@ -2,11 +2,7 @@
 @import '../../styles/variables.scss';
 
 .separator{
-  margin: 100px 0 20px 0;
   text-align: center;
-  @include ipadScreen {
-    margin: 60px 0 15px 0;
-  }
   .separator_title{
     font-family: 'Ubuntu', sans-serif;
     font-style: normal;

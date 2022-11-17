@@ -4,14 +4,17 @@
 .questions_container{
   display: flex;
   justify-content: center;
-  margin: 40px auto;
+  margin: 40px auto 0;
 }
 
 .title {
-  margin-bottom: 25px;
+  margin: 0 0 20px 0;
+  @include ipadScreen {
+    margin: 50px 0 20px 0;
+  }
   p {
     text-align: center;
-    margin: -15px 0 0 0;
+    margin: -6px 0 0 0;
     line-height: 145%;
     font-size: 18px;
     color: #727272
@@ -60,6 +63,14 @@
         fill: gray;
       }
     }
+  }
+}
+
+.quetions__accordeon__container {
+  margin-bottom: 130px;
+  padding: 0 10px;
+  @include ipadScreen {
+    margin-bottom: 60px;
   }
 }
 

@@ -14,6 +14,7 @@
       align-items: center;
       display: flex;
       padding: 6px 0;
+      color: color(bredcrumbs_no_link);
 
       a {
         color: color(bredcrumbs);
@@ -25,10 +26,7 @@
           color: color(bredcrumbs_hover);
           &::after {
             width: 100%;
-            background-color: #7D7D7D;
-            @media (max-width: 1200px) {
-              display: none;
-            }
+            background-color: color(bredcrumbs_hover);
           }
         }
 
@@ -38,13 +36,10 @@
           position: absolute;
           left: 0;
           bottom: -6px;
-          width: 0;
+          width: 100%;
           height: 1px;
-          background-color: transparent;
+          background-color: color(bredcrumbs);
           transition: width 0.3s;
-          @media (max-width: 1200px) {
-            display: none;
-          }
         }
       }
 
