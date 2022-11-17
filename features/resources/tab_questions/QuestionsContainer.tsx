@@ -29,7 +29,6 @@ const QuestionsContainer: FC<IQuestions> = () => {
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
-
       <div className={Styles.questions_container}>
         <Tabs
           props={tabsResourcesData}
@@ -44,9 +43,11 @@ const QuestionsContainer: FC<IQuestions> = () => {
         <Separator title={"Часто задаваемые вопросы"} />
         <p>Здесь вы сможете найти ответы на часто задаваемые и не только</p>
       </div>
-      {questionsData.map((item, i) => {
-        return <QuestionsItem key={i} {...item} />;
-      })}
+      <div className={Styles.quetions__accordeon__container}>
+        {questionsData.map((item, i) => {
+          return <QuestionsItem key={i} {...item} />;
+        })}
+      </div>
     </Container>
   );
 };
