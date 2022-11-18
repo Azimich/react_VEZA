@@ -5,11 +5,19 @@
   max-width: 600px;
   display: flex;
   justify-content: center;
-  margin: 40px auto;
+  margin: 40px auto 130px;
 }
 
 .tabs_container {
   display: block;
+  margin: 0 0 130px 0;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+  @include phoneScreen {
+    margin-bottom: 50px;
+  }
+
   .tab_container {
     ul {
       display: grid;

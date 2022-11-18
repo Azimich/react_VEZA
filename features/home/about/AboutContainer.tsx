@@ -2,8 +2,8 @@ import { FC, useRef } from "react";
 import Styles from "./About.module.scss";
 import { PeopleData, staticAboutData } from "./mockData";
 import { AboutItems } from "./AboutItem";
-import { ProgressBar } from "../../../components/progressbar/ProgressBarContainer";
-import { useIsInViewport } from "../../../store/hooks/useIsInViewPort";
+import { ProgressBar } from "components/progressbar/ProgressBarContainer";
+import { useIsInViewport } from "store/hooks/useIsInViewPort";
 
 const AboutContainer: FC = () => {
   const ref1 = useRef(null);

@@ -1,11 +1,29 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
+.separator__title__container {
+  margin: 60px 0 30px 0;
+  @include ipadScreen {
+    margin-bottom: 3%;
+  }
+}
+
+.equipment__block {
+  margin-bottom: 150px;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+
+  @include phoneScreen {
+    margin-bottom: 50px;
+  }
+}
+
 .Decision_container{
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  padding-top: 60px;
+  padding: 60px 10px 0 10px;
   @media (max-width: 1200px) {
     flex-direction: column;
   }

@@ -80,7 +80,6 @@ const JobContainer: FC = () => {
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
-
       <div className={Styles.job_container}>
         <Tabs
           props={tabsAboutData}
@@ -105,7 +104,9 @@ const JobContainer: FC = () => {
         <SelectContainer optionsData={[]} instanceId={"Select_Job"} />
         <Button type={"button"} children={"Поиск"} />
       </div>
-      <Separator title={"наши вакансии"} />
+      <div className={Styles.separator__title__container}>
+        <Separator title={"наши вакансии"} />
+      </div>
       <ul className={Styles.job_container_item}>
         {MockJob.map((e) => {
           return <JobItem {...e} key={e.id} />;

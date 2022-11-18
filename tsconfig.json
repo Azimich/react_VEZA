@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "target": "es5",
@@ -26,6 +27,7 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
+      "ClientApp/*": ["./ClientApp/*"],
       "features/*": ["./features/*"],
       "store/*": ["./store/*"],
       "utils/*": ["./utils/*"],

@@ -50,7 +50,7 @@ const SupportContainer = () => {
       />
       <SupportForm />
 
-      <div className={Styles.support__phone}>
+      {/* <div className={Styles.support__phone}>
         <a href={"tel:" + process.env.NEXT_PUBLIC_PHONE}>
           <PhoneFooterIcon />
           {process.env.NEXT_PUBLIC_PHONE}
@@ -59,11 +59,15 @@ const SupportContainer = () => {
           <EmailIcon />
           msk@veza.ru
         </a>
+      </div> */}
+      <div className={Styles.separator__container__title}>
+        <Separator title={"Наши телеграм каналы"} />
       </div>
-      <Separator title={"Наши телеграм каналы"} />
-      {supportData.map((item, i) => {
-        return <SupportGroups key={i} {...item} />;
-      })}
+      <div className={Styles.telegram__group__container}>
+        {supportData.map((item, i) => {
+          return <SupportGroups key={i} {...item} />;
+        })}
+      </div>
     </Container>
   );
 };

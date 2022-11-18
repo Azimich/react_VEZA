@@ -74,6 +74,48 @@ const catalogData: ICatalog[] = [
     download_url: "/download/res.pdf",
     alias: "vran5",
   },
+  {
+    id: 6,
+    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
+    image: "/images/vran-1.jpg",
+    download_url: "/download/res.pdf",
+    alias: "vran5",
+  },
+  {
+    id: 7,
+    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
+    image: "/images/vran-1.jpg",
+    download_url: "/download/res.pdf",
+    alias: "vran5",
+  },
+  {
+    id: 8,
+    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
+    image: "/images/vran-1.jpg",
+    download_url: "/download/res.pdf",
+    alias: "vran5",
+  },
+  {
+    id: 9,
+    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
+    image: "/images/vran-1.jpg",
+    download_url: "/download/res.pdf",
+    alias: "vran5",
+  },
+  {
+    id: 10,
+    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
+    image: "/images/vran-1.jpg",
+    download_url: "/download/res.pdf",
+    alias: "vran5",
+  },
+  {
+    id: 11,
+    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
+    image: "/images/vran-1.jpg",
+    download_url: "/download/res.pdf",
+    alias: "vran5",
+  },
 ];
 
 const sertificatesData: ICertificates[] = [

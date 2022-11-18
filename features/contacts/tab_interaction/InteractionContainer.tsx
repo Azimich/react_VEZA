@@ -30,7 +30,6 @@ const InteractionContainer = () => {
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
-
       <div className={Styles.interaction_container}>
         <Tabs
           props={tabsContactsData}
@@ -47,7 +46,9 @@ const InteractionContainer = () => {
           "Чтобы получить ответы на ваши вопросы и быть в курсе всего происходящего"
         }
       />
-      <SeparatorContainer title={"Наши отделы продаж"} />
+      <div className={Styles.separator__container__title}>
+        <SeparatorContainer title={"Наши отделы продаж"} />
+      </div>
       <ul className={Styles.interaction_items}>
         {InteractionData.filter((e) => e.type === "sales").map(
           (e: Interaction) => {
@@ -56,7 +57,9 @@ const InteractionContainer = () => {
         )}
       </ul>
       <Pagination currentPage={1} totalPageCount={20} pageSize={3} />
-      <SeparatorContainer title={"Наши заводы"} />
+      <div className={Styles.separator__container__title}>
+        <SeparatorContainer title={"Наши заводы"} />
+      </div>
       <ul className={Styles.interaction_items}>
         {InteractionData.filter((e) => e.type === "factory").map(
           (e: Interaction) => {

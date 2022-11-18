@@ -321,38 +321,6 @@ const SingUpForm: FC = () => {
         <div className={Styles.registration__form__items__input}>
           <ul
             className={`${
-              formik.errors?.post && formik.touched?.post
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Select
-              className={Styles.registration__form__select}
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={options}
-              placeholder={"Введите страну"}
-            />
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.post && formik.touched?.post
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Select
-              className={Styles.registration__form__select}
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={option}
-              placeholder={"Введите город"}
-            />
-          </ul>
-        </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
               formik.errors?.password && formik.touched?.password
                 ? Styles.registration__form__item__input_error
                 : Styles.registration__form__item__input
