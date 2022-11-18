@@ -11,6 +11,7 @@ import { CertificateItem } from "./CertificateItem";
 import { SertificatesData } from "features/typo_size/sertificates/mockData";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { sertificatesData } from "../mockData";
 
 const CertificatesContainer = () => {
   const router = useRouter();
@@ -40,9 +41,11 @@ const CertificatesContainer = () => {
         />
       </div>
       <div className={Styles.certificates__items}>
-        {SertificatesData.map((item, i) => {
-          return <CertificateItem key={i} image={item.img} />;
-        })}
+        {sertificatesData
+          .filter((parents) => parents.parent === 0)
+          .map((item) => (
+            <CertificateItem key={item.id} {...item} />
+          ))}
       </div>
     </Container>
   );
