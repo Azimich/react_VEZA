@@ -8,6 +8,7 @@ interface IInput {
   onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
   hidden?: boolean;
   type?: "text" | "password" | "file" | "checkbox" | "date" | "number";
+  id: string;
   name: string;
   className?: string;
   value: string;
