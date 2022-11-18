@@ -18,6 +18,9 @@ interface ICertificates {
   image?: string;
   download_url?: string;
   alias?: string;
+  parent: number;
+  title?: string;
+  desc?: string;
 }
 interface IQuestions {
   id?: number;
