@@ -62,12 +62,11 @@
     }
 
     .support__form__added__file {
-      max-width: 80%;
       position: relative;
       padding: 20px 10px;
-      border-bottom: 1px solid #7f7f7f;
       margin: 0 0 20px 0;
       display: flex;
+      justify-content: flex-end;
       @media (max-width: 850px) {
         max-width: 70%;
       }
@@ -75,7 +74,9 @@
       @media (max-width: 500px) {
         max-width: 50%;
       }
-
+input{
+  display: none;
+}
       .support__form_file {
         position: absolute;
         left: 100%;

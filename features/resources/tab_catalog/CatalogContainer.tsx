@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
-import { ITab } from "../../../components/tabs/Tabs";
-import { resourcesPath } from "../../../utils/bootstrap";
-import { Container } from "../../../components/common/container";
+import { ITab } from "components/tabs/Tabs";
+import { resourcesPath } from "utils/bootstrap";
+import { Container } from "components/common/container";
 import Styles from "./Catalog.module.scss";
-import { Tabs } from "../../../components/tabs";
+import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { catalogData } from "../mockData";
 import { CatalogItem } from "./CatalogItem";
-import { Input } from "../../../components/input/Index";
-import { SearchInputIcon } from "../../../components/icons/includes/SearchInputIcon";
+import { Input } from "components/input/Index";
+import { SearchInputIcon } from "components/icons/includes/SearchInputIcon";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { ICatalog } from "../tab_bim/Bim";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
@@ -60,6 +60,7 @@ const CatalogContainer = () => {
         <div className={Styles.input_box}>
           <Input
             value={inputValue}
+            id={"search_catalog_id"}
             onChange={(event) => handleOnChangeSearch(event)}
             type={"text"}
             name={"search_catalog"}

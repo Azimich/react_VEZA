@@ -165,8 +165,9 @@ const ModalFormJob = () => {
         <div className={Styles.job__modal__item__forgot}>
           <CheckboxWithLabel
             name={"private_police"}
+            id={"private_police_id"}
             title={"Согласие на обработку персональных данных *"}
-            onChange={() => {
+            onChangeData={() => {
               console.log("checked");
             }}
           />

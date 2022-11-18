@@ -31,6 +31,7 @@ const SearchContainer: FC<ISearch> = ({ q }) => {
       <div className={Styles.search__items__input}>
         <Input
           value={inputValue}
+          id={"search_catalog_id"}
           type={"text"}
           onChange={(event) => handleOnChangeSearch(event)}
           name={"search_catalog"}

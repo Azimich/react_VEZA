@@ -17,9 +17,9 @@ const SideBar: FC<ISideBarData> = ({ tabsSocialData, onChange }) => {
           <CheckboxWithLabel
             name={e.url}
             title={e.title}
-            id={e.id}
+            id={String(e.id)}
             key={e.id}
-            onChange={() => onChange(e)}
+            onChangeData={() => onChange(e)}
             classCheck={Styles.side_bar_checkbox}
           />
         );
