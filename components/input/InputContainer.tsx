@@ -1,18 +1,17 @@
 import { FC, ReactNode } from "react";
 import { IInput } from "./Input";
-import Styles from "./input.module.scss";
 import { LayoutInput, LayoutInputFile } from "components/input/Index";
 
 const InputContainer: FC<IInput> = (props) => {
+  const { type = "text" } = props;
   let result: ReactNode;
-  switch (props.type) {
+  switch (type) {
     case "file":
       result = LayoutInputFile(props);
       break;
     default:
       result = LayoutInput(props);
   }
-
   return <>{result}</>;
 };
 

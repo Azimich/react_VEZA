@@ -6,7 +6,7 @@ import { equipmentPath } from "utils";
 import { ICatalogData } from "features/equipment/Equipment";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
-import { EquipmentPage } from "features/equipment/EquipmentPage";
+import { EquipmentPage } from "features/equipment/equipmentPage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {

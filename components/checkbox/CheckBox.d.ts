@@ -6,7 +6,7 @@ interface ICheckBox {
   onChangeData?: (e: ChangeEvent<HTMLInputElement>) => void;
   onClick?: () => void;
   name: string;
-  id?: string;
+  id: string;
 }
 
 export { ICheckBox };

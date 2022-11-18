@@ -97,9 +97,10 @@ const SingInForm = () => {
         <div className={Styles.authorization__form__item__forgot}>
           <CheckboxWithLabel
             name={"forgot"}
+            id={"forgot_id"}
             title={"Запомни меня"}
             onClick={() => handleOnclickCheck()}
-            onChange={() => handleOnclickCheck()}
+            onChangeData={() => handleOnclickCheck()}
           />
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>

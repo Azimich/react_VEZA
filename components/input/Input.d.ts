@@ -9,6 +9,7 @@ interface IInput {
   hidden?: boolean;
   type?: "text" | "password" | "file" | "checkbox" | "date" | "number";
   id: string;
+  multi?: boolean;
   name: string;
   className?: string;
   value: string;

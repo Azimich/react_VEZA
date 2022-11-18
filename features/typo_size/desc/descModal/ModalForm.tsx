@@ -19,7 +19,7 @@ const ModalForm: FC<IModalFormData> = () => {
                 return (
                   <li key={e.id}>
                     <CheckboxWithLabel
-                      id={e.id}
+                      id={String(e.id)}
                       name={"tab_bim" + e.id}
                       title={e.title}
                     />

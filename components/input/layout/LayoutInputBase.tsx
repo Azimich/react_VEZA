@@ -8,6 +8,7 @@ const LayoutInputBase: FC<IInput> = ({
   onChange,
   onBlur,
   onKeyUp,
+  id,
   type = "text",
   name = "",
   className = "",
@@ -22,13 +23,13 @@ const LayoutInputBase: FC<IInput> = ({
         onBlur={onBlur}
         hidden={hidden}
         name={name}
-        id={name + "_file_id"}
+        id={id}
         className={className}
         value={value}
         placeholder={placeholder}
         onKeyUp={onKeyUp}
       />
-      <label>{title} </label>
+      <label htmlFor={id}>{title} </label>
     </div>
   );
 };

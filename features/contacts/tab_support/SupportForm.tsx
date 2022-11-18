@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Styles from "./Support.module.scss";
@@ -8,10 +8,10 @@ import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
-import { UploadIcon } from "components/icons";
 
 const SupportForm = () => {
-  const [inputValue, setInputValue] = useState();
+  const [selectedFiles, setSelectedFiles] = useState([{}]);
+  const [selectedFilesName, setSelectedFilesName] = useState<string>("");
   // Валидация формы
   const formik = useFormik({
     initialValues: {
@@ -98,8 +98,17 @@ const SupportForm = () => {
     );
   };
   const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("111", e.target);
+    setSelectedFiles([...e.target.files]);
   };
+
+  useEffect(() => {
+    console.log("selectedFiles", selectedFiles);
+
+    selectedFiles.map((e) => {
+      console.log("eee", e.name);
+      return e;
+    });
+  }, [selectedFiles]);
   return (
     <div className={Styles.support__form}>
       <form
@@ -144,6 +153,7 @@ const SupportForm = () => {
           >
             <Input
               name={"firstName"}
+              id={"firstName_id"}
               title={"Имя *"}
               type={"text"}
               className={Styles.input__item}
@@ -170,6 +180,7 @@ const SupportForm = () => {
           >
             <Input
               name={"lastName"}
+              id={"lastName_id"}
               title={"Фамилия *"}
               className={Styles.input__item}
               onChange={(e) => handleOnChangeLastName(e)}
@@ -197,6 +208,7 @@ const SupportForm = () => {
           >
             <Input
               name={"email"}
+              id={"email_id"}
               title={"Почта *"}
               className={Styles.input__item}
               onChange={formik.handleChange}
@@ -223,6 +235,7 @@ const SupportForm = () => {
             <Input
               name={"phone"}
               title={"Телефон *"}
+              id={"phone_id"}
               className={Styles.input__item}
               onChange={(e) => handleOnChangeTel(e)}
               onBlur={formik.handleBlur}
@@ -250,6 +263,7 @@ const SupportForm = () => {
             <Input
               name={"company"}
               title={"ИНН компании *"}
+              id={"company_id"}
               className={Styles.input__item}
               onChange={(e) => handleOnChangeCompany(e)}
               onBlur={formik.handleBlur}
@@ -275,6 +289,7 @@ const SupportForm = () => {
             <Input
               name={"post"}
               title={"Укажите должность *"}
+              id={"post_id"}
               className={Styles.input__item}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -303,6 +318,7 @@ const SupportForm = () => {
               <Input
                 name={"country"}
                 title={"Страна *"}
+                id={"country_id"}
                 className={Styles.input__item}
                 onChange={(e) => {
                   formik.setFieldValue("country", e.target.value);
@@ -333,6 +349,7 @@ const SupportForm = () => {
               <Input
                 name={"city"}
                 title={"Город *"}
+                id={"city_id"}
                 className={Styles.input__item}
                 onChange={(e) => {
                   formik.setFieldValue("city", e.target.value);
@@ -363,6 +380,7 @@ const SupportForm = () => {
             <Input
               name={"order"}
               title={"Номер заказа"}
+              id={"order_id"}
               className={Styles.input__item}
               onChange={(e) => handleOnChangeOrder(e)}
               onBlur={formik.handleBlur}
@@ -382,24 +400,24 @@ const SupportForm = () => {
         <div className={Styles.support__form__items__textarea}>
           <TextareaContainer children={"Ваше сообщение"} />
         </div>
+
         <div className={Styles.support__form__added__file}>
-          <label className={Styles.support__form_file}>
-            <Input
-              name={"files"}
-              type={"file"}
-              value={""}
-              onChange={(e) => handleInputFileOnChange(e)}
-            />
-            <span>
-              <UploadIcon />
-              Прикрепить
-            </span>
-          </label>
+          <Input
+            name={"files[]"}
+            title={"Прикрепить"}
+            type={"file"}
+            id={"files_id"}
+            value={""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleInputFileOnChange(e)
+            }
+          />
         </div>
         <CheckboxWithLabel
           name={"private_police"}
+          id={"private_police_id"}
           title={"Согласие на обработку персональных данных с условиями"}
-          onChange={() => {}}
+          onChangeData={() => {}}
         />
         <div className={Styles.support__form__item__answer}>
           <Button type={"submit"} children={"Отпарвить"} />
