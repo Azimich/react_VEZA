@@ -10,9 +10,7 @@ import { useRouter } from "next/router";
 import { Link } from "components/link";
 
 const FooterContainer = () => {
-  const [menu] = useState<IMenuData[]>(
-    useAppSelector(getMenu)?.Response as IMenuData[]
-  );
+  const [menu] = useState<IMenuData[]>(useAppSelector(getMenu));
   const router = useRouter();
   return (
     <div className={Styles.footer}>

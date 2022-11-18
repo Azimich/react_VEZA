@@ -1,4 +1,5 @@
 interface IOptionSetting {
+  instanceId: string;
   isMulti?: boolean;
   options?: boolean;
   placeholder?: string;

@@ -31,7 +31,7 @@ const NewsPageItem: FC<INewDataItem> = ({
         <div className={Styles.news__active__keyword}>
           <h2>{title}</h2>
           <div className={Styles.news__active__keyword__paragraph}>
-            {keyword.map((value) => (
+            {keyword?.map((value) => (
               <span>{value.paragraph}</span>
             ))}
           </div>

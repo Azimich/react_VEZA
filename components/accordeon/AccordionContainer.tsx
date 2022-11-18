@@ -2,7 +2,7 @@ import { AccordionHeader } from "./AccordionHeader";
 import { FC } from "react";
 import { IAccordion } from "./Accordion";
 import Styles from "./Accordion.module.scss";
-import { useToggle } from "../../store/hooks/useToggle";
+import { useToggle } from "store/hooks/useToggle";
 
 const AccordionContainer: FC<IAccordion> = ({
   title,
@@ -11,8 +11,6 @@ const AccordionContainer: FC<IAccordion> = ({
   closeAccordionItem,
 }) => {
   const [stateToggle, toggle] = useToggle(icon_show);
-
-  console.log(icon_show);
 
   return (
     <div

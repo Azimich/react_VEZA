@@ -6,11 +6,16 @@ import { GetStaticPaths } from "next";
 import { INewsData } from "features/news/News";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
+import { newsList } from "service/list/servers/newsList";
+import { newsPath } from "utils/bootstrap";
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const pathNews = await newsList();
   return {
-    paths: [],
-    fallback: true,
+    paths: pathNews.Response.map((e: { Alias: string }) => ({
+      params: { alias: e.Alias },
+    })),
+    fallback: "blocking",
   };
 };
 

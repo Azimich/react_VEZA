@@ -1,28 +1,28 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { AppState, AppThunk } from "store/store";
 import { HYDRATE } from "next-redux-wrapper";
-import { IMenuSlice } from "components/common/header/headerNav/Header.d";
+import {
+  IMenuSlice,
+  IMenuState,
+} from "components/common/header/headerNav/Header.d";
 
-const initialState: IMenuSlice = {
-  menuState: {
-    HasError: 0,
-    ErrorMessage: "",
-    Response: [],
-  },
+const initialState: IMenuState = {
+  HasError: 0,
+  ErrorMessage: "",
+  Response: [],
 };
 
 export const menuSlice = createSlice({
   name: "menuState",
   initialState: initialState,
   reducers: {
-    setData: (_state, action: PayloadAction<IMenuSlice>) => {
-      return action.payload;
+    setData: (_state, action: PayloadAction<{ menuState?: IMenuState }>) => {
+      return action.payload.menuState;
     },
   },
   extraReducers: {
-    [HYDRATE]: (state, action: PayloadAction<IMenuSlice>) => {
+    [HYDRATE]: (state, action: PayloadAction<{ menuState: IMenuState }>) => {
       return {
-        ...state,
         ...action.payload.menuState,
       };
     },
@@ -30,7 +30,7 @@ export const menuSlice = createSlice({
 });
 
 export const fetchMenu =
-  (dispatchData: IMenuSlice): AppThunk =>
+  (dispatchData: { menuState: IMenuState }): AppThunk =>
   async (dispatch) => {
     dispatch(menuSlice.actions.setData(dispatchData));
   };
@@ -38,6 +38,6 @@ export const fetchMenu =
 /*export const {} =
     factorySlice.actions;*/
 
-export const getMenu = (state: AppState) => state.menuState?.menuState;
+export const getMenu = (state: AppState) => state.menuState.Response;
 
 export default menuSlice;

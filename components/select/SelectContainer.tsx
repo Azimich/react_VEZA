@@ -7,6 +7,7 @@ import { IOptionSetting } from "./Select";
 const animatedComponents = makeAnimated();
 
 const SelectContainer: FC<IOptionSetting> = ({
+  instanceId = "0",
   closeMenuOnSelect = true,
   optionsData = [],
   defaultValue,
@@ -17,6 +18,7 @@ const SelectContainer: FC<IOptionSetting> = ({
 }) => {
   return (
     <Select
+      instanceId={instanceId}
       name={name}
       closeMenuOnSelect={closeMenuOnSelect}
       components={animatedComponents}
