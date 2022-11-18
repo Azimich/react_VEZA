@@ -22,7 +22,6 @@ const SingForgotForm: FC = () => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
-  console.log("formik.touched", formik.touched, formik.errors);
 
   return (
     <div className={Styles.forgot__form}>
@@ -40,6 +39,7 @@ const SingForgotForm: FC = () => {
         >
           <Input
             name={"email"}
+            id={"email_id"}
             onBlur={formik.handleBlur}
             title={"Введите почту *"}
             className={Styles.input__item}

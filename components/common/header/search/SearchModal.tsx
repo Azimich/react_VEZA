@@ -9,7 +9,7 @@ import { SearchItem } from "features/search/SearchItem";
 import { searchData } from "components/common/header/search/mockData";
 import { ISearchData } from "features/search/Search";
 
-const SearchModal: FC<{ onClick: (inputValue: string) => void }> = ({
+const SearchModal: FC<{ onClick: (page_number: string) => void }> = ({
   onClick,
 }) => {
   const [inputValue, setInputValue] = React.useState<string>("");
@@ -41,6 +41,7 @@ const SearchModal: FC<{ onClick: (inputValue: string) => void }> = ({
               type={"text"}
               onChange={(event) => handleOnChangeSearch(event)}
               name={"search_catalog"}
+              id={"search_catalog_id"}
               placeholder={"Поиск"}
               className={Styles.input_field}
             />
@@ -58,10 +59,7 @@ const SearchModal: FC<{ onClick: (inputValue: string) => void }> = ({
             })
           : inputValue.length !== 0 && <h2>Ничего не найдено</h2>}
         {filteredData.length > 5 && (
-          <Button
-            children={"Показать ещё"}
-            onClick={() => onClick(inputValue)}
-          />
+          <Button children={"Показать ещё"} onClick={() => onClick("2")} />
         )}
       </div>
     </div>

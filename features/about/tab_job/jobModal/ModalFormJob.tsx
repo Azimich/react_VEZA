@@ -73,6 +73,7 @@ const ModalFormJob = () => {
           >
             <Input
               name={"firstName"}
+              id={"firstName_id"}
               title={"Имя"}
               type={"text"}
               className={Styles.input__item}
@@ -104,6 +105,7 @@ const ModalFormJob = () => {
             <Input
               name={"email"}
               title={"Почта *"}
+              id={"email_id"}
               className={Styles.input__item}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -128,6 +130,7 @@ const ModalFormJob = () => {
           >
             <Input
               name={"phone"}
+              id={"phone_id"}
               title={"Телефон *"}
               className={Styles.input__item}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -152,7 +155,7 @@ const ModalFormJob = () => {
         </div>
         <div className={Styles.job__modal__items__added__file}>
           <label className={Styles.job__modal__items__added__file__items}>
-            <Input name={"files"} type={"file"} value={""} />
+            <Input name={"files"} type={"file"} value={""} id={"files_id"} />
             <span>
               <UploadIcon />
               Прикрепить

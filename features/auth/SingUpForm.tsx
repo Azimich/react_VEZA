@@ -128,6 +128,7 @@ const SingUpForm: FC = () => {
           >
             <Input
               name={"firstName"}
+              id={"firstName_id"}
               title={"Имя *"}
               type={"text"}
               className={Styles.input__item}
@@ -157,6 +158,7 @@ const SingUpForm: FC = () => {
             <Input
               name={"lastName"}
               title={"Фамилия *"}
+              id={"lastName_id"}
               className={Styles.input__item}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 handleOnChangeLastName(e)
@@ -186,6 +188,7 @@ const SingUpForm: FC = () => {
             <Input
               name={"email"}
               title={"Почта *"}
+              id={"email_id"}
               className={Styles.input__item}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -211,6 +214,7 @@ const SingUpForm: FC = () => {
             <Input
               name={"phone"}
               title={"Телефон *"}
+              id={"phone_id"}
               className={Styles.input__item}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 handleOnChangeTel(e)
@@ -240,6 +244,7 @@ const SingUpForm: FC = () => {
             <Input
               name={"company"}
               title={"ИНН компании *"}
+              id={"company_id"}
               className={Styles.input__item}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 handleOnChangeCompany(e)
@@ -267,6 +272,7 @@ const SingUpForm: FC = () => {
             <Input
               name={"birthdate"}
               type={"date"}
+              id={"birthdate_id"}
               title={"Дата рождения *"}
               className={Styles.input__item}
               onChange={formik.handleChange}
@@ -295,6 +301,7 @@ const SingUpForm: FC = () => {
             <Input
               name={"post"}
               title={"Укажите должность *"}
+              id={"post_id"}
               className={Styles.input__item}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -355,6 +362,7 @@ const SingUpForm: FC = () => {
               name={"password"}
               type={"password"}
               title={"Пароль *"}
+              id={"password"}
               className={Styles.input__item}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -378,8 +386,9 @@ const SingUpForm: FC = () => {
             }`}
           >
             <Input
-              name={"confirmPassword"}
+              name={"confirm_Password"}
               type={"password"}
+              id={"confirm_Password_id"}
               title={"Подтвердите пароль *"}
               className={Styles.input__item}
               onChange={formik.handleChange}

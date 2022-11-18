@@ -50,6 +50,7 @@ const SingInForm = () => {
         >
           <Input
             name={"login"}
+            id={"login_id"}
             title={"Логин*"}
             className={Styles.input__item}
             onChange={formik.handleChange}
@@ -76,6 +77,7 @@ const SingInForm = () => {
           <Input
             name={"password"}
             type={"password"}
+            id={"password_id"}
             onBlur={formik.handleBlur}
             title={"Пароль *"}
             className={Styles.input__item}

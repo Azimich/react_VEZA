@@ -17,6 +17,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
+
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
