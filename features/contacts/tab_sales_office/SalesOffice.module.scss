@@ -8,6 +8,21 @@
   margin: 40px auto;
 }
 
+.sales_office_container_items {
+  margin: 0 0 150px 0;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+
+  @include phoneScreen {
+    margin-bottom: 50px;
+  }
+}
+
+.separator__title__container {
+  margin: 0 0 3% 0;
+}
+
 .yandex__map {
   height: 500px;
   width: 100%;

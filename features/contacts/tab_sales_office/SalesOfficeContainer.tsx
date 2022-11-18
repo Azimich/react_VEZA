@@ -72,7 +72,6 @@ const SalesOfficeContainer: FC = () => {
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
-
       <div className={Styles.sales_office_container}>
         <Tabs
           props={tabsContactsData}
@@ -85,7 +84,9 @@ const SalesOfficeContainer: FC = () => {
       </div>
       <Map formOutPut={FormOutPut} />
       <div className={Styles.sales_office_container_items}>
-        <SeparatorContainer title={"НАШИ МЕНЕДЖЕРЫ"} />
+        <div className={Styles.separator__title__container}>
+          <SeparatorContainer title={"НАШИ МЕНЕДЖЕРЫ"} />
+        </div>
         <SearchContainer />
         <Tabs
           props={tabsSalesData}
@@ -95,7 +96,6 @@ const SalesOfficeContainer: FC = () => {
           line={false}
           menu_style={"button"}
           activeTab={data.activeTab}
-          size={"max"}
         >
           {React.createElement(components[`tab_${data.slug}`])}
         </Tabs>

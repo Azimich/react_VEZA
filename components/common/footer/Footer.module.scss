@@ -1,15 +1,11 @@
-@import '../../../styles/mixins';
-@import '../../../styles/variables';
+@import 'styles/mixins';
+@import 'styles/variables';
 
 .footer {
 
   &__container {
     background: #F6F6F3;
-    padding: 50px 0;
-
-    @include ipadScreen {
-      padding: 25px 0;
-    }
+    padding: 50px 10px;
   }
 
   &__content {
@@ -115,7 +111,7 @@
       }
     }
 
-    @media (max-width: 1130px) {
+    @media (max-width: 1200px) {
       margin: 30px 0;
     }
 

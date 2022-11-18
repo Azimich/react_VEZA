@@ -89,10 +89,10 @@ const ReferencesContainer: FC = () => {
     setContentForm(e);
     toggle();
   };
+
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
-
       <div className={Styles.references_container}>
         <Tabs
           props={tabsAboutData}
@@ -121,7 +121,6 @@ const ReferencesContainer: FC = () => {
           line={false}
           menu_style={"button"}
           activeTab={data.activeTab}
-          size={"max"}
         >
           {React.createElement(components[`tab_${data.slug}`])}
         </Tabs>
@@ -131,7 +130,6 @@ const ReferencesContainer: FC = () => {
         hide={toggle}
         modalContent={<ModalFormFactory {...contentForm} />}
         theme={"modal"}
-        headerText={"Тип файла"}
         bgModal={"black"}
       ></Modal>
     </Container>

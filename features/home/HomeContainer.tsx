@@ -12,6 +12,7 @@ import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
 import { FC } from "react";
+import Styles from "./about/About.module.scss";
 
 const HomeContainer: FC = () => {
   return (
@@ -27,10 +28,14 @@ const HomeContainer: FC = () => {
         theme={"home"}
       />
 
-      <Separator title={"О нас"} />
+      <div className={Styles.separator__title__container}>
+        <Separator title={"О нас"} />
+      </div>
       <AboutContainer />
       <Container className={`wrapper_clear`} el="section">
-        <Separator title={"Категория продукции"} />
+        <div className={Styles.separator__title__container}>
+          <Separator title={"Категория продукции"} />
+        </div>
         <SliderContainer
           items={sliderCategory.items}
           dots={true}
@@ -38,9 +43,13 @@ const HomeContainer: FC = () => {
           spaceBetween={10}
           theme={"homecategory"}
         />
-        <Separator title={"Новости"} />
+        <div className={Styles.separator__title__container}>
+          <Separator title={"Новости"} />
+        </div>
         <NewsContainer props={newsData} />
-        <Separator title={"Отрасли"} />
+        <div className={Styles.separator__title__container}>
+          <Separator title={"Отрасли"} />
+        </div>
         <SliderContainer
           items={sliderIndustries.items}
           dots={true}
@@ -52,7 +61,9 @@ const HomeContainer: FC = () => {
           effectSlide={"cards"}
           color={"link"}
         />
-        <Separator title={"Выполнить подбор необходимого оборудования?"} />
+        <div className={Styles.separator__title__container}>
+          <Separator title={"Выполнить подбор необходимого оборудования?"} />
+        </div>
         <SelectionContainer />
       </Container>
     </>

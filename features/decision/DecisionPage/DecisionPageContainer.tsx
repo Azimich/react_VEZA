@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 
+import Styles from "./DecisionPage.module.scss";
 import { IDecisionData } from "../Decision";
 import { Container } from "../../../components/common/container";
 import { DecisionPageItem } from "./DecisionPageItem";
@@ -26,10 +27,16 @@ const DecisionPageContainer: FC<IDecision> = ({ data }) => {
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
       <DecisionPageItem data={data} />
-      <Separator title={"Наши объекты"} />
+      <div className={Styles.separator__title__container}>
+        <Separator title={"Наши объекты"} />
+      </div>
       <OwnObject />
-      <Separator title={"оборудование"} />
-      <Equipment props={equipmentData} />
+      <div className={Styles.separator__title__container}>
+        <Separator title={"оборудование"} />
+      </div>
+      <div className={Styles.equipment__block}>
+        <Equipment props={equipmentData} />
+      </div>
     </Container>
   );
 };
