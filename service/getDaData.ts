@@ -9,13 +9,11 @@ const useGetDaData = () => {
     return await request(
       "https://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party",
       "POST",
+      JSON.stringify({ query: query }),
       {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: "Token " + token,
-        },
-        body: JSON.stringify({ query: query }),
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Token " + token,
       }
     );
   };
