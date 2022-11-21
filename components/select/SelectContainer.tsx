@@ -15,7 +15,7 @@ const SelectContainer: FC<IOptionSetting> = ({
   defaultValue,
   type = "common",
 }) => {
-  const handleOnChangeInn = (e) => {
+  const handleOnChangeInn = (e: any) => {
     console.log("export", e);
   };
   let selectCurrent: ReactNode;
