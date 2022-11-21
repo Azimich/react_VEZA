@@ -1,31 +1,55 @@
-import ISlideImages from "components/slider/Slider.d";
+import IPageData from "components/pagination/Pagination.d";
+
+interface IHomeData {
+  home: {
+    newsItem: IHomeResponse;
+  };
+}
 
 interface INewsData {
-  newsData: INewDataItem[];
-  newsItem: {};
+  news: {
+    newsItem: IHomeResponse;
+  };
+}
+
+interface IHomeResponse {
+  ErrorMessage: number;
+  HasError: boolean;
+  Page: IPageData;
+  Response: INewDataItem[];
 }
 
 interface INewDataItem {
-  id: number;
-  news_name: string;
-  short_description: string;
-  description_first: string;
-  description_second: string;
-  videoURL?: string;
-  numbersample?: number;
-  title?: string;
-  keyword?: IKeyWord[];
-  status?: boolean;
-  statistics?: number;
-  access?: boolean;
-  items: ISlideImages[];
-  alias: string;
-  image_category: string;
-  image_full_news: string;
+  Access?: number;
+  Alias: string;
+  Created?: string;
+  FirstDescription?: string;
+  Images?: {};
+  Keywords?: IKeyWord[];
+  NewsId: number;
+  NewsName?: string;
+  PatternNumber?: number;
+  SecondDescription?: string;
+  Seo?: string;
+  SeoKeywords?: string;
+  ShortDescription?: string;
+  Statistics?: {
+    NewsStatisticsId?: number;
+    StatisticsType?: number;
+    StatisticsTotal?: number;
+    LastUpdated?: string;
+    NewsId?: number;
+  };
+  Status?: string;
+  Title?: string;
+  VideoUrl?: string;
 }
 
 interface IKeyWord {
-  paragraph: string;
+  KeyWordsId: number;
+  Keywords: string;
+  NewsId: number;
+  Url: string;
 }
 
-export { INewsData, INewDataItem, IKeyWord };
+export { IHomeData, INewDataItem, IKeyWord, IHomeResponse, INewsData };

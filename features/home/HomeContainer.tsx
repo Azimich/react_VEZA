@@ -6,15 +6,17 @@ import {
   sliderCategory,
   sliderIndustries,
 } from "components/slider/mockData";
-import { newsData } from "./news/mockData";
 import { Separator } from "components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
+import { IHomeData } from "features/news/News";
+import { prop } from "dom7";
 
-const HomeContainer: FC = () => {
+const HomeContainer: FC<IHomeData> = ({ home }) => {
+  console.log("props1", home);
   return (
     <>
       <Container el="section">
@@ -46,7 +48,7 @@ const HomeContainer: FC = () => {
         <div className={Styles.separator__title__container}>
           <Separator title={"Новости"} />
         </div>
-        <NewsContainer props={newsData} />
+        <NewsContainer {...home.newsItem} />
         <div className={Styles.separator__title__container}>
           <Separator title={"Отрасли"} />
         </div>

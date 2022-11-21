@@ -3,11 +3,9 @@ import { wrapper } from "store/store";
 import { NewsData } from "features/news/mockData";
 import { NewsPage } from "features/news";
 import { GetStaticPaths } from "next";
-import { INewsData } from "features/news/News";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
 import { newsList } from "service/list/servers/newsList";
-import { newsPath } from "utils/bootstrap";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const pathNews = await newsList();
@@ -25,7 +23,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     const { params } = context;
 
     const mockData = NewsData.filter((item) => {
-      return item.alias === params.alias && item;
+      return item.Alias === params.alias && item;
     });
 
     return {
@@ -37,6 +35,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   }
 );
 
-const newsSSR = (props: INewsData) => <NewsPage {...props} />;
+const newsSSR = (props: any) => <NewsPage {...props} />;
 
 export default newsSSR;
