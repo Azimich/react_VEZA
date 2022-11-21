@@ -61,7 +61,7 @@ const HomeContainer: FC = () => {
           effectSlide={"cards"}
           color={"link"}
         />
-        <div className={Styles.separator__title__container}>
+        <div className={Styles.separator__title__bottom}>
           <Separator title={"Выполнить подбор необходимого оборудования?"} />
         </div>
         <SelectionContainer />
