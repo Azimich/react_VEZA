@@ -1,12 +1,11 @@
 interface IOptionSetting {
   instanceId: string;
   isMulti?: boolean;
-  options?: IOptionItem[];
   placeholder?: string;
   closeMenuOnSelect?: boolean;
   name?: string;
   onChange?: (e) => void;
-  optionsData: IOptionItem[];
+  optionsData?: IOptionItem[];
   defaultValue?: IOptionItem;
   type?: "common" | "company_inn";
 }

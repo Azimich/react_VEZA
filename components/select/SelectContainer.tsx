@@ -1,25 +1,24 @@
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
 import Styles from "./Select.module.scss";
 import { FC, ReactNode } from "react";
 import { IOptionSetting } from "./Select";
 import { SelectCommon } from "./layout/SelectCommon";
-
-const animatedComponents = makeAnimated();
+import { SelectCompanyInn } from "components/select/layout/SelectCompanyInn";
 
 const SelectContainer: FC<IOptionSetting> = ({
   instanceId = "0",
-  closeMenuOnSelect = true,
-  optionsData = [],
-  defaultValue,
-  name = "select",
   isMulti = false,
   placeholder = "",
-  type = "common",
+  closeMenuOnSelect = true,
+  name = "select",
   onChange,
+  optionsData = [],
+  defaultValue,
+  type = "common",
 }) => {
+  const handleOnChangeInn = (e) => {
+    console.log("export", e);
+  };
   let selectCurrent: ReactNode;
-  console.log("543", optionsData);
   switch (type) {
     case "common":
       selectCurrent = (
@@ -27,32 +26,37 @@ const SelectContainer: FC<IOptionSetting> = ({
           instanceId={instanceId}
           name={name}
           closeMenuOnSelect={closeMenuOnSelect}
-          components={animatedComponents}
           defaultValue={defaultValue}
-          isSearchable
-          isClearable
           isMulti={isMulti}
-          options={optionsData}
-          className={Styles.job_container}
           placeholder={placeholder}
           onChange={(e) => onChange(e)}
+          optionsData={optionsData}
         />
       );
       break;
-
+    case "company_inn":
+      selectCurrent = (
+        <SelectCompanyInn
+          instanceId={instanceId}
+          name={name}
+          closeMenuOnSelect={closeMenuOnSelect}
+          defaultValue={defaultValue}
+          isMulti={isMulti}
+          optionsData={optionsData}
+          placeholder={placeholder}
+          onChange={(e) => handleOnChangeInn(e)}
+        />
+      );
+      break;
     default:
       selectCurrent = (
         <SelectCommon
           instanceId={instanceId}
           name={name}
           closeMenuOnSelect={closeMenuOnSelect}
-          components={animatedComponents}
           defaultValue={defaultValue}
-          isSearchable
-          isClearable
           isMulti={isMulti}
-          options={optionsData}
-          className={Styles.job_container}
+          optionsData={optionsData}
           placeholder={placeholder}
           onChange={(e) => onChange(e)}
         />
@@ -60,7 +64,7 @@ const SelectContainer: FC<IOptionSetting> = ({
       break;
   }
 
-  return selectCurrent;
+  return <>{selectCurrent}</>;
 };
 
 export { SelectContainer };
