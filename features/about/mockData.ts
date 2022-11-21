@@ -5,7 +5,6 @@ const whoweData: IObject[] = [
     id: 1,
     connection: "Chelyabinskaya_obl",
     alias: "miass",
-
     object: {
       xpx: 22,
       ypx: 8,
