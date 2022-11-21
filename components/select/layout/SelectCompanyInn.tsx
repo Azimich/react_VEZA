@@ -2,7 +2,9 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import Styles from "../Select.module.scss";
 import { FC } from "react";
-import { IOptionSetting } from "../Select";
+import { IOptionItem, IOptionSetting } from "../Select";
+import AsyncSelect from "react-select/async";
+import { useGetDaData } from "service/getDaData";
 
 const animatedComponents = makeAnimated();
 
@@ -16,8 +18,21 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
   placeholder = "",
   onChange,
 }) => {
+  const { daData } = useGetDaData();
+
+  const handleLoadOptions = (
+    inputValue: string,
+    callback: (options: IOptionItem[]) => void
+  ) => {
+    if (inputValue.length > 3) {
+      daData().then((data) => {
+        console.log("data", data);
+      });
+    }
+  };
+
   return (
-    <Select
+    <AsyncSelect
       instanceId={instanceId}
       name={name}
       closeMenuOnSelect={closeMenuOnSelect}
@@ -30,6 +45,7 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
       className={Styles.job_container}
       placeholder={placeholder}
       onChange={(e) => onChange(e)}
+      loadOptions={handleLoadOptions}
     />
   );
 };
