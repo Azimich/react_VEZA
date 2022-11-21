@@ -1,9 +1,23 @@
 import { FetchService } from "../../Service";
 
-const newsList = async () => {
-  return await FetchService.getData(
-    process.env.NEXT_PUBLIC_APP_FETCH + "/api/News/get_all_news"
+const newsListHome = async () => {
+  return await FetchService.postData(
+    process.env.NEXT_PUBLIC_APP_FETCH + "/api/News/get_news_page",
+    {
+      pageNumber: 1,
+      pageSize: 4,
+    }
   );
 };
 
-export { newsList };
+const newsList = async () => {
+  return await FetchService.postData(
+    process.env.NEXT_PUBLIC_APP_FETCH + "/api/News/get_news_page",
+    {
+      pageNumber: 1,
+      pageSize: 7,
+    }
+  );
+};
+
+export { newsListHome, newsList };

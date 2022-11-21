@@ -1,4 +1,4 @@
-export interface IPagination {
+interface IPagination {
   currentPage: number;
   totalPageCount: number;
   pageSize: number;
@@ -8,3 +8,13 @@ export interface IPagination {
   className?: string;
   disabled?: boolean;
 }
+
+interface IPageData {
+  HasNextPage: boolean;
+  HasPreviousPage: boolean;
+  PageNumber: number;
+  PageSize: number;
+  TotalPages: number;
+}
+
+export { IPageData, IPagination };
