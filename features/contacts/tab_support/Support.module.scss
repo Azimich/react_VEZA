@@ -49,6 +49,10 @@
       }
     }
 
+    &__select__company {
+      margin-top: 10px;
+    }
+
     &__textarea {
       margin: 10px 0 20px 0;
       textarea {
@@ -74,9 +78,10 @@
       @media (max-width: 500px) {
         max-width: 50%;
       }
-input{
-  display: none;
-}
+
+      input{
+        display: none;
+      }
       .support__form_file {
         position: absolute;
         left: 100%;
@@ -241,6 +246,10 @@ input{
       box-shadow: 0 5px 30px rgba(20, 20, 20, 0.3);
       transform: translateY(-3px);
       transition: all 0.3s;
+    }
+
+    button {
+      width: 150px;
     }
 
     h2 {

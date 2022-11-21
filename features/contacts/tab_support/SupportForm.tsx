@@ -8,10 +8,13 @@ import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
+import { useGetDaData } from "service/getDaData";
 
 const SupportForm = () => {
   const [selectedFiles, setSelectedFiles] = useState([{}]);
   const [selectedFilesName, setSelectedFilesName] = useState<string>("");
+  const { daData } = useGetDaData();
+
   // Валидация формы
   const formik = useFormik({
     initialValues: {
@@ -108,7 +111,10 @@ const SupportForm = () => {
       console.log("eee", e);
       return e;
     });
+
+    console.log("dadata", daData());
   }, [selectedFiles]);
+
   return (
     <div className={Styles.support__form}>
       <form
@@ -255,32 +261,6 @@ const SupportForm = () => {
         <div className={Styles.support__form__items__input}>
           <ul
             className={`${
-              formik.errors?.company && formik.touched?.company
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"company"}
-              title={"ИНН компании *"}
-              id={"company_id"}
-              className={Styles.input__item}
-              onChange={(e) => handleOnChangeCompany(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.company}
-            />
-            <div
-              className={`${
-                formik.errors?.company && formik.touched?.company
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.company}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
               formik.errors?.post && formik.touched?.post
                 ? Styles.support__form__item__input_error
                 : Styles.support__form__item__input
@@ -305,71 +285,6 @@ const SupportForm = () => {
               <li>{formik.errors.post}</li>
             </div>
           </ul>
-        </div>
-        <div className={Styles.support__form__items__input}>
-          <div className={Styles.support__form__item__input}>
-            <ul
-              className={`${
-                formik.errors?.country && formik.touched?.country
-                  ? Styles.support__form__item__input_error
-                  : Styles.support__form__item__input
-              }`}
-            >
-              <Input
-                name={"country"}
-                title={"Страна *"}
-                id={"country_id"}
-                className={Styles.input__item}
-                onChange={(e) => {
-                  formik.setFieldValue("country", e.target.value);
-                }}
-                onBlur={formik.handleBlur}
-                value={formik.values.country}
-              />
-              <div
-                className={`${
-                  formik.errors?.country && formik.touched?.country
-                    ? Styles.overflow__auto
-                    : Styles.overflow
-                }`}
-              >
-                <li>{formik.errors.country}</li>
-              </div>
-            </ul>
-          </div>
-
-          <div className={Styles.support__form__item__input}>
-            <ul
-              className={`${
-                formik.errors?.city && formik.touched?.city
-                  ? Styles.support__form__item__input_error
-                  : Styles.support__form__item__input
-              }`}
-            >
-              <Input
-                name={"city"}
-                title={"Город *"}
-                id={"city_id"}
-                className={Styles.input__item}
-                onChange={(e) => {
-                  formik.setFieldValue("city", e.target.value);
-                }}
-                onBlur={formik.handleBlur}
-                value={formik.values.city}
-              />
-              <div
-                className={`${
-                  formik.errors?.city && formik.touched?.city
-                    ? Styles.overflow__auto
-                    : Styles.overflow
-                }`}
-              >
-                <li>{formik.errors.city}</li>
-              </div>
-            </ul>
-          </div>
-        </div>
-        <div className={Styles.support__form__items__input}>
           <ul
             className={`${
               formik.errors?.order && formik.touched?.order
@@ -397,10 +312,37 @@ const SupportForm = () => {
             </div>
           </ul>
         </div>
+        <div className={Styles.support__form__items__select__company}>
+          <ul
+            className={`${
+              formik.errors?.service && formik.touched?.service
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
+            }`}
+          >
+            <SelectContainer
+              instanceId={"Select_support"}
+              optionsData={dataSupportSubjectSelect}
+              name={"service"}
+              placeholder={"ИНН компании"}
+              onChange={(e) => {
+                formik.setFieldValue("service", e?.value ? e?.value : "");
+              }}
+            />
+            <div
+              className={`${
+                formik.errors?.service && formik.touched?.service
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors.service}</li>
+            </div>
+          </ul>
+        </div>
         <div className={Styles.support__form__items__textarea}>
           <TextareaContainer children={"Ваше сообщение"} />
         </div>
-
         <div className={Styles.support__form__added__file}>
           <Input
             name={"files[]"}
