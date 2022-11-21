@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Styles from "./Support.module.scss";
@@ -22,10 +22,8 @@ const SupportForm = () => {
       lastName: "",
       email: "",
       phone: "",
-      company: "",
+      company_inn: "",
       service: "",
-      city: "",
-      country: "",
       order: "",
       post: "",
       forgot: false,
@@ -48,7 +46,7 @@ const SupportForm = () => {
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
         .required("Заполните телефон!"),
-      company: Yup.string()
+      company_inn: Yup.string()
         .max(10, "Максимум 10 символов!")
         .required("Укажите ИНН компании!"),
       order: Yup.string().max(10, "Максимум 10 символов!"),
@@ -58,8 +56,6 @@ const SupportForm = () => {
         .max(50, "Максимум 50 символов!")
         .required("Обязательно для заполнения!"),
       service: Yup.string().required("Обязательно для заполнения!"),
-      city: Yup.string().required("Заполните город"),
-      country: Yup.string().required("Заполните страну"),
     }),
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
@@ -315,20 +311,21 @@ const SupportForm = () => {
             <SelectContainer
               instanceId={"Select_support"}
               optionsData={dataSupportSubjectSelect}
-              name={"service"}
+              name={"company_inn"}
               placeholder={"ИНН компании"}
+              type={"company_inn"}
               onChange={(e) => {
-                formik.setFieldValue("service", e?.value ? e?.value : "");
+                formik.setFieldValue("company_inn", e?.value ? e?.value : "");
               }}
             />
             <div
               className={`${
-                formik.errors?.service && formik.touched?.service
+                formik.errors?.company_inn && formik.touched?.company_inn
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <li>{formik.errors.service}</li>
+              <li>{formik.errors.company_inn}</li>
             </div>
           </ul>
         </div>
