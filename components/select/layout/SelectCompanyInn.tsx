@@ -1,4 +1,3 @@
-import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import Styles from "../Select.module.scss";
 import { FC } from "react";
@@ -27,12 +26,44 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
     if (inputValue.length > 3) {
       daData().then((data) => {
         console.log("data", data);
+
+        data.suggestions.map((item: IOptionItem[]) => {
+          console.log(item);
+        });
+
+        callback(
+          data.suggestions.map(
+            (item: {
+              data: { inn: any; address: { unrestricted_value: any } };
+              value: any;
+            }) => {
+              return {
+                value: item.data.inn,
+                labal: item.value,
+                code: item.data.address.unrestricted_value,
+              };
+            }
+          )
+        );
       });
     }
   };
 
   return (
     <AsyncSelect
+      styles={{
+        control: (baseStyles, state) => ({
+          ...baseStyles,
+          borderColor: state.isFocused ? "grey" : "red",
+        }),
+        option: (styles) => {
+          return {
+            ...styles,
+            backgroundColor: "red",
+            color: "black",
+          };
+        },
+      }}
       instanceId={instanceId}
       name={name}
       closeMenuOnSelect={closeMenuOnSelect}
