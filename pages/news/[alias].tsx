@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
-import { NewsData } from "features/news/mockData";
 import { NewsPage } from "features/news";
 import { GetStaticPaths } from "next";
 import { fetchMenu } from "store/slice/MenuSlice";
@@ -22,13 +21,9 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
 
-    const mockData = NewsData.filter((item) => {
-      return item.Alias === params.alias && item;
-    });
-
     return {
       props: {
-        newsData: mockData,
+        newsData: [],
       },
       revalidate: 10,
     };

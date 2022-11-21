@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import Styles from "./Support.module.scss";
 import { Input } from "../../../components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
@@ -8,15 +7,18 @@ import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
-import { useGetDaData } from "service/getDaData";
+import { ValidationShema } from "./ValidationShema";
+import { fieldsData } from "features/contacts/tab_support/FieldsData";
+
+type ResultType = {
+  [key: string]: any;
+};
 
 const SupportForm: FC = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectedFilesName, setSelectedFilesName] = useState<[]>([]);
-  const { daData } = useGetDaData();
 
-  // Валидация формы
-  const formik = useFormik({
+  const formik: ResultType = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -28,74 +30,35 @@ const SupportForm: FC = () => {
       post: "",
       forgot: false,
     },
-    validationSchema: Yup.object({
-      firstName: Yup.string()
-        .min(2, "Минимум 2 символа!")
-        .max(50, "Максимум 50 символов!")
-        .required("Заполните Ваше Имя!"),
-      lastName: Yup.string()
-        .min(2, "Минимум 2 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Заполните Вашу фамилию!"),
-      email: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .email("Неверный email!")
-        .required("Заполните Email!"),
-      phone: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Заполните телефон!"),
-      company_inn: Yup.string()
-        .max(10, "Максимум 10 символов!")
-        .required("Укажите ИНН компании!"),
-      order: Yup.string().max(10, "Максимум 10 символов!"),
-      /*.required("Укажите номер заказа!"),*/
-      post: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      service: Yup.string().required("Обязательно для заполнения!"),
-    }),
+    validationSchema: ValidationShema(),
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
 
-  const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
-    const alhpabet = /[^а-яёa-z,]/iu;
-    const target = e.target.value;
-    formik.setFieldValue("firstName", target.replace(alhpabet, ""));
-  };
-  const handleOnChangeLastName = (e: ChangeEvent<HTMLInputElement>) => {
-    const alhpabet = /[^а-яёa-z,]/iu;
-    const target = e.target.value;
-    formik.setFieldValue("lastName", target.replace(alhpabet, ""));
-  };
-  const handleOnChangeTel = (e: ChangeEvent<HTMLInputElement>) => {
-    const numb = /[^0-9-+]/g;
-    const target = e.target.value.replace(numb, "");
+  const handleFilterOnChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    filter: RegExp,
+    field = "",
+    size: number = 0
+  ) => {
+    const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
-      "phone",
-      target.length > 20 ? target.substring(0, 20) : target
-    );
-  };
-  const handleOnChangeOrder = (e: ChangeEvent<HTMLInputElement>) => {
-    const numb = /[^0-9]/g;
-    const target = e.target.value.replace(numb, "");
-    formik.setFieldValue(
-      "order",
-      target.length > 10 ? target.substring(0, 10) : target
+      field,
+      size > 0
+        ? target.length > size
+          ? target.substring(0, size)
+          : target
+        : target
     );
   };
   const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFiles([{ ...e.target.files }]);
   };
-
   useEffect(() => {
     selectedFiles.length > 0 &&
       Object?.entries(selectedFiles[0]).forEach((key, val) => {
-        return key;
+        return { key, val };
       });
   }, [selectedFiles]);
 
@@ -133,61 +96,69 @@ const SupportForm: FC = () => {
             </div>
           </ul>
         </div>
-        <div className={Styles.support__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.firstName && formik.touched?.firstName
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"firstName"}
-              id={"firstName_id"}
-              title={"Имя *"}
-              type={"text"}
-              className={Styles.input__item}
-              onChange={(e) => handleOnChangeFirstName(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.firstName}
-            />
-            <div
-              className={`${
-                formik.errors?.firstName && formik.touched?.firstName
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.firstName}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.lastName && formik.touched?.lastName
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"lastName"}
-              id={"lastName_id"}
-              title={"Фамилия *"}
-              className={Styles.input__item}
-              onChange={(e) => handleOnChangeLastName(e)}
-              onBlur={formik.handleBlur}
-              value={formik.values.lastName}
-            />
-            <div
-              className={`${
-                formik.errors?.lastName && formik.touched?.lastName
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.lastName}</li>
-            </div>
-          </ul>
-        </div>
+        {/*
+                <div className={Styles.support__form__items__input}>
+                    <ul
+                        className={`${
+                            formik.errors?.firstName && formik.touched?.firstName
+                                ? Styles.support__form__item__input_error
+                                : Styles.support__form__item__input
+                        }`}
+                    >
+                        <Input
+                            name={"firstName"}
+                            id={"firstName_id"}
+                            title={"Имя *"}
+                            type={"text"}
+                            className={Styles.input__item}
+                            onChange={(e) => handleFilterOnChange(e, /[^а-яёa-z,]/iu, "firstName")}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.firstName}
+                        />
+                        <div
+                            className={`${
+                                formik.errors?.firstName && formik.touched?.firstName
+                                    ? Styles.overflow__auto
+                                    : Styles.overflow
+                            }`}
+                        >
+                            <li>{formik.errors.firstName}</li>
+                        </div>
+                    </ul>
+                    <ul
+                        className={`${
+                            formik.errors?.lastName && formik.touched?.lastName
+                                ? Styles.support__form__item__input_error
+                                : Styles.support__form__item__input
+                        }`}
+                    >
+                        <Input
+                            name={"lastName"}
+                            id={"lastName_id"}
+                            title={"Фамилия *"}
+                            className={Styles.input__item}
+                            onChange={(e) => handleFilterOnChange(e, /[^а-яёa-z,]/iu, "lastName")}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.lastName}
+                        />
+                        <div
+                            className={`${
+                                formik.errors?.lastName && formik.touched?.lastName
+                                    ? Styles.overflow__auto
+                                    : Styles.overflow
+                            }`}
+                        >
+                            <li>{formik.errors.lastName}</li>
+                        </div>
+                    </ul>
+                </div>
+*/}
+
+        {fieldsData.length > 0 &&
+          fieldsData.map((item) => {
+            return <></>;
+          })}
+
         <div className={Styles.support__form__items__input}>
           <ul
             className={`${
@@ -227,7 +198,9 @@ const SupportForm: FC = () => {
               title={"Телефон *"}
               id={"phone_id"}
               className={Styles.input__item}
-              onChange={(e) => handleOnChangeTel(e)}
+              onChange={(e) =>
+                handleFilterOnChange(e, /[^0-9-+]/g, "phone", 20)
+              }
               onBlur={formik.handleBlur}
               value={formik.values.phone}
             />
@@ -281,7 +254,7 @@ const SupportForm: FC = () => {
               title={"Номер заказа"}
               id={"order_id"}
               className={Styles.input__item}
-              onChange={(e) => handleOnChangeOrder(e)}
+              onChange={(e) => handleFilterOnChange(e, /[^0-9]/g, "order", 10)}
               onBlur={formik.handleBlur}
               value={formik.values.order}
             />
@@ -308,7 +281,7 @@ const SupportForm: FC = () => {
               instanceId={"Select_support"}
               optionsData={dataSupportSubjectSelect}
               name={"company_inn"}
-              placeholder={"ИНН компании"}
+              placeholder={"Название компании или ИНН"}
               type={"company_inn"}
               onChange={(e) => {
                 formik.setFieldValue("company_inn", e?.value ? e?.value : "");

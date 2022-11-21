@@ -13,7 +13,6 @@ const useHttp = () => {
         "Content-Type": "application/json;charset=utf-8",
       }
     ) => {
-      console.log("111", body, headers);
       setLoading(true);
       try {
         const response = await fetch(url, { method, body, headers });

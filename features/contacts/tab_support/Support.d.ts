@@ -4,5 +4,11 @@ interface ISupport {
   subtitle?: string;
   description?: string;
 }
-
-export { ISupport };
+interface IFieldData {
+  name: string;
+  title: string;
+  filter: RegExp;
+  size: number;
+  separator: boolean;
+}
+export { ISupport, IFieldData };
