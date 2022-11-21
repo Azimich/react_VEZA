@@ -49,17 +49,6 @@ const SupportContainer = () => {
         }
       />
       <SupportForm />
-
-      {/* <div className={Styles.support__phone}>
-        <a href={"tel:" + process.env.NEXT_PUBLIC_PHONE}>
-          <PhoneFooterIcon />
-          {process.env.NEXT_PUBLIC_PHONE}
-        </a>
-        <a href={"mailto:" + process.env.NEXT_PUBLIC_EMAIL}>
-          <EmailIcon />
-          msk@veza.ru
-        </a>
-      </div> */}
       <div className={Styles.separator__container__title}>
         <Separator title={"Наши телеграм каналы"} />
       </div>
