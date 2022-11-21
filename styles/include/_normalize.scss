@@ -10,6 +10,15 @@ html {
   scroll-behavior: smooth;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+main {
+  flex: 1 1 auto;
 }
 
 ul {

@@ -105,7 +105,7 @@ const SupportForm = () => {
     console.log("selectedFiles", selectedFiles);
 
     selectedFiles.map((e) => {
-      console.log("eee", e.name);
+      console.log("eee", e);
       return e;
     });
   }, [selectedFiles]);
