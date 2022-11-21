@@ -27,7 +27,6 @@ const HomeContainer: FC = () => {
         items={sliderData.items}
         theme={"home"}
       />
-
       <div className={Styles.separator__title__container}>
         <Separator title={"О нас"} />
       </div>

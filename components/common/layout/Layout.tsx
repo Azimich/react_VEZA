@@ -26,11 +26,10 @@ const Layout: FC = ({ children }) => (
             <Box_icon_social_container />
           </div>
         </Container>
-
-        <footer>
-          <FooterContainer />
-        </footer>
       </main>
+      <footer>
+        <FooterContainer />
+      </footer>
     </div>
   </>
 );
