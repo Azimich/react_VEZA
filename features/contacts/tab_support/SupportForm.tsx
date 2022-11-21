@@ -11,7 +11,7 @@ import { dataSupportSubjectSelect } from "./mockData";
 
 const SupportForm = () => {
   const [selectedFiles, setSelectedFiles] = useState([{}]);
-
+  const [selectedFilesName, setSelectedFilesName] = useState<string>("");
   // Валидация формы
   const formik = useFormik({
     initialValues: {
@@ -103,12 +103,12 @@ const SupportForm = () => {
 
   useEffect(() => {
     console.log("selectedFiles", selectedFiles);
+
     selectedFiles.map((e) => {
-      console.log("eee");
+      console.log("eee", e);
       return e;
     });
   }, [selectedFiles]);
-
   return (
     <div className={Styles.support__form}>
       <form
