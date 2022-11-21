@@ -52,7 +52,7 @@ const SupportForm = () => {
         .max(10, "Максимум 10 символов!")
         .required("Укажите ИНН компании!"),
       order: Yup.string().max(10, "Максимум 10 символов!"),
-      /*        .required("Укажите номер заказа!"),*/
+      /*.required("Укажите номер заказа!"),*/
       post: Yup.string()
         .min(6, "Минимум 6 символов!")
         .max(50, "Максимум 50 символов!")
@@ -75,14 +75,6 @@ const SupportForm = () => {
     const alhpabet = /[^а-яёa-z,]/iu;
     const target = e.target.value;
     formik.setFieldValue("lastName", target.replace(alhpabet, ""));
-  };
-  const handleOnChangeCompany = (e: ChangeEvent<HTMLInputElement>) => {
-    const numb = /[^0-9]/g;
-    const target = e.target.value.replace(numb, "");
-    formik.setFieldValue(
-      "company",
-      target.length > 10 ? target.substring(0, 10) : target
-    );
   };
   const handleOnChangeTel = (e: ChangeEvent<HTMLInputElement>) => {
     const numb = /[^0-9-+]/g;
