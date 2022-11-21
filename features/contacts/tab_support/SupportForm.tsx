@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Styles from "./Support.module.scss";
@@ -10,9 +10,9 @@ import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
 import { useGetDaData } from "service/getDaData";
 
-const SupportForm = () => {
-  const [selectedFiles, setSelectedFiles] = useState([{}]);
-  const [selectedFilesName, setSelectedFilesName] = useState<string>("");
+const SupportForm: FC = () => {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedFilesName, setSelectedFilesName] = useState<[]>([]);
   const { daData } = useGetDaData();
 
   // Валидация формы
@@ -89,18 +89,14 @@ const SupportForm = () => {
     );
   };
   const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFiles([...e.target.files]);
+    setSelectedFiles([{ ...e.target.files }]);
   };
 
   useEffect(() => {
-    console.log("selectedFiles", selectedFiles);
-
-    selectedFiles.map((e) => {
-      console.log("eee", e);
-      return e;
-    });
-
-    console.log("dadata", daData());
+    selectedFiles.length > 0 &&
+      Object?.entries(selectedFiles[0]).forEach((key, val) => {
+        return key;
+      });
   }, [selectedFiles]);
 
   return (
@@ -334,7 +330,7 @@ const SupportForm = () => {
         </div>
         <div className={Styles.support__form__added__file}>
           <Input
-            name={"files[]"}
+            name={"files"}
             title={"Прикрепить"}
             type={"file"}
             id={"files_id"}
