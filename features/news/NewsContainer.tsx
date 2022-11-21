@@ -1,18 +1,19 @@
 import { Container } from "components/common/container";
-import { INewsData } from "./News";
-import { FC, useEffect } from "react";
+import { INewDataItem, INewsData } from "./News";
+import { FC, useEffect, useState } from "react";
 import { Pagination } from "components/pagination/Pagination";
-import { useGetListNews } from "service/getListNews";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";
+import { NewsWithItem } from "features/news/NewsWithItem";
+import Styles from "./News.module.scss";
 
-const NewsContainer: FC<{ props: INewsData }> = () => {
-  const listNewsFunc = useGetListNews();
+const NewsContainer: FC<INewsData> = ({ news }) => {
+  const [newsWithDesc, setNewsWithDesc] = useState<INewDataItem[]>();
+  const [newsWithOutDesc, setNewsWithOutDesc] = useState<INewDataItem[]>();
+  console.log("news", news);
   useEffect(() => {
-    const { listNewsData, loading, error } = listNewsFunc;
-    listNewsData().then((e) => {
-      console.log("FRONT API", e, loading, error);
-    });
+    setNewsWithDesc(news.newsItem.Response.slice(0, 4));
+    setNewsWithOutDesc(news.newsItem.Response.slice(4));
   }, []);
 
   return (
@@ -20,14 +21,16 @@ const NewsContainer: FC<{ props: INewsData }> = () => {
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
 
-        {/* {newsWithDesc.map((e) => {
-          return <NewsWithItem {...e} key={e.newsItem} />;
-        })}
-        <ul className={Styles.new_with_out_container}>
-          {newsWithOutDesc.map((e) => {
-            return <NewsWithOutItem {...e} key={e.id} />;
+        {newsWithDesc &&
+          newsWithDesc.map((e) => {
+            return <NewsWithItem {...e} key={e.NewsId} />;
           })}
-        </ul>*/}
+        <ul className={Styles.new_with_out_container}>
+          {newsWithOutDesc &&
+            newsWithOutDesc.map((e) => {
+              return <NewsWithItem {...e} key={e.NewsId} />;
+            })}
+        </ul>
         <Pagination currentPage={1} totalPageCount={5} pageSize={3} />
       </Container>
     </>

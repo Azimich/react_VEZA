@@ -10,7 +10,6 @@ const LayoutInputFile: FC<IInput> = ({
   onBlur,
   multi = true,
   id = "",
-  ref,
   onKeyUp,
   type = "text",
   name = "",
@@ -26,7 +25,6 @@ const LayoutInputFile: FC<IInput> = ({
         {title}
         <input
           type={type}
-          ref={ref}
           onChange={onChange}
           onBlur={onBlur}
           multiple={multi}
