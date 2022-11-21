@@ -8,6 +8,24 @@
   }
 }
 
+.separator__title__bottom {
+  margin: 100px 0 0 0;
+  @include ipadScreen {
+    margin-top: 8%;
+    h2 {
+      line-height: 145%;
+      font-size: 25px;
+    }
+  }
+  @include phoneScreen {
+    margin-top: 8%;
+    h2 {
+      line-height: 145%;
+      font-size: 25px;
+    }
+  }
+}
+
 .about {
   &__container {
     width: 100%;
