@@ -14,12 +14,16 @@ cache:
 npm_install:
   script:
     - npm install
-    
-test_lint:
-  script:
-    - npm run lint
 
 project_build:
   script:
     -npm run build
+
+test_lint:
+  script:
+    - npm run lint
+
+unit_test:
+  script:
+    - npm run test
 
