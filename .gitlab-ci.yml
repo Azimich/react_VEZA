@@ -31,4 +31,5 @@ unit_test:
 deploy:
   script:
     - git remote add prod 213.139.210.18/veza/front
+    - git remote -v
 
