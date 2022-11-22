@@ -35,5 +35,7 @@ deploy:
     - git branch
     - git config pull.rebase true
     - git pull origin master
+    - git fetch prod
+    - git remote show prod
 
 
