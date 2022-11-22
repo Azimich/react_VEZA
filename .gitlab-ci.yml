@@ -15,6 +15,6 @@ cache:
 test_async:
   script:
     - npm install
-    - npm lint
+    - npm run lint
 
 
