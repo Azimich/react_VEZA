@@ -35,7 +35,8 @@ deploy:
     - git branch
     - git config pull.rebase true
     - git pull origin master
-    - git fetch prod
-    - git remote show prod
+    - git remote add pb ssh://root:pJ6gVGu^S(a2@213.139.210.18:/root/veza/front/.git
+    - git remote -v
+
 
 
