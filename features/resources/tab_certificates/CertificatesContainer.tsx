@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-
-import { ITab } from "components/tabs/Tabs";
-import { resourcesPath } from "utils/bootstrap";
 import { Container } from "components/common/container";
 import Styles from "./Certificates.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { CertificateItem } from "./CertificateItem";
-import { SertificatesData } from "features/typo_size/sertificates/mockData";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
-import { sertificatesData } from "../mockData";
+import { certificatesData as certificatesData } from "../mockData";
+import { handleOnClickTabs } from "../helper";
+import { useRouter } from "next/router";
 
 const CertificatesContainer = () => {
   const router = useRouter();
@@ -22,10 +19,6 @@ const CertificatesContainer = () => {
     setBreadCrumbs([...breadCrumbs, { title: "Сертификаты" }]);
   }, [dataBreadResources]);
 
-  const handleOnClickTabs = (e: ITab) => {
-    router.push(resourcesPath + e.url);
-  };
-
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -34,14 +27,14 @@ const CertificatesContainer = () => {
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
-            handleOnClickTabs(e);
+            handleOnClickTabs(e, router);
           }}
           activeTab={4}
           size={"max"}
         />
       </div>
       <div className={Styles.certificates__items}>
-        {sertificatesData
+        {certificatesData
           .filter((parents) => parents.parent === 0)
           .map((item) => (
             <CertificateItem key={item.id} {...item} />

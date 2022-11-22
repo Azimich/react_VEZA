@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import { ITab } from "components/tabs/Tabs";
-import { resourcesPath } from "utils/bootstrap";
 import { Container } from "components/common/container";
 import Styles from "./Training.module.scss";
 import { Tabs } from "components/tabs";
@@ -9,6 +6,8 @@ import { TraningItem } from "./TraningItem";
 import React, { useEffect, useState } from "react";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { handleOnClickTabs } from "../helper";
+import { useRouter } from "next/router";
 
 const TrainingContainer = () => {
   const router = useRouter();
@@ -19,9 +18,6 @@ const TrainingContainer = () => {
     setBreadCrumbs([...breadCrumbs, { title: "BIM" }]);
   }, [dataBreadResources]);
 
-  const handleOnClickTabs = (e: ITab) => {
-    router.push(resourcesPath + e.url);
-  };
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -29,7 +25,7 @@ const TrainingContainer = () => {
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
-            handleOnClickTabs(e);
+            handleOnClickTabs(e, router);
           }}
           activeTab={6}
           size={"max"}

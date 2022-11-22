@@ -1,12 +1,8 @@
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-
 import { Container } from "components/common/container";
 import Styles from "./Bim.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
-import { ITab } from "components/tabs/Tabs";
-import { resourcesPath } from "utils/bootstrap";
 import { BimItem } from "./";
 import { bimData } from "../mockData";
 import { Button } from "components/button";
@@ -14,14 +10,13 @@ import { Modal, useModal } from "components/modal";
 import { ModalBim } from "./bimModal/ModalBim";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
+import { handleOnClickTabs } from "../helper";
+import { useRouter } from "next/router";
 
 const BimContainer = () => {
+  const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
-  const router = useRouter();
-  const handleOnClickTabs = (e: ITab) => {
-    router.push(resourcesPath + e.url);
-  };
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "BIM" }]);
@@ -36,7 +31,7 @@ const BimContainer = () => {
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
-            handleOnClickTabs(e);
+            handleOnClickTabs(e, router);
           }}
           activeTab={1}
           size={"max"}
