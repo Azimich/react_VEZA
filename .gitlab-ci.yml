@@ -17,7 +17,7 @@ npm_install:
 
 project_build:
   script:
-    -npm run build
+    - npm run build
 
 test_lint:
   script:
