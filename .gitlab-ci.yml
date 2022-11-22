@@ -32,7 +32,7 @@ deploy:
   script:
     - git remote -v
     - git branch
-    - git push -u prod master
-    - git remote add veza 213.139.210.18/veza/front
+    - git init 
+    - git pull origin master
 
 
