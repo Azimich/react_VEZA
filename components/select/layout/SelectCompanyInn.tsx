@@ -24,22 +24,16 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
     callback: (options: IOptionItem[]) => void
   ) => {
     if (inputValue.length > 3) {
-      daData().then((data) => {
-        console.log("data", data);
-
-        data.suggestions.map((item: IOptionItem[]) => {
-          console.log(item);
-        });
-
+      daData(inputValue).then((data) => {
         callback(
           data.suggestions.map(
             (item: {
-              data: { inn: any; address: { unrestricted_value: any } };
-              value: any;
+              data: { inn: string; address: { unrestricted_value: string } };
+              value: string;
             }) => {
               return {
                 value: item.data.inn,
-                labal: item.value,
+                label: item.data.inn + " " + item.value,
                 code: item.data.address.unrestricted_value,
               };
             }
@@ -51,11 +45,13 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
 
   return (
     <AsyncSelect
-      styles={{
-        control: (baseStyles, state) => ({
+      styles={
+        {
+          /*        control: (baseStyles, state) => ({
           ...baseStyles,
           borderColor: state.isFocused ? "grey" : "red",
         }),
+
         option: (styles) => {
           return {
             ...styles,
@@ -63,7 +59,9 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
             color: "black",
           };
         },
-      }}
+*/
+        }
+      }
       instanceId={instanceId}
       name={name}
       closeMenuOnSelect={closeMenuOnSelect}
@@ -77,6 +75,9 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
       placeholder={placeholder}
       onChange={(e) => onChange(e)}
       loadOptions={handleLoadOptions}
+      noOptionsMessage={() => {
+        return "Введите ИНН или название организации";
+      }}
     />
   );
 };

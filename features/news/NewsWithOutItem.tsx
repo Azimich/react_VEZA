@@ -1,19 +1,20 @@
 import { FC } from "react";
 import { INewDataItem } from "./News";
-import Styles from "./News.module.scss";
-import { newsPath } from "../../utils/bootstrap";
-import { ArrowRightIcon, ReactAngleIcon } from "../../components/icons";
-import { Button } from "../../components/button";
-import { Link } from "../../components/link";
+/*import Styles from "./News.module.scss";
+import { newsPath } from "utils/bootstrap";
+import { ArrowRightIcon, ReactAngleIcon } from "components/icons";
+import { Button } from "components/button";
+import { Link } from "components/link";*/
 
 const NewsWithOutItem: FC<INewDataItem> = ({
-  news_name,
+  NewsName,
+  /*  news_name,
   image_category,
-  alias,
+  alias,*/
 }) => {
   return (
     <li>
-      <div className={Styles.new_with_out_container_item}>
+      {/*      <div className={Styles.new_with_out_container_item}>
         <img src={image_category} alt={news_name} />
         <div className={Styles.new_with_out_container_item_desc}>
           <Link url={newsPath + alias}>{news_name}</Link>
@@ -32,7 +33,7 @@ const NewsWithOutItem: FC<INewDataItem> = ({
             <ArrowRightIcon />
           </span>
         </Button>
-      </div>
+      </div>*/}
     </li>
   );
 };

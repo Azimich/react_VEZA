@@ -1,20 +1,23 @@
 import React from "react";
 import { FC } from "react";
 import { INewDataItem } from "../News";
-import Styles from "./NewsPageItem.module.scss";
+/*import Styles from "./NewsPageItem.module.scss";
 import { EyeIcon } from "components/icons";
-import { SliderContainer } from "../../../components/slider";
+import { SliderContainer } from "components/slider";*/
 
 const NewsPageItem: FC<INewDataItem> = ({
-  news_name,
+  NewsName,
+  /*  news_name,
   description_first,
   image_category,
   statistics,
   title,
   keyword,
-  items,
+  items,*/
 }) => {
   return (
+    <></>
+    /*
     <div className={Styles.news__active}>
       <div className={Styles.news__active__container}>
         <div className={Styles.news__active__img}>
@@ -58,6 +61,7 @@ const NewsPageItem: FC<INewDataItem> = ({
         />
       </div>
     </div>
+*/
   );
 };
 
