@@ -14,6 +14,9 @@ const InteractionItem: FC<Interaction> = (props) => {
           Логистика:<span>Тел: {props.logistic_tel}</span>
         </p>
         <p>
+          Секретарь:<span>Тел: {props.secretary_tel}</span>
+        </p>
+        <p>
           Почта:<span>{props.email}</span>
         </p>
         <p>

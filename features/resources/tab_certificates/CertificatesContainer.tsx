@@ -16,7 +16,7 @@ const CertificatesContainer = () => {
     useState<IBreadCrumbs[]>(dataBreadResources);
 
   useEffect(() => {
-    setBreadCrumbs([...breadCrumbs, { title: "Сертификаты" }]);
+    setBreadCrumbs([...breadCrumbs, { title: "Категория сертификатов" }]);
   }, [dataBreadResources]);
 
   return (

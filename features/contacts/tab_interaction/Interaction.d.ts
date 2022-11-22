@@ -3,6 +3,7 @@ interface Interaction {
   title: string;
   service_tel: string;
   logistic_tel: string;
+  secretary_tel?: string;
   address: string;
   email: string;
   type: "sales" | "factory";
