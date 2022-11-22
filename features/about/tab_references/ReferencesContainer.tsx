@@ -12,11 +12,13 @@ import { IObject, IObjectItem } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
 import { ObjectItem } from "../ObjectItem";
 import { ReferenceIcon } from "components/icons";
-import { ModalFormFactory } from "../tab_who_we/ModalFormFactory";
 import { referenceObject } from "./mockData";
 import { SideBar } from "components/map/SideBar";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
+import { ReferencesModal } from "./referencesModal/ReferencesModal";
+import IModalReferencesData from "./referencesModal/ReferencesModal.d";
+import { modalReferencesData } from "./referencesModal/MockData";
 
 const ReferencesContainer: FC = () => {
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
@@ -26,7 +28,8 @@ const ReferencesContainer: FC = () => {
   );
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
-  const [contentForm, setContentForm] = useState<IObjectItem>();
+  const [contentReferencesModal, setcontentReferencesModal] =
+    useState<IModalReferencesData>();
   const { isShow, toggle } = useModal();
   const router = useRouter();
   const [data, setData] = useState<{ slug: string; activeTab: number }>({
@@ -86,7 +89,7 @@ const ReferencesContainer: FC = () => {
 
   const handleOnClickModal = (e: IObjectItem, alias: string) => {
     e.alias = alias;
-    setContentForm(e);
+    setcontentReferencesModal(e);
     toggle();
   };
 
@@ -128,7 +131,9 @@ const ReferencesContainer: FC = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
-        modalContent={<ModalFormFactory {...contentForm} />}
+        modalContent={modalReferencesData.map((items) => (
+          <ReferencesModal {...items} />
+        ))}
         theme={"modal"}
         bgModal={"black"}
       ></Modal>

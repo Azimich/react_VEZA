@@ -2,10 +2,10 @@ import { referenceData } from "./mockData";
 import Styles from "./References.module.scss";
 import { ReferencesItem } from "./ReferencesItem";
 import React, { FC, useState } from "react";
-import { Modal, useModal } from "../../../components/modal";
+import { Modal, useModal } from "components/modal";
 import { IReferencesImages } from "./References";
-import { SliderContainer } from "../../../components/slider";
-import { ISlideItem } from "../../../components/slider/Slider.d";
+import { SliderContainer } from "components/slider";
+import { ISlideItem } from "components/slider/Slider.d";
 
 const CommercialContainer: FC = () => {
   const { isShow, toggle } = useModal();
