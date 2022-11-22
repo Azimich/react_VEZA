@@ -14,8 +14,6 @@ cache:
 
 test_async:
   script:
-    name: start testing
-        - npm install
-        - npm lint
-        - npm build
+    - npm install
+
 
