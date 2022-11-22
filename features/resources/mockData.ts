@@ -472,4 +472,9 @@ const questionsData: IQuestions[] = [
   },
 ];
 
-export { bimData, catalogData, sertificatesData, questionsData };
+export {
+  bimData,
+  catalogData,
+  sertificatesData as certificatesData,
+  questionsData,
+};

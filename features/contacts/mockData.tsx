@@ -31,12 +31,12 @@ const tabsContactsData: ITab[] = [
 ];
 
 const tabsResourcesData: ITab[] = [
-  { id: 1, title: "BIM", url: "bim" },
-  { id: 2, title: "Каталоги", url: "catalog" },
-  { id: 3, title: "Вопросы", url: "questions" },
-  { id: 4, title: "Серетификаты", url: "certificates" },
-  { id: 5, title: "Документация", url: "doc" },
-  { id: 6, title: "Обучение", url: "training" },
+  { id: 1, title: "BIM", url: "bim", access: false },
+  { id: 2, title: "Каталоги", url: "catalog", access: false },
+  { id: 3, title: "Вопросы", url: "questions", access: false },
+  { id: 4, title: "Серетификаты", url: "certificates", access: false },
+  { id: 5, title: "Документация", url: "doc", access: true },
+  { id: 6, title: "Обучение", url: "training", access: true },
 ];
 
 const tabsTypoSizeData: ITab[] = [

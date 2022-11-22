@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import { ITab } from "components/tabs/Tabs";
-import { resourcesPath } from "utils/bootstrap";
 import { Container } from "components/common/container";
 import Styles from "./Catalog.module.scss";
 import { Tabs } from "components/tabs";
@@ -13,6 +10,8 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { ICatalog } from "../tab_bim/Bim";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { handleOnClickTabs } from "../helper";
+import { useRouter } from "next/router";
 
 const CatalogContainer = () => {
   const router = useRouter();
@@ -38,10 +37,6 @@ const CatalogContainer = () => {
     );
   }, [inputValue]);
 
-  const handleOnClickTabs = (e: ITab) => {
-    router.push(resourcesPath + e.url);
-  };
-
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -49,7 +44,7 @@ const CatalogContainer = () => {
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
-            handleOnClickTabs(e);
+            handleOnClickTabs(e, router);
           }}
           activeTab={2}
           size={"max"}

@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import { ITab } from "components/tabs/Tabs";
-import { resourcesPath } from "utils/bootstrap";
 import { Container } from "components/common/container";
 import Styles from "./Doc.module.scss";
 import { Tabs } from "components/tabs";
@@ -9,6 +6,8 @@ import { DocItem } from "./DocItem";
 import React, { useEffect, useState } from "react";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { handleOnClickTabs } from "../helper";
+import { useRouter } from "next/router";
 
 const DocContainer = () => {
   const router = useRouter();
@@ -19,9 +18,6 @@ const DocContainer = () => {
     setBreadCrumbs([...breadCrumbs, { title: "BIM" }]);
   }, [dataBreadResources]);
 
-  const handleOnClickTabs = (e: ITab) => {
-    router.push(resourcesPath + e.url);
-  };
   return (
     <Container className={"wrapper wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -29,7 +25,7 @@ const DocContainer = () => {
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
-            handleOnClickTabs(e);
+            handleOnClickTabs(e, router);
           }}
           activeTab={5}
           size={"max"}
@@ -39,4 +35,5 @@ const DocContainer = () => {
     </Container>
   );
 };
+
 export { DocContainer };

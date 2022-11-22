@@ -9,6 +9,7 @@ interface ITab {
   content?: ReactNode;
   tabsActive?: number;
   onClick?: (e: ITab) => void;
+  access?: boolean;
 }
 
 interface ITabsProps {
@@ -18,6 +19,7 @@ interface ITabsProps {
   onClick: (e: ITab) => void;
   activeTab?: number;
   size?: "small300" | "max";
+  access?: boolean;
 }
 
 interface IComponents {

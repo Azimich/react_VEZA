@@ -1,8 +1,4 @@
-import { useRouter } from "next/router";
 import React, { FC, useEffect, useState } from "react";
-
-import { ITab } from "components/tabs/Tabs";
-import { resourcesPath } from "utils/bootstrap";
 import { Container } from "components/common/container";
 import Styles from "./Questions.module.scss";
 import { Tabs } from "components/tabs";
@@ -13,15 +9,14 @@ import { IQuestions } from "../tab_bim/Bim";
 import { Separator } from "components/separator";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { handleOnClickTabs } from "../helper";
+import { useRouter } from "next/router";
 
 const QuestionsContainer: FC<IQuestions> = () => {
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
 
-  const handleOnClickTabs = (e: ITab) => {
-    router.push(resourcesPath + e.url);
-  };
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Вопросы" }]);
   }, [dataBreadResources]);
@@ -33,7 +28,7 @@ const QuestionsContainer: FC<IQuestions> = () => {
         <Tabs
           props={tabsResourcesData}
           onClick={(e) => {
-            handleOnClickTabs(e);
+            handleOnClickTabs(e, router);
           }}
           activeTab={3}
           size={"max"}
