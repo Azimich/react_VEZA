@@ -30,5 +30,5 @@ unit_test:
 
 deploy:
   script:
-    - git remote add origin 213.139.210.18/veza/front
+    - git remote add prod 213.139.210.18/veza/front
 
