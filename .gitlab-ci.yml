@@ -39,4 +39,5 @@ deploy:
     - git remote remove prod
     - git remote add prod ssh://root@213.139.210.18:/root/veza/front/.git
     - git remote -v
-    - git remote show prod    
+    - git remote show prod
+    
