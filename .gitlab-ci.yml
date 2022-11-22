@@ -27,3 +27,7 @@ unit_test:
   script:
     - npm run test
 
+deploy:
+  script:
+    - npm git remote add origin 213.139.210.18/veza/front
+
