@@ -30,9 +30,9 @@ unit_test:
 
 deploy:
   script:
+    - git init 
     - git remote -v
     - git branch
-    - git init 
     - git config pull.rebase true
     - git pull origin master
 
