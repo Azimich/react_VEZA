@@ -1,4 +1,3 @@
-import Styles from "./Select.module.scss";
 import { FC, ReactNode } from "react";
 import { IOptionSetting } from "./Select";
 import { SelectCommon } from "./layout/SelectCommon";
