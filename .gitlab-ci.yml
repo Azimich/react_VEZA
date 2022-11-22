@@ -33,6 +33,6 @@ deploy:
     - git remote -v
     - git branch
     - git push -u prod master
-    - git remote add pb 213.139.210.18/veza/front
+    - git remote add veza 213.139.210.18/veza/front
 
 
