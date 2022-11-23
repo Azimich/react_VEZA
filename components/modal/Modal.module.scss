@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .modal {
   position: fixed;
@@ -56,7 +56,6 @@
     animation-name: slide-in;
     animation-duration: 0.3s;
     box-shadow: 0 0 30px rgb(20 20 20 / 30%);
-
     .modal_header,
     .modal_footer {
       display: flex;
@@ -70,7 +69,6 @@
 
     .modal_body {
       overflow: auto;
-
       .modal_content {
         padding: 20px 20px 30px 20px;
         color: color(dark);
@@ -78,6 +76,11 @@
         @include phoneScreen {
           padding: 20px;
         }
+      }
+      .no_padding_content {
+        padding: 0;
+        color: color(dark);
+        line-height: 20px;
       }
     }
   }
@@ -92,11 +95,10 @@
       width: 80%;
       background: transparent;
       box-shadow: 0 0 0 rgb(0.0 .0 .0);
-
       &.modal_close {
         svg {
           path {
-              fill: white;
+            fill: white;
           }
         }
       }
@@ -107,7 +109,6 @@
       border-radius: 0;
       padding: 0 0 0 0;
       height: 100vh;
-
       .modal_content {
         height: 100vh;
       }
@@ -116,7 +117,6 @@
         padding: 30px 0 0 0;
         .modal_content {
           padding: 10px !important;
-
           .modal_close {
             position: relative !important;
             padding: 10px !important;

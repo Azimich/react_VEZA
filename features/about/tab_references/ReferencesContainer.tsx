@@ -19,8 +19,12 @@ import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { ReferencesModal } from "./referencesModal/ReferencesModal";
 import IModalReferencesData from "./referencesModal/ReferencesModal.d";
 import { modalReferencesData } from "./referencesModal/MockData";
+import { ISlideItem } from "components/slider/Slider.d";
+import { SliderContainer } from "components/slider";
 
 const ReferencesContainer: FC = () => {
+  const { isShow: isShowSlider, toggle: toggleSlider } = useModal();
+  const [clickDataR, setClickDataR] = useState<ISlideItem[]>();
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
   const [sideBarData] = useState(tabsSocialData);
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
@@ -37,6 +41,12 @@ const ReferencesContainer: FC = () => {
     activeTab: 1,
   });
 
+  const handleOnClick = () => {
+    // setClickDataR(e.items);
+    // toggle();
+    console.log("нажато");
+  };
+
   const handleSideBarClick = (e: ITab) => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0
@@ -44,6 +54,7 @@ const ReferencesContainer: FC = () => {
         : [...selectedCheckBox, e]
     );
   };
+
   useEffect(() => {
     setSelectedReferenceData(
       referenceObject.filter(
@@ -131,13 +142,33 @@ const ReferencesContainer: FC = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
+        onClick={() => handleOnClick()}
         modalContent={modalReferencesData.map((items) => (
           <ReferencesModal {...items} />
         ))}
         theme={"modal"}
         bgModal={"black"}
-      ></Modal>
+        typeContent={"no_padding_content"}
+      />
+      <Modal
+        isShow={isShowSlider}
+        hide={toggle}
+        theme={"full_modal"}
+        modalContent={
+          <SliderContainer
+            items={clickDataR}
+            dots={true}
+            autoplay={false}
+            theme={"homecategory"}
+            themeButton={"industries"}
+            size={"max"}
+            effectSlide={"cards"}
+            color={"link"}
+          />
+        }
+      />
     </Container>
   );
 };
+
 export { ReferencesContainer };
