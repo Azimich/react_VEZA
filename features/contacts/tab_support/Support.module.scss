@@ -86,6 +86,38 @@
         display: none;
       }
 
+      .inputnames {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        position: absolute;
+        z-index: 100;
+
+        li {
+          padding: 5px 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          span {
+            background-color: color(bredcrumbs);
+            color: color(white);
+            margin-left: 5px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-family: cursive;
+            &:hover{
+              background-color: red;
+            }
+          }
+        }
+      }
+
       .support__form_file {
         position: absolute;
         left: 100%;
@@ -295,7 +327,8 @@
   @include phoneScreen {
     grid-template-columns: 1fr;
   }
-  .support__form{
+
+  .support__form {
     display: block;
   }
 }

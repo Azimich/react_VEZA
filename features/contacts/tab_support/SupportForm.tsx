@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import Styles from "./Support.module.scss";
 import { Input } from "../../../components/input/Index";
@@ -16,7 +16,7 @@ type ResultType = {
 
 const SupportForm: FC = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [selectedFilesName, setSelectedFilesName] = useState<[]>([]);
+  const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
 
   const formik: ResultType = useFormik({
     initialValues: {
@@ -54,15 +54,32 @@ const SupportForm: FC = () => {
   };
 
   const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFiles([{ ...e.target.files }]);
+    setSelectedFiles(Array.from(e.target.files));
   };
-  useEffect(() => {
-    selectedFiles.length > 0 &&
-      Object?.entries(selectedFiles[0]).forEach((key, val) => {
-        return { key, val };
-      });
-  }, [selectedFiles]);
+  const handleDeleteClick = (
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+    data: any
+  ) => {
+    e.preventDefault();
+    console.log("111", e);
+  };
 
+  useEffect(() => {
+    let el: ReactNode = (
+      <ul className={Styles.inputnames}>
+        {selectedFiles.length > 0 &&
+          selectedFiles.map((file) => {
+            return (
+              <li>
+                {file.name}
+                <span onClick={(e) => handleDeleteClick(e, file.name)}>x</span>
+              </li>
+            );
+          })}
+      </ul>
+    );
+    setSelectedFilesName(el);
+  }, [selectedFiles]);
   return (
     <div className={Styles.support__form}>
       <form
@@ -347,7 +364,7 @@ const SupportForm: FC = () => {
             title={"Прикрепить"}
             type={"file"}
             id={"files_id"}
-            value={""}
+            filesname={selectedFilesName}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleInputFileOnChange(e)
             }
