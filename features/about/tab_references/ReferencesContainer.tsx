@@ -21,7 +21,6 @@ import IModalReferencesData from "./referencesModal/ReferencesModal.d";
 import { modalReferencesData } from "./referencesModal/MockData";
 import { ISlideItem } from "components/slider/Slider.d";
 import { SliderContainer } from "components/slider";
-import { IReferencesImages } from "./References.d";
 
 const ReferencesContainer: FC = () => {
   const { isShow: isShowSlider, toggle: toggleSlider } = useModal();

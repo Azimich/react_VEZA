@@ -1,10 +1,7 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Styles from "./ReferencesModal.module.scss";
 import IModalReferencesData from "./ReferencesModal.d";
 import { ArrowRightIcon, LogoIcon } from "components/icons";
-import { Modal, useModal } from "components/modal";
-import { SliderContainer } from "components/slider";
-import { ISlideItem } from "components/slider/Slider.d";
 
 const ReferencesModal: FC<IModalReferencesData> = ({
   image,
