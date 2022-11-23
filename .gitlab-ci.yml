@@ -1,11 +1,9 @@
 image: node:latest
 
-services:
-  - postgres:latest
-
 cache:
   paths:
     - node_modules/
+
 npm_install:
   script:
     - npm install
