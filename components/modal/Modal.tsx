@@ -24,7 +24,6 @@ export const Modal: FC<IModalProps> = ({
             <div>{headerText}</div>
             <CloseIcon />
           </div>
-          {/* <div className={Styles.modal_content}>{modalContent}</div> */}
           <div className={`${Styles[typeContent]} ${Styles.modal_content} `}>
             {modalContent}
           </div>

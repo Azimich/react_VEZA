@@ -12,7 +12,7 @@ import { IObject, IObjectItem } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
 import { ObjectItem } from "../ObjectItem";
 import { ReferenceIcon } from "components/icons";
-import { referenceObject } from "./mockData";
+import { referenceData, referenceObject } from "./mockData";
 import { SideBar } from "components/map/SideBar";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
@@ -42,8 +42,10 @@ const ReferencesContainer: FC = () => {
   });
 
   const handleOnClick = () => {
-    // setClickDataR(e.items);
-    // toggle();
+    const rData = referenceData.filter((e) => e.type_code === "commercial");
+    setClickDataR(rData[0].items);
+    toggle();
+    toggleSlider();
     console.log("нажато");
   };
 
@@ -142,9 +144,8 @@ const ReferencesContainer: FC = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
-        onClick={() => handleOnClick()}
         modalContent={modalReferencesData.map((items) => (
-          <ReferencesModal {...items} />
+          <ReferencesModal {...items} onClick={() => handleOnClick()} />
         ))}
         theme={"modal"}
         bgModal={"black"}
@@ -152,8 +153,9 @@ const ReferencesContainer: FC = () => {
       />
       <Modal
         isShow={isShowSlider}
-        hide={toggle}
+        hide={toggleSlider}
         theme={"full_modal"}
+        bgModal={"black"}
         modalContent={
           <SliderContainer
             items={clickDataR}
