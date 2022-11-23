@@ -7,6 +7,7 @@ interface IModalReferencesData {
   production_2?: string;
   production_3?: string;
   image?: string;
+  onClick?: () => void;
 }
 
 export default IModalReferencesData;
