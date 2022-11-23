@@ -11,7 +11,7 @@ const ReferencesModal: FC<IModalReferencesData> = ({
   production_2,
   production_3,
   address,
-  onClick = () => {},
+  onClick,
 }) => {
   return (
     <div className={Styles.references__modal}>
