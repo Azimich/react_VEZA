@@ -20,7 +20,6 @@ const NewsContainer: FC<INewsData> = ({ news }) => {
     <>
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
-
         {newsWithDesc &&
           newsWithDesc.map((e) => {
             return <NewsWithItem {...e} key={e.NewsId} />;
