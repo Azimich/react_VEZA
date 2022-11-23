@@ -21,15 +21,12 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
     isTablet && setDevice("tablet");
     isDesktop && setDevice("desktop");
   }, [isMobile, isTablet, isDesktop]);
+  console.log(props);
+
   return (
     <div className={Styles[className]}>
       <div className={Styles.news__item}>
         <div className={Styles.news__item_left}>
-          <div className={Styles.news__counter_icon}>
-            <EyeIcon />
-            <img src={"/images/no-foto.jpg"} alt="" />
-            {props.Statistics.StatisticsTotal}
-          </div>
           {device === "mobile" && (
             <img src={"/images/no-foto.jpg"} alt={props.ShortDescription} />
           )}
@@ -37,12 +34,16 @@ const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
             <img src={"/images/no-foto.jpg"} alt={props.ShortDescription} />
           )}
           {device === "desktop" && (
-            <img src={"/images/no-foto,jpg"} alt={props.ShortDescription} />
+            <img src={"/images/no-foto.jpg"} alt={props.ShortDescription} />
           )}
+          <div className={Styles.news__counter_icon}>
+            <EyeIcon />
+            {props.Statistics.StatisticsTotal}
+          </div>
         </div>
         <div className={Styles.news__item_info}>
+          <h2>{props.NewsName}</h2>
           <p>{props.ShortDescription}</p>
-
           <Button
             link={newsPath + props.Alias}
             theme={"news"}

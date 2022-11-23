@@ -12,7 +12,9 @@ const NewsWithItem: FC<INewDataItem> = ({
 }) => {
   return (
     <div className={Styles.news_container_item}>
-      <img src={"/images/no-foto.jpg"} alt={NewsName} />
+      <div className={Styles.news_container_item_image}>
+        <img src={"/images/no-foto.jpg"} alt={NewsName} />
+      </div>
       <div className={Styles.news_container_item_right}>
         <div>
           <h1 className={Styles.news_container_item_right_title}>{NewsName}</h1>

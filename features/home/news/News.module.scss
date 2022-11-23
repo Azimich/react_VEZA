@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
   }
+
   @include SEScreen {
     display: flex;
     flex-direction: column;
@@ -37,6 +38,19 @@
 
 .col1 {
   grid-area: col1;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px 0 0 20px;
+  @include ipadScreen {
+    border-radius: 20px 20px 0 0;
+  }
+
+  h2 {
+    font-size: 25px;
+    color: color(white);
+    @include phoneScreen {
+      font-size: 20px;
+    }
+  }
 
   &:hover {
     button {
@@ -47,6 +61,16 @@
 
 .col2 {
   grid-area: col2;
+  border: 1px solid #f3f3f3;
+  border-radius: 0 20px 0 0;
+  h2 {
+    font-size: 25px;
+    color: color(dark);
+    @include phoneScreen {
+      font-size: 20px;
+    }
+  }
+
   &:hover {
     button {
       padding-left: 20px;
@@ -64,6 +88,14 @@
 
 .col3 {
   grid-area: col3;
+  border: 1px solid #f3f3f3;
+  h2 {
+    font-size: 25px;
+    color: color(dark);
+    @include phoneScreen {
+      font-size: 20px;
+    }
+  }
 
   &:hover {
     button {
@@ -74,6 +106,19 @@
 
 .col4 {
   grid-area: col4;
+  border: 1px solid #f3f3f3;
+  border-radius: 0 0 20px 0;
+  @include ipadScreen {
+    border-radius: 0 0 20px 20px;
+  }
+
+  h2 {
+    font-size: 25px;
+    color: color(white);
+    @include phoneScreen {
+      font-size: 20px;
+    }
+  }
 
   &:hover {
     button {
@@ -151,20 +196,17 @@
         
         @include phoneScreen {
           width: 100%;
+          box-sizing: border-box;
         }
 
         @include SEScreen {
-          padding: 0;
+          padding: 10px;
           row-gap: 0;
         }
 
         p {
           color: color(white);
           line-height: 150%;
-          @include tabletScreen {
-            padding: 10px;
-          }
-
           + button {
             span {
               color: color(white);
@@ -276,12 +318,14 @@
         flex-direction: column;
         row-gap: 20px;
         @include tabletScreen {
-          padding: 0;
+          padding: 0 0 0 10px;
           row-gap: 0;
         }
         
         @include phoneScreen {
           width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
         }
 
         p {
@@ -289,7 +333,7 @@
           line-height: 150%;
           @include tabletScreen {
             display: block;
-            padding: 10px;
+            padding: 10px 10px 10px 0;
           }
         }
 
@@ -496,7 +540,6 @@
       &_info {
         background-color: color(green);
         padding: 18px 12px;
-        height: 100%;
         border-radius: 0 0 20px 0;
         display: flex;
         flex-direction: column;
