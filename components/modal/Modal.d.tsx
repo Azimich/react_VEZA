@@ -6,5 +6,6 @@ export interface IModalProps {
   modalContent: ReactNode;
   headerText?: ReactNode | string;
   bgModal?: "black" | "white";
+  typeContent?: "content" | "no_padding_content";
   theme?: "modal" | "full_modal" | "freedom_modal" | "empty_modal";
 }

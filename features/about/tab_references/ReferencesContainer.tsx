@@ -12,15 +12,19 @@ import { IObject, IObjectItem } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
 import { ObjectItem } from "../ObjectItem";
 import { ReferenceIcon } from "components/icons";
-import { referenceObject } from "./mockData";
+import { referenceData, referenceObject } from "./mockData";
 import { SideBar } from "components/map/SideBar";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { ReferencesModal } from "./referencesModal/ReferencesModal";
 import IModalReferencesData from "./referencesModal/ReferencesModal.d";
 import { modalReferencesData } from "./referencesModal/MockData";
+import { ISlideItem } from "components/slider/Slider.d";
+import { SliderContainer } from "components/slider";
 
 const ReferencesContainer: FC = () => {
+  const { isShow: isShowSlider, toggle: toggleSlider } = useModal();
+  const [clickDataR, setClickDataR] = useState<ISlideItem[]>();
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
   const [sideBarData] = useState(tabsSocialData);
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
@@ -37,6 +41,14 @@ const ReferencesContainer: FC = () => {
     activeTab: 1,
   });
 
+  const handleOnClick = () => {
+    const rData = referenceData.filter((e) => e.type_code === "commercial");
+    setClickDataR(rData[0].items);
+    toggle();
+    toggleSlider();
+    console.log("нажато");
+  };
+
   const handleSideBarClick = (e: ITab) => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0
@@ -44,6 +56,7 @@ const ReferencesContainer: FC = () => {
         : [...selectedCheckBox, e]
     );
   };
+
   useEffect(() => {
     setSelectedReferenceData(
       referenceObject.filter(
@@ -132,12 +145,32 @@ const ReferencesContainer: FC = () => {
         isShow={isShow}
         hide={toggle}
         modalContent={modalReferencesData.map((items) => (
-          <ReferencesModal {...items} />
+          <ReferencesModal {...items} onClick={() => handleOnClick()} />
         ))}
         theme={"modal"}
         bgModal={"black"}
-      ></Modal>
+        typeContent={"no_padding_content"}
+      />
+      <Modal
+        isShow={isShowSlider}
+        hide={toggleSlider}
+        theme={"full_modal"}
+        bgModal={"black"}
+        modalContent={
+          <SliderContainer
+            items={clickDataR}
+            dots={true}
+            autoplay={false}
+            theme={"homecategory"}
+            themeButton={"industries"}
+            size={"max"}
+            effectSlide={"cards"}
+            color={"link"}
+          />
+        }
+      />
     </Container>
   );
 };
+
 export { ReferencesContainer };

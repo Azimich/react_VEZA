@@ -78,7 +78,6 @@
         width: 22px;
         height: 22px;
         path {
-
           fill: white;
         }
       }
@@ -91,7 +90,6 @@
       &_desc {
         color: color(white);
         transition: all 0.3s;
-        
       }
     }
 
@@ -251,6 +249,33 @@
             order: 0;
             border-radius: 10px 10px 0 0;
           }
+        }
+      }*/
+
+      &:hover &_right {
+        background-color: #0AB016;
+        transition: all 0.3s;
+        span {
+          color: white;
+        }
+
+        svg {
+          width: 22px;
+          height: 22px;
+          path {
+            fill: white;
+          }
+        }
+
+        &_title {
+          color: white;
+          transition: all 0.3s;
+        }
+
+        &_desc {
+          color: white;
+          transition: all 0.3s;
+
         }
       }
 

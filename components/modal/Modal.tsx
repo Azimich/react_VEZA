@@ -11,6 +11,7 @@ export const Modal: FC<IModalProps> = ({
   headerText = "",
   theme = "modal",
   bgModal = "",
+  typeContent = "",
 }) => {
   const modal = (
     <section className={`${Styles.modal} ${Styles[bgModal]}`} onClick={hide}>
@@ -23,7 +24,9 @@ export const Modal: FC<IModalProps> = ({
             <div>{headerText}</div>
             <CloseIcon />
           </div>
-          <div className={Styles.modal_content}>{modalContent}</div>
+          <div className={`${Styles[typeContent]} ${Styles.modal_content} `}>
+            {modalContent}
+          </div>
         </div>
       </div>
     </section>
