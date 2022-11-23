@@ -33,7 +33,7 @@ const SalesOfficeContainer: FC = () => {
     activeTab: 1,
   });
   useEffect(() => {
-    setBreadCrumbs([...breadCrumbs, { title: "Оффис продаж" }]);
+    setBreadCrumbs([...breadCrumbs, { title: "Офис продаж" }]);
   }, [dataBreadContacts]);
 
   const components: IComponents = {
