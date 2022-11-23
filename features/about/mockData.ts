@@ -87,6 +87,20 @@ const whoweData: IObject[] = [
   },
   {
     id: 7,
+    connection: "volgogradskaya_obl",
+    alias: "kmb",
+    object: {
+      xpx: 10,
+      ypx: 10,
+      name: "ВЕЗА-КМВ",
+      production_area: "12 000 м2",
+      service_phone: "Тел: +7 495 989-47-20",
+      logistic_phone: "Тел: +7 495 626-99-30",
+      address: "Рабочая 10А 111397, Москва Россия",
+    },
+  },
+  {
+    id: 7,
     connection: "moskovskaya_obl",
     alias: "holod",
     object: {
