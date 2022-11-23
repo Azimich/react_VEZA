@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ReactElement, ReactNode } from "react";
 
 interface IInput {
   title?: string;
@@ -12,7 +12,8 @@ interface IInput {
   multi?: boolean;
   name: string;
   className?: string;
-  value: string;
+  value?: string;
+  filesname?: ReactNode;
 }
 
 export { IInput };

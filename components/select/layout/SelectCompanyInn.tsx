@@ -33,7 +33,12 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
             }) => {
               return {
                 value: item.data.inn,
-                label: item.data.inn + " " + item.value,
+                label:
+                  item.data.inn +
+                  " " +
+                  item.value +
+                  " " +
+                  item.data.address.unrestricted_value,
                 code: item.data.address.unrestricted_value,
               };
             }

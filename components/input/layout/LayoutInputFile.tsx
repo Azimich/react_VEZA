@@ -14,12 +14,14 @@ const LayoutInputFile: FC<IInput> = ({
   type = "text",
   name = "",
   className = "",
-  value = "",
+  filesname,
   title = "",
 }) => {
   return (
     <div className={Styles.div__container_file}>
-      <label htmlFor={id} className={Styles.label__container_empty}></label>
+      <label htmlFor={id} className={Styles.label__container_empty}>
+        {filesname}
+      </label>
       <label htmlFor={id} className={Styles.label__container_file}>
         <UploadIcon />
         {title}
@@ -32,7 +34,6 @@ const LayoutInputFile: FC<IInput> = ({
           name={name}
           id={id}
           className={className}
-          value={value}
           placeholder={placeholder}
           onKeyUp={onKeyUp}
         />
