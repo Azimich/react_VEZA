@@ -52,6 +52,7 @@ const SupportForm: FC = () => {
         : target
     );
   };
+
   const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFiles([{ ...e.target.files }]);
   };
@@ -96,8 +97,46 @@ const SupportForm: FC = () => {
             </div>
           </ul>
         </div>
-        {/*
+
+        <div className={Styles.box_field}>
+          {fieldsData.length > 0 &&
+            fieldsData.map((item) => {
+              return (
                 <div className={Styles.support__form__items__input}>
+                  <ul
+                    className={`${
+                      formik.errors[item.name] && formik.touched[item.name]
+                        ? Styles.support__form__item__input_error
+                        : Styles.support__form__item__input
+                    }`}
+                  >
+                    <Input
+                      name={item.name}
+                      id={item.name + "_id"}
+                      title={item.title}
+                      type={"text"}
+                      className={Styles.input__item}
+                      onChange={(e) =>
+                        handleFilterOnChange(e, item.filter, item.name)
+                      }
+                      onBlur={formik.handleBlur}
+                      value={formik.values[item.name]}
+                    />
+                    <div
+                      className={`${
+                        formik.errors[item.name] && formik.touched[item.name]
+                          ? Styles.overflow__auto
+                          : Styles.overflow
+                      }`}
+                    >
+                      <li>{formik.errors[item.name]}</li>
+                    </div>
+                  </ul>
+                </div>
+              );
+            })}
+
+          {/*<div className={Styles.support__form__items__input}>
                     <ul
                         className={`${
                             formik.errors?.firstName && formik.touched?.firstName
@@ -125,6 +164,8 @@ const SupportForm: FC = () => {
                             <li>{formik.errors.firstName}</li>
                         </div>
                     </ul>
+                </div>*/}
+          {/*<div className={Styles.support__form__items__input}>
                     <ul
                         className={`${
                             formik.errors?.lastName && formik.touched?.lastName
@@ -151,124 +192,123 @@ const SupportForm: FC = () => {
                             <li>{formik.errors.lastName}</li>
                         </div>
                     </ul>
-                </div>
-*/}
-
-        {fieldsData.length > 0 &&
-          fieldsData.map((item) => {
-            return <></>;
-          })}
-
-        <div className={Styles.support__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.email && formik.touched?.email
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"email"}
-              id={"email_id"}
-              title={"Почта *"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            <div
-              className={`${
-                formik.errors?.email && formik.touched?.email
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.email}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.phone && formik.touched?.phone
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"phone"}
-              title={"Телефон *"}
-              id={"phone_id"}
-              className={Styles.input__item}
-              onChange={(e) =>
-                handleFilterOnChange(e, /[^0-9-+]/g, "phone", 20)
-              }
-              onBlur={formik.handleBlur}
-              value={formik.values.phone}
-            />
-            <div
-              className={`${
-                formik.errors?.phone && formik.touched?.phone
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.phone}</li>
-            </div>
-          </ul>
+                </div>*/}
+          {/*<div className={Styles.support__form__items__input}>
+                    <ul
+                        className={`${
+                            formik.errors?.email && formik.touched?.email
+                                ? Styles.support__form__item__input_error
+                                : Styles.support__form__item__input
+                        }`}
+                    >
+                        <Input
+                            name={"email"}
+                            id={"email_id"}
+                            title={"Почта *"}
+                            className={Styles.input__item}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.email}
+                        />
+                        <div
+                            className={`${
+                                formik.errors?.email && formik.touched?.email
+                                    ? Styles.overflow__auto
+                                    : Styles.overflow
+                            }`}
+                        >
+                            <li>{formik.errors.email}</li>
+                        </div>
+                    </ul>
+                </div>*/}
+          {/*<div className={Styles.support__form__items__input}>
+                    <ul
+                        className={`${
+                            formik.errors?.phone && formik.touched?.phone
+                                ? Styles.support__form__item__input_error
+                                : Styles.support__form__item__input
+                        }`}
+                    >
+                        <Input
+                            name={"phone"}
+                            title={"Телефон *"}
+                            id={"phone_id"}
+                            className={Styles.input__item}
+                            onChange={(e) =>
+                                handleFilterOnChange(e, /[^0-9-+]/g, "phone", 20)
+                            }
+                            onBlur={formik.handleBlur}
+                            value={formik.values.phone}
+                        />
+                        <div
+                            className={`${
+                                formik.errors?.phone && formik.touched?.phone
+                                    ? Styles.overflow__auto
+                                    : Styles.overflow
+                            }`}
+                        >
+                            <li>{formik.errors.phone}</li>
+                        </div>
+                    </ul>
+                </div>*/}
+          {/*<div className={Styles.support__form__items__input}>
+                    <ul
+                        className={`${
+                            formik.errors?.post && formik.touched?.post
+                                ? Styles.support__form__item__input_error
+                                : Styles.support__form__item__input
+                        }`}
+                    >
+                        <Input
+                            name={"post"}
+                            title={"Укажите должность *"}
+                            id={"post_id"}
+                            className={Styles.input__item}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.post}
+                        />
+                        <div
+                            className={`${
+                                formik.errors?.post && formik.touched?.post
+                                    ? Styles.overflow__auto
+                                    : Styles.overflow
+                            }`}
+                        >
+                            <li>{formik.errors.post}</li>
+                        </div>
+                    </ul>
+                </div>*/}
+          {/*<div className={Styles.support__form__items__input}>
+                    <ul
+                        className={`${
+                            formik.errors?.order && formik.touched?.order
+                                ? Styles.support__form__item__input_error
+                                : Styles.support__form__item__input
+                        }`}
+                    >
+                        <Input
+                            name={"order"}
+                            title={"Номер заказа"}
+                            id={"order_id"}
+                            className={Styles.input__item}
+                            onChange={(e) => handleFilterOnChange(e, /[^0-9]/g, "order", 10)}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.order}
+                        />
+                        <div
+                            className={`${
+                                formik.errors?.order && formik.touched?.order
+                                    ? Styles.overflow__auto
+                                    : Styles.overflow
+                            }`}
+                        >
+                            <li>{formik.errors.order}</li>
+                        </div>
+                    </ul>
+                </div>*/}
         </div>
-        <div className={Styles.support__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.post && formik.touched?.post
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"post"}
-              title={"Укажите должность *"}
-              id={"post_id"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.post}
-            />
-            <div
-              className={`${
-                formik.errors?.post && formik.touched?.post
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.post}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.order && formik.touched?.order
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
-            }`}
-          >
-            <Input
-              name={"order"}
-              title={"Номер заказа"}
-              id={"order_id"}
-              className={Styles.input__item}
-              onChange={(e) => handleFilterOnChange(e, /[^0-9]/g, "order", 10)}
-              onBlur={formik.handleBlur}
-              value={formik.values.order}
-            />
-            <div
-              className={`${
-                formik.errors?.order && formik.touched?.order
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.order}</li>
-            </div>
-          </ul>
-        </div>
+
         <div className={Styles.support__form__items__select__company}>
           <ul
             className={`${

@@ -9,6 +9,5 @@ interface IFieldData {
   title: string;
   filter: RegExp;
   size: number;
-  separator: boolean;
 }
 export { ISupport, IFieldData };

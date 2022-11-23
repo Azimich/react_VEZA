@@ -6,14 +6,36 @@ const fieldsData: IFieldData[] = [
     title: "Имя *",
     filter: /[^а-яёa-z,]/iu,
     size: 0,
-    separator: true,
   },
   {
     name: "lastName",
     title: "Фамилия *",
     filter: /[^а-яёa-z,]/iu,
     size: 0,
-    separator: false,
+  },
+  {
+    name: "email",
+    title: "Почта *",
+    filter: /g/g,
+    size: 0,
+  },
+  {
+    name: "phone",
+    title: "Телефон *",
+    filter: /[^0-9-+]/g,
+    size: 20,
+  },
+  {
+    name: "post",
+    title: "Укажите должность *",
+    filter: /g/g,
+    size: 20,
+  },
+  {
+    name: "order",
+    title: "Номер заказа",
+    filter: /g/g,
+    size: 20,
   },
 ];
 export { fieldsData };
