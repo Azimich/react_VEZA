@@ -28,3 +28,4 @@ export { HistoryMobileIcon } from "./includes/HistoryMobileIcon";
 export { UploadIcon } from "./includes/UploadIcon";
 export { HomeIcon } from "./includes/HomeIcon";
 export { RombIcon } from "./includes/RombIcon";
+export { NotFoundIcon } from "./includes/NotFoundIcon";
