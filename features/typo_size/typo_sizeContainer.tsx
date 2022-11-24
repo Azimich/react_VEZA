@@ -3,8 +3,8 @@ import { ICatalogData } from "features/equipment/Equipment";
 import React, { FC, useState } from "react";
 import Styles from "./typo_size.module.scss";
 import { Menu } from "../equipment/menu/Menu";
-import { Tabs } from "../../components/tabs";
-import { IComponents, ITab } from "../../components/tabs/Tabs";
+import { Tabs } from "components/tabs";
+import { IComponents, ITab } from "components/tabs/Tabs";
 import { tabsTypoSizeData } from "../contacts/mockData";
 import {
   TypeSizeSertificates,
