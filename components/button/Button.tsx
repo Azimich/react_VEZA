@@ -14,6 +14,7 @@ const Button: FC<ButtonI> = ({
   size = "medium",
   color = "green",
   link,
+  ...attrs
 }) => {
   const router = useRouter();
 
@@ -26,6 +27,7 @@ const Button: FC<ButtonI> = ({
   const themeSize = theme + "__" + size + "_" + color;
   return (
     <button
+      {...attrs}
       type={type}
       disabled={disabled}
       onClick={onClickBtn()}

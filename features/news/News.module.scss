@@ -55,7 +55,7 @@
           }
         }
       }
-    
+
       img {
         width: 100%;
         order: 1;
@@ -188,7 +188,7 @@
           span {
             color: color(white);
           }
-  
+
           svg {
             width: 22px;
             height: 22px;
@@ -196,16 +196,16 @@
               fill: white;
             }
           }
-  
+
           &_title {
             color: color(white);
             transition: all 0.3s;
           }
-  
+
           &_desc {
             color: color(white);
             transition: all 0.3s;
-  
+
           }
 
           button {
@@ -250,7 +250,7 @@
             border-radius: 10px 10px 0 0;
           }
         }
-      }*/
+      }
 
       &:hover &_right {
         background-color: #0AB016;

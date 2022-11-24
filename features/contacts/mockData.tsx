@@ -42,7 +42,9 @@ const tabsResourcesData: ITab[] = [
 const tabsTypoSizeData: ITab[] = [
   { id: 1, title: "Описание" },
   { id: 2, title: "Технические характеристики" },
+  /*
   { id: 3, title: "Сертификаты" },
+*/
   { id: 4, title: "Расчёты" },
 ];
 
