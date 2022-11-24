@@ -1,0 +1,10 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.container__404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10% auto;
+  padding: 0 10px;
+}
