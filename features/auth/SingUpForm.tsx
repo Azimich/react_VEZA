@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { ChangeEvent } from "react";
 import { useFormik } from "formik";
-import Styles from "../../features/auth/SignContainer.module.scss";
-import { Input } from "../../components/input/Index";
+import Styles from "features/auth/SignContainer.module.scss";
+import { Input } from "components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { ValidationRegitr } from "./formsData/ValidationsShemas";
@@ -22,20 +22,18 @@ const SingUpForm: FC = () => {
       lastName: "",
       email: "",
       phone: "",
-      company: "",
+      company_inn: "",
       birthdate: "",
       post: "",
       password: "",
       confirmPassword: "",
       forgot: false,
+      private_police: false,
     },
 
     validationSchema: ValidationRegitr(),
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-    },
+    onSubmit: () => {},
   });
-  console.log("formik.touched", formik.touched, formik.errors);
 
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
@@ -65,9 +63,12 @@ const SingUpForm: FC = () => {
         </div>
         <div className={Styles.box_field_registr}>
           {fieldsDataRegistr.length > 0 &&
-            fieldsDataRegistr.map((item) => {
+            fieldsDataRegistr.map((item, index) => {
               return (
-                <div className={Styles.registration__form__items__input}>
+                <div
+                  key={index}
+                  className={Styles.registration__form__items__input}
+                >
                   <ul
                     className={`${
                       formik.errors[item.name] && formik.touched[item.name]
@@ -101,12 +102,12 @@ const SingUpForm: FC = () => {
               );
             })}
         </div>
-        <div className={Styles.support__form__items__select__company}>
+        <div className={Styles.registration__form__items__select__company}>
           <ul
             className={`${
-              formik.errors?.service && formik.touched?.service
-                ? Styles.support__form__item__input_error
-                : Styles.support__form__item__input
+              formik.errors?.company_inn && formik.touched?.company_inn
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
             }`}
           >
             <SelectContainer
@@ -130,15 +131,35 @@ const SingUpForm: FC = () => {
             </div>
           </ul>
         </div>
-        <div className={Styles.registration__form__item__forgot}>
-          <CheckboxWithLabel
-            name={"private_police"}
-            id={"private_police_id"}
-            title={"Согласие на обработку персональных данных с условиями"}
-            onChangeData={() => {
-              console.log("checked");
-            }}
-          />
+        <div
+          className={`${Styles.registration__form__items__textarea} ${Styles.no_padding}`}
+        >
+          <ul
+            className={`${
+              formik.errors?.private_police && formik.touched?.private_police
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
+            }`}
+          >
+            <CheckboxWithLabel
+              name={"private_police"}
+              id={"private_police_id"}
+              title={"Согласие на обработку персональных данных с условиями"}
+              onChangeData={(e) => {
+                formik.handleChange(e);
+              }}
+            />
+
+            <div
+              className={`${
+                formik.errors?.private_police && formik.touched?.private_police
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors?.private_police}</li>
+            </div>
+          </ul>
         </div>
         <div className={Styles.registration__form__item__answer}>
           <Button type={"submit"} children={"Зарегистрироваться"} />

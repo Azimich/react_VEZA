@@ -14,6 +14,7 @@ const SingInForm = () => {
       login: "",
       password: "",
       forgot: false,
+      private_police: false,
     },
     validationSchema: ValidationAuth(),
     onSubmit: (values: any) => {
@@ -53,9 +54,10 @@ const SingInForm = () => {
         </div>
         <div className={Styles.box_field}>
           {fieldsDataAuth.length > 0 &&
-            fieldsDataAuth.map((item) => {
+            fieldsDataAuth.map((item, index) => {
               return (
                 <div
+                  key={index}
                   className={`${
                     formik.errors[item.name] && formik.touched[item.name]
                       ? Styles.authorization__form__item__input_error
@@ -86,14 +88,35 @@ const SingInForm = () => {
               );
             })}
         </div>
-        <div className={Styles.authorization__form__item__forgot}>
-          <CheckboxWithLabel
-            name={"forgot"}
-            id={"forgot_id"}
-            title={"Запомни меня"}
-            onClick={() => handleOnclickCheck()}
-            onChangeData={() => handleOnclickCheck()}
-          />
+        <div
+          className={`${Styles.authorization__form__items__textarea} ${Styles.no_padding} ${Styles.checkbox__auth}`}
+        >
+          <ul
+            className={`${
+              formik.errors?.private_police && formik.touched?.private_police
+                ? Styles.authorization__form__item__input_error
+                : Styles.authorization__form__item__input
+            }`}
+          >
+            <CheckboxWithLabel
+              name={"private_police"}
+              id={"private_police_id"}
+              title={"Запомнить меня"}
+              onChangeData={(e) => {
+                formik.handleChange(e);
+              }}
+            />
+
+            <div
+              className={`${
+                formik.errors?.private_police && formik.touched?.private_police
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors?.private_police}</li>
+            </div>
+          </ul>
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>
         <div className={Styles.authorization__form__item__answer}>

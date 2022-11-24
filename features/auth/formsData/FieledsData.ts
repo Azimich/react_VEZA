@@ -13,6 +13,7 @@ const fieldsDataAuth: IFieledsData[] = [
     title: "Пароль *",
     filter: /g/g,
     size: 0,
+    type: "password",
   },
 ];
 

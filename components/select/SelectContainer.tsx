@@ -13,15 +13,18 @@ const SelectContainer: FC<IOptionSetting> = ({
   optionsData = [],
   defaultValue,
   type = "common",
+  classNameProps = "",
 }) => {
   const handleOnChangeInn = (e: any) => {
     console.log("export", e);
   };
+
   let selectCurrent: ReactNode;
   switch (type) {
     case "common":
       selectCurrent = (
         <SelectCommon
+          classNameProps={`${classNameProps}`}
           instanceId={instanceId}
           name={name}
           closeMenuOnSelect={closeMenuOnSelect}
@@ -36,6 +39,7 @@ const SelectContainer: FC<IOptionSetting> = ({
     case "company_inn":
       selectCurrent = (
         <SelectCompanyInn
+          classNameProps={`${classNameProps}`}
           instanceId={instanceId}
           name={name}
           closeMenuOnSelect={closeMenuOnSelect}
@@ -50,6 +54,7 @@ const SelectContainer: FC<IOptionSetting> = ({
     default:
       selectCurrent = (
         <SelectCommon
+          classNameProps={`${classNameProps}`}
           instanceId={instanceId}
           name={name}
           closeMenuOnSelect={closeMenuOnSelect}

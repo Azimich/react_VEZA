@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import Styles from "../../features/auth/SignContainer.module.scss";
-import { Input } from "../../components/input/Index";
+import Styles from "features/auth/SignContainer.module.scss";
+import { Input } from "components/input/Index";
 import { Button } from "components/button";
 
 const SingForgotForm: FC = () => {
@@ -57,7 +57,11 @@ const SingForgotForm: FC = () => {
           </div>
         </div>
         <div className={Styles.authorization__form__item__answer}>
-          <Button type={"submit"} children={"Восстановить"} />
+          <Button
+            type={"submit"}
+            children={"Восстановить"}
+            theme={"industries"}
+          />
           <span>
             <svg
               width="20"

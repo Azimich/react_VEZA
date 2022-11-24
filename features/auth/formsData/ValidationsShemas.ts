@@ -11,6 +11,10 @@ const ValidationAuth = () => {
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
+    private_police: Yup.boolean().oneOf(
+      [true],
+      "Примите согласие на обработку персональных данных с условиями"
+    ),
   });
 };
 
@@ -33,7 +37,7 @@ const ValidationRegitr = () => {
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
-    company: Yup.string()
+    company_inn: Yup.string()
       .max(10, "Максимум 10 символов!")
       .required("Обязательно для заполнения!"),
     birthdate: Yup.string()
@@ -53,6 +57,10 @@ const ValidationRegitr = () => {
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
+    private_police: Yup.boolean().oneOf(
+      [true],
+      "Примите согласие на обработку персональных данных с условиями"
+    ),
   });
 };
 
