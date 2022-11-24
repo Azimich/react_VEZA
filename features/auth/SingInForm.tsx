@@ -1,10 +1,12 @@
-import * as Yup from "yup";
 import { useFormik } from "formik";
 import Styles from "../../features/auth/SignContainer.module.scss";
 import { Input } from "../../components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import Link from "next/link";
+import { ValidationAuth } from "./formsData/ValidationsShemas";
+import { fieldsDataAuth } from "./formsData/FieledsData";
+import { ChangeEvent } from "react";
 
 const SingInForm = () => {
   const formik = useFormik({
@@ -13,21 +15,29 @@ const SingInForm = () => {
       password: "",
       forgot: false,
     },
-    validationSchema: Yup.object({
-      login: Yup.string()
-        .min(3, "Минимум 3 символа!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!")
-        .email("Неверный email!"),
-      password: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-    }),
+    validationSchema: ValidationAuth(),
     onSubmit: (values: any) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
+
+  const handleFilterOnChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    filter: RegExp,
+    field = "",
+    size: number = 0
+  ) => {
+    const target = e.target.value.replace(filter, "");
+    formik.setFieldValue(
+      field,
+      size > 0
+        ? target.length > size
+          ? target.substring(0, size)
+          : target
+        : target
+    );
+  };
+
   const handleOnclickCheck = () => {
     console.log("Чекед авторизации");
   };
@@ -41,58 +51,40 @@ const SingInForm = () => {
         <div className={Styles.authorization__form__item__title}>
           <h1>Войти в личный кабинет</h1>
         </div>
-        <div
-          className={`${
-            formik.errors?.login && formik.touched?.login
-              ? Styles.authorization__form__item__input_error
-              : Styles.authorization__form__item__input
-          }`}
-        >
-          <Input
-            name={"login"}
-            id={"login_id"}
-            title={"Логин*"}
-            className={Styles.input__item}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.login}
-          />
-          <div
-            className={`${
-              formik.errors?.login && formik.touched?.login
-                ? Styles.overflow__auto
-                : Styles.overflow
-            }`}
-          >
-            <span>{formik.errors.login}</span>
-          </div>
-        </div>
-        <div
-          className={`${
-            formik.errors?.password && formik.touched.password
-              ? Styles.authorization__form__item__input_error
-              : Styles.authorization__form__item__input
-          }`}
-        >
-          <Input
-            name={"password"}
-            type={"password"}
-            id={"password_id"}
-            onBlur={formik.handleBlur}
-            title={"Пароль *"}
-            className={Styles.input__item}
-            value={formik.values.password}
-            onChange={formik.handleChange}
-          />
-          <div
-            className={`${
-              formik.errors?.password && formik.touched.password
-                ? Styles.overflow__auto
-                : Styles.overflow
-            }`}
-          >
-            <span>{formik.errors.password}</span>
-          </div>
+        <div className={Styles.box_field}>
+          {fieldsDataAuth.length > 0 &&
+            fieldsDataAuth.map((item) => {
+              return (
+                <div
+                  className={`${
+                    formik.errors[item.name] && formik.touched[item.name]
+                      ? Styles.authorization__form__item__input_error
+                      : Styles.authorization__form__item__input
+                  }`}
+                >
+                  <Input
+                    name={item.name}
+                    id={item.name + "_id"}
+                    title={item.title}
+                    className={Styles.input__item}
+                    onChange={(e) =>
+                      handleFilterOnChange(e, item.filter, item.name)
+                    }
+                    onBlur={formik.handleBlur}
+                    value={formik.values[item.name]}
+                  />
+                  <div
+                    className={`${
+                      formik.errors[item.name] && formik.touched[item.name]
+                        ? Styles.overflow__auto
+                        : Styles.overflow
+                    }`}
+                  >
+                    <span>{formik.errors[item.name]}</span>
+                  </div>
+                </div>
+              );
+            })}
         </div>
         <div className={Styles.authorization__form__item__forgot}>
           <CheckboxWithLabel
