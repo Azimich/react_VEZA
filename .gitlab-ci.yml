@@ -13,7 +13,7 @@ install_dependencies:
       - npm install git
     artifacts:
       paths:
-        - /    
+        - node_modules/    
     only:
       - master
 
