@@ -7,6 +7,10 @@ import IModalBimData from "./ModalBim.d";
 import Styles from "./ModalBim.module.scss";
 
 const ModalBim: FC<IModalBimData> = () => {
+  const handleOnClickCheckbox = () => {
+    console.log("Клик");
+  };
+
   return (
     <div className={Styles.bim__modal}>
       <h2 className={Styles.bim__modal__title}>Тип файла</h2>
@@ -21,6 +25,8 @@ const ModalBim: FC<IModalBimData> = () => {
                       id={String(e.id)}
                       name={"tab_bim" + e.id}
                       title={e.title}
+                      onClick={() => handleOnClickCheckbox()}
+                      onChangeData={() => handleOnClickCheckbox()}
                     />
                   </li>
                 );

@@ -52,7 +52,6 @@ const BimContainer = () => {
         hide={toggle}
         modalContent={<ModalBim />}
         theme={"modal"}
-        headerText={"Тип файла"}
         bgModal={"black"}
       />
 

@@ -12,7 +12,9 @@ const JobItem: FC<IMockJob> = ({ url_hh, address, desc, title }) => {
         <div className={Styles.desc}>{desc}</div>
       </div>
       <div>
-        <Button link={url_hh}>Узнать больше</Button>
+        <Button link={url_hh} theme={"industries"}>
+          Узнать больше
+        </Button>
       </div>
     </li>
   );

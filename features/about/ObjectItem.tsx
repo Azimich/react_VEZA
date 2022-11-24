@@ -24,6 +24,7 @@ const ObjectItem: FC<IObject> = (props) => {
       relative_left: Child_Coord.left - Parent_Coord.left,
     });
   }, []);
+
   return (
     <div
       className={Styles.marker}

@@ -28,9 +28,7 @@ const HomeContainer: FC<IHomeData> = ({ home }) => {
         items={sliderData.items}
         theme={"home"}
       />
-      <div className={Styles.separator__title__container}>
-        <Separator title={"О нас"} />
-      </div>
+      <Separator title={"О нас"} />
       <AboutContainer />
       <Container className={`wrapper_clear`} el="section">
         <div className={Styles.separator__title__container}>
@@ -43,13 +41,9 @@ const HomeContainer: FC<IHomeData> = ({ home }) => {
           spaceBetween={10}
           theme={"homecategory"}
         />
-        <div className={Styles.separator__title__container}>
-          <Separator title={"Новости"} />
-        </div>
+        <Separator title={"Новости"} />
         <NewsContainer {...home.newsItem} />
-        <div className={Styles.separator__title__container}>
-          <Separator title={"Отрасли"} />
-        </div>
+        <Separator title={"Отрасли"} />
         <SliderContainer
           items={sliderIndustries.items}
           dots={true}
@@ -61,9 +55,10 @@ const HomeContainer: FC<IHomeData> = ({ home }) => {
           effectSlide={"cards"}
           color={"link"}
         />
-        <div className={Styles.separator__title__bottom}>
-          <Separator title={"Выполнить подбор необходимого оборудования?"} />
-        </div>
+        <Separator
+          title={"Выполнить подбор необходимого оборудования?"}
+          classNameProps={Styles.bottom__separator}
+        />
         <SelectionContainer />
       </Container>
     </>

@@ -21,8 +21,7 @@ const DescriptionContainer: FC = () => {
           isShow={isShow}
           hide={toggle}
           modalContent={<ModalForm />}
-          theme={"freedom_modal"}
-          headerText={"Тип файла"}
+          theme={"full_modal"}
           bgModal={"white"}
         />
       </div>

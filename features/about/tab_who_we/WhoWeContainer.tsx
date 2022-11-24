@@ -88,9 +88,7 @@ const WhoWeContainer: FC = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className={Styles.separator__container__title}>
-        <Separator title={"Наши достижения"} />
-      </div>
+      <Separator title={"Наши достижения"} />
       <Achievements />
       <Modal
         isShow={isShow}

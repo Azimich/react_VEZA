@@ -9,11 +9,8 @@
   flex-direction: column;
 }
 
-.separator__title__container {
-  margin: 50px 0 30px 0;
-  @include ipadScreen {
-    margin-bottom: 3%;
-  }
+.bottom__separator {
+  margin-bottom: 0;
 }
 
 .job_container_item {

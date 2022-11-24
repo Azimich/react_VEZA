@@ -23,6 +23,7 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
   const [contentForm, setContentForm] = useState<IObjectItem>();
+
   const { isShow, toggle } = useModal();
 
   const [breadCrumbs, setBreadCrumbs] =
@@ -43,6 +44,7 @@ const SalesOfficeContainer: FC = () => {
   };
 
   const FormOutPut: ReactNode[] = office_sales_data.map((e) => {
+    console.log("111", e);
     return (
       <ObjectItem
         {...e}

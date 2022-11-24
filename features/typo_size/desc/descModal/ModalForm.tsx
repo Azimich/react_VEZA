@@ -8,6 +8,10 @@ import { ArrowRightWhiteIcon } from "components/icons";
 import { IModalFormData } from "./ModalFormI";
 
 const ModalForm: FC<IModalFormData> = () => {
+  const handleOnClickCheckbox = () => {
+    console.log("Чекед");
+  };
+
   return (
     <div className={Styles.documentation}>
       <h1 className={Styles.modal__title}>Тип файла</h1>
@@ -22,6 +26,8 @@ const ModalForm: FC<IModalFormData> = () => {
                       id={String(e.id)}
                       name={"tab_bim" + e.id}
                       title={e.title}
+                      onClick={() => handleOnClickCheckbox()}
+                      onChangeData={() => handleOnClickCheckbox()}
                     />
                   </li>
                 );

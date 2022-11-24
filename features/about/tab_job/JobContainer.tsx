@@ -104,16 +104,17 @@ const JobContainer: FC = () => {
         <SelectContainer optionsData={[]} instanceId={"Select_Job"} />
         <Button type={"button"} children={"Поиск"} />
       </div>
-      <div className={Styles.separator__title__container}>
-        <Separator title={"наши вакансии"} />
-      </div>
+      <Separator title={"наши вакансии"} />
       <ul className={Styles.job_container_item}>
         {MockJob.map((e) => {
           return <JobItem {...e} key={e.id} />;
         })}
       </ul>
       <div className={Styles.vacancies__bottom_info}>
-        <Separator title={"НЕ НАШЛИ ПОДХОДЯЩУЮ ВАКАНСИЮ?"} />
+        <Separator
+          title={"НЕ НАШЛИ ПОДХОДЯЩУЮ ВАКАНСИЮ?"}
+          classNameProps={Styles.bottom__separator}
+        />
         <p>
           Присылайте нам свое резюме, и мы свяжемся с Вами, как только появится
           подходящая позиция для Вас!
