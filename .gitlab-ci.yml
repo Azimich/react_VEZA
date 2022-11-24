@@ -23,8 +23,6 @@ unit_test:
 deploy:
   script:
     - git init 
-    - git remote -v
-    - git branch
     - git config pull.rebase true
     - git pull origin master
     - git remote remove prod
