@@ -32,7 +32,7 @@ const ReferencesContainer: FC = () => {
   );
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
-  const [contentReferencesModal, setcontentReferencesModal] =
+  const [contentReferencesModal, setСontentReferencesModal] =
     useState<IModalReferencesData>();
   const { isShow, toggle } = useModal();
   const router = useRouter();
@@ -46,7 +46,7 @@ const ReferencesContainer: FC = () => {
     setClickDataR(rData[0].items);
     toggle();
     toggleSlider();
-    console.log("нажато");
+    console.log("нажато", contentReferencesModal);
   };
 
   const handleSideBarClick = (e: ITab) => {
@@ -102,7 +102,7 @@ const ReferencesContainer: FC = () => {
 
   const handleOnClickModal = (e: IObjectItem, alias: string) => {
     e.alias = alias;
-    setcontentReferencesModal(e);
+    setСontentReferencesModal(e);
     toggle();
   };
 

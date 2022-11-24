@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const ValidationShema = () => {
+const ValidationSchema = () => {
   return Yup.object({
     firstName: Yup.string()
       .min(2, "Минимум 2 символа!")
@@ -29,7 +29,11 @@ const ValidationShema = () => {
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
     service: Yup.string().required("Обязательно для заполнения!"),
+    private_police: Yup.boolean().oneOf(
+      [true],
+      "Примите согласие на обработку персональных данных с условиями"
+    ),
   });
 };
 
-export { ValidationShema };
+export { ValidationSchema };
