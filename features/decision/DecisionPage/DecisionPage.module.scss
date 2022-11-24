@@ -1,13 +1,6 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-.separator__title__container {
-  margin: 60px 0 30px 0;
-  @include ipadScreen {
-    margin-bottom: 3%;
-  }
-}
-
 .equipment__block {
   margin-bottom: 150px;
   @include ipadScreen {

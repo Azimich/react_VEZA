@@ -11,7 +11,6 @@ const DecisionContainer: FC<IDecisionData[]> = () => {
   return (
     <Container className="wrapper_clear no_padding">
       <BreadCrumbs data={dataBreadDecision} />
-
       <div className={Styles.decision__container}>
         {decisionData.map((e) => {
           return <DecisionItem {...e} key={e.id} />;

@@ -16,4 +16,5 @@ const WhoWeAboutContainer = () => {
     </div>
   );
 };
+
 export { WhoWeAboutContainer };

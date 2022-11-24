@@ -22,7 +22,6 @@ const CertificatesContainer = () => {
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
-
       <div className={Styles.certificates_container}>
         <Tabs
           props={tabsResourcesData}

@@ -9,7 +9,6 @@ import { SupportForm } from "./SupportForm";
 import { TitleTabs } from "components/title_tabs";
 import { SupportGroups } from "features/contacts";
 import { supportData } from "../tab_support/mockData";
-import { EmailIcon, PhoneFooterIcon } from "components/icons";
 import { Separator } from "components/separator";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import React, { useEffect, useState } from "react";
@@ -49,9 +48,7 @@ const SupportContainer = () => {
         }
       />
       <SupportForm />
-      <div className={Styles.separator__container__title}>
-        <Separator title={"Наши телеграм каналы"} />
-      </div>
+      <Separator title={"Наши телеграм каналы"} />
       <div className={Styles.telegram__group__container}>
         {supportData.map((item, i) => {
           return <SupportGroups key={i} {...item} />;

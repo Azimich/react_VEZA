@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { sliderFactoryData } from "../factorySlider/MockData";
-import { SliderContainer } from "../../../components/slider";
-import Styles from "./FactorySliderContainer.module.scss";
+import { SliderContainer } from "components/slider";
 import { ISliderData } from "./FactorySlider";
 import { FactoryItem } from "../FactoryItem";
 import { IFactoryData } from "../Factory";
@@ -26,7 +25,7 @@ const FactorySliderContainer: FC<ISliderData> = () => {
   }, [activePage]);
 
   return (
-    <div className={Styles.factory}>
+    <>
       <SliderContainer
         items={sliderFactoryData.items}
         theme={"factorySlider"}
@@ -40,7 +39,7 @@ const FactorySliderContainer: FC<ISliderData> = () => {
       {currentFactory.map((item) => {
         return <FactoryItem {...item} key={item.code} />;
       })}
-    </div>
+    </>
   );
 };
 

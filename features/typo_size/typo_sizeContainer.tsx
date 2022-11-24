@@ -35,7 +35,6 @@ const typo_sizeContainer: FC<{ data: ICatalogData[] }> = () => {
             props={tabsTypoSizeData}
             onClick={(e: ITab) => handleOnClick(e)}
             activeTab={activeTab}
-            size={"max"}
           >
             {React.createElement(components[`tab_${activeTab}`])}
           </Tabs>
