@@ -1,5 +1,6 @@
 image: node:latest
-
+only:
+  - master
 cache:
   paths:
     - node_modules/
