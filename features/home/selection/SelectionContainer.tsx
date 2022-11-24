@@ -9,7 +9,7 @@ const SelectionContainer = () => {
         fugiat?
       </div>
       <div className={Styles.selectionButton}>
-        <Button link={""} size={"medium"} theme={"banner"}>
+        <Button link={"auth/singin"} size={"medium"} theme={"banner"}>
           Расчитать
         </Button>
       </div>

@@ -13,7 +13,6 @@ import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
 import { IHomeData } from "features/news/News";
-import { prop } from "dom7";
 
 const HomeContainer: FC<IHomeData> = ({ home }) => {
   console.log("props1", home);
