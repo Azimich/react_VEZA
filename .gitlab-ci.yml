@@ -19,8 +19,6 @@ install_dependencies:
         - node_modules/    
 
 build:
-  dependencies:
-    - install
   stage: build
   script:
       - npm run buld
