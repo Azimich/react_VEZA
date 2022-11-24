@@ -1,8 +1,4 @@
 image: node:latest
-on:
-  push:
-    branches:
-      - master
 
 cache:
   paths:
