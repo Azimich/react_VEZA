@@ -1,30 +1,22 @@
 import React, { FC } from "react";
-import * as Yup from "yup";
 import { ChangeEvent } from "react";
 import { useFormik } from "formik";
-import { useState } from "react";
-import Select from "react-select";
 import Styles from "../../features/auth/SignContainer.module.scss";
 import { Input } from "../../components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
+import { ValidationRegitr } from "./formsData/ValidationsShemas";
+import { fieldsDataRegistr } from "./formsData/FieledsData";
+import { SelectContainer } from "components/select/SelectContainer";
+import { dataSupportSubjectSelect } from "features/contacts/tab_support/mockData";
+
+type ResultType = {
+  [key: string]: any;
+};
 
 const SingUpForm: FC = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const options = [
-    { value: "Россия", label: "Россия" },
-    { value: "Казахстан", label: "Казахстан" },
-    { value: "Белорусия", label: "Белорусия" },
-  ];
-
-  const option = [
-    { value: "Россия", label: "Москва" },
-    { value: "Казахстан", label: "Саратов" },
-    { value: "Белорусия", label: "Астрахань" },
-  ];
-
   // Валидация формы
-  const formik = useFormik({
+  const formik: ResultType = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -37,75 +29,28 @@ const SingUpForm: FC = () => {
       confirmPassword: "",
       forgot: false,
     },
-    validationSchema: Yup.object({
-      firstName: Yup.string()
-        .min(2, "Минимум 2 символа!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      lastName: Yup.string()
-        .min(2, "Минимум 2 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      email: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .email("Неверный email!")
-        .required("Обязательно для заполнения!"),
-      phone: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      company: Yup.string()
-        .max(10, "Максимум 10 символов!")
-        .required("Обязательно для заполнения!"),
-      birthdate: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      post: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      password: Yup.string()
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Пароли должны совпадать")
-        .min(6, "Минимум 6 символов!")
-        .max(50, "Максимум 50 символов!")
-        .required("Обязательно для заполнения!"),
-    }),
+
+    validationSchema: ValidationRegitr(),
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
   console.log("formik.touched", formik.touched, formik.errors);
 
-  const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
-    const alhpabet = /[^а-яёa-z,]/iu;
-    const target = e.target.value;
-    formik.setFieldValue("firstName", target.replace(alhpabet, ""));
-  };
-  const handleOnChangeLastName = (e: ChangeEvent<HTMLInputElement>) => {
-    const alhpabet = /[^а-яёa-z,]/iu;
-    const target = e.target.value;
-    formik.setFieldValue("lastName", target.replace(alhpabet, ""));
-  };
-  const handleOnChangeCompany = (e: ChangeEvent<HTMLInputElement>) => {
-    const numb = /[^0-9]/g;
-    const target = e.target.value.replace(numb, "");
+  const handleFilterOnChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    filter: RegExp,
+    field = "",
+    size: number = 0
+  ) => {
+    const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
-      "company",
-      target.length > 10 ? target.substring(0, 10) : target
-    );
-  };
-  const handleOnChangeTel = (e: ChangeEvent<HTMLInputElement>) => {
-    const numb = /[^0-9-+]/g;
-    const target = e.target.value.replace(numb, "");
-    formik.setFieldValue(
-      "phone",
-      target.length > 20 ? target.substring(0, 20) : target
+      field,
+      size > 0
+        ? target.length > size
+          ? target.substring(0, size)
+          : target
+        : target
     );
   };
 
@@ -118,260 +63,70 @@ const SingUpForm: FC = () => {
         <div className={Styles.registration__form__items__title}>
           <h1>Регистрация</h1>
         </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.firstName && formik.touched?.firstName
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"firstName"}
-              id={"firstName_id"}
-              title={"Имя *"}
-              type={"text"}
-              className={Styles.input__item}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                handleOnChangeFirstName(e)
-              }
-              onBlur={formik.handleBlur}
-              value={formik.values.firstName}
-            />
-            <div
-              className={`${
-                formik.errors?.firstName && formik.touched?.firstName
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.firstName}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.lastName && formik.touched?.lastName
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"lastName"}
-              title={"Фамилия *"}
-              id={"lastName_id"}
-              className={Styles.input__item}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                handleOnChangeLastName(e)
-              }
-              onBlur={formik.handleBlur}
-              value={formik.values.lastName}
-            />
-            <div
-              className={`${
-                formik.errors?.lastName && formik.touched?.lastName
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.lastName}</li>
-            </div>
-          </ul>
+        <div className={Styles.box_field_registr}>
+          {fieldsDataRegistr.length > 0 &&
+            fieldsDataRegistr.map((item) => {
+              return (
+                <div className={Styles.registration__form__items__input}>
+                  <ul
+                    className={`${
+                      formik.errors[item.name] && formik.touched[item.name]
+                        ? Styles.registration__form__item__input_error
+                        : Styles.registration__form__item__input
+                    }`}
+                  >
+                    <Input
+                      name={item.name}
+                      id={item.name + "_id"}
+                      title={item.title}
+                      type={item.type}
+                      className={Styles.input__item}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        handleFilterOnChange(e, item.filter, item.name)
+                      }
+                      onBlur={formik.handleBlur}
+                      value={formik.values[item.name]}
+                    />
+                    <div
+                      className={`${
+                        formik.errors[item.name] && formik.touched[item.name]
+                          ? Styles.overflow__auto
+                          : Styles.overflow
+                      }`}
+                    >
+                      <li>{formik.errors[item.name]}</li>
+                    </div>
+                  </ul>
+                </div>
+              );
+            })}
         </div>
-        <div className={Styles.registration__form__items__input}>
+        <div className={Styles.support__form__items__select__company}>
           <ul
             className={`${
-              formik.errors?.email && formik.touched?.email
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
+              formik.errors?.service && formik.touched?.service
+                ? Styles.support__form__item__input_error
+                : Styles.support__form__item__input
             }`}
           >
-            <Input
-              name={"email"}
-              title={"Почта *"}
-              id={"email_id"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
+            <SelectContainer
+              instanceId={"Select_support"}
+              optionsData={dataSupportSubjectSelect}
+              name={"company_inn"}
+              placeholder={"Название компании или ИНН"}
+              type={"company_inn"}
+              onChange={(e) => {
+                formik.setFieldValue("company_inn", e?.value ? e?.value : "");
+              }}
             />
             <div
               className={`${
-                formik.errors?.email && formik.touched?.email
+                formik.errors?.company_inn && formik.touched?.company_inn
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <li>{formik.errors.email}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.phone && formik.touched?.phone
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"phone"}
-              title={"Телефон *"}
-              id={"phone_id"}
-              className={Styles.input__item}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                handleOnChangeTel(e)
-              }
-              onBlur={formik.handleBlur}
-              value={formik.values.phone}
-            />
-            <div
-              className={`${
-                formik.errors?.phone && formik.touched?.phone
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.phone}</li>
-            </div>
-          </ul>
-        </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.company && formik.touched?.company
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"company"}
-              title={"ИНН компании *"}
-              id={"company_id"}
-              className={Styles.input__item}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                handleOnChangeCompany(e)
-              }
-              onBlur={formik.handleBlur}
-              value={formik.values.company}
-            />
-            <div
-              className={`${
-                formik.errors?.company && formik.touched?.company
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.company}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.birthdate && formik.touched?.birthdate
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"birthdate"}
-              type={"date"}
-              id={"birthdate_id"}
-              title={"Дата рождения *"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.birthdate}
-            />
-            <div
-              className={`${
-                formik.errors?.birthdate && formik.touched?.birthdate
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.birthdate}</li>
-            </div>
-          </ul>
-        </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.post && formik.touched?.post
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"post"}
-              title={"Укажите должность *"}
-              id={"post_id"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.post}
-            />
-            <div
-              className={`${
-                formik.errors?.post && formik.touched?.post
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.post}</li>
-            </div>
-          </ul>
-        </div>
-        <div className={Styles.registration__form__items__input}>
-          <ul
-            className={`${
-              formik.errors?.password && formik.touched?.password
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"password"}
-              type={"password"}
-              title={"Пароль *"}
-              id={"password"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            <div
-              className={`${
-                formik.errors?.password && formik.touched?.password
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.password}</li>
-            </div>
-          </ul>
-          <ul
-            className={`${
-              formik.errors?.confirmPassword && formik.touched?.confirmPassword
-                ? Styles.registration__form__item__input_error
-                : Styles.registration__form__item__input
-            }`}
-          >
-            <Input
-              name={"confirm_Password"}
-              type={"password"}
-              id={"confirm_Password_id"}
-              title={"Подтвердите пароль *"}
-              className={Styles.input__item}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.confirmPassword}
-            />
-            <div
-              className={`${
-                formik.errors?.confirmPassword &&
-                formik.touched?.confirmPassword
-                  ? Styles.overflow__auto
-                  : Styles.overflow
-              }`}
-            >
-              <li>{formik.errors.confirmPassword}</li>
+              <li>{formik.errors.company_inn}</li>
             </div>
           </ul>
         </div>

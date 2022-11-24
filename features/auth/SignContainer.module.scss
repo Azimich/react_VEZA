@@ -303,6 +303,20 @@
   }
 }
 
+.box_field_registr {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 45px;
+
+  @include phoneScreen {
+    grid-template-columns: 1fr;
+  }
+
+  .support__form {
+    display: block;
+  }
+}
+
 //форма для Восстановление пароля
 .forgot__form {
   max-width: 550px;

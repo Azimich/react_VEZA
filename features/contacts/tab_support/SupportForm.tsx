@@ -55,9 +55,11 @@ const SupportForm: FC = () => {
     );
   };
 
+  //Инпут для добавления файла
   const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFiles(Array.from(e.target.files));
   };
+
   const handleDeleteClick = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
     index: number
@@ -88,6 +90,7 @@ const SupportForm: FC = () => {
     );
     setSelectedFilesName(el);
   }, [selectedFiles]);
+
   return (
     <div className={Styles.support__form}>
       <form
@@ -161,7 +164,6 @@ const SupportForm: FC = () => {
               );
             })}
         </div>
-
         <div className={Styles.support__form__items__select__company}>
           <ul
             className={`${

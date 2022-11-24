@@ -38,4 +38,5 @@ const fieldsData: IFieldData[] = [
     size: 20,
   },
 ];
+
 export { fieldsData };
