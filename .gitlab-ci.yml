@@ -1,35 +1,42 @@
 image: node:latest
+stages:
+  - preparation
+  - build
+  - test
+  - deploy_staging
 
-cache:
-  paths:
-    - node_modules/
 
-npm_install:
-  script:
-    - npm install
-    - npm install git
+install_dependencies:
+    stage: preparation
+    script:
+      - npm install
+      - npm install git
+    artifacts:
+      paths:
+        - node_modules/    
+    only:
+      - master
 
-project_build:
+build:
+  stage: build
   script:
     - npm run build
+  artifacts:
+    paths:
+      - /     
+  only:
+    - master
+    
 
-test_lint:
-  script:
-    - npm run lint
+testing:
+  dependencies:
+    - build
+  stage: test
+  script: npm run test
+  only:
+    - master
 
-unit_test:
+deploy_staging:
+  stage: deploy_staging
   script:
-    - npm run test
-
-deploy:
-  script:
-    - git init 
-    - git remote -v
-    - git branch
-    - git config pull.rebase true
-    - git pull origin master
-    - git remote remove prod
-    - git remote remove pb
-    - git remote add prod ssh://root@213.139.210.18:/root/veza/front/.git
-    - git remote -v
-    - git remote show pb
+    - echo "test" 
