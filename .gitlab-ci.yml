@@ -19,10 +19,14 @@ install_dependencies:
         - node_modules/    
 
 build:
-    stage: build
-    script:
+  dependencies:
+    - install
+  stage: build
+  script:
       - npm run buld
 
 testing:
-    stage: test
-    script: npm run test        
+  dependencies:
+    - build
+  stage: test
+  script: npm run test        
