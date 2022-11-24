@@ -3,7 +3,7 @@ stages:
   - preparation
   - build
   - test
-  - deploy staging
+  - deploy_staging
 
 
 install_dependencies:
@@ -35,3 +35,8 @@ testing:
   script: npm run test
   only:
     - master
+
+deploy_staging:
+  stage: deploy_staging
+  script:
+    - echo "test"
