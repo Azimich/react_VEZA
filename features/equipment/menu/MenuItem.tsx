@@ -1,7 +1,7 @@
 import { ArrowBackIcon, ArrowRightWhiteIcon } from "components/icons";
 import { FC } from "react";
 import { ICatalogEquipmentData } from "../Equipment";
-import { Link } from "../../../components/link";
+import { Link } from "components/link";
 import Styles from "../Equipment.module.scss";
 const MenuItem: FC<ICatalogEquipmentData> = ({
   title = "",
