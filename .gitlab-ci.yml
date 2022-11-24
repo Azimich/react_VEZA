@@ -1,4 +1,8 @@
 image: node:latest
+on:
+  push:
+    branches:
+      - master
 
 cache:
   paths:
@@ -20,7 +24,6 @@ test_lint:
 unit_test:
   script:
     - npm run test
-
 deploy:
   script:
     - git init 
