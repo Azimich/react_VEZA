@@ -22,8 +22,8 @@ const NotFoundIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
       <path
         d="M25.7886 362.507L760.239 362.507"
         stroke="#2C8B3E"
-        stroke-width="2.4729"
-        stroke-miterlimit="10"
+        strokeWidth="2.4729"
+        strokeMiterlimit="10"
       />
     </svg>
   );
