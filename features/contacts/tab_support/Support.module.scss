@@ -58,6 +58,10 @@
     &__textarea {
       margin: 10px 0 20px 0;
 
+      &.no_padding{
+        margin: 10px 0 0 0;
+      }
+
       textarea {
         box-sizing: border-box;
 
@@ -87,7 +91,7 @@
         display: none;
       }
 
-      .inputnames {
+      .input_names {
         display: flex;
         gap: 30px;
         align-items: center;
@@ -111,7 +115,13 @@
             align-items: center;
             justify-content: center;
             display: flex;
-            font-family: cursive;
+            transition: all 0.3s;
+            &:after{
+              content: "x";
+              font-family: cursive;
+              position: absolute;
+              top: 5px;
+            }
             &:hover{
               background-color: red;
             }
