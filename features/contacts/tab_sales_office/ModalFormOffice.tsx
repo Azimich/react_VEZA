@@ -41,4 +41,5 @@ const ModalFormOffice: FC<IObjectItem> = ({
     </div>
   );
 };
+
 export { ModalFormOffice };
