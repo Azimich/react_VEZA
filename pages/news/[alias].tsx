@@ -9,9 +9,12 @@ import { newsList } from "service/list/servers/newsList";
 export const getStaticPaths: GetStaticPaths = async () => {
   const pathNews = await newsList();
   return {
-    paths: pathNews.Response.map((e: { Alias: string }) => ({
-      params: { alias: e.Alias },
-    })),
+    paths:
+      pathNews.Response?.length > 0
+        ? pathNews.Response?.map((e: { Alias: string }) => ({
+            params: { alias: e.Alias },
+          }))
+        : [],
     fallback: "blocking",
   };
 };

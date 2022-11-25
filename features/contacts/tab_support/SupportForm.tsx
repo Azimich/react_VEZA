@@ -9,7 +9,6 @@ import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
 import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
-import { useModal } from "components/modal";
 
 type ResultType = {
   [key: string]: any;
