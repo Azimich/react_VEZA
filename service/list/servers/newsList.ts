@@ -15,7 +15,7 @@ const newsList = async () => {
     process.env.NEXT_PUBLIC_APP_FETCH + "/api/News/get_news_page",
     {
       pageNumber: 1,
-      pageSize: 7,
+      pageSize: 6,
     }
   );
 };
