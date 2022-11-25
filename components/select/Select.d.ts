@@ -7,6 +7,7 @@ interface IOptionSetting {
   onChange?: (e) => void;
   optionsData?: IOptionItem[];
   defaultValue?: IOptionItem;
+  classNameProps?: string;
   type?: "common" | "company_inn";
 }
 

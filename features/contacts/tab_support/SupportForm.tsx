@@ -9,7 +9,6 @@ import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
 import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
-import { useModal } from "components/modal";
 
 type ResultType = {
   [key: string]: any;
@@ -33,9 +32,7 @@ const SupportForm: FC = () => {
       private_police: false,
     },
     validationSchema: ValidationSchema(),
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-    },
+    onSubmit: () => {},
   });
 
   const handleFilterOnChange = (
@@ -77,6 +74,8 @@ const SupportForm: FC = () => {
       <ul className={Styles.input_names}>
         {selectedFiles.length > 0 &&
           selectedFiles.map((file) => {
+            console.log(file, "y65tr4e3");
+
             return (
               <li key={file.lastModified}>
                 {file.name}
@@ -208,6 +207,7 @@ const SupportForm: FC = () => {
             }
           />
         </div>
+
         <div
           className={`${Styles.support__form__items__textarea} ${Styles.no_padding}`}
         >
