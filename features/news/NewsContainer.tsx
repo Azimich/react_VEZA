@@ -10,10 +10,17 @@ import Styles from "./News.module.scss";
 const NewsContainer: FC<INewsData> = ({ news }) => {
   const [newsWithDesc, setNewsWithDesc] = useState<INewDataItem[]>();
   const [newsWithOutDesc, setNewsWithOutDesc] = useState<INewDataItem[]>();
-  console.log("news", news);
   useEffect(() => {
-    setNewsWithDesc(news.newsItem.Response.slice(0, 4));
-    setNewsWithOutDesc(news.newsItem.Response.slice(4));
+    setNewsWithDesc(
+      news.newsItem.Response?.length > 0
+        ? news?.newsItem?.Response.slice(0, 4)
+        : []
+    );
+    setNewsWithOutDesc(
+      news.newsItem.Response?.length > 0
+        ? news?.newsItem?.Response.slice(4)
+        : []
+    );
   }, []);
 
   return (
