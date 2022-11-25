@@ -14,7 +14,7 @@
   max-width: 550px;
   margin: 50px auto 0;
   background: color(white);
-  box-shadow: 0px 0px 15px rgb(0 0 0 / 12%);
+  box-shadow: 0 0 15px rgb(0 0 0 / 12%);
   border-radius: 10px;
   padding: 25px 20px 30px 20px;
   @include phoneScreen {
@@ -104,7 +104,7 @@
       @include phoneScreen {
         width: 100%;
         box-sizing: border-box;
-        padding: auto;
+
       }
       svg {
         width: 20px;
@@ -117,7 +117,7 @@
 
 .checkbox__auth {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
 
   a {
@@ -195,7 +195,6 @@
       @media (max-width: 550px) {
         width: 100%;
         box-sizing: border-box;
-        padding: auto;
       }
 
       svg {
