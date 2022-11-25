@@ -44,8 +44,6 @@ const SalesOfficeContainer: FC = () => {
   };
 
   const FormOutPut: ReactNode[] = office_sales_data.map((e) => {
-    console.log("eeeee", e);
-
     return (
       <ObjectItem
         {...e}
@@ -59,7 +57,9 @@ const SalesOfficeContainer: FC = () => {
   });
 
   const handleOnClickModal = (e: IObjectItem, alias: string) => {
-    e.alias = alias;
+    console.log("222222", e, alias);
+
+    // e.alias = alias;
     setContentForm(e);
     toggle();
   };
