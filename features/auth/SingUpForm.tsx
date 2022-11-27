@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { ChangeEvent } from "react";
-import { useFormik } from "formik";
+import { FormikValues, useFormik } from "formik";
 import Styles from "../../features/auth/SignContainer.module.scss";
 import { Input } from "../../components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
@@ -10,13 +10,9 @@ import { fieldsDataRegistr } from "./formsData/FieledsData";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "features/contacts/tab_support/mockData";
 
-type ResultType = {
-  [key: string]: any;
-};
-
 const SingUpForm: FC = () => {
   // Валидация формы
-  const formik: ResultType = useFormik({
+  const formik: FormikValues = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",

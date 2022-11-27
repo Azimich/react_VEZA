@@ -1,4 +1,4 @@
-import useHttp from "../store/hooks/useHttp";
+import useHttp from "store/hooks/useHttp";
 
 const useGetDaData = () => {
   const { request, loading, error } = useHttp();
