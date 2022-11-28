@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import Styles from "./Support.module.scss";
-import { Input } from "../../../components/input/Index";
+import { Input } from "components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";
@@ -74,11 +74,9 @@ const SupportForm: FC = () => {
       <ul className={Styles.input_names}>
         {selectedFiles.length > 0 &&
           selectedFiles.map((file) => {
-            console.log(file, "y65tr4e3");
-
             return (
               <li key={file.lastModified}>
-                {file.name}
+                <p>{file.name}</p>
                 <span
                   onClick={(e) => handleDeleteClick(e, file.lastModified)}
                 ></span>
@@ -124,7 +122,6 @@ const SupportForm: FC = () => {
             </div>
           </ul>
         </div>
-
         <div className={Styles.box_field}>
           {fieldsData.length > 0 &&
             fieldsData.map((item, i) => {

@@ -1,5 +1,27 @@
 import * as Yup from "yup";
 
+const ValidationJob = () => {
+  return Yup.object({
+    rstName: Yup.string()
+      .min(2, "Минимум 2 символа!")
+      .max(50, "Максимум 50 символов!")
+      .required("Обязательно для заполнения!"),
+    email: Yup.string()
+      .min(6, "Минимум 6 символов!")
+      .max(50, "Максимум 50 символов!")
+      .email("Неверный email!")
+      .required("Обязательно для заполнения!"),
+    phone: Yup.string()
+      .min(6, "Минимум 6 символов!")
+      .max(50, "Максимум 50 символов!")
+      .required("Обязательно для заполнения!"),
+    private_police: Yup.boolean().oneOf(
+      [true],
+      "Примите согласие на обработку персональных данных с условиями",
+    ),
+  });
+};
+
 const ValidationAuth = () => {
   return Yup.object({
     login: Yup.string()
@@ -13,7 +35,7 @@ const ValidationAuth = () => {
       .required("Обязательно для заполнения!"),
     private_police: Yup.boolean().oneOf(
       [true],
-      "Примите согласие на обработку персональных данных с условиями"
+      "Примите согласие на обработку персональных данных с условиями",
     ),
   });
 };
@@ -59,9 +81,9 @@ const ValidationRegitr = () => {
       .required("Обязательно для заполнения!"),
     private_police: Yup.boolean().oneOf(
       [true],
-      "Примите согласие на обработку персональных данных с условиями"
+      "Примите согласие на обработку персональных данных с условиями",
     ),
   });
 };
 
-export { ValidationAuth, ValidationRegitr };
+export { ValidationAuth, ValidationRegitr, ValidationJob };

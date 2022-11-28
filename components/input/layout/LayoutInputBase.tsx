@@ -29,8 +29,9 @@ const LayoutInputBase: FC<IInput> = ({
         placeholder={placeholder}
         onKeyUp={onKeyUp}
       />
-      <label htmlFor={id}>{title} </label>
+      <label htmlFor={id}>{title}</label>
     </div>
   );
 };
+
 export { LayoutInputBase };

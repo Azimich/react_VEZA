@@ -1,6 +1,28 @@
 import { IFieledsData } from "./Forms";
 
 //для формы авторизации
+const fieldsDataJob: IFieledsData[] = [
+  {
+    name: "firstName",
+    title: "Имя *",
+    filter: /g/g,
+    size: 0,
+  },
+  {
+    name: "email",
+    title: "Почта *",
+    filter: /g/g,
+    size: 0,
+  },
+  {
+    name: "phone",
+    title: "Телефон *",
+    filter: /[^0-9-+]/g,
+    size: 20,
+  },
+];
+
+//для формы авторизации
 const fieldsDataAuth: IFieledsData[] = [
   {
     name: "login",
@@ -72,4 +94,4 @@ const fieldsDataRegistr: IFieledsData[] = [
   },
 ];
 
-export { fieldsDataAuth, fieldsDataRegistr };
+export { fieldsDataAuth, fieldsDataRegistr, fieldsDataJob };
