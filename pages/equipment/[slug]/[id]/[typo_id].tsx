@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     const productData = CatalogData.filter(
       (e: ICatalogData) =>
         e.alias === "/equipment/" + params.slug + "/" + params.id &&
-        e.typo_size_id === Number(params.typo_id)
+        e.typo_size_id === Number(params.typo_id),
     );
     return {
       props: {
@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const typoServer = (props: ICatalogData[]) => <TypoSize data={props} />;

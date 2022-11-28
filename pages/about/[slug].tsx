@@ -6,7 +6,6 @@ import { IComponents } from "components/tabs/Tabs";
 import { menuListServer } from "service/index";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { tabsAboutData } from "features/contacts/mockData";
-import { aboutPath } from "utils/bootstrap";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -25,7 +24,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: { slug: params.slug },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const ContactsSSR = (props: { slug: string }) => {

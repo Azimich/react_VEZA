@@ -25,7 +25,7 @@ const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
-    []
+    [],
   );
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
@@ -49,8 +49,8 @@ const JobContainer: FC = () => {
           selectedCheckBox
             .map((e) => e.url)
             .flat()
-            .indexOf(item.type_object) !== -1
-      )
+            .indexOf(item.type_object) !== -1,
+      ),
     );
   }, [selectedCheckBox]);
 
@@ -69,7 +69,7 @@ const JobContainer: FC = () => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0
         ? selectedCheckBox.filter((item) => item.id !== e.id)
-        : [...selectedCheckBox, e]
+        : [...selectedCheckBox, e],
     );
   };
 

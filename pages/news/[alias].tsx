@@ -20,9 +20,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async (context) => {
+  (store) => async () => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
-    const { params } = context;
 
     return {
       props: {
@@ -30,7 +29,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const newsSSR = (props: any) => <NewsPage {...props} />;

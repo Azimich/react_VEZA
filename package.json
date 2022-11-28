@@ -27,6 +27,7 @@
       "pre-commit": "lint-staged"
     }
   },
+
   "lint-staged": {
     "*.(ts|tsx|js|jsx)": [
       "eslint --fix",
@@ -88,6 +89,7 @@
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",

@@ -28,7 +28,7 @@ const ReferencesContainer: FC = () => {
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
   const [sideBarData] = useState(tabsSocialData);
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
-    []
+    [],
   );
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
@@ -53,7 +53,7 @@ const ReferencesContainer: FC = () => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0
         ? selectedCheckBox.filter((item) => item.id !== e.id)
-        : [...selectedCheckBox, e]
+        : [...selectedCheckBox, e],
     );
   };
 
@@ -64,8 +64,8 @@ const ReferencesContainer: FC = () => {
           selectedCheckBox
             .map((e) => e.url)
             .flat()
-            .indexOf(item.type_object) !== -1
-      )
+            .indexOf(item.type_object) !== -1,
+      ),
     );
   }, [selectedCheckBox]);
 

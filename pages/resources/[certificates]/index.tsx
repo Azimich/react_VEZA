@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: { certificates: params.certificates },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const ContactsSSR = (props: { certificates: string }) => {

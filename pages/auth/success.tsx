@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: {},
       revalidate: 10,
     };
-  }
+  },
 );
 
 const SuccessPage = (props: any) => <Success {...props} />;

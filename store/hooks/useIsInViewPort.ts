@@ -7,9 +7,9 @@ const useIsInViewport = (ref: { current: Element }) => {
     () =>
       typeof IntersectionObserver !== `undefined` &&
       new IntersectionObserver(([entry]) =>
-        setIsIntersecting(entry.isIntersecting)
+        setIsIntersecting(entry.isIntersecting),
       ),
-    []
+    [],
   );
 
   useEffect(() => {

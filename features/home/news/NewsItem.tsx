@@ -14,7 +14,7 @@ interface INewsItemProps {
 
 const NewsItem: FC<INewsItemProps> = ({ className, props }) => {
   const [device, setDevice] = useState<"mobile" | "tablet" | "desktop">(
-    "desktop"
+    "desktop",
   );
   useEffect(() => {
     isMobile && setDevice("mobile");

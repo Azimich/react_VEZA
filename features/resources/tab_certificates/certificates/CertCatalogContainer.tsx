@@ -26,7 +26,7 @@ const CertCatalogContainer = () => {
 
   certificatesData.filter((item) => item.alias === router.query.alias);
   const id = certificatesData.filter(
-    (item) => item.alias === router.query.alias
+    (item) => item.alias === router.query.alias,
   )[0].id;
   const arr = certificatesData.filter((item) => item.parent === id);
 

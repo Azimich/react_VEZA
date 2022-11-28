@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const newsSSR = (props: INewsData) => {

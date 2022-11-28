@@ -27,12 +27,12 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
           (e) =>
             e.cat_id ===
             getData(CatalogEquipmentData, "/equipment/" + params.slug).shift()
-              ?.id
+              ?.id,
         ),
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const equipment = (props: any) => <EquipmentContainer {...props} />;

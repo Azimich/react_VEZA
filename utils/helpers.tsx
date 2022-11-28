@@ -1,8 +1,8 @@
-import { ICatalogEquipmentData } from "../features/equipment";
+import { ICatalogEquipmentData } from "features/equipment";
 
 const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   const resData = [];
-  for (let k in obj) {
+  for (const k in obj) {
     resData.push({ params: { slug: obj[k].alias } });
     if (obj[k].childrenData && obj[k].childrenData.length > 0) {
       eachRecursive(obj[k].childrenData);
@@ -15,10 +15,10 @@ const eachRecursive = (obj: ICatalogEquipmentData[]) => {
 function getParents(
   obj: ICatalogEquipmentData[],
   id: number,
-  parents: ICatalogEquipmentData[] = []
+  parents: ICatalogEquipmentData[] = [],
 ) {
   if (id !== 0) {
-    let parent = getData(obj, "", id).shift();
+    const parent = getData(obj, "", id).shift();
     if (parent?.parent_id != 0) {
       parents.push(parent);
       getParents(obj, parent.parent_id, parents);
@@ -33,9 +33,9 @@ const getData = (
   obj: ICatalogEquipmentData[],
   url: string,
   id?: number,
-  resData: ICatalogEquipmentData[] = []
+  resData: ICatalogEquipmentData[] = [],
 ) => {
-  for (let k in obj) {
+  for (const k in obj) {
     if (obj[k].alias === url || obj[k].id === id) {
       resData.push(obj[k]);
     }

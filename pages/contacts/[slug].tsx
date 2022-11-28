@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: { slug: params.slug },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const ContactsSlugSSR = (props: { slug: string }) => {

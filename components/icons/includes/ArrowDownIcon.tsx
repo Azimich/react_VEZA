@@ -1,10 +1,9 @@
 import React from "react";
 import { FC } from "react";
-import Styles from "./StylesIcon.module.scss";
 
 const ArrowDownIcon: FC<{ className?: string }> = (
   props: React.SVGProps<SVGSVGElement>,
-  { className }
+  { className },
 ) => {
   return (
     <svg

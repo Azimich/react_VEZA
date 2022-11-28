@@ -10,7 +10,7 @@ const SertificatesContainer: FC<ISertificatesData> = () => {
   const [sertificate, setSertificate] = useState<ISertificatesData[]>([]);
   useEffect(() => {
     setSertificate(
-      SertificatesData.filter((e) => e.product_url === router.query.id)
+      SertificatesData.filter((e) => e.product_url === router.query.id),
     );
   }, []);
   return (
