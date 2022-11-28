@@ -44,9 +44,9 @@ const SingInForm = () => {
     );
   };
 
-  const handleOnclickCheck = () => {
-    console.log("Чекед авторизации");
-  };
+  // const handleOnclickCheck = () => {
+  //   console.log("Чекед авторизации");
+  // };
 
   return (
     <div className={Styles.authorization__form}>
@@ -59,7 +59,7 @@ const SingInForm = () => {
         </div>
         <div className={Styles.box_field}>
           {fieldsDataAuth.length > 0 &&
-            fieldsDataAuth.map((item, index) => {
+            fieldsDataAuth.map((item) => {
               return (
                 <div
                   key={item.name}

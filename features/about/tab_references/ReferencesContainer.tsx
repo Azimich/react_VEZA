@@ -1,6 +1,6 @@
 import { Container } from "components/common/container";
 import Styles from "./References.module.scss";
-import { Tabs } from "../../../components/tabs";
+import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsSocialData } from "../../contacts/mockData";
 import { IComponents, ITab } from "components/tabs/Tabs";
 import { Commercial, Industrial, Social } from "../index";
@@ -17,7 +17,6 @@ import { SideBar } from "components/map/SideBar";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { ReferencesModal } from "./referencesModal/ReferencesModal";
-import IModalReferencesData from "./referencesModal/ReferencesModal.d";
 import { modalReferencesData } from "./referencesModal/MockData";
 import { ISlideItem } from "components/slider/Slider.d";
 import { SliderContainer } from "components/slider";
@@ -33,7 +32,7 @@ const ReferencesContainer: FC = () => {
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const [contentReferencesModal, setСontentReferencesModal] =
-    useState<IModalReferencesData>();
+    useState<IObject>();
   const { isShow, toggle } = useModal();
   const router = useRouter();
   const [data, setData] = useState<{ slug: string; activeTab: number }>({
@@ -46,7 +45,6 @@ const ReferencesContainer: FC = () => {
     setClickDataR(rData[0].items);
     toggle();
     toggleSlider();
-    console.log("нажато", contentReferencesModal);
   };
 
   const handleSideBarClick = (e: ITab) => {
@@ -73,9 +71,7 @@ const ReferencesContainer: FC = () => {
     return (
       <ObjectItem
         {...e}
-        onClick={(e: IObjectItem, alias: string) =>
-          handleOnClickModal(e, alias)
-        }
+        onClick={(e: IObject) => handleOnClickModal(e)}
         key={"fac" + e.id}
         icon={<ReferenceIcon />}
       />
@@ -100,8 +96,7 @@ const ReferencesContainer: FC = () => {
     router.push(aboutPath + e.url);
   };
 
-  const handleOnClickModal = (e: IObjectItem, alias: string) => {
-    e.alias = alias;
+  const handleOnClickModal = (e: IObject) => {
     setСontentReferencesModal(e);
     toggle();
   };

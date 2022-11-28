@@ -9,7 +9,9 @@ import { SearchItem } from "features/search/SearchItem";
 import { searchData } from "components/common/header/search/mockData";
 import { ISearchData } from "features/search/Search";
 
-const SearchModal: FC<{ onClick: () => void }> = ({ onClick }) => {
+const SearchModal: FC<{ onClick: (inputValue: string) => void }> = ({
+  onClick,
+}) => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const [filteredData, setFilteredData] = React.useState<ISearchData[]>([]);
 
@@ -57,7 +59,10 @@ const SearchModal: FC<{ onClick: () => void }> = ({ onClick }) => {
             })
           : inputValue.length !== 0 && <h2>Ничего не найдено</h2>}
         {filteredData.length > 5 && (
-          <Button children={"Показать ещё"} onClick={() => onClick()} />
+          <Button
+            children={"Показать ещё"}
+            onClick={() => onClick(inputValue)}
+          />
         )}
       </div>
     </div>

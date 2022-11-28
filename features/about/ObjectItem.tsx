@@ -33,10 +33,11 @@ const ObjectItem: FC<IObject> = (props) => {
         top: relative_coord.relative_top + object?.ypx,
         left: relative_coord.relative_left + object?.xpx,
       }}
-      onClick={() => onClick({}, "")}
+      onClick={() => onClick(props)}
     >
       {icon}
     </div>
   );
 };
+
 export { ObjectItem };

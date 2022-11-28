@@ -1,35 +1,35 @@
-import { IObjectItem } from "components/map/Map";
+import { IObject, IObjectItem } from "components/map/Map";
 import React, { FC } from "react";
 import Styles from "components/map/Map.module.scss";
 import { ArrowRightWithOutCircle } from "components/icons";
 import { factoryPath } from "utils/bootstrap";
 import { Link } from "components/link";
 
-const ModalFormFactory: FC<IObjectItem> = (e) => {
+const ModalFormFactory: FC<IObject> = (e) => {
+  console.log("props", e);
+
   return (
-    <div>
-      <div className={Styles.modal_title}>{e.name}</div>
+    <>
+      <div className={Styles.modal_title}>{e.object.name}</div>
       <div className={Styles.factory_info}>
         <p className={Styles.factory_info_services}>
-          Площадь производства<span>16 900 м2</span>
+          Площадь производства<span>{e.object.production_area}</span>
         </p>
         <p className={Styles.factory_info_services}>
-          Сервис:<span>Тел: +7 495 989-47-20</span>
+          Сервис:<span>{e.object.service_phone}</span>
         </p>
         <p className={Styles.factory_info_services}>
-          Логистика:<span>Тел: +7 495 626-99-30</span>
+          Логистика:<span>{e.object.logistic_phone}</span>
         </p>
         <p className={Styles.factory_info_services}>
           Адрес:
-          <span>
-            <b>Рабочая 10А</b> 111397, Москва Россия
-          </span>
+          <span>{e.object.address}</span>
         </p>
       </div>
       <Link url={factoryPath + e.alias} classLink={Styles.factory_button}>
         История завода <ArrowRightWithOutCircle />
       </Link>
-    </div>
+    </>
   );
 };
 export { ModalFormFactory };
