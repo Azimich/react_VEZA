@@ -1,5 +1,8 @@
 import Styles from "./Selection.module.scss";
 import { Button } from "components/button";
+import { LinkContainer } from "components/link/LinkContainer";
+import { Link } from "components/link";
+
 const SelectionContainer = () => {
   return (
     <>
@@ -9,9 +12,11 @@ const SelectionContainer = () => {
         fugiat?
       </div>
       <div className={Styles.selectionButton}>
-        <Button link={"auth/singin"} size={"medium"} theme={"banner"}>
-          Расчитать
-        </Button>
+        <Link url={"auth/singin"}>
+          <Button size={"medium"} theme={"banner"}>
+            Расчитать
+          </Button>
+        </Link>
       </div>
     </>
   );

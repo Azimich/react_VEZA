@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Container } from "components/common/container";
 import Styles from "./Header.module.scss";
 import { HeaderLogo } from "./HeaderLogo/HeaderLogo";
@@ -7,12 +7,8 @@ import { HeaderIcon } from "./headerIcon/HeaderIcon";
 import { useModal } from "components/modal";
 
 const HeaderContainer: FC = () => {
-  const [scrollData, setScrollData] = useState<number>(0);
+  const [scrollData] = useState<number>(0);
   const { isShow, toggle } = useModal();
-
-  const handleScroll = () => {
-    setScrollData(window.scrollY);
-  };
 
   const handleHamburgerOnClick = () => {
     toggle();
@@ -26,10 +22,6 @@ const HeaderContainer: FC = () => {
       document.getElementById("main").style.overflowY = "auto";
     }
   }, [isShow]);
-
-  useEffect(() => {
-    document.addEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <Container className="wrapper_clear no_padding">
