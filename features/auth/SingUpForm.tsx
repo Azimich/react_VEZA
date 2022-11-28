@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { ChangeEvent } from "react";
 import { FormikValues, useFormik } from "formik";
-import Styles from "../../features/auth/SignContainer.module.scss";
-import { Input } from "../../components/input/Index";
+import Styles from "features/auth/SignContainer.module.scss";
+import { Input } from "components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { ValidationRegitr } from "./formsData/ValidationsShemas";

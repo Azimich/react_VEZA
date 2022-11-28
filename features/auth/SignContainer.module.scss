@@ -10,6 +10,12 @@
 }
 
 //Форма авторизации
+.box_field {
+  input {
+    width: 100%;
+  }
+}
+
 .authorization__form {
   max-width: 550px;
   margin: 50px auto 0;
@@ -27,10 +33,6 @@
       padding: 10px 50px;
       font-size: 14px;
     }
-  }
-
-  input {
-    width: 100%;
   }
 
   &__item__title {
@@ -222,14 +224,13 @@
 
     ul {
       width: 100%;
+      input {
+        width: 100%;
+      }
     }
 
     &:nth-child(6) {
       margin-bottom: 20px;
-    }
-
-    input {
-      width: 100%;
     }
 
     &__forgot {
@@ -242,10 +243,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    input {
-      width: 100%;
-    }
-
     .overflow {
       margin-top: 5px;
       transition: all 0.3s;
@@ -306,6 +303,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 45px;
+  input {
+    width: 100%;
+  }
 
   @include phoneScreen {
     grid-template-columns: 1fr;

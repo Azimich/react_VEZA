@@ -10,7 +10,7 @@ import { ChangeEvent } from "react";
 import { useAuth } from "service/auth/auth";
 
 const SingInForm = () => {
-  const { getLogin, loading, error } = useAuth();
+  const { getLogin, error } = useAuth();
   const formik: FormikValues = useFormik({
     initialValues: {
       login: "",
@@ -20,10 +20,7 @@ const SingInForm = () => {
     },
     validationSchema: ValidationAuth(),
     onSubmit: (values) => {
-      getLogin(values.login, values.password).then(() => {
-        console.log("error", error, loading);
-      });
-      console.log(JSON.stringify(values, null, 2));
+      getLogin(values.login, values.password).then(() => {});
     },
   });
 
@@ -43,10 +40,6 @@ const SingInForm = () => {
         : target,
     );
   };
-
-  // const handleOnclickCheck = () => {
-  //   console.log("Чекед авторизации");
-  // };
 
   return (
     <div className={Styles.authorization__form}>
