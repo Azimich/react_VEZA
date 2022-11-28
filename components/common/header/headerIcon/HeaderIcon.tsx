@@ -21,6 +21,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
+
   useEffect(() => {
     isMobile ? setMobile(true) : setMobile(false);
   }, [isMobile]);
@@ -55,7 +56,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
         hide={toggle}
         modalContent={
           <SearchModal
-            onClick={(inputValue) => handleOnClickMore(inputValue)}
+            onClick={(inputValue: string) => handleOnClickMore(inputValue)}
           />
         }
         theme={"full_modal"}

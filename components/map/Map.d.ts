@@ -18,11 +18,18 @@ interface IMapProps {
   formOutPut?: ReactNode;
 }
 
+interface IObject {
+  id?: number;
+  alias?: string;
+  connection?: string;
+  onClick?: (alias: IObject) => void;
+  object?: IObjectItem;
+}
+
 interface IObjectItem {
   xpx?: number;
   ypx?: number;
   name?: string;
-  alias?: string;
   production_area?: string;
   fio?: string;
   email?: string;
@@ -30,7 +37,6 @@ interface IObjectItem {
   logistic_phone?: string;
   address?: string;
   block_title?: string;
-  items?: ISlideItem[];
 }
 
 interface IObject {

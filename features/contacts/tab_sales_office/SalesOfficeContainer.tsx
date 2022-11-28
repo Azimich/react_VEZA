@@ -11,7 +11,7 @@ import { Director, Logistic, Secretary } from "../index";
 import { YandexMap } from "../index";
 import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import { ObjectItem } from "features/about/ObjectItem";
-import { IObjectItem } from "components/map/Map";
+import { IObject, IObjectItem } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
 import { LogoIcon, MapIcon } from "components/icons";
 import { Map } from "components/map";
@@ -22,7 +22,7 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
-  const [contentForm, setContentForm] = useState<IObjectItem>();
+  const [contentForm, setContentForm] = useState<IObject>();
   console.log("contentForm", contentForm);
 
   const { isShow, toggle } = useModal();
@@ -47,19 +47,14 @@ const SalesOfficeContainer: FC = () => {
     return (
       <ObjectItem
         {...e}
-        onClick={(e: IObjectItem, alias: string) =>
-          handleOnClickModal(e, alias)
-        }
+        onClick={(e: IObject) => handleOnClickModal(e)}
         key={"fac" + e.id}
         icon={<MapIcon />}
       />
     );
   });
 
-  const handleOnClickModal = (e: IObjectItem, alias: string) => {
-    console.log("222222", e, alias);
-
-    // e.alias = alias;
+  const handleOnClickModal = (e: IObject) => {
     setContentForm(e);
     toggle();
   };

@@ -3,8 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 import { IObject } from "components/map/Map";
 
 const ObjectItem: FC<IObject> = (props) => {
-  console.log("55555", props);
-
   const { onClick, connection, object, icon } = props;
   const [relative_coord, setRelative_coord] = useState<{
     relative_top: number;
@@ -35,10 +33,11 @@ const ObjectItem: FC<IObject> = (props) => {
         top: relative_coord.relative_top + object?.ypx,
         left: relative_coord.relative_left + object?.xpx,
       }}
-      onClick={() => onClick(props, props.alias)}
+      onClick={() => onClick(props)}
     >
       {icon}
     </div>
   );
 };
+
 export { ObjectItem };

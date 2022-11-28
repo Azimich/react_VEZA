@@ -1,44 +1,38 @@
-import { IObjectItem } from "components/map/Map";
 import React, { FC } from "react";
+import { IObject } from "components/map/Map";
 import Styles from "components/map/Map.module.scss";
 import { EmailIcon, MapIcon, PhoneFooterIcon } from "components/icons";
 import { Link } from "components/link";
 
-const ModalFormOffice: FC<IObjectItem> = ({
-  fio,
-  address,
-  service_phone,
-  email,
-}) => {
+const ModalFormOffice: FC<IObject> = (props) => {
   return (
-    <div>
-      <div className={Styles.modal_title}>{service_phone}</div>
+    <>
       <p className={Styles.factory_info_fio}>
-        Руководитель филиала:<p>{fio}</p>
+        Руководитель филиала:<p>{props.object.fio}</p>
       </p>
       <div className={Styles.factory_info}>
         <p className={Styles.factory_info_services}>
           <MapIcon />
-          <span>{address}</span>
+          <span>{props.object.address}</span>
         </p>
         <p className={Styles.factory_info_services}>
           <PhoneFooterIcon />
-          <Link url={"tel:" + service_phone}>
+          <Link url={"tel:" + props.object.service_phone}>
             <a>
-              <span>{service_phone}</span>
+              <span>{props.object.service_phone}</span>
             </a>
           </Link>
         </p>
         <p className={Styles.factory_info_services}>
           <EmailIcon />
-          <Link url={"mailto:" + service_phone}>
+          <Link url={"mailto:" + props.object.service_phone}>
             <a>
-              <span>{email}</span>
+              <span>{props.object.email}</span>
             </a>
           </Link>
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

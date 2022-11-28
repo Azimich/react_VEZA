@@ -119,6 +119,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  .overflow__auto {
+    width: 200px;
+  }
 
   a {
     color: color(dark);

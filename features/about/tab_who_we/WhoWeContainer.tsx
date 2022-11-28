@@ -10,7 +10,7 @@ import { FactoryIcon, HistoryIcon, HistoryMobileIcon } from "components/icons";
 import { Separator } from "components/separator";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Modal, useModal } from "components/modal";
-import { IObjectItem } from "components/map/Map";
+import { IObject, IObjectItem } from "components/map/Map";
 import { Map } from "components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
 import { whoweData } from "../mockData";
@@ -19,7 +19,7 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 
 const WhoWeContainer: FC = () => {
-  const [contentForm, setContentForm] = useState<IObjectItem>();
+  const [contentForm, setContentForm] = useState<IObject>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
@@ -33,9 +33,7 @@ const WhoWeContainer: FC = () => {
     return (
       <ObjectItem
         {...e}
-        onClick={(e: IObjectItem, alias: string) =>
-          handleOnClickModal(e, alias)
-        }
+        onClick={(e: IObject) => handleOnClickModal(e)}
         key={"fac" + e.id}
         icon={<FactoryIcon />}
       />
@@ -46,8 +44,7 @@ const WhoWeContainer: FC = () => {
     router.push(aboutPath + e.url);
   };
 
-  const handleOnClickModal = (e: IObjectItem, alias: string) => {
-    e.alias = alias;
+  const handleOnClickModal = (e: IObject) => {
     setContentForm(e);
     toggle();
   };
