@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const equipmentServer = (props: { data: ICatalogData[] }) => (

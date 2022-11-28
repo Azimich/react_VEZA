@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { ChangeEvent } from "react";
-import { useFormik } from "formik";
-import Styles from "features/auth/SignContainer.module.scss";
-import { Input } from "components/input/Index";
+import { FormikValues, useFormik } from "formik";
+import Styles from "../../features/auth/SignContainer.module.scss";
+import { Input } from "../../components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { ValidationRegitr } from "./formsData/ValidationsShemas";
@@ -10,13 +10,9 @@ import { fieldsDataRegistr } from "./formsData/FieledsData";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "features/contacts/tab_support/mockData";
 
-type ResultType = {
-  [key: string]: any;
-};
-
 const SingUpForm: FC = () => {
   // Валидация формы
-  const formik: ResultType = useFormik({
+  const formik: FormikValues = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -39,7 +35,7 @@ const SingUpForm: FC = () => {
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0
+    size: number = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
@@ -48,7 +44,7 @@ const SingUpForm: FC = () => {
         ? target.length > size
           ? target.substring(0, size)
           : target
-        : target
+        : target,
     );
   };
 

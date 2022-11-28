@@ -11,12 +11,12 @@ import { getData, getParents } from "../../../utils/helpers";
 const Menu = () => {
   const router = useRouter();
   const [menu, setMenu] = useState<ICatalogEquipmentData[]>(
-    CatalogEquipmentData.filter((e) => e.parent_id === 0)
+    CatalogEquipmentData.filter((e) => e.parent_id === 0),
   );
 
   useEffect(() => {
     if (router.query.slug) {
-      let resData: ICatalogEquipmentData[] = [];
+      const resData: ICatalogEquipmentData[] = [];
       for (
         let i = 0;
         i <
@@ -27,9 +27,9 @@ const Menu = () => {
         const parentsData = getParents(
           CatalogEquipmentData,
           getData(CatalogEquipmentData, "/equipment/" + router.query.slug)[0]
-            ?.parent_id
+            ?.parent_id,
         );
-        let bySortLevel = parentsData.slice(0);
+        const bySortLevel = parentsData.slice(0);
         bySortLevel.sort((a, b) => a.level - b.level);
 
         resData.push(
@@ -38,18 +38,18 @@ const Menu = () => {
             id: breadcrumbsData[i]?.id,
             alias: i === 0 ? "/equipment/" : bySortLevel[i - 1]?.alias,
             back: true,
-          })
+          }),
         );
       }
 
-      let bySortId = resData.slice(0);
+      const bySortId = resData.slice(0);
       bySortId.sort((a, b) => a.id - b.id);
 
       setMenu(
         bySortId.concat(
           getData(CatalogEquipmentData, "/equipment/" + router.query.slug)[0]
-            ?.childrenData
-        )
+            ?.childrenData,
+        ),
       );
     } else {
       setMenu(CatalogEquipmentData.filter((e) => e.parent_id === 0));

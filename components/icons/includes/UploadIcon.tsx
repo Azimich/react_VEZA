@@ -1,6 +1,5 @@
 import React from "react";
 import { FC } from "react";
-import Styles from "./StylesIcon.module.scss";
 
 const UploadIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (

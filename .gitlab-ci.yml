@@ -14,8 +14,6 @@ install_dependencies:
     artifacts:
       paths:
         - node_modules/    
-    only:
-      - master
 
 build:
   stage: build
@@ -40,3 +38,5 @@ deploy_staging:
   stage: deploy_staging
   script:
     - echo "test" 
+only:
+  - master

@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: {},
       revalidate: 10,
     };
-  }
+  },
 );
 
 const ForgotPage = (props: any) => <SingForgotContainer {...props} />;

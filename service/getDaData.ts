@@ -1,4 +1,4 @@
-import useHttp from "../store/hooks/useHttp";
+import useHttp from "store/hooks/useHttp";
 
 const useGetDaData = () => {
   const { request, loading, error } = useHttp();
@@ -13,7 +13,7 @@ const useGetDaData = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: "Token " + token,
-      }
+      },
     );
   };
 

@@ -1,10 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { AppState, AppThunk } from "store/store";
 import { HYDRATE } from "next-redux-wrapper";
-import {
-  IMenuSlice,
-  IMenuState,
-} from "components/common/header/headerNav/Header.d";
+import { IMenuState } from "components/common/header/headerNav/Header.d";
 
 const initialState: IMenuState = {
   HasError: 0,

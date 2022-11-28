@@ -1,6 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended","plugin:@typescript-eslint/eslint-recommended"],
   "env": {
     "browser": true,
     "node": true,
@@ -11,12 +11,20 @@
     "no-undef": 2,
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "import/prefer-default-export": "off"
-
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures":  {
+      "jsx":  true  // Allows for the parsing of JSX
+    }
   },
-  "plugins": ["react"]
+  "plugins": ["react", "react-hooks"],
+  "settings":  {
+    "react":  {
+      "version":  "detect"
+    }
+  }
 }

@@ -6,7 +6,7 @@ const newsListHome = async () => {
     {
       pageNumber: 1,
       pageSize: 4,
-    }
+    },
   );
 };
 

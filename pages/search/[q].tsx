@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: { q: params.q },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const equipmentServer = (props: ISearch) => <Search {...props} />;

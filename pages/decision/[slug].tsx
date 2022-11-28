@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const DecisionPageServer = (props: { data: IDecisionData[] }) => (

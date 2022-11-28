@@ -5,16 +5,16 @@ import { INewDataItem } from "../News";
 import { EyeIcon } from "components/icons";
 import { SliderContainer } from "components/slider";*/
 
-const NewsPageItem: FC<INewDataItem> = ({
+const NewsPageItem: FC<INewDataItem> = (/*{
   NewsName,
-  /*  news_name,
+  /!*  news_name,
   description_first,
   image_category,
   statistics,
   title,
   keyword,
-  items,*/
-}) => {
+  items,*!/
+}*/) => {
   return (
     <></>
     /*

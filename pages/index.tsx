@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const Home = (props: IHomeData) => <HomeContainer {...props} />;

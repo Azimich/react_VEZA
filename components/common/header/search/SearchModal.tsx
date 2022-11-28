@@ -9,9 +9,7 @@ import { SearchItem } from "features/search/SearchItem";
 import { searchData } from "components/common/header/search/mockData";
 import { ISearchData } from "features/search/Search";
 
-const SearchModal: FC<{ onClick: (page_number: string) => void }> = ({
-  onClick,
-}) => {
+const SearchModal: FC<{ onClick: () => void }> = ({ onClick }) => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const [filteredData, setFilteredData] = React.useState<ISearchData[]>([]);
 
@@ -19,8 +17,8 @@ const SearchModal: FC<{ onClick: (page_number: string) => void }> = ({
     event.target.value
       ? setFilteredData(
           searchData.filter((e) =>
-            e.title.toLowerCase().includes(event.target.value.toLowerCase())
-          )
+            e.title.toLowerCase().includes(event.target.value.toLowerCase()),
+          ),
         )
       : setFilteredData([]);
     setInputValue(event.target.value);
@@ -59,7 +57,7 @@ const SearchModal: FC<{ onClick: (page_number: string) => void }> = ({
             })
           : inputValue.length !== 0 && <h2>Ничего не найдено</h2>}
         {filteredData.length > 5 && (
-          <Button children={"Показать ещё"} onClick={() => onClick("2")} />
+          <Button children={"Показать ещё"} onClick={() => onClick()} />
         )}
       </div>
     </div>

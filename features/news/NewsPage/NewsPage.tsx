@@ -1,5 +1,4 @@
 import { Container } from "components/common/container";
-import { NewsPageItem } from "features/news";
 import { FC } from "react";
 import { BreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";

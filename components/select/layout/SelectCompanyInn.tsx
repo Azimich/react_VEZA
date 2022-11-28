@@ -21,7 +21,7 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
 
   const handleLoadOptions = (
     inputValue: string,
-    callback: (options: IOptionItem[]) => void
+    callback: (options: IOptionItem[]) => void,
   ) => {
     if (inputValue.length > 3) {
       daData(inputValue).then((data) => {
@@ -41,8 +41,8 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
                   item.data.address.unrestricted_value,
                 code: item.data.address.unrestricted_value,
               };
-            }
-          )
+            },
+          ),
         );
       });
     }

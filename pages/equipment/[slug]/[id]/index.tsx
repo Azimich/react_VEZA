@@ -21,11 +21,11 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     const { params } = context;
     return {
       props: CatalogData.filter(
-        (e) => e.alias === equipmentPath + params.slug + "/" + params.id
+        (e) => e.alias === equipmentPath + params.slug + "/" + params.id,
       ),
       revalidate: 10,
     };
-  }
+  },
 );
 
 const equipment = (props: ICatalogData[]) => {

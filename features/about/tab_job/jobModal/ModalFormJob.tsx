@@ -40,17 +40,13 @@ const ModalFormJob = () => {
     const target = e.target.value.replace(numb, "");
     formik.setFieldValue(
       "phone",
-      target.length > 20 ? target.substring(0, 20) : target
+      target.length > 20 ? target.substring(0, 20) : target,
     );
   };
   const handleOnChangeFirstName = (e: ChangeEvent<HTMLInputElement>) => {
-    const alhpabet = /[^а-яёa-z,]/iu;
+    const alphabet = /[^а-яёa-z,]/iu;
     const target = e.target.value;
-    formik.setFieldValue("firstName", target.replace(alhpabet, ""));
-  };
-
-  const handleOnclickCheck = () => {
-    console.log("Чекед авторизации");
+    formik.setFieldValue("firstName", target.replace(alphabet, ""));
   };
 
   return (

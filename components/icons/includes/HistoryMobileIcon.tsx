@@ -10,6 +10,7 @@ const HistoryMobileIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
       viewBox="0 0 335 1069"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <rect
         x="13"
