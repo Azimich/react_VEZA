@@ -11,7 +11,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: {},
       revalidate: 10,
     };
-  }
+  },
 );
 
 const Decision = (props: any) => <DecisionContainer {...props} />;

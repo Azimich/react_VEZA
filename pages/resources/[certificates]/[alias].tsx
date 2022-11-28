@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
       props: { alias: params.alias },
       revalidate: 10,
     };
-  }
+  },
 );
 
 const CertCatalogSSR = () => <CertCatalog />;

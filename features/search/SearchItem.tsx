@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import Styles from "./Search.module.scss";
 import { Link } from "components/link";
 
-const SearchItem: FC<ISearchData> = ({ title, desc, id }) => {
+const SearchItem: FC<ISearchData> = ({ title, desc }) => {
   return (
     <div className={Styles.search__items__info}>
       <h1>{title}</h1>

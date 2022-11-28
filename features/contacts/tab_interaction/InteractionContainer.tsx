@@ -53,7 +53,7 @@ const InteractionContainer = () => {
         {InteractionData.filter((e) => e.type === "sales").map(
           (e: Interaction) => {
             return <InteractionItem {...e} key={e.id} />;
-          }
+          },
         )}
       </ul>
       <Pagination currentPage={1} totalPageCount={20} pageSize={3} />
@@ -64,7 +64,7 @@ const InteractionContainer = () => {
         {InteractionData.filter((e) => e.type === "factory").map(
           (e: Interaction) => {
             return <InteractionItem {...e} key={e.id} />;
-          }
+          },
         )}
       </ul>
     </Container>

@@ -8,18 +8,18 @@ import { Input } from "components/input/InputContainer";
 import { searchData } from "components/common/header/search/mockData";
 import { useRouter } from "next/router";
 
-const SearchContainer: FC<ISearch> = ({ q }) => {
+const SearchContainer: FC<ISearch> = () => {
   const router = useRouter();
   const [inputValue, setInputValue] = React.useState<string>(
-    router.query.q as string
+    router.query.q as string,
   );
   const [filteredData, setFilteredData] = React.useState<ISearchData[]>([]);
   useEffect(() => {
     inputValue
       ? setFilteredData(
           searchData.filter((e) =>
-            e.title.toLowerCase().includes(inputValue.toLowerCase())
-          )
+            e.title.toLowerCase().includes(inputValue.toLowerCase()),
+          ),
         )
       : setFilteredData([]);
   }, [inputValue]);

@@ -30,7 +30,7 @@ const SingInForm = () => {
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0
+    size: number = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
@@ -39,7 +39,7 @@ const SingInForm = () => {
         ? target.length > size
           ? target.substring(0, size)
           : target
-        : target
+        : target,
     );
   };
 

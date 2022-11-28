@@ -9,7 +9,6 @@ import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
 import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
-import { useModal } from "components/modal";
 
 type ResultType = {
   [key: string]: any;
@@ -42,7 +41,7 @@ const SupportForm: FC = () => {
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0
+    size: number = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
@@ -51,7 +50,7 @@ const SupportForm: FC = () => {
         ? target.length > size
           ? target.substring(0, size)
           : target
-        : target
+        : target,
     );
   };
 
@@ -62,18 +61,18 @@ const SupportForm: FC = () => {
 
   const handleDeleteClick = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
-    index: number
+    index: number,
   ) => {
     e.preventDefault();
     setSelectedFiles(
       selectedFiles.filter((e) => {
         return e.lastModified != index;
-      })
+      }),
     );
   };
 
   useEffect(() => {
-    let el: ReactNode = (
+    const el: ReactNode = (
       <ul className={Styles.input_names}>
         {selectedFiles.length > 0 &&
           selectedFiles.map((file) => {

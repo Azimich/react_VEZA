@@ -20,7 +20,7 @@ const Container: FC<IContainer> = ({
       .map((e) =>
         arrStyles.filter((a) => a === e).toString()
           ? Styles[arrStyles.filter((a) => a === e).toString()]
-          : className
+          : className,
       )
       .toString()
       .replace(/,/g, " ");

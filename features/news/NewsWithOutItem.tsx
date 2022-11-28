@@ -6,12 +6,12 @@ import { ArrowRightIcon, ReactAngleIcon } from "components/icons";
 import { Button } from "components/button";
 import { Link } from "components/link";*/
 
-const NewsWithOutItem: FC<INewDataItem> = ({
-  NewsName,
-  /*  news_name,
+const NewsWithOutItem: FC<INewDataItem> = (/*{
+  //NewsName,
+  /!*  news_name,
   image_category,
-  alias,*/
-}) => {
+  alias,*!/
+}*/) => {
   return (
     <li>
       {/*      <div className={Styles.new_with_out_container_item}>

@@ -10,7 +10,7 @@ const useAuth = () => {
       {
         userName: login,
         password: password,
-      }
+      },
     );
   };
 

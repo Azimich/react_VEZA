@@ -13,7 +13,7 @@ export const contactsSlice = createSlice({
   reducers: {
     setSelectedOfficeSalesCity: (
       state,
-      action: PayloadAction<IContactsSlice>
+      action: PayloadAction<IContactsSlice>,
     ) => {
       return {
         ...state,
@@ -22,7 +22,7 @@ export const contactsSlice = createSlice({
     },
     setOptionsOfficeSalesCity: (
       state,
-      action: PayloadAction<IContactsSlice>
+      action: PayloadAction<IContactsSlice>,
     ) => {
       return {
         ...state,

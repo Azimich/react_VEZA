@@ -33,7 +33,7 @@ const CatalogContainer = () => {
         ? catalogData.filter((e) => {
             return e.title.toLowerCase().includes(inputValue.toLowerCase());
           })
-        : catalogData
+        : catalogData,
     );
   }, [inputValue]);
 

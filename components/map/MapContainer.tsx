@@ -33,10 +33,10 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
                 key={"map" + e.id}
                 currentClass={currentClass}
                 onMouseEnter={(
-                  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+                  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
                 ) => handleMouseHover(e)}
                 onMouseLeave={(
-                  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+                  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
                 ) => handleMouseLeave(e)}
               />
             );

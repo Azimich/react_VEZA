@@ -11,7 +11,7 @@ const useHttp = () => {
       body = null,
       headers = {
         "Content-Type": "application/json;charset=utf-8",
-      }
+      },
     ) => {
       setLoading(true);
       try {
@@ -29,7 +29,7 @@ const useHttp = () => {
         setError(e.message);
       }
     },
-    []
+    [],
   );
 
   return { request, loading, error };

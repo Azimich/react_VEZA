@@ -25,12 +25,12 @@ const SearchContainer: FC = () => {
     dispatch(
       setSelectedOfficeSalesCity({
         selectedOfficeSalesCity: dataContactsCitySelect[0],
-      })
+      }),
     );
     dispatch(
       setOptionsOfficeSalesCity({
         optionsOfficeSalesCity: dataContactsCitySelect,
-      })
+      }),
     );
   }, [dataContactsCitySelect]);
 
