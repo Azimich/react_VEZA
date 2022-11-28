@@ -23,16 +23,16 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
   const [contentForm, setContentForm] = useState<IObjectItem>();
+  console.log("contentForm", contentForm);
 
   const { isShow, toggle } = useModal();
-
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
-
   const [data, setData] = React.useState<{ slug: string; activeTab: number }>({
     slug: "director",
     activeTab: 1,
   });
+
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Офис продаж" }]);
   }, [dataBreadContacts]);
@@ -44,7 +44,8 @@ const SalesOfficeContainer: FC = () => {
   };
 
   const FormOutPut: ReactNode[] = office_sales_data.map((e) => {
-    console.log("111", e);
+    console.log("eeeee", e);
+
     return (
       <ObjectItem
         {...e}
@@ -101,7 +102,6 @@ const SalesOfficeContainer: FC = () => {
         >
           {React.createElement(components[`tab_${data.slug}`])}
         </Tabs>
-
         <div>
           <SeparatorContainer title={"Филиалы"} />
           <p className={Styles.styles_map}>

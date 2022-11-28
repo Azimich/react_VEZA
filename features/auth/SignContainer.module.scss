@@ -14,7 +14,7 @@
   max-width: 550px;
   margin: 50px auto 0;
   background: color(white);
-  box-shadow: 0px 0px 15px rgb(0 0 0 / 12%);
+  box-shadow: 0 0 15px rgb(0 0 0 / 12%);
   border-radius: 10px;
   padding: 25px 20px 30px 20px;
   @include phoneScreen {
@@ -79,27 +79,6 @@
     }
   }
 
-  &__item__forgot {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 0 20px 0;
-    input {
-      width: 21px !important;
-    }
-
-    a {
-      color: color(dark);
-      font-size: 14px;
-      margin-top: 5px;
-      transition: all 0.3s;
-      &:hover {
-        color: color(green);
-        transform: translateX(3px);
-      }
-    }
-  }
-
   &__item__answer {
     display: flex;
     align-items: flex-end;
@@ -125,13 +104,31 @@
       @include phoneScreen {
         width: 100%;
         box-sizing: border-box;
-        padding: auto;
+
       }
       svg {
         width: 20px;
         height: 20px;
         margin-right: 8px;
       }
+    }
+  }
+}
+
+.checkbox__auth {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  a {
+    color: color(dark);
+    font-size: 14px;
+    margin-top: 5px;
+    transition: all 0.3s;
+  
+    &:hover {
+      color: color(green);
+      transform: translateX(3px);
     }
   }
 }
@@ -198,7 +195,6 @@
       @media (max-width: 550px) {
         width: 100%;
         box-sizing: border-box;
-        padding: auto;
       }
 
       svg {
@@ -343,7 +339,7 @@
   }
 
   &__item {
-    padding: 20px 20px 30px 20px;
+    padding: 20px 10px 30px 10px;
     input {
       width: 100%;
     }
