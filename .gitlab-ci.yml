@@ -24,7 +24,6 @@ build:
       - /     
   only:
     - master
-    
 
 testing:
   dependencies:
@@ -38,5 +37,3 @@ deploy_staging:
   stage: deploy_staging
   script:
     - echo "test" 
-only:
-  - master
