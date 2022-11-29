@@ -7,11 +7,16 @@ import { HeaderIcon } from "./headerIcon/HeaderIcon";
 import { useModal } from "components/modal";
 
 const HeaderContainer: FC = () => {
-  const [scrollData] = useState<number>(0);
+  const [scrollData, setScrollData] = useState<number>(0);
+
   const { isShow, toggle } = useModal();
 
   const handleHamburgerOnClick = () => {
     toggle();
+  };
+
+  const handleScroll = () => {
+    setScrollData(window.scrollY);
   };
 
   useEffect(() => {
