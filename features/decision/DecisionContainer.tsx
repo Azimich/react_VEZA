@@ -14,11 +14,11 @@ const DecisionContainer: FC<IDecisionData[]> = () => {
       document.getElementById("main").animate({ scrollTop: 0 });
     console.log(
       document.getElementsByClassName("wrapper") &&
-        document.getElementsByClassName("wrapper")
+        document.getElementsByClassName("wrapper"),
     );
   }, []);
   return (
-    <Container className="wrapper_clear no_padding 1">
+    <Container className="wrapper_clear no_padding">
       <BreadCrumbs data={dataBreadDecision} />
       <div className={Styles.decision__container}>
         {decisionData.map((e) => {

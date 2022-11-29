@@ -13,7 +13,8 @@ import {
   TypoSizeCalculates,
 } from "./index";
 
-const typo_sizeContainer: FC<{ data: ICatalogData[] }> = () => {
+const typo_sizeContainer: FC<{ data: ICatalogData[] }> = ({ data }) => {
+  console.log("data", data);
   const [activeTab, setActiveTabs] = useState(1);
   const handleOnClick = (e: ITab) => {
     setActiveTabs(e.id);
