@@ -49,6 +49,16 @@
     color: color(green);
   }
 
+  .swiper-button-next {
+    right: 0;
+    left: auto;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+    right: auto;
+  }
+
   .swiper-wrapper {
     position: relative;
     width: 100%;
