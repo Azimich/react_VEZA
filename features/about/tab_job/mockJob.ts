@@ -39,6 +39,7 @@ const MockJob: IMockJob[] = [
     title: "Веб-разработчик",
   },
 ];
+// @ts-ignore
 const jobObject: IObject[] = [
   {
     id: 1,

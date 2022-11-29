@@ -28,6 +28,7 @@ const LayoutInputFile: FC<IInput> = ({
         <input
           type={type}
           onChange={onChange}
+          accept=".doc,.docx,.pdf,accept='image/*'"
           onBlur={onBlur}
           multiple={multi}
           hidden={hidden}

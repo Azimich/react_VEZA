@@ -15,7 +15,6 @@ import Styles from "./about/About.module.scss";
 import { IHomeData } from "features/news/News";
 
 const HomeContainer: FC<IHomeData> = ({ home }) => {
-  console.log("props1", home);
   return (
     <>
       <Container el="section">

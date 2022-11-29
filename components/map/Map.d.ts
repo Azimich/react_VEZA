@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { ISlideItem } from "../slider/Slider.d";
+import { ISlideImages, ISlideItem, ISliderProps } from "../slider/Slider.d";
 
 interface IMapData {
   id: number;
@@ -37,6 +37,7 @@ interface IObjectItem {
   logistic_phone?: string;
   address?: string;
   block_title?: string;
+  items?: ISlideItem[];
 }
 
 interface IObject {

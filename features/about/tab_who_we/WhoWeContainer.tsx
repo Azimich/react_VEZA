@@ -10,7 +10,7 @@ import { FactoryIcon, HistoryIcon, HistoryMobileIcon } from "components/icons";
 import { Separator } from "components/separator";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Modal, useModal } from "components/modal";
-import { IObject, IObjectItem } from "components/map/Map";
+import { IObject } from "components/map/Map";
 import { Map } from "components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
 import { whoweData } from "../mockData";
