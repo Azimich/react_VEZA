@@ -8,17 +8,6 @@ const sliderData: ISliderProps = {
         ipad: "/images/banner__ipad.jpg",
         mobile: "/images/banner__phone.jpg",
       },
-      block_description: false,
-      typeSlider: "img",
-      alt: "banner",
-      link_slider: false, //включаем слайд как ссылка
-    },
-    {
-      images: {
-        pc: "/images/banner.jpg",
-        ipad: "/images/banner__ipad.jpg",
-        mobile: "/images/banner__phone.jpg",
-      },
       block_description: true,
       title: "Основа для здоровой жизни",
       description:
