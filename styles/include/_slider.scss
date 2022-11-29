@@ -3,6 +3,7 @@
 
 .swiper {
   width: 100%;
+
   .swiper-pagination {
     margin: 15px auto 0;
     width: 100px !important;
@@ -42,11 +43,13 @@
       margin-left: -5px;
     }
   }
+
   .swiper-button-next,
-  .swiper-button-prev{
+  .swiper-button-prev {
     color: color(green);
   }
-  .swiper-wrapper{
+
+  .swiper-wrapper {
     position: relative;
     width: 100%;
     height: auto;
