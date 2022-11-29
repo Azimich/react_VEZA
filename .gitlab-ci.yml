@@ -5,7 +5,6 @@ stages:
   - test
   - deploy_staging
 
-
 install_dependencies:
     stage: preparation
     script:
@@ -21,17 +20,13 @@ build:
     - npm run build
   artifacts:
     paths:
-      - /     
-  only:
-    - master
+      - /
 
 testing:
   dependencies:
     - build
   stage: test
   script: npm run test
-  only:
-    - master
 
 deploy_staging:
   stage: deploy_staging
