@@ -25,6 +25,10 @@ const ModalFormFactory: FC<IObject> = (e) => {
           Адрес:
           <span>{e.object.address}</span>
         </p>
+        <p className={Styles.factory_info_services}>
+          E-mail:
+          <span>{e.object.email}</span>
+        </p>
       </div>
       <Link url={factoryPath + e.alias} classLink={Styles.factory_button}>
         История завода <ArrowRightWithOutCircle />
