@@ -20,15 +20,19 @@ const HeaderContainer: FC = () => {
 
   useEffect(() => {
     if (isShow) {
-      document.getElementById("main").style.overflow = "hidden";
+      document.getElementById("lock").style.overflow = "";
+      document.getElementById("lock").style.overflow = "hidden";
     } else {
-      document.getElementById("main").style.overflowX = "hidden";
-      document.getElementById("main").style.overflowY = "auto";
+      document.getElementById("lock").style.overflowX = "hidden";
+      document.getElementById("lock").style.overflowY = "auto";
     }
   }, [isShow]);
 
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

@@ -1,5 +1,5 @@
-@import '/styles/mixins.scss';
-@import '/styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .header {
   box-shadow: 0 3px 5px rgb(30 158 0 / 90%);
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 35px 10px;
+    padding: 28px 10px;
     transition: all 0.3s;
     &_active {
       display: flex;
@@ -22,8 +22,8 @@
       transition: all 0.3s;
       padding: 15px 10px;
     }
-     @media (max-width: 1200px) {
-      padding: 16px 10px 16px 10px;
+    @media (max-width: 1200px) {
+      padding: 20px 10px 20px 10px;
     }
   }
 

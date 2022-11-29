@@ -34,13 +34,12 @@
           height: 380px;
         }
 
-
         @media (max-width: 450px) {
           height: 340px;
         }
 
         @media (max-width: 400px) {
-          height: 210px;
+          height: 280px;
         }
       }
 
@@ -85,7 +84,7 @@
       }
 
       @media (max-width: 500px) {
-        top: 7%;
+        top: 12%;
         left: 3%;
         right: 3%;
         padding: 15px;

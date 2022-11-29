@@ -8,7 +8,7 @@ import React, { FC, ReactNode, useEffect, useState } from "react";
 import { aboutPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
 import { MapContainer } from "components/map/MapContainer";
-import { IObject, IObjectItem } from "components/map/Map";
+import { IObject } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
 import { ObjectItem } from "../ObjectItem";
 import { ReferenceIcon } from "components/icons";

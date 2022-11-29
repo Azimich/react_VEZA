@@ -1,6 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import React from "react";
-//import NextHead from "next/head";
 
 class MyDocument extends Document {
   render() {
@@ -9,7 +8,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
-        <body className="loading">
+        <body id="lock">
           <Main />
           <NextScript />
         </body>
