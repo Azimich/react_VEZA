@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Styles from "./Modal.module.scss";
 import { IModalProps } from "./Modal.d";
@@ -13,6 +13,16 @@ export const Modal: FC<IModalProps> = ({
   bgModal = "",
   typeContent = "",
 }) => {
+  useEffect(() => {
+    if (isShow) {
+      document.getElementById("lock").style.overflow = "";
+      document.getElementById("lock").style.overflow = "hidden";
+    } else {
+      document.getElementById("lock").style.overflowX = "hidden";
+      document.getElementById("lock").style.overflowY = "auto";
+    }
+  }, [isShow]);
+
   const modal = (
     <section className={`${Styles.modal} ${Styles[bgModal]}`} onClick={hide}>
       <div
