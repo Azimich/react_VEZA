@@ -122,7 +122,10 @@
   align-items: flex-start;
   justify-content: space-between;
   .overflow__auto {
-    width: 200px;
+    width: 300px;
+    @include ipadScreen {
+      width: 200px;
+    }
   }
 
   a {

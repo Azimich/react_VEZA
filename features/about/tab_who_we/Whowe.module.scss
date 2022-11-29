@@ -1,11 +1,14 @@
-@import '../../../styles/mixins.scss';
-@import '../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .whowe_container {
   max-width: 600px;
   display: flex;
   justify-content: center;
   margin: 40px auto 130px;
+  @include ipadScreen {
+    margin: 40px auto;
+  }
 
   &_history {
     &_svg {
@@ -15,12 +18,14 @@
       @include phoneScreen {
         margin-bottom: 3%;
       }
+
       &_pc {
         display: block;
         @include ipadScreen {
           display: none;
         }
       }
+      
       &_mobile {
         display: none;
         @include ipadScreen {
@@ -29,6 +34,7 @@
       }
     }
   }
+
   &_video{
     max-width: 100%;
     margin: 0 auto;
@@ -44,7 +50,6 @@
       height: 100%;
       margin: 0 auto;
       border-radius: 10px;
-
     }
   }
 }

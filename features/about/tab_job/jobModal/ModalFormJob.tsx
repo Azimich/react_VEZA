@@ -4,7 +4,6 @@ import { Input } from "components/input/InputContainer";
 import Styles from "./ModalJob.module.scss";
 import { CheckboxWithLabel } from "components/checkbox";
 import { FormikValues, useFormik } from "formik";
-import * as Yup from "yup";
 import { ChangeEvent } from "react";
 import { ValidationJob } from "features/auth/formsData/ValidationsShemas";
 import { fieldsDataJob } from "features/auth/formsData/FieledsData";

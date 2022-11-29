@@ -14,6 +14,7 @@
       height: 300px;
     }
   }
+
   &_about{
     background-color: #FFF;
     box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
@@ -46,6 +47,11 @@
       @include ipadScreen {
         margin-bottom: 4%;
         font-size: 35px;
+      }
+
+      @include phoneScreen {
+        margin-bottom: 4%;
+        font-size: 28px;
       }
     }
     &_text{

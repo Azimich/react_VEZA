@@ -1,6 +1,7 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
+
 //Форма заказа
 .support__form {
   max-width: 850px;
@@ -353,5 +354,29 @@
 
   .support__form {
     display: block;
+  }
+}
+
+.checkbox__auth {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .overflow__auto,
+  .overflow {
+    margin-top: 0;
+    ;
+  }
+
+  a {
+    color: color(dark);
+    font-size: 14px;
+    margin-top: 5px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: color(green);
+      transform: translateX(3px);
+    }
   }
 }
