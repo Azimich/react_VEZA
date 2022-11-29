@@ -1,10 +1,11 @@
-@import '../../../styles/mixins.scss';
-@import '../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .questions_container{
   display: flex;
   justify-content: center;
   margin: 40px auto 0;
+  padding: 0 10px;
 }
 
 .title {
