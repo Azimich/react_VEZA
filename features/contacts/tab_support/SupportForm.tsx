@@ -206,7 +206,7 @@ const SupportForm: FC = () => {
         </div>
 
         <div
-          className={`${Styles.support__form__items__textarea} ${Styles.no_padding}`}
+          className={`${Styles.support__form__items__textarea} ${Styles.no_padding} ${Styles.checkbox__auth}`}
         >
           <ul
             className={`${
