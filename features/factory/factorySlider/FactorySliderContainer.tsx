@@ -6,6 +6,7 @@ import { FactoryItem } from "../FactoryItem";
 import { IFactoryData } from "../Factory";
 import { useAppSelector } from "store/hooks";
 import { getFactory } from "features/factory/FactorySlice";
+import Styles from "../FactoryItem.module.scss";
 
 const FactorySliderContainer: FC<ISliderData> = () => {
   const factoryData = useAppSelector(getFactory);
@@ -25,7 +26,7 @@ const FactorySliderContainer: FC<ISliderData> = () => {
   }, [activePage]);
 
   return (
-    <>
+    <div className={Styles.factory__slider}>
       <SliderContainer
         items={sliderFactoryData.items}
         theme={"factorySlider"}
@@ -39,7 +40,7 @@ const FactorySliderContainer: FC<ISliderData> = () => {
       {currentFactory.map((item) => {
         return <FactoryItem {...item} key={item.code} />;
       })}
-    </>
+    </div>
   );
 };
 

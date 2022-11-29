@@ -2,9 +2,18 @@
 @import 'styles/variables.scss';
 
 
+.factory__slider {
+  margin-top: 80px;
+}
+
 .factory__items {
+  margin: 0 0 150px 0;
+  @include ipadScreen {
+    margin-bottom: 80px;
+  }
+
   &__top {
-    margin-top: 40px;
+    margin-top: 50px;
     h1 {
       font-weight: 400;
       font-size: 25px;

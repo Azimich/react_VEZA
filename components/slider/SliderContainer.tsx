@@ -38,14 +38,6 @@ const SliderContainer: FC<ISliderProps> = ({
     },
   };
 
-  /*
-  const navigationButton: NavigationOptions = {
-    enabled: true,
-    nextEl: ".swiper-next",
-    prevEl: ".swiper-prev",
-  };
-*/
-
   const slideEffect = {
     slideShadows: false,
   };
