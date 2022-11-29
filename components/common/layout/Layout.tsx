@@ -5,6 +5,7 @@ import { FooterContainer } from "../footer";
 import { HeaderContainer } from "../header";
 import Head from "next/head";
 import { Container } from "../container";
+import { isMobile } from "react-device-detect";
 import { Box_icon_social_container } from "../../box_icon_social";
 
 const Layout: FC = ({ children }) => (
@@ -15,10 +16,11 @@ const Layout: FC = ({ children }) => (
       <title>{process.env.NEXT_PUBLIC_TITLE}</title>
       <meta name="keyword" content={process.env.NEXT_PUBLIC_KEYWORD} />
     </Head>
-    <div className={Styles.main} id={"main"}>
-      <header className={Styles.header}>
-        <HeaderContainer />
-      </header>
+
+    <header className={Styles.header}>
+      <HeaderContainer />
+    </header>
+    <div id={"main"}>
       <main>
         {children}
         <Container el="section">
@@ -27,10 +29,11 @@ const Layout: FC = ({ children }) => (
           </div>
         </Container>
       </main>
-      <footer>
-        <FooterContainer />
-      </footer>
     </div>
+
+    <footer>
+      <FooterContainer />
+    </footer>
   </>
 );
 
