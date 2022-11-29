@@ -1,11 +1,11 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-
 .bim_container {
   display: flex;
   justify-content: center;
   margin: 40px auto;
+  padding: 0 10px;
 }
 
 .bim__items {
