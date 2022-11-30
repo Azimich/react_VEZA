@@ -15,7 +15,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
-    console.log("23", params);
 
     return {
       props: { alias: params.alias },

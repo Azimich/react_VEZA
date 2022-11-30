@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         e.alias === "/equipment/" + params.slug + "/" + params.id &&
         e.typo_size_id === Number(params.typo_id),
     );
-    console.log("111", productData);
+
     return {
       props: {
         data: productData,

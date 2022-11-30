@@ -19,7 +19,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
-    console.log("123", params.id);
     return {
       props: CatalogData.filter(
         (e) => e.alias === equipmentPath + params.slug + "/" + params.id,

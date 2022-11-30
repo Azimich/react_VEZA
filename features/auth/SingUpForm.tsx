@@ -28,7 +28,9 @@ const SingUpForm: FC = () => {
     },
 
     validationSchema: ValidationRegitr(),
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      console.log("3224", values);
+    },
   });
 
   const handleFilterOnChange = (
@@ -113,6 +115,7 @@ const SingUpForm: FC = () => {
               placeholder={"Название компании или ИНН"}
               type={"company_inn"}
               onChange={(e) => {
+                console.log("eee", e);
                 formik.setFieldValue("company_inn", e?.value ? e?.value : "");
               }}
             />

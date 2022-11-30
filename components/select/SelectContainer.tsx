@@ -15,10 +15,6 @@ const SelectContainer: FC<IOptionSetting> = ({
   type = "common",
   classNameProps = "",
 }) => {
-  const handleOnChangeInn = (e: any) => {
-    console.log("export", e);
-  };
-
   let selectCurrent: ReactNode;
   switch (type) {
     case "common":
@@ -47,7 +43,7 @@ const SelectContainer: FC<IOptionSetting> = ({
           isMulti={isMulti}
           optionsData={optionsData}
           placeholder={placeholder}
-          onChange={(e) => handleOnChangeInn(e)}
+          onChange={(e) => onChange(e)}
         />
       );
       break;
