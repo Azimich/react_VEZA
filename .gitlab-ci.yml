@@ -11,7 +11,7 @@ install_dependencies:
     script:
       - npm install
       - npm install git
-    tag:
+    tags:
       - staging
     artifacts:
       paths:
