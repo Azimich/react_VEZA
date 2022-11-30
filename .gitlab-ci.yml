@@ -1,6 +1,6 @@
 image: node:latest
 stages:
-  - prepare
+  - prepare_test
   - build
   - test
   - deploy_staging
