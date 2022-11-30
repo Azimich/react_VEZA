@@ -1,22 +1,14 @@
 image: node:latest
 stages:
-  - preparation
   - build
   - test
   - deploy_staging
 
 
-install_dependencies:
-    stage: preparation
-    script:
-      - npm install
-      - npm install git
-    tags:
-      - stagin
-
 build:
   stage: build
   script:
+    - npm install
     - npm run build
   tags:
     - stagin  
