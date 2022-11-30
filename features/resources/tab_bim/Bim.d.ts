@@ -21,6 +21,7 @@ interface ICertificates {
   parent: number;
   title?: string;
   desc?: string;
+  category?: string;
 }
 interface IQuestions {
   id?: number;
