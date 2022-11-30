@@ -5,18 +5,26 @@ import Styles from "./Certificates.module.scss";
 import { Link } from "components/link";
 import { resourcesPath } from "utils/bootstrap";
 
-const CertificateItem: FC<ICertificates> = ({ image, alias, parent }) => {
+const CertificateItem: FC<ICertificates> = ({
+  image,
+  alias,
+  parent,
+  category,
+}) => {
   console.log(image, alias, parent);
 
   return (
-    <Link
-      url={resourcesPath + "certificates/" + alias}
-      classLink={Styles.certificates__items__item}
-    >
-      <div className={Styles.certificates__items__item__img}>
-        <img src={"/images/" + image} alt={image} />
-      </div>
-    </Link>
+    <div className={Styles.certificates__items__block}>
+      <Link
+        url={resourcesPath + "certificates/" + alias}
+        classLink={Styles.certificates__items__item}
+      >
+        <div className={Styles.certificates__items__item__img}>
+          <img src={"/images/" + image} alt={image} />
+        </div>
+        <h2>{category}</h2>
+      </Link>
+    </div>
   );
 };
 
