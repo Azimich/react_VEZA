@@ -11,11 +11,7 @@ prepare:
     - npm install
   artifacts:
     paths:
-      - /builds/web/front
-    exclude:
-      - /builds/web/front/.git
-      - /builds/web/front/.next
-      - /builds/web/front/front.tmp
+      - /builds/web/front/node_modules
   tags:
     - stagin  
     
