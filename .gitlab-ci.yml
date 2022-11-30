@@ -12,7 +12,7 @@ install_dependencies:
       - npm install
       - npm install git
     tags:
-      - staging
+      - stagin
     artifacts:
       paths:
         - node_modules/    
