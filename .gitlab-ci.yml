@@ -11,6 +11,9 @@ prepare:
   script:
     - npm install
     - npm run lint
+  artifacts:
+      paths:
+        - /builds/web/front/node_modules/
   tags:
     - stagin  
     
