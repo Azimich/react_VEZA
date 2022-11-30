@@ -29,6 +29,8 @@ const SliderContainer: FC<ISliderProps> = ({
   loop = true,
   OnClick,
   navigations = false,
+  breakpoints,
+  centeredSlides = false,
 }) => {
   const pagination = {
     clickable: true,
@@ -72,6 +74,8 @@ const SliderContainer: FC<ISliderProps> = ({
         effect={effectSlide}
         autoplay={autoplay}
         grabCursor={true}
+        breakpoints={breakpoints}
+        centeredSlides={centeredSlides}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >

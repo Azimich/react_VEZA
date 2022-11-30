@@ -1,5 +1,4 @@
 import { FC } from "react";
-
 import { IFactoryData } from "./Factory";
 import Styles from "./FactoryItem.module.scss";
 import { FactoryItemDesc } from "features/factory/FactoryItemDesc";

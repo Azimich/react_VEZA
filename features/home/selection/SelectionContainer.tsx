@@ -1,6 +1,5 @@
 import Styles from "./Selection.module.scss";
 import { Button } from "components/button";
-import { LinkContainer } from "components/link/LinkContainer";
 import { Link } from "components/link";
 
 const SelectionContainer = () => {

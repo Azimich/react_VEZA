@@ -28,7 +28,7 @@ const HeaderContainer: FC = () => {
   }, []);
 
   return (
-    <Container className="wrapper_clear no_padding">
+    <Container className="wrapper_clear">
       <nav
         className={
           scrollData > 0 ? Styles.header__nav_active : Styles.header__nav
