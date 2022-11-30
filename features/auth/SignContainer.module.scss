@@ -60,7 +60,7 @@
     }
 
     &_error {
-      color: red;
+      color:  color(error);
       border-radius: 8px;
       font-size: 12px;
       position: relative;
@@ -70,9 +70,6 @@
         transition: all 0.3s;
         transform: translateY(0px);
         height: 23px;
-        span {
-          margin: 0 0 0 10px;
-        }
       }
 
       .input__item {
@@ -92,7 +89,7 @@
       gap: 22px;
     }
 
-    span {
+    > span {
       display: flex;
       align-items: center;
       font-size: 14px;

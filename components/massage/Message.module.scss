@@ -1,0 +1,30 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+.message_container{
+  &_error {
+    color: color(error);
+    border-radius: 8px;
+    font-size: 12px;
+    position: relative;
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: color(error);
+      padding: 11px 12px;
+      text-align: right;
+      border-radius: 5px;
+      @include phoneScreen {
+        width: 100%;
+        box-sizing: border-box;
+
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
