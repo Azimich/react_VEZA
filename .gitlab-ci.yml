@@ -15,7 +15,9 @@ prepare:
     exclude:
       - /builds/web/front/.git
       - /builds/web/front/.next
-
+  tags:
+    - stagin  
+    
 build:
   stage: build
   script:
