@@ -39,3 +39,5 @@ deploy_staging:
     - master
   script:
     - echo "test" 
+  tags:
+    - stagin
