@@ -1,12 +1,6 @@
 import React from "react";
 import { describe, test, expect } from "@jest/globals";
-import {
-  fireEvent,
-  getByDisplayValue,
-  queryByText,
-  render,
-  screen,
-} from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 
 import { CheckboxWithLabel } from "components/checkbox";
 
@@ -54,7 +48,6 @@ describe("CheckBox component", () => {
     const { queryByLabelText } = render(
       <CheckboxWithLabel id={"check-box"} title={TITLE} />,
     );
-    console.log(queryByLabelText(TITLE));
     expect(queryByLabelText(TITLE)).toBeTruthy();
   });
 });

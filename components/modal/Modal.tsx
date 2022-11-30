@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Styles from "./Modal.module.scss";
 import { IModalProps } from "./Modal.d";
 import { CloseIcon } from "components/icons";
+import { useScrollStop } from "store/hooks/useScrollStop";
 
 export const Modal: FC<IModalProps> = ({
   isShow,
@@ -13,15 +14,7 @@ export const Modal: FC<IModalProps> = ({
   bgModal = "",
   typeContent = "",
 }) => {
-  useEffect(() => {
-    if (isShow) {
-      document.getElementById("lock").style.overflow = "";
-      document.getElementById("lock").style.overflow = "hidden";
-    } else {
-      document.getElementById("lock").style.overflowX = "hidden";
-      document.getElementById("lock").style.overflowY = "auto";
-    }
-  }, [isShow]);
+  useScrollStop(isShow);
 
   const modal = (
     <section className={`${Styles.modal} ${Styles[bgModal]}`} onClick={hide}>

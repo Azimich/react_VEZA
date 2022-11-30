@@ -5,11 +5,12 @@ import { HeaderLogo } from "./HeaderLogo/HeaderLogo";
 import { HeaderNav } from "./headerNav/HeaderNav";
 import { HeaderIcon } from "./headerIcon/HeaderIcon";
 import { useModal } from "components/modal";
+import { useScrollStop } from "store/hooks/useScrollStop";
 
 const HeaderContainer: FC = () => {
   const [scrollData, setScrollData] = useState<number>(0);
-
   const { isShow, toggle } = useModal();
+  useScrollStop(isShow);
 
   const handleHamburgerOnClick = () => {
     toggle();
@@ -18,16 +19,6 @@ const HeaderContainer: FC = () => {
   const handleScroll = () => {
     setScrollData(window.scrollY);
   };
-
-  useEffect(() => {
-    if (isShow) {
-      document.getElementById("lock").style.overflow = "";
-      document.getElementById("lock").style.overflow = "hidden";
-    } else {
-      document.getElementById("lock").style.overflowX = "hidden";
-      document.getElementById("lock").style.overflowY = "auto";
-    }
-  }, [isShow]);
 
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
