@@ -10,6 +10,9 @@ build:
   script:
     - npm install
     - npm run build
+  artifacts:
+    paths:
+      - /builds/web/front/
   tags:
     - stagin  
 
