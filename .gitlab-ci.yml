@@ -13,8 +13,8 @@ build:
   artifacts:
     paths:
       - /builds/web/front/
-  exclude:
-    - /builds/web/front/.git
+    exclude:
+      - /builds/web/front/.git/
   tags:
     - stagin  
 
