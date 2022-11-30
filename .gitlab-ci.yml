@@ -15,6 +15,7 @@ prepare:
     exclude:
       - /builds/web/front/.git
       - /builds/web/front/.next
+      - /builds/web/front/front.tmp
   tags:
     - stagin  
     
