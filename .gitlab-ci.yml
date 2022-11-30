@@ -12,7 +12,7 @@ build:
     - npm run build
   artifacts:
     paths:
-      - /builds/web/front/
+      - /builds/web/front/node_modules/
   tags:
     - stagin  
 
