@@ -11,7 +11,7 @@ prepare:
     - npm install
   artifacts:
     paths:
-      - /builds/web/
+      - /builds/web/front
     exclude:
       - /builds/web/front/.git
       - /builds/web/front/.next
