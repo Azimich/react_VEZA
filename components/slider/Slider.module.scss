@@ -204,9 +204,6 @@
         left: 0;
         right: 0;
         z-index: 2 !important;
-        @include phoneScreen {
-          top: 18%;
-        }
       }
 
       &_info {
@@ -841,6 +838,32 @@
         text-shadow: 4px 3px 6px rgba(0, 0, 0, 0.31);
         border-radius: 10px;
         transition: all 0.3s ease-in;
+        position: absolute;
+        top: 20%;
+        left: 16%;
+        background: rgba(123, 123, 123, 0.38);
+        backdrop-filter: blur(20px);
+        padding: 40px 30px;
+        border-radius: 20px;
+        @media (max-width: 1800px) {
+          left: 13%;
+        }
+      
+        @media (max-width: 1700px) {
+          left: 10%;
+        }
+      
+        @media (max-width: 1600px) {
+          left: 8%;
+        }
+      
+        @media (max-width: 1500px) {
+          left: 6%;
+        }
+      
+        @include tabletScreen {
+          top: 10px;
+        }
 
         &:hover {
           background: #33953A;
@@ -859,34 +882,6 @@
           padding: 13px 50px;
           border: 1.5px solid #fff;
         }
-      }
-
-      position: absolute;
-      top: 20%;
-      left: 16%;
-      background: rgba(123, 123, 123, 0.38);
-      backdrop-filter: blur(20px);
-      padding: 40px 30px;
-      border-radius: 20px;
-
-      @media (max-width: 1800px) {
-        left: 13%;
-      }
-
-      @media (max-width: 1700px) {
-        left: 10%;
-      }
-
-      @media (max-width: 1600px) {
-        left: 8%;
-      }
-
-      @media (max-width: 1500px) {
-        left: 6%;
-      }
-
-      @include tabletScreen {
-        top: 10px;
       }
     }
 
@@ -968,7 +963,7 @@
     justify-content: center;
     align-items: center;
     background: #EBEBEB;
-    padding: 10px 40px;
+    padding: 10px 0;
     font-size: 16px;
     color: color(black);
     text-align: center;
@@ -982,6 +977,9 @@
     -webkit-user-select: none;
     &:hover {
       background-color: #c8c8c8;
+    }
+    &.active {
+      background-color: red;
     }
   }
 }

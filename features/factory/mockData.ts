@@ -7,7 +7,8 @@ const FactoryData: IFactoryData[] = [
       {
         id: 1,
         firstTitle: "История завода с 1995 по 2000г",
-        descriptionTop: "description",
+        descriptionTop:
+          "Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.",
         items: [
           {
             secondTitle: "1995-1995 г.",

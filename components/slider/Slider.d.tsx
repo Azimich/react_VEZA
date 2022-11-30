@@ -28,6 +28,8 @@ interface ISliderProps {
     | "flip"
     | "creative"
     | "cards";
+  breakpoints?: {};
+  centeredSlides?: boolean;
 }
 
 interface ISlideImages {

@@ -30,12 +30,31 @@ const FactorySliderContainer: FC<ISliderData> = () => {
       <SliderContainer
         items={sliderFactoryData.items}
         theme={"factorySlider"}
-        autoplay={false}
-        loop={false}
+        autoplay={true}
+        loop={true}
         slidesPerView={5}
         spaceBetween={8}
-        navigations={true}
+        centeredSlides={true}
+        navigations={false}
         OnClick={(code: string) => handleOnClick(code)}
+        breakpoints={{
+          280: {
+            slidesPerView: 2,
+            spaceBetween: 6,
+          },
+          375: {
+            slidesPerView: 3,
+            spaceBetween: 6,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 8,
+          },
+          1024: {
+            slidesPerView: 6,
+            spaceBetween: 8,
+          },
+        }}
       />
       {currentFactory.map((item) => {
         return <FactoryItem {...item} key={item.code} />;

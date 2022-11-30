@@ -15,7 +15,7 @@ const FooterContainer = () => {
   return (
     <div className={Styles.footer}>
       <div className={Styles.footer__container}>
-        <Container className="wrapper">
+        <Container className="wrapper_clear">
           <div className={Styles.footer__content}>
             <Link url="/" classLink={Styles.footer__logo}>
               <img src="/images/logo.svg" alt="logo" />
