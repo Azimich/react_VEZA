@@ -3,6 +3,7 @@ stages:
   - prepare_test
   - build
   - test
+  - clear_images
   - deploy_staging
 
 prepare:
@@ -30,6 +31,10 @@ testing:
     - npm run test
   tags:
     - stagin  
+clear_images:
+  stage: clear_images
+  script:
+    - docker image prune -f
 
 deploy_staging:
   stage: deploy_staging
