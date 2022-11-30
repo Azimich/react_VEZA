@@ -8,11 +8,11 @@ stages:
 
 install_dependencies:
     stage: preparation
-    only:
-      - master
     script:
       - npm install
       - npm install git
+    tag:
+      - staging
     artifacts:
       paths:
         - node_modules/    
@@ -24,16 +24,12 @@ build:
   artifacts:
     paths:
       - /     
-  only:
-    - master
 
 testing:
   dependencies:
     - build
   stage: test
   script: npm run test
-  only:
-    - master
 
 deploy_staging:
   stage: deploy_staging
