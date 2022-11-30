@@ -1,20 +1,28 @@
 image: node:latest
 stages:
+  - install_prepare
   - build
   - test
   - deploy_staging
 
+prepare:
+  stage: install_prepare
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - /builds/web/
+    exclude:
+      - /builds/web/front/.git
+      - /builds/web/front/.next
 
 build:
   stage: build
   script:
-    - npm install
     - npm run build
   artifacts:
     paths:
-      - /builds/web/front/
-    exclude:
-      - /builds/web/front/.git/
+      - /builds/web/
   tags:
     - stagin  
 
