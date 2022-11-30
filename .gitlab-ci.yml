@@ -18,6 +18,8 @@ testing:
     - build
   stage: test
   script: npm run test
+  tags:
+    - stagin  
 
 deploy_staging:
   stage: deploy_staging
