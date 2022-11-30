@@ -13,9 +13,6 @@ install_dependencies:
       - npm install git
     tags:
       - stagin
-    artifacts:
-      paths:
-        - node_modules/    
 
 build:
   stage: build
