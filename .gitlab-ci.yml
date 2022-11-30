@@ -16,10 +16,8 @@ prepare:
 build:
   stage: build
   script:
+    - npm install
     - npm run build
-  artifacts:
-    paths:
-      - /builds/web/
   tags:
     - stagin  
 
@@ -27,7 +25,9 @@ testing:
   dependencies:
     - build
   stage: test
-  script: npm run test
+  script: 
+    - npm install
+    - npm run test
   tags:
     - stagin  
 
