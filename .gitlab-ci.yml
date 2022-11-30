@@ -31,10 +31,13 @@ testing:
     - npm run test
   tags:
     - stagin  
+    
 clear_images:
   stage: clear_images
   script:
     - docker image prune -f
+  tags:
+    - staging-shell
 
 deploy_staging:
   stage: deploy_staging
