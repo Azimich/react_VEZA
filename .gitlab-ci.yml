@@ -1,14 +1,15 @@
 image: node:latest
 stages:
-  - install_prepare
+  - prepare
   - build
   - test
   - deploy_staging
 
 prepare:
-  stage: install_prepare
+  stage: prepare_test
   script:
     - npm install
+    - npm run lint
   artifacts:
     paths:
       - /builds/web/front/node_modules
