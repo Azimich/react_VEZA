@@ -37,7 +37,7 @@ clear_images:
   script:
     - docker image prune -f
   tags:
-    - staging-shell
+    - stagin-shell
 
 deploy_staging:
   stage: deploy_staging
