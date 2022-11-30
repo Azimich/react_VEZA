@@ -32,12 +32,6 @@ testing:
   tags:
     - stagin  
     
-clear_images:
-  stage: clear_images
-  script:
-    - docker image prune -f
-  tags:
-    - stagin-shell
 
 deploy_staging:
   stage: deploy_staging
