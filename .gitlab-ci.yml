@@ -11,6 +11,8 @@ prepare:
   script:
     - npm install
     - npm run lint
+  only:
+    - master
   tags:
     - stagin  
     
@@ -19,6 +21,8 @@ build:
   script:
     - npm install
     - npm run build
+  only:
+    - master    
   tags:
     - stagin  
 
@@ -29,6 +33,8 @@ testing:
   script: 
     - npm install
     - npm run test
+  only:
+    - master    
   tags:
     - stagin  
     
