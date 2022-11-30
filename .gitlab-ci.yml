@@ -1,39 +1,43 @@
 image: node:latest
 stages:
-  - preparation
+  - prepare_test
   - build
   - test
+  - clear_images
   - deploy_staging
 
-
-install_dependencies:
-    stage: preparation
-    only:
-      - master
-    script:
-      - npm install
-      - npm install git
-    artifacts:
-      paths:
-        - node_modules/    
-
+prepare:
+  stage: prepare_test
+  script:
+    - npm install
+    - npm run lint
+  tags:
+    - stagin  
+    
 build:
   stage: build
   script:
+    - npm install
     - npm run build
-  artifacts:
-    paths:
-      - /     
-  only:
-    - master
+  tags:
+    - stagin  
 
 testing:
   dependencies:
     - build
   stage: test
-  script: npm run test
-  only:
-    - master
+  script: 
+    - npm install
+    - npm run test
+  tags:
+    - stagin  
+    
+clear_images:
+  stage: clear_images
+  script:
+    - docker image prune -f
+  tags:
+    - staging-shell
 
 deploy_staging:
   stage: deploy_staging

@@ -7,7 +7,7 @@ import { IHomeResponse, INewDataItem } from "features/news/News";
 const NewsContainer: FC<IHomeResponse> = (props) => {
   const { Response: response } = props;
   return (
-    <Container className={"wrapper_clear no_padding"}>
+    <Container>
       <div className={`${Styles.news_container}`}>
         {response?.map((e: INewDataItem, i: number) => {
           return (
