@@ -12,9 +12,6 @@ build:
     - npm run build
   tags:
     - stagin  
-  artifacts:
-    paths:
-      - /     
 
 testing:
   dependencies:
