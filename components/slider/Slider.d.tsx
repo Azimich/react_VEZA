@@ -14,6 +14,7 @@ interface ISliderProps {
   url?: string;
   color?: "white" | "green" | "link";
   OnClick?: (code: string) => void;
+  activePage?: string;
   autoplay?: boolean;
   loop?: boolean;
   slidesPerView?: number;
@@ -46,6 +47,7 @@ interface ISlideItem {
   color?: "white" | "green" | "link";
   alt?: string;
   code?: string;
+  activePage?: string;
   theme?:
     | "home"
     | "industries"

@@ -33,6 +33,7 @@ const FactorySliderContainer: FC<ISliderData> = () => {
         autoplay={true}
         loop={true}
         slidesPerView={5}
+        activePage={activePage}
         spaceBetween={8}
         centeredSlides={true}
         navigations={false}

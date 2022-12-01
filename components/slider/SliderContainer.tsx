@@ -22,6 +22,7 @@ const SliderContainer: FC<ISliderProps> = ({
   themeButton = "banner",
   dots = false,
   color = "white",
+  activePage,
   autoplay = true,
   effectSlide = "slide",
   spaceBetween = 0,
@@ -88,6 +89,7 @@ const SliderContainer: FC<ISliderProps> = ({
                 code={e.code}
                 typeSlider={e.typeSlider}
                 theme={theme}
+                activePage={activePage}
                 themeButton={themeButton}
                 size={size}
                 color={color}
