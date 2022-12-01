@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import ReactDOM from "react-dom";
 import Styles from "./Modal.module.scss";
 import { IModalProps } from "./Modal.d";

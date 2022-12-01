@@ -7,7 +7,6 @@ const tabsAuthData: ITab[] = [
 
 const tabsAboutData: ITab[] = [
   { id: 1, title: "Кто мы", url: "whowe" },
-  { id: 2, title: "Референсы", url: "references" },
   { id: 3, title: "Вакансии", url: "job" },
 ];
 const tabsSocialData: ITab[] = [
