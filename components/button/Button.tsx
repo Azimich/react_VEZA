@@ -31,7 +31,6 @@ const Button: FC<ButtonI> = ({
       type={type}
       disabled={disabled}
       onClick={onClickBtn()}
-      data-test={`btn-${theme}`}
       className={`${Styles[themeSize]}`}
     >
       {children}

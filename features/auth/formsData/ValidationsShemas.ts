@@ -36,7 +36,7 @@ const ValidationAuth = () => {
   });
 };
 
-const ValidationRegitr = () => {
+const ValidationRegister = () => {
   return Yup.object({
     firstName: Yup.string()
       .min(2, "Минимум 2 символа!")
@@ -80,4 +80,4 @@ const ValidationRegitr = () => {
   });
 };
 
-export { ValidationAuth, ValidationRegitr, ValidationJob };
+export { ValidationAuth, ValidationRegister, ValidationJob };

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from "react";
-import { useFormik } from "formik";
+import { FormikValues, useFormik } from "formik";
 import Styles from "./Support.module.scss";
 import { Input } from "components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
@@ -10,15 +10,11 @@ import { dataSupportSubjectSelect } from "./mockData";
 import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
 
-type ResultType = {
-  [key: string]: any;
-};
-
 const SupportForm: FC = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
 
-  const formik: ResultType = useFormik({
+  const formik: FormikValues = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",

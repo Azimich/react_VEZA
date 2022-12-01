@@ -14,7 +14,7 @@ import { ErrorIcon } from "components/icons";
 import { useRouter } from "next/router";
 
 const SingInForm = () => {
-  const { getLogin, error } = useAuth();
+  const { getLogin, loading, error } = useAuth();
   const [authData, setAuthData] = useState<ISingResponseData>({});
   const router = useRouter();
 
@@ -135,7 +135,7 @@ const SingInForm = () => {
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>
         <div className={Styles.authorization__form__item__answer}>
-          <Button type={"submit"} children={"Войти"} />
+          <Button type={"submit"} children={"Войти"} disabled={loading} />
           {error && (
             <Message type={"error"}>
               <span>Нет соединения с базой</span>
