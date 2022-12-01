@@ -1,6 +1,6 @@
 import { ISalles } from "./SalesOffice";
-import { IOptionItem } from "../../../components/select/Select";
-import { IObject } from "../../../components/map/Map";
+import { IOptionItem } from "components/select/Select";
+import { IObject } from "components/map/Map";
 
 const salesOfficeData: ISalles[] = [
   {

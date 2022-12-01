@@ -75,6 +75,10 @@
     &_green {
       @extend %colorGreen;
       @include mediumSize;
+      position: relative;
+      &[disabled]{
+        background-color:color(bredcrumbs_hover);
+      }
     }
 
     &_white {
@@ -154,6 +158,7 @@
     }
   }
 }
+
 .industries{
   div{
     display: grid;
@@ -361,3 +366,4 @@
     }
   }
 }
+

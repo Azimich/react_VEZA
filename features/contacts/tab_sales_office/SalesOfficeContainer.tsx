@@ -11,7 +11,7 @@ import { Director, Logistic, Secretary } from "../index";
 import { YandexMap } from "../index";
 import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import { ObjectItem } from "features/about/ObjectItem";
-import { IObject, IObjectItem } from "components/map/Map";
+import { IObject } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
 import { LogoIcon, MapIcon } from "components/icons";
 import { Map } from "components/map";
@@ -111,7 +111,7 @@ const SalesOfficeContainer: FC = () => {
         hide={toggle}
         modalContent={<ModalFormOffice {...contentForm} />}
         theme={"modal"}
-        headerText={<LogoIcon />}
+        headerText={"ВЕЗА-название филиала"}
         bgModal={"black"}
       ></Modal>
     </Container>
