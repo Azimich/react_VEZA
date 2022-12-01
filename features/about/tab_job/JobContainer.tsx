@@ -1,3 +1,4 @@
+import React, { FC, ReactNode, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { ITab } from "components/tabs/Tabs";
 import { aboutPath } from "utils/bootstrap";
@@ -11,7 +12,6 @@ import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
 import { Map } from "components/map";
-import React, { FC, ReactNode, useEffect, useState } from "react";
 import { IObject } from "components/map/Map";
 import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "components/map/SideBar";
@@ -87,7 +87,7 @@ const JobContainer: FC = () => {
             handleOnClickTabs(e);
           }}
           activeTab={3}
-          size={"max"}
+          size={"small300"}
         />
       </div>
       <Map

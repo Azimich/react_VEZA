@@ -39,6 +39,7 @@ const MockJob: IMockJob[] = [
     title: "Веб-разработчик",
   },
 ];
+
 // @ts-ignore
 const jobObject: IObject[] = [
   {
@@ -150,6 +151,7 @@ const jobObject: IObject[] = [
     },
   },
 ];
+
 const jobGalleryData: ISliderProps = {
   items: [
     {

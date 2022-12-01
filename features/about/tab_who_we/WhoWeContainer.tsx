@@ -59,7 +59,7 @@ const WhoWeContainer: FC = () => {
             handleOnClickTabs(e);
           }}
           activeTab={1}
-          size={"max"}
+          size={"small300"}
         />
       </div>
       <div>
