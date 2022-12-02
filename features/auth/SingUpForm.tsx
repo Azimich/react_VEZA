@@ -153,7 +153,6 @@ const SingUpForm: FC = () => {
                 formik.handleChange(e);
               }}
             />
-
             <div
               className={`${
                 formik.errors?.private_police && formik.touched?.private_police
