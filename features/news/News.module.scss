@@ -36,12 +36,13 @@
 
     &_image {
       width: 40%;
-      @include phoneScreen {
-        width: 60%;
-      }
-
-      @media (max-width: 500px) {
+      height: 320px;
+      @include tabletScreen {
         width: 100%;
+      }
+      
+      @include phoneScreen {
+        height: 300px;
       }
 
       &:nth-child(even) {

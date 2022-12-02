@@ -136,7 +136,7 @@ const SingUpForm: FC = () => {
           </ul>
         </div>
         <div
-          className={`${Styles.registration__form__items__textarea} ${Styles.no_padding}`}
+          className={`${Styles.registration__form__items__textarea} ${Styles.no_padding} ${Styles.register_checkbox}`}
         >
           <ul
             className={`${
@@ -167,7 +167,6 @@ const SingUpForm: FC = () => {
         </div>
         <div className={Styles.registration__form__item__answer}>
           <Button type={"submit"} children={"Зарегистрироваться"} />
-
           {registerError && (
             <Message type={"error"}>
               <ErrorIcon />
