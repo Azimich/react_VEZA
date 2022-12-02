@@ -38,11 +38,11 @@ const ValidationAuth = () => {
 
 const ValidationRegister = () => {
   return Yup.object({
-    firstName: Yup.string()
+    name: Yup.string()
       .min(2, "Минимум 2 символа!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
-    lastName: Yup.string()
+    surname: Yup.string()
       .min(2, "Минимум 2 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
@@ -51,16 +51,16 @@ const ValidationRegister = () => {
       .max(50, "Максимум 50 символов!")
       .email("Неверный email!")
       .required("Обязательно для заполнения!"),
-    phone: Yup.string()
+    phones: Yup.string()
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
-    company_inn: Yup.string().required("Обязательно для заполнения!"),
-    birthdate: Yup.string()
+    organizationINN: Yup.string().required("Обязательно для заполнения!"),
+    dateOfBirth: Yup.string()
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),
-    post: Yup.string()
+    position: Yup.string()
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),

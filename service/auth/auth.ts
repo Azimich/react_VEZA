@@ -12,8 +12,13 @@ const useAuth = () => {
       }),
     );
   };
-
-  return { getLogin, loading, error };
+  const postRegister = (values: any) => {
+    return request(
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/Identity/register_user",
+      "POST",
+      JSON.stringify(values),
+    );
+  };
+  return { getLogin, postRegister, loading, error };
 };
-
 export { useAuth };

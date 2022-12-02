@@ -12,6 +12,7 @@ const SlideItem: FC<ISlideItem> = ({
   theme = "home",
   themeButton = "banner",
   alt = "",
+  activePage,
   color = "white",
   block_description = false,
   title = "",
@@ -107,7 +108,13 @@ const SlideItem: FC<ISlideItem> = ({
         onClick={() => OnClick(code)}
       >
         <div className={Styles[`${theme}__history__items`]}>
-          <div className={Styles[`${theme}__history__slide`]}>{title}</div>
+          <div
+            className={`${Styles[`${theme}__history__slide`]} ${
+              code === activePage ? Styles.activePage : "ку"
+            }`}
+          >
+            {title}
+          </div>
         </div>
       </div>
     );

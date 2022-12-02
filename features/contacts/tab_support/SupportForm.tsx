@@ -169,7 +169,7 @@ const SupportForm: FC = () => {
               optionsData={dataSupportSubjectSelect}
               name={"company_inn"}
               placeholder={"Название компании или ИНН"}
-              type={"company_inn"}
+              type={"organizationINN"}
               onChange={(e) => {
                 formik.setFieldValue("company_inn", e?.value ? e?.value : "");
               }}
@@ -188,7 +188,7 @@ const SupportForm: FC = () => {
         <div className={Styles.support__form__items__textarea}>
           <TextareaContainer children={"Ваше сообщение"} />
         </div>
-        <div className={Styles.support__form__added__file}>
+        {/*        <div className={Styles.support__form__added__file}>
           <Input
             name={"files"}
             title={"Прикрепить"}
@@ -199,7 +199,7 @@ const SupportForm: FC = () => {
               handleInputFileOnChange(e)
             }
           />
-        </div>
+        </div>*/}
 
         <div
           className={`${Styles.support__form__items__textarea} ${Styles.no_padding} ${Styles.checkbox__auth}`}

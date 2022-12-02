@@ -6,25 +6,30 @@ import { Input } from "components/input/Index";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { ValidationRegister } from "./formsData/ValidationsShemas";
-import { fieldsDataRegistr } from "./formsData/FieledsData";
+import { fieldsDataRegister } from "./formsData/FieledsData";
 import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "features/contacts/tab_support/mockData";
 import { Message } from "components/massage";
 import { ErrorIcon } from "components/icons";
+import { useAuth } from "service/auth/auth";
 
 const SingUpForm: FC = () => {
   const [registerError, setRegisterError] = useState<boolean>(false);
+  const { postRegister, loading, error } = useAuth();
   // Валидация формы
   const formik: FormikValues = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      company_inn: "",
-      birthdate: "",
-      post: "",
+      organizationINN: "",
+      organizationName: "",
+      organizationAddress: "",
       password: "",
+      name: "",
+      surname: "",
+      patronymic: "",
+      phones: "",
+      email: "",
+      dateOfBirth: "",
+      position: "",
       confirmPassword: "",
       forgot: false,
       private_police: false,
@@ -32,7 +37,22 @@ const SingUpForm: FC = () => {
 
     validationSchema: ValidationRegister(),
     onSubmit: (values) => {
+      /*birthdate
+      company_inn
+      confirmPassword
+      email
+      firstName
+      forgot
+      lastName
+      password
+      phone
+      post
+      private_police
+      */
       console.log("3224", values);
+      postRegister(values).then((data) => {
+        console.log("dataRegister", data);
+      });
     },
   });
 
@@ -63,8 +83,8 @@ const SingUpForm: FC = () => {
           <h1>Регистрация</h1>
         </div>
         <div className={Styles.box_field_registr}>
-          {fieldsDataRegistr.length > 0 &&
-            fieldsDataRegistr.map((item, index) => {
+          {fieldsDataRegister.length > 0 &&
+            fieldsDataRegister.map((item, index) => {
               return (
                 <div
                   key={index}
@@ -114,14 +134,23 @@ const SingUpForm: FC = () => {
             <SelectContainer
               instanceId={"Select_support"}
               optionsData={dataSupportSubjectSelect}
-              name={"company_inn"}
+              name={"organizationINN"}
               placeholder={"Название компании или ИНН"}
-              type={"company_inn"}
+              type={"organizationINN"}
               onChange={(e) => {
-                {
-                  console.log("formik", formik);
-                }
-                formik.setFieldValue("company_inn", e?.value ? e?.value : "");
+                console.log("Eee", e);
+                formik.setFieldValue(
+                  "organizationINN",
+                  e?.value ? e?.value : "",
+                );
+                formik.setFieldValue(
+                  "organizationAddress",
+                  e?.code ? e?.code : "",
+                );
+                formik.setFieldValue(
+                  "organizationName",
+                  e?.name ? e?.name : "",
+                );
               }}
             />
             <div
