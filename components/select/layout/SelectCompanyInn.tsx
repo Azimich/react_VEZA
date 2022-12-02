@@ -40,6 +40,7 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
                   " " +
                   item.data.address.unrestricted_value,
                 code: item.data.address.unrestricted_value,
+                name: item.value,
               };
             },
           ),
@@ -53,18 +54,18 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
       styles={
         {
           /*        control: (baseStyles, state) => ({
-          ...baseStyles,
-          borderColor: state.isFocused ? "grey" : "red",
-        }),
+                    ...baseStyles,
+                    borderColor: state.isFocused ? "grey" : "red",
+                  }),
 
-        option: (styles) => {
-          return {
-            ...styles,
-            backgroundColor: "red",
-            color: "black",
-          };
-        },
-*/
+                  option: (styles) => {
+                    return {
+                      ...styles,
+                      backgroundColor: "red",
+                      color: "black",
+                    };
+                  },
+          */
         }
       }
       instanceId={instanceId}

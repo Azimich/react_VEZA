@@ -32,7 +32,7 @@ const SelectContainer: FC<IOptionSetting> = ({
         />
       );
       break;
-    case "company_inn":
+    case "organizationINN":
       selectCurrent = (
         <SelectCompanyInn
           classNameProps={`${classNameProps}`}

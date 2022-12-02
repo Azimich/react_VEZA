@@ -8,13 +8,14 @@ interface IOptionSetting {
   optionsData?: IOptionItem[];
   defaultValue?: IOptionItem;
   classNameProps?: string;
-  type?: "common" | "company_inn";
+  type?: "common" | "organizationINN";
 }
 
 interface IOptionItem {
   value?: string;
   label?: string;
   code?: string;
+  name?: string;
 }
 
 export { IOptionSetting, IOptionItem };

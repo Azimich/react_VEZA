@@ -124,10 +124,10 @@ const ModalFormJob = () => {
             })}
         </div>
         <div className={Styles.job__modal__items__input}>
-          <textarea placeholder={"Другое описание"} />
+          {/*          <textarea placeholder={"Другое описание"} />*/}
         </div>
         <div className={Styles.job__modal__added__file}>
-          <Input
+          {/*          <Input
             name={"files"}
             title={"Прикрепить"}
             type={"file"}
@@ -136,7 +136,7 @@ const ModalFormJob = () => {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleInputFileOnChange(e)
             }
-          />
+          />*/}
         </div>
         <div
           className={`${Styles.job__modal__items__textarea} ${Styles.no_padding} ${Styles.checkbox__auth}`}

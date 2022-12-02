@@ -40,16 +40,22 @@ const fieldsDataAuth: IFieledsData[] = [
 ];
 
 //для формы регистрации
-const fieldsDataRegistr: IFieledsData[] = [
+const fieldsDataRegister: IFieledsData[] = [
   {
-    name: "firstName",
+    name: "name",
     title: "Имя *",
     filter: /[^а-яёa-z,]/iu,
     size: 0,
   },
   {
-    name: "lastName",
+    name: "surname",
     title: "Фамилия *",
+    filter: /[^а-яёa-z,]/iu,
+    size: 0,
+  },
+  {
+    name: "patronymic",
+    title: "Отчество",
     filter: /[^а-яёa-z,]/iu,
     size: 0,
   },
@@ -60,23 +66,16 @@ const fieldsDataRegistr: IFieledsData[] = [
     size: 0,
   },
   {
-    name: "phone",
+    name: "phones",
     title: "Телефон *",
     filter: /[^0-9-+]/g,
     size: 20,
   },
   {
-    name: "post",
+    name: "position",
     title: "Укажите должность *",
     filter: /g/g,
     size: 20,
-  },
-  {
-    name: "birthdate",
-    title: "Дата рождения",
-    filter: /g/g,
-    size: 20,
-    type: "date",
   },
   {
     name: "password",
@@ -92,6 +91,13 @@ const fieldsDataRegistr: IFieledsData[] = [
     size: 20,
     type: "password",
   },
+  {
+    name: "dateOfBirth",
+    title: "Дата рождения",
+    filter: /g/g,
+    size: 20,
+    type: "date",
+  },
 ];
 
-export { fieldsDataAuth, fieldsDataRegistr, fieldsDataJob };
+export { fieldsDataAuth, fieldsDataRegister, fieldsDataJob };
