@@ -159,21 +159,21 @@
 
       &_left {
         position: relative;
+        height: 450px;
+        img {
+          object-fit: cover;
+        }
         @include tabletScreen {
-          height: auto;
-          img {
-            object-fit: cover;
-          }
+          height: 350px;
         }
 
         @include tabletScreen {
           width: 100%;
-          height: 380px;
+          height: 350px;
         }
 
         @include ipadScreen {
           width: 50%;
-          height: auto;
         }
         
         @include phoneScreen {

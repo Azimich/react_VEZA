@@ -161,6 +161,15 @@
     }
   }
 
+  .register_checkbox {
+    .overflow {
+      margin-top: 0;
+    }
+    .overflow__auto {
+      margin-top: 0;
+    }
+  }
+
   &__items {
     overflow: hidden;
     &__title {

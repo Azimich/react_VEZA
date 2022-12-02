@@ -7,19 +7,20 @@ import { newsPath } from "utils/bootstrap";
 
 const NewsWithItem: FC<INewDataItem> = ({
   NewsName,
-  ShortDescription,
+  SecondDescription,
   Alias,
+  ImageModel,
 }) => {
   return (
     <div className={Styles.news_container_item}>
       <div className={Styles.news_container_item_image}>
-        <img src={"/images/gallery.png"} alt={NewsName} />
+        <img src={ImageModel.Horizontal.Pc} alt={NewsName} />
       </div>
       <div className={Styles.news_container_item_right}>
         <div>
           <h4 className={Styles.news_container_item_right_title}>{NewsName}</h4>
           <div className={Styles.news_container_item_right_desc}>
-            {ShortDescription}
+            {SecondDescription}
           </div>
         </div>
         <Button

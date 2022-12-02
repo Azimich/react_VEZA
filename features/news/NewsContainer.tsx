@@ -14,12 +14,12 @@ const NewsContainer: FC<INewsData> = ({ news }) => {
     setNewsWithDesc(
       news.newsItem.Response?.length > 0
         ? news?.newsItem?.Response.slice(0, 4)
-        : []
+        : [],
     );
     setNewsWithOutDesc(
       news.newsItem.Response?.length > 0
         ? news?.newsItem?.Response.slice(4)
-        : []
+        : [],
     );
   }, []);
 
