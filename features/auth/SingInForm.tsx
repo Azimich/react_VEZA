@@ -12,6 +12,7 @@ import { ISingResponseData } from "./Sing";
 import { Message } from "components/massage";
 import { ErrorIcon } from "components/icons";
 import { useRouter } from "next/router";
+import { SpinnerButton } from "components/spinners";
 
 const SingInForm = () => {
   const { getLogin, loading, error } = useAuth();
@@ -135,7 +136,11 @@ const SingInForm = () => {
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>
         <div className={Styles.authorization__form__item__answer}>
-          <Button type={"submit"} children={"Войти"} disabled={loading} />
+          <Button type={"submit"} disabled={loading}>
+            <b>Войти</b>
+            <SpinnerButton />
+          </Button>
+
           {error && (
             <Message type={"error"}>
               <span>Нет соединения с базой</span>
