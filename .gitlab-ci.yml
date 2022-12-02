@@ -47,4 +47,4 @@ deploy_staging:
     - cd ~/home/user
     - ls
   tags:
-    - stagin
+    - stagin-shell
