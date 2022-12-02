@@ -43,6 +43,13 @@ interface INewDataItem {
   Status?: string;
   Title?: string;
   VideoUrl?: string;
+  ImageModel?: { Horizontal?: IImageModelItem; Vertical?: IImageModelItem };
+}
+
+interface IImageModelItem {
+  Pc?: string;
+  Ipad?: string;
+  Mobile?: string;
 }
 
 interface IKeyWord {

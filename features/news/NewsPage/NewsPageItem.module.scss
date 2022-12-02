@@ -1,5 +1,5 @@
-@import '../../../styles/mixins.scss';
-@import '../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .news__active {
   margin-top: 40px;
@@ -126,15 +126,6 @@
         margin-bottom: 6px;
         width: 100%;
         position: relative;
-        // &:after {
-        //   content: '';
-        //   position: absolute;
-        //   left: 0;
-        //   bottom: 0;
-        //   width: 100%;
-        //   height: 1.5px;
-        //   background-color: color(green);
-        // }
       }
     }
   }
