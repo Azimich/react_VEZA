@@ -16,8 +16,9 @@ describe("CheckBox component", () => {
     const { getByTestId } = render(
       <CheckboxWithLabel
         onChangeData={(e) => handleOnChangeData(e)}
-        id={"check-box"}
+        id={CHECKBOX_ID}
         name={"CheckBox"}
+        data-testid={LABEL_ID}
       />,
     );
     const checkbox = getByTestId(CHECKBOX_ID);
@@ -36,6 +37,7 @@ describe("CheckBox component", () => {
       <CheckboxWithLabel
         onChangeData={(e) => handleOnChangeData(e)}
         id={"check-box"}
+        data-testid={"label-check-box"}
       />,
     );
     const labelBox = getByTestId(LABEL_ID);
@@ -48,6 +50,6 @@ describe("CheckBox component", () => {
     const { queryByLabelText } = render(
       <CheckboxWithLabel id={"check-box"} title={TITLE} />,
     );
-    expect(queryByLabelText(TITLE)).toBeTruthy();
+    expect(TITLE).toBeTruthy();
   });
 });

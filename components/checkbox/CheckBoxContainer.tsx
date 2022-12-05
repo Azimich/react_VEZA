@@ -8,19 +8,19 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   name = "checkbox",
   onChangeData,
   id,
+  ...attrs
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleOnClick = () => {
     setIsChecked(!isChecked);
-    // return onChange();
   };
 
   return (
     <>
       <label
         htmlFor={String(id)}
-        data-testid={"label-check-box"}
+        {...attrs}
         className={`${Styles.checkbox__label} ${Styles.bounce} ${classCheck}`}
       >
         <input
