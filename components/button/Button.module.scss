@@ -76,9 +76,6 @@
       @extend %colorGreen;
       @include mediumSize;
       position: relative;
-      &[disabled]{
-        background-color:color(bredcrumbs_hover);
-      }
     }
 
     &_white {
@@ -182,8 +179,6 @@
     }
   }
   &__medium {
-   // @extend %mediumSize;
-
     &_green {
       @extend %colorGreen;
     }

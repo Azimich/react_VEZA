@@ -89,6 +89,15 @@
       gap: 22px;
     }
 
+    button {
+      width: 170px;
+      position: relative;
+      p {
+        position: absolute;
+        right: 15px;
+      }
+    }
+
     > span {
       display: flex;
       align-items: center;
@@ -103,8 +112,8 @@
       @include phoneScreen {
         width: 100%;
         box-sizing: border-box;
-
       }
+
       svg {
         width: 20px;
         height: 20px;

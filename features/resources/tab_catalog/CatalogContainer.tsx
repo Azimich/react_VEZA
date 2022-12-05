@@ -38,7 +38,7 @@ const CatalogContainer = () => {
   }, [inputValue]);
 
   return (
-    <Container className={"wrapper_clear no_padding"}>
+    <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.catalog_container}>
         <Tabs

@@ -6,17 +6,30 @@ import { Button } from "components/button";
 import Link from "next/link";
 import { ValidationAuth } from "./formsData/ValidationsShemas";
 import { fieldsDataAuth } from "./formsData/FieledsData";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { useAuth } from "service/auth/auth";
 import { ISingResponseData } from "./Sing";
 import { Message } from "components/massage";
 import { ErrorIcon } from "components/icons";
 import { useRouter } from "next/router";
+import { SpinnerButton } from "components/spinners";
 
 const SingInForm = () => {
   const { getLogin, loading, error } = useAuth();
   const [authData, setAuthData] = useState<ISingResponseData>({});
   const router = useRouter();
+  const [timer, setTimer] = useState(false);
+
+  useEffect(() => {
+    !loading && setTimer(false);
+    const timerLoad =
+      loading &&
+      setTimeout(() => {
+        setTimer(true);
+      }, 500);
+
+    return () => clearTimeout(timerLoad);
+  }, [loading]);
 
   const formik: FormikValues = useFormik({
     initialValues: {
@@ -135,7 +148,11 @@ const SingInForm = () => {
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>
         </div>
         <div className={Styles.authorization__form__item__answer}>
-          <Button type={"submit"} children={"Войти"} disabled={loading} />
+          <Button type={"submit"} disabled={loading}>
+            <b>Войти</b>
+            <div>{timer && <SpinnerButton />}</div>
+          </Button>
+
           {error && (
             <Message type={"error"}>
               <span>Нет соединения с базой</span>

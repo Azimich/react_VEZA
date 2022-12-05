@@ -13,9 +13,11 @@ const InteractionItem: FC<Interaction> = (props) => {
         <p>
           Логистика:<span>Тел: {props.logistic_tel}</span>
         </p>
-        <p>
-          Секретарь:<span>Тел: {props.secretary_tel}</span>
-        </p>
+        {props.secretary_tel && (
+          <p>
+            Секретарь:<span>Тел: {props.secretary_tel}</span>
+          </p>
+        )}
         <p>
           Почта:<span>{props.email}</span>
         </p>
@@ -26,4 +28,5 @@ const InteractionItem: FC<Interaction> = (props) => {
     </li>
   );
 };
+
 export { InteractionItem };

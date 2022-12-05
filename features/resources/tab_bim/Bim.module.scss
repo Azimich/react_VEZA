@@ -5,14 +5,12 @@
   display: flex;
   justify-content: center;
   margin: 40px auto;
-  padding: 0 10px;
 }
 
 .bim__items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  padding: 0 10px 8px 10px;
   margin-bottom: 130px;
   @include ipadScreen {
     margin-bottom: 80px;

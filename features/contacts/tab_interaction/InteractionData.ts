@@ -8,7 +8,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 495 626-99-30",
     address: "Зеленый проспект 20 111397, Москва Россия",
     type: "sales",
-    secretary_tel: "+7 495 113-99-09",
     email: "veza@mail.ru",
   },
   {
@@ -18,7 +17,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Рабочая, д 10а 142460, Московская область Россия",
     type: "sales",
-    secretary_tel: "+7 495 343-94-29",
     email: "veza@mail.ru",
   },
   {
@@ -28,7 +26,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
-    secretary_tel: "+7 495 543-34-09",
     email: "veza@mail.ru",
   },
   {
@@ -38,7 +35,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
-    secretary_tel: "+7 495 183-76-09",
     email: "veza@mail.ru",
   },
   {
@@ -48,7 +44,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
-    secretary_tel: "+7 495 113-99-09",
     email: "veza@mail.ru",
   },
   {
@@ -58,7 +53,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
-    secretary_tel: "+7 495 324-65-54",
     email: "veza@mail.ru",
   },
   {
@@ -68,7 +62,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 999-990-99-99",
     address: "Михайловское шоссе 23 308013, Белгород Россия",
     type: "sales",
-    secretary_tel: "+7 495 765-29-56",
     email: "veza@mail.ru",
   },
   {
@@ -78,7 +71,6 @@ const InteractionData: Interaction[] = [
     logistic_tel: "+7 493-258-98-10",
     address: "пр. Ленина, д. 31А 153002, Иваново Россия",
     type: "sales",
-    secretary_tel: "+7 495 657-65-39",
     email: "veza@mail.ru",
   },
   {

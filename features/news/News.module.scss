@@ -11,6 +11,8 @@
     background-color: transparent;
     row-gap: 10px;
     box-shadow: 0 0 35px rgb(126 126 126 / 16%);
+    border-radius: 10px;
+    overflow: hidden;
     @include ipadScreen {
       row-gap: 0;
       flex-direction: column;
@@ -32,6 +34,25 @@
 
     &:first-child {
       transition: all 0.3s;
+    }
+
+    &:nth-child(odd) {
+      .news_container_item_right {
+        order: 0;
+        border-radius: 10px 0 0 10px;
+        overflow: hidden;
+        @include ipadScreen {
+          order: 1;
+          border-radius: 0 0 10px 10px;
+          gap: 20px;
+        }
+      }
+
+      .news_container_item_image {
+        order: 1;
+        border-radius: 0;
+      }
+      
     }
 
     &_image {
@@ -60,10 +81,8 @@
       img {
         width: 100%;
         order: 1;
-        border-radius: 0 10px 10px 0;
         @include ipadScreen {
           order: 0;
-          border-radius: 10px 10px 0 0;
         }
       }
     }
@@ -96,7 +115,6 @@
 
     img {
       width: 100%;
-      border-radius: 10px 0 0 10px;
       overflow: hidden;
       order: 0;
       object-fit: cover;
@@ -139,7 +157,7 @@
         font-weight: 600;
         font-size: 25px;
         font-style: normal;
-        line-height: 50px;
+        line-height: 145%;
         letter-spacing: 0.025em;
         color: color(dark);
         @media (max-width: 550px) {

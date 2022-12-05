@@ -25,7 +25,7 @@ const BimContainer = () => {
   const { isShow, toggle } = useModal();
 
   return (
-    <Container className={"wrapper_clear no_padding"}>
+    <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.bim_container}>
         <Tabs
