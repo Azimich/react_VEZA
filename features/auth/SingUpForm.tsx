@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { ChangeEvent } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
@@ -37,24 +37,16 @@ const SingUpForm: FC = () => {
 
     validationSchema: ValidationRegister(),
     onSubmit: (values) => {
-      /*birthdate
-      company_inn
-      confirmPassword
-      email
-      firstName
-      forgot
-      lastName
-      password
-      phone
-      post
-      private_police
-      */
-      console.log("3224", values);
       postRegister(values).then((data) => {
         console.log("dataRegister", data);
       });
     },
   });
+
+  const handleOnClick = () => {
+    formik.errors && window.scrollTo(0, 0);
+    formik.handleSubmit();
+  };
 
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
@@ -194,7 +186,10 @@ const SingUpForm: FC = () => {
           </ul>
         </div>
         <div className={Styles.registration__form__item__answer}>
-          <Button type={"submit"} children={"Зарегистрироваться"} />
+          <Button
+            onClick={() => handleOnClick()}
+            children={"Зарегистрироваться"}
+          />
           {registerError && (
             <Message type={"error"}>
               <ErrorIcon />
