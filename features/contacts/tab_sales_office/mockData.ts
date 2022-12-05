@@ -340,7 +340,7 @@ const salesOfficeData: ISalles[] = [
 ];
 
 const dataContactsCitySelect: IOptionItem[] = [
-  { value: "MSK", label: "Моска" },
+  { value: "MSK", label: "Москва" },
   { value: "PET", label: "Санкт-Петербург" },
 ];
 
@@ -349,7 +349,6 @@ const office_sales_data: IObject[] = [
     id: 1,
     connection: "belarus",
     alias: "minsk",
-
     object: {
       xpx: 22,
       ypx: 8,

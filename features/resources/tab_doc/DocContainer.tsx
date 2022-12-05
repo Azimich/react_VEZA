@@ -19,7 +19,7 @@ const DocContainer = () => {
   }, [dataBreadResources]);
 
   return (
-    <Container className={"wrapper wrapper_clear no_padding"}>
+    <Container className={"wrapper wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.doc_container}>
         <Tabs

@@ -22,7 +22,7 @@ const QuestionsContainer: FC<IQuestions> = () => {
   }, [dataBreadResources]);
 
   return (
-    <Container className={"wrapper_clear no_padding"}>
+    <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.questions_container}>
         <Tabs

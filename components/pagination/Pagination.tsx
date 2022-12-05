@@ -20,6 +20,7 @@ const Pagination = (props: IPagination) => {
     siblingCount,
     pageSize,
   });
+
   const disabledStyle = disabled ? Styles.inactive : "";
   const mainStyle = `${Styles.pagination_container} ${disabledStyle} ${className}`;
 

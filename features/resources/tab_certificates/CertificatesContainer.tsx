@@ -20,7 +20,7 @@ const CertificatesContainer = () => {
   }, [dataBreadResources]);
 
   return (
-    <Container className={"wrapper_clear no_padding"}>
+    <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.certificates_container}>
         <Tabs

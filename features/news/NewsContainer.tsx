@@ -5,39 +5,24 @@ import { Pagination } from "components/pagination/Pagination";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";
 import { NewsWithItem } from "features/news/NewsWithItem";
-import Styles from "./News.module.scss";
 
 const NewsContainer: FC<INewsData> = ({ news }) => {
-  const [newsWithDesc, setNewsWithDesc] = useState<INewDataItem[]>();
-  const [newsWithOutDesc, setNewsWithOutDesc] = useState<INewDataItem[]>();
-  useEffect(() => {
-    setNewsWithDesc(
-      news.newsItem.Response?.length > 0
-        ? news?.newsItem?.Response.slice(0, 4)
-        : [],
-    );
-    setNewsWithOutDesc(
-      news.newsItem.Response?.length > 0
-        ? news?.newsItem?.Response.slice(4)
-        : [],
-    );
-  }, []);
-
   return (
     <>
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
-        {newsWithDesc &&
-          newsWithDesc.map((e) => {
+        {news.newsItem.Response &&
+          news.newsItem.Response.map((e) => {
             return <NewsWithItem {...e} key={e.NewsId} />;
           })}
-        <ul className={Styles.new_with_out_container}>
-          {newsWithOutDesc &&
-            newsWithOutDesc.map((e) => {
-              return <NewsWithItem {...e} key={e.NewsId} />;
-            })}
-        </ul>
-        <Pagination currentPage={1} totalPageCount={5} pageSize={3} />
+        <Pagination
+          onPageChange={() => {
+            news.newsItem.Page.PageNumber;
+          }}
+          currentPage={news.newsItem.Page.PageNumber}
+          totalPageCount={news.newsItem.Page.TotalPages}
+          pageSize={news.newsItem.Page.PageSize}
+        />
       </Container>
     </>
   );
