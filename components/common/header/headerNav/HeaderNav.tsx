@@ -21,22 +21,24 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
           isShowMenu ? (scroll > 0 ? Styles.active_small : Styles.active) : ""
         }`}
       >
-        {menu?.map((item) => {
-          return (
-            <li key={item.MenuId}>
-              <Link
-                url={"/" + item.Alias}
-                classLink={
-                  router.pathname.split("/")[1] === item.Alias
-                    ? Styles.active_menu
-                    : ""
-                }
-              >
-                {item.Title}
-              </Link>
-            </li>
-          );
-        })}
+        {menu
+          ? menu?.map((item) => {
+              return (
+                <li key={item.MenuId}>
+                  <Link
+                    url={"/" + item.Alias}
+                    classLink={
+                      router.pathname.split("/")[1] === item.Alias
+                        ? Styles.active_menu
+                        : ""
+                    }
+                  >
+                    {item.Title}
+                  </Link>
+                </li>
+              );
+            })
+          : "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"}
       </ul>
     </div>
   );
