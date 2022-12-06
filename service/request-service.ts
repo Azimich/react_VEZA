@@ -3,7 +3,7 @@ headers.append("Content-Type", "application/json");
 headers.append("Access-Control-Allow-Origin", "*");
 
 class Request {
-  static getRequest = async (url: string, options: {}) => {
+  static getRequest = async (url: string, options = {}) => {
     return await fetch(url, options)
       .then((res) => res.json())
       .catch(() => {
@@ -11,7 +11,7 @@ class Request {
       });
   };
 
-  static postRequest = async (url: string, options: {}, header: {}) => {
+  static postRequest = async (url: string, options = {}, header = {}) => {
     return await fetch(url, {
       method: "POST",
       mode: "cors",

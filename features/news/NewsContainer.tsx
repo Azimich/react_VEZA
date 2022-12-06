@@ -1,6 +1,6 @@
 import { Container } from "components/common/container";
-import { INewDataItem, INewsData } from "./News";
-import { FC, useEffect, useState } from "react";
+import { INewsData } from "./News";
+import { FC } from "react";
 import { Pagination } from "components/pagination/Pagination";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";

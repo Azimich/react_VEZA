@@ -58,7 +58,7 @@ const SingInForm = () => {
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0,
+    size = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(

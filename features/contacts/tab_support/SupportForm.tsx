@@ -28,14 +28,16 @@ const SupportForm: FC = () => {
       private_police: false,
     },
     validationSchema: ValidationSchema(),
-    onSubmit: () => {},
+    onSubmit: () => {
+      console.log("");
+    },
   });
 
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0,
+    size = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(

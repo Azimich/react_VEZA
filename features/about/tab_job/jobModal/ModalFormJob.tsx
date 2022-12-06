@@ -18,7 +18,9 @@ const ModalFormJob = () => {
       private_police: false,
     },
     validationSchema: ValidationJob(),
-    onSubmit: () => {},
+    onSubmit: () => {
+      console.log("");
+    },
   });
 
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -45,7 +47,7 @@ const ModalFormJob = () => {
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0,
+    size = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
