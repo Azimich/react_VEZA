@@ -50,6 +50,8 @@ describe("CheckBox component", () => {
     const { queryByLabelText } = render(
       <CheckboxWithLabel id={"check-box"} title={TITLE} />,
     );
+    //TODO: queryByLabelText не используется
+    console.log("queryByLabelText", queryByLabelText);
     expect(TITLE).toBeTruthy();
   });
 });

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { ISlideImages, ISlideItem, ISliderProps } from "../slider/Slider.d";
+import { ISlideItem } from "../slider/Slider.d";
 
 interface IMapData {
   id: number;

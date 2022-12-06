@@ -7,13 +7,15 @@
     "es6": true
   },
   "rules": {
-    "no-unused-vars": 1,
-    "no-undef": 2,
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "import/prefer-default-export": "off",
-    "@typescript-eslint/no-unused-vars": "off"
+    "react/no-unescaped-entities": 1,
+    "no-unused-vars": ["off", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "no-undef": 1,
+    "no-extra-semi": 1,
+    "@typescript-eslint/no-extra-semi": ["warn"],
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-unused-vars": "error"
   },
+
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -21,7 +23,7 @@
       "jsx":  true  // Allows for the parsing of JSX
     }
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "@typescript-eslint/eslint-plugin"],
   "settings":  {
     "react":  {
       "version":  "detect"
