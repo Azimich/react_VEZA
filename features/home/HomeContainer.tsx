@@ -13,9 +13,9 @@ import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
 import { IHomeData } from "features/news/News";
-import { SpinnerLoading } from "components/spinners";
 
 const HomeContainer: FC<IHomeData> = ({ home }) => {
+  console.log("111", home);
   return (
     <>
       <Container el="section">

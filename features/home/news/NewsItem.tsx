@@ -6,6 +6,7 @@ import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "components/button";
 import { INewDataItem } from "features/news/News";
 import { newsPath } from "utils/bootstrap";
+import { log } from "util";
 
 interface INewsItemProps {
   className: string;
@@ -17,7 +18,6 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
   const [device, setDevice] = useState<"mobile" | "tablet" | "desktop">(
     "desktop",
   );
-
   const [newsImg, setNewsImg] = useState<ReactNode>();
 
   useEffect(() => {

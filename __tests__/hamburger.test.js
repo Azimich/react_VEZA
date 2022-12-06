@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { describe, test, expect } from "@jest/globals";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import { HamburgerMenu } from "../components/hamburger";
-
+//TODO: нет проверки клика
 describe("HamburgerMenu component", () => {
   const HAMBURGER_ID = "hamburger_id";
   test("HamburgerMenu isHide", async () => {
