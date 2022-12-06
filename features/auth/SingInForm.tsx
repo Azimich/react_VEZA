@@ -149,8 +149,10 @@ const SingInForm = () => {
         </div>
         <div className={Styles.authorization__form__item__answer}>
           <Button type={"submit"} disabled={loading}>
-            <b>Войти</b>
-            <div>{timer && <SpinnerButton />}</div>
+            <li>Войти</li>
+            <div className={Styles.button__spinner}>
+              {timer && <SpinnerButton />}
+            </div>
           </Button>
 
           {error && (
