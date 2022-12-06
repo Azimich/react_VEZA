@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { contactsPath } from "../../utils/bootstrap";
+import { contactsPath } from "utils/bootstrap";
 
 function RedirectPage() {
   const router = useRouter();
