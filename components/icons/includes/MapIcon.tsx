@@ -1,5 +1,4 @@
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 
 const MapIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (
