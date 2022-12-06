@@ -1,4 +1,4 @@
-import { IObject, IObjectItem } from "components/map/Map";
+import { IObject } from "components/map/Map";
 import React, { FC } from "react";
 import Styles from "components/map/Map.module.scss";
 import { ArrowRightWithOutCircle } from "components/icons";

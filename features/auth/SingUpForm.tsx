@@ -14,8 +14,8 @@ import { ErrorIcon } from "components/icons";
 import { useAuth } from "service/auth/auth";
 
 const SingUpForm: FC = () => {
-  const [registerError, setRegisterError] = useState<boolean>(false);
-  const { postRegister, loading, error } = useAuth();
+  const [registerError] = useState<boolean>(false);
+  const { postRegister } = useAuth();
   // Валидация формы
   const formik: FormikValues = useFormik({
     initialValues: {

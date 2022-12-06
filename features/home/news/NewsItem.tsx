@@ -6,7 +6,6 @@ import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "components/button";
 import { INewDataItem } from "features/news/News";
 import { newsPath } from "utils/bootstrap";
-import { log } from "util";
 
 interface INewsItemProps {
   className: string;

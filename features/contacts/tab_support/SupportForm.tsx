@@ -13,7 +13,7 @@ import { fieldsData } from "features/contacts/tab_support/FieldsData";
 const SupportForm: FC = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
-
+  console.log("selectedFilesName", selectedFilesName);
   const formik: FormikValues = useFormik({
     initialValues: {
       firstName: "",
@@ -51,9 +51,9 @@ const SupportForm: FC = () => {
   };
 
   //Инпут для добавления файла
-  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /*  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFiles(Array.from(e.target.files));
-  };
+  };*/
 
   const handleDeleteClick = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>,

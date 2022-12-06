@@ -13,7 +13,7 @@ import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import { ObjectItem } from "features/about/ObjectItem";
 import { IObject } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
-import { LogoIcon, MapIcon } from "components/icons";
+import { MapIcon } from "components/icons";
 import { Map } from "components/map";
 import { office_sales_data } from "features/contacts/tab_sales_office/mockData";
 import { ModalFormOffice } from "./ModalFormOffice";
