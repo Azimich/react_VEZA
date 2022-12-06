@@ -12,10 +12,13 @@ import { dataSupportSubjectSelect } from "features/contacts/tab_support/mockData
 import { Message } from "components/massage";
 import { ErrorIcon } from "components/icons";
 import { useAuth } from "service/auth/auth";
+import { SpinnerButton } from "components/spinners";
 
 const SingUpForm: FC = () => {
   const [registerError] = useState<boolean>(false);
   const { postRegister } = useAuth();
+  const { loading } = useAuth();
+
   // Валидация формы
   const formik: FormikValues = useFormik({
     initialValues: {
@@ -187,9 +190,13 @@ const SingUpForm: FC = () => {
         </div>
         <div className={Styles.registration__form__item__answer}>
           <Button
+            type={"submit"}
+            disabled={loading}
             onClick={() => handleOnClick()}
-            children={"Зарегистрироваться"}
-          />
+          >
+            <li>Зарегистрироваться</li>
+            <div className={Styles.button__spinner}>{<SpinnerButton />}</div>
+          </Button>
           {registerError && (
             <Message type={"error"}>
               <ErrorIcon />
