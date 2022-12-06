@@ -7,7 +7,7 @@ const CategoryItem: FC<ICatalogData> = ({ image, alias }) => {
   console.log("11", image);
   return (
     <Link url={alias} classLink={Styles.equipment__container_catalog_product_a}>
-      <img src={image?.length > 0 && image} />
+      <img src={image?.length > 0 && image} alt={"Photo"} />
     </Link>
   );
 };

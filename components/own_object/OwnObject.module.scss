@@ -62,7 +62,7 @@
           content: "";
           background: linear-gradient(227.96deg, rgba(124, 169, 0, 0.63) -21.84%, #337700 103.24%);
           height: 1px;
-          width: 0%;
+          width: 0;
           bottom: -12px;
           left: 50%;
           position: absolute;
@@ -72,7 +72,7 @@
           -webkit-transform: translateX(-50%);
           -moz-transform: translateX(-50%);
           transform: translateX(-50%);
-          background-color: color(white);
+          //background-color: color(white);
         }
 
         .title {
