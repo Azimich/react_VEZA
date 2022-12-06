@@ -24,7 +24,7 @@ interface INewDataItem {
   Alias: string;
   Created?: string;
   FirstDescription?: string;
-  Images?: {};
+  Images?: Record<any, never>;
   Keywords?: IKeyWord[];
   NewsId: number;
   NewsName?: string;

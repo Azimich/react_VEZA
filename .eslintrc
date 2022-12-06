@@ -21,7 +21,7 @@
       "jsx":  true  // Allows for the parsing of JSX
     }
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "settings":  {
     "react":  {
       "version":  "detect"

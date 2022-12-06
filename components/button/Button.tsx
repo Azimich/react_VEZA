@@ -9,7 +9,9 @@ const Button: FC<ButtonI> = ({
   children,
   type = "button",
   disabled = false,
-  onClick = () => {},
+  onClick = () => {
+    console.log("");
+  },
   theme = "banner",
   size = "medium",
   color = "green",

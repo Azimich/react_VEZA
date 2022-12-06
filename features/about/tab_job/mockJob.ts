@@ -40,7 +40,6 @@ const MockJob: IMockJob[] = [
   },
 ];
 
-// @ts-ignore
 const jobObject: IObject[] = [
   {
     id: 1,

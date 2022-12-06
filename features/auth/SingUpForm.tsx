@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import { ChangeEvent } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
@@ -52,7 +52,7 @@ const SingUpForm: FC = () => {
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
     field = "",
-    size: number = 0,
+    size = 0,
   ) => {
     const target = e.target.value.replace(filter, "");
     formik.setFieldValue(
