@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles//variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 
 .checkbox {
@@ -9,7 +9,6 @@
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
-    --background: #fff;
     --background: #fff;
     --border: #D1D6EE;
     --border-hover: #BBC1E1;

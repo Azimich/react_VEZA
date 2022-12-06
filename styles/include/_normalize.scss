@@ -154,7 +154,7 @@ template, /* 1 */
 a {
   background-color: transparent; /* 1 */
   text-decoration: none;
-  -webkit-text-decoration-skip: objects; /* 2 */
+  //-webkit-text-decoration-skip: objects; /* 2 */
 }
 
 /**
