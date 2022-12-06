@@ -110,8 +110,6 @@
       color: #ff0000;
       padding: 11px 12px;
       text-align: right;
-      border: 1px solid #efefef;
-      background: #fff;
       border-radius: 5px;
       @include phoneScreen {
         width: 100%;
@@ -357,7 +355,8 @@
   h1 {
     font-size: 30px;
     margin-bottom: 20px;
-    color: grey;
+    color: #898989;
+    font-weight: 400;
     @include SEScreen {
       font-size: 26px;
     }
