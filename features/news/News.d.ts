@@ -15,7 +15,7 @@ interface INewsData {
 interface IHomeResponse {
   ErrorMessage: number;
   HasError: boolean;
-  Page: IPageData;
+  Page?: IPageData;
   Response: INewDataItem[];
 }
 

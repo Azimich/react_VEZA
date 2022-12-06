@@ -7,7 +7,7 @@ class Request {
     return await fetch(url, options)
       .then((res) => res.json())
       .catch(() => {
-        return { error: 2, response: [] };
+        return { ErrorMessage: "", HasError: true, response: [] };
       });
   };
 
@@ -20,7 +20,7 @@ class Request {
     })
       .then((res) => res.json())
       .catch(() => {
-        return { error: 1, response: [] };
+        return { ErrorMessage: "", HasError: true, response: [] };
       });
   };
 }

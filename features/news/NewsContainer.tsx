@@ -15,14 +15,16 @@ const NewsContainer: FC<INewsData> = ({ news }) => {
           news.newsItem.Response.map((e) => {
             return <NewsWithItem {...e} key={e.NewsId} />;
           })}
-        <Pagination
-          onPageChange={() => {
-            news.newsItem.Page.PageNumber;
-          }}
-          currentPage={news.newsItem.Page.PageNumber}
-          totalPageCount={news.newsItem.Page.TotalPages}
-          pageSize={news.newsItem.Page.PageSize}
-        />
+        {!news.newsItem.HasError && (
+          <Pagination
+            onPageChange={() => {
+              news.newsItem.Page.PageNumber;
+            }}
+            currentPage={news.newsItem.Page.PageNumber}
+            totalPageCount={news.newsItem.Page.TotalPages}
+            pageSize={news.newsItem.Page.PageSize}
+          />
+        )}
       </Container>
     </>
   );
