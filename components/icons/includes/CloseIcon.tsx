@@ -1,5 +1,4 @@
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import Styles from "./StylesIcon.module.scss";
 
 const CloseIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
