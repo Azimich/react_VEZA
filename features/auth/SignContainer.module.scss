@@ -3,7 +3,6 @@
 
 .forms__container {
   margin: 80px 0 130px 0;
-  padding: 0 10px;
   @include ipadScreen {
     margin: 50px 0 80px 0;
   }
@@ -209,27 +208,40 @@
       align-items: self-start;
       gap: 20px;
     }
-    span {
-      align-items: center;
-      font-size: 14px;
-      font-weight: 400;
-      color: #ff0000;
-      padding: 11px 12px;
-      text-align: right;
-      border: 1px solid #efefef;
-      background: #fff;
-      border-radius: 5px;
-      @media (max-width: 550px) {
-        width: 100%;
-        box-sizing: border-box;
+    button {
+      width: 260px;
+      position: relative;
+      li {
+        list-style: none;
       }
-
-      svg {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
+      .button__spinner {
+        position: absolute;
+        right: 15px;
+        .Spinners_spinner__button__container__pdUp3 span {
+          padding: 5px 0;
+        }
       }
     }
+    //span {
+    //  font-size: 14px;
+    //  font-weight: 400;
+    //  color: #ff0000;
+    //  padding: 11px 12px;
+    //  text-align: right;
+    //  border: 1px solid #efefef;
+    //  background: #fff;
+    //  border-radius: 5px;
+    //  @media (max-width: 550px) {
+    //    width: 100%;
+    //    box-sizing: border-box;
+    //  }
+    //
+    //  svg {
+    //    width: 20px;
+    //    height: 20px;
+    //    margin-right: 8px;
+    //  }
+    //}
   }
 
   &__item {
@@ -347,6 +359,7 @@
   padding: 0 10px;
   border-radius: 10px;
   button {
+    width: 220px;
     @include phoneScreen {
       width: auto;
       padding: 10px 22px;
