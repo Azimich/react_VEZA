@@ -22,6 +22,7 @@ const dataBreadDecision: IBreadCrumbs[] = [
     alias: process.env.NEXT_PUBLIC_APP_URL + newsPath,
   },
 ];
+
 const dataBreadAbout: IBreadCrumbs[] = [
   {
     title: "Главная",
@@ -32,6 +33,7 @@ const dataBreadAbout: IBreadCrumbs[] = [
     alias: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
   },
 ];
+
 const dataBreadContacts: IBreadCrumbs[] = [
   {
     title: "Главная",
@@ -42,6 +44,7 @@ const dataBreadContacts: IBreadCrumbs[] = [
     alias: process.env.NEXT_PUBLIC_APP_URL + aboutPath,
   },
 ];
+
 const dataBreadResources: IBreadCrumbs[] = [
   {
     title: "Главная",
@@ -60,3 +63,5 @@ export {
   dataBreadResources,
   dataBreadContacts,
 };
+
+export class factoryPath {}

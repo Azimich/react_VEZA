@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .map_container {
   justify-content: center;
@@ -10,7 +10,6 @@
   @include ipadScreen {
     display: none;
   }
-
   .marker {
     width: fit-content;
     position: absolute;
@@ -67,29 +66,34 @@
   }
 
 }
-
-.modal_title {
+.factory_title {
   font-weight: 500;
   font-size: 25px;
-  color: #404040;
-  margin-bottom: 15px;
+  color: #565656;
+  margin: 15px 0;
 }
-
-
+.modal_factory_title {
+  font-size: 26px;
+  color: color(green);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
 .factory_info {
-margin-top: 16px;
-
-  &_fio{
+  margin-top: 16px;
+  &_fio {
     font-weight: 400;
     font-size: 16px;
     color: #5c5c5c;
-    p{
+    margin: 0 0 20px 0;
+    p {
       font-weight: 500;
       font-size: 18px;
       color: #5c5c5c;
       margin-top: 6px;
     }
   }
+
   &_services {
     display: flex;
     justify-content: flex-start;
@@ -97,22 +101,27 @@ margin-top: 16px;
     color: gray;
     font-size: 15px;
     gap: 10px;
-    margin-bottom: 15px;
-    a{
+    margin-bottom: 6px;
+    transition: all 0.3s;
+    &:hover {
+      a, span {
+        color: color(green);
+      }
+    }
+    a, span {
       color: gray;
     }
-    p{
+
+    p {
       font-weight: 500;
       font-size: 18px;
       color: #5c5c5c;
       margin-top: 6px;
     }
-    svg{
-      width: 24px;
-      height: 24px;
-
+    svg {
+      width: 22px;
       path {
-        fill: #2E6143;
+        fill: green;
       }
     }
   }
@@ -121,22 +130,23 @@ margin-top: 16px;
 .factory_button {
   font-size: 16px;
   font-weight: 500;
-  line-height: 23px;
-  letter-spacing: 0.025em;
   color: #009247;
   display: flex;
   align-items: center;
-
+  margin: 30px 0 10px 0;
+  &:hover {
+    svg {
+      margin-left: 30px;
+    }
+  }
   svg {
     width: 22px;
     height: 22px;
     transition: all 0.3s;
     margin-left: 20px;
-
     path {
       fill: #009b00;
     }
-
   }
 }
 .side_bar{
