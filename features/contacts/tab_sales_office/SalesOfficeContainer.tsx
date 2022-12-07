@@ -13,7 +13,7 @@ import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import { ObjectItem } from "features/about/ObjectItem";
 import { IObject } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
-import { MapIcon } from "components/icons";
+import { LogoIcon, MapIcon } from "components/icons";
 import { Map } from "components/map";
 import { office_sales_data } from "features/contacts/tab_sales_office/mockData";
 import { ModalFormOffice } from "./ModalFormOffice";
@@ -23,8 +23,6 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
   const [contentForm, setContentForm] = useState<IObject>();
-  console.log("contentForm", contentForm);
-
   const { isShow, toggle } = useModal();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
@@ -111,7 +109,7 @@ const SalesOfficeContainer: FC = () => {
         hide={toggle}
         modalContent={<ModalFormOffice {...contentForm} />}
         theme={"modal"}
-        headerText={"ВЕЗА-название филиала"}
+        headerText={<LogoIcon />}
         bgModal={"black"}
       ></Modal>
     </Container>

@@ -36,7 +36,8 @@ const HomeContainer: FC<IHomeData> = ({ home }) => {
         <SliderContainer
           items={sliderCategory.items}
           dots={true}
-          autoplay={false}
+          autoplay={true}
+          spaceBetween={10}
           theme={"homecategory"}
         />
         <Separator title={"Новости"} />
