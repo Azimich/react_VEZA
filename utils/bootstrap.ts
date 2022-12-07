@@ -6,6 +6,11 @@ const factoryPath = "/factory/";
 const contactsPath = "/contacts/";
 const authPath = "/auth/";
 const SingInPath = "/auth/singin";
+
+const headers = {
+  accept: "text/plain'",
+  "Content-Type": "application/json",
+};
 export {
   equipmentPath,
   newsPath,
@@ -15,4 +20,5 @@ export {
   contactsPath,
   authPath,
   SingInPath,
+  headers,
 };
