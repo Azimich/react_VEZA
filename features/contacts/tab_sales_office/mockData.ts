@@ -8,7 +8,7 @@ const salesOfficeData: ISalles[] = [
     items: [
       {
         id: 1,
-        image: "/images/managers_1.jpg",
+        image: "/images/1111.png",
         title: "Фамилия Имя Отчество",
         type_code: "director",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
@@ -17,7 +17,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 2,
-        image: "/images/managers_2.jpg",
+        image: "/images/2222.png",
         title: "Фамилия Имя Отчество",
         type_code: "logistic",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
@@ -26,7 +26,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 3,
-        image: "/images/managers_3.jpg",
+        image: "/images/1111.png",
         title: "Фамилия Имя Отчество",
         type_code: "director",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
@@ -35,7 +35,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 4,
-        image: "/images/managers_4.jpg",
+        image: "/images/2222.png",
         title: "Фамилия Имя Отчество",
         type_code: "logistic",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
@@ -53,7 +53,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 6,
-        image: "/images/managers_1.jpg",
+        image: "/images/3333.png",
         title: "Фамилия Имя Отчество",
         type_code: "director",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
@@ -62,7 +62,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 7,
-        image: "/images/managers_1.jpg",
+        image: "/images/3333.png",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
@@ -71,7 +71,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 8,
-        image: "/images/managers_3.jpg",
+        image: "/images/4444.png",
         title: "Фамилия Имя Отчество",
         type_code: "secretary",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
