@@ -15,7 +15,6 @@ import Styles from "./about/About.module.scss";
 import { IHomeData } from "features/news/News";
 
 const HomeContainer: FC<IHomeData> = ({ home }) => {
-  console.log("111", home);
   return (
     <>
       <Container el="section">
@@ -42,7 +41,12 @@ const HomeContainer: FC<IHomeData> = ({ home }) => {
           theme={"homecategory"}
         />
         <Separator title={"Новости"} />
-        <NewsContainer {...home.newsItem} />
+
+        {home.newsItem && !home.newsItem.HasError ? (
+          <NewsContainer {...home.newsItem} />
+        ) : (
+          "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"
+        )}
         <Separator title={"Отрасли"} />
         <SliderContainer
           items={sliderIndustries.items}
