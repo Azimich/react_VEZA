@@ -4,14 +4,13 @@ import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { catalogData } from "../mockData";
 import { CatalogItem } from "./CatalogItem";
-import { Input } from "components/input/Index";
-import { SearchInputIcon } from "components/icons/includes/SearchInputIcon";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { ICatalog } from "../tab_bim/Bim";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { handleOnClickTabs } from "../helper";
 import { useRouter } from "next/router";
+import { Button } from "components/button";
 
 const CatalogContainer = () => {
   const router = useRouter();
@@ -22,6 +21,7 @@ const CatalogContainer = () => {
   const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
+  console.log(handleOnChangeSearch);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
@@ -52,18 +52,7 @@ const CatalogContainer = () => {
       </div>
       <div className={Styles.catalog_title}>
         <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
-        <div className={Styles.input_box}>
-          <Input
-            value={inputValue}
-            id={"search_catalog_id"}
-            onChange={(event) => handleOnChangeSearch(event)}
-            type={"text"}
-            name={"search_catalog"}
-            placeholder={"Поиск"}
-            className={Styles.input_field}
-          />
-          <SearchInputIcon />
-        </div>
+        <Button type={"button"} children={"Скачать все"} />
       </div>
       <div className={Styles.catalog_box}>
         {filteredData &&
