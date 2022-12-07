@@ -1,5 +1,6 @@
 const headers = new Headers();
 headers.append("Content-Type", "application/json");
+headers.append("accept", "text/plain");
 headers.append("Access-Control-Allow-Origin", "*");
 
 class Request {

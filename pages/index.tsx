@@ -9,6 +9,7 @@ import { newsList } from "service/list/servers/newsList";
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
+    console.log("+++", await newsList(1, 4));
     return {
       props: {
         home: {

@@ -26,7 +26,7 @@ const salesOfficeData: ISalles[] = [
       },
       {
         id: 3,
-        image: "/images/1111.png",
+        image: "/images/333.jpg",
         title: "Фамилия Имя Отчество",
         type_code: "director",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime temporibus nobis laudantium itaque at possimus autem asperiores.",
