@@ -115,6 +115,7 @@
     "yup": "^0.32.11"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "@jest/globals": "^29.3.1",
     "@testing-library/dom": "^8.19.0",
     "components": "^0.1.0",
