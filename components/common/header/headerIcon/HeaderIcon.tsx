@@ -40,12 +40,17 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
           <UserIcon />
         </IconItem>
         {/* Телефон */}
-        <IconItem
-          url={"tel:" + process.env.NEXT_PUBLIC_PHONE}
-          className={"header__icon"}
-        >
-          <TelefoneIcon />
-        </IconItem>
+        <div className={Styles.phone__container}>
+          <IconItem
+            url={"tel:" + process.env.NEXT_PUBLIC_PHONE}
+            className={"header__icon"}
+          >
+            <div className={Styles.phone__block}>
+              <TelefoneIcon />
+              <b>+7 999 999 99 99</b>
+            </div>
+          </IconItem>
+        </div>
         {mobile && (
           <HamburgerContainer isShowMenu={isShowMenu} onClick={onClick} />
         )}
