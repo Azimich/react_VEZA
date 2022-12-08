@@ -47,7 +47,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
           >
             <div className={Styles.phone__block}>
               <TelefoneIcon />
-              <b>+7 999 999 99 99</b>
+              <b>+7(495)223-01-88</b>
             </div>
           </IconItem>
         </div>
