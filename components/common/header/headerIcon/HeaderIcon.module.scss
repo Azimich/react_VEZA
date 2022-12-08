@@ -3,19 +3,17 @@
 .header {
   &__icon {
     margin: 0 8px 0 8px;
-
     svg {
       width: 24px;
       height: 24px;
       fill: rgb(0, 155, 0);
       transition: all 0.3s;
-cursor: pointer;
+      cursor: pointer;
       &:hover {
         path {
           fill: green;
         }
       }
-
       .search__icon {
         width: 23px;
       }
@@ -27,13 +25,32 @@ cursor: pointer;
   }
 
   &__icon__box {
+    position: relative;
     justify-content: space-between;
     align-items: center;
     column-gap: 16px;
     height: 24px;
     display: flex;
-    a{
-      svg{
+    .phone__container {
+      position: absolute;
+      width: 160px;
+      left: -50%;
+      bottom: -30px;
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+    .phone__block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      b {
+        font-weight: 400;
+        color: color(green);
+      }
+    }
+    a {
+      svg {
         height: 24px;
         transition: all 0.3s;
         &:hover {
