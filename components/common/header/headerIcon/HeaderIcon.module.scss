@@ -34,11 +34,8 @@
     .phone__container {
       position: absolute;
       width: 160px;
-      left: -50%;
+      right: 0;
       bottom: -30px;
-      @media (max-width: 1200px) {
-        display: none;
-      }
     }
     .phone__block {
       display: flex;
