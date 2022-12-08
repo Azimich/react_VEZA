@@ -25,7 +25,7 @@ const tabsSalesData: ITab[] = [
 ];
 const tabsContactsData: ITab[] = [
   { id: 1, title: "Офис Продаж", url: "sale_office" },
-  { id: 2, title: "Взаимодействие", url: "interaction" },
+  { id: 2, title: "Общие контакты", url: "interaction" },
   { id: 3, title: "Техническая поддержка", url: "support" },
 ];
 
