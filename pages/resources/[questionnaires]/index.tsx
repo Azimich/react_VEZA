@@ -52,13 +52,13 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
     return {
-      props: { certificates: params.certificates },
+      props: { questionnaires: params.questionnaires },
       revalidate: 10,
     };
   },
 );
 
-const ContactsSSR = (props: { certificates: string }) => {
+const ContactsSSR = (props: { questionnaires: string }) => {
   const components: IComponents = {
     tab_bim: tab_Bim,
     tab_catalog: tab_catalog,
@@ -68,7 +68,7 @@ const ContactsSSR = (props: { certificates: string }) => {
     tab_doc: tab_doc,
     tab_training: tab_training,
   };
-  return React.createElement(components[`tab_${props.certificates}`]);
+  return React.createElement(components[`tab_${props.questionnaires}`]);
 };
 
 export default ContactsSSR;

@@ -29,5 +29,12 @@ interface IQuestions {
   desc?: string;
   alias?: string;
 }
+interface IQuestionnaires {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: string;
+  alias?: string;
+}
 
-export { IBim, ICatalog, ICertificates, IQuestions };
+export { IBim, ICatalog, ICertificates, IQuestions, IQuestionnaires };
