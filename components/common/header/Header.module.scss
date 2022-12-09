@@ -13,17 +13,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 0;
+    padding: 40px 0;
     transition: all 0.3s;
     &_active {
       display: flex;
       justify-content: space-between;
       align-items: center;
       transition: all 0.3s;
-      padding: 15px 0;
+      padding: 25px 0 35px 0;
     }
     @media (max-width: 1200px) {
-      padding: 20px 0 20px 0;
+      padding: 35px 0;
     }
   }
 

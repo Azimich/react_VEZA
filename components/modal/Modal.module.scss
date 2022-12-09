@@ -13,8 +13,6 @@
   justify-content: center;
   animation-name: bgModal;
   animation-duration: 300ms;
-
-
   &.black {
     background: rgba(19, 28, 8, 0.8);
     backdrop-filter: blur(3px);
@@ -27,22 +25,21 @@
     background: color(white);
     backdrop-filter: blur(3px);
   }
-
-  &_close {
+  &_head {
     display: flex;
     justify-content: space-between;
+    padding: 25px 20px 0 20px;
+  }
+  &_close {
     cursor: pointer;
-    padding: 20px 20px 0 20px;
-    svg {
-      path {
-        fill:rgb(128, 128, 128);
+    span {
+      svg {
+        path {
+          fill:rgb(128, 128, 128);
+        }
       }
     }
-    > div {
-      text-align: left;
-    }
   }
-
   .modal_dialog {
     width: 100%;
     border-radius: 10px;

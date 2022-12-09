@@ -352,7 +352,7 @@ const office_sales_data: IObject[] = [
     object: {
       xpx: 22,
       ypx: 8,
-      name: "Веза-Миасс",
+      name: "ВЕЗА-Москва",
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
@@ -367,7 +367,7 @@ const office_sales_data: IObject[] = [
     object: {
       xpx: 22,
       ypx: 8,
-      name: "Веза-Миасс",
+      name: "ВЕЗА-Миасс",
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
@@ -382,7 +382,7 @@ const office_sales_data: IObject[] = [
     object: {
       xpx: 22,
       ypx: 8,
-      name: "Веза-Миасс",
+      name: "ВЕЗА-Гомель",
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",
@@ -397,7 +397,7 @@ const office_sales_data: IObject[] = [
     object: {
       xpx: 22,
       ypx: 8,
-      name: "Веза-Миасс",
+      name: "ВЕЗА-ОМСК",
       fio: "Сергиенко Алексей Сергеевич",
       service_phone: "Тел: +7 999 999 00 99",
       address: "Зелёный проспект 20",

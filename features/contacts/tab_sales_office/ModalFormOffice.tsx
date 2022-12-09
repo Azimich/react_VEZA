@@ -7,6 +7,7 @@ import { Link } from "components/link";
 const ModalFormOffice: FC<IObject> = (props) => {
   return (
     <>
+      <h2 className={Styles.factory_title}>{props.object.name}</h2>
       <p className={Styles.factory_info_fio}>
         Руководитель филиала:<p>{props.object.fio}</p>
       </p>

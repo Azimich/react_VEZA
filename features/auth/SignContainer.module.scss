@@ -338,11 +338,9 @@
   input {
     width: 100%;
   }
-
   @include phoneScreen {
     grid-template-columns: 1fr;
   }
-
   .support__form {
     display: block;
   }
@@ -359,12 +357,10 @@
   button {
     width: 220px;
     @include phoneScreen {
-      width: auto;
       padding: 10px 22px;
       font-size: 14px;
     }
   }
-
   h1 {
     font-size: 30px;
     margin-bottom: 20px;
@@ -374,14 +370,12 @@
       font-size: 26px;
     }
   }
-
   &__item {
     padding: 20px 10px 30px 10px;
     input {
       width: 100%;
     }
   }
-
   &__item__input {
     font-size: 12px;
     margin-top: 10px;
@@ -395,7 +389,6 @@
         margin: 0 0 0 10px;
       }
     }
-
     &_error {
       color: red;
       border-radius: 8px;
@@ -411,7 +404,6 @@
           margin: 0 0 0 10px;
         }
       }
-
       .input__item {
         border-color: red;
       }

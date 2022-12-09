@@ -1,20 +1,23 @@
 @import 'styles/variables.scss';
+@import 'styles/mixins.scss';
 
 .breadcrumbs_container {
-
   ul {
     display: flex;
     align-items: center;
     font-size: 14px;
     justify-content: center;
     color: color(bredcrumbs_link);
-    margin-top: 40px;
-
+    margin-top: 80px;
+    @include phoneScreen {
+      margin-top: 50px;
+      flex-direction: column;
+      gap: 14px;
+    }
     li {
       align-items: center;
       display: flex;
       color: color(bredcrumbs_no_link);
-
       a {
         color: color(bredcrumbs);
         font-size: 14px;
@@ -29,7 +32,6 @@
             background-color: color(bredcrumbs_hover);
           }
         }
-
         &::after {
           content: "";
           display: block;
@@ -42,7 +44,6 @@
           transition: width 0.3s;
         }
       }
-
       span {
         padding: 0 8px;
         svg {
