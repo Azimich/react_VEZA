@@ -40,13 +40,11 @@
 }
 
 .spinner__loading__container {
-  height: 100vh;
   background: rgba(255, 255, 255, 0.5);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   opacity: 0.5;
   .spinner__loading {
-    position: absolute;
     top: calc(50% - 32px);
     left: calc(50% - 32px);
     width: 64px;
@@ -113,4 +111,5 @@
       }
     }
   }
+
 }

@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { ChangeEvent } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
-import { Input } from "components/input/Index";
+import { Input } from "components/input";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { ValidationRegister } from "./formsData/ValidationsShemas";
@@ -13,12 +13,36 @@ import { Message } from "components/massage";
 import { ErrorIcon } from "components/icons";
 import { useAuth } from "service/auth/auth";
 import { SpinnerButton } from "components/spinners";
+import { Modal, useModal } from "components/modal";
+import { useRouter } from "next/router";
 
 const SingUpForm: FC = () => {
   const [registerError] = useState<boolean>(false);
-  const { postRegister } = useAuth();
-  const { loading } = useAuth();
+  const { isShow, toggle } = useModal();
+  const { postRegister, loading } = useAuth();
+  const router = useRouter();
 
+  const MessageForm: FC = () => {
+    const handleOnClick = () => {
+      router.push("/").then(() => {
+        toggle();
+      });
+    };
+
+    return (
+      <div>
+        <p>Для продолжения регистрации необходимо подтвердить свой емайл</p>
+        <Button
+          type={"button"}
+          size={"max"}
+          theme={"banner"}
+          onClick={() => handleOnClick()}
+        >
+          ОК
+        </Button>
+      </div>
+    );
+  };
   // Валидация формы
   const formik: FormikValues = useFormik({
     initialValues: {
@@ -41,7 +65,10 @@ const SingUpForm: FC = () => {
     validationSchema: ValidationRegister(),
     onSubmit: (values) => {
       postRegister(values).then((data) => {
-        console.log("dataRegister", data);
+        !data.hasError &&
+          router.push("/").then(() => {
+            toggle();
+          });
       });
     },
   });
@@ -117,6 +144,37 @@ const SingUpForm: FC = () => {
                 </div>
               );
             })}
+        </div>
+        <div className={Styles.registration__form__items__input}>
+          <ul
+            className={`${
+              formik.errors["position"] && formik.touched["position"]
+                ? Styles.registration__form__item__input_error
+                : Styles.registration__form__item__input
+            }`}
+          >
+            <Input
+              name={"position"}
+              id={"position" + "_id"}
+              title={"Укажите должность *"}
+              type={"text"}
+              className={Styles.input__item}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                handleFilterOnChange(e, /g/g, "position", 20)
+              }
+              onBlur={formik.handleBlur}
+              value={formik.values["position"]}
+            />
+            <div
+              className={`${
+                formik.errors["position"] && formik.touched["position"]
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <li>{formik.errors["position"]}</li>
+            </div>
+          </ul>
         </div>
         <div className={Styles.registration__form__items__select__company}>
           <ul
@@ -195,7 +253,9 @@ const SingUpForm: FC = () => {
             onClick={() => handleOnClick()}
           >
             <li>Зарегистрироваться</li>
-            <div className={Styles.button__spinner}>{<SpinnerButton />}</div>
+            {loading && (
+              <div className={Styles.button__spinner}>{<SpinnerButton />}</div>
+            )}
           </Button>
           {registerError && (
             <Message type={"error"}>
@@ -205,6 +265,14 @@ const SingUpForm: FC = () => {
           )}
         </div>
       </form>
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={<MessageForm />}
+        theme={"modal"}
+        headerText={"Регистрация прошла успешно!"}
+        bgModal={"black"}
+      />
     </div>
   );
 };

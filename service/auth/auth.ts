@@ -1,4 +1,5 @@
 import useHttp from "store/hooks/useHttp";
+import { headers } from "utils/bootstrap";
 
 const useAuth = () => {
   const { request, loading, error } = useHttp();
@@ -19,6 +20,19 @@ const useAuth = () => {
       JSON.stringify(values),
     );
   };
-  return { getLogin, postRegister, loading, error };
+
+  const Confirm = (token: string, login: string) => {
+    console.log("token", token, login);
+    return request(
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/Identity/registration_confirm",
+      "POST",
+      JSON.stringify({
+        login: login,
+        token: token,
+      }),
+      headers,
+    );
+  };
+  return { Confirm, getLogin, postRegister, loading, error };
 };
 export { useAuth };

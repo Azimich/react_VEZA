@@ -4,7 +4,7 @@ import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { catalogData } from "../mockData";
 import { CatalogItem } from "./CatalogItem";
-import { Input } from "components/input/Index";
+import { Input } from "components/input";
 import { SearchInputIcon } from "components/icons/includes/SearchInputIcon";
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { ICatalog } from "../tab_bim/Bim";

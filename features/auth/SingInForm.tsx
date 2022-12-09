@@ -1,6 +1,6 @@
 import { FormikValues, useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
-import { Input } from "components/input/Index";
+import { Input } from "components/input";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import Link from "next/link";
@@ -42,7 +42,7 @@ const SingInForm = () => {
     onSubmit: (values) => {
       getLogin(values.login, values.password).then(
         (data: ISingResponseData) => {
-          if (data.hasError) {
+          if (data?.hasError) {
             setAuthData(data);
           } else {
             localStorage.setItem("token", data.response.accessToken);
@@ -160,7 +160,7 @@ const SingInForm = () => {
               <span>Нет соединения с базой</span>
             </Message>
           )}
-          {authData.hasError && (
+          {authData?.hasError && (
             <Message type={"error"}>
               <span>
                 <ErrorIcon />

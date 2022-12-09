@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { IInput } from "./Input";
-import { LayoutInput, LayoutInputFile } from "components/input/Index";
+import { LayoutInput, LayoutInputFile } from "components/input/index";
 
 const InputContainer: FC<IInput> = (props) => {
   const { type = "text" } = props;
