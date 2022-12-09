@@ -1,7 +1,9 @@
-const headers = new Headers();
+/*const headers = new Headers();
 headers.append("Content-Type", "application/json");
 headers.append("accept", "text/plain");
-headers.append("Access-Control-Allow-Origin", "*");
+headers.append("Access-Control-Allow-Origin", "*");*/
+
+import { headers } from "utils/bootstrap";
 
 class Request {
   static getRequest = async (url: string, options = {}) => {

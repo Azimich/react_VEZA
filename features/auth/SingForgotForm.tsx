@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
-import { Input } from "components/input/Index";
+import { Input } from "components/input";
 import { Button } from "components/button";
 import { SpinnerButton } from "components/spinners";
 import { Message } from "components/massage";

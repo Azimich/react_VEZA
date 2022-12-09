@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "./Support.module.scss";
-import { Input } from "components/input/Index";
+import { Input } from "components/input";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
 import { TextareaContainer } from "components/textarea/TextareaContainer";

@@ -31,3 +31,4 @@ export { RombIcon } from "./includes/RombIcon";
 export { NotFoundIcon } from "./includes/NotFoundIcon";
 export { ErrorIcon } from "./includes/ErrorIcon";
 export { EnterIcon } from "./includes/EnterIcon";
+export { ErrorConfirmIcon } from "./includes/ErrorConfirmIcon";

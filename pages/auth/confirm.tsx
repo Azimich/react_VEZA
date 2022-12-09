@@ -1,13 +1,13 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
-import { Error } from "features/auth";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
+import React from "react";
+import { Confirm } from "features/auth";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
-
     return {
       props: {},
       revalidate: 10,
@@ -15,6 +15,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const ConfirmPage = (props: any) => <Error {...props} />;
+const ConfirmPage = (props: any) => <Confirm {...props} />;
 
 export default ConfirmPage;

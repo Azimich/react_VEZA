@@ -72,10 +72,11 @@ const fieldsDataRegister: IFieledsData[] = [
     size: 20,
   },
   {
-    name: "position",
-    title: "Укажите должность *",
+    name: "dateOfBirth",
+    title: "Дата рождения",
     filter: /g/g,
     size: 20,
+    type: "date",
   },
   {
     name: "password",
@@ -90,13 +91,6 @@ const fieldsDataRegister: IFieledsData[] = [
     filter: /g/g,
     size: 20,
     type: "password",
-  },
-  {
-    name: "dateOfBirth",
-    title: "Дата рождения",
-    filter: /g/g,
-    size: 20,
-    type: "date",
   },
 ];
 
