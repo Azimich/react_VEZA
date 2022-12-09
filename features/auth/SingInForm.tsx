@@ -154,7 +154,6 @@ const SingInForm = () => {
               {timer && <SpinnerButton />}
             </div>
           </Button>
-
           {error && (
             <Message type={"error"}>
               <span>Нет соединения с базой</span>

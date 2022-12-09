@@ -2,11 +2,10 @@
 @import 'styles/variables.scss';
 
 .whowe_container {
-  margin: 40px auto 80px;
+  margin: 40px auto 70px;
   @include ipadScreen {
     margin: 40px auto;
   }
-
   &_history {
     &_svg {
       display: flex;

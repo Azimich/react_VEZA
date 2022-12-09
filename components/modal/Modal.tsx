@@ -23,9 +23,11 @@ export const Modal: FC<IModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className={Styles.modal_body}>
-          <div className={Styles.modal_close} onClick={hide}>
+          <div className={Styles.modal_head}>
             <div>{headerText}</div>
-            <CloseIcon />
+            <span className={Styles.modal_close} onClick={hide}>
+              <CloseIcon />
+            </span>
           </div>
           <div className={`${Styles[typeContent]} ${Styles.modal_content} `}>
             {modalContent}

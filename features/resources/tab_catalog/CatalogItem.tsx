@@ -10,7 +10,9 @@ const CatalogItem: FC<ICatalog> = ({ title, image }) => {
         <img src={image} alt={title} />
       </div>
       <div className={Styles.box_item__info}>
-        <p className={Styles.box_item__info_title}>{title}</p>
+        <div className={Styles.box_item__info_title}>
+          <p>{title}</p>
+        </div>
         <div className={Styles.box_item__item_button}>
           <Button
             type={"button"}
