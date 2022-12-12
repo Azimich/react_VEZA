@@ -31,11 +31,13 @@ const QuestionnairesContainer = () => {
           activeTab={5}
           size={"max"}
         />
-        <div>
-          {questionnairesData.map((item) => {
-            return <QuestionnairesItem key={item.id} {...item} />;
-          })}
-        </div>
+        <>
+          {questionnairesData
+            .filter((parent) => parent.parent === 0)
+            .map((items) => (
+              <QuestionnairesItem key={items.id} {...items} />
+            ))}
+        </>
       </div>
     </Container>
   );

@@ -35,6 +35,7 @@ interface IQuestionnaires {
   subtitle: string;
   image: string;
   alias?: string;
+  parent?: number;
 }
 
 export { IBim, ICatalog, ICertificates, IQuestions, IQuestionnaires };
