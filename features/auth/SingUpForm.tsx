@@ -64,11 +64,9 @@ const SingUpForm: FC = () => {
 
     validationSchema: ValidationRegister(),
     onSubmit: (values) => {
+      console.log("111", values);
       postRegister(values).then((data) => {
-        !data.hasError &&
-          router.push("/").then(() => {
-            toggle();
-          });
+        !data.hasError && toggle();
       });
     },
   });

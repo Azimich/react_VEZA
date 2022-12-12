@@ -33,6 +33,16 @@ const useAuth = () => {
       headers,
     );
   };
-  return { Confirm, getLogin, postRegister, loading, error };
+  const getForgot = (email: string) => {
+    return request(
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/Identity/restore_password",
+      "POST",
+      JSON.stringify({
+        login: email,
+      }),
+      headers,
+    );
+  };
+  return { Confirm, getLogin, getForgot, postRegister, loading, error };
 };
 export { useAuth };
