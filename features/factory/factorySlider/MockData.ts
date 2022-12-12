@@ -1,4 +1,4 @@
-import { ISliderProps } from "../../../components/slider/Slider.d";
+import { ISliderProps } from "components/slider/Slider.d";
 
 const sliderFactoryData: ISliderProps = {
   items: [
@@ -6,6 +6,7 @@ const sliderFactoryData: ISliderProps = {
       id: 1,
       typeSlider: "text",
       title: "1995-2000",
+      activePageDefault: true,
       code: "2000",
       link_slider: false,
     },

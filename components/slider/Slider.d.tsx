@@ -48,6 +48,7 @@ interface ISlideItem {
   alt?: string;
   code?: string;
   activePage?: string;
+  activePageDefault?: boolean;
   theme?:
     | "home"
     | "industries"
