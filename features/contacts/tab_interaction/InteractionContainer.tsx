@@ -15,16 +15,17 @@ import { dataBreadContacts } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { useGetListFactory } from "service/getListFactory";
 import { useGetListSales } from "service/getListSales";
+import { IPageData } from "components/pagination/Pagination.d";
 
 const InteractionContainer = () => {
   const router = useRouter();
+  const [pagination, setPagination] = useState<IPageData>();
   const { listFactoryData } = useGetListFactory();
   const { listSalesData } = useGetListSales();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
   const [factory, setFactory] = useState<Interaction[]>([]);
   const [sales, setSales] = useState<Interaction[]>([]);
-
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Взаимодействие" }]);
   }, [dataBreadContacts]);
@@ -34,17 +35,17 @@ const InteractionContainer = () => {
 
   useEffect(() => {
     listFactoryData().then((data) => {
-      console.log("33333", data);
       setFactory(data?.response);
     });
   }, []);
 
   useEffect(() => {
-    listSalesData().then((data) => {
-      console.log("44444", data);
+    listSalesData(Number(router.query.page) || 1, 2).then((data) => {
+      console.log("data", data);
+      setPagination(data.page);
       setSales(data?.response);
     });
-  }, []);
+  }, [router.query.page]);
 
   return (
     <Container className={"wrapper_clear"}>
@@ -76,7 +77,16 @@ const InteractionContainer = () => {
           : "Приносим свои извинения. Произошёл технический сбой. Наши специалисты уже работают над решением!"}
       </ul>
 
-      <Pagination currentPage={1} totalPageCount={20} pageSize={3} />
+      <Pagination
+        currentPage={pagination?.pageNumber}
+        totalPageCount={pagination?.totalPages}
+        pageSize={pagination?.pageSize}
+        onPageChange={(page) => {
+          router
+            .push(contactsPath + router.query.slug + "?page=" + page)
+            .then();
+        }}
+      />
 
       <div className={Styles.separator__container__title}>
         <SeparatorContainer title={"Наши филиалы"} />

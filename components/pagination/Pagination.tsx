@@ -1,6 +1,6 @@
 import React from "react";
-import { usePagination } from "../../store/hooks/usePagination";
-import { DOTS } from "../../store/hooks/usePagination";
+import { usePagination } from "store/hooks/usePagination";
+import { DOTS } from "store/hooks/usePagination";
 import Styles from "./Pagination.module.scss";
 import { IPagination } from "./Pagination.d";
 
