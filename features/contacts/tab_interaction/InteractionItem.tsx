@@ -2,27 +2,36 @@ import { Interaction } from "./Interaction";
 import { FC } from "react";
 import Styles from "./Interaction.module.scss";
 
-const InteractionItem: FC<Interaction> = (props) => {
+const InteractionItem: FC<Interaction> = ({
+  address,
+  email,
+  logistic_tel,
+  secretary_tel,
+  service_tel,
+  title,
+}) => {
   return (
     <li className={Styles.interaction_items_item}>
-      <h2>{props.title}</h2>
+      <h2>{title}</h2>
       <div className={Styles.interaction_items_item_box}>
         <p>
-          Севис:<span>Тел: {props.service_tel}</span>
+          Севис:
+          <span>Тел: {service_tel.map((e) => console.log(e, "eeee"))}</span>
         </p>
         <p>
-          Логистика:<span>Тел: {props.logistic_tel}</span>
+          Логистика:
+          <span>Тел: {logistic_tel.map((e) => console.log(e, "11111"))}</span>
         </p>
-        {props.secretary_tel && (
-          <p>
-            Секретарь:<span>Тел: {props.secretary_tel}</span>
-          </p>
-        )}
+
         <p>
-          Почта:<span>{props.email}</span>
+          Секретарь:<span>Тел: {secretary_tel.map((e) => e)}</span>
+        </p>
+
+        <p>
+          Почта:<span>{email}</span>
         </p>
         <p>
-          Адрес:<span>{props.address}</span>
+          Адрес:<span>{address}</span>
         </p>
       </div>
     </li>
