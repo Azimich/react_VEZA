@@ -103,6 +103,7 @@
     "next-redux-wrapper": "^7.0.4",
     "normalize.css": "^8.0.1",
     "prettier": "^2.3.2",
+    "react-cookie": "^4.1.1",
     "react-dadata": "^2.23.0",
     "react-device-detect": "^2.2.2",
     "react-select": "^5.5.8",

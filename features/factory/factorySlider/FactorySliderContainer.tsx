@@ -10,6 +10,7 @@ import Styles from "../FactoryItem.module.scss";
 
 const FactorySliderContainer: FC<ISliderData> = () => {
   const factoryData = useAppSelector(getFactory);
+  console.log("factoryData", factoryData);
   const [activePage, setActivePage] = useState<string>("2000");
   const [currentFactory, setCurrentFactory] = useState([]);
 

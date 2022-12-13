@@ -16,8 +16,16 @@ import { SpinnerButton } from "components/spinners";
 import { Modal, useModal } from "components/modal";
 import { useRouter } from "next/router";
 
-const SingUpForm: FC = () => {
-  const [registerError] = useState<boolean>(false);
+interface IAuthResponse {
+  customErrorCode: number;
+  errorMessage: string;
+  hasError: boolean;
+  response: null;
+  systemErrorMessage: string;
+}
+
+const SingUpForm: FC<IAuthResponse> = () => {
+  const [dataResponse, setDataResponse] = useState<IAuthResponse>();
   const { isShow, toggle } = useModal();
   const { postRegister, loading } = useAuth();
   const router = useRouter();
@@ -65,10 +73,8 @@ const SingUpForm: FC = () => {
     validationSchema: ValidationRegister(),
     onSubmit: (values) => {
       postRegister(values).then((data) => {
-        !data.hasError &&
-          router.push("/").then(() => {
-            toggle();
-          });
+        setDataResponse(data);
+        !data.hasError && toggle();
       });
     },
   });
@@ -257,10 +263,10 @@ const SingUpForm: FC = () => {
               <div className={Styles.button__spinner}>{<SpinnerButton />}</div>
             )}
           </Button>
-          {registerError && (
+          {dataResponse?.hasError && (
             <Message type={"error"}>
               <ErrorIcon />
-              ХЗ но что то пошло не так
+              {dataResponse?.errorMessage}
             </Message>
           )}
         </div>

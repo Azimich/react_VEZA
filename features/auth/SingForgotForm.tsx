@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
@@ -6,8 +6,20 @@ import { Input } from "components/input";
 import { Button } from "components/button";
 import { SpinnerButton } from "components/spinners";
 import { Message } from "components/massage";
+import { useAuth } from "service/auth/auth";
+
+interface IForgotResponse {
+  customErrorCode: number;
+  errorMessage: string;
+  hasError: boolean;
+  response: null;
+  systemErrorMessage: string;
+}
 
 const SingForgotForm: FC = () => {
+  const [dataResponse, setDataResponse] = useState<IForgotResponse>();
+  const { getForgot, loading } = useAuth();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -21,7 +33,9 @@ const SingForgotForm: FC = () => {
         .email("Неверный email!"),
     }),
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      getForgot(values.email).then((data) => {
+        setDataResponse(data);
+      });
     },
   });
 
@@ -61,11 +75,15 @@ const SingForgotForm: FC = () => {
         <div className={Styles.authorization__form__item__answer}>
           <Button type={"submit"} theme={"industries"}>
             <li>Восстановить</li>
-            <div className={Styles.button__spinner}>{<SpinnerButton />}</div>
+            {loading && (
+              <div className={Styles.button__spinner}>{<SpinnerButton />}</div>
+            )}
           </Button>
-          <Message type={"error"}>
-            <span>Email не найден</span>
-          </Message>
+          {dataResponse?.hasError && (
+            <Message type={"error"}>
+              <span>{dataResponse.errorMessage}</span>
+            </Message>
+          )}
         </div>
       </form>
     </div>
