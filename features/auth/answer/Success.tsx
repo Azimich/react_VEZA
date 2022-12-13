@@ -3,6 +3,7 @@ import Styles from "./Answer.module.scss";
 import { Button } from "components/button";
 import { useRouter } from "next/router";
 import { SuccessConfirmIcon } from "components/icons/includes/SuccessConfirmIcon";
+import { useToken } from "store/hooks/useToken";
 
 export interface IErrorResponse {
   errorMessage: string;
@@ -16,15 +17,16 @@ export interface IErrorResponse {
 }
 
 const Success: FC<IErrorResponse> = (props) => {
+  const { setAuthToken } = useToken();
   const router = useRouter();
   const handleOnClick = () => {
     router.push("/").then();
   };
+
   useEffect(() => {
-    localStorage.setItem("token", props.response.accessToken);
-    localStorage.setItem("refreshToken", props.response.refreshToken);
+    setAuthToken(props.response.accessToken, props.response.refreshToken);
   });
-  console.log("111", props);
+
   return (
     <div className={Styles.block_error}>
       <SuccessConfirmIcon />

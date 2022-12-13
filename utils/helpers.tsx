@@ -29,6 +29,10 @@ function getParents(
   return parents;
 }
 
+const checkEmptyObject = (obj: {}) => {
+  return Object.keys(obj).length === 0;
+};
+
 const getData = (
   obj: ICatalogEquipmentData[],
   url: string,
@@ -46,4 +50,4 @@ const getData = (
 
   return resData;
 };
-export { eachRecursive, getData, getParents };
+export { eachRecursive, getData, getParents, checkEmptyObject };

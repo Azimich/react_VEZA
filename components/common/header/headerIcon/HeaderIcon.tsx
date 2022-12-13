@@ -7,6 +7,9 @@ import { useRouter } from "next/router";
 import { HamburgerContainer } from "components/hamburger/HamburgerContainer";
 import { isMobile } from "react-device-detect";
 import { FC, useEffect, useState } from "react";
+/*
+import {useToken} from "store/hooks/useToken";
+*/
 
 interface IHeaderMenu {
   onClick?: () => void;
@@ -17,6 +20,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
+  /*  const {getToken} = useToken();*/
 
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
