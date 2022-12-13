@@ -46,4 +46,9 @@ const getData = (
 
   return resData;
 };
-export { eachRecursive, getData, getParents };
+
+const checkEmptyObject = (obj: {}) => {
+  return Object.keys(obj).length === 0;
+};
+
+export { eachRecursive, getData, getParents, checkEmptyObject };

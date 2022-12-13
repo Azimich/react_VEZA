@@ -7,6 +7,7 @@ import { BreadCrumbs } from "components/breadcrumbs";
 import { NewsWithItem } from "features/news/NewsWithItem";
 
 const NewsContainer: FC<INewsData> = ({ news }) => {
+  console.log("5555", news);
   return (
     <>
       <Container className={"wrapper_clear"}>

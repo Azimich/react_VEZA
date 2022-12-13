@@ -12,7 +12,7 @@ const QuestionnairesItem: FC<IQuestionnaires> = ({
 }) => {
   return (
     <Link
-      url={resourcesPath + "certificates/" + alias}
+      url={resourcesPath + "questionnaires/" + alias}
       classLink={Styles.questionnaires}
     >
       <div className={Styles.questionnaires__img__block}>
