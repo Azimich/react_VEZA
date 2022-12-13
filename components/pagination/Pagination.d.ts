@@ -10,11 +10,11 @@ interface IPagination {
 }
 
 interface IPageData {
-  HasNextPage: boolean;
-  HasPreviousPage: boolean;
-  PageNumber: number;
-  PageSize: number;
-  TotalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+  pageNumber: number;
+  pageSize: number;
+  totalPages: number;
 }
 
 export { IPageData, IPagination };
