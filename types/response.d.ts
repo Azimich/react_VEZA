@@ -1,12 +1,11 @@
 interface IResponse {
-  customErrorCode: null | string;
+  customErrorCode: null | number;
   errorMessage: string;
   systemErrorMessage: string;
   hasError: boolean;
   page?: IPage;
   response: [];
 }
-
 interface IPage {
   pageNumber: number;
   pageSize: number;
