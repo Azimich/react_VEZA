@@ -24,16 +24,16 @@ const FooterContainer = () => {
               {menu
                 ? menu?.map((item) => {
                     return (
-                      <li key={item.MenuId}>
+                      <li key={item.menuId}>
                         <Link
-                          url={"/" + item.Alias}
+                          url={"/" + item.alias}
                           classLink={
-                            router.pathname.split("/")[1] === item.Alias
+                            router.pathname.split("/")[1] === item.alias
                               ? Styles.active_menu
                               : ""
                           }
                         >
-                          {item.Title}
+                          {item.title}
                         </Link>
                       </li>
                     );
@@ -48,7 +48,6 @@ const FooterContainer = () => {
               >
                 <TelegaIcon />
               </IconItem>
-
               <IconItem
                 url={process.env.NEXT_PUBLIC_VK}
                 className={"footer__social_item"}
