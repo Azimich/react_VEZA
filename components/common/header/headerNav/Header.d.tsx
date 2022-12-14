@@ -1,14 +1,14 @@
+import { IResponse } from "../../../../types/response";
+
 interface IMenuData {
-  MenuId?: number;
-  Title?: string;
-  Alias?: string;
-  OrderPosition?: number;
+  menuId?: number;
+  title?: string;
+  alias?: string;
+  orderPosition?: number;
 }
 
-interface IMenuState {
-  HasError?: number;
-  ErrorMessage?: string;
-  Response?: IMenuData[];
+interface IMenuState extends Omit<IResponse, "response"> {
+  response: IMenuData[];
 }
 
 interface IMenuSlice {

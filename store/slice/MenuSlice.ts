@@ -4,9 +4,11 @@ import { HYDRATE } from "next-redux-wrapper";
 import { IMenuState } from "components/common/header/headerNav/Header.d";
 
 const initialState: IMenuState = {
-  HasError: 0,
-  ErrorMessage: "",
-  Response: [],
+  customErrorCode: "",
+  systemErrorMessage: "",
+  hasError: false,
+  errorMessage: "",
+  response: [],
 };
 
 export const menuSlice = createSlice({
@@ -35,6 +37,6 @@ export const fetchMenu =
 /*export const {} =
     factorySlice.actions;*/
 
-export const getMenu = (state: AppState) => state.menuState.Response;
+export const getMenu = (state: AppState) => state.menuState.response;
 
 export default menuSlice;
