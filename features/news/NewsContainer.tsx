@@ -1,13 +1,12 @@
 import { Container } from "components/common/container";
-import { ISSRNews } from "./News";
+import { ISSRHomeNews } from "./News";
 import { FC } from "react";
 import { Pagination } from "components/pagination/Pagination";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";
 import { NewsWithItem } from "features/news/NewsWithItem";
 
-const NewsContainer: FC<ISSRNews> = ({ newsData }) => {
-  console.log("111", newsData);
+const NewsContainer: FC<ISSRHomeNews> = ({ newsData }) => {
   return (
     <>
       <Container className={"wrapper_clear"}>

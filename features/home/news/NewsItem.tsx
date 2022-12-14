@@ -4,12 +4,12 @@ import { FC, useEffect, useState, ReactNode } from "react";
 import { ArrowRightIcon, EyeIcon } from "components/icons";
 import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "components/button";
-import { INewDataItem } from "features/news/News";
+import { INewsDataItem } from "features/news/News";
 import { newsPath } from "utils/bootstrap";
 
 interface INewsItemProps {
   className: string;
-  props: INewDataItem;
+  props: INewsDataItem;
   countColumn: number;
 }
 
@@ -24,44 +24,44 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
       device === "mobile" &&
         setNewsImg(
           <img
-            src={props.ImageModel.Horizontal.Mobile}
-            alt={props.ShortDescription}
+            src={props.imageModel.horizontal.Mobile}
+            alt={props.shortDescription}
           />,
         );
       device === "tablet" &&
         setNewsImg(
           <img
-            src={props.ImageModel.Horizontal.Ipad}
-            alt={props.ShortDescription}
+            src={props.imageModel.horizontal.Ipad}
+            alt={props.shortDescription}
           />,
         );
       device === "desktop" &&
         setNewsImg(
           <img
-            src={props.ImageModel.Horizontal.Pc}
-            alt={props.ShortDescription}
+            src={props.imageModel.horizontal.Pc}
+            alt={props.shortDescription}
           />,
         );
     } else {
       device === "mobile" &&
         setNewsImg(
           <img
-            src={props.ImageModel.Horizontal.Mobile}
-            alt={props.ShortDescription}
+            src={props.imageModel.horizontal.Mobile}
+            alt={props.shortDescription}
           />,
         );
       device === "tablet" &&
         setNewsImg(
           <img
-            src={props.ImageModel.Horizontal.Ipad}
-            alt={props.ShortDescription}
+            src={props.imageModel.horizontal.Ipad}
+            alt={props.shortDescription}
           />,
         );
       device === "desktop" &&
         setNewsImg(
           <img
-            src={props.ImageModel.Horizontal.Pc}
-            alt={props.ShortDescription}
+            src={props.imageModel.horizontal.Pc}
+            alt={props.shortDescription}
           />,
         );
     }
@@ -80,14 +80,14 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
           {newsImg}
           <div className={Styles.news__counter_icon}>
             <EyeIcon />
-            {props.Statistics.StatisticsTotal}
+            {props.statistics.statisticsTotal}
           </div>
         </div>
         <div className={Styles.news__item_info}>
-          <h2>{props.NewsName}</h2>
-          <p>{props.ShortDescription}</p>
+          <h2>{props.newsName}</h2>
+          <p>{props.shortDescription}</p>
           <Button
-            link={newsPath + props.Alias}
+            link={newsPath + props.alias}
             theme={"news"}
             size={"context"}
             color={"link"}
