@@ -4,10 +4,6 @@ import { IAuthState } from "./Auth.d";
 
 const initialState: IAuthState = {
   identify: false,
-  customErrorCode: 0,
-  errorMessage: "",
-  hasError: false,
-  response: [],
 };
 
 export const authSlice = createSlice({
@@ -15,13 +11,13 @@ export const authSlice = createSlice({
   initialState: initialState,
   reducers: {
     setDataAuth: (_state, action: PayloadAction<IAuthState>) => {
-      return action.payload;
+      return { ..._state, ...action.payload };
     },
   },
 });
 
 export const { setDataAuth } = authSlice.actions;
 
-export const getAuth = (state: AppState) => state.factoryState.factoryState;
+export const getAuth = (state: AppState) => state.AuthState;
 
 export default authSlice;

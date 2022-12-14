@@ -9,6 +9,9 @@ import { isMobile } from "react-device-detect";
 import { FC, useEffect, useState } from "react";
 import { useAuth } from "service/auth/auth";
 import { useToken } from "store/hooks/useToken";
+import { getAuth, setDataAuth } from "features/auth/AuthSlice";
+import { IAuthResponse } from "features/auth/Auth";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 /*
 import {useToken} from "store/hooks/useToken";
@@ -24,14 +27,23 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
   const { checkAuth } = useAuth();
-  const { getToken } = useToken();
-  console.log("token", getToken());
+  const { getToken, deleteAuthToken } = useToken();
+  const auth = useAppSelector(getAuth);
+  const dispatch = useAppDispatch();
+  console.log("1+1+1", auth);
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
+
   useEffect(() => {
-    checkAuth(getToken().tokens.token).then((data) => {
-      console.log("data", data);
+    checkAuth(getToken().tokens.token).then((data: IAuthResponse) => {
+      if (data.hasError) {
+        deleteAuthToken();
+      } else {
+        dispatch(setDataAuth({ identify: true, data: data }));
+      }
+
+      console.log("data1", data);
     });
   }, []);
 
