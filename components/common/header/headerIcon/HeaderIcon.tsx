@@ -1,5 +1,5 @@
 import Styles from "./HeaderIcon.module.scss";
-import { SearchIcon, UserIcon, TelefoneIcon } from "components/icons";
+import { SearchIcon, UserIcon, TelefoneIcon, BellIcon } from "components/icons";
 import { IconItem } from "../../../icons/IconItem";
 import { Modal, useModal } from "components/modal";
 import { SearchModal } from "../search/SearchModal";
@@ -7,6 +7,9 @@ import { useRouter } from "next/router";
 import { HamburgerContainer } from "components/hamburger/HamburgerContainer";
 import { isMobile } from "react-device-detect";
 import { FC, useEffect, useState } from "react";
+import { useAuth } from "service/auth/auth";
+import { useToken } from "store/hooks/useToken";
+
 /*
 import {useToken} from "store/hooks/useToken";
 */
@@ -20,11 +23,17 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
-  /*  const {getToken} = useToken();*/
-
+  const { checkAuth } = useAuth();
+  const { getToken } = useToken();
+  console.log("token", getToken());
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
+  useEffect(() => {
+    checkAuth(getToken().tokens.token).then((data) => {
+      console.log("data", data);
+    });
+  }, []);
 
   useEffect(() => {
     isMobile ? setMobile(true) : setMobile(false);
@@ -41,6 +50,10 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
         </div>
         {/* Авторизация */}
         <IconItem url={"/auth"} className={"header__icon"}>
+          <BellIcon />
+        </IconItem>
+
+        <IconItem url={"/auth"} className={"header__icon"}>
           <UserIcon />
         </IconItem>
         {/* Телефон */}
@@ -51,7 +64,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
           >
             <div className={Styles.phone__block}>
               <TelefoneIcon />
-              <b>+7(495)223-01-88</b>
+              <strong>{process.env.NEXT_PUBLIC_PHONE}</strong>
             </div>
           </IconItem>
         </div>

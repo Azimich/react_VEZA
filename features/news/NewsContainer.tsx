@@ -1,29 +1,29 @@
 import { Container } from "components/common/container";
-import { INewsData } from "./News";
+import { ISSRNews } from "./News";
 import { FC } from "react";
 import { Pagination } from "components/pagination/Pagination";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { BreadCrumbs } from "components/breadcrumbs";
 import { NewsWithItem } from "features/news/NewsWithItem";
 
-const NewsContainer: FC<INewsData> = ({ news }) => {
-  console.log("5555", news);
+const NewsContainer: FC<ISSRNews> = ({ newsData }) => {
+  console.log("111", newsData);
   return (
     <>
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
-        {news.newsItem.Response &&
-          news.newsItem.Response.map((e) => {
-            return <NewsWithItem {...e} key={e.NewsId} />;
+        {newsData.response &&
+          newsData.response.map((e) => {
+            return <NewsWithItem {...e} key={e.newsId} />;
           })}
-        {!news.newsItem.HasError && (
+        {!newsData.hasError && (
           <Pagination
             onPageChange={() => {
-              news.newsItem.Page.PageNumber;
+              newsData.page.pageNumber;
             }}
-            currentPage={news.newsItem.Page.PageNumber}
-            totalPageCount={news.newsItem.Page.TotalPages}
-            pageSize={news.newsItem.Page.PageSize}
+            currentPage={newsData.page?.pageNumber}
+            totalPageCount={newsData.page?.totalPages}
+            pageSize={newsData.page?.pageSize}
           />
         )}
       </Container>

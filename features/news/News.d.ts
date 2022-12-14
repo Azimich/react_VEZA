@@ -1,49 +1,43 @@
-import IPageData from "components/pagination/Pagination.d";
+import { IResponse } from "../../types/response";
 
-interface IHomeData {
-  home: {
-    newsItem: IHomeResponse;
-  };
+interface ISSRNews {
+  newsData: INewsResponseArray;
 }
 
-interface INewsData {
-  news: {
-    newsItem: IHomeResponse;
-  };
+interface ISSRHomeNews {
+  newsData: INewsResponse;
 }
 
-interface IHomeResponse {
-  ErrorMessage: number;
-  HasError: boolean;
-  Page?: IPageData;
-  Response: INewDataItem[];
+interface INewsResponse extends Omit<IResponse, "response"> {
+  response: INewsDataItem;
+}
+interface INewsResponseArray extends Omit<IResponse, "response"> {
+  response: INewsDataItem[];
 }
 
-interface INewDataItem {
-  Access?: number;
-  Alias: string;
-  Created?: string;
-  FirstDescription?: string;
-  Images?: Record<any, never>;
-  Keywords?: IKeyWord[];
-  NewsId: number;
-  NewsName?: string;
-  PatternNumber?: number;
-  SecondDescription?: string;
-  Seo?: string;
-  SeoKeywords?: string;
-  ShortDescription?: string;
-  Statistics?: {
-    NewsStatisticsId?: number;
-    StatisticsType?: number;
-    StatisticsTotal?: number;
-    LastUpdated?: string;
-    NewsId?: number;
-  };
-  Status?: string;
-  Title?: string;
-  VideoUrl?: string;
-  ImageModel?: { Horizontal?: IImageModelItem; Vertical?: IImageModelItem };
+interface INewsDataItem {
+  newsId: number;
+  newsName: string;
+  shortDescription: string;
+  firstDescription: string;
+  secondDescription: string;
+  title: string;
+  seoKeywords: string;
+  seo: string;
+  videoUrl: string;
+  patternNumber: number;
+  alias: string;
+  keywords: IKeyWord[];
+  statistics: IStatics;
+  imageModel: { vertical: IImageModelItem; horizontal: IImageModelItem };
+}
+
+interface IStatics {
+  newsStatisticsId: number;
+  statisticsType: number;
+  statisticsTotal: number;
+  lastUpdated: string;
+  newsId: number;
 }
 
 interface IImageModelItem {
@@ -59,4 +53,10 @@ interface IKeyWord {
   Url: string;
 }
 
-export { IHomeData, INewDataItem, IKeyWord, IHomeResponse, INewsData };
+export {
+  INewsDataItem,
+  INewsResponse,
+  ISSRNews,
+  ISSRHomeNews,
+  INewsResponseArray,
+};

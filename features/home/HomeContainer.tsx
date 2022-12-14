@@ -12,9 +12,9 @@ import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
-import { IHomeData } from "features/news/News";
+import { ISSRHomeNews } from "features/news/News";
 
-const HomeContainer: FC<IHomeData> = ({ home }) => {
+const HomeContainer: FC<ISSRHomeNews> = ({ newsData }) => {
   return (
     <>
       <Container el="section">
@@ -42,8 +42,8 @@ const HomeContainer: FC<IHomeData> = ({ home }) => {
         />
         <Separator title={"Новости"} />
 
-        {home.newsItem && !home.newsItem.HasError ? (
-          <NewsContainer {...home.newsItem} />
+        {newsData && !newsData.hasError ? (
+          <NewsContainer {...newsData} />
         ) : (
           "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"
         )}
