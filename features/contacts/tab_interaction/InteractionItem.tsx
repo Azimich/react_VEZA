@@ -16,11 +16,11 @@ const InteractionItem: FC<Interaction> = ({
       <div className={Styles.interaction_items_item_box}>
         <p>
           Севис:
-          <span>Тел: {service_tel.map((e) => console.log(e, "eeee"))}</span>
+          <span>Тел: {service_tel.map((e) => e)}</span>
         </p>
         <p>
           Логистика:
-          <span>Тел: {logistic_tel.map((e) => console.log(e, "11111"))}</span>
+          <span>Тел: {logistic_tel.map((e) => e)}</span>
         </p>
 
         <p>
