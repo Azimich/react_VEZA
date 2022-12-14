@@ -1,18 +1,19 @@
-import { Button } from "components/button";
+/*import { Button } from "components/button";*/
 import { FC } from "react";
-import { INewDataItem } from "./News";
-import Styles from "./News.module.scss";
+import { INewsDataItem } from "./News";
+/*import Styles from "./News.module.scss";
 import { ArrowRightIcon } from "components/icons";
-import { newsPath } from "utils/bootstrap";
+import { newsPath } from "utils/bootstrap";*/
 
-const NewsWithItem: FC<INewDataItem> = ({
-  NewsName,
+const NewsWithItem: FC<INewsDataItem> = (/*{
+/!*  NewsName,
   SecondDescription,
   Alias,
-  ImageModel,
-}) => {
+  ImageModel,*!/
+}*/) => {
   return (
-    <div className={Styles.news_container_item}>
+    <></>
+    /*    <div className={Styles.news_container_item}>
       <div className={Styles.news_container_item_image}>
         <img src={ImageModel.Horizontal.Pc} alt={NewsName} />
       </div>
@@ -35,7 +36,7 @@ const NewsWithItem: FC<INewDataItem> = ({
           </span>
         </Button>
       </div>
-    </div>
+    </div>*/
   );
 };
 

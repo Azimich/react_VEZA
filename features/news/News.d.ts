@@ -1,11 +1,11 @@
 import { IResponse } from "../../types/response";
 
 interface ISSRNews {
-  newsData: INewsResponseArray;
+  newsData: INewsResponse;
 }
 
 interface ISSRHomeNews {
-  newsData: INewsResponse;
+  newsData: INewsResponseArray;
 }
 
 interface INewsResponse extends Omit<IResponse, "response"> {

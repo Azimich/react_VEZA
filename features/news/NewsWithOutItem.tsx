@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { INewDataItem } from "./News";
+import { INewsDataItem } from "./News";
 /*import Styles from "./News.module.scss";
 import { newsPath } from "utils/bootstrap";
 import { ArrowRightIcon, ReactAngleIcon } from "components/icons";
 import { Button } from "components/button";
 import { Link } from "components/link";*/
 
-const NewsWithOutItem: FC<INewDataItem> = (/*{
+const NewsWithOutItem: FC<INewsDataItem> = (/*{
   //NewsName,
   /!*  news_name,
   image_category,

@@ -2,10 +2,9 @@ import { FC } from "react";
 import Styles from "./News.module.scss";
 import { NewsItem } from "./NewsItem";
 import { Container } from "components/common/container";
-import { IResponse } from "../../../types/response";
-import { INewsDataItem } from "features/news/News";
+import { INewsDataItem, INewsResponseArray } from "features/news/News";
 
-const NewsContainer: FC<IResponse> = (props) => {
+const NewsContainer: FC<INewsResponseArray> = (props) => {
   const { response: response } = props;
 
   return (
