@@ -1,20 +1,9 @@
 import React from "react";
 import { FC } from "react";
-import { INewDataItem } from "../News";
-/*import Styles from "./NewsPageItem.module.scss";
-import { EyeIcon } from "components/icons";
-import { SliderContainer } from "components/slider";*/
+import { INewsDataItem } from "../News";
 
-const NewsPageItem: FC<INewDataItem> = (/*{
-  NewsName,
-  /!*  news_name,
-  description_first,
-  image_category,
-  statistics,
-  title,
-  keyword,
-  items,*!/
-}*/) => {
+const NewsPageItem: FC<INewsDataItem> = (props) => {
+  console.log(props);
   return (
     <></>
     /*

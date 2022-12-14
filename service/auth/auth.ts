@@ -43,6 +43,26 @@ const useAuth = () => {
       headers,
     );
   };
-  return { Confirm, getLogin, getForgot, postRegister, loading, error };
+  const checkAuth = (token: string) => {
+    return request(
+      process.env.NEXT_PUBLIC_APP_FETCH +
+        "/api/Identity/check_user_with_access_token",
+      "POST",
+      null,
+      {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    );
+  };
+  return {
+    Confirm,
+    checkAuth,
+    getLogin,
+    getForgot,
+    postRegister,
+    loading,
+    error,
+  };
 };
 export { useAuth };
