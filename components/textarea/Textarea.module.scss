@@ -12,6 +12,7 @@
     border-radius: 6px;
     background-color: color(white);
     border-color: rgb(207, 207, 207);
+    box-sizing: border-box;
     &::placeholder {
       color: rgb(0, 0, 0);
     }

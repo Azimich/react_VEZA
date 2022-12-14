@@ -34,6 +34,7 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
     }
   }, [router.query]);
 
+  console.log("999999", parent);
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -51,9 +52,6 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
 
         {parent &&
           parent?.map((item) => <QuestionnairesItem key={item.id} {...item} />)}
-        {/*{parent === Array ? parent?.map((item) => (*/}
-        {/*  <QuestionnairesItem key={item.id} {...item} />*/}
-        {/*)) : [] }*/}
       </div>
     </Container>
   );
