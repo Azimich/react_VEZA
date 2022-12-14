@@ -40,4 +40,5 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
     </>
   );
 };
+
 export { CheckboxWithLabel };
