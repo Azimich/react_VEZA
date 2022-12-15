@@ -21,24 +21,25 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
 
   useEffect(() => {
     if (countColumn !== 2) {
+      console.log("device", device);
       device === "mobile" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.Mobile}
+            src={props.imageModel.horizontal.mobile}
             alt={props.shortDescription}
           />,
         );
       device === "tablet" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.Ipad}
+            src={props.imageModel.horizontal.ipad}
             alt={props.shortDescription}
           />,
         );
       device === "desktop" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.Pc}
+            src={props.imageModel.horizontal.pc}
             alt={props.shortDescription}
           />,
         );
@@ -46,21 +47,21 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
       device === "mobile" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.Mobile}
+            src={props.imageModel.horizontal.mobile}
             alt={props.shortDescription}
           />,
         );
       device === "tablet" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.Ipad}
+            src={props.imageModel.horizontal.ipad}
             alt={props.shortDescription}
           />,
         );
       device === "desktop" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.Pc}
+            src={props.imageModel.horizontal.pc}
             alt={props.shortDescription}
           />,
         );
