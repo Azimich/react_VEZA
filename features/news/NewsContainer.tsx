@@ -17,20 +17,23 @@ const NewsContainer: FC<ISSRHomeNews> = ({ newsData }) => {
     newsData.response,
   );
   const [newsPageState, setNewsPageState] = useState<IPage>(newsData.page);
+
   useEffect(() => {
-    getNewsData(Number(router.query.page), 6).then((data) => {
-      setNewsPageState(data.page);
-      setNewsDataState(data.response);
+    getNewsData(Number(router.query.page) || 1, 6).then((data) => {
+      setNewsPageState(data?.page);
+      setNewsDataState(data?.response);
     });
   }, [router.query.page]);
+
   return (
     <>
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
-        {newsDataState &&
-          newsDataState.map((e) => {
-            return <NewsWithItem {...e} key={e.newsId} />;
-          })}
+        {newsDataState
+          ? newsDataState.map((e) => {
+              return <NewsWithItem {...e} key={e.newsId} />;
+            })
+          : "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"}
         {!newsData.hasError && (
           <Pagination
             onPageChange={(page) => {

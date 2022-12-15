@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     return {
       props: {
-        newsData: await newsList(1, 3),
+        newsData: await newsList(1, 4),
       },
       revalidate: 10,
     };
