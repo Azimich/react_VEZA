@@ -4,7 +4,7 @@ import { HYDRATE } from "next-redux-wrapper";
 import { IMenuState } from "components/common/header/headerNav/Header.d";
 
 const initialState: IMenuState = {
-  customErrorCode: "",
+  customErrorCode: 0,
   systemErrorMessage: "",
   hasError: false,
   errorMessage: "",
