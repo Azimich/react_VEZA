@@ -15,6 +15,7 @@ import Styles from "./about/About.module.scss";
 import { ISSRHomeNews } from "features/news/News";
 
 const HomeContainer: FC<ISSRHomeNews> = ({ newsData }) => {
+  console.log("newsData", newsData);
   return (
     <>
       <Container el="section">
