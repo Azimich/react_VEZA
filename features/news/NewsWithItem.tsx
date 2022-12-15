@@ -1,31 +1,30 @@
-/*import { Button } from "components/button";*/
+import { Button } from "components/button";
 import { FC } from "react";
 import { INewsDataItem } from "./News";
-/*import Styles from "./News.module.scss";
+import Styles from "./News.module.scss";
 import { ArrowRightIcon } from "components/icons";
-import { newsPath } from "utils/bootstrap";*/
+import { newsPath } from "utils/bootstrap";
 
-const NewsWithItem: FC<INewsDataItem> = (/*{
-/!*  NewsName,
-  SecondDescription,
-  Alias,
-  ImageModel,*!/
-}*/) => {
+const NewsWithItem: FC<INewsDataItem> = ({
+  newsName,
+  secondDescription,
+  alias,
+  imageModel,
+}) => {
   return (
-    <></>
-    /*    <div className={Styles.news_container_item}>
+    <div className={Styles.news_container_item}>
       <div className={Styles.news_container_item_image}>
-        <img src={ImageModel.Horizontal.Pc} alt={NewsName} />
+        <img src={imageModel.horizontal.pc} alt={newsName} />
       </div>
       <div className={Styles.news_container_item_right}>
         <div>
-          <h4 className={Styles.news_container_item_right_title}>{NewsName}</h4>
+          <h4 className={Styles.news_container_item_right_title}>{newsName}</h4>
           <div className={Styles.news_container_item_right_desc}>
-            {SecondDescription}
+            {secondDescription}
           </div>
         </div>
         <Button
-          link={newsPath + Alias}
+          link={newsPath + alias}
           theme={"news"}
           size={"context"}
           color={"link"}
@@ -36,7 +35,7 @@ const NewsWithItem: FC<INewsDataItem> = (/*{
           </span>
         </Button>
       </div>
-    </div>*/
+    </div>
   );
 };
 

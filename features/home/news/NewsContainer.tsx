@@ -4,9 +4,7 @@ import { NewsItem } from "./NewsItem";
 import { Container } from "components/common/container";
 import { INewsDataItem, INewsResponseArray } from "features/news/News";
 
-const NewsContainer: FC<INewsResponseArray> = (props) => {
-  const { response: response } = props;
-
+const NewsContainer: FC<INewsResponseArray> = ({ response }) => {
   return (
     <Container>
       <div className={`${Styles.news_container}`}>

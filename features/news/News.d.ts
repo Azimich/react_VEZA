@@ -41,9 +41,9 @@ interface IStatics {
 }
 
 interface IImageModelItem {
-  Pc?: string;
-  Ipad?: string;
-  Mobile?: string;
+  pc?: string;
+  ipad?: string;
+  mobile?: string;
 }
 
 interface IKeyWord {

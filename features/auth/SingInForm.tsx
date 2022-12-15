@@ -13,11 +13,13 @@ import { Message } from "components/massage";
 import { ErrorIcon } from "components/icons";
 import { useRouter } from "next/router";
 import { SpinnerButton } from "components/spinners";
+import { useToken } from "store/hooks/useToken";
 
 const SingInForm = () => {
   const { getLogin, loading, error } = useAuth();
   const [authData, setAuthData] = useState<ISingResponseData>({});
   const router = useRouter();
+  const { setAuthToken } = useToken();
   const [timer, setTimer] = useState(false);
 
   useEffect(() => {
@@ -45,8 +47,7 @@ const SingInForm = () => {
           if (data?.hasError) {
             setAuthData(data);
           } else {
-            localStorage.setItem("token", data.response.accessToken);
-            localStorage.setItem("refreshToken", data.response.refreshToken);
+            setAuthToken(data.response.accessToken, data.response.refreshToken);
             router.push("/");
           }
         },

@@ -30,21 +30,21 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const { getToken, deleteAuthToken } = useToken();
   const auth = useAppSelector(getAuth);
   const dispatch = useAppDispatch();
-  console.log("1+1+1", auth);
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
-
+  console.log("11", auth);
   useEffect(() => {
-    checkAuth(getToken().tokens.token).then((data: IAuthResponse) => {
-      if (data.hasError) {
-        deleteAuthToken();
-      } else {
-        dispatch(setDataAuth({ identify: true, data: data }));
-      }
-
-      console.log("data1", data);
-    });
+    getToken().tokens.token &&
+      checkAuth(getToken().tokens.token).then(
+        (data: IAuthResponse | undefined) => {
+          if (data === undefined || data?.hasError) {
+            deleteAuthToken();
+          } else {
+            dispatch(setDataAuth({ identify: true, data: data }));
+          }
+        },
+      );
   }, []);
 
   useEffect(() => {

@@ -14,4 +14,4 @@ interface IPage {
   hasNextPage: true;
 }
 
-export { IResponse };
+export { IResponse, IPage };

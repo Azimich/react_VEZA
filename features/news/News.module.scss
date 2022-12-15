@@ -12,6 +12,9 @@
     box-shadow: 0 0 35px rgb(126 126 126 / 16%);
     border-radius: 10px;
     overflow: hidden;
+    &:last-child{
+      margin-bottom: 60px;
+    }
     @include ipadScreen {
       row-gap: 0;
       flex-direction: column;
