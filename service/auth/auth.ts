@@ -5,7 +5,7 @@ const useAuth = () => {
   const { request, loading, error } = useHttp();
   const getLogin = (login: string, password: string) => {
     return request(
-      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v2/Identity/login",
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/Identity/login",
       "POST",
       JSON.stringify({
         username: login,

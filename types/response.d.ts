@@ -4,14 +4,14 @@ interface IResponse {
   systemErrorMessage: string;
   hasError: boolean;
   page?: IPage;
-  response: [];
+  response: null | [] | {};
 }
 interface IPage {
   pageNumber: number;
   pageSize: number;
   totalPages: number;
-  hasPreviousPage: false;
-  hasNextPage: true;
+  hasPreviousPage: boolean;
+  hasNextPage: boolean;
 }
 
 export { IResponse, IPage };

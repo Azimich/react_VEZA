@@ -41,7 +41,7 @@ const InteractionContainer = () => {
 
   useEffect(() => {
     listSalesData(Number(router.query.page) || 1, 2).then((data) => {
-      setPagination(data.page);
+      setPagination(data?.page);
       setSales(data?.response);
     });
   }, [router.query.page]);

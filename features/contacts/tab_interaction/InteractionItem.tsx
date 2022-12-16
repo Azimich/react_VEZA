@@ -16,19 +16,55 @@ const InteractionItem: FC<Interaction> = ({
       <div className={Styles.interaction_items_item_box}>
         <p>
           Севис:
-          <span>Тел: {service_tel.map((e) => e)}</span>
+          <span>
+            {service_tel.map((e, i) => {
+              return (
+                <span>
+                  <a href={"tel:" + e}>
+                    {i > 0 ? "" : "Тел:"} {e}
+                  </a>
+                </span>
+              );
+            })}
+          </span>
         </p>
         <p>
           Логистика:
-          <span>Тел: {logistic_tel.map((e) => e)}</span>
+          <span>
+            {logistic_tel.map((e, i) => {
+              return (
+                <span>
+                  <a href={"tel:" + e}>
+                    {i > 0 ? "" : "Тел:"} {e}
+                  </a>
+                </span>
+              );
+            })}
+          </span>
         </p>
 
-        <p>
-          Секретарь:<span>Тел: {secretary_tel.map((e) => e)}</span>
-        </p>
+        {secretary_tel && (
+          <p>
+            Секритариат:
+            <p>
+              {secretary_tel?.map((e, i) => {
+                return (
+                  <span>
+                    <a href={"tel:" + e}>
+                      {i > 0 ? "" : "Тел:"} {e}
+                    </a>
+                  </span>
+                );
+              })}
+            </p>
+          </p>
+        )}
 
         <p>
-          Почта:<span>{email}</span>
+          Почта:
+          <span>
+            <a href={"email:" + email}>{email}</a>
+          </span>
         </p>
         <p>
           Адрес:<span>{address}</span>

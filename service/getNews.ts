@@ -6,7 +6,7 @@ const useGetNews = () => {
 
   const getNewsData = (pageNumber = 1, pageSize = 0) => {
     return request(
-      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/get_news",
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/news/get_news",
       "POST",
       JSON.stringify({
         pageNumber: pageNumber,

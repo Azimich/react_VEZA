@@ -5,7 +5,7 @@ const useGetListFactory = () => {
 
   const listFactoryData = () => {
     return request(
-      process.env.NEXT_PUBLIC_APP_FETCH + "/api/Company/get_plant",
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/company/get_plants",
       "GET",
     );
   };

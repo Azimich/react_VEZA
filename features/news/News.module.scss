@@ -12,9 +12,11 @@
     box-shadow: 0 0 35px rgb(126 126 126 / 16%);
     border-radius: 10px;
     overflow: hidden;
-    &:last-child{
+
+    &:last-child {
       margin-bottom: 60px;
     }
+
     @include ipadScreen {
       row-gap: 0;
       flex-direction: column;
@@ -29,6 +31,7 @@
       box-shadow: 0 0 30px rgba(10, 176, 22, 0.4);
       transition: all 0.3s;
       border-color: #0AB016;
+
       button {
         padding-left: 20px;
       }
@@ -54,7 +57,7 @@
         order: 1;
         border-radius: 0;
       }
-      
+
     }
 
     &_image {
@@ -63,7 +66,7 @@
       @include tabletScreen {
         width: 100%;
       }
-      
+
       @include phoneScreen {
         height: 300px;
       }
@@ -92,6 +95,7 @@
     &:hover &_right {
       background-color: #0AB016;
       transition: all 0.3s;
+
       span {
         color: color(white);
       }
@@ -99,6 +103,7 @@
       svg {
         width: 22px;
         height: 22px;
+
         path {
           fill: white;
         }
@@ -199,13 +204,16 @@
       row-gap: 10px;
       box-shadow: 0 0 35px rgb(126 126 126 / 16%);
       overflow: hidden;
+
       &:hover {
         box-shadow: 0 0 30px rgba(10, 176, 22, 0.4);
         transition: all 0.3s;
         border-color: #0AB016;
+
         &_right {
           background-color: #0AB016;
           transition: all 0.3s;
+
           span {
             color: color(white);
           }
@@ -213,6 +221,7 @@
           svg {
             width: 22px;
             height: 22px;
+
             path {
               fill: white;
             }
@@ -276,6 +285,7 @@
       &:hover &_right {
         background-color: #0AB016;
         transition: all 0.3s;
+
         span {
           color: white;
         }
@@ -283,6 +293,7 @@
         svg {
           width: 22px;
           height: 22px;
+
           path {
             fill: white;
           }
@@ -383,14 +394,17 @@
       top: 3%;
       left: 3%;
       color: color(white);
+
       span {
         display: flex;
         align-items: center;
-        gap:10px;
+        gap: 10px;
       }
+
       svg {
         width: 22px;
         height: 22px;
+
         path {
           fill: white;
         }
@@ -400,12 +414,14 @@
     &_desc {
       text-align: center;
       margin-top: 25px;
+
       a {
         font-size: 16px;
         line-height: 150%;
         color: color(dark);
         font-weight: 400;
         transition: all 0.3s;
+
         &:hover {
           color: #088122;
         }
@@ -429,6 +445,60 @@
         height: 209px;
         overflow: hidden;
         border-radius: 20px 0 0 0;
+      }
+    }
+  }
+}
+
+.news {
+  &__active {
+    position: relative;
+
+    img {
+      margin-top: 60px;
+      max-height: 610px;
+      object-fit: cover;
+    }
+
+    .view_count {
+      position: absolute;
+      top: 0;
+      background-color: color(green);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 10px;
+      color: color(white);
+
+      svg {
+        path {
+          fill: color(white);
+        }
+      }
+
+      border-radius: 0 0 10px 0;
+    }
+    &__title{
+      margin-top: 30px;
+      h1 {
+        border-left: 3px solid color(green);
+        padding-left: 15px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 145%;
+        letter-spacing: 0.025em;
+        color: color(green);
+        margin-bottom: 8px;
+      }
+      p{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        letter-spacing: 0.025em;
+        color: color(text);
+        padding-left: 18px;
       }
     }
   }
