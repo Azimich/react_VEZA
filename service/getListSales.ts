@@ -6,7 +6,7 @@ const useGetListSales = () => {
 
   const listSalesData = (pageNumber = 1, pageSize = 4) => {
     return request(
-      process.env.NEXT_PUBLIC_APP_FETCH + "/api/Company/get_office",
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/company/get_offices",
       "POST",
       JSON.stringify({
         pageNumber: pageNumber,

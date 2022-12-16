@@ -43,11 +43,14 @@ const SingInForm = () => {
     validationSchema: ValidationAuth(),
     onSubmit: (values) => {
       getLogin(values.login, values.password).then(
-        (data: ISingResponseData) => {
-          if (data?.hasError) {
+        (data: ISingResponseData | undefined) => {
+          if (data === undefined || data?.hasError) {
             setAuthData(data);
           } else {
-            setAuthToken(data.response.accessToken, data.response.refreshToken);
+            setAuthToken(
+              data?.response.accessToken,
+              data?.response.refreshToken,
+            );
             router.push("/");
           }
         },
