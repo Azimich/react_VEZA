@@ -3,14 +3,15 @@ import { Container } from "../container";
 import React, { useState } from "react";
 import { TelegaIcon, VkIcon, YouTubeIcon, PhoneFooterIcon } from "../../icons";
 import { IconItem } from "../../icons/IconItem";
-import { IMenuData } from "../header/headerNav/Header.d";
+import { IMenuState } from "../header/headerNav/Header.d";
 import { useAppSelector } from "store/hooks/useAppSelector";
 import { getMenu } from "store/slice/MenuSlice";
 import { useRouter } from "next/router";
 import { Link } from "components/link";
+import { ConnectError } from "components/connect_error";
 
 const FooterContainer = () => {
-  const [menu] = useState<IMenuData[]>(useAppSelector(getMenu));
+  const [menu] = useState<IMenuState>(useAppSelector(getMenu));
   const router = useRouter();
   return (
     <div className={Styles.footer}>
@@ -21,24 +22,26 @@ const FooterContainer = () => {
               <img src="/images/logo.svg" alt="logo" />
             </Link>
             <ul className={Styles.footer__navigation}>
-              {menu
-                ? menu?.map((item) => {
-                    return (
-                      <li key={item.menuId}>
-                        <Link
-                          url={"/" + item.alias}
-                          classLink={
-                            router.pathname.split("/")[1] === item.alias
-                              ? Styles.active_menu
-                              : ""
-                          }
-                        >
-                          {item.title}
-                        </Link>
-                      </li>
-                    );
-                  })
-                : "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"}
+              {!menu.hasError ? (
+                menu?.response.map((item) => {
+                  return (
+                    <li key={item.menuId}>
+                      <Link
+                        url={"/" + item.alias}
+                        classLink={
+                          router.pathname.split("/")[1] === item.alias
+                            ? Styles.active_menu
+                            : ""
+                        }
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })
+              ) : (
+                <ConnectError type={"text"} />
+              )}
             </ul>
 
             <div className={Styles.footer__social}>

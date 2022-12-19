@@ -13,6 +13,7 @@ import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
 import { ISSRHomeNews } from "features/news/News";
+import { ConnectError } from "components/connect_error";
 
 const HomeContainer: FC<ISSRHomeNews> = ({ newsData }) => {
   console.log("newsData", newsData);
@@ -46,7 +47,7 @@ const HomeContainer: FC<ISSRHomeNews> = ({ newsData }) => {
         {newsData && !newsData.hasError ? (
           <NewsContainer {...newsData} />
         ) : (
-          "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"
+          <ConnectError type={"text"} />
         )}
         <Separator title={"Отрасли"} />
         <SliderContainer

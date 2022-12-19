@@ -37,6 +37,6 @@ export const fetchMenu =
 /*export const {} =
     factorySlice.actions;*/
 
-export const getMenu = (state: AppState) => state.menuState.response;
+export const getMenu = (state: AppState) => state.menuState;
 
 export default menuSlice;

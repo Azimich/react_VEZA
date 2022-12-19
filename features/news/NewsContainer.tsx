@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import { newsPath } from "utils/bootstrap";
 import { useGetNews } from "service/getNews";
 import { IPage } from "../../types/response";
+import { ConnectError } from "components/connect_error";
 
 const NewsContainer: FC<ISSRHomeNews> = ({ newsData }) => {
   const router = useRouter();
@@ -29,11 +30,13 @@ const NewsContainer: FC<ISSRHomeNews> = ({ newsData }) => {
     <>
       <Container className={"wrapper_clear"}>
         <BreadCrumbs data={dataBreadNews} />
-        {newsDataState
-          ? newsDataState.map((e) => {
-              return <NewsWithItem {...e} key={e.newsId} />;
-            })
-          : "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"}
+        {!newsData.hasError ? (
+          newsDataState.map((e) => {
+            return <NewsWithItem {...e} key={e.newsId} />;
+          })
+        ) : (
+          <ConnectError type={"text"} />
+        )}
         {!newsData.hasError && (
           <Pagination
             onPageChange={(page) => {
