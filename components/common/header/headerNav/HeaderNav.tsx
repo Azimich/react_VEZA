@@ -1,10 +1,11 @@
 import React, { FC, useState } from "react";
-import { IMenuData } from "./Header.d";
+import { IMenuState } from "./Header.d";
 import Styles from "./HeaderNav.module.scss";
 import { useAppSelector } from "store/hooks/useAppSelector";
 import { getMenu } from "store/slice/MenuSlice";
 import { useRouter } from "next/router";
 import { Link } from "components/link";
+import { ConnectError } from "components/connect_error";
 
 interface IHeaderNav {
   isShowMenu?: boolean;
@@ -12,7 +13,7 @@ interface IHeaderNav {
 }
 
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
-  const [menu] = useState<IMenuData[]>(useAppSelector(getMenu));
+  const [menu] = useState<IMenuState>(useAppSelector(getMenu));
   const router = useRouter();
   return (
     <div>
@@ -21,24 +22,26 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
           isShowMenu ? (scroll > 0 ? Styles.active_small : Styles.active) : ""
         }`}
       >
-        {menu
-          ? menu?.map((item) => {
-              return (
-                <li key={item.menuId}>
-                  <Link
-                    url={"/" + item.alias}
-                    classLink={
-                      router.pathname.split("/")[1] === item.alias
-                        ? Styles.active_menu
-                        : ""
-                    }
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              );
-            })
-          : "Приносим свои извинения. Произошел технический сбой. Наши специалисты уже работают над решением!"}
+        {!menu.hasError ? (
+          menu.response?.map((item) => {
+            return (
+              <li key={item.menuId}>
+                <Link
+                  url={"/" + item.alias}
+                  classLink={
+                    router.pathname.split("/")[1] === item.alias
+                      ? Styles.active_menu
+                      : ""
+                  }
+                >
+                  {item.title}
+                </Link>
+              </li>
+            );
+          })
+        ) : (
+          <ConnectError type={"text"} />
+        )}
       </ul>
     </div>
   );

@@ -4,13 +4,20 @@ headers.append("accept", "text/plain");
 headers.append("Access-Control-Allow-Origin", "*");*/
 
 import { headers } from "utils/bootstrap";
+import { IResponse } from "../types/response";
 
 class Request {
   static getRequest = async (url: string, options = {}) => {
     return await fetch(url, options)
       .then((res) => res.json())
-      .catch(() => {
-        return { ErrorMessage: "", HasError: true, response: [] };
+      .catch((): IResponse => {
+        return {
+          errorMessage: "",
+          hasError: true,
+          customErrorCode: 0,
+          systemErrorMessage: "",
+          response: [],
+        };
       });
   };
 
@@ -22,8 +29,14 @@ class Request {
       body: JSON.stringify(options),
     })
       .then((res) => res.json())
-      .catch(() => {
-        return { ErrorMessage: "", HasError: true, response: [] };
+      .catch((): IResponse => {
+        return {
+          errorMessage: "",
+          hasError: true,
+          customErrorCode: 0,
+          systemErrorMessage: "",
+          response: [],
+        };
       });
   };
 }

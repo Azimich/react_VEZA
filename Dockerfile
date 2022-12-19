@@ -3,7 +3,7 @@ FROM node:latest
 #Creates directories
 RUN mkdir -p /veza/front
 #Sets an environment variable
-ENV PORT 3000
+ENV PORT 3001
 
 #Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD commands
 WORKDIR /veza/front
