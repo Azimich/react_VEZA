@@ -17,7 +17,7 @@ const HeaderContainer: FC = () => {
   };
 
   const handleScroll = () => {
-    setScrollData(window.scrollY);
+    window.scrollY > 0 ? setScrollData(1) : setScrollData(0);
   };
 
   useEffect(() => {

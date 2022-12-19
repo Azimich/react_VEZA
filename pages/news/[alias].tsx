@@ -24,9 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
-
     const { params } = context;
-    console.log("111", await newsItem(params.alias as string));
     return {
       props: {
         newsData: await newsItem(params.alias as string),

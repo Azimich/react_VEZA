@@ -27,13 +27,13 @@ const fieldsDataAuth: IFieledsData[] = [
   {
     name: "login",
     title: "Логин *",
-    filter: /g/g,
+    filter: /[ ]/g,
     size: 0,
   },
   {
     name: "password",
     title: "Пароль *",
-    filter: /g/g,
+    filter: /[ ]/g,
     size: 0,
     type: "password",
   },
@@ -62,7 +62,7 @@ const fieldsDataRegister: IFieledsData[] = [
   {
     name: "email",
     title: "Почта *",
-    filter: /g/g,
+    filter: /[ ]/g,
     size: 0,
   },
   {
@@ -74,21 +74,21 @@ const fieldsDataRegister: IFieledsData[] = [
   {
     name: "dateOfBirth",
     title: "Дата рождения",
-    filter: /g/g,
+    filter: /[ ]/g,
     size: 20,
     type: "date",
   },
   {
     name: "password",
     title: "Пароль *",
-    filter: /g/g,
+    filter: /[ ]/g,
     size: 20,
     type: "password",
   },
   {
     name: "confirmPassword",
     title: "Подтвердите пароль *",
-    filter: /g/g,
+    filter: /[ ]/g,
     size: 20,
     type: "password",
   },
