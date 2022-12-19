@@ -40,7 +40,7 @@ const InteractionContainer = () => {
   }, []);
 
   useEffect(() => {
-    listSalesData(Number(router.query.page) || 1, 2).then((data) => {
+    listSalesData(Number(router.query.page) || 1, 4).then((data) => {
       setPagination(data?.page);
       setSales(data?.response);
     });
