@@ -1,9 +1,9 @@
 import React from "react";
 import { FC } from "react";
 import { INewsDataItem } from "../News";
-/*import {SliderContainer} from "components/slider";*/
 import Styles from "../News.module.scss";
 import { EyeIcon } from "components/icons";
+import { Link } from "components/link";
 
 const NewsPageItem: FC<INewsDataItem> = ({
   firstDescription,
@@ -11,7 +11,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
   statistics,
   keywords,
   newsName,
-  title,
+  videoUrl,
 }) => {
   return (
     <div className={Styles.news__active}>
@@ -29,22 +29,22 @@ const NewsPageItem: FC<INewsDataItem> = ({
         </div>
 
         <div className={Styles.news__active__keyword}>
-          <h2>{title}</h2>
+          <h2>Ключевые пункты</h2>
           <div className={Styles.news__active__keyword__paragraph}>
-            {keywords?.map((value) => (
-              <span>{value.Keywords}</span>
-            ))}
+            {keywords?.map((value, index) => {
+              return (
+                <Link url={value.url}>
+                  <span key={index}>{value.keywords}</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
         <div className={Styles.news__active__video}>
-          <video
-            src="/images/banner_2.mp4"
-            autoPlay={true}
-            controls={true}
-          ></video>
+          <video src={videoUrl} autoPlay={true} controls={true}></video>
         </div>
         <div className={Styles.news__active__info__right}>
-          <h1>{newsName}</h1>
+          <h2>{newsName}</h2>
           <p>{firstDescription}</p>
         </div>
       </div>

@@ -47,10 +47,10 @@ interface IImageModelItem {
 }
 
 interface IKeyWord {
-  KeyWordsId: number;
-  Keywords: string;
-  NewsId: number;
-  Url: string;
+  keyWordsId: number;
+  keywords: string;
+  newsId: number;
+  url: string;
 }
 
 export {
