@@ -5,7 +5,7 @@ import { Container } from "components/common/container";
 import { ITab } from "components/tabs/Tabs";
 import { contactsPath } from "utils/bootstrap";
 import { useRouter } from "next/router";
-import { Interaction } from "./Interaction";
+import { IInteractionResponse, Interaction } from "./Interaction";
 import { InteractionItem } from "./InteractionItem";
 import { TitleTabs } from "components/title_tabs";
 import { Pagination } from "components/pagination/Pagination";
@@ -13,19 +13,17 @@ import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import React, { useEffect, useState } from "react";
 import { dataBreadContacts } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
-import { useGetListFactory } from "service/getListFactory";
 import { useGetListSales } from "service/getListSales";
 import { IPageData } from "components/pagination/Pagination.d";
 
 const InteractionContainer = () => {
   const router = useRouter();
   const [pagination, setPagination] = useState<IPageData>();
-  const { listFactoryData } = useGetListFactory();
   const { listSalesData } = useGetListSales();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
-  const [factory, setFactory] = useState<Interaction[]>([]);
-  const [sales, setSales] = useState<Interaction[]>([]);
+  const [factory, setFactory] = useState<Interaction[]>();
+  const [sales, setSales] = useState<Interaction[]>();
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Взаимодействие" }]);
   }, [dataBreadContacts]);
@@ -34,16 +32,13 @@ const InteractionContainer = () => {
   };
 
   useEffect(() => {
-    listFactoryData().then((data) => {
-      setFactory(data?.response);
-    });
-  }, []);
-
-  useEffect(() => {
-    listSalesData(Number(router.query.page) || 1, 8).then((data) => {
-      setPagination(data?.page);
-      setSales(data?.response);
-    });
+    listSalesData(Number(router.query.page) || 1, 8).then(
+      (data: IInteractionResponse) => {
+        setPagination(data?.offices.page);
+        setSales(data?.offices.response);
+        setFactory(data?.plants.response);
+      },
+    );
   }, [router.query.page]);
 
   return (
