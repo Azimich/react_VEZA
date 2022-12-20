@@ -1,14 +1,36 @@
+import { IObjects, IResponse } from "../../types/response";
+
 interface IDecisionData {
-  id: number;
+  shortDescription?: string;
+  description?: string;
+  industryId: number;
   title: string;
-  description_title?: string;
-  description_full?: string;
-  image: string;
-  url: string;
+  alias: string;
+  imageUrl: string;
 }
 
-interface IDeliveryProducts {
-  name: string;
+interface IDecisionResponse extends Omit<IResponse, "response"> {
+  response: IDecisionData;
+}
+interface IObjectResponse extends Omit<IResponse, "response"> {
+  response: IObjects;
+}
+
+interface IDecisionObjectResponse {
+  decision: IDecisionResponse;
+  objects: IObjectResponse;
+}
+
+interface IDecisionResponseArray extends Omit<IResponse, "response"> {
+  response: IDecisionData[];
+}
+
+interface ISSRDecisionArray {
+  decision: IDecisionResponseArray;
+}
+
+interface ISSRDecision {
+  data: IDecisionObjectResponse;
 }
 
 interface IOwnObjects {
@@ -20,4 +42,12 @@ interface IOwnObjects {
   deliveryProducts?: IDeliveryProducts[];
 }
 
-export { IDecisionData, IOwnObjects };
+export {
+  IDecisionData,
+  IOwnObjects,
+  IDecisionResponseArray,
+  IDecisionResponse,
+  ISSRDecisionArray,
+  ISSRDecision,
+  IDecisionResponseObject,
+};

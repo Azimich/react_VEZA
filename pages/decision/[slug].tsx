@@ -1,19 +1,19 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
 import { GetStaticPaths } from "next";
-import { decisionData } from "features/decision/MockData";
-import { IDecisionData } from "features/decision/Decision";
 import { DecisionPage } from "features/decision/DecisionPage";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
+import { decisionItem } from "service/item/server/decisionItem";
+import { IDecisionResponseObject } from "features/decision/Decision";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slug = [];
-  for (const k in decisionData) {
-    slug.push({ params: { slug: decisionData[k].url } });
-  }
+  /*    const slug = [];
+        for (const k in decisionData) {
+            slug.push({params: {slug: decisionData[k].url}});
+        }*/
   return {
-    paths: slug,
+    paths: [],
     fallback: true,
   };
 };
@@ -25,14 +25,14 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     const { params } = context;
     return {
       props: {
-        data: decisionData.filter((e) => e.url === "/decision/" + params.slug),
+        data: await decisionItem(params.slug as string),
       },
       revalidate: 10,
     };
   },
 );
 
-const DecisionPageServer = (props: { data: IDecisionData[] }) => (
+const DecisionPageServer = (props: { data: IDecisionResponseObject }) => (
   <DecisionPage {...props} />
 );
 

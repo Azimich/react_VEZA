@@ -15,6 +15,7 @@ import { dataBreadContacts } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { useGetListSales } from "service/getListSales";
 import { IPageData } from "components/pagination/Pagination.d";
+import { ConnectError } from "components/connect_error";
 
 const InteractionContainer = () => {
   const router = useRouter();
@@ -64,11 +65,13 @@ const InteractionContainer = () => {
         <SeparatorContainer title={"Наши отделы продаж"} />
       </div>
       <ul className={Styles.interaction_items}>
-        {sales
-          ? sales?.map((e: Interaction) => {
-              return <InteractionItem {...e} key={e.id} />;
-            })
-          : "Приносим свои извинения. Произошёл технический сбой. Наши специалисты уже работают над решением!"}
+        {sales ? (
+          sales?.map((e: Interaction) => {
+            return <InteractionItem {...e} key={e.id} />;
+          })
+        ) : (
+          <ConnectError type={"text"} />
+        )}
       </ul>
 
       <Pagination
@@ -86,11 +89,13 @@ const InteractionContainer = () => {
         <SeparatorContainer title={"Наши филиалы"} />
       </div>
       <ul className={Styles.interaction_items}>
-        {factory
-          ? factory?.map((e: Interaction) => {
-              return <InteractionItem {...e} key={e.id} />;
-            })
-          : "Приносим свои извинения. Произошёл технический сбой. Наши специалисты уже работают над решением!"}
+        {factory ? (
+          factory?.map((e: Interaction) => {
+            return <InteractionItem {...e} key={e.id} />;
+          })
+        ) : (
+          <ConnectError type={"text"} />
+        )}
       </ul>
     </Container>
   );

@@ -33,8 +33,8 @@ const NewsPageItem: FC<INewsDataItem> = ({
           <div className={Styles.news__active__keyword__paragraph}>
             {keywords?.map((value, index) => {
               return (
-                <Link url={value.url}>
-                  <span key={index}>{value.keywords}</span>
+                <Link url={value.url} key={index}>
+                  <span>{value.keywords}</span>
                 </Link>
               );
             })}

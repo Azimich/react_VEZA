@@ -1,25 +1,20 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Styles from "./DecisionPage.module.scss";
 import { IDecisionData } from "../Decision";
 
-interface IDecision {
-  data: IDecisionData[];
-}
-
-const DecisionPageItem: FC<IDecision> = ({ data }) => {
-  const [dataPage, setDataPage] = useState<IDecisionData>();
-  useEffect(() => {
-    data?.length > 0 && setDataPage(data.shift());
-  }, [data]);
-
+const DecisionPageItem: FC<IDecisionData> = ({
+  description,
+  title,
+  imageUrl,
+}) => {
   return (
     <div className={Styles.Decision_container}>
       <div className={Styles.Decision_container_img}>
-        <img src={dataPage?.image} alt="Фото" />
+        <img src={imageUrl} alt={title} />
       </div>
       <div className={Styles.Decision_container_info}>
-        <h1>{dataPage?.title}</h1>
-        <p>{dataPage?.description_full}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </div>
     </div>
   );

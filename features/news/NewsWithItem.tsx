@@ -1,8 +1,8 @@
 import { Button } from "components/button";
-import { FC } from "react";
+import React, { FC } from "react";
 import { INewsDataItem } from "./News";
 import Styles from "./News.module.scss";
-import { ArrowRightIcon } from "components/icons";
+import { ArrowRightIcon, EyeIcon } from "components/icons";
 import { newsPath } from "utils/bootstrap";
 
 const NewsWithItem: FC<INewsDataItem> = ({
@@ -10,10 +10,15 @@ const NewsWithItem: FC<INewsDataItem> = ({
   secondDescription,
   alias,
   imageModel,
+  statistics,
 }) => {
   return (
     <div className={Styles.news_container_item}>
       <div className={Styles.news_container_item_image}>
+        <span>
+          <EyeIcon />
+          {statistics.statisticsTotal}
+        </span>
         <img src={imageModel.horizontal.pc} alt={newsName} />
       </div>
       <div className={Styles.news_container_item_right}>

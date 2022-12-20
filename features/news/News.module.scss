@@ -52,17 +52,58 @@
           gap: 20px;
         }
       }
-
+      .news_container_item_image {
+        position: relative;
+        span {
+          position: absolute;
+          z-index: 1;
+          color: color(white);
+          display: flex;
+          align-items: center;
+          right: 0;
+          gap: 10px;
+          background-color: color(green);
+          padding: 10px 12px;
+          border-radius: 0 0 0 10px;
+          svg {
+            width: 18px;
+            height: 18px;
+            path {
+              fill: color(white);
+            }
+          }
+        }
+      }
       .news_container_item_image {
         order: 1;
         border-radius: 0;
       }
-
     }
-
+    .news_container_item_image {
+      span {
+        position: absolute;
+        z-index: 1;
+        color: color(white);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: color(green);
+        padding: 10px 12px;
+        border-radius: 0 0 10px 0;
+        svg {
+          width: 18px;
+          height: 18px;
+          path {
+            fill: color(white);
+          }
+        }
+      }
+    }
     &_image {
       width: 40%;
       height: 320px;
+      overflow: hidden;
+      position: relative;
       @include tabletScreen {
         width: 100%;
       }
@@ -82,7 +123,6 @@
           }
         }
       }
-
       img {
         width: 100%;
         order: 1;
@@ -553,32 +593,35 @@
         width: 100%;
       }
     }
-    &__info{&__right{
-      h2 {
-        border-right: 3px solid color(green);
-        padding-right: 15px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 25px;
-        line-height: 145%;
-        letter-spacing: 0.025em;
-        color: color(green);
-        margin-bottom: 8px;
-        margin-top: 68px;
-        display: flex;
-        justify-content: flex-end;
-      }
-      p{
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 160%;
-        text-align: right;
-        letter-spacing: 0.025em;
 
-        color: color(dark);
+    &__info {
+      &__right {
+        h2 {
+          border-right: 3px solid color(green);
+          padding-right: 15px;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 25px;
+          line-height: 145%;
+          letter-spacing: 0.025em;
+          color: color(green);
+          margin-bottom: 8px;
+          margin-top: 68px;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        p {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 160%;
+          text-align: right;
+          letter-spacing: 0.025em;
+
+          color: color(dark);
+        }
       }
-    }
     }
   }
 }

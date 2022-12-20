@@ -14,4 +14,14 @@ interface IPage {
   hasNextPage: boolean;
 }
 
-export { IResponse, IPage };
+interface IObjects {
+  address: string;
+  categories: [];
+  imageUrl: string;
+  industryObjectId: number;
+  slidePosition: number;
+  title: string;
+  titleDelivery: string;
+}
+
+export { IResponse, IPage, IObjects };
