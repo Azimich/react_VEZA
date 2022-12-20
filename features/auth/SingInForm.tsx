@@ -44,14 +44,15 @@ const SingInForm = () => {
     onSubmit: (values) => {
       getLogin(values.login, values.password).then(
         (data: ISingResponseData | undefined) => {
+          console.log("data", data);
           if (data === undefined || data?.hasError) {
             setAuthData(data);
           } else {
             setAuthToken(
-              data?.response.accessToken,
-              data?.response.refreshToken,
+              data?.response?.accessToken,
+              data?.response?.refreshToken,
             );
-            router.push("/");
+            router.push("/").then();
           }
         },
       );

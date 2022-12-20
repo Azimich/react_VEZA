@@ -1,3 +1,5 @@
+import { IPage } from "../../../types/response";
+
 interface Interaction {
   address: string;
   email: string;
@@ -8,4 +10,21 @@ interface Interaction {
   title: string;
 }
 
-export { Interaction };
+interface IInteractionResponse {
+  offices: {
+    page: IPage;
+    errorMessage: "" | null;
+    systemErrorMessage: string | null;
+    hasError: boolean;
+    response: Interaction[];
+  };
+  plants: {
+    errorMessage: "" | null;
+    systemErrorMessage: "" | null;
+    hasError: boolean;
+    response: Interaction[];
+    customErrorCode: number | null;
+  };
+}
+
+export { Interaction, IInteractionResponse };
