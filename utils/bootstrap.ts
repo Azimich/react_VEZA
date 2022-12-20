@@ -2,6 +2,7 @@ const equipmentPath = "/equipment/";
 const newsPath = "/news/";
 const aboutPath = "/about/";
 const resourcesPath = "/resources/";
+const decisionPath = "/decision/";
 const factoryPath = "/factory/";
 const contactsPath = "/contacts/";
 const authPath = "/auth/";
@@ -21,5 +22,6 @@ export {
   contactsPath,
   authPath,
   SingInPath,
+  decisionPath,
   headers,
 };
