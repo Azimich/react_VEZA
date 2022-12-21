@@ -50,4 +50,5 @@ export {
   IDecisionResponse,
   ISSRDecisionArray,
   ISSRDecision,
+  IDecisionObjectResponse,
 };
