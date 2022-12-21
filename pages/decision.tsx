@@ -3,16 +3,16 @@ import { wrapper } from "store/store";
 import { DecisionContainer } from "features/decision";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
-import { salesList } from "service/list/servers/salesList";
+import { decisionList } from "service/list/servers/decisionList";
 import { IDecisionResponseArray } from "features/decision/Decision";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
-    console.log("await salesList()", await salesList());
+    console.log("await decisionList()", await decisionList());
     return {
       props: {
-        decision: await salesList(),
+        decision: await decisionList(),
       },
       revalidate: 10,
     };
