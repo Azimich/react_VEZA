@@ -6,14 +6,15 @@ import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
 import { decisionItem } from "service/item/server/decisionItem";
 import { IDecisionObjectResponse } from "features/decision/Decision";
-
+import { decisionList } from "service/list/servers/decisionList";
 export const getStaticPaths: GetStaticPaths = async () => {
-  /*    const slug = [];
-        for (const k in decisionData) {
-            slug.push({params: {slug: decisionData[k].url}});
-        }*/
+  const data = await decisionList().then((data) => data.response);
+  const res = data.map((d: { alias: string }) => {
+    return { params: { slug: d.alias } };
+  });
+
   return {
-    paths: [],
+    paths: res,
     fallback: "blocking",
   };
 };
@@ -22,6 +23,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
+
     return {
       props: {
         data: await decisionItem(params.slug as string),
