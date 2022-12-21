@@ -1,16 +1,22 @@
 import Styles from "./OwnObject.module.scss";
-import { FC } from "react";
+import React, { FC } from "react";
 import { IObjects } from "../../types/response";
+import { OwnObjectItem } from "components/own_object/OwnObjectItem";
+import { ConnectError } from "components/connect_error";
 
-const OwnObjectContainer: FC<IObjects[]> = (props) => {
-  console.log("11123", props);
+interface IObjectRes {
+  props: IObjects[];
+}
+const OwnObjectContainer: FC<IObjectRes> = ({ props }) => {
   return (
     <ul className={Styles.container}>
-      {/*
-      {ownObjects.map((e) => {
-        return <OwnObjectItem {...e} key={e.slide_position} />;
-      })}
-*/}
+      {props?.length > 0 ? (
+        props?.map((e) => {
+          return <OwnObjectItem {...e} key={e.slidePosition} />;
+        })
+      ) : (
+        <ConnectError type={"text"} />
+      )}
     </ul>
   );
 };

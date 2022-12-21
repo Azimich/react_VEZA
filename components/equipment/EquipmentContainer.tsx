@@ -1,12 +1,13 @@
 import { Container } from "../common/container";
 import { FC } from "react";
-import { IEquipmentData } from "./Equipment";
 import Styles from "./Equipment.module.scss";
 import { EquipmentItem } from "./EquipmentItem";
+import { IEquipment } from "features/decision/Decision";
 interface IEquipmentProps {
-  props: IEquipmentData[];
+  props: IEquipment[];
 }
 const EquipmentContainer: FC<IEquipmentProps> = ({ props }) => {
+  console.log("props", props);
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment_container}>

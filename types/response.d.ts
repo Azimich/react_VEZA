@@ -16,7 +16,7 @@ interface IPage {
 
 interface IObjects {
   address: string;
-  categories: [];
+  categories: [{ title?: string }];
   imageUrl: string;
   industryObjectId: number;
   slidePosition: number;
