@@ -7,21 +7,19 @@ import { Container } from "components/common/container";
 import { Separator } from "components/separator";
 import { OwnObject } from "components/own_object";
 import { Equipment } from "components/equipment";
-import { equipmentData } from "components/equipment/mockData";
 import { dataBreadDecision } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { DecisionPageItem } from "features/decision/DecisionPage/DecisionPageItem";
 
 const DecisionPageContainer: FC<ISSRDecision> = ({
-  data = { decision: {}, objects: {} },
+  data = { decision: {}, objects: {}, equipment: {} },
 }) => {
-  const { decision, objects } = data;
-
+  const { decision, objects, equipment } = data;
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);
-
+  console.log("data", data);
   useEffect(() => {
-    setBreadCrumbs([...breadCrumbs, { title: "Отрасли" }]);
+    setBreadCrumbs([...breadCrumbs, { title: decision?.response?.title }]);
   }, [dataBreadDecision]);
 
   return (
@@ -29,10 +27,10 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
       <BreadCrumbs data={breadCrumbs} />
       <DecisionPageItem {...decision?.response} />
       <Separator title={"Наши объекты"} />
-      <OwnObject {...objects?.response} />
+      <OwnObject props={objects?.response} />
       <Separator title={"оборудование"} />
       <div className={Styles.equipment__block}>
-        <Equipment props={equipmentData} />
+        <Equipment props={equipment?.response} />
       </div>
     </Container>
   );

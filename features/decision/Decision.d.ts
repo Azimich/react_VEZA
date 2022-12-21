@@ -12,19 +12,23 @@ interface IDecisionData {
 interface IDecisionResponse extends Omit<IResponse, "response"> {
   response: IDecisionData;
 }
-interface IObjectResponse extends Omit<IResponse, "response"> {
+interface IObjectResponseArray extends Omit<IResponse, "response"> {
   response: IObjects[];
 }
 
 interface IDecisionObjectResponse {
   decision: IDecisionResponse;
-  objects: IObjectResponse;
+  objects: IObjectResponseArray;
+  equipment: IEquipmentResponseArray;
 }
 
 interface IDecisionResponseArray extends Omit<IResponse, "response"> {
   response: IDecisionData[];
 }
 
+interface IEquipmentResponseArray extends Omit<IResponse, "response"> {
+  response: IEquipment[];
+}
 interface ISSRDecisionArray {
   decision: IDecisionResponseArray;
 }
@@ -33,21 +37,17 @@ interface ISSRDecision {
   data: IDecisionObjectResponse;
 }
 
-interface IOwnObjects {
-  image: string;
-  titleObject: string;
-  titleDeliveryObject?: string;
-  address: string;
-  slide_position: number;
-  deliveryProducts?: IDeliveryProducts[];
+interface IEquipment {
+  alias: string;
+  imageUrl: string;
+  title: string;
 }
 
 export {
   IDecisionData,
-  IOwnObjects,
+  IEquipment,
   IDecisionResponseArray,
   IDecisionResponse,
   ISSRDecisionArray,
   ISSRDecision,
-  IDecisionResponseObject,
 };

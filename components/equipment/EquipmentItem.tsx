@@ -1,16 +1,14 @@
 import { FC } from "react";
-import { IEquipmentData } from "./Equipment";
 import Styles from "./Equipment.module.scss";
 import { Link } from "../link";
+import { IEquipment } from "features/decision/Decision";
 
-const EquipmentItem: FC<IEquipmentData> = ({ image, url, position }) => {
+const EquipmentItem: FC<IEquipment> = ({ imageUrl, alias }) => {
   return (
-    <div className={`${Styles[`col${position}`]}`}>
-      <div className={Styles.equipment_container_item}>
-        <Link url={url}>
-          <img src={image} alt="" />
-        </Link>
-      </div>
+    <div className={Styles.equipment_container_item}>
+      <Link url={alias}>
+        <img src={imageUrl} alt="" />
+      </Link>
     </div>
   );
 };

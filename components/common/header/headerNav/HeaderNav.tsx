@@ -15,6 +15,7 @@ interface IHeaderNav {
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
   const [menu] = useState<IMenuState>(useAppSelector(getMenu));
   const router = useRouter();
+
   return (
     <div>
       <ul
@@ -22,8 +23,8 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
           isShowMenu ? (scroll > 0 ? Styles.active_small : Styles.active) : ""
         }`}
       >
-        {!menu.hasError ? (
-          menu.response?.map((item) => {
+        {!menu?.hasError ? (
+          menu?.response?.map((item) => {
             return (
               <li key={item.menuId}>
                 <Link

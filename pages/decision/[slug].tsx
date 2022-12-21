@@ -14,14 +14,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }*/
   return {
     paths: [],
-    fallback: true,
+    fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
-
     const { params } = context;
     return {
       props: {
