@@ -9,6 +9,7 @@ import { IDecisionResponseArray } from "features/decision/Decision";
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
+    console.log("await decisionList()", await decisionList());
     return {
       props: {
         decision: await decisionList(),

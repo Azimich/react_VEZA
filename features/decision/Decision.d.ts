@@ -13,7 +13,7 @@ interface IDecisionResponse extends Omit<IResponse, "response"> {
   response: IDecisionData;
 }
 interface IObjectResponse extends Omit<IResponse, "response"> {
-  response: IObjects;
+  response: IObjects[];
 }
 
 interface IDecisionObjectResponse {

@@ -11,7 +11,10 @@ import { equipmentData } from "components/equipment/mockData";
 import { dataBreadDecision } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { DecisionPageItem } from "features/decision/DecisionPage/DecisionPageItem";
-const DecisionPageContainer: FC<ISSRDecision> = ({ data }) => {
+
+const DecisionPageContainer: FC<ISSRDecision> = ({
+  data = { decision: {}, objects: {} },
+}) => {
   const { decision, objects } = data;
 
   const [breadCrumbs, setBreadCrumbs] =
@@ -26,7 +29,7 @@ const DecisionPageContainer: FC<ISSRDecision> = ({ data }) => {
       <BreadCrumbs data={breadCrumbs} />
       <DecisionPageItem {...decision?.response} />
       <Separator title={"Наши объекты"} />
-      <OwnObject {...objects.response} />
+      <OwnObject {...objects?.response} />
       <Separator title={"оборудование"} />
       <div className={Styles.equipment__block}>
         <Equipment props={equipmentData} />

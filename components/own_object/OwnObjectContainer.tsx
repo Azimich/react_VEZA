@@ -2,8 +2,8 @@ import Styles from "./OwnObject.module.scss";
 import { FC } from "react";
 import { IObjects } from "../../types/response";
 
-const OwnObjectContainer: FC<IObjects> = ({ title }) => {
-  console.log("11123", title);
+const OwnObjectContainer: FC<IObjects[]> = (props) => {
+  console.log("11123", props);
   return (
     <ul className={Styles.container}>
       {/*

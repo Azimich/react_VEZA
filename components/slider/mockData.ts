@@ -17,14 +17,6 @@ const sliderData: ISliderProps = {
       alt: "banner",
       link_slider: false, //включаем слайд как ссылка
     },
-    {
-      images: "/images/banner_2.mp4",
-      block_description: false,
-
-      typeSlider: "video",
-      alt: "video banner",
-      link_slider: false, //включаем слайд как ссылка
-    },
   ],
 };
 const sliderCategory: ISliderProps = {
