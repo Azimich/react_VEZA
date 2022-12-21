@@ -13,7 +13,7 @@ const DecisionContainer: FC<ISSRDecisionArray> = ({ decision }) => {
     document.getElementById("main") &&
       document.getElementById("main").animate({ scrollTop: 0 });
   }, []);
-
+  console.log("decision", decision);
   return (
     <Container className="wrapper">
       <BreadCrumbs data={dataBreadDecision} />
