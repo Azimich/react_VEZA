@@ -11,6 +11,7 @@ interface ISSRHomeNews {
 interface INewsResponse extends Omit<IResponse, "response"> {
   response: INewsDataItem;
 }
+
 interface INewsResponseArray extends Omit<IResponse, "response"> {
   response: INewsDataItem[];
 }
@@ -29,7 +30,11 @@ interface INewsDataItem {
   alias: string;
   keywords: IKeyWord[];
   statistics: IStatics;
-  imageModel: { vertical: IImageModelItem; horizontal: IImageModelItem };
+  imageModel: {
+    vertical?: IImageModelItem;
+    horizontal?: IImageModelItem;
+    images?: IImageModelItem;
+  };
 }
 
 interface IStatics {
