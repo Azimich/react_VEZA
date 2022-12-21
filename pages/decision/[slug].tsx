@@ -5,7 +5,7 @@ import { DecisionPage } from "features/decision/DecisionPage";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
 import { decisionItem } from "service/item/server/decisionItem";
-import { IDecisionResponseObject } from "features/decision/Decision";
+import { IDecisionObjectResponse } from "features/decision/Decision";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   /*    const slug = [];
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const DecisionPageServer = (props: { data: IDecisionResponseObject }) => (
+const DecisionPageServer = (props: { data: IDecisionObjectResponse }) => (
   <DecisionPage {...props} />
 );
 

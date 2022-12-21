@@ -6,8 +6,7 @@ import { ICatalogData } from "../Equipment";
 import { SliderContainer } from "components/slider";
 import { UtpContainer } from "./utp/UtpContainer";
 import { Separator } from "components/separator";
-import { Equipment } from "components/equipment";
-import { equipmentData } from "components/equipment/mockData";
+/*import { Equipment } from "components/equipment";*/
 
 interface IPageData {
   data?: ICatalogData[];
@@ -32,7 +31,7 @@ const EquipmentPageContainer: FC<IPageData> = ({ data }) => {
         </>
       </div>
       <Separator title={"Дополнительное оборудование"} />
-      <Equipment props={equipmentData} />
+      {/*<Equipment props={equipmentData} />*/}
     </Container>
   );
 };
