@@ -13,7 +13,7 @@ import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import React, { useEffect, useState } from "react";
 import { dataBreadContacts } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
-import { useGetListSales } from "service/getListSales";
+import { useGetListSales } from "service/list/getSales";
 import { IPageData } from "components/pagination/Pagination.d";
 import { ConnectError } from "components/connect_error";
 

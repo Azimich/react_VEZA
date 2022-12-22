@@ -7,7 +7,7 @@ import { BreadCrumbs } from "components/breadcrumbs";
 import { NewsWithItem } from "features/news/NewsWithItem";
 import { useRouter } from "next/router";
 import { newsPath } from "utils/bootstrap";
-import { useGetNews } from "service/getNews";
+import { useGetNews } from "service/list/getNews";
 import { IPage } from "../../types/response";
 import { ConnectError } from "components/connect_error";
 
