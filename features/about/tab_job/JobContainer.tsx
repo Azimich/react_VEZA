@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
+import React, { FC, ReactNode, useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { ITab } from "components/tabs/Tabs";
 import { aboutPath } from "utils/bootstrap";
@@ -6,7 +6,7 @@ import { Container } from "components/common/container";
 import Styles from "./Job.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsJobData } from "../../contacts/mockData";
-import { jobGalleryData, jobObject, MockJob } from "./mockJob";
+import { jobObject, MockJob } from "./mockJob";
 import { JobItem } from "./JobItem";
 import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
@@ -17,9 +17,10 @@ import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "components/map/SideBar";
 import { Modal, useModal } from "components/modal";
 import { ModalFormJob } from "features/about";
-import { ModalFormGallery } from "features/about/tab_job/jobModal/ModalFormGalery";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
+import { useGetListCities } from "service/list";
+import { IOptionItem } from "components/select/Select";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -27,19 +28,35 @@ const JobContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     [],
   );
+  const selectRef = useRef(null);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
-
-  const { isShow: isShowGallery, toggle: toggleGallery } = useModal();
+  const [cities, setCities] = useState<IOptionItem[]>();
   const { isShow, toggle } = useModal();
+  const { getListCities } = useGetListCities();
+
+  useEffect(() => {
+    /*******Получаем данные о городах конверим их под options и добавляем в стеайт
+     * который потом выводим в options
+     * ****/
+    getListCities().then((data) => {
+      !data.hasError &&
+        setCities(
+          data.response.map((e: { alias: string; city: string }) => {
+            return { value: e.alias, label: e.city };
+          }),
+        );
+    });
+  }, []);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Вакансии" }]);
   }, [dataBreadAbout]);
 
   const router = useRouter();
-  const handleOnClickModal = () => {
-    toggleGallery();
+  const handleOnClickMap = (ref: { offsetTop: number }) => {
+    window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
+    console.log("scroll");
   };
 
   useEffect(() => {
@@ -58,7 +75,7 @@ const JobContainer: FC = () => {
     return (
       <ObjectItem
         {...e}
-        onClick={() => handleOnClickModal()}
+        onClick={() => handleOnClickMap(selectRef.current)}
         key={"job" + e.id}
         icon={<div className={Styles.job_count}>{e.count}</div>}
       />
@@ -74,9 +91,11 @@ const JobContainer: FC = () => {
   };
 
   const handleOnClickTabs = (e: ITab) => {
-    router.push(aboutPath + e.url);
+    router.push(aboutPath + e.url).then();
   };
-
+  const handleSelectChange = (data: IOptionItem) => {
+    console.log("selected filed", data);
+  };
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -100,11 +119,15 @@ const JobContainer: FC = () => {
         }
       />
 
-      <div className={Styles.vacancies__search_box}>
-        <SelectContainer optionsData={[]} instanceId={"Select_Job"} />
+      <div className={Styles.vacancies__search_box} ref={selectRef}>
+        <SelectContainer
+          optionsData={cities}
+          instanceId={"Select_Job"}
+          onChange={(e) => handleSelectChange(e)}
+        />
         <Button type={"button"} children={"Поиск"} />
       </div>
-      <Separator title={"наши вакансии"} />
+      <Separator title={"Наши вакансии"} />
       <ul className={Styles.job_container_item}>
         {MockJob.map((e) => {
           return <JobItem {...e} key={e.id} />;
@@ -119,20 +142,13 @@ const JobContainer: FC = () => {
           Присылайте нам свое резюме, и мы свяжемся с Вами, как только появится
           подходящая позиция для Вас!
         </p>
-        <Button onClick={toggle} size={"max"} children={"Отправить резюме"} />
+        <Button onClick={toggle} size={"max"} children={"Отправить запрос"} />
       </div>
       <Modal
         isShow={isShow}
         hide={toggle}
         modalContent={<ModalFormJob />}
         theme={"modal"}
-        bgModal={"black"}
-      />
-      <Modal
-        isShow={isShowGallery}
-        hide={toggleGallery}
-        modalContent={<ModalFormGallery items={jobGalleryData.items} />}
-        theme={"empty_modal"}
         bgModal={"black"}
       />
     </Container>

@@ -24,7 +24,7 @@ const SupportContainer = () => {
   }, [dataBreadContacts]);
 
   const handleOnClickTabs = (e: ITab) => {
-    router.push(contactsPath + e.url);
+    router.push(contactsPath + e.url).then();
   };
 
   return (
