@@ -18,6 +18,7 @@
   margin: 0 auto 5%;
   gap: 20px;
   flex-direction: column;
+
   li {
     justify-content: space-between;
     align-items: center;
@@ -28,41 +29,47 @@
     display: grid;
     grid-template-columns: 1fr 0.3fr;
     transition: all 0.3s ease 0s;
+
     &:hover {
       box-shadow: 0 10px 10px rgba(0, 0, 0, 0.14);
       transform: translateY(-3px);
       transition: all 0.3s;
     }
-    @include phoneScreen{
+
+    @include phoneScreen {
       display: block;
       padding: 15px 10px;
     }
+
     & > div {
-      &:last-child{
+      &:last-child {
         display: flex;
         justify-content: flex-end;
-        @include phoneScreen{
+        @include phoneScreen {
           justify-content: flex-start;
         }
       }
+
       div {
         &.title {
           font-size: 25px;
           color: #212121;
           margin-bottom: 12px;
         }
+
         &.address {
           font-size: 18px;
           font-weight: 600;
           color: #212121b5;
           margin-bottom: 8px;
         }
+
         &.desc {
           font-weight: normal;
           font-size: 16px;
           line-height: 150%;
           color: #212121;
-          @include phoneScreen{
+          @include phoneScreen {
             margin-bottom: 18px;
           }
         }
@@ -70,7 +77,8 @@
     }
   }
 }
-.vacancies__search_box{
+
+.vacancies__search_box {
   background-color: #F3F3F3;
   border-radius: 10px;
   margin: 0 auto;
@@ -86,7 +94,8 @@
     flex-direction: column;
   }
 }
-.job_count{
+
+.job_count {
   border: 2px solid white;
   padding: 10px;
   width: 16px;
@@ -95,6 +104,7 @@
   color: white;
   box-shadow: 0 0 2px 1px rgba(221, 221, 221, 1);
 }
+
 .vacancies__bottom_info {
   margin-bottom: 130px;
   @include ipadScreen {
@@ -110,8 +120,20 @@
     margin-top: 0;
     color: color(dark);
   }
+
   button {
     margin: 30px auto 0;
     width: 240px;
   }
+}
+
+.no_vacancies {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: color(error);
+  border-radius: 10px;
+  color: color(white);
+  padding: 10px 0 ;
+
 }

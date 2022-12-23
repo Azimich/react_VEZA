@@ -1,13 +1,19 @@
 import { IResponse } from "../../../types/response";
 
-interface IMockJob {
-  id: number;
-  url_hh: string;
-  address: string;
+interface IJob {
+  city: string;
+  country: string;
+  description: string;
+  district: string;
   title: string;
-  desc: string;
+  url: string;
 }
-interface IResponseArray extends Omit<IResponse, "response"> {
+
+interface IJobsResponseArray extends Omit<IResponse, "response"> {
+  response: IJob[];
+}
+
+interface ICitiesResponseArray extends Omit<IResponse, "response"> {
   response: ICities[];
 }
 
@@ -17,4 +23,4 @@ interface ICities {
   district: string;
 }
 
-export { IMockJob, IResponseArray };
+export { ICitiesResponseArray, IJobsResponseArray, IJob };

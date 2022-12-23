@@ -6,8 +6,7 @@ import { Container } from "components/common/container";
 import Styles from "./Job.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsJobData } from "../../contacts/mockData";
-import { jobObject, MockJob } from "./mockJob";
-import { JobItem } from "./JobItem";
+import { jobObject } from "./mockJob";
 import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
@@ -21,6 +20,12 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { useGetListCities } from "service/list";
 import { IOptionItem } from "components/select/Select";
+import { useGetJobCity } from "service/item/getJob";
+import { IJobsResponseArray } from "features/about/tab_job/Job";
+import { ConnectError } from "components/connect_error";
+import { MessageItem } from "components/massage/MessageItem";
+import { JobItem } from "features/about/tab_job/JobItem";
+import { useGeoLocation } from "store/hooks/useGeoLocation";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -34,11 +39,14 @@ const JobContainer: FC = () => {
   const [cities, setCities] = useState<IOptionItem[]>();
   const { isShow, toggle } = useModal();
   const { getListCities } = useGetListCities();
+  const { getJobCity } = useGetJobCity();
+  const [jobs, setJobs] = useState<IJobsResponseArray>();
 
   useEffect(() => {
-    /*******Получаем данные о городах конверим их под options и добавляем в стеайт
+    /**
+     * Получаем данные о городах конверим их под options и добавляем в стеайт
      * который потом выводим в options
-     * ****/
+     **/
     getListCities().then((data) => {
       !data.hasError &&
         setCities(
@@ -56,7 +64,6 @@ const JobContainer: FC = () => {
   const router = useRouter();
   const handleOnClickMap = (ref: { offsetTop: number }) => {
     window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
-    console.log("scroll");
   };
 
   useEffect(() => {
@@ -93,9 +100,18 @@ const JobContainer: FC = () => {
   const handleOnClickTabs = (e: ITab) => {
     router.push(aboutPath + e.url).then();
   };
-  const handleSelectChange = (data: IOptionItem) => {
-    console.log("selected filed", data);
+
+  const handleSelectChange = (selected: IOptionItem) => {
+    /**
+     * Получаем данные относительно выбранного города
+     * **/
+    getJobCity(selected.value).then((data) => {
+      setJobs(data);
+    });
   };
+
+  console.log("useGeoLocation", useGeoLocation());
+
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -129,9 +145,19 @@ const JobContainer: FC = () => {
       </div>
       <Separator title={"Наши вакансии"} />
       <ul className={Styles.job_container_item}>
-        {MockJob.map((e) => {
-          return <JobItem {...e} key={e.id} />;
-        })}
+        {!jobs?.hasError ? (
+          jobs?.response.length > 0 ? (
+            jobs?.response.map((e, i) => {
+              return <JobItem {...e} key={i} />;
+            })
+          ) : (
+            <MessageItem type={"attention"} className={Styles.no_vacancies}>
+              Вакансии в Вашем регионе отсутствуют
+            </MessageItem>
+          )
+        ) : (
+          <ConnectError type={"text"} />
+        )}
       </ul>
       <div className={Styles.vacancies__bottom_info}>
         <Separator

@@ -15,7 +15,7 @@ const MessageItem: FC<IMessage> = ({
   return (
     <div
       className={`${Styles["message_container_" + type]} ${
-        className ? Styles[className] : ""
+        className ? className : ""
       }`}
     >
       {children}

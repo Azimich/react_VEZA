@@ -23,7 +23,7 @@ const Button: FC<ButtonI> = ({
   const onClickBtn =
     () => (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       if (link) {
-        router?.push(`/${link}`);
+        router?.push(`${link}`).then();
       } else return onClick(evt);
     };
   const themeSize = theme + "__" + size + "_" + color;

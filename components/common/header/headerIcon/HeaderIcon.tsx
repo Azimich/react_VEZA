@@ -33,12 +33,11 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
-  console.log("auth", auth);
+  console.log("111", auth);
   useEffect(() => {
     getToken().tokens.token &&
       checkAuth(getToken().tokens.token).then(
         (data: IAuthResponse | undefined) => {
-          console.log("111", data);
           if (data === undefined || data?.hasError) {
             deleteAuthToken();
           } else {

@@ -1,5 +1,4 @@
 import { Container } from "components/common/container";
-import { Box_icon_social_container } from "components/box_icon_social";
 import { SliderContainer } from "components/slider";
 import {
   sliderData,
@@ -15,15 +14,13 @@ import Styles from "./about/About.module.scss";
 import { ISSRHomeNews } from "features/news/News";
 import { ConnectError } from "components/connect_error";
 
-const HomeContainer: FC<ISSRHomeNews> = ({ newsData }) => {
-  console.log("newsData", newsData);
+const HomeContainer: FC<ISSRHomeNews> = ({ newsData, indexBanner }) => {
+  console.log("2123", indexBanner);
+
+  /*    const arrayImages:ISliderProps=[];
+    console.log("111",arrayImages )*/
   return (
     <>
-      <Container el="section">
-        <div>
-          <Box_icon_social_container />
-        </div>
-      </Container>
       <SliderContainer
         autoplay={false}
         items={sliderData.items}

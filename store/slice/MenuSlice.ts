@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { AppState, AppThunk } from "store/store";
 import { HYDRATE } from "next-redux-wrapper";
-import { IMenuState } from "components/common/header/headerNav/Header.d";
+import {
+  IMenuSlice,
+  IMenuState,
+} from "components/common/header/headerNav/Header.d";
 
 const initialState: IMenuState = {
   customErrorCode: 0,
@@ -15,13 +18,14 @@ export const menuSlice = createSlice({
   name: "menuState",
   initialState: initialState,
   reducers: {
-    setData: (_state, action: PayloadAction<{ menuState?: IMenuState }>) => {
+    setData: (_state, action: PayloadAction<IMenuSlice>) => {
       return action.payload.menuState;
     },
   },
   extraReducers: {
-    [HYDRATE]: (state, action: PayloadAction<{ menuState: IMenuState }>) => {
+    [HYDRATE]: (state, action: PayloadAction<IMenuSlice>) => {
       return {
+        ...state,
         ...action.payload.menuState,
       };
     },
@@ -29,7 +33,7 @@ export const menuSlice = createSlice({
 });
 
 export const fetchMenu =
-  (dispatchData: { menuState: IMenuState }): AppThunk =>
+  (dispatchData: IMenuSlice): AppThunk =>
   async (dispatch) => {
     dispatch(menuSlice.actions.setData(dispatchData));
   };
