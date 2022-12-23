@@ -25,7 +25,7 @@ const ModalFormJob = () => {
 
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
-  console.log("111", selectedFilesName);
+  console.log("selectedFilesName", selectedFilesName);
   //Инпут для добавления файла
   /*  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFiles(Array.from(e.target.files));

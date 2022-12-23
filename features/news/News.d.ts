@@ -6,6 +6,7 @@ interface ISSRNews {
 
 interface ISSRHomeNews {
   newsData: INewsResponseArray;
+  indexBanner: IBannerResponseArray;
 }
 
 interface INewsResponse extends Omit<IResponse, "response"> {
@@ -14,6 +15,10 @@ interface INewsResponse extends Omit<IResponse, "response"> {
 
 interface INewsResponseArray extends Omit<IResponse, "response"> {
   response: INewsDataItem[];
+}
+
+interface IBannerResponseArray extends Omit<IResponse, "response"> {
+  response: IBannerItem[];
 }
 
 interface INewsDataItem {
@@ -35,6 +40,17 @@ interface INewsDataItem {
     horizontal?: IImageModelItem;
     images?: IImageModelItem;
   };
+}
+
+interface IBannerItem {
+  title: string;
+  description: string;
+  alias: string;
+  seo: string;
+  imageTitle: string;
+  imageUrl: string;
+  slideNumber: number;
+  showText: boolean;
 }
 
 interface IStatics {

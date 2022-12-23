@@ -26,7 +26,6 @@ const HeaderContainer: FC = () => {
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
     <Container className="wrapper_clear">
       <nav

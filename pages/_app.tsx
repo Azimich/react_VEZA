@@ -3,10 +3,11 @@ import "/styles/variables.scss";
 import "/styles/media.scss";
 
 import type { AppProps } from "next/app";
-import { wrapper } from "../store/store";
-import { Layout } from "../components/common";
+import { wrapper } from "store/store";
+import { Layout } from "components/common";
 
 const VezaApp = ({ Component, pageProps }: AppProps) => {
+  console.log("start", pageProps);
   return (
     <Layout {...pageProps}>
       <Component {...pageProps} />

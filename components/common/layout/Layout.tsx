@@ -7,31 +7,36 @@ import Head from "next/head";
 import { Container } from "../container";
 import { Box_icon_social_container } from "../../box_icon_social";
 
-const Layout: FC = ({ children }) => (
-  <>
-    <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="description" content={process.env.NEXT_PUBLIC_DESCRIPTION} />
-      <title>{process.env.NEXT_PUBLIC_TITLE}</title>
-      <meta name="keyword" content={process.env.NEXT_PUBLIC_KEYWORD} />
-    </Head>
-    <div id={"main"} className={Styles.shared__container}>
-      <header className={Styles.header}>
-        <HeaderContainer />
-      </header>
-      <main>
-        {children}
-        <Container el="section">
-          <div>
-            <Box_icon_social_container />
-          </div>
-        </Container>
-      </main>
-      <footer>
-        <FooterContainer />
-      </footer>
-    </div>
-  </>
-);
+const Layout: FC = ({ children }) => {
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content={process.env.NEXT_PUBLIC_DESCRIPTION}
+        />
+        <title>{process.env.NEXT_PUBLIC_TITLE}</title>
+        <meta name="keyword" content={process.env.NEXT_PUBLIC_KEYWORD} />
+      </Head>
+      <div id={"main"} className={Styles.shared__container}>
+        <header className={Styles.header}>
+          <HeaderContainer />
+        </header>
+        <main>
+          {children}
+          <Container el="section">
+            <div>
+              <Box_icon_social_container />
+            </div>
+          </Container>
+        </main>
+        <footer>
+          <FooterContainer />
+        </footer>
+      </div>
+    </>
+  );
+};
 
 export { Layout };

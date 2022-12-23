@@ -1,18 +1,27 @@
 import Styles from "./Job.module.scss";
-import { IMockJob } from "./Job";
+import { IJob } from "./Job";
 import { FC } from "react";
 import { Button } from "components/button";
 
-const JobItem: FC<IMockJob> = ({ url_hh, address, desc, title }) => {
+const JobItem: FC<IJob> = ({
+  title,
+  description,
+  country,
+  city,
+  district,
+  url,
+}) => {
   return (
     <li>
       <div>
         <div className={Styles.title}>{title}</div>
-        <div className={Styles.address}>{address}</div>
-        <div className={Styles.desc}>{desc}</div>
+        <div className={Styles.address}>
+          {country + ", " + district + ", " + city}
+        </div>
+        <div className={Styles.desc}>{description}</div>
       </div>
       <div>
-        <Button link={url_hh} theme={"industries"}>
+        <Button link={url} theme={"industries"}>
           Узнать больше
         </Button>
       </div>
