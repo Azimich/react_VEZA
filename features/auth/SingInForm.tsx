@@ -6,7 +6,7 @@ import { Button } from "components/button";
 import Link from "next/link";
 import { ValidationAuth } from "./formsData/ValidationsShemas";
 import { fieldsDataAuth } from "./formsData/FieledsData";
-import { ChangeEvent, useState, useEffect } from "react";
+import { ChangeEvent, useState, useEffect, FC } from "react";
 import { useAuth } from "service/auth/auth";
 import { ISingResponseData } from "./Sing";
 import { Message } from "components/massage";
@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { SpinnerButton } from "components/spinners";
 import { useToken } from "store/hooks/useToken";
 
-const SingInForm = () => {
+const SingInForm: FC = () => {
   const { getLogin, loading, error } = useAuth();
   const [authData, setAuthData] = useState<ISingResponseData>({});
   const router = useRouter();
@@ -44,7 +44,6 @@ const SingInForm = () => {
     onSubmit: (values) => {
       getLogin(values.login, values.password).then(
         (data: ISingResponseData | undefined) => {
-          console.log("data", data);
           if (data === undefined || data?.hasError) {
             setAuthData(data);
           } else {

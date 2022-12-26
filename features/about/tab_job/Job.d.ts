@@ -7,6 +7,8 @@ interface IJob {
   district: string;
   title: string;
   url: string;
+  alias?: string;
+  isDefaultCity?: boolean;
 }
 
 interface IJobsResponseArray extends Omit<IResponse, "response"> {

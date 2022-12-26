@@ -17,7 +17,20 @@ const useGetDaData = () => {
     );
   };
 
-  return { daData, loading, error };
+  const getGeoCode = async (query: {}) => {
+    return await request(
+      "https://suggestions.dadata.ru/suggestions/api/4_1/rs/geolocate/address",
+      "POST",
+      JSON.stringify(query),
+      {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Token " + token,
+      },
+    );
+  };
+
+  return { daData, getGeoCode, loading, error };
 };
 
 export { useGetDaData };

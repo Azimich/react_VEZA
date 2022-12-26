@@ -21,11 +21,11 @@ import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { useGetListCities } from "service/list";
 import { IOptionItem } from "components/select/Select";
 import { useGetJobCity } from "service/item/getJob";
-import { IJobsResponseArray } from "features/about/tab_job/Job";
+import { IJob, IJobsResponseArray } from "features/about/tab_job/Job";
 import { ConnectError } from "components/connect_error";
 import { MessageItem } from "components/massage/MessageItem";
 import { JobItem } from "features/about/tab_job/JobItem";
-import { useGeoLocation } from "store/hooks/useGeoLocation";
+import { useGetDaData } from "service/getDaData";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -36,11 +36,13 @@ const JobContainer: FC = () => {
   const selectRef = useRef(null);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
-  const [cities, setCities] = useState<IOptionItem[]>();
+  const [cities, setCities] = useState<IJob[]>();
+  const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
   const { isShow, toggle } = useModal();
   const { getListCities } = useGetListCities();
   const { getJobCity } = useGetJobCity();
   const [jobs, setJobs] = useState<IJobsResponseArray>();
+  const { getGeoCode } = useGetDaData();
 
   useEffect(() => {
     /**
@@ -48,14 +50,24 @@ const JobContainer: FC = () => {
      * который потом выводим в options
      **/
     getListCities().then((data) => {
-      !data.hasError &&
-        setCities(
-          data.response.map((e: { alias: string; city: string }) => {
-            return { value: e.alias, label: e.city };
-          }),
-        );
+      !data.hasError && setCities(data.response);
     });
   }, []);
+
+  useEffect(() => {
+    const res = cities
+      ?.filter((e) => {
+        return e.isDefaultCity;
+      })
+      .map((data) => {
+        return { value: data.alias, label: data.city };
+      })
+      ?.shift();
+
+    setSelectedCities(res);
+
+    handleSelectChange(res);
+  }, [cities]);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Вакансии" }]);
@@ -101,16 +113,24 @@ const JobContainer: FC = () => {
     router.push(aboutPath + e.url).then();
   };
 
+  useEffect(() => {
+    getGeoCode({ lat: 54.91722, lon: 37.420347, count: 1 }).then((data) => {
+      console.log("data", data);
+    });
+  }, []);
   const handleSelectChange = (selected: IOptionItem) => {
     /**
      * Получаем данные относительно выбранного города
      * **/
-    getJobCity(selected.value).then((data) => {
-      setJobs(data);
-    });
+    if (selected?.value) {
+      getJobCity(selected.value).then((data) => {
+        setSelectedCities(selected);
+        setJobs(data);
+      });
+    }
   };
 
-  console.log("useGeoLocation", useGeoLocation());
+  ///TODO: Геолокацию доделать когда в вакансиях будут города
 
   return (
     <Container className={"wrapper_clear"}>
@@ -136,12 +156,21 @@ const JobContainer: FC = () => {
       />
 
       <div className={Styles.vacancies__search_box} ref={selectRef}>
-        <SelectContainer
-          optionsData={cities}
-          instanceId={"Select_Job"}
-          onChange={(e) => handleSelectChange(e)}
+        {selectedCities?.value && (
+          <SelectContainer
+            optionsData={cities?.map((e) => {
+              return { value: e.alias, label: e.city };
+            })}
+            defaultValue={selectedCities}
+            instanceId={"Select_Job"}
+            onChange={(e) => handleSelectChange(e)}
+          />
+        )}
+        <Button
+          type={"button"}
+          children={"Поиск"}
+          onClick={() => handleSelectChange(selectedCities)}
         />
-        <Button type={"button"} children={"Поиск"} />
       </div>
       <Separator title={"Наши вакансии"} />
       <ul className={Styles.job_container_item}>
@@ -155,6 +184,10 @@ const JobContainer: FC = () => {
               Вакансии в Вашем регионе отсутствуют
             </MessageItem>
           )
+        ) : jobs.customErrorCode === 4404 ? (
+          <MessageItem type={"attention"} className={Styles.no_vacancies}>
+            Вакансии в Вашем регионе отсутствуют
+          </MessageItem>
         ) : (
           <ConnectError type={"text"} />
         )}
