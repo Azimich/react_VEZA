@@ -1,5 +1,5 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import { wrapper } from "store/store";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service";
 import { CertCatalog } from "features/resources/tab_certificates/certificates";

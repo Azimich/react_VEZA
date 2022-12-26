@@ -7,11 +7,6 @@ import { useRouter } from "next/router";
 import { HamburgerContainer } from "components/hamburger/HamburgerContainer";
 import { isMobile } from "react-device-detect";
 import { FC, useEffect, useState } from "react";
-import { useAuth } from "service/auth/auth";
-import { useToken } from "store/hooks/useToken";
-import { getAuth, setDataAuth } from "features/auth/AuthSlice";
-import { IAuthResponse } from "features/auth/Auth";
-import { useAppDispatch, useAppSelector } from "store/hooks";
 
 /*
 import {useToken} from "store/hooks/useToken";
@@ -26,27 +21,10 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
-  const { checkAuth } = useAuth();
-  const { getToken, deleteAuthToken } = useToken();
-  const auth = useAppSelector(getAuth);
-  const dispatch = useAppDispatch();
+
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
-  console.log("111", auth);
-  useEffect(() => {
-    getToken().tokens.token &&
-      checkAuth(getToken().tokens.token).then(
-        (data: IAuthResponse | undefined) => {
-          if (data === undefined || data?.hasError) {
-            deleteAuthToken();
-          } else {
-            dispatch(setDataAuth({ identify: true, data: data }));
-          }
-        },
-      );
-  }, []);
-
   useEffect(() => {
     isMobile ? setMobile(true) : setMobile(false);
   }, [isMobile]);
