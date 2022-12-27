@@ -93,7 +93,7 @@ const JobContainer: FC = () => {
     };
     setSelectedCities(loc_selected_item);
     handleSelectChange(loc_selected_item);
-    //        window.scrollTo({top: ref.offsetTop - 100, left: 0});
+    window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
   };
 
   useEffect(() => {
