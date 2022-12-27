@@ -4,17 +4,6 @@ const whoweData: IObject[] = [
   {
     id: 1,
     connection: "Chelyabinskaya_obl",
-    alias: "miass",
-    object: {
-      xpx: 22,
-      ypx: 8,
-      name: "Веза-Миасс",
-      production_area: "16 900 м2",
-      email: "whowe@whowe.ru",
-      service_phone: "Тел: +7 495 989-47-20",
-      logistic_phone: "Тел: +7 495 626-99-30",
-      address: "Рабочая 10А 111397, Москва Россия",
-    },
   },
   {
     id: 2,

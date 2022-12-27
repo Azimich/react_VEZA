@@ -11,8 +11,19 @@ interface IJob {
   isDefaultCity?: boolean;
 }
 
+interface IVacancies {
+  connect: string;
+  city: string;
+  type: "plant" | "office";
+  count: 3;
+}
+
 interface IJobsResponseArray extends Omit<IResponse, "response"> {
   response: IJob[];
+}
+
+interface IVacanciesResponseArray extends Omit<IResponse, "response"> {
+  response: IVacancies[];
 }
 
 interface ICitiesResponseArray extends Omit<IResponse, "response"> {
@@ -25,4 +36,10 @@ interface ICities {
   district: string;
 }
 
-export { ICitiesResponseArray, IJobsResponseArray, IJob };
+export {
+  ICitiesResponseArray,
+  IJobsResponseArray,
+  IJob,
+  IVacanciesResponseArray,
+  IVacancies,
+};

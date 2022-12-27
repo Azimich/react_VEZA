@@ -15,6 +15,7 @@ const SelectCommon: FC<IOptionSetting> = ({
   isMulti = false,
   placeholder = "",
   onChange,
+  value,
 }) => {
   return (
     <Select
@@ -30,6 +31,7 @@ const SelectCommon: FC<IOptionSetting> = ({
       className={Styles.job_container}
       placeholder={placeholder}
       onChange={(e) => onChange(e)}
+      value={value}
     />
   );
 };

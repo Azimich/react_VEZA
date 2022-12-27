@@ -15,8 +15,8 @@ const tabsSocialData: ITab[] = [
   { id: 3, title: "Промышленные", url: "industrial", tabsActive: 3 },
 ];
 const tabsJobData: ITab[] = [
-  { id: 1, title: "Предприятия", url: "factory", tabsActive: 1 },
-  { id: 2, title: "Офис продаж", url: "office_sales", tabsActive: 2 },
+  { id: 1, title: "Предприятия", url: "plant", tabsActive: 1 },
+  { id: 2, title: "Офис продаж", url: "office", tabsActive: 2 },
 ];
 const tabsSalesData: ITab[] = [
   { id: 1, title: "Руководитель", url: "director", tabsActive: 1 },
