@@ -1,5 +1,4 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-
 import { createWrapper } from "next-redux-wrapper";
 import contactsSlice from "../features/contacts/ContactsSlice";
 import factorySlice from "../features/factory/FactorySlice";
@@ -27,7 +26,6 @@ export type AppDispatch = AppStore["dispatch"];
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   AppState,
-  // eslint-disable-next-line no-undef
   unknown,
   Action
 >;

@@ -3,11 +3,11 @@ import { IObject } from "components/map/Map";
 const whoweData: IObject[] = [
   {
     id: 1,
-    connection: "Chelyabinskaya_obl",
+    connect: "Chelyabinskaya_obl",
   },
   {
     id: 2,
-    connection: "moskovskaya_obl",
+    connect: "moskovskaya_obl",
     alias: "hrapunovo",
     object: {
       xpx: 0,
@@ -22,7 +22,7 @@ const whoweData: IObject[] = [
   },
   {
     id: 3,
-    connection: "moskovskaya_obl",
+    connect: "moskovskaya_obl",
     alias: "fryazino",
     object: {
       xpx: 16,
@@ -37,7 +37,7 @@ const whoweData: IObject[] = [
   },
   {
     id: 4,
-    connection: "bryanskaya_obl",
+    connect: "bryanskaya_obl",
     alias: "bryansk",
     object: {
       xpx: 16,
@@ -52,7 +52,7 @@ const whoweData: IObject[] = [
   },
   {
     id: 5,
-    connection: "belgorodskaya_obl",
+    connect: "belgorodskaya_obl",
     alias: "karachev",
     object: {
       xpx: 20,
@@ -67,7 +67,7 @@ const whoweData: IObject[] = [
   },
   {
     id: 6,
-    connection: "belarus",
+    connect: "belarus",
     alias: "gomel",
     object: {
       xpx: 35,
@@ -82,7 +82,7 @@ const whoweData: IObject[] = [
   },
   {
     id: 7,
-    connection: "volgogradskaya_obl",
+    connect: "volgogradskaya_obl",
     alias: "kmb",
     object: {
       xpx: 10,
@@ -97,7 +97,7 @@ const whoweData: IObject[] = [
   },
   {
     id: 7,
-    connection: "moskovskaya_obl",
+    connect: "moskovskaya_obl",
     alias: "holod",
     object: {
       xpx: 100,
