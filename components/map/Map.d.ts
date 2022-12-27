@@ -21,7 +21,7 @@ interface IMapProps {
 interface IObject {
   id?: number;
   alias?: string;
-  connection?: string;
+  connect?: string;
   onClick?: (alias: IObject) => void;
   object?: IObjectItem;
 }

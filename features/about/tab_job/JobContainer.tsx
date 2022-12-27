@@ -6,7 +6,7 @@ import { Container } from "components/common/container";
 import Styles from "./Job.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsJobData } from "../../contacts/mockData";
-import { jobObject } from "./mockJob";
+/*import { jobObject } from "./mockJob";*/
 import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
@@ -18,10 +18,15 @@ import { Modal, useModal } from "components/modal";
 import { ModalFormJob } from "features/about";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
-import { useGetListCities } from "service/list";
+import { useGetListCities, useGetVacancies } from "service/list";
 import { IOptionItem } from "components/select/Select";
 import { useGetJobCity } from "service/item/getJob";
-import { IJob, IJobsResponseArray } from "features/about/tab_job/Job";
+import {
+  IJob,
+  IJobsResponseArray,
+  IVacancies,
+  IVacanciesResponseArray,
+} from "features/about/tab_job/Job";
 import { ConnectError } from "components/connect_error";
 import { MessageItem } from "components/massage/MessageItem";
 import { JobItem } from "features/about/tab_job/JobItem";
@@ -30,6 +35,7 @@ import { useGetDaData } from "service/getDaData";
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
   const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
+  const [vacanciesData, setVacanciesData] = useState<IVacanciesResponseArray>();
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     [],
   );
@@ -39,18 +45,23 @@ const JobContainer: FC = () => {
   const [cities, setCities] = useState<IJob[]>();
   const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
   const { isShow, toggle } = useModal();
-  const { getListCities } = useGetListCities();
-  const { getJobCity } = useGetJobCity();
   const [jobs, setJobs] = useState<IJobsResponseArray>();
+  const { getListCities } = useGetListCities();
+  const { getVacancies } = useGetVacancies();
+  const { getJobCity } = useGetJobCity();
   const { getGeoCode } = useGetDaData();
 
   useEffect(() => {
     /**
-     * Получаем данные о городах конверим их под options и добавляем в стеайт
+     * Получаем данные о городах и добавляем в стеайт
      * который потом выводим в options
      **/
     getListCities().then((data) => {
       !data.hasError && setCities(data.response);
+    });
+
+    getVacancies().then((data) => {
+      setVacanciesData(data);
     });
   }, []);
 
@@ -74,28 +85,37 @@ const JobContainer: FC = () => {
   }, [dataBreadAbout]);
 
   const router = useRouter();
-  const handleOnClickMap = (ref: { offsetTop: number }) => {
-    window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
+  const handleOnClickMap = (ref: { offsetTop: number }, e: IVacancies) => {
+    const loc_selected = cities.filter((data) => data.alias === e.city).shift();
+    const loc_selected_item = {
+      value: loc_selected?.alias,
+      label: loc_selected?.city,
+    };
+    setSelectedCities(loc_selected_item);
+    handleSelectChange(loc_selected_item);
+    //        window.scrollTo({top: ref.offsetTop - 100, left: 0});
   };
 
   useEffect(() => {
     setSelectedReferenceData(
-      jobObject.filter(
-        (item) =>
-          selectedCheckBox
-            .map((e) => e.url)
-            .flat()
-            .indexOf(item.type_object) !== -1,
-      ),
+      vacanciesData &&
+        vacanciesData?.response.filter((item) => {
+          return (
+            selectedCheckBox
+              ?.map((e) => e.url)
+              .flat()
+              .indexOf(item.type) !== -1
+          );
+        }),
     );
-  }, [selectedCheckBox]);
-
-  const FormOutPut: ReactNode[] = selectedReferenceData.map((e) => {
+    /*        console.log("selectedCheckBox", selectedCheckBox)*/
+  }, [selectedCheckBox, vacanciesData]);
+  const FormOutPut: ReactNode[] = selectedReferenceData?.map((e) => {
     return (
       <ObjectItem
         {...e}
-        onClick={() => handleOnClickMap(selectRef.current)}
-        key={"job" + e.id}
+        onClick={(e: IVacancies) => handleOnClickMap(selectRef.current, e)}
+        key={"job" + e.connect + e.count}
         icon={<div className={Styles.job_count}>{e.count}</div>}
       />
     );
@@ -164,6 +184,7 @@ const JobContainer: FC = () => {
             defaultValue={selectedCities}
             instanceId={"Select_Job"}
             onChange={(e) => handleSelectChange(e)}
+            value={selectedCities}
           />
         )}
         <Button

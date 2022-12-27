@@ -14,6 +14,7 @@ const SelectContainer: FC<IOptionSetting> = ({
   defaultValue,
   type = "common",
   classNameProps = "",
+  value,
 }) => {
   let selectCurrent: ReactNode;
   switch (type) {
@@ -29,6 +30,7 @@ const SelectContainer: FC<IOptionSetting> = ({
           placeholder={placeholder}
           onChange={(e) => onChange(e)}
           optionsData={optionsData}
+          value={value}
         />
       );
       break;
@@ -44,6 +46,7 @@ const SelectContainer: FC<IOptionSetting> = ({
           optionsData={optionsData}
           placeholder={placeholder}
           onChange={(e) => onChange(e)}
+          value={value}
         />
       );
       break;
@@ -59,6 +62,7 @@ const SelectContainer: FC<IOptionSetting> = ({
           optionsData={optionsData}
           placeholder={placeholder}
           onChange={(e) => onChange(e)}
+          value={value}
         />
       );
       break;

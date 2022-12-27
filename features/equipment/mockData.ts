@@ -174,9 +174,9 @@ const CatalogData: ICatalogData[] = [
     imgSlider: [
       {
         images: {
-          pc: "/images/production_1.jpg",
-          ipad: "/images/production_1.jpg",
-          mobile: "/images/production_1.jpg",
+          pc: "/images/350х210_AEROSMART.webp",
+          ipad: "/images/350х210_AEROSMART.webp",
+          mobile: "/images/350х210_AEROSMART.webp",
         },
         typeSlider: "img",
         link_slider: false,
@@ -185,9 +185,9 @@ const CatalogData: ICatalogData[] = [
       },
       {
         images: {
-          pc: "/images/production_1.jpg",
-          ipad: "/images/production_1.jpg",
-          mobile: "/images/production_1.jpg",
+          pc: "/images/350х210_AEROSMART.webp",
+          ipad: "/images/350х210_AEROSMART.webp",
+          mobile: "/images/350х210_AEROSMART.webp",
         },
         typeSlider: "img",
         link_slider: false,
@@ -196,9 +196,9 @@ const CatalogData: ICatalogData[] = [
       },
       {
         images: {
-          pc: "/images/production_1.jpg",
-          ipad: "/images/production_1.jpg",
-          mobile: "/images/production_1.jpg",
+          pc: "/images/350х210_AEROSMART.webp",
+          ipad: "/images/350х210_AEROSMART.webp",
+          mobile: "/images/350х210_AEROSMART.webp",
         },
         typeSlider: "img",
         link_slider: false,
@@ -206,7 +206,7 @@ const CatalogData: ICatalogData[] = [
         alt: "banner",
       },
     ],
-    image: "/images/production_1.jpg",
+    image: "/images/350х210_AEROSMART.webp",
     cat_id: 2,
     typo_size_id: 16,
     alias: "/equipment/vent/prod_1",
@@ -217,16 +217,16 @@ const CatalogData: ICatalogData[] = [
     imgSlider: [
       {
         images: {
-          pc: "/images/production_2.jpg",
-          ipad: "/images/production_2.jpg",
-          mobile: "/images/production_2.jpg",
+          pc: "/images/350х210_Aerostart.webp",
+          ipad: "/images/350х210_Aerostart.webp",
+          mobile: "/images/350х210_Aerostart.webp",
         },
         typeSlider: "img",
         link_slider: false,
         block_description: false,
       },
     ],
-    image: "/images/production_2.jpg",
+    image: "/images/350х210_Aerostart.webp",
     cat_id: 2,
     typo_size_id: 16,
     alias: "/equipment/vent/prod_2",
@@ -237,16 +237,16 @@ const CatalogData: ICatalogData[] = [
     imgSlider: [
       {
         images: {
-          pc: "/images/production_3.jpg",
-          ipad: "/images/production_3.jpg",
-          mobile: "/images/production_3.jpg",
+          pc: "/images/350х210_БОКС.webp",
+          ipad: "/images/350х210_БОКС.webp",
+          mobile: "/images/350х210_БОКС.webp",
         },
         typeSlider: "img",
         link_slider: false,
         block_description: false,
       },
     ],
-    image: "/images/production_3.jpg",
+    image: "/images/350х210_БОКС.webp",
     cat_id: 2,
     typo_size_id: 16,
     alias: "/equipment/vent/prod_3",

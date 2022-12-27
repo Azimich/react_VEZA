@@ -9,6 +9,7 @@ interface IOptionSetting {
   defaultValue?: IOptionItem;
   classNameProps?: string;
   type?: "common" | "organizationINN";
+  value?: IOptionItem;
 }
 
 interface IOptionItem {
