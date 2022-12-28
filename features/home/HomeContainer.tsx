@@ -1,10 +1,6 @@
 import { Container } from "components/common/container";
 import { SliderContainer } from "components/slider";
-import {
-  sliderData,
-  sliderCategory,
-  sliderIndustries,
-} from "components/slider/mockData";
+import { sliderCategory, sliderIndustries } from "components/slider/mockData";
 import { Separator } from "components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
@@ -13,19 +9,36 @@ import { FC } from "react";
 import Styles from "./about/About.module.scss";
 import { ISSRHomeNews } from "features/news/News";
 import { ConnectError } from "components/connect_error";
+import { ISlideItem } from "components/slider/Slider.d";
 
 const HomeContainer: FC<ISSRHomeNews> = ({ newsData, indexBanner }) => {
   console.log("2123", indexBanner);
   //TODO: недокручены банеры нужно структуру слайда получать с бэка
   /*    const arrayImages:ISliderProps=[];
-    console.log("111",arrayImages )*/
+      console.log("111",arrayImages )*/
+
+  const convert = () => {
+    return indexBanner?.response.map((e): ISlideItem => {
+      return {
+        alt: e.title,
+        block_description: e.show_text || false,
+        description: e.description,
+        images: {
+          pc: e.images.pc,
+          ipad: e.images.ipad,
+          mobile: e.images.mobile,
+        },
+        link_slider: false,
+        title: e.title,
+        typeSlider: "img",
+        url: "",
+      };
+    });
+  };
+  console.log("sliderData.items", convert());
   return (
     <>
-      <SliderContainer
-        autoplay={false}
-        items={sliderData.items}
-        theme={"home"}
-      />
+      <SliderContainer autoplay={false} items={convert()} theme={"home"} />
       <Separator title={"О нас"} />
       <AboutContainer />
       <Container className={`wrapper_clear`} el="section">

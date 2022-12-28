@@ -81,6 +81,7 @@ const SliderContainer: FC<ISliderProps> = ({
         onSwiper={(swiper) => console.log(swiper)}
       >
         {items.map((e, i) => {
+          console.log("aaa", e);
           return (
             <SwiperSlide key={i}>
               <SlideItem
