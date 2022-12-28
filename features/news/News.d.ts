@@ -50,7 +50,12 @@ interface IBannerItem {
   imageTitle: string;
   imageUrl: string;
   slideNumber: number;
-  showText: boolean;
+  show_text?: boolean;
+  images?: {
+    pc?: string;
+    ipad?: string;
+    mobile?: string;
+  };
 }
 
 interface IStatics {
