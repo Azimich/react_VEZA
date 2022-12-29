@@ -1,6 +1,7 @@
 interface ISliderProps {
   id?: number;
   items: ISlideItem[];
+  speed?: number;
   dots?: boolean;
   navigations?: boolean;
   theme?:

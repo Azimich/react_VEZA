@@ -27,28 +27,26 @@ const NewsContainer: FC<ISSRHomeNews> = ({ newsData }) => {
   }, [router.query.page]);
 
   return (
-    <>
-      <Container className={"wrapper_clear"}>
-        <BreadCrumbs data={dataBreadNews} />
-        {!newsData.hasError ? (
-          newsDataState.map((e) => {
-            return <NewsWithItem {...e} key={e.newsId} />;
-          })
-        ) : (
-          <ConnectError type={"text"} />
-        )}
-        {!newsData.hasError && (
-          <Pagination
-            onPageChange={(page) => {
-              router.push(newsPath + "?page=" + page).then();
-            }}
-            currentPage={newsPageState?.pageNumber}
-            totalPageCount={newsPageState?.totalPages}
-            pageSize={newsPageState?.pageSize}
-          />
-        )}
-      </Container>
-    </>
+    <Container className={"wrapper_clear"}>
+      <BreadCrumbs data={dataBreadNews} />
+      {!newsData.hasError ? (
+        newsDataState.map((e) => {
+          return <NewsWithItem {...e} key={e.newsId} />;
+        })
+      ) : (
+        <ConnectError type={"text"} />
+      )}
+      {!newsData.hasError && (
+        <Pagination
+          onPageChange={(page) => {
+            router.push(newsPath + "?page=" + page).then();
+          }}
+          currentPage={newsPageState?.pageNumber}
+          totalPageCount={newsPageState?.totalPages}
+          pageSize={newsPageState?.pageSize}
+        />
+      )}
+    </Container>
   );
 };
 
