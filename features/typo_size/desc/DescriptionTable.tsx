@@ -1,11 +1,34 @@
 import Styles from "./Description.module.scss";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { DescriptionTableHeader } from "features/typo_size/desc/DescriptionTableHeader";
+import { DescriptionTableItem } from "features/typo_size/desc/DescriptionTableItem";
 
 const DescriptionTable: FC = () => {
+  const [tablesData, setTablesData] = useState<string[]>([]);
+  const getFile = async (file: string) => {
+    return await fetch(file)
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (data) {
+        return data.split("\r\n");
+      });
+  };
+  useEffect(() => {
+    getFile("/download/test.csv").then((data) => {
+      setTablesData(data);
+    });
+  }, []);
+
   return (
     <div className={Styles.typesizes__table_container}>
       <table className={Styles.typesizes__table_container_box}>
         <tbody>
+          <DescriptionTableHeader title={tablesData[0]} />
+          {tablesData.map((e, i) => {
+            return i > 0 && <DescriptionTableItem data={e} />;
+          })}
+
           <tr>
             <th
               className={`${Styles.typesizes__table_container_title} ${Styles.typesizes__table_container_title_first}`}
