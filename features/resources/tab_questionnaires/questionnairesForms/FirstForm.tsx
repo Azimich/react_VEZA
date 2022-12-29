@@ -114,7 +114,7 @@ const FirstForm = () => {
           <div className={Styles.first_form_right_block}>
             <div className={Styles.input}>
               <LayoutInput
-                name={"email"}
+                name={"data"}
                 id={"email_id"}
                 title={"Дата *"}
                 className={Styles.input__item}

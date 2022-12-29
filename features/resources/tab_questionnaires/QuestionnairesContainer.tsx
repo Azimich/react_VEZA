@@ -12,7 +12,10 @@ import { IQuestionSSR } from "pages/resources/questionnaires/[alias]";
 import { questionnairesData } from "features/resources/mockData";
 import { IQuestionnaires } from "features/resources/tab_bim/Bim";
 import { checkEmptyObject } from "utils/helpers";
-import { FirstForm } from "features/resources/tab_questionnaires/questionnairesForms";
+import {
+  FirstForm,
+  SecondForm,
+} from "features/resources/tab_questionnaires/questionnairesForms";
 
 const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
   const router = useRouter();
@@ -48,8 +51,8 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
           size={"max"}
         />
         {/*Форму вывел сюда, пока пути не настроены*/}
+        <SecondForm />
         <FirstForm />
-
         {parent &&
           parent?.map((item) => <QuestionnairesItem key={item.id} {...item} />)}
       </div>
