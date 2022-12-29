@@ -1,12 +1,12 @@
-import { Container } from "../../../components/common/container";
+import { Container } from "components/common/container";
 import { FC } from "react";
 import { Description_Images } from "./Images";
-import { Button } from "../../../components/button";
+import { Button } from "components/button";
 import Styles from "./Description.module.scss";
-import { Accordeon } from "../../../components/accordeon";
+import { Accordeon } from "components/accordeon";
 import { DescriptionTable } from "./DescriptionTable";
-import { Separator } from "../../../components/separator";
-import { Modal, useModal } from "../../../components/modal";
+import { Separator } from "components/separator";
+import { Modal, useModal } from "components/modal";
 import { ModalForm } from "./descModal/ModalForm";
 
 const DescriptionContainer: FC = () => {
