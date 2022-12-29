@@ -540,7 +540,7 @@ const MapData: IMapData[] = [
   },
   {
     id: 43,
-    alias: "kirodckaya_obl",
+    alias: "kirovckaya_obl",
     country: "russia",
     alt: "Кировская область",
     className: "nnov",

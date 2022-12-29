@@ -31,6 +31,7 @@ import { ConnectError } from "components/connect_error";
 import { MessageItem } from "components/massage/MessageItem";
 import { JobItem } from "features/about/tab_job/JobItem";
 import { useGetDaData } from "service/getDaData";
+import { useGeoLocation } from "store/hooks/useGeoLocation";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -50,7 +51,8 @@ const JobContainer: FC = () => {
   const { getVacancies } = useGetVacancies();
   const { getJobCity } = useGetJobCity();
   const { getGeoCode } = useGetDaData();
-
+  const { coordinates, error } = useGeoLocation();
+  console.log("vacanciesData", vacanciesData);
   useEffect(() => {
     /**
      * Получаем данные о городах и добавляем в стеайт
@@ -64,7 +66,6 @@ const JobContainer: FC = () => {
       setVacanciesData(data);
     });
   }, []);
-
   useEffect(() => {
     const res = cities
       ?.filter((e) => {
@@ -74,28 +75,12 @@ const JobContainer: FC = () => {
         return { value: data.alias, label: data.city };
       })
       ?.shift();
-
     setSelectedCities(res);
-
     handleSelectChange(res);
   }, [cities]);
-
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Вакансии" }]);
   }, [dataBreadAbout]);
-
-  const router = useRouter();
-  const handleOnClickMap = (ref: { offsetTop: number }, e: IVacancies) => {
-    const loc_selected = cities.filter((data) => data.alias === e.city).shift();
-    const loc_selected_item = {
-      value: loc_selected?.alias,
-      label: loc_selected?.city,
-    };
-    setSelectedCities(loc_selected_item);
-    handleSelectChange(loc_selected_item);
-    window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
-  };
-
   useEffect(() => {
     setSelectedReferenceData(
       vacanciesData &&
@@ -110,6 +95,19 @@ const JobContainer: FC = () => {
     );
     /*        console.log("selectedCheckBox", selectedCheckBox)*/
   }, [selectedCheckBox, vacanciesData]);
+
+  const router = useRouter();
+  const handleOnClickMap = (ref: { offsetTop: number }, e: IVacancies) => {
+    const loc_selected = cities.filter((data) => data.alias === e.city).shift();
+    const loc_selected_item = {
+      value: loc_selected?.alias,
+      label: loc_selected?.city,
+    };
+    setSelectedCities(loc_selected_item);
+    handleSelectChange(loc_selected_item);
+    window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
+  };
+
   const FormOutPut: ReactNode[] = selectedReferenceData?.map((e) => {
     return (
       <ObjectItem
@@ -134,10 +132,16 @@ const JobContainer: FC = () => {
   };
 
   useEffect(() => {
-    getGeoCode({ lat: 54.91722, lon: 37.420347, count: 1 }).then((data) => {
-      console.log("data", data);
-    });
-  }, []);
+    !error &&
+      coordinates?.lat &&
+      getGeoCode({
+        lat: coordinates?.lat,
+        lon: coordinates?.lng,
+        count: 1,
+      }).then((data) => {
+        console.log("data", data, coordinates, Boolean(error));
+      });
+  }, [coordinates]);
   const handleSelectChange = (selected: IOptionItem) => {
     /**
      * Получаем данные относительно выбранного города
@@ -176,7 +180,7 @@ const JobContainer: FC = () => {
       />
 
       <div className={Styles.vacancies__search_box} ref={selectRef}>
-        {selectedCities?.value && (
+        {cities?.length > 0 && (
           <SelectContainer
             optionsData={cities?.map((e) => {
               return { value: e.alias, label: e.city };

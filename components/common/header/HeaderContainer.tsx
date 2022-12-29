@@ -18,7 +18,7 @@ const HeaderContainer: FC = () => {
   const dispatch = useAppDispatch();
 
   const auth = useAppSelector(getAuth);
-  console.log("11:", auth);
+  console.log("aaa", auth);
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
   useScrollStop(isShow);

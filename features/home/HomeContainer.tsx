@@ -38,7 +38,7 @@ const HomeContainer: FC<ISSRHomeNews> = ({ newsData, indexBanner }) => {
   console.log("sliderData.items", convert());
   return (
     <>
-      <SliderContainer autoplay={false} items={convert()} theme={"home"} />
+      <SliderContainer autoplay={true} items={convert()} theme={"home"} />
       <Separator title={"О нас"} />
       <AboutContainer />
       <Container className={`wrapper_clear`} el="section">
