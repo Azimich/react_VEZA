@@ -2,7 +2,7 @@
 @import 'styles/variables.scss';
 
 //первая форма
-.first_form {
+.first_form, .second_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .right_border {
@@ -134,4 +134,96 @@
     justify-content: center;
   }
 
+}
+
+//вторая форма
+.second_form {
+  &_radios {
+    padding: 15px 0;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #bebebe;
+  }
+  &_middle_title {
+    padding: 10px;
+    border-bottom: 1px solid #bebebe;
+    p {
+      font-size: 20px;
+      max-width: 55%;
+      margin: 0 auto;
+      text-align: center;
+      color: #009247;
+      line-height: 145%;
+    }
+  }
+  &_middle_title_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #bebebe;
+    .second_form_left_title {
+      padding: 12px 0;
+      width: 50%;
+      h3 {
+        text-align: center;
+        font-size: 18px;
+        color: grey;
+        font-weight: 400;
+      }
+      h2 {
+        text-align: center;
+        font-size: 18px;
+        color: color(dark);
+        font-weight: 400;
+      }
+    }
+    .second_form_right_title {
+      padding: 12px 0 !important;
+      width: 50%;
+      h3 {
+        font-size: 18px;
+        color: grey;
+        font-weight: 400;
+      }
+      h2 {
+        padding: 0 0 0 50px;
+        font-size: 18px;
+        color: color(dark);
+        font-weight: 400;
+      }
+    }
+    .input__item {
+      width: 200px;
+      padding: 0 0 0 50px;
+    }
+  }
+  &_middle_radio_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #bebebe;
+    .second_form_left_title_block {
+      width: 50%;
+      h3 {
+        text-align: center;
+        font-size: 18px;
+        color: grey;
+        font-weight: 400;
+      }
+    }
+    .second_form_right_radio {
+      width: 50%;
+    }
+    .right_border {
+      padding: 12px 0 !important;
+    }
+    .second_form_radios_wrapp {
+      padding-left: 45px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import { FirstForm } from "./FirstForm";
+import { SecondForm } from "./SecondForm";
+import { ThirdForm } from "./ThirdForm";
 // import {useRouter} from "next/router";
 
 const FormContainer = () => {
@@ -27,6 +29,8 @@ const FormContainer = () => {
 
   return (
     <div>
+      <ThirdForm />
+      <SecondForm />
       <FirstForm />
     </div>
   );
