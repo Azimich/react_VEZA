@@ -4,7 +4,7 @@ import { ISlideItem } from "../slider/Slider.d";
 interface IMapData {
   id: number;
   piece_svg: string;
-  country: "russia" | "belarus" | "uzbek";
+  country: "russia" | "belarus" | "kazah" | "uzbek";
   alias: string;
   alt?: string;
   className?: string;

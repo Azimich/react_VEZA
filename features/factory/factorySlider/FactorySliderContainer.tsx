@@ -19,10 +19,10 @@ const FactorySliderContainer: FC<ISliderData> = () => {
   };
 
   useEffect(() => {
-    const aaa = factoryData.filter((e: IFactoryData) => {
+    const res = factoryData.filter((e: IFactoryData) => {
       return e.code === activePage && e;
     });
-    setCurrentFactory(aaa);
+    setCurrentFactory(res);
   }, [activePage]);
 
   return (

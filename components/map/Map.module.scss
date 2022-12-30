@@ -11,6 +11,7 @@
   @include ipadScreen {
     display: none;
   }
+
   .marker {
     width: fit-content;
     position: absolute;
@@ -18,6 +19,7 @@
     top: 561px;
     left: 417px;
     transition: all 0.3s;
+
     &:hover {
       transform: scale(1.5);
     }
@@ -30,9 +32,11 @@
   display: flex;
   justify-content: center;
   height: 590px;
+
   a {
     cursor: pointer;
     transition: all 0.3s;
+
     &.russia {
       &:hover {
         path, polygon {
@@ -57,22 +61,83 @@
 
     }
 
-    &.belarus {
-      transform: translate(-21px, -14px);
+    &.uzbek {
+      &:hover {
+        path, polygon {
+          fill: #50944E;
+
+        }
+      }
+
+      &.active {
+        path, polygon {
+          fill: #50944E;
+          stroke: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      path,
+      polygon {
+        transition: all 0.3s;
+        stroke: rgba(255, 255, 255, 0.4);
+      }
+
     }
 
-    &.tadjikistan {
-      transform: translate(-21px, -14px);
+    &.belarus {
+      &:hover {
+        path, polygon {
+          fill: #50944E;
+          transition: all 0.3s;
+        }
+      }
+
+      &.active {
+        path, polygon {
+          fill: #50944E;
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    &.kazah {
+      transition: all 0.3s;
+
+      &:hover {
+        transition: all 0.3s;
+
+        path, polygon {
+          fill: #50944E;
+          stroke-width: 0.5;
+          transition: all 0.3s;
+        }
+      }
+
+      &.active {
+        path, polygon {
+          fill: #50944E;
+        }
+      }
+
+      path, polygon {
+        fill: #729C90;
+        transition: all 0.3s;
+        stroke: rgba(255, 255, 255, 0.4);
+      }
+
+
     }
   }
 
 }
+
 .factory_title {
   font-weight: 500;
   font-size: 25px;
   color: #565656;
   margin: 15px 0;
 }
+
 .modal_factory_title {
   font-size: 26px;
   color: color(green);
@@ -80,13 +145,16 @@
   font-weight: 500;
   margin-bottom: 16px;
 }
+
 .factory_info {
   margin-top: 16px;
+
   &_fio {
     font-weight: 400;
     font-size: 16px;
     color: #5c5c5c;
     margin: 0 0 20px 0;
+
     p {
       font-weight: 500;
       font-size: 18px;
@@ -104,11 +172,13 @@
     gap: 10px;
     margin-bottom: 6px;
     transition: all 0.3s;
+
     &:hover {
       a, span {
         color: color(green);
       }
     }
+
     a, span {
       color: gray;
     }
@@ -119,8 +189,10 @@
       color: #5c5c5c;
       margin-top: 6px;
     }
+
     svg {
       width: 22px;
+
       path {
         fill: green;
       }
@@ -135,33 +207,39 @@
   display: flex;
   align-items: center;
   margin: 30px 0 10px 0;
+
   &:hover {
     svg {
       margin-left: 30px;
     }
   }
+
   svg {
     width: 22px;
     height: 22px;
     transition: all 0.3s;
     margin-left: 20px;
+
     path {
       fill: #009b00;
     }
   }
 }
-.side_bar{
+
+.side_bar {
   position: absolute;
   left: -60px;
   top: 5px;
   z-index: 1;
-  &_title{
+
+  &_title {
     font-weight: 400;
     color: #9c9c9c;
     font-size: 20px;
     margin-bottom: 20px;
   }
-  &_checkbox{
+
+  &_checkbox {
     color: #9c9c9c;
     cursor: pointer;
   }
