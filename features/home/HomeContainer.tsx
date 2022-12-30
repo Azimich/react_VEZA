@@ -12,7 +12,6 @@ import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
 
 const HomeContainer: FC<ISSRHomeNews> = ({ newsData, indexBanner }) => {
-  console.log("2123", indexBanner);
   //TODO: недокручены банеры нужно структуру слайда получать с бэка
   /*    const arrayImages:ISliderProps=[];
       console.log("111",arrayImages )*/

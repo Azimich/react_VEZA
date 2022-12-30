@@ -1,5 +1,4 @@
 import Styles from "./Map.module.scss";
-import { MapData } from "./mockData";
 import React, { FC, useState } from "react";
 import { MapItem } from "./MapItem";
 import { IMapProps } from "./Map";
@@ -18,41 +17,6 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
     <div>
       <div className={Styles.map_container}>
         {sideBar}
-        {/*        <svg
-          className={Styles.company__map_svg}
-          width="100%"
-          height="100%"
-          id={"parent_map"}
-          viewBox="0 0 1225 719"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >*/}
-        <svg
-          width="1300"
-          height="868"
-          viewBox="0 0 1300 868"
-          id={"parent_map"}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className={Styles.company__map_svg}
-        >
-          {MapData.map((e) => {
-            return (
-              <MapItem
-                {...e}
-                key={"map" + e.id}
-                currentClass={currentClass}
-                onMouseEnter={(
-                  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-                ) => handleMouseHover(e)}
-                onMouseLeave={(
-                  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-                ) => handleMouseLeave(e)}
-              />
-            );
-          })}
-        </svg>
-
         <svg
           width="1300"
           height="868"
