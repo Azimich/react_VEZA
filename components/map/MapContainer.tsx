@@ -7,6 +7,7 @@ import { MapDataNew } from "components/map/mockData_new";
 const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
   const [currentClass, setCurrentClass] = useState<string>("");
 
+  /*  const [mapData, setMapData] = useState([])*/
   const handleMouseHover: React.MouseEventHandler<HTMLElement> = (e) => {
     setCurrentClass(e.currentTarget.dataset.class);
   };

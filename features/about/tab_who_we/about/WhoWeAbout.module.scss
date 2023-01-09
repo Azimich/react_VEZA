@@ -21,9 +21,9 @@
     border-radius: 20px;
     text-align: center;
     margin: -220px auto 80px;
-    max-width: 800px;
+    max-width: 1000px;
     display: flex;
-    padding: 50px;
+    padding: 50px 20px;
     flex-direction: column;
     @include ipadScreen {
       border-radius: 10px;
@@ -43,7 +43,7 @@
       font-size: 50px;
       text-transform: uppercase;
       color: #212121;
-      margin-bottom: 50px;
+      margin-bottom: 25px;
       @include ipadScreen {
         margin-bottom: 4%;
         font-size: 35px;
@@ -56,12 +56,15 @@
     }
     &_text{
       font-size: 16px;
-      line-height: 170%;
+      line-height: 145%;
       font-weight: normal;
       color: #212121;
       @include ipadScreen {
         line-height: 145%;
         font-size: 14px;
+      }
+      p{
+        padding-bottom: 10px;
       }
     }
   }

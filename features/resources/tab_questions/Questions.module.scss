@@ -68,8 +68,11 @@
   }
 }
 
-.quetions__accordeon__container {
+.questions__accordion__container {
   margin-bottom: 130px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   @include ipadScreen {
     margin-bottom: 60px;
   }

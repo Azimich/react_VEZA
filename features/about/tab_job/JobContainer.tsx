@@ -6,7 +6,6 @@ import { Container } from "components/common/container";
 import Styles from "./Job.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsAboutData, tabsJobData } from "../../contacts/mockData";
-/*import { jobObject } from "./mockJob";*/
 import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
@@ -40,19 +39,20 @@ const JobContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     [],
   );
-  const selectRef = useRef(null);
-  const [breadCrumbs, setBreadCrumbs] =
-    useState<IBreadCrumbs[]>(dataBreadAbout);
   const [cities, setCities] = useState<IJob[]>();
   const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
-  const { isShow, toggle } = useModal();
   const [jobs, setJobs] = useState<IJobsResponseArray>();
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadAbout);
+
+  const selectRef = useRef(null);
+  const { isShow, toggle } = useModal();
   const { getListCities } = useGetListCities();
   const { getVacancies } = useGetVacancies();
   const { getJobCity } = useGetJobCity();
   const { getGeoCode } = useGetDaData();
   const { coordinates, error } = useGeoLocation();
-  console.log("vacanciesData", vacanciesData);
+
   useEffect(() => {
     /**
      * Получаем данные о городах и добавляем в стеайт
@@ -63,6 +63,7 @@ const JobContainer: FC = () => {
     });
 
     getVacancies().then((data) => {
+      console.log("vac", data);
       setVacanciesData(data);
     });
   }, []);
@@ -76,14 +77,14 @@ const JobContainer: FC = () => {
       })
       ?.shift();
     setSelectedCities(res);
-    handleSelectChange(res);
+    handleSelectClickMap(res);
   }, [cities]);
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Вакансии" }]);
   }, [dataBreadAbout]);
   useEffect(() => {
-    setSelectedReferenceData(
-      vacanciesData &&
+    vacanciesData &&
+      setSelectedReferenceData(
         vacanciesData?.response.filter((item) => {
           return (
             selectedCheckBox
@@ -92,7 +93,7 @@ const JobContainer: FC = () => {
               .indexOf(item.type) !== -1
           );
         }),
-    );
+      );
     /*        console.log("selectedCheckBox", selectedCheckBox)*/
   }, [selectedCheckBox, vacanciesData]);
 
@@ -104,7 +105,7 @@ const JobContainer: FC = () => {
       label: loc_selected?.city,
     };
     setSelectedCities(loc_selected_item);
-    handleSelectChange(loc_selected_item);
+    handleSelectClickMap(loc_selected_item);
     window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
   };
 
@@ -113,7 +114,7 @@ const JobContainer: FC = () => {
       <ObjectItem
         {...e}
         onClick={(e: IVacancies) => handleOnClickMap(selectRef.current, e)}
-        key={"job" + e.connect + e.count}
+        key={"job_" + e.connect + e.count}
         icon={<div className={Styles.job_count}>{e.count}</div>}
       />
     );
@@ -145,7 +146,13 @@ const JobContainer: FC = () => {
   const handleSelectChange = (selected: IOptionItem) => {
     /**
      * Получаем данные относительно выбранного города
-     * **/
+     **/
+    if (selectedCheckBox.length === 0) {
+      setSelectedReferenceData(
+        vacanciesData.response.filter((e) => e.city === selected.value),
+      );
+    }
+
     if (selected?.value) {
       getJobCity(selected.value).then((data) => {
         setSelectedCities(selected);
@@ -153,9 +160,19 @@ const JobContainer: FC = () => {
       });
     }
   };
-
+  const handleSelectClickMap = (selected: IOptionItem) => {
+    /**
+     * Получаем данные относительно выбранного города
+     **/
+    if (selected?.value) {
+      getJobCity(selected.value).then((data) => {
+        setSelectedCities(selected);
+        setJobs(data);
+      });
+    }
+  };
+  console.log("cities", cities);
   ///TODO: Геолокацию доделать когда в вакансиях будут города
-
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />

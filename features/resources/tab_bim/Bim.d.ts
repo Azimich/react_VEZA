@@ -1,3 +1,5 @@
+import { IResponse } from "../../../types/response";
+
 interface IBim {
   id?: number;
   title?: string;
@@ -6,6 +8,7 @@ interface IBim {
   date?: string;
   alias?: string;
 }
+
 interface ICatalog {
   id: number;
   title?: string;
@@ -13,6 +16,7 @@ interface ICatalog {
   download_url?: string;
   alias?: string;
 }
+
 interface ICertificates {
   id?: number;
   image?: string;
@@ -23,12 +27,16 @@ interface ICertificates {
   desc?: string;
   category?: string;
 }
+
 interface IQuestions {
-  id?: number;
-  title?: string;
-  desc?: string;
-  alias?: string;
+  answer?: string;
+  question?: string;
 }
+
+interface IQuestionsResponseArray extends Omit<IResponse, "response"> {
+  response: IQuestions[];
+}
+
 interface IQuestionnaires {
   id: number;
   title: string;
@@ -38,4 +46,11 @@ interface IQuestionnaires {
   parent?: number;
 }
 
-export { IBim, ICatalog, ICertificates, IQuestions, IQuestionnaires };
+export {
+  IBim,
+  ICatalog,
+  ICertificates,
+  IQuestions,
+  IQuestionnaires,
+  IQuestionsResponseArray,
+};
