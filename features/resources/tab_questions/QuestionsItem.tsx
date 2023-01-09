@@ -3,8 +3,8 @@ import { FC } from "react";
 import { IQuestions } from "../tab_bim/Bim";
 import { Accordeon } from "components/accordeon";
 
-const QuestionsItem: FC<IQuestions> = ({ title, desc }) => {
-  return <Accordeon title={title}>{desc}</Accordeon>;
+const QuestionsItem: FC<IQuestions> = ({ answer, question }) => {
+  return <Accordeon title={question}>{answer}</Accordeon>;
 };
 
 export { QuestionsItem };

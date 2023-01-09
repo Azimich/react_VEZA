@@ -9,9 +9,10 @@ const WhoWeAboutContainer = () => {
         <h1 className={Styles.WhoweAbout_container_about_title}>
           {whoweabout.title}
         </h1>
-        <div className={Styles.WhoweAbout_container_about_text}>
-          {whoweabout.description}
-        </div>
+        <div
+          className={Styles.WhoweAbout_container_about_text}
+          dangerouslySetInnerHTML={{ __html: whoweabout.description }}
+        ></div>
       </div>
     </div>
   );

@@ -347,7 +347,7 @@ const dataContactsCitySelect: IOptionItem[] = [
 const office_sales_data: IObject[] = [
   {
     id: 1,
-    connection: "belarus",
+    connect: "belarus",
     alias: "minsk",
     object: {
       xpx: 22,
@@ -361,7 +361,7 @@ const office_sales_data: IObject[] = [
   },
   {
     id: 2,
-    connection: "moskovskaya_obl",
+    connect: "moskovskaya_obl",
     alias: "msk",
 
     object: {
@@ -376,7 +376,7 @@ const office_sales_data: IObject[] = [
   },
   {
     id: 3,
-    connection: "hanty_mansiyskiy",
+    connect: "hanty_mansiyskiy",
     alias: "hant",
 
     object: {
@@ -391,7 +391,7 @@ const office_sales_data: IObject[] = [
   },
   {
     id: 4,
-    connection: "amurskaya_obl",
+    connect: "amurskaya_obl",
     alias: "saha_yakutia_office",
 
     object: {

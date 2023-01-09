@@ -18,7 +18,7 @@ const HeaderContainer: FC = () => {
   const dispatch = useAppDispatch();
 
   const auth = useAppSelector(getAuth);
-  console.log("aaa", auth);
+  console.log("auth", auth);
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
   useScrollStop(isShow);
@@ -27,16 +27,17 @@ const HeaderContainer: FC = () => {
   };
 
   useEffect(() => {
-    getToken().tokens.token &&
-      checkAuth(getToken().tokens.token).then(
-        (data: IAuthResponse | undefined) => {
-          if (data === undefined || data?.hasError) {
-            deleteAuthToken();
-          } else {
-            dispatch(setDataAuth({ identify: true, data: data }));
-          }
-        },
-      );
+    getToken().tokens.token
+      ? checkAuth(getToken().tokens.token).then(
+          (data: IAuthResponse | undefined) => {
+            if (data === undefined || data?.hasError) {
+              deleteAuthToken();
+            } else {
+              dispatch(setDataAuth({ identify: true, data: data }));
+            }
+          },
+        )
+      : dispatch(setDataAuth({ identify: true }));
   }, [getToken().tokens.token]);
   const handleScroll = () => {
     window.scrollY > 0 ? setScrollData(1) : setScrollData(0);
@@ -56,7 +57,8 @@ const HeaderContainer: FC = () => {
         }
       >
         <HeaderLogo />
-        <HeaderNav isShowMenu={isShow} scroll={scrollData} />
+        {auth.identify && <HeaderNav isShowMenu={isShow} scroll={scrollData} />}
+
         <HeaderIcon
           isShowMenu={isShow}
           onClick={() => handleHamburgerOnClick()}

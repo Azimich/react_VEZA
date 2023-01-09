@@ -5,6 +5,7 @@ interface IJob {
   country: string;
   description: string;
   district: string;
+  districtFiasId: string;
   title: string;
   url: string;
   alias?: string;
@@ -15,7 +16,7 @@ interface IVacancies {
   connect: string;
   city: string;
   type: "plant" | "office";
-  count: 3;
+  count: number;
 }
 
 interface IJobsResponseArray extends Omit<IResponse, "response"> {

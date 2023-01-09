@@ -14,6 +14,7 @@ interface IHeaderNav {
 
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
   const [menu] = useState<IMenuState>(useAppSelector(getMenu));
+  /*  const auth = useAppSelector(getAuth);*/
   const router = useRouter();
 
   return (

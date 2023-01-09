@@ -5,7 +5,7 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  max-width: 1100px;
+  //max-width: 1100px;
   margin: 0 auto 40px;
   //max-height: 450px;
   @include ipadScreen {
@@ -27,11 +27,11 @@
 }
 
 .company__map_svg {
-  width: 1100px;
+  width: 100%;
   margin: 0 auto 40px;
   display: flex;
   justify-content: center;
-  height: 590px;
+  height: 700px;
 
   a {
     cursor: pointer;
@@ -228,7 +228,7 @@
 
 .side_bar {
   position: absolute;
-  left: -60px;
+  left: 0;
   top: 5px;
   z-index: 1;
 

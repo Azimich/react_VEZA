@@ -4,15 +4,23 @@ import Styles from "./Questions.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { QuestionsItem } from "./QuestionsItem";
-import { questionsData } from "../mockData";
-import { IQuestions } from "../tab_bim/Bim";
+import { IQuestions, IQuestionsResponseArray } from "../tab_bim/Bim";
 import { Separator } from "components/separator";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { handleOnClickTabs } from "../helper";
 import { useRouter } from "next/router";
+import { useQuestions } from "service/list/getQuestions";
 
 const QuestionsContainer: FC<IQuestions> = () => {
+  const [questionsData, setQuestionsData] = useState<IQuestions[]>([]);
+  const { getQuestions } = useQuestions();
+  useEffect(() => {
+    getQuestions().then((data: IQuestionsResponseArray) => {
+      !data.hasError && setQuestionsData(data.response);
+    });
+  }, []);
+
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
@@ -36,13 +44,13 @@ const QuestionsContainer: FC<IQuestions> = () => {
       </div>
       <div className={Styles.title}>
         <Separator title={"Часто задаваемые вопросы"} />
-        <p>Здесь вы сможете найти ответы на часто задаваемые и не только</p>
+        <p>Здесь вы сможете найти ответы на часто задаваемые вопросы</p>
       </div>
-      <div className={Styles.quetions__accordeon__container}>
+      <ul className={Styles.questions__accordion__container}>
         {questionsData.map((item, i) => {
           return <QuestionsItem key={i} {...item} />;
         })}
-      </div>
+      </ul>
     </Container>
   );
 };

@@ -46,7 +46,7 @@ const useAuth = () => {
   const checkAuth = (token: string) => {
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +
-        "/api/Identity/check_user_with_access_token",
+        "/api/v1/Identity/check_user_with_access_token",
       "POST",
       null,
       {

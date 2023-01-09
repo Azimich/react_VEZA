@@ -13,7 +13,7 @@ const AccordionContainer: FC<IAccordion> = ({
   const [stateToggle, toggle] = useToggle(icon_show);
 
   return (
-    <div
+    <li
       className={`${
         stateToggle
           ? Styles.accordion__container__animation
@@ -28,7 +28,7 @@ const AccordionContainer: FC<IAccordion> = ({
       >
         {children}
       </AccordionHeader>
-    </div>
+    </li>
   );
 };
 
