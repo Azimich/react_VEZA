@@ -15,6 +15,7 @@ import { checkEmptyObject } from "utils/helpers";
 import {
   FirstForm,
   SecondForm,
+  ThirdForm,
 } from "features/resources/tab_questionnaires/questionnairesForms";
 
 const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
@@ -51,6 +52,7 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
           size={"max"}
         />
         {/*Форму вывел сюда, пока пути не настроены*/}
+        <ThirdForm />
         <SecondForm />
         <FirstForm />
         {parent &&
