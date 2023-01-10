@@ -10,7 +10,7 @@ import { Separator } from "components/separator";
 import { SelectContainer } from "components/select/SelectContainer";
 import { Button } from "components/button";
 import { Map } from "components/map";
-import { IObject } from "components/map/Map";
+import { IMapData, IObject } from "components/map/Map";
 import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "components/map/SideBar";
 import { Modal, useModal } from "components/modal";
@@ -31,6 +31,9 @@ import { MessageItem } from "components/massage/MessageItem";
 import { JobItem } from "features/about/tab_job/JobItem";
 import { useGetDaData } from "service/getDaData";
 import { useGeoLocation } from "store/hooks/useGeoLocation";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
+import { getMap } from "components/map/MapSlice";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -52,6 +55,8 @@ const JobContainer: FC = () => {
   const { getJobCity } = useGetJobCity();
   const { getGeoCode } = useGetDaData();
   const { coordinates, error } = useGeoLocation();
+  const auth = useAppSelector(getAuth);
+  const mapState = useAppSelector(getMap);
 
   useEffect(() => {
     /**
@@ -63,7 +68,6 @@ const JobContainer: FC = () => {
     });
 
     getVacancies().then((data) => {
-      console.log("vac", data);
       setVacanciesData(data);
     });
   }, []);
@@ -96,6 +100,28 @@ const JobContainer: FC = () => {
       );
     /*        console.log("selectedCheckBox", selectedCheckBox)*/
   }, [selectedCheckBox, vacanciesData]);
+
+  useEffect(() => {
+    !error &&
+      coordinates?.lat &&
+      !auth.data &&
+      getGeoCode({
+        lat: coordinates?.lat,
+        lon: coordinates?.lng,
+        count: 1,
+      }).then((data) => {
+        const selected: IMapData = mapState?.response
+          .filter(
+            (e) =>
+              e.districtFiasId === data?.suggestions[0].data?.region_fias_id,
+          )
+          .shift();
+        handleSelectChange({
+          value: selected.cityAddressAlias,
+          label: selected.city,
+        });
+      });
+  }, [coordinates]);
 
   const router = useRouter();
   const handleOnClickMap = (ref: { offsetTop: number }, e: IVacancies) => {
@@ -132,47 +158,38 @@ const JobContainer: FC = () => {
     router.push(aboutPath + e.url).then();
   };
 
-  useEffect(() => {
-    !error &&
-      coordinates?.lat &&
-      getGeoCode({
-        lat: coordinates?.lat,
-        lon: coordinates?.lng,
-        count: 1,
-      }).then((data) => {
-        console.log("data", data, coordinates, Boolean(error));
-      });
-  }, [coordinates]);
   const handleSelectChange = (selected: IOptionItem) => {
     /**
      * Получаем данные относительно выбранного города
      **/
-    if (selectedCheckBox.length === 0) {
+    console.log("1111", selected?.value);
+    /*if (selectedCheckBox.length === 0) {
       setSelectedReferenceData(
         vacanciesData.response.filter((e) => e.city === selected.value),
       );
-    }
+    }*/
 
-    if (selected?.value) {
-      getJobCity(selected.value).then((data) => {
+    /*    if (selected?.value) {
+      getJobCity(selected?.value).then((data) => {
         setSelectedCities(selected);
         setJobs(data);
       });
-    }
+    }*/
   };
   const handleSelectClickMap = (selected: IOptionItem) => {
     /**
      * Получаем данные относительно выбранного города
      **/
     if (selected?.value) {
-      getJobCity(selected.value).then((data) => {
+      getJobCity(selected?.value).then((data) => {
         setSelectedCities(selected);
         setJobs(data);
       });
     }
   };
-  console.log("cities", cities);
+
   ///TODO: Геолокацию доделать когда в вакансиях будут города
+
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -197,7 +214,7 @@ const JobContainer: FC = () => {
       />
 
       <div className={Styles.vacancies__search_box} ref={selectRef}>
-        {cities?.length > 0 && (
+        {
           <SelectContainer
             optionsData={cities?.map((e) => {
               return { value: e.alias, label: e.city };
@@ -207,7 +224,7 @@ const JobContainer: FC = () => {
             onChange={(e) => handleSelectChange(e)}
             value={selectedCities}
           />
-        )}
+        }
         <Button
           type={"button"}
           children={"Поиск"}

@@ -18,7 +18,6 @@ const HeaderContainer: FC = () => {
   const dispatch = useAppDispatch();
 
   const auth = useAppSelector(getAuth);
-  console.log("auth", auth);
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
   useScrollStop(isShow);
@@ -39,6 +38,7 @@ const HeaderContainer: FC = () => {
         )
       : dispatch(setDataAuth({ identify: true }));
   }, [getToken().tokens.token]);
+
   const handleScroll = () => {
     window.scrollY > 0 ? setScrollData(1) : setScrollData(0);
   };
@@ -57,7 +57,9 @@ const HeaderContainer: FC = () => {
         }
       >
         <HeaderLogo />
-        {auth.identify && <HeaderNav isShowMenu={isShow} scroll={scrollData} />}
+        {auth.identify && (
+          <HeaderNav isShowMenu={isShow} scroll={scrollData} auth={auth.data} />
+        )}
 
         <HeaderIcon
           isShowMenu={isShow}

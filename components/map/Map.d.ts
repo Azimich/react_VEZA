@@ -1,16 +1,29 @@
 import React, { ReactNode } from "react";
 import { ISlideItem } from "../slider/Slider.d";
+import { IResponse } from "../../types/response";
 
 interface IMapData {
-  id: number;
+  id?: number;
   piece_svg: string;
+  city?: string;
   country: "russia" | "belarus" | "kazah" | "uzbek";
   alias: string;
+  cityAddressAlias?: string;
+  districtFiasId?: string;
+  district?: string;
   alt?: string;
   className?: string;
   currentClass?: string;
   onMouseEnter?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   onMouseLeave?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+}
+
+interface IMapState extends Omit<IResponse, "response"> {
+  response: IMapData[];
+}
+
+interface IMapSlice {
+  mapState: IMapState;
 }
 
 interface IMapProps {
@@ -56,4 +69,4 @@ interface IObject {
   onClick?: (e, alias) => void;
 }
 
-export { IObject, IMapData, IObjectItem, IMapProps };
+export { IObject, IMapData, IObjectItem, IMapProps, IMapState, IMapSlice };
