@@ -4,9 +4,20 @@
 //первая форма
 .first_form,
 .second_form,
-.third_form {
+.third_form,
+.fourth_form,
+.fifth_form,
+.sixth_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
+  .border_top_title {
+    border-top: 1px solid #bebebe;
+  }
+  .p {
+    font-size: 18px;
+    color: color(dark);
+    margin-bottom: 15px;
+  }
   .right_border {
     border-left: 1px solid #bebebe;
     padding: 0 0 0 25px;
@@ -446,7 +457,6 @@
       }
       &_right {
         display: flex;
-        align-items: baseline;
         flex-wrap: wrap;
         gap: 25px;
       }
@@ -494,5 +504,208 @@
   }
   &_input_short {
     width: 200px;
+  }
+}
+
+//четвертая форма
+.fourth_form {
+  &_right_block_middle_input {
+    margin-top: 20px;
+    width: 50%;
+  }
+  &_radios {
+    padding: 15px 0;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #bebebe;
+  }
+  .radio_column {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &_schemes {
+    padding: 20px 15px;
+    p {
+      text-align: center;
+    }
+  }
+  &_schemes_images_block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 20px;
+    gap: 20px;
+    &_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border: 1px solid #bebebe;
+      padding: 10px;
+      overflow: hidden;
+    }
+    img {
+      width: auto;
+      height: 150px;
+    }
+  }
+  .center_title {
+    text-align: center;
+    color: color(dark);
+    font-weight: 400;
+    padding: 10px;
+  }
+  .radio_column_parent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &_columns_block_right {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 25px;
+    p {
+      font-size: 14px;
+      line-height: 145%;
+      color: color(dark);
+    }
+  }
+  &_grid_checkbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    &_gap {
+      column-gap: 40px;
+      label {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &_inputs_variant {
+    padding: 20px 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+  }
+  &_check_and_input {
+    display: flex;
+    align-items: flex-end;
+    gap: 50px;
+    justify-content: space-between;
+  }
+  &_columns_block_inputs {
+    padding: 20px 15px;
+    display: flex;
+    gap: 50px;
+    .column_block {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}
+
+//Пятая форма
+.fifth_form {
+  &_radios {
+    padding: 15px 0;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #bebebe;
+  }
+  .radios_middle_bottom_checkbox {
+    padding: 20px 15px;
+  }
+  .radio_column {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .padding_10 {
+    padding: 12px 15px;
+  }
+  &_column_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 50px 0 0 0;
+    p {
+      color: color(dark);
+      font-size: 16px;
+      line-height: 145%;
+    }
+    .left_column,
+    .right_column {
+      width: 50%;
+      h4 {
+        color: color(dark);
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid #bebebe;
+        border-bottom: 1px solid #bebebe;
+      }
+    }
+    .left_column {
+      border-right: 1px solid #bebebe;
+    }
+  }
+  .fifth_form_inputs_padding {
+    padding: 87px 15px;
+    .fifth_form_left_block {
+      width: 50%;
+    }
+  }
+  &_middle_block {
+    display: flex;
+    gap: 20px;
+  }
+  &_columns_block_right {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 50px;
+  }
+  .checkbox_wrapp {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &_colum_gap {
+    gap: 30px;
+  }
+  &_column_flex {
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &_flex_checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .border_top_title {
+    border-top: 1px solid #bebebe;
+  }
+  &_column_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-gap: 20px;
+    gap: 35px;
+    padding: 20px 15px;
+  }
+}
+
+//Шестая форма
+.sixth_form {
+  &_radios {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 1px solid #bebebe;
   }
 }
