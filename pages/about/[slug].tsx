@@ -3,9 +3,10 @@ import { wrapper } from "store/store";
 import { Job, WhoWe } from "features/about";
 import React from "react";
 import { IComponents } from "components/tabs/Tabs";
-import { menuListServer } from "service/index";
+import { mapListServer, menuListServer } from "service/index";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { tabsAboutData } from "features/contacts/mockData";
+import { fetchMap } from "components/map/MapSlice";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -19,6 +20,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
+    store.dispatch(fetchMap({ mapState: { ...(await mapListServer()) } }));
+
     const { params } = context;
     return {
       props: { slug: params.slug },

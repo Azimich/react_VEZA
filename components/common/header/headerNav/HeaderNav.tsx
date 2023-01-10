@@ -5,11 +5,13 @@ import { useAppSelector } from "store/hooks/useAppSelector";
 import { getMenu } from "store/slice/MenuSlice";
 import { useRouter } from "next/router";
 import { ConnectError } from "components/connect_error";
-import Link from "next/link";
+import { IAuthResponse } from "features/auth/Auth";
+import { Link } from "components/link";
 
 interface IHeaderNav {
   isShowMenu?: boolean;
   scroll?: number;
+  auth?: IAuthResponse;
 }
 
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
@@ -28,16 +30,15 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
           menu?.response?.map((item) => {
             return (
               <li key={item.menuId}>
-                <Link href={"/" + item.alias}>
-                  <a
-                    className={
-                      router.pathname.split("/")[1] === item.alias
-                        ? Styles.active_menu
-                        : ""
-                    }
-                  >
-                    {item.title}
-                  </a>
+                <Link
+                  url={"/" + item.alias}
+                  classLink={
+                    router.pathname.split("/")[1] === item.alias
+                      ? Styles.active_menu
+                      : ""
+                  }
+                >
+                  {item.title}
                 </Link>
               </li>
             );
