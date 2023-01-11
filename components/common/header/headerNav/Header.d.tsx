@@ -5,6 +5,7 @@ interface IMenuData {
   title?: string;
   alias?: string;
   orderPosition?: number;
+  onlyAdmin?: boolean;
 }
 
 interface IMenuState extends Omit<IResponse, "response"> {

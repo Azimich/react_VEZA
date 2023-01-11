@@ -46,13 +46,14 @@
         color: color(green);
       }
     }
-    a {
+    a, .profile_form {
       svg {
         height: 24px;
         transition: all 0.3s;
         &:hover {
-          transition: all 0.3s;
+          cursor: pointer;
           path {
+            transition: all 0.3s;
             fill: #1BC47D;
           }
         }

@@ -7,15 +7,16 @@ import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
-import { ISSRHomeNews } from "features/news/News";
+import { ISSRHome } from "features/news/News";
 import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
 
-const HomeContainer: FC<ISSRHomeNews> = ({ newsData, indexBanner }) => {
-  //TODO: недокручены банеры нужно структуру слайда получать с бэка
-  /*    const arrayImages:ISliderProps=[];
-      console.log("111",arrayImages )*/
-
+const HomeContainer: FC<ISSRHome> = ({
+  newsData,
+  indexBanner,
+  indexCategories,
+}) => {
+  console.log("indexBanner", indexBanner, indexCategories);
   const convert = () => {
     return indexBanner?.response.map((e): ISlideItem => {
       return {

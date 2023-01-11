@@ -110,15 +110,16 @@ const JobContainer: FC = () => {
         lon: coordinates?.lng,
         count: 1,
       }).then((data) => {
-        const selected: IMapData = mapState?.response
+        const selectedVal: IMapData = mapState?.response
           .filter(
             (e) =>
               e.districtFiasId === data?.suggestions[0].data?.region_fias_id,
           )
           .shift();
+
         handleSelectChange({
-          value: selected.cityAddressAlias,
-          label: selected.city,
+          value: selectedVal?.cityAddressAlias,
+          label: selectedVal?.city,
         });
       });
   }, [coordinates]);
@@ -162,19 +163,19 @@ const JobContainer: FC = () => {
     /**
      * Получаем данные относительно выбранного города
      **/
-    console.log("1111", selected?.value);
-    /*if (selectedCheckBox.length === 0) {
-      setSelectedReferenceData(
-        vacanciesData.response.filter((e) => e.city === selected.value),
-      );
-    }*/
 
-    /*    if (selected?.value) {
+    if (selectedCheckBox.length === 0) {
+      setSelectedReferenceData(
+        vacanciesData?.response.filter((e) => e.city === selected.value),
+      );
+    }
+
+    if (selected?.value) {
       getJobCity(selected?.value).then((data) => {
         setSelectedCities(selected);
         setJobs(data);
       });
-    }*/
+    }
   };
   const handleSelectClickMap = (selected: IOptionItem) => {
     /**

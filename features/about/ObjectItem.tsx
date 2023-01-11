@@ -17,7 +17,7 @@ const ObjectItem: FC<IObject> = (props) => {
       .getElementById("parent_map")
       .getBoundingClientRect();
     const Child_Coord = document
-      .getElementById(connect)
+      .getElementById(connect.toLowerCase())
       .getBoundingClientRect();
     setRelative_coord({
       relative_top: Child_Coord.top - Parent_Coord.top,

@@ -33,7 +33,7 @@ const useToken = () => {
   };
 
   const getToken = () => {
-    if (lastLoginTime === 0) {
+    if (lastLoginTime === 0 || !token) {
       return {
         error: 2, //2 это нет токена
         tokens: {},

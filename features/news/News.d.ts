@@ -1,12 +1,14 @@
 import { IResponse } from "../../types/response";
+import { ICategoriesResponseArray } from "features/equipment/Equipment";
 
 interface ISSRNews {
   newsData: INewsResponse;
 }
 
-interface ISSRHomeNews {
+interface ISSRHome {
   newsData: INewsResponseArray;
   indexBanner: IBannerResponseArray;
+  indexCategories: ICategoriesResponseArray;
 }
 
 interface INewsResponse extends Omit<IResponse, "response"> {
@@ -21,6 +23,9 @@ interface IBannerResponseArray extends Omit<IResponse, "response"> {
   response: IBannerItem[];
 }
 
+interface IBannerResponseArray extends Omit<IResponse, "response"> {
+  response: IBannerItem[];
+}
 interface INewsDataItem {
   newsId: number;
   newsName: string;
@@ -79,10 +84,4 @@ interface IKeyWord {
   url: string;
 }
 
-export {
-  INewsDataItem,
-  INewsResponse,
-  ISSRNews,
-  ISSRHomeNews,
-  INewsResponseArray,
-};
+export { INewsDataItem, INewsResponse, ISSRNews, ISSRHome, INewsResponseArray };

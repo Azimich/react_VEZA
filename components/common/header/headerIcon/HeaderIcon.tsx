@@ -1,12 +1,20 @@
 import Styles from "./HeaderIcon.module.scss";
-import { SearchIcon, UserIcon, TelefoneIcon, BellIcon } from "components/icons";
+import {
+  SearchIcon,
+  UserIcon,
+  TelefoneIcon,
+  BellIcon,
+  UserOnLoginIcon,
+} from "components/icons";
 import { IconItem } from "../../../icons/IconItem";
 import { Modal, useModal } from "components/modal";
 import { SearchModal } from "../search/SearchModal";
 import { useRouter } from "next/router";
 import { HamburgerContainer } from "components/hamburger/HamburgerContainer";
 import { isMobile } from "react-device-detect";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
 
 /*
 import {useToken} from "store/hooks/useToken";
@@ -21,10 +29,12 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
+  const auth = useAppSelector(getAuth);
 
   const handleOnClickMore = (inputValue: string) => {
     router.push("/search/" + inputValue).then(() => toggle());
   };
+
   useEffect(() => {
     isMobile ? setMobile(true) : setMobile(false);
   }, [isMobile]);
@@ -39,13 +49,29 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
           </span>
         </div>
         {/* Авторизация */}
-        <IconItem url={"/auth"} className={"header__icon"}>
-          <BellIcon />
-        </IconItem>
+        {auth.identify && Boolean(auth?.data) && (
+          <IconItem url={"/auth"} className={"header__icon"}>
+            <BellIcon />
+          </IconItem>
+        )}
 
-        <IconItem url={"/auth"} className={"header__icon"}>
-          <UserIcon />
-        </IconItem>
+        {auth.identify && Boolean(!auth?.data) && (
+          <IconItem url={"/auth"} className={"header__icon"}>
+            <UserIcon />
+          </IconItem>
+        )}
+
+        {auth.identify && Boolean(auth?.data) && (
+          <div
+            className={Styles.profile_form}
+            onClick={() => {
+              console.log("onclick");
+            }}
+          >
+            <UserOnLoginIcon />
+          </div>
+        )}
+
         {/* Телефон */}
         <div className={Styles.phone__container}>
           <IconItem
