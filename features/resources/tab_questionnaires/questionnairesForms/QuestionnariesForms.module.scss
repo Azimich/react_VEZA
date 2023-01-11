@@ -705,7 +705,121 @@
   &_radios {
     display: flex;
     justify-content: center;
+    gap: 20px;
     padding: 10px;
     border-bottom: 1px solid #bebebe;
   }
+  &_flex {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #bebebe;
+    &_left {
+      width: 50%;
+      padding: 20px 15px;
+      &_block {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        p {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+  &_img_1 {
+    border-left: 1px solid #bebebe;
+    padding: 20px;
+    width: 50%;
+  }
+  &_img_2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    div {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+  &_img_3 {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    border: none;
+    width: 100%;
+    div {
+      width: 50%;
+      margin: 0 auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  &_img_4 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+  }
+  &_top_images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    width: 70%;
+  }
+  &_bottom_images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    width: 70%;
+  }
+  &_flex_inputs {
+    padding: 20px 15px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    &_block {
+      width: 17%;
+      label {
+        width: 100%;
+      }
+    }
+  }
+  &_columns_block_last {
+    padding: 20px 15px;
+  }
+  &_button {
+    padding: 20px 0 0 0 ;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
