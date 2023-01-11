@@ -1,5 +1,5 @@
 import { Container } from "components/common/container";
-import { INewsDataItem, ISSRHomeNews } from "./News";
+import { INewsDataItem, ISSRHome } from "./News";
 import { FC, useEffect, useState } from "react";
 import { Pagination } from "components/pagination/Pagination";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
@@ -11,7 +11,7 @@ import { useGetNews } from "service/list/getNews";
 import { IPage } from "../../types/response";
 import { ConnectError } from "components/connect_error";
 
-const NewsContainer: FC<ISSRHomeNews> = ({ newsData }) => {
+const NewsContainer: FC<ISSRHome> = ({ newsData }) => {
   const router = useRouter();
   const { getNewsData } = useGetNews();
   const [newsDataState, setNewsDataState] = useState<INewsDataItem[]>(

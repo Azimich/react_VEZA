@@ -50,4 +50,14 @@ const checkEmptyObject = (obj: {}) => {
   return Object.keys(obj).length === 0;
 };
 
-export { eachRecursive, getData, getParents, checkEmptyObject };
+const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
+  return !((role === 0 || role === undefined) && onlyAdmin);
+};
+
+export {
+  eachRecursive,
+  getData,
+  getParents,
+  checkEmptyObject,
+  checkedAccessMenu,
+};

@@ -9,7 +9,6 @@ import { getMap } from "components/map/MapSlice";
 const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
   const [currentClass, setCurrentClass] = useState<string>("");
   const [mapData] = useState<IMapState>(useAppSelector(getMap));
-
   /*    const {getMap} = useGetMap()*/
   /*    useEffect(() => {
             getMap().then((data) => {

@@ -5,18 +5,18 @@ import { useAppSelector } from "store/hooks/useAppSelector";
 import { getMenu } from "store/slice/MenuSlice";
 import { useRouter } from "next/router";
 import { ConnectError } from "components/connect_error";
-import { IAuthResponse } from "features/auth/Auth";
 import { Link } from "components/link";
+import { getAuth } from "features/auth/AuthSlice";
+import { checkedAccessMenu } from "utils/helpers";
 
 interface IHeaderNav {
   isShowMenu?: boolean;
   scroll?: number;
-  auth?: IAuthResponse;
 }
 
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
   const [menu] = useState<IMenuState>(useAppSelector(getMenu));
-  /*  const auth = useAppSelector(getAuth);*/
+  const auth = useAppSelector(getAuth);
   const router = useRouter();
 
   return (
@@ -29,18 +29,20 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
         {!menu?.hasError ? (
           menu?.response?.map((item) => {
             return (
-              <li key={item.menuId}>
-                <Link
-                  url={"/" + item.alias}
-                  classLink={
-                    router.pathname.split("/")[1] === item.alias
-                      ? Styles.active_menu
-                      : ""
-                  }
-                >
-                  {item.title}
-                </Link>
-              </li>
+              checkedAccessMenu(auth?.data?.response.role, item.onlyAdmin) && (
+                <li key={item.menuId}>
+                  <Link
+                    url={"/" + item.alias}
+                    classLink={
+                      router.pathname.split("/")[1] === item.alias
+                        ? Styles.active_menu
+                        : ""
+                    }
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              )
             );
           })
         ) : (

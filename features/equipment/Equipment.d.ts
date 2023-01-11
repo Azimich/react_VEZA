@@ -1,4 +1,5 @@
 import { ISlideItem } from "../../components/slider/Slider.d";
+import { IResponse } from "../../types/response";
 
 interface ICatalogEquipmentData {
   title: string;
@@ -21,4 +22,16 @@ interface ICatalogData {
   alias: string;
 }
 
-export { ICatalogEquipmentData, ICatalogData };
+interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
+  response: ICategoriesItem[];
+}
+
+interface ICategoriesItem {
+  title: string;
+  alias: string;
+  seo?: null;
+  imageTitle?: string;
+  imageUrl?: string;
+}
+
+export { ICatalogEquipmentData, ICatalogData, ICategoriesResponseArray };

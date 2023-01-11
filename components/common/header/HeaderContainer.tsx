@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { useAuth } from "service/auth/auth";
 import { useToken } from "store/hooks/useToken";
 import { getAuth, setDataAuth } from "features/auth/AuthSlice";
+import { SpinnerLoading } from "components/spinners";
 
 const HeaderContainer: FC = () => {
   const [scrollData, setScrollData] = useState<number>(0);
@@ -24,6 +25,19 @@ const HeaderContainer: FC = () => {
   const handleHamburgerOnClick = () => {
     toggle();
   };
+
+  const [timer, setTimer] = useState(false);
+
+  useEffect(() => {
+    !auth.identify && setTimer(false);
+    const timerLoad =
+      auth.identify &&
+      setTimeout(() => {
+        setTimer(true);
+      }, 500);
+
+    return () => clearTimeout(timerLoad);
+  }, [auth.identify]);
 
   useEffect(() => {
     getToken().tokens.token
@@ -57,8 +71,10 @@ const HeaderContainer: FC = () => {
         }
       >
         <HeaderLogo />
-        {auth.identify && (
-          <HeaderNav isShowMenu={isShow} scroll={scrollData} auth={auth.data} />
+        {auth.identify ? (
+          <HeaderNav isShowMenu={isShow} scroll={scrollData} />
+        ) : (
+          timer && <SpinnerLoading />
         )}
 
         <HeaderIcon
