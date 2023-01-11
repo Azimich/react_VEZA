@@ -7,7 +7,8 @@
 .third_form,
 .fourth_form,
 .fifth_form,
-.sixth_form {
+.sixth_form,
+.seventh_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .border_top_title {
@@ -796,6 +797,47 @@
   }
   &_button {
     padding: 20px 0 0 0 ;
+  }
+}
+
+//Седьмая форма
+.seventh_form {
+  &_radios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #bebebe;
+  }
+  &_middle_blocks {
+    display: flex;
+    border-bottom: 1px solid #bebebe;
+    &_left {
+      width: 50%;
+      border-right: 1px solid #bebebe;
+      padding: 20px 15px;
+    }
+    &_right {
+      width: 50%;
+      padding: 20px 15px;
+    }
+  }
+  .radios_middle_bottom_checkbox {
+    p {
+      margin-bottom: 12px;
+    }
+  }
+  .radios_middle_bottom_checkbox_column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+  }
+  .middle_checkbox_column {
+    gap: 0;
+  }
+  .border_top_title {
+    padding: 20px 0 0 0;
   }
 }
 
