@@ -9,12 +9,14 @@
   width: 100%;
   z-index: 99;
   transition: all 0.3s;
+
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 40px 0;
     transition: all 0.3s;
+
     &_active {
       display: flex;
       justify-content: space-between;
@@ -22,6 +24,7 @@
       transition: all 0.3s;
       padding: 25px 0 35px 0;
     }
+
     @media (max-width: 1200px) {
       padding: 35px 0;
     }
@@ -33,6 +36,43 @@
       @include ipadScreen {
         width: 110px;
       }
+    }
+  }
+
+  &__profile {
+    position: relative;
+
+    &_menu {
+      background-color: color(white);
+      width: 370px;
+      right: 0;
+      z-index: 0;
+      height: 100px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      box-shadow: 0 0 8px color(shadow);
+      border-radius: 15px;
+      opacity: 0;
+      transform: translate(0) scale(0);
+      transition: all .2s;
+      overflow: hidden;
+      pointer-events: none;
+      &.active {
+        opacity: 1;
+        transform: translate(0) scale(1);
+        z-index: 2;
+        pointer-events: inherit;
+      }
+    }
+    &_over{
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      left: 0;
     }
   }
 }

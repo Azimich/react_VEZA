@@ -16,17 +16,22 @@ import { SpinnerLoading } from "components/spinners";
 const HeaderContainer: FC = () => {
   const [scrollData, setScrollData] = useState<number>(0);
   const { isShow, toggle } = useModal();
+  const { isShow: profileShow, toggle: setProfileToogle } = useModal();
   const dispatch = useAppDispatch();
 
   const auth = useAppSelector(getAuth);
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
+  const [timer, setTimer] = useState(false);
+
   useScrollStop(isShow);
+
   const handleHamburgerOnClick = () => {
     toggle();
   };
-
-  const [timer, setTimer] = useState(false);
+  const handleProfileMenuClick = () => {
+    setProfileToogle();
+  };
 
   useEffect(() => {
     !auth.identify && setTimer(false);
@@ -63,25 +68,42 @@ const HeaderContainer: FC = () => {
       document.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <Container className="wrapper_clear">
-      <nav
-        className={
-          scrollData > 0 ? Styles.header__nav_active : Styles.header__nav
-        }
-      >
-        <HeaderLogo />
-        {auth.identify ? (
-          <HeaderNav isShowMenu={isShow} scroll={scrollData} />
-        ) : (
-          timer && <SpinnerLoading />
-        )}
+      <div className={Styles.header__profile}>
+        <nav
+          className={
+            scrollData > 0 ? Styles.header__nav_active : Styles.header__nav
+          }
+        >
+          <HeaderLogo />
+          {auth.identify ? (
+            <HeaderNav isShowMenu={isShow} scroll={scrollData} />
+          ) : (
+            timer && <SpinnerLoading />
+          )}
 
-        <HeaderIcon
-          isShowMenu={isShow}
-          onClick={() => handleHamburgerOnClick()}
-        />
-      </nav>
+          <HeaderIcon
+            isShowMenu={isShow}
+            onClickProfile={() => handleProfileMenuClick()}
+            onClick={() => handleHamburgerOnClick()}
+          />
+        </nav>
+        <div
+          className={`${Styles.header__profile_menu} ${
+            profileShow ? Styles.active : ""
+          }`}
+        >
+          profile
+        </div>
+      </div>
+      {profileShow && (
+        <div
+          className={Styles.header__profile_over}
+          onClick={() => handleProfileMenuClick()}
+        ></div>
+      )}
     </Container>
   );
 };

@@ -22,10 +22,15 @@ import {useToken} from "store/hooks/useToken";
 
 interface IHeaderMenu {
   onClick?: () => void;
+  onClickProfile?: () => void;
   isShowMenu?: boolean;
 }
 
-const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
+const HeaderIcon: FC<IHeaderMenu> = ({
+  onClick,
+  isShowMenu,
+  onClickProfile,
+}) => {
   const router = useRouter();
   const { isShow, toggle } = useModal();
   const [mobile, setMobile] = useState<boolean>();
@@ -62,12 +67,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({ onClick, isShowMenu }) => {
         )}
 
         {auth.identify && Boolean(auth?.data) && (
-          <div
-            className={Styles.profile_form}
-            onClick={() => {
-              console.log("onclick");
-            }}
-          >
+          <div className={Styles.profile_form} onClick={() => onClickProfile()}>
             <UserOnLoginIcon />
           </div>
         )}
