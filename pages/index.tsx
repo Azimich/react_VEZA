@@ -7,6 +7,7 @@ import { ISSRHome } from "features/news/News";
 import { newsList } from "service/list/servers/newsList";
 import { IndexBanner } from "service/list/servers/indexBanner";
 import { indexCategories } from "service/list/servers/indexCategories";
+import { indexAboutUS } from "service/list/servers/indexAboutUS";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
@@ -16,6 +17,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         newsData: await newsList(1, 4),
         indexBanner: await IndexBanner(),
         indexCategories: await indexCategories(),
+        indexAboutUS: await indexAboutUS(),
       },
       revalidate: 10,
     };

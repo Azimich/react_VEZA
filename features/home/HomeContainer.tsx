@@ -15,6 +15,7 @@ const HomeContainer: FC<ISSRHome> = ({
   newsData,
   indexBanner,
   indexCategories,
+  indexAboutUS,
 }) => {
   console.log("indexBanner", indexBanner, indexCategories);
   const convert = () => {
@@ -45,7 +46,11 @@ const HomeContainer: FC<ISSRHome> = ({
         dots={true}
       />
       <Separator title={"О нас"} />
-      <AboutContainer />
+      {!indexAboutUS?.hasError ? (
+        <AboutContainer {...indexAboutUS} />
+      ) : (
+        <ConnectError type={"text"} />
+      )}
       <Container className={`wrapper_clear`} el="section">
         <div className={Styles.separator__title__container}>
           <Separator title={"Категория продукции"} />
