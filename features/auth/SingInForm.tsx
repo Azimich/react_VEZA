@@ -100,6 +100,7 @@ const SingInForm: FC = () => {
                     name={item.name}
                     id={item.name + "_id"}
                     title={item.title}
+                    type={item.type}
                     className={Styles.input__item}
                     onChange={(e) =>
                       handleFilterOnChange(e, item.filter, item.name)

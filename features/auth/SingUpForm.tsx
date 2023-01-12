@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import { ChangeEvent } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "features/auth/SignContainer.module.scss";
@@ -36,9 +36,6 @@ const SingUpForm: FC<IAuthResponse> = () => {
         toggle();
       });
     };
-    useEffect(() => {
-      console.log("111", isShow);
-    }, [isShow]);
 
     return (
       <div>
