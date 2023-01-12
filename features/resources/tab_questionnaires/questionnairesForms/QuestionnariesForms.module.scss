@@ -8,7 +8,8 @@
 .fourth_form,
 .fifth_form,
 .sixth_form,
-.seventh_form {
+.seventh_form,
+.eighth_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .border_top_title {
@@ -22,6 +23,9 @@
   .right_border {
     border-left: 1px solid #bebebe;
     padding: 0 0 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
   .right_flex {
     display: flex;
@@ -39,7 +43,6 @@
     border-bottom: 1px solid #bebebe;
     p {
       font-size: 22px;
-      max-width: 55%;
       margin: 0 auto;
       text-align: center;
       color: color(green);
@@ -837,6 +840,116 @@
     gap: 0;
   }
   .border_top_title {
+    padding: 20px 0 0 0;
+  }
+}
+
+//Восьмая форма
+.eighth_form {
+  .input {
+    margin: 12px 0;
+    width: 70%;
+  }
+  .right_flex {
+    border-left: 1px solid #bebebe;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+  &_middle {
+    width: 50%;
+    padding: 20px 15px;
+  }
+  &_middle_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid #bebebe;
+    label {
+      margin-bottom: 0;
+    }
+  }
+  &_last {
+    width: 50%;
+    padding: 20px 15px;
+  }
+  &_title {
+    margin-bottom: 20px;
+    p {
+      text-align: center;
+      line-height: 145%;
+    }
+  }
+  .input_column {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    gap: 10px;
+    p {
+      line-height: 135%;
+    }
+  }
+  .input_flex {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 15px;
+    margin-bottom: 12px;
+  }
+  &_checkboxes {
+    margin-bottom: 20px;
+    p {
+      margin-bottom: 15px;
+    }
+  }
+  .input_columns {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    label {
+      align-items: flex-start;
+    }
+  }
+  &_exchanger {
+    display: flex;
+    border-bottom: 1px solid #bebebe;
+    &_first_block {
+      width: 16%;
+      padding: 20px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .input_and_title {
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &_first {
+    padding: 20px 15px;
+  }
+  &_last {
+    label {
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+  }
+  &_columns_block_last {
+    padding: 20px 15px;
+    .checkbox_wrapp {
+      display: flex;
+      align-items: self-end;
+      gap: 20px;
+    }
+  }
+  .textarea {
+    padding: 10px 0;
+  }
+  .pharagrafs {
+    margin: 12px 0 16px 0;
+  }
+  &_button {
     padding: 20px 0 0 0;
   }
 }

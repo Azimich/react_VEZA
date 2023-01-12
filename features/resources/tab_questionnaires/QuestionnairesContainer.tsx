@@ -20,6 +20,7 @@ import {
   FifthForm,
   SixthForm,
   SeventhForm,
+  EighthForm,
 } from "features/resources/tab_questionnaires/questionnairesForms";
 
 const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
@@ -56,6 +57,7 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
           size={"max"}
         />
         {/*Форму вывел сюда, пока пути не настроены*/}
+        <EighthForm />
         <SeventhForm />
         <SixthForm />
         <FifthForm />
