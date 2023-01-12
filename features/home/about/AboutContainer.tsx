@@ -1,11 +1,17 @@
 import { FC, useRef } from "react";
 import Styles from "./About.module.scss";
-import { PeopleData, staticAboutData } from "./mockData";
+import { staticAboutData } from "./mockData";
 import { AboutItems } from "./AboutItem";
 import { ProgressBar } from "components/progressbar/ProgressBarContainer";
 import { useIsInViewport } from "store/hooks/useIsInViewPort";
+import { IAboutUsData } from "features/home/about/AboutUs";
 
-const AboutContainer: FC = () => {
+interface IAboutUsSSR {
+  response: IAboutUsData;
+}
+
+const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
+  console.log("response", response);
   const ref1 = useRef(null);
   return (
     <div className={Styles.about}>
@@ -16,17 +22,17 @@ const AboutContainer: FC = () => {
         <div className={Styles.about__elem_box}>
           <div className={Styles.about__left_block}>
             <div className={Styles.tiles}>
-              {PeopleData.map((e, i: number) => {
+              {response.employeeDtos.map((e, i: number) => {
                 return (
                   <AboutItems
                     keyLink={i}
                     key={i}
-                    LinkClassName={"tile__item_" + e.id}
-                    img={`/images/man-${e.id}.png`}
-                    alt={"фото-" + e.id}
-                    ImgClassName={"img__" + e.id}
+                    LinkClassName={"tile__item_" + (i + 1)}
+                    img={e.imageUrl}
+                    alt={e.title}
+                    ImgClassName={"img__" + (i + 1)}
                     title={e.title}
-                    desc={e.job}
+                    desc={e.description}
                   ></AboutItems>
                 );
               })}

@@ -1,5 +1,6 @@
 import { IResponse } from "../../types/response";
 import { ICategoriesResponseArray } from "features/equipment/Equipment";
+import { IAboutUsResponse } from "features/home/about/AboutUs";
 
 interface ISSRNews {
   newsData: INewsResponse;
@@ -9,6 +10,7 @@ interface ISSRHome {
   newsData: INewsResponseArray;
   indexBanner: IBannerResponseArray;
   indexCategories: ICategoriesResponseArray;
+  indexAboutUS: IAboutUsResponse;
 }
 
 interface INewsResponse extends Omit<IResponse, "response"> {
