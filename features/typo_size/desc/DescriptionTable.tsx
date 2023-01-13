@@ -2,22 +2,25 @@ import Styles from "./Description.module.scss";
 import { FC, useEffect, useState } from "react";
 import { DescriptionTableHeader } from "features/typo_size/desc/DescriptionTableHeader";
 import { DescriptionTableItem } from "features/typo_size/desc/DescriptionTableItem";
+/*import excel from 'xlsx';*/
 
 const DescriptionTable: FC = () => {
-  const [tablesData, setTablesData] = useState<string[]>([]);
-  const getFile = async (file: string) => {
-    return await fetch(file)
-      .then(function (response) {
-        return response.text();
-      })
-      .then(function (data) {
-        return data.split("\r\n");
-      });
-  };
+  const [tablesData] = useState<string[]>([]);
+  /*    const getFile = async (file: string) => {
+        return await fetch(file)
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (data) {
+                return data.split("\r\n");
+            });
+    };*/
   useEffect(() => {
-    getFile("/download/test.csv").then((data) => {
-      setTablesData(data);
-    });
+    /*        const fileName = "newData.xlsx";
+        const workbook = excel.readFile(fileName);*/
+    /*        getFile("/download/test.csv").then((data) => {
+            setTablesData(data);
+        });*/
   }, []);
 
   return (

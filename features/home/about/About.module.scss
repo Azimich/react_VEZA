@@ -1,7 +1,6 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-
 .bottom__separator {
   margin: 100px 0 0 0;
   @include ipadScreen {
@@ -23,9 +22,8 @@
 .about {
   &__container {
     width: 100%;
-    padding: 50px;
     @include backgroundImage(cover);
-    background-image: url('/images/about_banner.jpg');
+    background-image: url('/images/about_banner.webp');
     margin: auto;
     @media (max-width: 1200px) {
       padding: 40px;
@@ -52,8 +50,10 @@
 
   &__right_block {
     max-width: 690px;
+    background-color: darkgreen;
+    padding: 50px 40px;
     @media (max-width: 1200px) {
-     max-width: 100%;
+      max-width: 100%;
     }
   }
 
@@ -64,6 +64,7 @@
     letter-spacing: 0.025em;
     color: color(white);
     margin: 0 0 30px 0;
+    text-align: justify;
     @media (max-width: 1435px) {
       line-height: 145%;
     }
@@ -111,7 +112,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 650px !important;
     @media (max-width: 1200px) {
       justify-content: center;
     }
@@ -119,6 +119,7 @@
       display: none;
     }
   }
+
   .about__ipad_mans {
     display: none;
     @media (max-width: 1200px) {
@@ -152,8 +153,9 @@
     border-radius: 50%;
     width: 130px;
     height: 130px;
-    transition: 0.3s;
+    transition: 0.1s;
     margin: 0;
+
     &:hover {
       box-shadow: 0 2px 50px 4px #ffffff;
       z-index: 10;
@@ -161,7 +163,7 @@
   }
 
   .tile__item_1 {
-    margin: 30px 0 0 -92px !important;
+    margin: 30px 0 0 0 !important;
     @include ipadScreen {
       margin: 15px 0 0 -30px !important;
     }
@@ -171,12 +173,12 @@
     margin: 0 0 0 -16px !important;
   }
 
-  .tile__item_3{
-    margin: 0 0 0 -16px !important;
+  .tile__item_3 {
+    margin: 20px 0 0 -16px !important;
   }
 
   .tile__item_4 {
-    margin: -5px -16px 0 -25px !important;
+    margin: 10px -16px 0 -25px !important;
   }
 
   .tile__item_5 {
@@ -276,7 +278,7 @@
     left: 0;
     z-index: 2;
     transition-property: top, opacity;
-    transition-duration: 0.2s;
+    transition-duration: 0.3s;
     border-radius: 0 0 186px 186px;
   }
 
@@ -285,68 +287,82 @@
     height: 130px !important;
     z-index: 10;
   }
+
   .tiles .tile img {
     display: block;
-    margin:0 auto 0;
+    margin: 0 auto 0;
     backface-visibility: hidden;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    transition: 0.3s;
+    transition: 0.1s;
   }
 
   .tiles .tile .img__1 {
     width: 80px;
     height: 80px;
   }
+
   .tiles .tile .img__2 {
     width: 105px;
     height: 105px;
   }
+
   .tiles .tile .img__3 {
     width: 96px;
     height: 96px;
   }
+
   .tiles .tile .img__4 {
     width: 85px;
     height: 85px;
   }
+
   .tiles .tile .img__5 {
     width: 90px;
     height: 90px;
   }
+
   .tiles .tile .img__6 {
     width: 105px;
     height: 105px;
   }
+
   .tiles .tile .img__7 {
     width: 133px;
     height: 133px;
   }
+
   .tiles .tile .img__8 {
     width: 100px;
     height: 100px;
   }
+
   .tiles .tile .img__9 {
     width: 100px;
     height: 100px;
   }
+
   .tiles .tile .img__10 {
     width: 110px;
     height: 110px;
   }
+
   .tiles .tile .img__11 {
     width: 85px;
     height: 85px;
   }
+
   .tiles .tile .img__12 {
     width: 110px;
     height: 110px;
   }
+
   .tiles .tile .img__13 {
     width: 100px;
     height: 100px;
   }
+
   .tiles .tile .img__14 {
     width: 120px;
     height: 120px;
@@ -376,6 +392,7 @@
     width: 110px;
     height: 110px;
   }
+
   .tiles .tile .img__20 {
     width: 110px;
     height: 110px;
@@ -405,7 +422,6 @@
     width: 90px;
     height: 90px;
   }
-
 
 
   .tiles .tile .details {
@@ -473,6 +489,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    justify-content: space-around;
     @media (max-width: 1200px) {
       justify-content: center;
     }

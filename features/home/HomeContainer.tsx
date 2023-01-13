@@ -17,7 +17,6 @@ const HomeContainer: FC<ISSRHome> = ({
   indexCategories,
   indexAboutUS,
 }) => {
-  console.log("indexBanner", indexBanner, indexCategories);
   const convert = () => {
     return indexBanner?.response.map((e): ISlideItem => {
       return {
@@ -26,8 +25,8 @@ const HomeContainer: FC<ISSRHome> = ({
         description: e.description,
         images: {
           pc: e.images.pc,
-          ipad: e.images.ipad,
-          mobile: e.images.mobile,
+          ipad: e?.images?.ipad,
+          mobile: e?.images?.mobile,
         },
         link_slider: false,
         title: e.title,
@@ -36,7 +35,7 @@ const HomeContainer: FC<ISSRHome> = ({
       };
     });
   };
-
+  console.log("indexCategories", indexCategories);
   return (
     <>
       <SliderContainer

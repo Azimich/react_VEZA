@@ -1,60 +1,57 @@
-version: "3.9"
+version: "3.4"
 services:
-  frontend:
-    build:
-      context: ./front
-    ports:
-      - "3000:3000"
-    command: start
-    networks:
-      - veza
-  backend:
-    build:
-      context: ./back
-    ports:
-      - "5000:80"
-    command: dotnet run
-    networks:
-      - veza
   nginx:
-    build:  
+    build:
       context: ./front/deploy/.nginx/
     ports:
       - "80:80"
-    links:
-      - nextjs
     restart: always
     networks:
       - veza
   postgres:
     image: postgres:latest
+    depends_on:
+      - nginx
     environment:
       POSTGRES_DB: "veza"
-      POSTGRES_USER: "veza_user"
-      POSTGRES_PASSWORD: "veza_user"
+      POSTGRES_USER: "veza_admin"
+      POSTGRES_PASSWORD: "R2a}z*UzqEML"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ../2. Init Database:/docker-entrypoint-initdb.d
       - .:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
       - veza
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4:6.15
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "rybolov@veza.ru"
-      PGADMIN_DEFAULT_PASSWORD: "veza_user"
-      PGADMIN_CONFIG_SERVER_MODE: "False"
-    volumes:
-      - ./pgadmin:/var/lib/pgadmin
-    ports:
-      - "5050:80"
-    restart: unless-stopped
+  backend:
+    depends_on:
+      - nginx
+      - postgres
+    image: ${DOCKER_REGISTRY-}vezabackend
+    build:
+      context: ./back/Veza.WebSite/
+      dockerfile: Dockerfile
     networks:
       - veza
-
+  frontend:
+    depends_on:
+      - nginx
+      - backend
+    build:
+      context: ./front/
+    ports:
+      - "3001:3001"
+    command: start
+    networks:
+      - veza
+  docsify:
+    build:
+      context: ./docsify/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - veza
 networks:
   veza:
     driver: bridge
