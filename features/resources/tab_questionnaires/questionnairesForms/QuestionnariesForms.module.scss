@@ -9,11 +9,15 @@
 .fifth_form,
 .sixth_form,
 .seventh_form,
-.eighth_form {
+.eighth_form,
+.ninth_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .border_top_title {
     border-top: 1px solid #bebebe;
+  }
+  .border_bottom {
+    border-bottom: 1px solid #bebebe;
   }
   .p {
     font-size: 18px;
@@ -846,6 +850,11 @@
 
 //Восьмая форма
 .eighth_form {
+  &_radios {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
   .input {
     margin: 12px 0;
     width: 70%;
@@ -953,6 +962,34 @@
     padding: 20px 0 0 0;
   }
 }
+
+//Девятая форма
+.ninth_form {
+  &_radios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  &_left_block {
+    h3 {
+      font-size: 18px;
+    }
+  }
+  &_columns_block_last {
+    padding: 20px 15px;
+    p {
+      margin-bottom: 16px;
+    }
+  }
+  .input_width {
+    width: 50%;
+  }
+  &_button {
+    padding: 20px 0 0 0;
+  }
+}
+
 
 
 
