@@ -1,6 +1,5 @@
 import { FC, useRef } from "react";
 import Styles from "./About.module.scss";
-import { staticAboutData } from "./mockData";
 import { AboutItems } from "./AboutItem";
 import { ProgressBar } from "components/progressbar/ProgressBarContainer";
 import { useIsInViewport } from "store/hooks/useIsInViewPort";
@@ -11,7 +10,6 @@ interface IAboutUsSSR {
 }
 
 const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
-  console.log("response", response);
   const ref1 = useRef(null);
   return (
     <div className={Styles.about}>
@@ -28,7 +26,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                     keyLink={i}
                     key={i}
                     LinkClassName={"tile__item_" + (i + 1)}
-                    img={e.imageUrl}
+                    img={e.images.pc}
                     alt={e.title}
                     ImgClassName={"img__" + (i + 1)}
                     title={e.title}
@@ -42,39 +40,26 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
             </div>
           </div>
           <div className={Styles.about__right_block}>
-            <p className={Styles.about__text}>
-              Мы верим в упорство в достижении своих целей и верность
-              стратегическому выбору. Мы реинвестируем на постоянной основе в
-              развитие компании, делая акцент на собственных научных
-              разработках, передовом оборудовании, росте квалификации кадров и
-              обеспечении лучшего качества производимой продукции. Идя всегда на
-              шаг впереди, мы разрабатываем системы и оборудование для
-              завтрашнего дня. Мы неизменно поднимаем планку, создавая продукты,
-              предвосхищающие ожидания потребителей. Мы выстраиваем долгосрочные
-              отношения с клиентами, заботясь об удовлетворенности качеством
-              наших систем в ходе полного цикла эксплуатации. Мы участвуем в
-              наиболее сложных международных технологических проектах, поднимая
-              репутацию России на внешних рынках. Мы развиваем традицию
-              новаторства, обеспечивающую технологическое первенство на
-              десятилетия вперед.
-            </p>
+            <p className={Styles.about__text}>{response.description}</p>
             <div
               className={`${Styles.about__progress_box} cards__progress-bar`}
               ref={ref1}
             >
-              {staticAboutData.map((e) => {
+              {response?.specialistCounters.map((e) => {
                 return (
                   <div
                     className={`${Styles.about__progress} progress__container`}
-                    key={e.id}
+                    key={e.specialistName}
                   >
                     <ProgressBar
                       isView={useIsInViewport(ref1)}
                       trackWidth={2}
                       indicatorWidth={2}
-                      progressLabel={e.data_circle}
+                      progressLabel={e.specialistCount}
                     />
-                    <p className={Styles.about__progress_title}>{e.title}</p>
+                    <p className={Styles.about__progress_title}>
+                      {e.specialistName.toUpperCase()}
+                    </p>
                   </div>
                 );
               })}

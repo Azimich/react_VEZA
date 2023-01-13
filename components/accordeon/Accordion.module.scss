@@ -9,9 +9,11 @@
   }
 }
 .accordion__container__animation {
+  list-style: none;
   .accordion__container {
     transition: all 0.5s;
     overflow: hidden;
+    list-style: none;
     span{
       padding: 16px 15px;
     }
@@ -33,6 +35,7 @@
 .accordion__container {
   transition: all 1s;
   overflow: hidden;
+  list-style: none;
 }
 
 .accordion__container__item {
@@ -40,7 +43,7 @@
   line-height: 150%;
   color: #212121;
   height: 0;
-  padding:0 15px;
+  padding:1px 15px;
 }
 
 .arrow {

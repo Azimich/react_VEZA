@@ -1,4 +1,5 @@
 import { IResponse } from "../../../types/response";
+import { ISlideImages } from "components/slider/Slider.d";
 
 interface IAboutUsResponse extends Omit<IResponse, "response"> {
   response: IAboutUsData;
@@ -20,7 +21,7 @@ interface ISpecialistCounters {
 interface IEmployeeDtos {
   title: string;
   description: string;
-  imageUrl: string;
+  images: ISlideImages;
 }
 
 export { IAboutUsResponse, IAboutUsData };
