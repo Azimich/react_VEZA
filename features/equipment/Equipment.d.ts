@@ -1,5 +1,5 @@
-import { ISlideItem } from "../../components/slider/Slider.d";
-import { IResponse } from "../../types/response";
+import { ISlideItem } from "components/slider/Slider.d";
+import { IResponse } from "types/response";
 
 interface ICatalogEquipmentData {
   title: string;
@@ -23,7 +23,7 @@ interface ICatalogData {
 }
 
 interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
-  response: ICategoriesItem[];
+  response: IBannerItem[];
 }
 
 interface ICategoriesItem {

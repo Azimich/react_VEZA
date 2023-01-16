@@ -17,7 +17,7 @@ const NewsWithItem: FC<INewsDataItem> = ({
       <div className={Styles.news_container_item_image}>
         <span>
           <EyeIcon />
-          {statistics.statisticsTotal}
+          {statistics?.statisticsTotal}
         </span>
         <img src={imageModel.horizontal.pc} alt={newsName} />
       </div>

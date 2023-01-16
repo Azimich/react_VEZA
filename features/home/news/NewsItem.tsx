@@ -81,7 +81,7 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
           {newsImg}
           <div className={Styles.news__counter_icon}>
             <EyeIcon />
-            {props.statistics.statisticsTotal}
+            {props?.statistics?.statisticsTotal}
           </div>
         </div>
         <div className={Styles.news__item_info}>

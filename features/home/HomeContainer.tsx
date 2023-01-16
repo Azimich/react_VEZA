@@ -1,13 +1,13 @@
 import { Container } from "components/common/container";
 import { SliderContainer } from "components/slider";
-import { sliderCategory, sliderIndustries } from "components/slider/mockData";
+import { sliderIndustries } from "components/slider/mockData";
 import { Separator } from "components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
-import { ISSRHome } from "features/news/News";
+import { IBannerResponseArray, ISSRHome } from "features/news/News";
 import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
 
@@ -17,8 +17,8 @@ const HomeContainer: FC<ISSRHome> = ({
   indexCategories,
   indexAboutUS,
 }) => {
-  const convert = () => {
-    return indexBanner?.response.map((e): ISlideItem => {
+  const convert = (data: IBannerResponseArray) => {
+    return data?.response.map((e): ISlideItem => {
       return {
         alt: e.title,
         block_description: e.show_text || false,
@@ -31,16 +31,16 @@ const HomeContainer: FC<ISSRHome> = ({
         link_slider: false,
         title: e.title,
         typeSlider: "img",
-        url: "",
+        url: e.alias,
       };
     });
   };
-  console.log("indexCategories", indexCategories);
+  console.log("indexCategories", indexBanner, convert(indexCategories));
   return (
     <>
       <SliderContainer
         autoplay={true}
-        items={convert()}
+        items={convert(indexBanner)}
         theme={"home"}
         dots={true}
       />
@@ -55,7 +55,7 @@ const HomeContainer: FC<ISSRHome> = ({
           <Separator title={"Категория продукции"} />
         </div>
         <SliderContainer
-          items={sliderCategory.items}
+          items={convert(indexCategories)}
           dots={true}
           autoplay={true}
           spaceBetween={10}

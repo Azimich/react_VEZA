@@ -13,23 +13,32 @@ import { Modal, useModal } from "components/modal";
 import { IObject } from "components/map/Map";
 import { Map } from "components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
-import { whoweData } from "../mockData";
+/*import {whoweData} from "../mockData";*/
 import { ObjectItem } from "../ObjectItem";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
+import { useGetListCities } from "service/list";
 
 const WhoWeContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IObject>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
+  const { getListCities } = useGetListCities();
+  const [ListPlants, setListPlants] = useState<IObject[]>([]);
   const router = useRouter();
+
+  useEffect(() => {
+    getListCities().then((data) => {
+      setListPlants(data.response);
+    });
+  }, []);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Кто мы" }]);
   }, [dataBreadAbout]);
 
-  const FormOutPut: ReactNode[] = whoweData.map((e) => {
+  const FormOutPut: ReactNode[] = ListPlants.map((e) => {
     return (
       <ObjectItem
         {...e}

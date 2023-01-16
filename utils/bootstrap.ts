@@ -7,7 +7,7 @@ const factoryPath = "/factory/";
 const contactsPath = "/contacts/";
 const authPath = "/auth/";
 const SingInPath = "/auth/singin";
-
+const adminPath = "/admin/";
 const headers = {
   accept: "text/plain'",
   "Content-Type": "application/json",
@@ -24,4 +24,5 @@ export {
   SingInPath,
   decisionPath,
   headers,
+  adminPath,
 };

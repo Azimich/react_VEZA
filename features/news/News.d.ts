@@ -86,4 +86,11 @@ interface IKeyWord {
   url: string;
 }
 
-export { INewsDataItem, INewsResponse, ISSRNews, ISSRHome, INewsResponseArray };
+export {
+  INewsDataItem,
+  INewsResponse,
+  ISSRNews,
+  ISSRHome,
+  INewsResponseArray,
+  IBannerResponseArray,
+};

@@ -5,6 +5,7 @@ import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "../button";
 import { ArrowRightIcon } from "../icons";
 import { Link } from "components/link";
+import { equipmentPath } from "utils/bootstrap";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -33,24 +34,51 @@ const SlideItem: FC<ISlideItem> = ({
         key={Math.random() * 10}
       >
         <div className={Styles[`${theme}_banner__slider_img`]}>
-          {hasWindow && isDesktop && (
-            <img
-              src={typeof images === "object" ? images.pc : images}
-              alt={alt}
-            />
-          )}
-          {hasWindow && isTablet && (
-            <img
-              src={typeof images === "object" ? images.ipad : images}
-              alt={alt}
-            />
-          )}
-          {hasWindow && isMobile && (
-            <img
-              src={typeof images === "object" ? images.mobile : images}
-              alt={alt}
-            />
-          )}
+          {hasWindow &&
+            isDesktop &&
+            (url ? (
+              <Link url={equipmentPath + url}>
+                <img
+                  src={typeof images === "object" ? images.pc : images}
+                  alt={alt}
+                />
+              </Link>
+            ) : (
+              <img
+                src={typeof images === "object" ? images.pc : images}
+                alt={alt}
+              />
+            ))}
+          {hasWindow &&
+            isTablet &&
+            (url ? (
+              <Link url={equipmentPath + url}>
+                <img
+                  src={typeof images === "object" ? images.ipad : images}
+                  alt={alt}
+                />
+              </Link>
+            ) : (
+              <img
+                src={typeof images === "object" ? images.ipad : images}
+                alt={alt}
+              />
+            ))}
+          {hasWindow &&
+            isMobile &&
+            (url ? (
+              <Link url={equipmentPath + url}>
+                <img
+                  src={typeof images === "object" ? images.mobile : images}
+                  alt={alt}
+                />
+              </Link>
+            ) : (
+              <img
+                src={typeof images === "object" ? images.mobile : images}
+                alt={alt}
+              />
+            ))}
         </div>
         {block_description && (
           <div className={Styles[`${theme}_banner__right_element`]}>

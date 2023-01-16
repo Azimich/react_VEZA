@@ -52,8 +52,10 @@
           gap: 20px;
         }
       }
+
       .news_container_item_image {
         position: relative;
+
         span {
           position: absolute;
           z-index: 1;
@@ -65,20 +67,24 @@
           background-color: color(green);
           padding: 10px 12px;
           border-radius: 0 0 0 10px;
+
           svg {
             width: 18px;
             height: 18px;
+
             path {
               fill: color(white);
             }
           }
         }
       }
+
       .news_container_item_image {
         order: 1;
         border-radius: 0;
       }
     }
+
     .news_container_item_image {
       span {
         position: absolute;
@@ -90,15 +96,18 @@
         background-color: color(green);
         padding: 10px 12px;
         border-radius: 0 0 10px 0;
+
         svg {
           width: 18px;
           height: 18px;
+
           path {
             fill: color(white);
           }
         }
       }
     }
+
     &_image {
       width: 40%;
       height: 320px;
@@ -123,6 +132,7 @@
           }
         }
       }
+
       img {
         width: 100%;
         order: 1;
@@ -624,4 +634,9 @@
       }
     }
   }
+}
+
+.add_button {
+  display: flex;
+  justify-content: flex-end;
 }

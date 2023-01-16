@@ -33,3 +33,4 @@ export { ErrorIcon } from "./includes/ErrorIcon";
 export { EnterIcon } from "./includes/EnterIcon";
 export { ErrorConfirmIcon } from "./includes/ErrorConfirmIcon";
 export { UserOnLoginIcon } from "./includes/UserOnLoginIcon";
+export { DownloadIcon } from "./includes/DownloadIcon";
