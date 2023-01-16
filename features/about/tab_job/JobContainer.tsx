@@ -83,9 +83,11 @@ const JobContainer: FC = () => {
     setSelectedCities(res);
     handleSelectClickMap(res);
   }, [cities]);
+
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Вакансии" }]);
   }, [dataBreadAbout]);
+
   useEffect(() => {
     vacanciesData &&
       setSelectedReferenceData(
@@ -135,6 +137,7 @@ const JobContainer: FC = () => {
     handleSelectClickMap(loc_selected_item);
     window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
   };
+  console.log("selectedReferenceData", vacanciesData);
 
   const FormOutPut: ReactNode[] = selectedReferenceData?.map((e) => {
     return (

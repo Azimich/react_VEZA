@@ -23,7 +23,7 @@ interface ICatalogData {
 }
 
 interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
-  response: ICategoriesItem[];
+  response: IBannerItem[];
 }
 
 interface ICategoriesItem {

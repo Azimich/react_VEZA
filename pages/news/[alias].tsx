@@ -25,6 +25,14 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     const { params } = context;
+    const result = await newsItem(params.alias as string);
+
+    if (result.customErrorCode === 404) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
       props: {
         newsData: await newsItem(params.alias as string),

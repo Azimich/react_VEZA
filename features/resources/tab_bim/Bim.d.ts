@@ -1,12 +1,15 @@
-import { IResponse } from "../../../types/response";
+import { IResponse } from "types/response";
 
 interface IBim {
-  id?: number;
+  bim?: string;
+  description?: string;
+  imageUrl?: string;
+  pluginId?: number;
+  setupUrl?: string;
+  status?: number;
   title?: string;
-  desc?: string;
-  img?: string;
-  date?: string;
-  alias?: string;
+  updated?: string;
+  showDownload?: boolean;
 }
 
 interface ICatalog {
@@ -33,6 +36,10 @@ interface IQuestions {
   question?: string;
 }
 
+interface IBimResponseArray extends Omit<IResponse, "response"> {
+  response: IBim[];
+}
+
 interface IQuestionsResponseArray extends Omit<IResponse, "response"> {
   response: IQuestions[];
 }
@@ -53,4 +60,5 @@ export {
   IQuestions,
   IQuestionnaires,
   IQuestionsResponseArray,
+  IBimResponseArray,
 };

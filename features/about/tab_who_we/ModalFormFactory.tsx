@@ -6,11 +6,9 @@ import { factoryPath } from "utils/bootstrap";
 import { Link } from "components/link";
 
 const ModalFormFactory: FC<IObject> = (e) => {
-  console.log("props", e);
-
   return (
     <>
-      <div className={Styles.modal_factory_title}>{e.object.name}</div>
+      <div className={Styles.modal_factory_title}>{e.object?.name}</div>
       <div className={Styles.factory_info}>
         <p className={Styles.factory_info_services}>
           Площадь производства<span>{e.object.production_area}</span>

@@ -96,7 +96,7 @@ const whoweData: IObject[] = [
     },
   },
   {
-    id: 7,
+    id: 8,
     connect: "moskovskaya_obl",
     alias: "holod",
     object: {
