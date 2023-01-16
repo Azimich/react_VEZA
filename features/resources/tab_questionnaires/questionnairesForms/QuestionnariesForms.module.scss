@@ -10,11 +10,15 @@
 .sixth_form,
 .seventh_form,
 .eighth_form,
-.ninth_form {
+.ninth_form,
+.tenth_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .border_top_title {
     border-top: 1px solid #bebebe;
+  }
+  p {
+    line-height: 145%;
   }
   .border_bottom {
     border-bottom: 1px solid #bebebe;
@@ -990,6 +994,94 @@
   }
 }
 
+//Десятая форма
+.tenth_form {
+  &_radios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  .border_title {
+    border-top: 1px solid #bebebe;
+  }
+  &_columns_block_right {
+    display: flex;
+    gap: 20px;
+    padding: 20px 15px;
+  }
+  &_inputs_grid {
+    padding: 20px 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    &_row {
+      p {
+        color: color(dark);
+        margin-bottom: 12px;
+        line-height: 145%;
+      }
+      .items {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        &_row {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  &_right_block {
+    .p {
+      margin: 0 0 0 0;
+    }
+  }
+  .inputs_row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  &_schemes_images_block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    &_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border: 1px solid #bebebe;
+      padding: 10px;
+      overflow: hidden;
+    }
+    img {
+      width: auto;
+      height: 150px;
+    }
+  }
+  .one_radio_and_input {
+    margin: 20px 0;
+  }
+  .right_block {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  .right_block_first_item {
+    width: 20%;
+  }
+  .kanal {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  .top_padding {
+    padding: 20px 0;
+  }
+}
 
 
 
