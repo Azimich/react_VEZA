@@ -26,7 +26,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                     keyLink={i}
                     key={i}
                     LinkClassName={"tile__item_" + (i + 1)}
-                    img={e.images.pc}
+                    img={e.images?.pc}
                     alt={e.title}
                     ImgClassName={"img__" + (i + 1)}
                     title={e.title}
