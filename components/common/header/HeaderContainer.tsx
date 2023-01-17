@@ -12,6 +12,7 @@ import { useAuth } from "service/auth/auth";
 import { useToken } from "store/hooks/useToken";
 import { getAuth, setDataAuth } from "features/auth/AuthSlice";
 import { SpinnerLoading } from "components/spinners";
+import { dataMenu } from "components/common/header/headerIcon/mockData";
 
 const HeaderContainer: FC = () => {
   const [scrollData, setScrollData] = useState<number>(0);
@@ -95,7 +96,16 @@ const HeaderContainer: FC = () => {
             profileShow ? Styles.active : ""
           }`}
         >
-          profile
+          <ul className={""}>
+            {dataMenu.map((e) => {
+              return (
+                <li>
+                  <span></span>
+                  {e.name}
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
       {profileShow && (

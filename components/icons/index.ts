@@ -34,3 +34,6 @@ export { EnterIcon } from "./includes/EnterIcon";
 export { ErrorConfirmIcon } from "./includes/ErrorConfirmIcon";
 export { UserOnLoginIcon } from "./includes/UserOnLoginIcon";
 export { DownloadIcon } from "./includes/DownloadIcon";
+export { UsersIcon } from "./includes/UsersIcon";
+export { QuitIcon } from "./includes/QuitIcon";
+export { ChartIcon } from "./includes/ChartIcon";

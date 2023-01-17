@@ -31,6 +31,11 @@ interface IMapProps {
   formOutPut?: ReactNode;
 }
 
+interface IResponsePlants {
+  offices?: IObject[];
+  plants?: IObject[];
+}
+
 interface IObject {
   id?: number;
   alias?: string;
@@ -69,4 +74,12 @@ interface IObject {
   onClick?: (e, alias) => void;
 }
 
-export { IObject, IMapData, IObjectItem, IMapProps, IMapState, IMapSlice };
+export {
+  IObject,
+  IMapData,
+  IObjectItem,
+  IMapProps,
+  IMapState,
+  IMapSlice,
+  IResponsePlants,
+};
