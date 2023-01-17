@@ -951,6 +951,8 @@ const TenthForm = () => {
                   "Да (необходимо заполнить опросный лист для комплекта автоматики)"
                 }
               />
+            </div>
+            <div className={Styles.inputs_row}>
               <RadioBoxContainer title={"Нет"} />
             </div>
           </div>
