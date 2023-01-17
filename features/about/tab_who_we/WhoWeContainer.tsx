@@ -10,10 +10,9 @@ import { FactoryIcon, HistoryIcon, HistoryMobileIcon } from "components/icons";
 import { Separator } from "components/separator";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Modal, useModal } from "components/modal";
-import { IObject } from "components/map/Map";
+import { IObject, IResponsePlants } from "components/map/Map";
 import { Map } from "components/map";
 import { ModalFormFactory } from "./ModalFormFactory";
-/*import {whoweData} from "../mockData";*/
 import { ObjectItem } from "../ObjectItem";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
@@ -25,7 +24,10 @@ const WhoWeContainer: FC = () => {
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
   const { getListCities } = useGetListCities();
-  const [ListPlants, setListPlants] = useState<IObject[]>([]);
+  const [ListPlants, setListPlants] = useState<IResponsePlants>({
+    offices: [],
+    plants: [],
+  });
   const router = useRouter();
 
   useEffect(() => {
@@ -37,17 +39,19 @@ const WhoWeContainer: FC = () => {
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Кто мы" }]);
   }, [dataBreadAbout]);
-
-  const FormOutPut: ReactNode[] = ListPlants.map((e) => {
-    return (
-      <ObjectItem
-        {...e}
-        onClick={(e: IObject) => handleOnClickModal(e)}
-        key={"fac" + e.id}
-        icon={<FactoryIcon />}
-      />
-    );
-  });
+  console.log("ListPlants", ListPlants);
+  const FormOutPut: ReactNode[] = ListPlants
+    ? ListPlants.plants.map((e) => {
+        return (
+          <ObjectItem
+            {...e}
+            onClick={(e: IObject) => handleOnClickModal(e)}
+            key={"fac" + e.id}
+            icon={<FactoryIcon />}
+          />
+        );
+      })
+    : [];
 
   const handleOnClickTabs = (e: ITab) => {
     router.push(aboutPath + e.url);

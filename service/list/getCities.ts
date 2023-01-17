@@ -5,7 +5,7 @@ const useGetListCities = () => {
 
   const getListCities = () => {
     return request(
-      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/company/get_company_cities",
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/company/get_plants_offices",
       "GET",
     );
   };

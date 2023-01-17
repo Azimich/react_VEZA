@@ -13,18 +13,18 @@ const ObjectItem: FC<IObject> = (props) => {
   });
 
   useEffect(() => {
-    const Parent_Coord = document
-      .getElementById("parent_map")
-      .getBoundingClientRect();
-    const Child_Coord = document
-      .getElementById(connect.toLowerCase())
-      .getBoundingClientRect();
+    const Parent_Coord = connect
+      ? document.getElementById("parent_map").getBoundingClientRect()
+      : { top: 0, left: 0 };
+
+    const Child_Coord = connect
+      ? document.getElementById(connect.toLowerCase()).getBoundingClientRect()
+      : { top: 0, left: 0 };
     setRelative_coord({
       relative_top: Child_Coord.top - Parent_Coord.top,
       relative_left: Child_Coord.left - Parent_Coord.left,
     });
   }, []);
-
   return (
     <div
       className={Styles.marker}
