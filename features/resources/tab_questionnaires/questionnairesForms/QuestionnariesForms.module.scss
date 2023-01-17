@@ -12,7 +12,11 @@
 .eighth_form,
 .ninth_form,
 .tenth_form,
-.eleventh_form {
+.eleventh_form,
+.twelfth_form,
+.thirteenth_form,
+.fourteenth_form,
+.fifteenth_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .border_top_title {
@@ -996,7 +1000,7 @@
 }
 
 //Десятая форма
-.tenth_form, .eleventh_form {
+.tenth_form, .eleventh_form, .fourteenth_form {
   &_radios {
     display: flex;
     justify-content: center;
@@ -1100,6 +1104,78 @@
   }
 }
 
+//Двинадцатая форма
+.twelfth_form {
+  &_top_first {
+    .middle_block {
+      align-items: self-end;
+    }
+  }
+  .inputs_row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 25px;
+
+  }
+}
+
+//Тринадцатая форма
+.thirteenth_form {
+  &_top_first {
+    .middle_block {
+      align-items: self-end;
+    }
+  }
+  .inputs_row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 25px;
+
+  }
+}
+
+//Четырнадцатая форма
+.fourteenth_form {
+  .inputs_row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  &_radios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  .border_title {
+    border-top: 1px solid #bebebe;
+  }
+}
+
+//Пятнадцатая форма
+.fifteenth_form {
+  .inputs_row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  &_radios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  .border_title {
+    border-top: 1px solid #bebebe;
+  }
+  .kanal {
+    margin-bottom: 20px;
+  }
+}
 
 
 
