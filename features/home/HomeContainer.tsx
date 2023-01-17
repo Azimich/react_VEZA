@@ -24,7 +24,7 @@ const HomeContainer: FC<ISSRHome> = ({
         block_description: e.show_text || false,
         description: e.description,
         images: {
-          pc: e.images.pc,
+          pc: e?.images?.pc,
           ipad: e?.images?.ipad,
           mobile: e?.images?.mobile,
         },
@@ -35,7 +35,7 @@ const HomeContainer: FC<ISSRHome> = ({
       };
     });
   };
-  console.log("indexCategories", indexBanner, convert(indexCategories));
+
   return (
     <>
       <SliderContainer

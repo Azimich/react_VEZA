@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ISliderProps } from "./Slider.d";
+import { ISlideItem, ISliderProps } from "./Slider.d";
 import { SlideItem } from "./SlideItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -40,7 +40,7 @@ const SliderContainer: FC<ISliderProps> = ({
       return '<span class="' + className + '">' + "</span>";
     },
   };
-
+  console.log("777", items);
   const slideEffect = {
     slideShadows: false,
   };
@@ -80,7 +80,7 @@ const SliderContainer: FC<ISliderProps> = ({
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {items.map((e, i) => {
+        {items.map((e: ISlideItem, i) => {
           return (
             <SwiperSlide key={i}>
               <SlideItem

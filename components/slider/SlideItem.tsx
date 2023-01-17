@@ -21,7 +21,6 @@ const SlideItem: FC<ISlideItem> = ({
   code,
   url = "",
   size = "medium",
-  link_slider = false,
   OnClick,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
@@ -34,51 +33,24 @@ const SlideItem: FC<ISlideItem> = ({
         key={Math.random() * 10}
       >
         <div className={Styles[`${theme}_banner__slider_img`]}>
-          {hasWindow &&
-            isDesktop &&
-            (url ? (
-              <Link url={equipmentPath + url}>
-                <img
-                  src={typeof images === "object" ? images.pc : images}
-                  alt={alt}
-                />
-              </Link>
-            ) : (
-              <img
-                src={typeof images === "object" ? images.pc : images}
-                alt={alt}
-              />
-            ))}
-          {hasWindow &&
-            isTablet &&
-            (url ? (
-              <Link url={equipmentPath + url}>
-                <img
-                  src={typeof images === "object" ? images.ipad : images}
-                  alt={alt}
-                />
-              </Link>
-            ) : (
-              <img
-                src={typeof images === "object" ? images.ipad : images}
-                alt={alt}
-              />
-            ))}
-          {hasWindow &&
-            isMobile &&
-            (url ? (
-              <Link url={equipmentPath + url}>
-                <img
-                  src={typeof images === "object" ? images.mobile : images}
-                  alt={alt}
-                />
-              </Link>
-            ) : (
-              <img
-                src={typeof images === "object" ? images.mobile : images}
-                alt={alt}
-              />
-            ))}
+          {hasWindow && isDesktop && (
+            <img
+              src={typeof images === "object" ? images.pc : images}
+              alt={alt}
+            />
+          )}
+          {hasWindow && isTablet && (
+            <img
+              src={typeof images === "object" ? images.ipad : images}
+              alt={alt}
+            />
+          )}
+          {hasWindow && isMobile && (
+            <img
+              src={typeof images === "object" ? images.mobile : images}
+              alt={alt}
+            />
+          )}
         </div>
         {block_description && (
           <div className={Styles[`${theme}_banner__right_element`]}>
@@ -148,13 +120,15 @@ const SlideItem: FC<ISlideItem> = ({
     );
   };
 
+  console.log("url++", url);
+
   useEffect(() => {
     isWindow && setHasWindow(true);
   }, [isWindow]);
   switch (typeSlider) {
     case "img":
-      return link_slider ? (
-        <Link url={url}>
+      return url ? (
+        <Link url={equipmentPath + url}>
           <Img />
         </Link>
       ) : (
