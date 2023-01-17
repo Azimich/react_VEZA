@@ -17,7 +17,6 @@ const HomeContainer: FC<ISSRHome> = ({
   indexCategories,
   indexAboutUS,
 }) => {
-  console.log("indexBanner", indexCategories);
   const convert = (data: IBannerResponseArray) => {
     return data?.response.map((e): ISlideItem => {
       return {
