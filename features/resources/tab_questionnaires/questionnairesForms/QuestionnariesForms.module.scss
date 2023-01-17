@@ -11,7 +11,8 @@
 .seventh_form,
 .eighth_form,
 .ninth_form,
-.tenth_form {
+.tenth_form,
+.eleventh_form {
   margin: 100px 0 300px 0;
   border: 1px solid #bebebe;
   .border_top_title {
@@ -995,7 +996,7 @@
 }
 
 //Десятая форма
-.tenth_form {
+.tenth_form, .eleventh_form {
   &_radios {
     display: flex;
     justify-content: center;
@@ -1083,6 +1084,21 @@
   }
 }
 
+//Одинацатая форма
+.eleventh_form {
+  &_radios {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+  }
+  .border_title {
+    border-top: 1px solid #bebebe;
+  }
+  .inputs_row {
+    margin-bottom: 20px;
+  }
+}
 
 
 
