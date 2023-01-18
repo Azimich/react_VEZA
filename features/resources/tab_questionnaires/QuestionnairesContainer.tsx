@@ -28,6 +28,7 @@ import {
   ThirteenthForm,
   FourteenthForm,
   FifteenthForm,
+  SixteenthForm,
 } from "features/resources/tab_questionnaires/questionnairesForms";
 
 const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
@@ -64,6 +65,7 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
           size={"max"}
         />
         {/*Форму вывел сюда, пока пути не настроены*/}
+        <SixteenthForm />
         <FifteenthForm />
         <FourteenthForm />
         <ThirteenthForm />
