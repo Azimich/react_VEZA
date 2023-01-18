@@ -21,13 +21,15 @@
   }
 
   &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 10px;
     background-color: rgb(245, 245, 245);
     cursor: pointer;
     position: relative;
     transition: all .3s;
     overflow: hidden;
-    padding: 1px;
     box-shadow: 0 0 4px rgb(33 33 33 / 21%);
     &:hover {
       box-shadow: 0 0 30px rgba(20, 20, 20, 0.2);
@@ -42,7 +44,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      position: absolute;
+      position: relative;
       bottom: 0;
       left: 0;
       padding: 10px;
@@ -69,7 +71,6 @@
       background: #F89A00;
       padding: 15px 0;
     }
-
     p {
       font-weight: normal;
       line-height: 150%;
