@@ -11,29 +11,64 @@ import { Director, Logistic, Secretary } from "../index";
 import { YandexMap } from "../index";
 import { SeparatorContainer } from "components/separator/SeparatorContainer";
 import { ObjectItem } from "features/about/ObjectItem";
-import { IObject } from "components/map/Map";
+import { IObject, IResponsePlants } from "components/map/Map";
 import { Modal, useModal } from "components/modal";
-import { LogoIcon, MapIcon } from "components/icons";
+import { MapIcon } from "components/icons";
 import { Map } from "components/map";
-import { office_sales_data } from "features/contacts/tab_sales_office/mockData";
 import { ModalFormOffice } from "./ModalFormOffice";
 import { dataBreadContacts } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { useGetListPlantsOffices } from "service/list/getPlantsOffices";
+import * as process from "process";
+import { useGetListCities } from "service/list";
+import { IJobsResponseArray } from "features/about/tab_job/Job";
+import { IOptionItem } from "components/select/Select";
 
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
+  const { getListCities } = useGetListCities();
+  const { getListPlantsOffices } = useGetListPlantsOffices();
   const [contentForm, setContentForm] = useState<IObject>();
   const { isShow, toggle } = useModal();
+  const [cities, setCities] = useState<IJobsResponseArray>();
+  const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
   const [data, setData] = React.useState<{ slug: string; activeTab: number }>({
     slug: "director",
     activeTab: 1,
   });
+  const [ListOffices, setListOffices] = useState<IResponsePlants>({
+    offices: [],
+  });
+
+  useEffect(() => {
+    getListPlantsOffices().then((data) => {
+      setListOffices(data.response);
+    });
+  }, []);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Офис продаж" }]);
   }, [dataBreadContacts]);
+
+  useEffect(() => {
+    getListCities().then((data) => {
+      setCities(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    const res = cities?.response
+      ?.filter((e) => {
+        return e.isDefaultCity;
+      })
+      .map((data) => {
+        return { value: data.alias, label: data.city };
+      })
+      ?.shift();
+    setSelectedCities(res);
+  }, [cities?.response]);
 
   const components: IComponents = {
     tab_director: Director,
@@ -41,7 +76,7 @@ const SalesOfficeContainer: FC = () => {
     tab_secretary: Secretary,
   };
 
-  const FormOutPut: ReactNode[] = office_sales_data.map((e) => {
+  const FormOutPut: ReactNode[] = ListOffices.offices.map((e) => {
     return (
       <ObjectItem
         {...e}
@@ -64,6 +99,9 @@ const SalesOfficeContainer: FC = () => {
   const handleOnClickTabs = (e: ITab) => {
     router.push(contactsPath + e.url);
   };
+  const handleOnClickSelect = (e: IOptionItem) => {
+    setSelectedCities(e);
+  };
 
   return (
     <Container className={"wrapper_clear"}>
@@ -83,7 +121,11 @@ const SalesOfficeContainer: FC = () => {
         <div className={Styles.separator__title__container}>
           <SeparatorContainer title={"НАШИ МЕНЕДЖЕРЫ"} />
         </div>
-        <SearchContainer />
+        <SearchContainer
+          {...cities}
+          handleOnClick={(e) => handleOnClickSelect(e)}
+          selectedCity={selectedCities}
+        />
         <Tabs
           props={tabsSalesData}
           onClick={(e) => {
@@ -99,7 +141,7 @@ const SalesOfficeContainer: FC = () => {
           <SeparatorContainer title={"Филиалы"} />
           <p className={Styles.styles_map}>
             <MapIcon />
-            Зелёный проспект, 20, Москва
+            {process.env.NEXT_PUBLIC_ADDRESS}
           </p>
           <YandexMap />
         </div>
@@ -109,7 +151,7 @@ const SalesOfficeContainer: FC = () => {
         hide={toggle}
         modalContent={<ModalFormOffice {...contentForm} />}
         theme={"modal"}
-        headerText={<LogoIcon />}
+        headerText={contentForm?.object?.name}
         bgModal={"black"}
       ></Modal>
     </Container>

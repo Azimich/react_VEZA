@@ -200,7 +200,6 @@ const SingUpForm: FC<IAuthResponse> = () => {
               placeholder={"Название компании или ИНН"}
               type={"organizationINN"}
               onChange={(e) => {
-                console.log("Eee", e);
                 formik.setFieldValue(
                   "organizationINN",
                   e?.value ? e?.value : "",

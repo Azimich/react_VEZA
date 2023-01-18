@@ -14,6 +14,7 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
   useEffect(() => {
     responseData.response.length > 0 && setMapData(responseData);
   }, [responseData]);
+
   const handleMouseHover: React.MouseEventHandler<HTMLElement> = (e) => {
     setCurrentClass(e.currentTarget.dataset.class);
   };
@@ -36,7 +37,6 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
         {mapData &&
           !mapData.hasError &&
           mapData.response.map((e, i) => {
-            console.log("eee", e);
             return (
               <MapItem
                 {...e}

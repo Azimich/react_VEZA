@@ -173,13 +173,21 @@
     margin-bottom: 6px;
     transition: all 0.3s;
 
-
+    &.offices {
+      justify-content: flex-start;
+      align-items: center;
+      span {
+        text-align: left;
+      }
+    }
     a, span {
       color: gray;
     }
-span{
-  text-align: right;
-}
+
+    span {
+      text-align: right;
+    }
+
     p {
       font-weight: 500;
       font-size: 18px;
@@ -195,6 +203,7 @@ span{
       }
     }
   }
+
 }
 
 .factory_button {

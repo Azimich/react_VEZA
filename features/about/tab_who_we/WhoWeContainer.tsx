@@ -16,14 +16,14 @@ import { ModalFormFactory } from "./ModalFormFactory";
 import { ObjectItem } from "../ObjectItem";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
-import { useGetListCities } from "service/list";
+import { useGetListPlantsOffices } from "service/list/getPlantsOffices";
 
 const WhoWeContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IObject>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
-  const { getListCities } = useGetListCities();
+  const { getListPlantsOffices } = useGetListPlantsOffices();
   const [ListPlants, setListPlants] = useState<IResponsePlants>({
     offices: [],
     plants: [],
@@ -31,7 +31,7 @@ const WhoWeContainer: FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    getListCities().then((data) => {
+    getListPlantsOffices().then((data) => {
       setListPlants(data.response);
     });
   }, []);

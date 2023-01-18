@@ -1,4 +1,5 @@
 import { ICatalogEquipmentData } from "features/equipment";
+import { ICategoriesItem } from "features/equipment/Equipment";
 
 const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   const resData = [];
@@ -12,7 +13,7 @@ const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   return resData;
 };
 
-function getParents(
+/*function getParents(
   obj: ICatalogEquipmentData[],
   id: number,
   parents: ICatalogEquipmentData[] = [],
@@ -27,20 +28,20 @@ function getParents(
     }
   }
   return parents;
-}
+}*/
 
 const getData = (
-  obj: ICatalogEquipmentData[],
+  obj: ICategoriesItem[],
   url: string,
   id?: number,
-  resData: ICatalogEquipmentData[] = [],
+  resData: ICategoriesItem[] = [],
 ) => {
   for (const k in obj) {
-    if (obj[k].alias === url || obj[k].id === id) {
+    if (obj[k].alias === url) {
       resData.push(obj[k]);
     }
-    if (obj[k].childrenData && obj[k].childrenData.length > 0) {
-      getData(obj[k].childrenData, url, id, resData);
+    if (obj[k].subCategories && obj[k].subCategories.length > 0) {
+      getData(obj[k].subCategories, url, id, resData);
     }
   }
 
@@ -57,7 +58,7 @@ const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
 export {
   eachRecursive,
   getData,
-  getParents,
+  /*  getParents,*/
   checkEmptyObject,
   checkedAccessMenu,
 };

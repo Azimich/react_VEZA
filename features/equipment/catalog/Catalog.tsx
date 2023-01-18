@@ -1,18 +1,18 @@
 import { CategoryItem } from "./CategoryItem";
-import { CatalogEquipmentData } from "../mockData";
+/*import { CatalogEquipmentData } from "../mockData";*/
 import Styles from "../Equipment.module.scss";
-import { Pagination } from "../../../components/pagination/Pagination";
-import { getData } from "../../../utils/helpers";
-import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { Pagination } from "components/pagination/Pagination";
+/*import { getData } from "../../../utils/helpers";
+import { useRouter } from "next/router";*/
+import { FC, useState } from "react";
 import { ICatalogData, ICatalogEquipmentData } from "../Equipment";
 
 const Catalog: FC<{ data: ICatalogData[] }> = ({ data }) => {
-  const router = useRouter();
-  const [dataCategory, setDataCategory] = useState<ICatalogEquipmentData>();
-  useEffect(() => {
+  /*  const router = useRouter();*/
+  const [dataCategory /*setDataCategory*/] = useState<ICatalogEquipmentData>();
+  /*  useEffect(() => {
     setDataCategory(getData(CatalogEquipmentData, router.asPath).shift());
-  }, []);
+  }, []);*/
 
   return (
     <>

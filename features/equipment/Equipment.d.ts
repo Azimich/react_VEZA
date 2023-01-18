@@ -1,5 +1,6 @@
 import { ISlideItem } from "components/slider/Slider.d";
-import { IResponse } from "types/response";
+import { IImages, IResponse } from "types/response";
+import { IBannerItem } from "features/news/News";
 
 interface ICatalogEquipmentData {
   title: string;
@@ -12,6 +13,7 @@ interface ICatalogEquipmentData {
   onClick?: (e: ICatalogEquipmentData[], level: number, id: number) => void;
   level?: number;
 }
+
 interface ICatalogData {
   typo_size_id?: number;
   title?: string;
@@ -23,15 +25,20 @@ interface ICatalogData {
 }
 
 interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
-  response: IBannerItem[];
+  response: ICategoriesItem[];
 }
 
-interface ICategoriesItem {
-  title: string;
+interface ICategoriesItem extends IBannerItem {
   alias: string;
-  seo?: null;
-  imageTitle?: string;
-  imageUrl?: string;
+  images: IImages;
+  level: number;
+  seo: string;
+  subCategories: ICategoriesItem[];
 }
 
-export { ICatalogEquipmentData, ICatalogData, ICategoriesResponseArray };
+export {
+  ICatalogEquipmentData,
+  ICategoriesItem,
+  ICatalogData,
+  ICategoriesResponseArray,
+};
