@@ -24,7 +24,7 @@ export const Modal: FC<IModalProps> = ({
       >
         <div className={Styles.modal_body}>
           <div className={Styles.modal_head}>
-            <div>{headerText}</div>
+            <div className={Styles.modal_head_title}>{headerText}</div>
             <span className={Styles.modal_close} onClick={hide}>
               <CloseIcon />
             </span>

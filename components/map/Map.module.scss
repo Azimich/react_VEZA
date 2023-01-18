@@ -147,7 +147,7 @@
 }
 
 .factory_info {
-  margin-top: 16px;
+  margin-top: 8px;
 
   &_fio {
     font-weight: 400;
@@ -165,24 +165,21 @@
 
   &_services {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     color: gray;
     font-size: 15px;
     gap: 10px;
     margin-bottom: 6px;
     transition: all 0.3s;
 
-    &:hover {
-      a, span {
-        color: color(green);
-      }
-    }
 
     a, span {
       color: gray;
     }
-
+span{
+  text-align: right;
+}
     p {
       font-weight: 500;
       font-size: 18px;
