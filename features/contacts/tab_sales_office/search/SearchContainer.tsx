@@ -1,47 +1,36 @@
 import { SelectContainer } from "components/select/SelectContainer";
-import React, { FC, useEffect } from "react";
-import { dataContactsCitySelect } from "../mockData";
+import React, { FC } from "react";
 import Styles from "./SerchContainer.module.scss";
 import { IOptionItem } from "components/select/Select";
-import { useAppDispatch, useAppSelector } from "store/hooks";
-import {
-  getOptionsOfficeSalesCity,
-  getSelectedOfficeSalesCity,
-  setOptionsOfficeSalesCity,
-  setSelectedOfficeSalesCity,
-} from "features/contacts/ContactsSlice";
 
-const SearchContainer: FC = () => {
-  const dispatch = useAppDispatch();
+import { IJob } from "features/about/tab_job/Job";
+import { checkEmptyObject } from "utils/helpers";
 
-  const optionCity = useAppSelector(getOptionsOfficeSalesCity);
-  const selectedCity = useAppSelector(getSelectedOfficeSalesCity);
+interface ICitiesOption {
+  response: IJob[];
+  selectedCity: IOptionItem;
+  handleOnClick: (evt: IOptionItem) => void;
+}
 
-  const handleOnClickSelect = (evt: IOptionItem) => {
-    dispatch(setSelectedOfficeSalesCity({ selectedOfficeSalesCity: evt }));
-  };
-
-  useEffect(() => {
-    dispatch(
-      setSelectedOfficeSalesCity({
-        selectedOfficeSalesCity: dataContactsCitySelect[0],
-      }),
-    );
-    dispatch(
-      setOptionsOfficeSalesCity({
-        optionsOfficeSalesCity: dataContactsCitySelect,
-      }),
-    );
-  }, [dataContactsCitySelect]);
-
+const SearchContainer: FC<ICitiesOption> = ({
+  response,
+  handleOnClick,
+  selectedCity = {},
+}) => {
   return (
     <div className={Styles.search}>
       <div className={Styles.search__select}>
-        {optionCity.length > 0 && (
+        {response?.length > 0 && !checkEmptyObject(selectedCity) && (
           <SelectContainer
             instanceId={"Select_search"}
-            onChange={(evt: IOptionItem) => handleOnClickSelect(evt)}
-            optionsData={optionCity}
+            onChange={(evt: IOptionItem) => handleOnClick(evt)}
+            optionsData={response?.map((e) => {
+              return {
+                value: e.alias,
+                label: e.city,
+                districtFiasId: e.districtFiasId,
+              };
+            })}
             defaultValue={selectedCity}
           />
         )}

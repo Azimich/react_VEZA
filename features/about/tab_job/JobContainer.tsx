@@ -47,7 +47,6 @@ const JobContainer: FC = () => {
   const [jobs, setJobs] = useState<IJobsResponseArray>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
-
   const selectRef = useRef(null);
   const { isShow, toggle } = useModal();
   const { getListCities } = useGetListCities();

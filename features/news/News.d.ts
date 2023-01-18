@@ -1,4 +1,4 @@
-import { IResponse } from "../../types/response";
+import { IImages, IResponse } from "../../types/response";
 import { ICategoriesResponseArray } from "features/equipment/Equipment";
 import { IAboutUsResponse } from "features/home/about/AboutUs";
 
@@ -58,11 +58,7 @@ interface IBannerItem {
   imageUrl: string;
   slideNumber: number;
   show_text?: boolean;
-  images?: {
-    pc?: string;
-    ipad?: string;
-    mobile?: string;
-  };
+  images?: IImages;
 }
 
 interface IStatics {
@@ -91,6 +87,7 @@ export {
   INewsResponse,
   ISSRNews,
   ISSRHome,
+  IBannerItem,
   INewsResponseArray,
   IBannerResponseArray,
 };

@@ -1,16 +1,20 @@
 import { FC } from "react";
 import Styles from "./Equipment.module.scss";
 import { Container } from "components/common/container";
-import { Menu } from "./menu/Menu";
-import { Catalog } from "./catalog/Catalog";
-import { ICatalogData } from "./Equipment";
-
-const EquipmentContainer: FC<{ data: ICatalogData[] }> = ({ data }) => {
+/*
+import {Menu} from "./menu/Menu";
+*/
+import { ICategoriesResponseArray } from "./Equipment";
+interface IEquipment {
+  categories: ICategoriesResponseArray;
+}
+const EquipmentContainer: FC<IEquipment> = ({ categories }) => {
+  console.log("categories", categories);
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
-        <Menu />
-        <Catalog data={data} />
+        {/*<Menu categories={response.categories}/>*/}
+        {/*<Catalog data={data} />*/}
       </div>
     </Container>
   );

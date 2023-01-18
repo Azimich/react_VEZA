@@ -4,7 +4,8 @@ import React from "react";
 import { IComponents } from "components/tabs/Tabs";
 import { Interaction, SalesOffice, Support } from "../../features/contacts";
 import { fetchMenu } from "store/slice/MenuSlice";
-import { menuListServer } from "service/index";
+import { mapListServer, menuListServer } from "service/index";
+import { fetchMap } from "components/map/MapSlice";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -15,6 +16,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
+    store.dispatch(fetchMap({ mapState: { ...(await mapListServer()) } }));
     store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
 
     const { params } = context;

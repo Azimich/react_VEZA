@@ -1,9 +1,11 @@
 import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
-import { CatalogData, CatalogEquipmentData } from "features/equipment/mockData";
+import { CatalogData } from "features/equipment/mockData";
 import { EquipmentContainer } from "features/equipment";
 import { GetStaticPaths } from "next";
+/*
 import { getData } from "utils/helpers";
+*/
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
 
@@ -18,18 +20,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
-  (store) => async (context) => {
+  (store) => async () => {
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
 
-    const { params } = context;
+    /*    const { params } = context;*/
     return {
       props: {
-        data: CatalogData.filter(
+        /*data: CatalogData.filter(
           (e) =>
             e.cat_id ===
             getData(CatalogEquipmentData, "/equipment/" + params.slug).shift()
               ?.id,
-        ),
+        ),*/
       },
       revalidate: 10,
     };

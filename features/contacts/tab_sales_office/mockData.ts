@@ -1,6 +1,5 @@
 import { ISalles } from "./SalesOffice";
 import { IOptionItem } from "components/select/Select";
-import { IObject } from "components/map/Map";
 
 const salesOfficeData: ISalles[] = [
   {
@@ -344,7 +343,7 @@ const dataContactsCitySelect: IOptionItem[] = [
   { value: "PET", label: "Санкт-Петербург" },
 ];
 
-const office_sales_data: IObject[] = [
+/*const office_sales_data: IObject[] = [
   {
     id: 1,
     connect: "belarus",
@@ -404,6 +403,6 @@ const office_sales_data: IObject[] = [
       email: "veza@veza.ru",
     },
   },
-];
+];*/
 
-export { salesOfficeData, dataContactsCitySelect, office_sales_data };
+export { salesOfficeData, dataContactsCitySelect };

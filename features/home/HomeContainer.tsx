@@ -10,6 +10,7 @@ import Styles from "./about/About.module.scss";
 import { IBannerResponseArray, ISSRHome } from "features/news/News";
 import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
+import { ICategoriesResponseArray } from "features/equipment/Equipment";
 
 const HomeContainer: FC<ISSRHome> = ({
   newsData,
@@ -17,7 +18,7 @@ const HomeContainer: FC<ISSRHome> = ({
   indexCategories,
   indexAboutUS,
 }) => {
-  const convert = (data: IBannerResponseArray) => {
+  const convert = (data: IBannerResponseArray | ICategoriesResponseArray) => {
     return data?.response.map((e): ISlideItem => {
       return {
         alt: e.title,

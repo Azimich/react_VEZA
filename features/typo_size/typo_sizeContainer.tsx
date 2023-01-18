@@ -2,7 +2,9 @@ import { Container } from "components/common/container";
 import { ICatalogData } from "features/equipment/Equipment";
 import React, { FC, useState } from "react";
 import Styles from "./typo_size.module.scss";
+/*
 import { Menu } from "../equipment/menu/Menu";
+*/
 import { Tabs } from "components/tabs";
 import { IComponents, ITab } from "components/tabs/Tabs";
 import { tabsTypoSizeData } from "../contacts/mockData";
@@ -29,7 +31,7 @@ const typo_sizeContainer: FC<{ data: ICatalogData[] }> = (/*{ data }*/) => {
   return (
     <Container className={"wrapper"}>
       <div className={Styles.typo_size_container}>
-        <Menu />
+        {/*        <Menu />*/}
         <div className={Styles.typo_size_container_right}>
           <Tabs
             props={tabsTypoSizeData}

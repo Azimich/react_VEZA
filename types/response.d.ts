@@ -23,5 +23,9 @@ interface IObjects {
   title: string;
   titleDelivery: string;
 }
-
-export { IResponse, IPage, IObjects };
+interface IImages {
+  pc?: string;
+  ipad?: string;
+  mobile?: string;
+}
+export { IResponse, IPage, IObjects, IImages };
