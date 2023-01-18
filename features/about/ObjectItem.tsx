@@ -16,10 +16,15 @@ const ObjectItem: FC<IObject> = (props) => {
     const Parent_Coord = connect
       ? document.getElementById("parent_map").getBoundingClientRect()
       : { top: 0, left: 0 };
-
+    console.log(
+      "connect.toLowerCase()",
+      connect.toLowerCase(),
+      document.getElementById("parent_map"),
+    );
     const Child_Coord = connect
       ? document.getElementById(connect.toLowerCase()).getBoundingClientRect()
       : { top: 0, left: 0 };
+
     setRelative_coord({
       relative_top: Child_Coord.top - Parent_Coord.top,
       relative_left: Child_Coord.left - Parent_Coord.left,

@@ -39,7 +39,7 @@ const WhoWeContainer: FC = () => {
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Кто мы" }]);
   }, [dataBreadAbout]);
-  console.log("ListPlants", ListPlants);
+
   const FormOutPut: ReactNode[] = ListPlants
     ? ListPlants.plants.map((e) => {
         return (
@@ -104,6 +104,7 @@ const WhoWeContainer: FC = () => {
         isShow={isShow}
         hide={toggle}
         modalContent={<ModalFormFactory {...contentForm} />}
+        headerText={contentForm?.object?.name}
         theme={"modal"}
         bgModal={"black"}
       ></Modal>
