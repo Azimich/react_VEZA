@@ -17,7 +17,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   };
 
   return (
-    <>
+    <div className={Styles.checkbox_container}>
       <label
         htmlFor={String(id)}
         {...attrs}
@@ -37,7 +37,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
           <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
         </svg>
       </label>
-    </>
+    </div>
   );
 };
 
