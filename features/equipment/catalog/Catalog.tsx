@@ -1,32 +1,32 @@
 import { CategoryItem } from "./CategoryItem";
 /*import { CatalogEquipmentData } from "../mockData";*/
 import Styles from "../Equipment.module.scss";
-import { Pagination } from "components/pagination/Pagination";
+/*
+import {Pagination} from "components/pagination/Pagination";
+*/
 /*import { getData } from "../../../utils/helpers";
 import { useRouter } from "next/router";*/
 import { FC, useState } from "react";
-import { ICatalogData, ICatalogEquipmentData } from "../Equipment";
+import { ICatalogEquipmentData, ICategoriesItem } from "../Equipment";
 
-const Catalog: FC<{ data: ICatalogData[] }> = ({ data }) => {
+const Catalog: FC<{ data: ICategoriesItem[] }> = ({ data }) => {
   /*  const router = useRouter();*/
+  console.log("data", data);
   const [dataCategory /*setDataCategory*/] = useState<ICatalogEquipmentData>();
   /*  useEffect(() => {
-    setDataCategory(getData(CatalogEquipmentData, router.asPath).shift());
-  }, []);*/
+      setDataCategory(getData(CatalogEquipmentData, router.asPath).shift());
+    }, []);*/
 
   return (
     <>
       <div className={Styles.equipment__container_catalog}>
-        <h1>{dataCategory && dataCategory.title}</h1>
-        <div className={Styles.equipment__container_catalog_banner}>
-          <img src={dataCategory && dataCategory.img} alt="Фото" />
-        </div>
+        <h1>{dataCategory ? dataCategory.title : "Каталог продукции"}</h1>
         <div className={Styles.equipment__container_catalog_product}>
           {data?.map((e) => {
-            return <CategoryItem key={e.id} {...e} />;
+            return <CategoryItem key={e.alias} {...e} />;
           })}
         </div>
-        <Pagination currentPage={1} totalPageCount={6} pageSize={11} />
+        {/*<Pagination currentPage={1} totalPageCount={6} pageSize={11} />*/}
       </div>
     </>
   );

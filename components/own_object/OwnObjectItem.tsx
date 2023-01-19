@@ -14,7 +14,7 @@ const OwnObjectItem: FC<IObjects> = ({
 
   return (
     <li className={Styles[slide_class]}>
-      <img src={imageUrl} alt="ФОто" />
+      <img src={imageUrl} alt="Фото" />
       <div className={Styles.object__slider}>
         <span>
           <p className={Styles.title}>{title}</p>

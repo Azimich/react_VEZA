@@ -1,13 +1,12 @@
 import { Link } from "components/link";
 import { FC } from "react";
-import { ICatalogData } from "../Equipment";
+import { ICategoriesItem } from "../Equipment";
 import Styles from "../Equipment.module.scss";
 
-const CategoryItem: FC<ICatalogData> = ({ image, alias }) => {
-  console.log("catalog image", image);
+const CategoryItem: FC<ICategoriesItem> = ({ images, alias }) => {
   return (
     <Link url={alias} classLink={Styles.equipment__container_catalog_product_a}>
-      <img src={image?.length > 0 && image} alt={"Photo"} />
+      <img src={images && images.pc} alt={"Photo"} />
     </Link>
   );
 };

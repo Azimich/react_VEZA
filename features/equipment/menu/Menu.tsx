@@ -1,64 +1,69 @@
 import Styles from "../Equipment.module.scss";
 import { CategoryIcon } from "components/icons";
-/*import {MenuItem} from "./MenuItem";*/
-/*import {breadcrumbsData} from "./mockData";*/
+import { MenuItem } from "./MenuItem";
+import { breadcrumbsData } from "./mockData";
 import { ICategoriesItem } from "../Equipment";
-import { FC, useState } from "react";
-/*import {CatalogEquipmentData} from "../mockData";*/
-/*import {useRouter} from "next/router";*/
-import { getData } from "utils/helpers";
+import { FC, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { getData, getParents } from "utils/helpers";
+import { equipmentPath } from "utils/bootstrap";
 
 interface IMenu {
   categories: ICategoriesItem[];
+  data: ICategoriesItem[];
+  alias: string;
 }
 
-const Menu: FC<IMenu> = ({ categories }) => {
-  /*    const router = useRouter();*/
-  const [menu /*setMenu*/] = useState<ICategoriesItem[]>(
-    categories.filter((e) => e.level === 0),
-  );
-  console.log("menu", menu, getData(menu, "heat-point")[0]?.level);
-  /*    useEffect(() => {
-            if (router.query.slug) {
-                const resData: ICatalogEquipmentData[] = [];
-                for (
-                    let i = 0;
-                    i <
-                    getData(CatalogEquipmentData, "/equipment/" + router.query.slug)[0]
-                        ?.level;
-                    i++
-                ) {
-                    const parentsData = getParents(
-                        CatalogEquipmentData,
-                        getData(CatalogEquipmentData, "/equipment/" + router.query.slug)[0]
-                            ?.parent_id,
-                    );
-                    const bySortLevel = parentsData.slice(0);
-                    bySortLevel.sort((a, b) => a.level - b.level);
+const Menu: FC<IMenu> = ({ categories, data, alias }) => {
+  const router = useRouter();
+  const [menu, setMenu] = useState<ICategoriesItem[]>([]);
 
-                    resData.push(
-                        (breadcrumbsData[i] = {
-                            title: breadcrumbsData[i]?.title,
-                            id: breadcrumbsData[i]?.id,
-                            alias: i === 0 ? "/equipment/" : bySortLevel[i - 1]?.alias,
-                            back: true,
-                        }),
-                    );
-                }
+  useEffect(() => {
+    //categories?.filter((e) => e.level === 0)
+    data?.length > 0 && setMenu(data);
+  }, [data]);
 
-                const bySortId = resData.slice(0);
-                bySortId.sort((a, b) => a.id - b.id);
+  useEffect(() => {
+    console.log("categories", categories, getData(categories, alias)[0], alias);
+    if (alias) {
+      const resData: ICategoriesItem[] = [];
+      for (let i = 0; i < getData(categories, alias)[0]?.level; i++) {
+        const parentsData = getParents(
+          categories,
+          getData(categories, alias)[0]?.parentAlias,
+          getData(categories, alias)[0]?.level,
+        );
+        const bySortLevel = parentsData.slice(0);
+        bySortLevel.sort((a, b) => a.level - b.level);
 
-                setMenu(
-                    bySortId.concat(
-                        getData(CatalogEquipmentData, "/equipment/" + router.query.slug)[0]
-                            ?.childrenData,
-                    ),
-                );
-            } else {
-                setMenu(CatalogEquipmentData.filter((e) => e.parent_id === 0));
-            }
-        }, [router.query.slug]);*/
+        resData.push({
+          title: breadcrumbsData[i]?.title,
+          alias:
+            i === 0 ? "/equipment" : equipmentPath + bySortLevel[i - 1]?.alias,
+          back: true,
+          level: i,
+        });
+      }
+
+      const bySortId = resData.slice(0);
+      bySortId.sort((a, b) => a.level - b.level);
+
+      setMenu(
+        bySortId.concat(
+          getData(categories, alias)[0]?.subCategories?.map((e) => {
+            return { ...e, alias: router.asPath + "/" + e.alias };
+          }),
+        ),
+      );
+    } else {
+      categories?.length > 0 &&
+        setMenu(
+          categories?.map((e) => {
+            return { ...e, alias: router.asPath + "/" + e.alias };
+          }),
+        );
+    }
+  }, [router.query.slug, categories]);
 
   return (
     <div className={Styles.equipment__container_menu}>
@@ -67,9 +72,9 @@ const Menu: FC<IMenu> = ({ categories }) => {
         продукция
       </h2>
       <ul>
-        {/*                {menu?.map((e, i) => {
-                    return <MenuItem key={i} {...e} />;
-                })}*/}
+        {menu?.map((e, i) => {
+          return <MenuItem key={i} {...e} />;
+        })}
       </ul>
     </div>
   );
