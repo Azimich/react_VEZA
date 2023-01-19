@@ -97,9 +97,9 @@ const HeaderContainer: FC = () => {
           }`}
         >
           <ul className={""}>
-            {dataMenu.map((e) => {
+            {dataMenu.map((e, index) => {
               return (
-                <li>
+                <li key={index}>
                   <span></span>
                   {e.name}
                 </li>

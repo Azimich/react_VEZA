@@ -150,15 +150,16 @@ const ModalFormJob = () => {
                 : Styles.job__modal__item__input
             }`}
           >
-            <CheckboxWithLabel
-              name={"private_police"}
-              id={"private_police_id"}
-              title={"Согласие на обработку персональных данных с условиями"}
-              onChangeData={(e) => {
-                formik.handleChange(e);
-              }}
-            />
-
+            <div className={Styles.modal_job}>
+              <CheckboxWithLabel
+                name={"private_police"}
+                id={"private_police_id"}
+                title={"Согласие на обработку персональных данных с условиями"}
+                onChangeData={(e) => {
+                  formik.handleChange(e);
+                }}
+              />
+            </div>
             <div
               className={`${
                 formik.errors?.private_police && formik.touched?.private_police

@@ -1,8 +1,10 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-.checkbox {
+.checkbox_container {
   cursor: pointer;
+}
+.checkbox {
   &__label {
     -ms-user-select: none;
     -moz-user-select: none;
