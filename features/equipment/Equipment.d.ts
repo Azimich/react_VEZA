@@ -30,10 +30,13 @@ interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
 
 interface ICategoriesItem extends IBannerItem {
   alias: string;
-  images: IImages;
+  images?: IImages;
   level: number;
-  seo: string;
-  subCategories: ICategoriesItem[];
+  parentAlias?: string;
+  seo?: string;
+  back?: boolean;
+  title?: string;
+  subCategories?: ICategoriesItem[];
 }
 
 export {

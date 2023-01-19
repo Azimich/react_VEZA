@@ -1,4 +1,4 @@
-import { FetchService } from "../../Service";
+import { FetchService } from "service/Service";
 
 const menuCategory = async () => {
   return await FetchService.getData(
