@@ -120,8 +120,6 @@ const SlideItem: FC<ISlideItem> = ({
     );
   };
 
-  console.log("url++", url);
-
   useEffect(() => {
     isWindow && setHasWindow(true);
   }, [isWindow]);

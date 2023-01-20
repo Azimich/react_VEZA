@@ -11,10 +11,14 @@ interface ISSRHome {
   indexBanner: IBannerResponseArray;
   indexCategories: ICategoriesResponseArray;
   indexAboutUS: IAboutUsResponse;
+  indexIndustries: IIndustriesResponse;
 }
 
 interface INewsResponse extends Omit<IResponse, "response"> {
   response: INewsDataItem;
+}
+interface IIndustriesResponse extends Omit<IResponse, "response"> {
+  response: [];
 }
 
 interface INewsResponseArray extends Omit<IResponse, "response"> {

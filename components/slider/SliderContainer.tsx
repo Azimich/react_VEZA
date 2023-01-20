@@ -40,7 +40,7 @@ const SliderContainer: FC<ISliderProps> = ({
       return '<span class="' + className + '">' + "</span>";
     },
   };
-  console.log("777", items);
+
   const slideEffect = {
     slideShadows: false,
   };
