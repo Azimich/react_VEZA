@@ -63,7 +63,6 @@
 
   &__mobile-menu {
     display: none;
-
     @include ipadScreen {
       display: block;
       z-index: 2;

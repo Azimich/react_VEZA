@@ -20,7 +20,7 @@ const FirstForm = () => {
       <div className={Styles.first_form_top_first}>
         <div className={Styles.middle_block}>
           Маркировка клапана (согласно каталогу на противопожарные клапаны ООО
-          "ВЕЗА"): КПУ-1Н (если известно)
+          ВЕЗА): КПУ-1Н (если известно)
           <div className={Styles.input}>
             <LayoutInput
               name={"email"}
