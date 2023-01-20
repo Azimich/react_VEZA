@@ -9,7 +9,7 @@ const CertificateItem: FC<ICertificates> = ({
   image,
   alias,
   parent,
-  category,
+  title,
 }) => {
   console.log(image, alias, parent);
 
@@ -20,9 +20,9 @@ const CertificateItem: FC<ICertificates> = ({
         classLink={Styles.certificates__items__item}
       >
         <div className={Styles.certificates__items__item__img}>
-          <img src={"/images/" + image} alt={image} />
+          <img src={image.imageUrlPc} alt={image.imageTitlePc} />
         </div>
-        <h2>{category}</h2>
+        <h2>{title}</h2>
       </Link>
     </div>
   );

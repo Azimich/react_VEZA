@@ -22,7 +22,14 @@ interface ICatalog {
 
 interface ICertificates {
   id?: number;
-  image?: string;
+  image?: {
+    imageTitleIpad?: string;
+    imageTitleMobile?: string;
+    imageTitlePc?: string;
+    imageUrlIpad?: string;
+    imageUrlMobile?: string;
+    imageUrlPc?: string;
+  };
   download_url?: string;
   alias?: string;
   parent: number;
@@ -38,6 +45,10 @@ interface IQuestions {
 
 interface IBimResponseArray extends Omit<IResponse, "response"> {
   response: IBim[];
+}
+
+interface ICertResponseArray extends Omit<IResponse, "response"> {
+  response: ICertificates[];
 }
 
 interface IQuestionsResponseArray extends Omit<IResponse, "response"> {
@@ -61,4 +72,5 @@ export {
   IQuestionnaires,
   IQuestionsResponseArray,
   IBimResponseArray,
+  ICertResponseArray,
 };

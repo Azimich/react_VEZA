@@ -4,17 +4,19 @@ import { GetStaticPaths } from "next";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
 import { decisionItem } from "service/item/server/decisionItem";
+/*
 import { decisionList } from "service/list/servers/decisionList";
+*/
 import { AddNews } from "features/news/action/Add";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await decisionList().then((data) => data.response);
+  /*  const data = await decisionList().then((data) => data.response);
   const res = data.map((d: { alias: string }) => {
     return { params: { slug: d.alias } };
-  });
+  });*/
 
   return {
-    paths: res,
+    paths: [],
     fallback: "blocking",
   };
 };
