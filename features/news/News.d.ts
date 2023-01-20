@@ -50,13 +50,13 @@ interface INewsDataItem {
 }
 
 interface IBannerItem {
-  title: string;
-  description: string;
-  alias: string;
-  seo: string;
-  imageTitle: string;
-  imageUrl: string;
-  slideNumber: number;
+  title?: string;
+  description?: string;
+  alias?: string;
+  seo?: string;
+  imageTitle?: string;
+  imageUrl?: string;
+  slideNumber?: number;
   show_text?: boolean;
   images?: IImages;
 }
