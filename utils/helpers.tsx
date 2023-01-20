@@ -13,27 +13,28 @@ const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   return resData;
 };
 
-/*function getParents(
-  obj: ICatalogEquipmentData[],
-  id: number,
-  parents: ICatalogEquipmentData[] = [],
+function getParents(
+  obj: ICategoriesItem[],
+  parentAlias: string,
+  level: number,
+  parents: ICategoriesItem[] = [],
 ) {
-  if (id !== 0) {
-    const parent = getData(obj, "", id).shift();
-    if (parent?.parent_id != 0) {
+  if (level !== 1) {
+    const parent = getData(obj, parentAlias).shift();
+    if (parent?.level != 1) {
       parents.push(parent);
-      getParents(obj, parent.parent_id, parents);
+      getParents(obj, parent.parentAlias, parent.level, parents);
     } else {
       parents.push(parent);
     }
   }
   return parents;
-}*/
+}
 
 const getData = (
   obj: ICategoriesItem[],
   url: string,
-  id?: number,
+  parentAlias?: string,
   resData: ICategoriesItem[] = [],
 ) => {
   for (const k in obj) {
@@ -41,7 +42,7 @@ const getData = (
       resData.push(obj[k]);
     }
     if (obj[k].subCategories && obj[k].subCategories.length > 0) {
-      getData(obj[k].subCategories, url, id, resData);
+      getData(obj[k].subCategories, url, parentAlias, resData);
     }
   }
 
@@ -58,7 +59,7 @@ const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
 export {
   eachRecursive,
   getData,
-  /*  getParents,*/
+  getParents,
   checkEmptyObject,
   checkedAccessMenu,
 };

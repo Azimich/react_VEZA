@@ -29,9 +29,10 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
     return {
       props: {
-        data: getData(result.response, params.slug as string)[0].subCategories,
+        data: getData(result.response, params.slug_level1 as string)[0]
+          .subCategories,
         categories: result,
-        alias: params.slug,
+        alias: params.slug_level1,
       },
       revalidate: 10,
     };
