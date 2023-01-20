@@ -20,7 +20,7 @@ const QuestionsContainer: FC<IQuestions> = () => {
       !data.hasError && setQuestionsData(data.response);
     });
   }, []);
-
+  console.log("questionsData", questionsData);
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);

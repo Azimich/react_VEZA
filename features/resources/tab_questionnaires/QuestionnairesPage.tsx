@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState } from "react";
-import { QuestionnairesItem } from "features/resources/tab_questionnaires/QuestionnairesItem";
 import { Container } from "components/common/container";
 import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "features/contacts/mockData";
@@ -8,10 +7,7 @@ import { useRouter } from "next/router";
 import Styles from "./QuestionnairesContainer.module.scss";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
-import { IQuestionSSR } from "pages/resources/questionnaires/[alias]";
-import { questionnairesData } from "features/resources/mockData";
-import { IQuestionnaires } from "features/resources/tab_bim/Bim";
-import { checkEmptyObject } from "utils/helpers";
+
 import {
   FirstForm,
   SecondForm,
@@ -30,25 +26,40 @@ import {
   FifteenthForm,
   SixteenthForm,
 } from "features/resources/tab_questionnaires/questionnairesForms";
+import { IComponents } from "components/tabs/Tabs";
 
-const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
+const QuestionnairesPage: FC = () => {
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
-  const [parent, setParent] = useState<IQuestionnaires[]>([]);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Опросные листы" }]);
   }, [dataBreadResources]);
+  console.log("router", router.query.alias);
 
-  useEffect(() => {
-    if (checkEmptyObject(router.query)) {
-      setParent(questionnairesData.filter((parent) => parent.parent === 0));
-    } else {
-      setParent(item);
-    }
-  }, [router.query]);
-
+  const rend = () => {
+    const components: IComponents = {
+      form_1: FirstForm,
+      form_2: SecondForm,
+      form_3: ThirdForm,
+      form_4: FourthForm,
+      form_5: FifthForm,
+      form_6: SixthForm,
+      form_7: SeventhForm,
+      form_8: EighthForm,
+      form_9: NinthForm,
+      form_10: TenthForm,
+      form_11: EleventhForm,
+      form_12: TwelfthForm,
+      form_13: ThirteenthForm,
+      form_14: FourteenthForm,
+      form_15: FifteenthForm,
+      form_16: SixteenthForm,
+    };
+    return React.createElement(components[`${router.query.alias}`]);
+  };
+  console.log("23213", rend());
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -61,29 +72,10 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
           activeTab={5}
           size={"max"}
         />
-        {/*Форму вывел сюда, пока пути не настроены*/}
-        <SixteenthForm />
-        <FifteenthForm />
-        <FourteenthForm />
-        <ThirteenthForm />
-        <TwelfthForm />
-        <EleventhForm />
-        <TenthForm />
-        <NinthForm />
-        <EighthForm />
-        <SeventhForm />
-        <SixthForm />
-        <FifthForm />
-        <FourthForm />
-        <ThirdForm />
-        <SecondForm />
-        <FirstForm />
-
-        {parent &&
-          parent?.map((item) => <QuestionnairesItem key={item.id} {...item} />)}
+        {rend()}
       </div>
     </Container>
   );
 };
 
-export { QuestionnairesContainer };
+export { QuestionnairesPage };
