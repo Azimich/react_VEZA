@@ -24,7 +24,6 @@ const HeaderContainer: FC = () => {
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
   const [timer, setTimer] = useState(false);
-
   useScrollStop(isShow);
 
   const handleHamburgerOnClick = () => {
@@ -84,7 +83,6 @@ const HeaderContainer: FC = () => {
           ) : (
             timer && <SpinnerLoading />
           )}
-
           <HeaderIcon
             isShowMenu={isShow}
             onClickProfile={() => handleProfileMenuClick()}
@@ -96,7 +94,7 @@ const HeaderContainer: FC = () => {
             profileShow ? Styles.active : ""
           }`}
         >
-          <ul className={""}>
+          <ul className={Styles.header__profile_menu_lists}>
             {dataMenu.map((e, index) => {
               return (
                 <li key={index}>

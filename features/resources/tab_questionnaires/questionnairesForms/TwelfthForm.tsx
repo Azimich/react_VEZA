@@ -22,7 +22,7 @@ const TwelfthForm = () => {
       <div className={Styles.twelfth_form_top_first}>
         <div className={Styles.middle_block}>
           Маркировка клапана (согласно каталогу на противопожарные клапаны ООО
-          "ВЕЗА"): КЭД
+          ВЕЗА): КЭД
           <div className={Styles.input}>
             <LayoutInput
               name={"email"}
