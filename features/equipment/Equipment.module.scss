@@ -110,6 +110,7 @@
         transition: all 0.2s;
         position: relative;
         display: flex;
+        border: 1px solid color(border_category);
         &:hover img {
           object-fit: contain;
           transform: scale(1.1);

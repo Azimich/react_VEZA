@@ -1,11 +1,5 @@
 import { CategoryItem } from "./CategoryItem";
-/*import { CatalogEquipmentData } from "../mockData";*/
 import Styles from "../Equipment.module.scss";
-/*
-import {Pagination} from "components/pagination/Pagination";
-*/
-/*import { getData } from "../../../utils/helpers";
-import { useRouter } from "next/router";*/
 import { FC, useState } from "react";
 import { ICatalogEquipmentData, ICategoriesItem } from "../Equipment";
 
