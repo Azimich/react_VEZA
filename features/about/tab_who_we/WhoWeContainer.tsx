@@ -25,7 +25,7 @@ const WhoWeContainer: FC = () => {
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
   const { getListPlantsOffices, loading } = useGetListPlantsOffices();
-  const [ListPlants, setListPlants] = useState<IResponsePlants>({
+  const [listPlants, setListPlants] = useState<IResponsePlants>({
     offices: {
       hasError: false,
       errorMessage: "",
@@ -40,16 +40,17 @@ const WhoWeContainer: FC = () => {
   useEffect(() => {
     getListPlantsOffices().then((data) => {
       setListPlants(data.response);
-      console.log("wwwwwwww", data.response);
     });
   }, []);
+
+  console.log("wwwwwwww", listPlants);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Кто мы" }]);
   }, [dataBreadAbout]);
 
-  const FormOutPut: ReactNode[] = ListPlants
-    ? ListPlants.plants.map((e) => {
+  const FormOutPut: ReactNode[] = listPlants
+    ? listPlants.plants.map((e) => {
         return (
           <ObjectItem
             {...e}
