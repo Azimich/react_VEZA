@@ -9,7 +9,6 @@ import { FC } from "react";
 import { Provider } from "react-redux";
 
 const VezaApp: FC<AppProps> = ({ Component, ...rest }) => {
-  console.log("start", rest);
   const { store, props } = wrapper.useWrappedStore(rest);
   return (
     <Provider store={store}>

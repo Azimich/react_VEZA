@@ -20,7 +20,11 @@ interface IVacancies {
 }
 
 interface IJobsResponseArray extends Omit<IResponse, "response"> {
-  response: IJob[];
+  response?: IJob[];
+}
+
+interface IManagersResponseArray extends Omit<IResponse, "response"> {
+  response: IManagers[];
 }
 
 interface IVacanciesResponseArray extends Omit<IResponse, "response"> {
@@ -35,12 +39,27 @@ interface ICities {
   alias: string;
   city: string;
   district: string;
+  isDefaultCity?: boolean;
+  districtFiasId?: string;
+}
+
+interface IManagers {
+  description: string;
+  enterpriseTitle: string;
+  imageUrl: string;
+  mail: string;
+  phone: string;
+  title: string;
+  type: number;
 }
 
 export {
   ICitiesResponseArray,
   IJobsResponseArray,
   IJob,
+  ICities,
   IVacanciesResponseArray,
   IVacancies,
+  IManagers,
+  IManagersResponseArray,
 };

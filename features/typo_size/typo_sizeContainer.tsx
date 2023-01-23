@@ -1,5 +1,8 @@
 import { Container } from "components/common/container";
-import { ICatalogData } from "features/equipment/Equipment";
+import {
+  ICategoriesItem,
+  ICategoriesResponseArray,
+} from "features/equipment/Equipment";
 import React, { FC, useState } from "react";
 import Styles from "./typo_size.module.scss";
 /*
@@ -14,8 +17,15 @@ import {
   TypoSizeDescription,
   TypoSizeCalculates,
 } from "./index";
+/*import {Menu} from "features/equipment/menu/Menu";*/
 
-const typo_sizeContainer: FC<{ data: ICatalogData[] }> = (/*{ data }*/) => {
+interface IType_sizeProps {
+  dataCat: ICategoriesItem[];
+  categories: ICategoriesResponseArray;
+  alias: string;
+}
+
+const typo_sizeContainer: FC = () => {
   const [activeTab, setActiveTabs] = useState(1);
   const handleOnClick = (e: ITab) => {
     setActiveTabs(e.id);
@@ -31,7 +41,7 @@ const typo_sizeContainer: FC<{ data: ICatalogData[] }> = (/*{ data }*/) => {
   return (
     <Container className={"wrapper"}>
       <div className={Styles.typo_size_container}>
-        {/*        <Menu />*/}
+        {/*<Menu categories={categories?.response} data={dataCat} alias={alias}/>*/}
         <div className={Styles.typo_size_container_right}>
           <Tabs
             props={tabsTypoSizeData}
@@ -47,3 +57,4 @@ const typo_sizeContainer: FC<{ data: ICatalogData[] }> = (/*{ data }*/) => {
 };
 
 export { typo_sizeContainer };
+export type { IType_sizeProps };

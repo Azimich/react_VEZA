@@ -19,9 +19,27 @@ const tabsJobData: ITab[] = [
   { id: 2, title: "Офис продаж", url: "office", tabsActive: 2 },
 ];
 const tabsSalesData: ITab[] = [
-  { id: 1, title: "Руководитель", url: "director", tabsActive: 1 },
-  { id: 2, title: "Логисты", url: "logistic", tabsActive: 2 },
-  { id: 3, title: "Секретарь", url: "secretary", tabsActive: 3 },
+  {
+    id: 1,
+    title: "Руководители",
+    url: "director",
+    tabsActive: 1,
+    desc: "Наши руководители",
+  },
+  {
+    id: 2,
+    title: "Менеджеры",
+    url: "managers",
+    tabsActive: 2,
+    desc: "Наши менеджеры",
+  },
+  {
+    id: 3,
+    title: "Техническая поддержка",
+    url: "tsupport",
+    tabsActive: 3,
+    desc: "Наша техническая поддержка",
+  },
 ];
 const tabsContactsData: ITab[] = [
   { id: 1, title: "Офис Продаж", url: "sale_office" },

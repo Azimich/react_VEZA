@@ -1,6 +1,5 @@
-import { IOptionItem } from "../../../components/select/Select";
+import { IManagersResponseArray } from "features/about/tab_job/Job";
 
 interface IContactsSlice {
-  selectedOfficeSalesCity?: IOptionItem;
-  optionsOfficeSalesCity?: IOptionItem[];
+  managers?: IManagersResponseArray;
 }

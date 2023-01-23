@@ -9,7 +9,7 @@ const authPath = "/auth/";
 const SingInPath = "/auth/singin";
 const adminPath = "/admin/";
 const headers = {
-  accept: "text/plain'",
+  accept: "text/plain",
   "Content-Type": "application/json",
 };
 

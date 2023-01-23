@@ -3,13 +3,13 @@ import React, { FC } from "react";
 import Styles from "./SerchContainer.module.scss";
 import { IOptionItem } from "components/select/Select";
 
-import { IJob } from "features/about/tab_job/Job";
+import { ICities } from "features/about/tab_job/Job";
 import { checkEmptyObject } from "utils/helpers";
 
 interface ICitiesOption {
-  response: IJob[];
+  response: ICities[];
   selectedCity: IOptionItem;
-  handleOnClick: (evt: IOptionItem) => void;
+  handleOnClick?: (evt: IOptionItem) => void;
 }
 
 const SearchContainer: FC<ICitiesOption> = ({

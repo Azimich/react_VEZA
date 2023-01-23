@@ -6,9 +6,7 @@ const SelectionContainer = () => {
   return (
     <>
       <div className={Styles.selectionContainer}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum blanditiis
-        id, placeat quam suscipit, est numquam voluptatum nihil rerum eius
-        fugiat?
+        Оформление бланка-заказа осуществляется через программу расчета
       </div>
       <div className={Styles.selectionButton}>
         <Link url={"auth/singin"}>

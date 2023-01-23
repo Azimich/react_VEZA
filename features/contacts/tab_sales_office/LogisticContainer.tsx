@@ -1,23 +1,18 @@
 import React from "react";
-import { useAppSelector } from "../../../store/hooks";
-import { getSelectedOfficeSalesCity } from "../ContactsSlice";
 import Styles from "../Contacts.module.scss";
-import { salesOfficeData } from "./mockData";
+import { useAppSelector } from "store/hooks";
+import { getManagers } from "../ContactsSlice";
 import { SalesOfficeItem } from "./SalesOfficeItem";
 
 const LogisticContainer = () => {
-  const selectedCity = useAppSelector(getSelectedOfficeSalesCity);
+  const managers = useAppSelector(getManagers);
   return (
     <div className={Styles.director}>
       <div className={Styles.director__items}>
-        {salesOfficeData
-          .filter((e) => e.code === selectedCity.value)
+        {managers.response
+          .filter((e) => e.type === 0)
           .map((data) => {
-            return data.items
-              .filter((dir) => dir.type_code === "logistic")
-              .map((itemData) => {
-                return <SalesOfficeItem key={itemData.id} {...itemData} />;
-              });
+            return <SalesOfficeItem key={data.title} {...data} />;
           })}
       </div>
     </div>

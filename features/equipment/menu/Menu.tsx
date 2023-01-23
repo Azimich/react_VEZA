@@ -24,7 +24,6 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
   }, [data]);
 
   useEffect(() => {
-    console.log("categories", categories, getData(categories, alias)[0], alias);
     if (alias) {
       const resData: ICategoriesItem[] = [];
       for (let i = 0; i < getData(categories, alias)[0]?.level; i++) {

@@ -1,32 +1,32 @@
 import Styles from "../Contacts.module.scss";
 import React, { FC } from "react";
-import { ISallesOffice } from "./SalesOffice";
 import { EmailIcon, PhoneFooterIcon } from "components/icons";
+import { IManagers } from "features/about/tab_job/Job";
 
-const SalesOfficeItem: FC<ISallesOffice> = ({
-  image,
+const SalesOfficeItem: FC<IManagers> = ({
+  imageUrl,
   title,
-  desc,
-  email,
+  description,
+  mail,
   phone,
 }) => {
   return (
     <div className={Styles.director__items_item}>
       <div className={Styles.director__item_img}>
-        <img src={image} alt={title} />
+        <img src={imageUrl} alt={title} />
       </div>
       <div className={Styles.director__items_item_info}>
         <h3>{title}</h3>
       </div>
-      <p>{desc}</p>
+      <p>{description}</p>
       <ul className={Styles.director__items_item_calls}>
         <a href={"tel:" + phone}>
           <PhoneFooterIcon />
           {phone}
         </a>
-        <a href={"mailto:" + email}>
+        <a href={"mailto:" + mail}>
           <EmailIcon />
-          {email}
+          {mail}
         </a>
       </ul>
     </div>

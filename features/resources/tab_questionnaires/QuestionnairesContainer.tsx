@@ -12,24 +12,6 @@ import { IQuestionSSR } from "pages/resources/questionnaires/[alias]";
 import { questionnairesData } from "features/resources/mockData";
 import { IQuestionnaires } from "features/resources/tab_bim/Bim";
 import { checkEmptyObject } from "utils/helpers";
-import {
-  FirstForm,
-  SecondForm,
-  ThirdForm,
-  FourthForm,
-  FifthForm,
-  SixthForm,
-  SeventhForm,
-  EighthForm,
-  NinthForm,
-  TenthForm,
-  EleventhForm,
-  TwelfthForm,
-  ThirteenthForm,
-  FourteenthForm,
-  FifteenthForm,
-  SixteenthForm,
-} from "features/resources/tab_questionnaires/questionnairesForms";
 
 const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
   const router = useRouter();
@@ -61,23 +43,6 @@ const QuestionnairesContainer: FC<IQuestionSSR> = ({ item }) => {
           activeTab={5}
           size={"max"}
         />
-        {/*Форму вывел сюда, пока пути не настроены*/}
-        <SixteenthForm />
-        <FifteenthForm />
-        <FourteenthForm />
-        <ThirteenthForm />
-        <TwelfthForm />
-        <EleventhForm />
-        <TenthForm />
-        <NinthForm />
-        <EighthForm />
-        <SeventhForm />
-        <SixthForm />
-        <FifthForm />
-        <FourthForm />
-        <ThirdForm />
-        <SecondForm />
-        <FirstForm />
 
         {parent &&
           parent?.map((item) => <QuestionnairesItem key={item.id} {...item} />)}

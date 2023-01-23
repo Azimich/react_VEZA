@@ -4,6 +4,7 @@ interface ITab {
   id?: number;
   url?: string;
   title: string;
+  desc?: string;
   size?: "small300" | "max";
   menu_style?: "link" | "button";
   content?: ReactNode;
