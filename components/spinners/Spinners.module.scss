@@ -40,18 +40,21 @@
 }
 
 .spinner__loading__container {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0);
   -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   opacity: 0.5;
   .spinner__loading {
     top: calc(50% - 32px);
     left: calc(50% - 32px);
-    width: 64px;
-    height: 64px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     perspective: 800px;
-
+    @include ipadScreen {
+      width: 100px;
+      height: 100px;
+    }
     .inner {
       position: absolute;
       box-sizing: border-box;
@@ -61,10 +64,10 @@
     }
   
     .inner.one {
-        left: 0;
-        top: 0;
-        animation: rotate-one 1s linear infinite;
-        border-bottom: 3px solid green;
+      left: 0;
+      top: 0;
+      animation: rotate-one 1s linear infinite;
+      border-bottom: 3px solid green;
     }
   
     .inner.two {
