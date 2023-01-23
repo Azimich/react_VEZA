@@ -6,7 +6,7 @@ const useGetListPlantsOffices = () => {
   const getListPlantsOffices = () => {
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/company/get_plants_offices",
-      "GET",
+      "POST",
     );
   };
 

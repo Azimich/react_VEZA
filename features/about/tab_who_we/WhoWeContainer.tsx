@@ -17,13 +17,14 @@ import { ObjectItem } from "../ObjectItem";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { useGetListPlantsOffices } from "service/list/getPlantsOffices";
+import { SpinnerLoading } from "components/spinners";
 
 const WhoWeContainer: FC = () => {
   const [contentForm, setContentForm] = useState<IObject>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
-  const { getListPlantsOffices } = useGetListPlantsOffices();
+  const { getListPlantsOffices, loading } = useGetListPlantsOffices();
   const [ListPlants, setListPlants] = useState<IResponsePlants>({
     offices: [],
     plants: [],
@@ -33,6 +34,7 @@ const WhoWeContainer: FC = () => {
   useEffect(() => {
     getListPlantsOffices().then((data) => {
       setListPlants(data.response);
+      console.log("wwwwwwww", data.response);
     });
   }, []);
 
@@ -75,9 +77,17 @@ const WhoWeContainer: FC = () => {
           size={"small300"}
         />
       </div>
-      <div>
-        <Map formOutPut={FormOutPut} />
-      </div>
+
+      {loading ? (
+        <div className={Styles.loading_container}>
+          <SpinnerLoading />
+        </div>
+      ) : (
+        <div>
+          <Map formOutPut={FormOutPut} />
+        </div>
+      )}
+
       <WhoWeAbout />
       <div className={Styles.whowe_container_history_svg}>
         <span className={Styles.whowe_container_history_svg_pc}>
