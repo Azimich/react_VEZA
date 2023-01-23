@@ -26,7 +26,13 @@ const WhoWeContainer: FC = () => {
   const { isShow, toggle } = useModal();
   const { getListPlantsOffices, loading } = useGetListPlantsOffices();
   const [ListPlants, setListPlants] = useState<IResponsePlants>({
-    offices: [],
+    offices: {
+      hasError: false,
+      errorMessage: "",
+      customErrorCode: 0,
+      systemErrorMessage: "",
+      response: [],
+    },
     plants: [],
   });
   const router = useRouter();

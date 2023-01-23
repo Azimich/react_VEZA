@@ -1,25 +1,4 @@
-import { IObject } from "components/map/Map";
 import { ISliderProps } from "components/slider/Slider.d";
-
-const jobObject: IObject[] = [
-  {
-    count: 65,
-    type_object: "factory",
-    connection: "moskovskaya_obl",
-  },
-  {
-    id: 2,
-    count: 23,
-    connection: "belgorodskaya_obl",
-    type_object: "office_sales",
-  },
-  {
-    id: 3,
-    count: 88,
-    type_object: "factory",
-    connection: "Chelyabinskaya_obl",
-  },
-];
 
 const jobGalleryData: ISliderProps = {
   items: [
@@ -61,4 +40,4 @@ const jobGalleryData: ISliderProps = {
     },
   ],
 };
-export { jobObject, jobGalleryData };
+export { jobGalleryData };

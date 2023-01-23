@@ -48,12 +48,17 @@ const SalesOfficeContainer: FC = () => {
     desc: "Наши менеджеры",
   });
   const [ListOffices, setListOffices] = useState<IResponsePlants>({
-    offices: [],
+    offices: {
+      hasError: false,
+      errorMessage: "",
+      customErrorCode: 0,
+      systemErrorMessage: "",
+      response: [],
+    },
   });
 
   useEffect(() => {
     getListPlantsOffices().then((data) => {
-      console.log("data", data);
       setListOffices(data.response);
     });
 
@@ -84,7 +89,7 @@ const SalesOfficeContainer: FC = () => {
     tab_tsupport: Secretary,
   };
 
-  const FormOutPut: ReactNode[] = ListOffices.offices.map((e) => {
+  const FormOutPut: ReactNode[] = ListOffices.offices.response.map((e) => {
     return (
       <ObjectItem
         {...e}
