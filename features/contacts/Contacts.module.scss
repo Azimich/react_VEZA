@@ -1,10 +1,10 @@
 .director__items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
   gap: 20px;
   padding: 0 0 8px 0;
   margin-bottom: 80px;
-
+  min-height: 380px;
   &_item {
     padding: 0 0 15px 0;
     border-radius: 10px;

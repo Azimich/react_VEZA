@@ -7,9 +7,9 @@ import { Link } from "components/link";
 const ModalFormOffice: FC<IObject> = (props) => {
   return (
     <>
-      <p className={Styles.factory_info_fio}>
+      {/*      <p className={Styles.factory_info_fio}>
         Руководитель филиала:<p>{props.object.fio}</p>
-      </p>
+      </p>*/}
       <div className={Styles.factory_info}>
         <p className={`${Styles.factory_info_services} ${Styles.offices}`}>
           <MapIcon />

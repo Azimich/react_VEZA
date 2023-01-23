@@ -32,17 +32,23 @@ interface IMapProps {
 }
 
 interface IResponsePlants {
-  offices?: IObject[];
+  offices?: IOfficesState;
   plants?: IObject[];
 }
 
-interface IObject {
-  id?: number;
-  alias?: string;
-  connect?: string;
-  onClick?: (alias: IObject) => void;
-  object?: IObjectItem;
+interface IOfficesState extends Omit<IResponse, "response"> {
+  response?: IObject[];
 }
+
+/*interface IObject {
+    id?: number;
+    alias?: string;
+    connect?: string;
+    count?: number;
+    icon?: ReactNode;
+    onClick?: (alias: IObject) => void;
+    object?: IObjectItem;
+}*/
 
 interface IObjectItem {
   xpx?: number;
@@ -62,7 +68,7 @@ interface IObject {
   id?: number;
   alias?: string;
   count?: number;
-  connection?: string;
+  connect?: string;
   type_object?:
     | "commercial"
     | "social"
@@ -71,7 +77,7 @@ interface IObject {
     | "office_sales";
   object?: IObjectItem;
   icon?: ReactNode;
-  onClick?: (e, alias) => void;
+  onClick?: (alias: IObject) => void;
 }
 
 export {
@@ -82,4 +88,5 @@ export {
   IMapState,
   IMapSlice,
   IResponsePlants,
+  IOfficesState,
 };

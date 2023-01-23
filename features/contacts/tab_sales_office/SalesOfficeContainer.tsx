@@ -19,45 +19,57 @@ import { ModalFormOffice } from "./ModalFormOffice";
 import { dataBreadContacts } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { useGetListPlantsOffices } from "service/list/getPlantsOffices";
-import * as process from "process";
 import { useGetListCities } from "service/list";
-import { IJobsResponseArray } from "features/about/tab_job/Job";
+import { ICitiesResponseArray } from "features/about/tab_job/Job";
 import { IOptionItem } from "components/select/Select";
+import { useGetManagers } from "service/list/getManagers";
+import { useAppDispatch } from "store/hooks";
+import { setManagers } from "features/contacts/ContactsSlice";
 
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [selectedCity, setSelectedCity] = useState<IOptionItem>();
+  const [cities, setCities] = useState<ICitiesResponseArray>();
+  const { getManagers } = useGetManagers();
   const { getListCities } = useGetListCities();
   const { getListPlantsOffices } = useGetListPlantsOffices();
   const [contentForm, setContentForm] = useState<IObject>();
   const { isShow, toggle } = useModal();
-  const [cities, setCities] = useState<IJobsResponseArray>();
-  const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
-  const [data, setData] = React.useState<{ slug: string; activeTab: number }>({
-    slug: "director",
-    activeTab: 1,
+  const [data, setData] = React.useState<{
+    slug: string;
+    activeTab: number;
+    desc?: string;
+  }>({
+    slug: "managers",
+    activeTab: 2,
+    desc: "Наши менеджеры",
   });
   const [ListOffices, setListOffices] = useState<IResponsePlants>({
-    offices: [],
+    offices: {
+      hasError: false,
+      errorMessage: "",
+      customErrorCode: 0,
+      systemErrorMessage: "",
+      response: [],
+    },
   });
 
   useEffect(() => {
     getListPlantsOffices().then((data) => {
       setListOffices(data.response);
     });
-  }, []);
 
-  useEffect(() => {
-    setBreadCrumbs([...breadCrumbs, { title: "Офис продаж" }]);
-  }, [dataBreadContacts]);
-
-  useEffect(() => {
     getListCities().then((data) => {
       setCities(data);
     });
   }, []);
 
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Офис продаж" }]);
+  }, [dataBreadContacts]);
   useEffect(() => {
     const res = cities?.response
       ?.filter((e) => {
@@ -67,16 +79,17 @@ const SalesOfficeContainer: FC = () => {
         return { value: data.alias, label: data.city };
       })
       ?.shift();
-    setSelectedCities(res);
-  }, [cities?.response]);
+
+    setSelectedCity(res);
+  }, [cities]);
 
   const components: IComponents = {
     tab_director: Director,
-    tab_logistic: Logistic,
-    tab_secretary: Secretary,
+    tab_managers: Logistic,
+    tab_tsupport: Secretary,
   };
 
-  const FormOutPut: ReactNode[] = ListOffices.offices.map((e) => {
+  const FormOutPut: ReactNode[] = ListOffices.offices.response.map((e) => {
     return (
       <ObjectItem
         {...e}
@@ -93,16 +106,23 @@ const SalesOfficeContainer: FC = () => {
   };
 
   const handleTabsButton = (e: ITab) => {
-    setData({ slug: e.url, activeTab: e.tabsActive });
+    setData({ slug: e.url, activeTab: e.tabsActive, desc: e.desc });
   };
 
   const handleOnClickTabs = (e: ITab) => {
-    router.push(contactsPath + e.url);
+    router.push(contactsPath + e.url).then();
   };
   const handleOnClickSelect = (e: IOptionItem) => {
-    setSelectedCities(e);
+    setSelectedCity(e);
   };
 
+  useEffect(() => {
+    selectedCity &&
+      getManagers(selectedCity.value).then((data) => {
+        dispatch(setManagers({ managers: data }));
+      });
+  }, [selectedCity]);
+  console.log("111", data);
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
@@ -119,12 +139,12 @@ const SalesOfficeContainer: FC = () => {
       <Map formOutPut={FormOutPut} />
       <div className={Styles.sales_office_container_items}>
         <div className={Styles.separator__title__container}>
-          <SeparatorContainer title={"НАШИ МЕНЕДЖЕРЫ"} />
+          <SeparatorContainer title={data.desc} />
         </div>
         <SearchContainer
           {...cities}
           handleOnClick={(e) => handleOnClickSelect(e)}
-          selectedCity={selectedCities}
+          selectedCity={selectedCity}
         />
         <Tabs
           props={tabsSalesData}

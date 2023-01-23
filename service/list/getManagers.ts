@@ -1,20 +1,21 @@
 import useHttp from "store/hooks/useHttp";
 import { headers } from "utils/bootstrap";
 
-const useGetListPlantsOffices = () => {
+const useGetManagers = () => {
   const { request, loading, error } = useHttp();
 
-  const getListPlantsOffices = () => {
+  const getManagers = (url = "") => {
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +
-        "/api/v1/company/get_plants_offices/0/0",
+        "/api/v1/company/get_company_managers/" +
+        url,
       "GET",
       null,
       headers,
     );
   };
 
-  return { getListPlantsOffices, loading, error };
+  return { getManagers, loading, error };
 };
 
-export { useGetListPlantsOffices };
+export { useGetManagers };
