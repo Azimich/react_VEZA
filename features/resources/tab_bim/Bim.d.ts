@@ -22,13 +22,10 @@ interface ICatalog {
 
 interface ICertificates {
   id?: number;
-  image?: {
-    imageTitleIpad?: string;
-    imageTitleMobile?: string;
-    imageTitlePc?: string;
-    imageUrlIpad?: string;
-    imageUrlMobile?: string;
-    imageUrlPc?: string;
+  images?: {
+    ipad?: string;
+    mobile?: string;
+    pc?: string;
   };
   download_url?: string;
   alias?: string;

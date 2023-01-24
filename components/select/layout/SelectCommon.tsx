@@ -34,7 +34,7 @@ const SelectCommon: FC<IOptionSetting> = ({
       onChange={(e) => onChange(e)}
       value={value}
       noOptionsMessage={({ inputValue }) =>
-        !inputValue ? <ConnectError type={"text"} /> : "No results found"
+        !inputValue ? <ConnectError type={"text"} /> : "Город не найден"
       }
     />
   );

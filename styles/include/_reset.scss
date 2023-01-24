@@ -124,6 +124,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-input, button
-{outline:none;}
 
+input:focus,
+select:focus,
+option:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}

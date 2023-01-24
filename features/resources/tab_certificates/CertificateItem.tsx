@@ -5,9 +5,7 @@ import Styles from "./Certificates.module.scss";
 import { Link } from "components/link";
 import { resourcesPath } from "utils/bootstrap";
 
-const CertificateItem: FC<ICertificates> = ({ image, alias, parent }) => {
-  console.log(image, alias, parent);
-
+const CertificateItem: FC<ICertificates> = ({ title, images, alias }) => {
   return (
     <div className={Styles.certificates__items__block}>
       <Link
@@ -15,7 +13,7 @@ const CertificateItem: FC<ICertificates> = ({ image, alias, parent }) => {
         classLink={Styles.certificates__items__item}
       >
         <div className={Styles.certificates__items__item__img}>
-          <img src={image.imageUrlPc} alt={image.imageTitlePc} />
+          <img src={images.pc} alt={title} />
         </div>
       </Link>
     </div>
