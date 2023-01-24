@@ -48,26 +48,30 @@ const SelectCompanyInn: FC<IOptionSetting> = ({
       });
     }
   };
-
+  const customStyles = {
+    control: (styles: any) => ({
+      ...styles,
+      boxShadow: "none",
+      border: "1px solid #e1e1e1",
+      "&:hover": {
+        border: "1px solid #e1e1e1",
+        boxShadow: "none",
+      },
+      "&:focus": {
+        border: "1px solid #e1e1e1",
+        outline: "none",
+        boxShadow: "none",
+      },
+    }),
+    options: (styles: any) => ({
+      ...styles,
+      boxShadow: "none",
+      border: "none",
+    }),
+  };
   return (
     <AsyncSelect
-      styles={
-        {
-          /*        control: (baseStyles, state) => ({
-                    ...baseStyles,
-                    borderColor: state.isFocused ? "grey" : "red",
-                  }),
-
-                  option: (styles) => {
-                    return {
-                      ...styles,
-                      backgroundColor: "red",
-                      color: "black",
-                    };
-                  },
-          */
-        }
-      }
+      styles={customStyles}
       instanceId={instanceId}
       name={name}
       closeMenuOnSelect={closeMenuOnSelect}
