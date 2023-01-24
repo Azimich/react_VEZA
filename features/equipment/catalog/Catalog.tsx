@@ -4,12 +4,7 @@ import { FC, useState } from "react";
 import { ICatalogEquipmentData, ICategoriesItem } from "../Equipment";
 
 const Catalog: FC<{ data: ICategoriesItem[] }> = ({ data }) => {
-  /*  const router = useRouter();*/
-  console.log("data", data);
-  const [dataCategory /*setDataCategory*/] = useState<ICatalogEquipmentData>();
-  /*  useEffect(() => {
-      setDataCategory(getData(CatalogEquipmentData, router.asPath).shift());
-    }, []);*/
+  const [dataCategory] = useState<ICatalogEquipmentData>();
 
   return (
     <>
@@ -20,7 +15,6 @@ const Catalog: FC<{ data: ICategoriesItem[] }> = ({ data }) => {
             return <CategoryItem key={e.alias} {...e} />;
           })}
         </div>
-        {/*<Pagination currentPage={1} totalPageCount={6} pageSize={11} />*/}
       </div>
     </>
   );
