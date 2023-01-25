@@ -7,7 +7,6 @@
     height: 15px;
     font-size: 12px;
     background-color: color(white);
-
     @include phoneScreen {
       font-size: 12px;
       height: 12px;
@@ -22,7 +21,6 @@
     position: absolute;
   }
 
-
   &__icon_box {
     display: flex;
     flex-direction: column;
@@ -33,7 +31,6 @@
     top: 280px;
     left: 95%;
     z-index: 95 !important;
-
     &::after,
     &:before {
       content: '';
@@ -43,15 +40,12 @@
       height: 100px;
       right: 50%;
     }
-
     &::after {
       bottom: -120px;
     }
-
     &:before {
       top: -110px;
     }
-
     @include ipadScreen {
       display: none;
     }
@@ -62,10 +56,13 @@
     height: 25px;
     margin-bottom: 12px;
     transition: all 0.3s;
+    filter: drop-shadow(0px 3px 6px #FFFFFF);
+    svg {
+      filter: drop-shadow(0px 0px 8px #FFFFFF);
+    }
     path {
       fill: green;
     }
-
     &:hover {
       path {
         fill: #1BC47D;
@@ -99,11 +96,12 @@
     animation-iteration-count: infinite;
     color: green;
     transition: .3s all;
+    filter: drop-shadow(0px 3px 6px #FFFFFF);
     svg {
       width: 30px !important;
       height: 30px !important;
+      filter: drop-shadow(0px 0px 8px #FFFFFF);
     }
-
     path {
       fill: green;
       width: 30px;
