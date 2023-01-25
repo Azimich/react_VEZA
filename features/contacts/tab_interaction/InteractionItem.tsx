@@ -8,7 +8,6 @@ const InteractionItem: FC<Interaction> = ({
   service_tel,
   object,
 }) => {
-  console.log("111", object);
   return (
     <li className={Styles.interaction_items_item}>
       <h2>{object.name}</h2>

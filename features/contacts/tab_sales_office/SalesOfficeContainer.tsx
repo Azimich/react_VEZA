@@ -123,7 +123,6 @@ const SalesOfficeContainer: FC = () => {
         dispatch(setManagers({ managers: data }));
       });
   }, [selectedCity]);
-  console.log("111", data);
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />

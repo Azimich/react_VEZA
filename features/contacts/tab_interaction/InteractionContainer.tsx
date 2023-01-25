@@ -34,6 +34,7 @@ const InteractionContainer = () => {
   };
 
   useEffect(() => {
+    console.log("11", router.query.page);
     listSalesData(Number(router.query.page) || 1, 8).then(
       (data: IInteractionResponse) => {
         setPagination(data?.response.offices?.page);
@@ -41,7 +42,7 @@ const InteractionContainer = () => {
         setFactory(data?.response.plants);
       },
     );
-  }, []);
+  }, [router.query.page]);
 
   return (
     <Container className={"wrapper_clear"}>
