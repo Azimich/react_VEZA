@@ -31,7 +31,7 @@ interface ICertificates {
   alias?: string;
   parent: number;
   title?: string;
-  desc?: string;
+  description?: string;
   category?: string;
 }
 

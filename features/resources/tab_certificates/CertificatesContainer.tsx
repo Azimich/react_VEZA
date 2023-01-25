@@ -30,8 +30,6 @@ const CertificatesContainer = () => {
     setBreadCrumbs([...breadCrumbs, { title: "Категория сертификатов" }]);
   }, [dataBreadResources]);
 
-  console.log("certificatesData", certificatesData);
-
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />

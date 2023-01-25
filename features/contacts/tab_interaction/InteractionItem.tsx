@@ -3,16 +3,15 @@ import { FC } from "react";
 import Styles from "./Interaction.module.scss";
 
 const InteractionItem: FC<Interaction> = ({
-  address,
-  email,
   logistic_tel,
   secretary_tel,
   service_tel,
-  title,
+  object,
 }) => {
+  console.log("111", object);
   return (
     <li className={Styles.interaction_items_item}>
-      <h2>{title}</h2>
+      <h2>{object.name}</h2>
       <div className={Styles.interaction_items_item_box}>
         <p>
           Севис:
@@ -63,11 +62,11 @@ const InteractionItem: FC<Interaction> = ({
         <p>
           Почта:
           <span>
-            <a href={"email:" + email}>{email}</a>
+            <a href={"email:" + object.email}>{object.email}</a>
           </span>
         </p>
         <p>
-          Адрес:<span>{address}</span>
+          Адрес:<span>{object.address}</span>
         </p>
       </div>
     </li>
