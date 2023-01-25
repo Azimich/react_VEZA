@@ -8,7 +8,6 @@ const InteractionItem: FC<Interaction> = ({
   service_tel,
   object,
 }) => {
-  console.log("111", object);
   return (
     <li className={Styles.interaction_items_item}>
       <h2>{object.name}</h2>
@@ -18,7 +17,7 @@ const InteractionItem: FC<Interaction> = ({
           <span>
             {service_tel.map((e, i) => {
               return (
-                <span>
+                <span key={i}>
                   <a href={"tel:" + e}>
                     {i > 0 ? "" : "Тел:"} {e}
                   </a>
@@ -32,7 +31,7 @@ const InteractionItem: FC<Interaction> = ({
           <span>
             {logistic_tel.map((e, i) => {
               return (
-                <span>
+                <span key={i}>
                   <a href={"tel:" + e}>
                     {i > 0 ? "" : "Тел:"} {e}
                   </a>
@@ -48,7 +47,7 @@ const InteractionItem: FC<Interaction> = ({
             <p>
               {secretary_tel?.map((e, i) => {
                 return (
-                  <span>
+                  <span key={i}>
                     <a href={"tel:" + e}>
                       {i > 0 ? "" : "Тел:"} {e}
                     </a>
