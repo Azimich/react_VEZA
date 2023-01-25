@@ -56,12 +56,12 @@
     height: 25px;
     margin-bottom: 12px;
     transition: all 0.3s;
-    filter: drop-shadow(0px 3px 6px #FFFFFF);
-    svg {
-      filter: drop-shadow(0px 0px 8px #FFFFFF);
-    }
+    //filter: drop-shadow(0px 3px 6px #ffffff);
+    //svg {
+    //  filter: drop-shadow(0px -1px 7px #ffffff);
+    //}
     path {
-      fill: green;
+      fill: #1BC47D;
     }
     &:hover {
       path {
@@ -96,16 +96,13 @@
     animation-iteration-count: infinite;
     color: green;
     transition: .3s all;
-    filter: drop-shadow(0px 3px 6px #FFFFFF);
     svg {
       width: 30px !important;
       height: 30px !important;
-      filter: drop-shadow(0px 0px 8px #FFFFFF);
     }
     path {
-      fill: green;
+      fill: #1BC47D;
       width: 30px;
-
       &:hover {
         fill: #1BC47D;
       }

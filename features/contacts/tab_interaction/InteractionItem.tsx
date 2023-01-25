@@ -16,12 +16,10 @@ const InteractionItem: FC<Interaction> = ({
         <p>
           Севис:
           <span>
-            {service_tel.map((e, i) => {
+            {service_tel.map((e) => {
               return (
                 <span>
-                  <a href={"tel:" + e}>
-                    {i > 0 ? "" : "Тел:"} {e}
-                  </a>
+                  <a href={"tel:" + e}>{e}</a>
                 </span>
               );
             })}
@@ -30,12 +28,10 @@ const InteractionItem: FC<Interaction> = ({
         <p>
           Логистика:
           <span>
-            {logistic_tel.map((e, i) => {
+            {logistic_tel.map((e) => {
               return (
                 <span>
-                  <a href={"tel:" + e}>
-                    {i > 0 ? "" : "Тел:"} {e}
-                  </a>
+                  <a href={"tel:" + e}>{e}</a>
                 </span>
               );
             })}
@@ -46,12 +42,10 @@ const InteractionItem: FC<Interaction> = ({
           <p>
             Секритариат:
             <p>
-              {secretary_tel?.map((e, i) => {
+              {secretary_tel?.map((e) => {
                 return (
                   <span>
-                    <a href={"tel:" + e}>
-                      {i > 0 ? "" : "Тел:"} {e}
-                    </a>
+                    <a href={"tel:" + e}>{e}</a>
                   </span>
                 );
               })}
