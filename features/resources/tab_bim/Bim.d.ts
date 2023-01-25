@@ -27,10 +27,11 @@ interface ICertificates {
     mobile?: string;
     pc?: string;
   };
-  download_url?: string;
+  documentURL?: string;
   alias?: string;
   parent: number;
   title?: string;
+  kind?: string;
   description?: string;
   category?: string;
 }
