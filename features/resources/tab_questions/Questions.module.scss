@@ -1,6 +1,24 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
+.loading_container {
+  height: 700px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255 255 255);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+  @include ipadScreen {
+    display: none;
+  }
+}
+
 .questions_container{
   display: flex;
   justify-content: center;
