@@ -34,6 +34,7 @@ import { useGeoLocation } from "store/hooks/useGeoLocation";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
 import { getMap } from "components/map/MapSlice";
+import { SpinnerLoading } from "components/spinners";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
@@ -42,6 +43,7 @@ const JobContainer: FC = () => {
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     [],
   );
+  const [isLoading, setIsLoading] = useState(true);
   const [cities, setCities] = useState<IJob[]>();
   const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
   const [jobs, setJobs] = useState<IJobsResponseArray>();
@@ -70,6 +72,7 @@ const JobContainer: FC = () => {
       setVacanciesData(data);
     });
   }, []);
+
   useEffect(() => {
     const res = cities
       ?.filter((e) => {
@@ -99,6 +102,7 @@ const JobContainer: FC = () => {
           );
         }),
       );
+    setIsLoading(false);
     /*        console.log("selectedCheckBox", selectedCheckBox)*/
   }, [selectedCheckBox, vacanciesData]);
 
@@ -206,15 +210,21 @@ const JobContainer: FC = () => {
           size={"small300"}
         />
       </div>
-      <Map
-        formOutPut={FormOutPut}
-        sideBar={
-          <SideBar
-            onChange={(e: ITab) => handleSideBarClick(e)}
-            tabsSocialData={sideBarData}
-          />
-        }
-      />
+      {isLoading ? (
+        <div className={Styles.loading_container}>
+          <SpinnerLoading />
+        </div>
+      ) : (
+        <Map
+          formOutPut={FormOutPut}
+          sideBar={
+            <SideBar
+              onChange={(e: ITab) => handleSideBarClick(e)}
+              tabsSocialData={sideBarData}
+            />
+          }
+        />
+      )}
 
       <div className={Styles.vacancies__search_box} ref={selectRef}>
         {
@@ -248,7 +258,11 @@ const JobContainer: FC = () => {
           )
         ) : jobs.customErrorCode === 4404 ? (
           <MessageItem type={"attention"} className={Styles.no_vacancies}>
-            Вакансии в Вашем регионе отсутствуют
+            <h2>Вакансии в Вашем регионе отсутствуют</h2>
+            <p>
+              Попробуйте выбрать другой регион, чтобы найти подходящие вам
+              вакансии
+            </p>
           </MessageItem>
         ) : (
           <ConnectError type={"text"} />

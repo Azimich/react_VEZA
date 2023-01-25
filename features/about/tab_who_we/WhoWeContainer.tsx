@@ -43,8 +43,6 @@ const WhoWeContainer: FC = () => {
     });
   }, []);
 
-  console.log("wwwwwwww", listPlants);
-
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Кто мы" }]);
   }, [dataBreadAbout]);
