@@ -89,7 +89,7 @@
       color: gray;
       align-items: flex-start;
       font-size: 16px;
-      margin: 8px 0;
+
 
       a {
         color: color(green);
@@ -102,12 +102,15 @@
       span {
         max-width: 200px;
         text-align: right;
-        line-height: 150%;
+        line-height: 100%;
       }
     }
 
     &_box {
-      margin: 20px 0;
+      > p {
+        margin: 8px 0;
+        align-items: flex-start;
+      }
     }
   }
 }

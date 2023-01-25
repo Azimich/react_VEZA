@@ -31,17 +31,11 @@ const CertCatalogContainer = () => {
   useEffect(() => {
     getCertificatesItem(router.query.alias as string).then(
       (data: ICertResponseArray) => {
-        console.log("data", data);
         setCertificatesData(data);
       },
     );
   }, []);
-  /*    certificatesData.filter((item) => item.alias === router.query.alias);
-        const id = certificatesData.filter(
-            (item) => item.alias === router.query.alias,
-        )[0].id;
-        const arr = certificatesData.filter((item) => item.parent === id);*/
-
+  console.log("!11", certificatesData);
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />

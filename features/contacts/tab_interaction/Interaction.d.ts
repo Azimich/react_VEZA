@@ -1,4 +1,5 @@
 import { IPage } from "../../../types/response";
+import { IObjectItem } from "components/map/Map";
 
 interface Interaction {
   address: string;
@@ -8,22 +9,19 @@ interface Interaction {
   secretary_tel: string[];
   service_tel: string[];
   title: string;
+  object: IObjectItem;
 }
 
 interface IInteractionResponse {
-  offices: {
-    page: IPage;
-    errorMessage: "" | null;
-    systemErrorMessage: string | null;
-    hasError: boolean;
-    response: Interaction[];
-  };
-  plants: {
-    errorMessage: "" | null;
-    systemErrorMessage: "" | null;
-    hasError: boolean;
-    response: Interaction[];
-    customErrorCode: number | null;
+  response: {
+    offices: {
+      page: IPage;
+      errorMessage: "" | null;
+      systemErrorMessage: string | null;
+      hasError: boolean;
+      response?: Interaction[];
+    };
+    plants: Interaction[];
   };
 }
 

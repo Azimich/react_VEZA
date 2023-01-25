@@ -16,6 +16,7 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { useGetListSales } from "service/list/getSales";
 import { IPageData } from "components/pagination/Pagination.d";
 import { ConnectError } from "components/connect_error";
+import { IObjectItem } from "components/map/Map";
 
 const InteractionContainer = () => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const InteractionContainer = () => {
   const { listSalesData } = useGetListSales();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
-  const [factory, setFactory] = useState<Interaction[]>();
+  const [factory, setFactory] = useState<IObjectItem[]>();
   const [sales, setSales] = useState<Interaction[]>();
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Взаимодействие" }]);
@@ -35,12 +36,12 @@ const InteractionContainer = () => {
   useEffect(() => {
     listSalesData(Number(router.query.page) || 1, 8).then(
       (data: IInteractionResponse) => {
-        setPagination(data?.offices.page);
-        setSales(data?.offices.response);
-        setFactory(data?.plants.response);
+        setPagination(data?.response.offices?.page);
+        setSales(data?.response.offices?.response);
+        setFactory(data?.response.plants);
       },
     );
-  }, [router.query.page]);
+  }, []);
 
   return (
     <Container className={"wrapper_clear"}>
@@ -88,6 +89,7 @@ const InteractionContainer = () => {
       <div className={Styles.separator__container__title}>
         <SeparatorContainer title={"Наши филиалы"} />
       </div>
+
       <ul className={Styles.interaction_items}>
         {factory ? (
           factory?.map((e: Interaction) => {
