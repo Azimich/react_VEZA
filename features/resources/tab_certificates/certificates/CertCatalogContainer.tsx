@@ -35,15 +35,12 @@ const CertCatalogContainer = () => {
       },
     );
   }, []);
-  console.log("!11", certificatesData);
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.sertificates__page__items}>
         {certificatesData &&
-          certificatesData.response.map((item) => (
-            <CertificatItem key={item.id} {...item} />
-          ))}
+          certificatesData.response.map((item) => <CertificatItem {...item} />)}
       </div>
     </Container>
   );

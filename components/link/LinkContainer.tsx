@@ -5,11 +5,22 @@ interface ILink {
   children: ReactNode;
   url: string;
   classLink?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  download?: boolean;
 }
-const LinkContainer: FC<ILink> = ({ children, url = "", classLink = "" }) => {
+
+const LinkContainer: FC<ILink> = ({
+  children,
+  url = "",
+  classLink = "",
+  target,
+  download = false,
+}) => {
   return (
     <Link href={url} as={url}>
-      <a className={classLink}>{children}</a>
+      <a className={classLink} target={target} download={download}>
+        {children}
+      </a>
     </Link>
   );
 };
