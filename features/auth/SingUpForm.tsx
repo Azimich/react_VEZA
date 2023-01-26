@@ -32,9 +32,8 @@ const SingUpForm: FC<IAuthResponse> = () => {
 
   const MessageForm: FC = () => {
     const handleOnClick = () => {
-      router.push("/").then(() => {
-        toggle();
-      });
+      toggle();
+      router.push("/").then(() => {});
     };
 
     return (
