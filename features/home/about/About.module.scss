@@ -23,7 +23,7 @@
   &__container {
     width: 100%;
     @include backgroundImage(cover);
-    background-image: url('/images/about_banner.webp');
+    background-image: url('/images/about_banner.jpg');
     margin: auto;
     @media (max-width: 1200px) {
       padding: 40px;
@@ -37,7 +37,7 @@
   &__elem_box {
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: space-between;
     margin: 0 auto;
     max-width: 1390px;
     @media (max-width: 1200px) {
@@ -49,9 +49,8 @@
   }
 
   &__right_block {
-    max-width: 690px;
-    background-color: darkgreen;
-    padding: 50px 40px;
+    max-width: 650px;
+    padding: 50px 0 40px 40px;
     @media (max-width: 1200px) {
       max-width: 100%;
     }
@@ -110,7 +109,6 @@
 
   .tiles {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 1px;
     @media (max-width: 1200px) {
@@ -156,7 +154,6 @@
     height: 130px;
     transition: 0.1s;
     margin: 0;
-
     &:hover {
       box-shadow: 0 2px 50px 4px #ffffff;
       z-index: 10;
@@ -164,94 +161,121 @@
   }
 
   .tile__item_1 {
-    margin: 30px 0 0 0 !important;
+    margin: 30px 7px 0 0 !important;
+    width: 130px !important;
+    height: 130px !important;
+    img {
+      width: 130px !important;
+      height: 130px !important;
+    }
     @include ipadScreen {
       margin: 15px 0 0 -30px !important;
     }
   }
 
   .tile__item_2 {
-    margin: 0 0 0 -16px !important;
+    margin: 45px 0 0 -18px !important;
   }
 
   .tile__item_3 {
-    margin: 20px 0 0 -16px !important;
+    margin: 15px 5px 0 -23px !important;
   }
 
   .tile__item_4 {
-    margin: 10px -16px 0 -25px !important;
+    margin: 40px -20px 0 -25px !important;
   }
 
   .tile__item_5 {
-    margin: 20px 0 0 -16px !important;
+    margin: 20px 0 0 0 !important;
   }
 
   .tile__item_6 {
-    margin: -40px 12px 0 -6px !important;
+    margin: -14px 0 0 -38px !important;
   }
 
   .tile__item_7 {
-    margin: -25px 0 0 -12px !important;
+    margin: -24px 0 0 -18px !important;
+  }
+  .tile__item_8 {
+    margin: -50px 0 0 -18px !important;
   }
 
   .tile__item_9 {
-    margin: -44px -9px 0 -8px !important;
+    margin: -23px 0px 27px -18px !important;
   }
 
   .tile__item_10 {
-    margin: -30px 0 0 -5px !important;
+    margin: -55px -4px -10px -8px !important;
+    width: 130px !important;
+    height: 130px !important;
+    img {
+      width: 130px !important;
+      height: 130px !important;
+    }
   }
 
   .tile__item_11 {
-    margin: 0 0 0 -16px !important;
+    margin: -35px -18px 0px -15px !important;
+    width: 130px !important;
+    height: 130px !important;
+    img {
+      width: 130px !important;
+      height: 130px !important;
+    }
   }
 
   .tile__item_12 {
-    margin: -16px 20px 0 0 !important;
+    margin: -45px 28px -8px 10px !important
   }
 
   .tile__item_13 {
-    margin: -74px 7px 0 -52px !important;
+    margin: -70px 0px 0 -42px !important;
   }
 
   .tile__item_14 {
-    margin: -90px 0 0 -16px !important;
+    margin: -53px 0 0 -20px !important;
   }
 
   .tile__item_15 {
-    margin: -40px 0 0 -6px !important;
+    margin: -47px 0 18px -20px !important;
   }
 
   .tile__item_16 {
-    margin: -16px 0 0 -1px !important;
+    margin: 4px 0 0 -45px !important;
   }
 
   .tile__item_17 {
-    margin: 0 0 0 -16px !important;
+    margin: -20px 18px 0 -17px !important;
   }
 
   .tile__item_18 {
-    margin: -70px 24px 0 -54px !important;
+    margin: -60px 8px 0 -34px !important;
   }
 
   .tile__item_19 {
-    margin: -70px 0px 0 -28px !important;
+    margin: -50px 0px 0 -25px !important
   }
 
   .tile__item_20 {
-    margin: -27px 0px 0 0px !important;
+    margin: -37px 0 0 -10px !important;
   }
 
   .tile__item_21 {
-    margin: 0 0 0 0 !important;
+    margin: -24px 40px 0 20px !important;
   }
 
   .tile__item_22 {
-    margin: -28px 40px 0 -50px !important;
+    margin: -68px 0 0 -50px !important;
   }
 
   .tile__item_23 {
-    margin: -100px 0px 0 -20px !important;
+    margin: -70px 0px 0 0px !important;
+    width: 130px !important;
+    height: 130px !important;
+    img {
+      width: 130px !important;
+      height: 130px !important;
+    }
   }
 
   .tile__item_24 {
@@ -294,130 +318,130 @@
     transition: 0.1s;
   }
 
-  .tiles .tile .img__1 {
-    width: 80px;
-    height: 80px;
-  }
+  //.tiles .tile .img__1 {
+  //  width: 80px;
+  //  height: 80px;
+  //}
 
-  .tiles .tile .img__2 {
-    width: 105px;
-    height: 105px;
-  }
+  //.tiles .tile .img__2 {
+  //  width: 105px;
+  //  height: 105px;
+  //}
 
-  .tiles .tile .img__3 {
-    width: 96px;
-    height: 96px;
-  }
+  //.tiles .tile .img__3 {
+  //  width: 96px;
+  //  height: 96px;
+  //}
 
-  .tiles .tile .img__4 {
-    width: 85px;
-    height: 85px;
-  }
+  //.tiles .tile .img__4 {
+  //  width: 85px;
+  //  height: 85px;
+  //}
 
-  .tiles .tile .img__5 {
-    width: 90px;
-    height: 90px;
-  }
+  //.tiles .tile .img__5 {
+  //  width: 90px;
+  //  height: 90px;
+  //}
 
-  .tiles .tile .img__6 {
-    width: 105px;
-    height: 105px;
-  }
+  //.tiles .tile .img__6 {
+  //  width: 105px;
+  //  height: 105px;
+  //}
 
-  .tiles .tile .img__7 {
-    width: 133px;
-    height: 133px;
-  }
+  //.tiles .tile .img__7 {
+  //  width: 120px;
+  //  height: 120px;
+  //}
 
-  .tiles .tile .img__8 {
-    width: 100px;
-    height: 100px;
-  }
+  //.tiles .tile .img__8 {
+  //  width: 100px;
+  //  height: 100px;
+  //}
+  //
+  //.tiles .tile .img__9 {
+  //  width: 100px;
+  //  height: 100px;
+  //}
+  //
+  //.tiles .tile .img__10 {
+  //  width: 110px;
+  //  height: 110px;
+  //}
 
-  .tiles .tile .img__9 {
-    width: 100px;
-    height: 100px;
-  }
+  //.tiles .tile .img__11 {
+  //  width: 85px;
+  //  height: 85px;
+  //}
+  //
+  //.tiles .tile .img__12 {
+  //  width: 110px;
+  //  height: 110px;
+  //}
+  //
+  //.tiles .tile .img__13 {
+  //  width: 100px;
+  //  height: 100px;
+  //}
 
-  .tiles .tile .img__10 {
-    width: 110px;
-    height: 110px;
-  }
+  //.tiles .tile .img__14 {
+  //  width: 120px;
+  //  height: 120px;
+  //}
 
-  .tiles .tile .img__11 {
-    width: 85px;
-    height: 85px;
-  }
+  //.tiles .tile .img__15 {
+  //  width: 110px;
+  //  height: 110px;
+  //}
+  //
+  //.tiles .tile .img__16 {
+  //  width: 100px;
+  //  height: 100px;
+  //}
+  //
+  //.tiles .tile .img__17 {
+  //  width: 90px;
+  //  height: 90px;
+  //}
 
-  .tiles .tile .img__12 {
-    width: 110px;
-    height: 110px;
-  }
+  //.tiles .tile .img__18 {
+  //  width: 90px;
+  //  height: 90px;
+  //}
+  //
+  //.tiles .tile .img__19 {
+  //  width: 110px;
+  //  height: 110px;
+  //}
+  //
+  //.tiles .tile .img__20 {
+  //  width: 110px;
+  //  height: 110px;
+  //}
 
-  .tiles .tile .img__13 {
-    width: 100px;
-    height: 100px;
-  }
+  //.tiles .tile .img__21 {
+  //  width: 120px;
+  //  height: 120px;
+  //}
+  //
+  //.tiles .tile .img__22 {
+  //  width: 90px;
+  //  height: 90px;
+  //}
 
-  .tiles .tile .img__14 {
-    width: 120px;
-    height: 120px;
-  }
+  //.tiles .tile .img__23 {
+  //  width: 110px;
+  //  height: 110px;
+  //}
+  //
+  //.tiles .tile .img__24 {
+  //  width: 100px;
+  //  height: 100px;
+  //}
 
-  .tiles .tile .img__15 {
-    width: 110px;
-    height: 110px;
-  }
-
-  .tiles .tile .img__16 {
-    width: 100px;
-    height: 100px;
-  }
-
-  .tiles .tile .img__17 {
-    width: 90px;
-    height: 90px;
-  }
-
-  .tiles .tile .img__18 {
-    width: 90px;
-    height: 90px;
-  }
-
-  .tiles .tile .img__19 {
-    width: 110px;
-    height: 110px;
-  }
-
-  .tiles .tile .img__20 {
-    width: 110px;
-    height: 110px;
-  }
-
-  .tiles .tile .img__21 {
-    width: 120px;
-    height: 120px;
-  }
-
-  .tiles .tile .img__22 {
-    width: 90px;
-    height: 90px;
-  }
-
-  .tiles .tile .img__23 {
-    width: 110px;
-    height: 110px;
-  }
-
-  .tiles .tile .img__24 {
-    width: 100px;
-    height: 100px;
-  }
-
-  .tiles .tile .img__25 {
-    width: 90px;
-    height: 90px;
-  }
+  //.tiles .tile .img__25 {
+  //  width: 90px;
+  //  height: 90px;
+  //}
 
 
   .tiles .tile .details {
@@ -480,13 +504,11 @@
   .tiles .tile:hover .info {
     transition-delay: 0.15s;
   }
-
-
   &__progress_box {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    justify-content: space-around;
+    justify-content: space-between;
     @media (max-width: 1200px) {
       justify-content: center;
     }

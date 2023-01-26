@@ -11,14 +11,17 @@ import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { handleOnClickTabs } from "../helper";
 import { useRouter } from "next/router";
 import { useQuestions } from "service/list/getQuestions";
+import { SpinnerLoading } from "components/spinners";
 
 const QuestionsContainer: FC<IQuestions> = () => {
   const [questionsData, setQuestionsData] = useState<IQuestions[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { getQuestions } = useQuestions();
   useEffect(() => {
     getQuestions().then((data: IQuestionsResponseArray) => {
       !data.hasError && setQuestionsData(data.response);
     });
+    setIsLoading(false);
   }, []);
   console.log("questionsData", questionsData);
   const router = useRouter();
@@ -46,11 +49,17 @@ const QuestionsContainer: FC<IQuestions> = () => {
         <Separator title={"Часто задаваемые вопросы"} />
         <p>Здесь вы сможете найти ответы на часто задаваемые вопросы</p>
       </div>
-      <ul className={Styles.questions__accordion__container}>
-        {questionsData.map((item, i) => {
-          return <QuestionsItem key={i} {...item} />;
-        })}
-      </ul>
+      {isLoading ? (
+        <div className={Styles.loading_container}>
+          <SpinnerLoading />
+        </div>
+      ) : (
+        <ul className={Styles.questions__accordion__container}>
+          {questionsData.map((item, i) => {
+            return <QuestionsItem key={i} {...item} />;
+          })}
+        </ul>
+      )}
     </Container>
   );
 };

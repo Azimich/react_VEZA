@@ -25,6 +25,7 @@ import { IOptionItem } from "components/select/Select";
 import { useGetManagers } from "service/list/getManagers";
 import { useAppDispatch } from "store/hooks";
 import { setManagers } from "features/contacts/ContactsSlice";
+import { SpinnerLoading } from "components/spinners";
 
 const SalesOfficeContainer: FC = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const SalesOfficeContainer: FC = () => {
   const [cities, setCities] = useState<ICitiesResponseArray>();
   const { getManagers } = useGetManagers();
   const { getListCities } = useGetListCities();
-  const { getListPlantsOffices } = useGetListPlantsOffices();
+  const { getListPlantsOffices, loading } = useGetListPlantsOffices();
   const [contentForm, setContentForm] = useState<IObject>();
   const { isShow, toggle } = useModal();
   const [breadCrumbs, setBreadCrumbs] =
@@ -135,7 +136,15 @@ const SalesOfficeContainer: FC = () => {
           size={"max"}
         />
       </div>
-      <Map formOutPut={FormOutPut} />
+      {loading ? (
+        <div className={Styles.loading_container}>
+          <SpinnerLoading />
+        </div>
+      ) : (
+        <div>
+          <Map formOutPut={FormOutPut} />
+        </div>
+      )}
       <div className={Styles.sales_office_container_items}>
         <div className={Styles.separator__title__container}>
           <SeparatorContainer title={data.desc} />
