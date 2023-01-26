@@ -12,6 +12,17 @@ const CertificatItem: FC<ICertificates> = ({
   images,
   kind,
 }) => {
+  const onButtonClick = (url: RequestInfo | URL, title: string) => {
+    fetch(url).then((response) => {
+      response.blob().then((blob) => {
+        const fileURL = window.URL.createObjectURL(blob);
+        const alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = title + ".pdf";
+        alink.click();
+      });
+    });
+  };
   return (
     <div className={Styles.sertificates__page__items__card}>
       <div className={Styles.sertificates__page__items__card__img}>
@@ -21,12 +32,7 @@ const CertificatItem: FC<ICertificates> = ({
       </div>
       <div className={Styles.separ}>
         <div>
-          <Link
-            url={documentURL}
-            target={"_blank"}
-            download={true}
-            classLink={Styles.sil}
-          >
+          <Link url={documentURL} target={"_blank"} classLink={Styles.sil}>
             <h2>{kind}</h2>
           </Link>
           <h3>{title}</h3>
@@ -35,14 +41,9 @@ const CertificatItem: FC<ICertificates> = ({
             {description}
           </p>
         </div>
-        <Link
-          url={documentURL}
-          target={"_blank"}
-          download={true}
-          classLink={Styles.sil}
-        >
-          <Button>Скачать PDF</Button>
-        </Link>
+        <Button onClick={() => onButtonClick(documentURL, title)}>
+          Скачать PDF
+        </Button>
       </div>
     </div>
   );
