@@ -99,7 +99,8 @@
       span {
         max-width: 200px;
         text-align: right;
-        line-height: 100%;
+        font-size: 15px;
+        line-height: 120%;
       }
     }
 
@@ -108,7 +109,7 @@
       flex-direction: column;
       gap: 5px;
       p {
-        align-items: flex-start;
+        font-size: 15px;
       }
     }
   }
