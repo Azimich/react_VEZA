@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FC } from "react";
 import Styles from "./About.module.scss";
 
@@ -18,19 +17,19 @@ const AboutItems: FC<AboutItem> = ({
   img = "",
   title = "",
   desc = "",
-  ImgClassName = "",
-  LinkClassName = "",
 }) => {
   return (
-    <Link href={""} key={keyLink}>
-      <a className={`${Styles.tile} ${Styles[LinkClassName]}`}>
-        <img src={img} alt={alt} className={Styles[ImgClassName]} />
-        <div className={Styles.details}>
-          <span className={Styles.title}>{title}</span>
-          <span className={Styles.info}>{desc}</span>
+    <div key={keyLink} className={Styles.card_user}>
+      <div className={Styles.card_user_item}>
+        <div className={Styles.card_user_item_img}>
+          <img src={img} alt={alt} />
         </div>
-      </a>
-    </Link>
+        <div className={Styles.card_user_item_details}>
+          <h4 className={Styles.title}>{title}</h4>
+          <p className={Styles.info}>{desc}</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
