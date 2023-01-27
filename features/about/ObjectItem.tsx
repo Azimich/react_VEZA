@@ -17,8 +17,6 @@ const ObjectItem: FC<IObject> = (props) => {
       ? document.getElementById("parent_map").getBoundingClientRect()
       : { top: 0, left: 0 };
 
-    console.log("connect", connect);
-
     const Child_Coord = connect
       ? document.getElementById(connect.toLowerCase()).getBoundingClientRect()
       : { top: 0, left: 0 };

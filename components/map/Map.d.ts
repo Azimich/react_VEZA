@@ -69,6 +69,7 @@ interface IObject {
   alias?: string;
   count?: number;
   connect?: string;
+  cityAlias?: string;
   type_object?:
     | "commercial"
     | "social"
