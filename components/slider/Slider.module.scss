@@ -532,7 +532,6 @@
 }
 
 .industries {
-  
   &_banner {
     &__slider {
       &_slide {
@@ -608,13 +607,13 @@
       }
       
       &_title {
-        font-size: 25px;
-        font-weight: bold;
+        font-size: 22px;
+        font-weight: 500;
         max-width: 540px;
-        line-height: 128%;
-        letter-spacing: 0.025em;
+        line-height: 122%;
+        letter-spacing: 0.020em;
+        margin: 0 0 8px 0;
         color: color(white);
-
         @media (max-width: 1100px) {
           font-size: 20px;
           max-width: 490px;
@@ -622,34 +621,37 @@
       }
 
       &_text {
-        font-style: normal;
         font-weight: 300;
         font-size: 15px;
-        line-height: 136.5%;
+        line-height: 145%;
         letter-spacing: 0.02em;
         color: color(white);
         max-width: 500px;
-        padding: 5px 0 10px 0;
-
-        @media (max-width: 1100px) {
-          font-size: 16px;
-          padding: 5px 0 35px 0;
-          height: 80px;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 5;
-          -webkit-box-orient: vertical;
-        }
-
-        @include phoneScreen {
-          font-size: 15px;
-          padding: 5px 0 26px 0;
-          height: 60%;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 5;
-          -webkit-box-orient: vertical;
-        }
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 13;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        //@media (max-width: 1100px) {
+        //  font-size: 16px;
+        //  padding: 5px 0 35px 0;
+        //  height: 80px;
+        //  overflow: hidden;
+        //  display: -webkit-box;
+        //  -webkit-line-clamp: 5;
+        //  -webkit-box-orient: vertical;
+        //}
+        //@include phoneScreen {
+        //  font-size: 15px;
+        //  padding: 5px 0 26px 0;
+        //  height: 60%;
+        //  overflow: hidden;
+        //  display: -webkit-box;
+        //  -webkit-line-clamp: 5;
+        //  -webkit-box-orient: vertical;
+        //}
       }
     }
 
@@ -954,8 +956,6 @@
 }
 
 .factorySlider__history {
-  &__items {}
-
   &__slide {
     display: flex;
     justify-content: center;
