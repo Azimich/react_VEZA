@@ -69,6 +69,7 @@ const JobContainer: FC = () => {
     });
 
     getVacancies().then((data) => {
+      console.log("data", data);
       setVacanciesData(data);
     });
   }, []);
@@ -140,8 +141,7 @@ const JobContainer: FC = () => {
     handleSelectClickMap(loc_selected_item);
     window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
   };
-  console.log("selectedReferenceData", vacanciesData);
-
+  console.log("selectedReferenceData", selectedReferenceData);
   const FormOutPut: ReactNode[] = selectedReferenceData?.map((e) => {
     return (
       <ObjectItem

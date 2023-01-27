@@ -10,7 +10,7 @@ const MapContainer: FC<IMapProps> = ({ sideBar, formOutPut }) => {
   const [currentClass, setCurrentClass] = useState<string>("");
   const responseData = useAppSelector(getMap);
   const [mapData, setMapData] = useState<IMapState>();
-
+  console.log("responseData", responseData);
   useEffect(() => {
     responseData.response.length > 0 && setMapData(responseData);
   }, [responseData]);
