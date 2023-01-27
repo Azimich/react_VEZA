@@ -6,6 +6,7 @@ interface IResponse {
   page?: IPage;
   response: null | [] | {};
 }
+
 interface IPage {
   pageNumber: number;
   pageSize: number;
@@ -23,9 +24,12 @@ interface IObjects {
   title: string;
   titleDelivery: string;
 }
+
 interface IImages {
   pc?: string;
   ipad?: string;
   mobile?: string;
+  wide?: string;
 }
+
 export { IResponse, IPage, IObjects, IImages };

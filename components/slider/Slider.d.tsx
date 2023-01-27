@@ -38,6 +38,7 @@ interface ISlideImages {
   pc?: string;
   ipad?: string;
   mobile?: string;
+  wide?: string;
 }
 
 interface ISlideItem {
