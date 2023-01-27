@@ -28,13 +28,14 @@ import { setManagers } from "features/contacts/ContactsSlice";
 import { SpinnerLoading } from "components/spinners";
 
 const SalesOfficeContainer: FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const dispatch = useAppDispatch();
   const [selectedCity, setSelectedCity] = useState<IOptionItem>();
   const [cities, setCities] = useState<ICitiesResponseArray>();
   const { getManagers } = useGetManagers();
   const { getListCities } = useGetListCities();
-  const { getListPlantsOffices, loading } = useGetListPlantsOffices();
+  const { getListPlantsOffices } = useGetListPlantsOffices();
   const [contentForm, setContentForm] = useState<IObject>();
   const { isShow, toggle } = useModal();
   const [breadCrumbs, setBreadCrumbs] =
@@ -61,6 +62,7 @@ const SalesOfficeContainer: FC = () => {
   useEffect(() => {
     getListPlantsOffices().then((data) => {
       setListOffices(data.response);
+      setIsLoading(false);
     });
 
     getListCities().then((data) => {
@@ -124,65 +126,67 @@ const SalesOfficeContainer: FC = () => {
       });
   }, [selectedCity]);
   return (
-    <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={breadCrumbs} />
-      <div className={Styles.sales_office_container}>
-        <Tabs
-          props={tabsContactsData}
-          onClick={(e) => {
-            handleOnClickTabs(e);
-          }}
-          activeTab={1}
-          size={"max"}
-        />
-      </div>
-      {loading ? (
+    <>
+      {isLoading ? (
         <div className={Styles.loading_container}>
           <SpinnerLoading />
         </div>
       ) : (
-        <div>
-          <Map formOutPut={FormOutPut} />
-        </div>
+        <Container className={"wrapper_clear"}>
+          <BreadCrumbs data={breadCrumbs} />
+          <div className={Styles.sales_office_container}>
+            <Tabs
+              props={tabsContactsData}
+              onClick={(e) => {
+                handleOnClickTabs(e);
+              }}
+              activeTab={1}
+              size={"max"}
+            />
+          </div>
+          <div>
+            <Map formOutPut={FormOutPut} />
+          </div>
+          <div className={Styles.sales_office_container_items}>
+            <div className={Styles.separator__title__container}>
+              <SeparatorContainer title={data.desc} />
+            </div>
+            <SearchContainer
+              {...cities}
+              handleOnClick={(e) => handleOnClickSelect(e)}
+              selectedCity={selectedCity}
+            />
+            <Tabs
+              props={tabsSalesData}
+              onClick={(e) => {
+                handleTabsButton(e);
+              }}
+              line={false}
+              menu_style={"button"}
+              activeTab={data.activeTab}
+            >
+              {React.createElement(components[`tab_${data.slug}`])}
+            </Tabs>
+            <div>
+              <SeparatorContainer title={"Филиалы"} />
+              <p className={Styles.styles_map}>
+                <MapIcon />
+                {process.env.NEXT_PUBLIC_ADDRESS}
+              </p>
+              <YandexMap />
+            </div>
+          </div>
+          <Modal
+            isShow={isShow}
+            hide={toggle}
+            modalContent={<ModalFormOffice {...contentForm} />}
+            theme={"modal"}
+            headerText={contentForm?.object?.name}
+            bgModal={"black"}
+          ></Modal>
+        </Container>
       )}
-      <div className={Styles.sales_office_container_items}>
-        <div className={Styles.separator__title__container}>
-          <SeparatorContainer title={data.desc} />
-        </div>
-        <SearchContainer
-          {...cities}
-          handleOnClick={(e) => handleOnClickSelect(e)}
-          selectedCity={selectedCity}
-        />
-        <Tabs
-          props={tabsSalesData}
-          onClick={(e) => {
-            handleTabsButton(e);
-          }}
-          line={false}
-          menu_style={"button"}
-          activeTab={data.activeTab}
-        >
-          {React.createElement(components[`tab_${data.slug}`])}
-        </Tabs>
-        <div>
-          <SeparatorContainer title={"Филиалы"} />
-          <p className={Styles.styles_map}>
-            <MapIcon />
-            {process.env.NEXT_PUBLIC_ADDRESS}
-          </p>
-          <YandexMap />
-        </div>
-      </div>
-      <Modal
-        isShow={isShow}
-        hide={toggle}
-        modalContent={<ModalFormOffice {...contentForm} />}
-        theme={"modal"}
-        headerText={contentForm?.object?.name}
-        bgModal={"black"}
-      ></Modal>
-    </Container>
+    </>
   );
 };
 

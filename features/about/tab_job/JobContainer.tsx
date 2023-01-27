@@ -71,6 +71,7 @@ const JobContainer: FC = () => {
     getVacancies().then((data) => {
       setVacanciesData(data);
     });
+    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -102,7 +103,6 @@ const JobContainer: FC = () => {
           );
         }),
       );
-    setIsLoading(false);
     /*        console.log("selectedCheckBox", selectedCheckBox)*/
   }, [selectedCheckBox, vacanciesData]);
 
@@ -199,95 +199,101 @@ const JobContainer: FC = () => {
   ///TODO: Геолокацию доделать когда в вакансиях будут города
 
   return (
-    <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={breadCrumbs} />
-      <div className={Styles.job_container}>
-        <Tabs
-          props={tabsAboutData}
-          onClick={(e) => {
-            handleOnClickTabs(e);
-          }}
-          activeTab={3}
-          size={"small300"}
-        />
-      </div>
+    <>
       {isLoading ? (
         <div className={Styles.loading_container}>
           <SpinnerLoading />
         </div>
       ) : (
-        <Map
-          formOutPut={FormOutPut}
-          sideBar={
-            <SideBar
-              onChange={(e: ITab) => handleSideBarClick(e)}
-              tabsSocialData={sideBarData}
+        <Container className={"wrapper_clear"}>
+          <BreadCrumbs data={breadCrumbs} />
+          <div className={Styles.job_container}>
+            <Tabs
+              props={tabsAboutData}
+              onClick={(e) => {
+                handleOnClickTabs(e);
+              }}
+              activeTab={3}
+              size={"small300"}
             />
-          }
-        />
-      )}
-
-      <div className={Styles.vacancies__search_box} ref={selectRef}>
-        {
-          <SelectContainer
-            optionsData={cities?.map((e) => {
-              return { value: e.alias, label: e.city };
-            })}
-            defaultValue={selectedCities}
-            instanceId={"Select_Job"}
-            onChange={(e) => handleSelectChange(e)}
-            value={selectedCities}
+          </div>
+          <Map
+            formOutPut={FormOutPut}
+            sideBar={
+              <SideBar
+                onChange={(e: ITab) => handleSideBarClick(e)}
+                tabsSocialData={sideBarData}
+              />
+            }
           />
-        }
-        <Button
-          type={"button"}
-          children={"Поиск"}
-          onClick={() => handleSelectChange(selectedCities)}
-        />
-      </div>
-      <Separator title={"Наши вакансии"} />
-      <ul className={Styles.job_container_item}>
-        {!jobs?.hasError ? (
-          jobs?.response.length > 0 ? (
-            jobs?.response.map((e, i) => {
-              return <JobItem {...e} key={i} />;
-            })
-          ) : (
-            <MessageItem type={"attention"} className={Styles.no_vacancies}>
-              Вакансии в Вашем регионе отсутствуют
-            </MessageItem>
-          )
-        ) : jobs.customErrorCode === 4404 ? (
-          <MessageItem type={"attention"} className={Styles.no_vacancies}>
-            <h2>Вакансии в Вашем регионе отсутствуют</h2>
+
+          <div className={Styles.vacancies__search_box} ref={selectRef}>
+            {
+              <SelectContainer
+                optionsData={cities?.map((e) => {
+                  return { value: e.alias, label: e.city };
+                })}
+                defaultValue={selectedCities}
+                instanceId={"Select_Job"}
+                onChange={(e) => handleSelectChange(e)}
+                value={selectedCities}
+              />
+            }
+            <Button
+              type={"button"}
+              children={"Поиск"}
+              onClick={() => handleSelectChange(selectedCities)}
+            />
+          </div>
+          <Separator title={"Наши вакансии"} />
+          <ul className={Styles.job_container_item}>
+            {!jobs?.hasError ? (
+              jobs?.response.length > 0 ? (
+                jobs?.response.map((e, i) => {
+                  return <JobItem {...e} key={i} />;
+                })
+              ) : (
+                <MessageItem type={"attention"} className={Styles.no_vacancies}>
+                  Вакансии в Вашем регионе отсутствуют
+                </MessageItem>
+              )
+            ) : jobs.customErrorCode === 4404 ? (
+              <MessageItem type={"attention"} className={Styles.no_vacancies}>
+                <h2>Вакансии в Вашем регионе отсутствуют</h2>
+                <p>
+                  Попробуйте выбрать другой регион, чтобы найти подходящие вам
+                  вакансии
+                </p>
+              </MessageItem>
+            ) : (
+              <ConnectError type={"text"} />
+            )}
+          </ul>
+          <div className={Styles.vacancies__bottom_info}>
+            <Separator
+              title={"НЕ НАШЛИ ПОДХОДЯЩУЮ ВАКАНСИЮ?"}
+              classNameProps={Styles.bottom__separator}
+            />
             <p>
-              Попробуйте выбрать другой регион, чтобы найти подходящие вам
-              вакансии
+              Присылайте нам свое резюме, и мы свяжемся с Вами, как только
+              появится подходящая позиция для Вас!
             </p>
-          </MessageItem>
-        ) : (
-          <ConnectError type={"text"} />
-        )}
-      </ul>
-      <div className={Styles.vacancies__bottom_info}>
-        <Separator
-          title={"НЕ НАШЛИ ПОДХОДЯЩУЮ ВАКАНСИЮ?"}
-          classNameProps={Styles.bottom__separator}
-        />
-        <p>
-          Присылайте нам свое резюме, и мы свяжемся с Вами, как только появится
-          подходящая позиция для Вас!
-        </p>
-        <Button onClick={toggle} size={"max"} children={"Отправить запрос"} />
-      </div>
-      <Modal
-        isShow={isShow}
-        hide={toggle}
-        modalContent={<ModalFormJob />}
-        theme={"modal"}
-        bgModal={"black"}
-      />
-    </Container>
+            <Button
+              onClick={toggle}
+              size={"max"}
+              children={"Отправить запрос"}
+            />
+          </div>
+          <Modal
+            isShow={isShow}
+            hide={toggle}
+            modalContent={<ModalFormJob />}
+            theme={"modal"}
+            bgModal={"black"}
+          />
+        </Container>
+      )}
+    </>
   );
 };
 export { JobContainer };

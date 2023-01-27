@@ -53,7 +53,6 @@ const HomeContainer: FC<ISSRHome> = ({
         theme={"home"}
         dots={true}
       />
-      <Separator title={"О нас"} />
       {!indexAboutUS?.hasError ? (
         <AboutContainer {...indexAboutUS} />
       ) : (

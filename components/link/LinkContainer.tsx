@@ -6,7 +6,7 @@ interface ILink {
   url: string;
   classLink?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
-  download?: boolean;
+  download?: string;
 }
 
 const LinkContainer: FC<ILink> = ({
@@ -14,7 +14,7 @@ const LinkContainer: FC<ILink> = ({
   url = "",
   classLink = "",
   target,
-  download = false,
+  download = "",
 }) => {
   return (
     <Link href={url} as={url}>

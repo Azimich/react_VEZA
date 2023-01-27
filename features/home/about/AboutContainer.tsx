@@ -14,31 +14,8 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
   return (
     <div className={Styles.about}>
       <div className={Styles.about__container}>
-        <div className={Styles.about__mobile_bg}>
-          <img src="../images/about__mens-mob.png" alt="foto" />
-        </div>
         <div className={Styles.about__elem_box}>
-          <div className={Styles.about__left_block}>
-            <div className={Styles.tiles}>
-              {response.employeeDtos.map((e, i: number) => {
-                return (
-                  <AboutItems
-                    keyLink={i}
-                    key={i}
-                    LinkClassName={"tile__item_" + (i + 1)}
-                    img={e.images?.pc}
-                    alt={e.title}
-                    ImgClassName={"img__" + (i + 1)}
-                    title={e.title}
-                    desc={e.description}
-                  ></AboutItems>
-                );
-              })}
-            </div>
-            <div className={Styles.about__ipad_mans}>
-              <img src="/images/about__mens-mob.png" alt="" />
-            </div>
-          </div>
+          <h2>О нас</h2>
           <div className={Styles.about__right_block}>
             <p className={Styles.about__text}>{response.description}</p>
             <div
@@ -64,6 +41,22 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                 );
               })}
             </div>
+          </div>
+          <div className={Styles.card_user_container}>
+            {response.employeeDtos.map((e, i: number) => {
+              return (
+                <AboutItems
+                  keyLink={i}
+                  key={i}
+                  LinkClassName={"tile__item_" + (i + 1)}
+                  img={e.images?.pc}
+                  alt={e.title}
+                  ImgClassName={"img__" + (i + 1)}
+                  title={e.title}
+                  desc={e.description}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

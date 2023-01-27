@@ -93,6 +93,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "file-saver": "^2.0.5",
     "formik": "^2.2.9",
     "fs": "^0.0.2",
     "husky": "^7.0.1",

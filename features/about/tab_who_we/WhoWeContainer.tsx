@@ -20,11 +20,12 @@ import { useGetListPlantsOffices } from "service/list/getPlantsOffices";
 import { SpinnerLoading } from "components/spinners";
 
 const WhoWeContainer: FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [contentForm, setContentForm] = useState<IObject>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadAbout);
   const { isShow, toggle } = useModal();
-  const { getListPlantsOffices, loading } = useGetListPlantsOffices();
+  const { getListPlantsOffices } = useGetListPlantsOffices();
   const [listPlants, setListPlants] = useState<IResponsePlants>({
     offices: {
       hasError: false,
@@ -41,6 +42,7 @@ const WhoWeContainer: FC = () => {
     getListPlantsOffices().then((data) => {
       console.log("12321", data);
       setListPlants(data.response);
+      setIsLoading(false);
     });
   }, []);
 
@@ -71,60 +73,64 @@ const WhoWeContainer: FC = () => {
   };
 
   return (
-    <Container className={"wrapper_clear"}>
-      <BreadCrumbs data={breadCrumbs} />
-      <div className={Styles.whowe_container}>
-        <Tabs
-          props={tabsAboutData}
-          onClick={(e) => {
-            handleOnClickTabs(e);
-          }}
-          activeTab={1}
-          size={"small300"}
-        />
-      </div>
-
-      {loading ? (
+    <>
+      {isLoading ? (
         <div className={Styles.loading_container}>
           <SpinnerLoading />
         </div>
       ) : (
-        <div>
-          <Map formOutPut={FormOutPut} />
-        </div>
-      )}
+        <>
+          <Container className={"wrapper_clear"}>
+            <BreadCrumbs data={breadCrumbs} />
+            <div className={Styles.whowe_container}>
+              <Tabs
+                props={tabsAboutData}
+                onClick={(e) => {
+                  handleOnClickTabs(e);
+                }}
+                activeTab={1}
+                size={"small300"}
+              />
+            </div>
 
-      <WhoWeAbout />
-      <div className={Styles.whowe_container_history_svg}>
-        <span className={Styles.whowe_container_history_svg_pc}>
-          <HistoryIcon />
-        </span>
-        <span className={Styles.whowe_container_history_svg_mobile}>
-          <HistoryMobileIcon />
-        </span>
-      </div>
-      <div className={Styles.whowe_container_video}>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/Fc1rEkIzOS4"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <Separator title={"Наши достижения"} />
-      <Achievements />
-      <Modal
-        isShow={isShow}
-        hide={toggle}
-        modalContent={<ModalFormFactory {...contentForm} />}
-        headerText={contentForm?.object?.name}
-        theme={"modal"}
-        bgModal={"black"}
-      ></Modal>
-    </Container>
+            <div>
+              <Map formOutPut={FormOutPut} />
+            </div>
+
+            <WhoWeAbout />
+            <div className={Styles.whowe_container_history_svg}>
+              <span className={Styles.whowe_container_history_svg_pc}>
+                <HistoryIcon />
+              </span>
+              <span className={Styles.whowe_container_history_svg_mobile}>
+                <HistoryMobileIcon />
+              </span>
+            </div>
+            <div className={Styles.whowe_container_video}>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/Fc1rEkIzOS4"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <Separator title={"Наши достижения"} />
+            <Achievements />
+            <Modal
+              isShow={isShow}
+              hide={toggle}
+              modalContent={<ModalFormFactory {...contentForm} />}
+              headerText={contentForm?.object?.name}
+              theme={"modal"}
+              bgModal={"black"}
+            ></Modal>
+          </Container>
+        </>
+      )}
+    </>
   );
 };
 
