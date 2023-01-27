@@ -22,6 +22,7 @@ const HomeContainer: FC<ISSRHome> = ({
   indexAboutUS,
   indexIndustries,
 }) => {
+  console.log("indexCategories", indexCategories);
   const convert = (
     data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
     show_text = false,
@@ -33,7 +34,7 @@ const HomeContainer: FC<ISSRHome> = ({
         block_description: e.show_text || false,
         description: e.description,
         images: {
-          pc: e?.images?.pc,
+          pc: e?.images?.wide ? e?.images?.wide : e?.images?.pc,
           ipad: e?.images?.ipad,
           mobile: e?.images?.mobile,
         },

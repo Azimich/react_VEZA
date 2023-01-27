@@ -121,7 +121,6 @@ const JobContainer: FC = () => {
               e.districtFiasId === data?.suggestions[0].data?.region_fias_id,
           )
           .shift();
-
         handleSelectChange({
           value: selectedVal?.cityAddressAlias,
           label: selectedVal?.city,
