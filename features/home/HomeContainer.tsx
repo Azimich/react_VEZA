@@ -1,13 +1,16 @@
 import { Container } from "components/common/container";
 import { SliderContainer } from "components/slider";
-import { sliderIndustries } from "components/slider/mockData";
 import { Separator } from "components/separator";
 import { AboutContainer } from "./about/AboutContainer";
 import { NewsContainer } from "./news";
 import { SelectionContainer } from "./selection";
 import { FC } from "react";
 import Styles from "./about/About.module.scss";
-import { IBannerResponseArray, ISSRHome } from "features/news/News";
+import {
+  IBannerResponseArray,
+  IIndustriesResponse,
+  ISSRHome,
+} from "features/news/News";
 import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
 import { ICategoriesResponseArray } from "features/equipment/Equipment";
@@ -20,7 +23,9 @@ const HomeContainer: FC<ISSRHome> = ({
   indexIndustries,
 }) => {
   console.log("sdasda", indexIndustries);
-  const convert = (data: IBannerResponseArray | ICategoriesResponseArray) => {
+  const convert = (
+    data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
+  ) => {
     return data?.response.map((e): ISlideItem => {
       return {
         alt: e.title,
@@ -73,7 +78,7 @@ const HomeContainer: FC<ISSRHome> = ({
         )}
         <Separator title={"Отрасли"} />
         <SliderContainer
-          items={sliderIndustries.items}
+          items={convert(indexIndustries)}
           dots={true}
           autoplay={false}
           theme={"industries"}

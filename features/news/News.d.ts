@@ -94,4 +94,5 @@ export {
   IBannerItem,
   INewsResponseArray,
   IBannerResponseArray,
+  IIndustriesResponse,
 };
