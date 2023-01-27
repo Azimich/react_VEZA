@@ -131,7 +131,6 @@ const JobContainer: FC = () => {
 
   const router = useRouter();
   const handleOnClickMap = (ref: { offsetTop: number }, e: IVacancies) => {
-    console.log("12333", e, cities);
     const loc_selected = cities
       .filter((data) => data.alias === e.cityAlias)
       .shift();
@@ -174,7 +173,7 @@ const JobContainer: FC = () => {
 
     if (selectedCheckBox.length === 0) {
       setSelectedReferenceData(
-        vacanciesData?.response.filter((e) => e.city === selected.value),
+        vacanciesData?.response.filter((e) => e.cityAlias === selected.value),
       );
     }
 

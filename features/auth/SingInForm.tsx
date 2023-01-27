@@ -23,6 +23,8 @@ const SingInForm: FC = () => {
   const [timer, setTimer] = useState(false);
 
   useEffect(() => {
+    console.log("router", router);
+
     !loading && setTimer(false);
     const timerLoad =
       loading &&
@@ -51,7 +53,8 @@ const SingInForm: FC = () => {
               data?.response?.accessToken,
               data?.response?.refreshToken,
             );
-            router.push("/").then();
+            //router.push("/").then();
+            router.back();
           }
         },
       );
