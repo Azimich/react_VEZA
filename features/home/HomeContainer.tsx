@@ -22,11 +22,12 @@ const HomeContainer: FC<ISSRHome> = ({
   indexAboutUS,
   indexIndustries,
 }) => {
-  console.log("sdasda", indexIndustries);
   const convert = (
     data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
+    show_text = false,
   ) => {
     return data?.response.map((e): ISlideItem => {
+      e.show_text = show_text;
       return {
         alt: e.title,
         block_description: e.show_text || false,
@@ -78,7 +79,7 @@ const HomeContainer: FC<ISSRHome> = ({
         )}
         <Separator title={"Отрасли"} />
         <SliderContainer
-          items={convert(indexIndustries)}
+          items={convert(indexIndustries, true)}
           dots={true}
           autoplay={false}
           theme={"industries"}
