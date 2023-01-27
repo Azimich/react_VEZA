@@ -15,6 +15,7 @@ interface IJob {
 interface IVacancies {
   connect: string;
   city: string;
+  cityAlias?: string;
   type: "plant" | "office";
   count: number;
 }

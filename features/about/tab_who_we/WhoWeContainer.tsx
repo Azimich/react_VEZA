@@ -39,6 +39,7 @@ const WhoWeContainer: FC = () => {
 
   useEffect(() => {
     getListPlantsOffices().then((data) => {
+      console.log("12321", data);
       setListPlants(data.response);
     });
   }, []);

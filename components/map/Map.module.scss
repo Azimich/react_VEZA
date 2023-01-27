@@ -176,16 +176,19 @@
     &.offices {
       justify-content: flex-start;
       align-items: center;
+
       span {
         text-align: left;
       }
     }
+
     a, span {
       color: gray;
     }
 
     span {
       text-align: right;
+      width: 50%;
     }
 
     p {

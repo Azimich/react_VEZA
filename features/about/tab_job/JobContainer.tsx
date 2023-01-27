@@ -131,7 +131,10 @@ const JobContainer: FC = () => {
 
   const router = useRouter();
   const handleOnClickMap = (ref: { offsetTop: number }, e: IVacancies) => {
-    const loc_selected = cities.filter((data) => data.alias === e.city).shift();
+    console.log("12333", e, cities);
+    const loc_selected = cities
+      .filter((data) => data.alias === e.cityAlias)
+      .shift();
     const loc_selected_item = {
       value: loc_selected?.alias,
       label: loc_selected?.city,
@@ -140,14 +143,13 @@ const JobContainer: FC = () => {
     handleSelectClickMap(loc_selected_item);
     window.scrollTo({ top: ref.offsetTop - 100, left: 0 });
   };
-  console.log("selectedReferenceData", vacanciesData);
 
   const FormOutPut: ReactNode[] = selectedReferenceData?.map((e) => {
     return (
       <ObjectItem
         {...e}
         onClick={(e: IVacancies) => handleOnClickMap(selectRef.current, e)}
-        key={"job_" + e.connect + e.count}
+        key={"job_" + e.connect + e.cityAlias}
         icon={<div className={Styles.job_count}>{e.count}</div>}
       />
     );
