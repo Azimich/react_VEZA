@@ -15,6 +15,7 @@ import { isMobile } from "react-device-detect";
 import React, { FC, useEffect, useState } from "react";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
+import { checkEmptyObject } from "utils/helpers";
 
 /*
 import {useToken} from "store/hooks/useToken";
@@ -43,7 +44,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({
   useEffect(() => {
     isMobile ? setMobile(true) : setMobile(false);
   }, [isMobile]);
-
+  console.log("123", auth, Boolean(checkEmptyObject(auth?.data)));
   return (
     <>
       <div className={Styles.header__icon__box}>
@@ -54,19 +55,19 @@ const HeaderIcon: FC<IHeaderMenu> = ({
           </span>
         </div>
         {/* Авторизация */}
-        {auth.identify && Boolean(auth?.data) && (
+        {auth.identify && Boolean(!checkEmptyObject(auth?.data)) && (
           <IconItem url={"/auth"} className={"header__icon"}>
             <BellIcon />
           </IconItem>
         )}
 
-        {auth.identify && Boolean(!auth?.data) && (
+        {!auth.identify && Boolean(checkEmptyObject(auth?.data)) && (
           <IconItem url={"/auth"} className={"header__icon"}>
             <UserIcon />
           </IconItem>
         )}
 
-        {auth.identify && Boolean(auth?.data) && (
+        {auth.identify && Boolean(!checkEmptyObject(auth?.data)) && (
           <div className={Styles.profile_form} onClick={() => onClickProfile()}>
             <UserOnLoginIcon />
           </div>

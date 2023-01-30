@@ -4,6 +4,7 @@ import { IAuthState } from "./Auth.d";
 
 const initialState: IAuthState = {
   identify: false,
+  data: {},
 };
 
 export const authSlice = createSlice({

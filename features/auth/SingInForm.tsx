@@ -23,8 +23,6 @@ const SingInForm: FC = () => {
   const [timer, setTimer] = useState(false);
 
   useEffect(() => {
-    console.log("router", router);
-
     !loading && setTimer(false);
     const timerLoad =
       loading &&

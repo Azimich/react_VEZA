@@ -1,7 +1,7 @@
 import { IResponse } from "../../types/response";
 
 interface IAuthResponse extends Omit<IResponse, "response"> {
-  response: IAuthItem;
+  response?: IAuthItem;
 }
 
 interface IAuthState {
