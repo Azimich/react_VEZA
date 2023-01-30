@@ -9,12 +9,14 @@
   width: 100%;
   z-index: 99;
   transition: all 0.3s;
+
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 40px 0;
     transition: all 0.3s;
+
     &_active {
       display: flex;
       justify-content: space-between;
@@ -22,6 +24,7 @@
       transition: all 0.3s;
       padding: 25px 0 35px 0;
     }
+
     @media (max-width: 1200px) {
       padding: 35px 0;
     }
@@ -41,6 +44,7 @@
     @media (max-width: 1200px) {
       position: unset;
     }
+
     &_menu {
       background-color: color(white);
       width: 370px;
@@ -57,12 +61,14 @@
       transition: all .2s;
       overflow: hidden;
       pointer-events: none;
+
       &.active {
         opacity: 1;
         transform: translate(0) scale(1);
         z-index: 2;
         pointer-events: inherit;
       }
+
       &_lists {
         display: flex;
         flex-direction: column;
@@ -73,18 +79,77 @@
           transition: all 0.3s;
           cursor: pointer;
           font-size: 16px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          span {
+            svg {
+              width: 22px;
+              height: 22px;
+              path{
+                fill: color(green)
+              }
+            }
+          }
+
           &:hover {
+            svg{
+              path{
+                fill:color(white);
+              }
+            }
             background-color: color(green);
             color: color(white);
             border-color: transparent;
           }
+
           &:last-child {
             border-bottom: none;
           }
         }
+        a {
+          li {
+            padding: 18px;
+            border-bottom: 1px solid #bcbdc0;
+            color: color(green);
+            transition: all 0.3s;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            span {
+              svg {
+                width: 22px;
+                height: 22px;
+                path{
+                  fill: color(green)
+                }
+              }
+            }
+
+            &:hover {
+              svg{
+                path{
+                  fill:color(white);
+                }
+              }
+              background-color: color(green);
+              color: color(white);
+              border-color: transparent;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
       }
     }
-    &_over{
+
+    &_over {
       background-color: transparent;
       position: absolute;
       top: 0;

@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import React from "react";
 
 interface IHeaderIconMenu {
   url: string;
   name: string;
   ext: number;
-  svg: ReactNode;
+  svg: React.SFC<React.SVGProps<SVGSVGElement>>;
 }
 
 export { IHeaderIconMenu };

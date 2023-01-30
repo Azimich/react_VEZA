@@ -7,7 +7,6 @@ interface IEquipmentProps {
   props: IEquipment[];
 }
 const EquipmentContainer: FC<IEquipmentProps> = ({ props }) => {
-  console.log("props", props);
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment_container}>
