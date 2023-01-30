@@ -22,7 +22,6 @@ const HomeContainer: FC<ISSRHome> = ({
   indexAboutUS,
   indexIndustries,
 }) => {
-  console.log("indexCategories", indexCategories);
   const convert = (
     data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
     show_text = false,

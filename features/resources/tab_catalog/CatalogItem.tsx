@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { ICatalog } from "../tab_bim/Bim";
 import Styles from "./Catalog.module.scss";
-import { Button } from "../../../components/button";
+import { Button } from "components/button";
 
 const CatalogItem: FC<ICatalog> = ({ title, image }) => {
   return (

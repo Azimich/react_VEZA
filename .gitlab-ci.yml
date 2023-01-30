@@ -14,7 +14,7 @@ prepare:
   only:
     - master
   tags:
-    - stagin  
+    - stagin
     
 build:
   stage: build
