@@ -50,6 +50,22 @@ const SelectContainer: FC<IOptionSetting> = ({
         />
       );
       break;
+    case "variantNews":
+      selectCurrent = (
+        <SelectCompanyInn
+          classNameProps={`${classNameProps}`}
+          instanceId={instanceId}
+          name={name}
+          closeMenuOnSelect={closeMenuOnSelect}
+          defaultValue={defaultValue}
+          isMulti={isMulti}
+          optionsData={optionsData}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e)}
+          value={value}
+        />
+      );
+      break;
     default:
       selectCurrent = (
         <SelectCommon
