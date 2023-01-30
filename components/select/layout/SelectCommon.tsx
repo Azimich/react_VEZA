@@ -22,7 +22,6 @@ const SelectCommon: FC<IOptionSetting> = ({
     control: (styles: any) => ({
       ...styles,
       boxShadow: "none",
-      border: "1px solid #e1e1e1",
       "&:hover": {
         border: "1px solid #e1e1e1",
         boxShadow: "none",
@@ -32,7 +31,12 @@ const SelectCommon: FC<IOptionSetting> = ({
         outline: "none",
         boxShadow: "none",
       },
-      // You can also use state.isFocused to conditionally style based on the focus state
+    }),
+    singleValue: (styles: any) => ({
+      ...styles,
+      "&:focused": {
+        color: "blue",
+      },
     }),
   };
 
@@ -45,8 +49,9 @@ const SelectCommon: FC<IOptionSetting> = ({
       closeMenuOnSelect={closeMenuOnSelect}
       components={animatedComponents}
       defaultValue={defaultValue}
-      isSearchable
+      isSearchable={true}
       isMulti={isMulti}
+      classNamePrefix={"hies"}
       options={optionsData}
       className={Styles.job_container}
       placeholder={placeholder}
