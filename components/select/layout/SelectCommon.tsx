@@ -25,11 +25,13 @@ const SelectCommon: FC<IOptionSetting> = ({
       "&:hover": {
         border: "1px solid #e1e1e1",
         boxShadow: "none",
+        color: "red",
       },
       "&:focus": {
-        border: "1px solid #e1e1e1",
+        border: "1 solid #e1e1e1",
         outline: "none",
         boxShadow: "none",
+        opacity: "0.5",
       },
     }),
     singleValue: (styles: any) => ({

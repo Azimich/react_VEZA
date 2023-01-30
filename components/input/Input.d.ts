@@ -14,6 +14,7 @@ interface IInput {
   className?: string;
   value?: string;
   filesname?: ReactNode;
+  accept?: string;
 }
 
 export { IInput };
