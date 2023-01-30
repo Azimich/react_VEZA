@@ -26,6 +26,7 @@ import { useGetManagers } from "service/list/getManagers";
 import { useAppDispatch } from "store/hooks";
 import { setManagers } from "features/contacts/ContactsSlice";
 import { SpinnerLoading } from "components/spinners";
+import { useResponsibleCityAlias } from "service/list/getResponsibleCityAlias";
 
 const SalesOfficeContainer: FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +37,7 @@ const SalesOfficeContainer: FC = () => {
   const { getManagers } = useGetManagers();
   const { getListCities } = useGetListCities();
   const { getListPlantsOffices } = useGetListPlantsOffices();
+  const { getResponsibleCityAlias } = useResponsibleCityAlias();
   const [contentForm, setContentForm] = useState<IObject>();
   const { isShow, toggle } = useModal();
   const [breadCrumbs, setBreadCrumbs] =
@@ -61,7 +63,7 @@ const SalesOfficeContainer: FC = () => {
 
   useEffect(() => {
     getListPlantsOffices().then((data) => {
-      setListOffices(data.response);
+      setListOffices(data?.response);
       setIsLoading(false);
     });
 
@@ -84,7 +86,7 @@ const SalesOfficeContainer: FC = () => {
       })
       ?.shift();
 
-    setSelectedCity(res);
+    !router.query.alias && setSelectedCity(res);
   }, [cities]);
 
   const components: IComponents = {
@@ -93,7 +95,7 @@ const SalesOfficeContainer: FC = () => {
     tab_tsupport: Secretary,
   };
 
-  const FormOutPut: ReactNode[] = ListOffices.offices.response.map((e) => {
+  const FormOutPut: ReactNode[] = ListOffices?.offices?.response.map((e) => {
     return (
       <ObjectItem
         {...e}
@@ -126,6 +128,21 @@ const SalesOfficeContainer: FC = () => {
         dispatch(setManagers({ managers: data }));
       });
   }, [selectedCity]);
+  useEffect(() => {
+    router.query.alias &&
+      getResponsibleCityAlias(router.query.alias as string).then((data) => {
+        const currentcity = cities?.response?.filter(
+          (e) => e.alias === data.response,
+        );
+        setSelectedCity(
+          currentcity
+            ?.map((e) => {
+              return { value: e.alias, label: e.city };
+            })
+            .shift(),
+        );
+      });
+  }, [router.query, cities]);
   return (
     <>
       {isLoading ? (
