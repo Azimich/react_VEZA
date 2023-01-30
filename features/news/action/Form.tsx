@@ -7,6 +7,7 @@ import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
+// import {Textarea} from "components/textarea";
 
 const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
@@ -31,14 +32,25 @@ const FormNews: FC = () => {
           optionsData={[]}
           defaultValue={{}}
         />
-        <div className={Styles.added_news_banner}>
-          <a className={Styles.added_input}>
+        <div
+          // onClick={()=> {
+          //   return document.querySelector(".added_file").click();
+          // }}
+          className={Styles.added_news_banner}
+        >
+          <div className={Styles.added_input}>
             <label className={Styles.added_label}>
               <span className={Styles.added_label_span}>
-                <Input type={"file"} id={"added"} name={"added"} />
+                <Input
+                  accept={"image/*"}
+                  type={"file"}
+                  id={"added"}
+                  name={"added"}
+                  className={Styles.added_file}
+                />
               </span>
             </label>
-          </a>
+          </div>
         </div>
         <div className={Styles.added_news_todo_container}>
           <div className={Styles.input_block}>

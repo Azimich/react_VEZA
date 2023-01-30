@@ -21,6 +21,7 @@
   .about_block {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
   }
   &__elem_box {
     max-width: 1390px;
@@ -28,7 +29,9 @@
     padding: 0 40px;
   }
   &__right_block {
-    max-width: 50%;
+    //max-width: 50%;
+    max-width: 100%;
+    margin-bottom: 50px;
   }
   &__text {
     font-weight: 300;
@@ -88,10 +91,17 @@
     }
   }
   .card_user_container {
+    //display: grid;
+    //grid-template-columns: repeat(auto-fit, minmax(80px, 80px));
+    //gap: 14px;
+    //max-width: 50%;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 80px));
-    gap: 14px;
-    max-width: 50%;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 90px));
+    grid-gap: 10px;
+    max-width: 100%;
+    order: 2;
+    justify-content: inherit;
     li {
       background: color(white);
       display: flex;
