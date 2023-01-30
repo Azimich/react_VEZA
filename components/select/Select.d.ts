@@ -8,7 +8,7 @@ interface IOptionSetting {
   optionsData?: IOptionItem[];
   defaultValue?: IOptionItem;
   classNameProps?: string;
-  type?: "common" | "organizationINN";
+  type?: "common" | "organizationINN" | "variantNews";
   value?: IOptionItem;
 }
 
