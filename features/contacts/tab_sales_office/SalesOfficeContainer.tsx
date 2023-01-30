@@ -73,6 +73,7 @@ const SalesOfficeContainer: FC = () => {
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Офис продаж" }]);
   }, [dataBreadContacts]);
+
   useEffect(() => {
     const res = cities?.response
       ?.filter((e) => {
