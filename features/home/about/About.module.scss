@@ -11,12 +11,16 @@
     letter-spacing: 0.015em;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
   }
   &__container {
-    padding: 50px 0;
+    padding: 50px 0 100px 0;
     @include backgroundImage(cover);
     background-image: url('/images/about_banner.jpg');
+  }
+  .about_block {
+    display: flex;
+    justify-content: space-between;
   }
   &__elem_box {
     max-width: 1390px;
@@ -24,7 +28,7 @@
     padding: 0 40px;
   }
   &__right_block {
-    max-width: 100%;
+    max-width: 50%;
   }
   &__text {
     font-weight: 300;
@@ -85,65 +89,71 @@
   }
   .card_user_container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 80px));
     gap: 14px;
-    margin: 50px 0;
-  }
-  .card_user {
-    &_item {
+    max-width: 50%;
+    li {
       background: color(white);
-      border: 0.942308px solid #F8F8F8;
-      box-shadow: 0 13.1923px 28.2692px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 20px 10px 10px 20px;
-      border-radius: 12px;
-      &_img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-bottom: 20px;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      transform: scale(1);
+      &:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 28.2692px rgba(255, 255, 255, 0.8);
       }
-      &_details {
-        h4 {
-          font-weight: 500;
-          font-size: 15px;
-          line-height: 17px;
-          text-align: center;
-          color: #414141;
-          margin-bottom: 20px;
-          position: relative;
-          &:after {
-            content: "";
-            width: 88px;
-            padding: 1px;
-            background: color(green);
-            border-radius: 10px;
-            margin: 0 auto;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            right: 0;
-          }
-        }
-        p {
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 14px;
-          text-align: center;
-          color: #7C7C7C;
-          display: -webkit-box;
-          height: 48px;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      }
+      //&_img {
+      //  border-radius: 50%;
+      //  overflow: hidden;
+      //  box-shadow: 0 0 3px rgb(0 0 0 / 25%);
+      //  img {
+      //    transition: all 0.3s ease;
+      //  }
+      //}
+      //&_details {
+      //  display: none;
+      //  h4 {
+      //    font-weight: 500;
+      //    font-size: 15px;
+      //    line-height: 17px;
+      //    text-align: center;
+      //    color: #414141;
+      //    margin-bottom: 20px;
+      //    position: relative;
+      //    &:after {
+      //      content: "";
+      //      width: 88px;
+      //      padding: 1px;
+      //      background: color(green);
+      //      border-radius: 10px;
+      //      margin: 0 auto;
+      //      position: absolute;
+      //      bottom: -10px;
+      //      left: 0;
+      //      right: 0;
+      //    }
+      //  }
+      //  p {
+      //    font-weight: 400;
+      //    font-size: 12px;
+      //    line-height: 14px;
+      //    text-align: center;
+      //    color: #7C7C7C;
+      //    display: -webkit-box;
+      //    height: 48px;
+      //    -webkit-line-clamp: 4;
+      //    -webkit-box-orient: vertical;
+      //    overflow: hidden;
+      //  }
+      //}
     }
+  }
+  .card_user {
+
   }
 
 }
