@@ -1,10 +1,10 @@
 interface IResponse {
-  customErrorCode: null | number;
-  errorMessage: string;
-  systemErrorMessage: "";
-  hasError: boolean;
+  customErrorCode?: null | number;
+  errorMessage?: string;
+  systemErrorMessage?: "";
+  hasError?: boolean;
   page?: IPage;
-  response: null | [] | {};
+  response?: null | [] | {};
 }
 
 interface IPage {

@@ -39,6 +39,51 @@ const fieldsDataAuth: IFieledsData[] = [
   },
 ];
 
+const fieldsDataProfile: IFieledsData[] = [
+  {
+    name: "firstname",
+    title: "Фамилия",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "secondname",
+    title: "Имя",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "patronymic",
+    title: "отчество",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "country",
+    title: "Страна",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "city",
+    title: "Город",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "tel",
+    title: "Телефон",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "email",
+    title: "Телефон",
+    filter: /[ ]/g,
+    size: 0,
+  },
+];
+
 //для формы регистрации
 const fieldsDataRegister: IFieledsData[] = [
   {
@@ -94,4 +139,4 @@ const fieldsDataRegister: IFieledsData[] = [
   },
 ];
 
-export { fieldsDataAuth, fieldsDataRegister, fieldsDataJob };
+export { fieldsDataAuth, fieldsDataRegister, fieldsDataJob, fieldsDataProfile };

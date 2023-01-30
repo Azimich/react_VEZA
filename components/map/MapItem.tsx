@@ -4,7 +4,6 @@ import Styles from "./Map.module.scss";
 import Link from "next/link";
 
 const MapItem: FC<IMapData> = (props) => {
-  console.log("props", props);
   return (
     <Link href={"/contacts/sale_office?" + props.cityAddressAlias}>
       <a

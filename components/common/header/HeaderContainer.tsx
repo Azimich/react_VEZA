@@ -7,12 +7,13 @@ import { HeaderIcon } from "./headerIcon/HeaderIcon";
 import { useModal } from "components/modal";
 import { useScrollStop } from "store/hooks/useScrollStop";
 import { IAuthResponse } from "features/auth/Auth";
-import { useAppDispatch, useAppSelector } from "store/hooks";
+import { useAppDispatch } from "store/hooks";
 import { useAuth } from "service/auth/auth";
 import { useToken } from "store/hooks/useToken";
-import { getAuth, setDataAuth } from "features/auth/AuthSlice";
-import { SpinnerLoading } from "components/spinners";
+import { setDataAuth } from "features/auth/AuthSlice";
 import { dataMenu } from "components/common/header/headerIcon/mockData";
+import { Link } from "components/link";
+import { QuitIcon } from "components/icons";
 
 const HeaderContainer: FC = () => {
   const [scrollData, setScrollData] = useState<number>(0);
@@ -20,10 +21,8 @@ const HeaderContainer: FC = () => {
   const { isShow: profileShow, toggle: setProfileToogle } = useModal();
   const dispatch = useAppDispatch();
 
-  const auth = useAppSelector(getAuth);
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
-  const [timer, setTimer] = useState(false);
   useScrollStop(isShow);
 
   const handleHamburgerOnClick = () => {
@@ -32,17 +31,6 @@ const HeaderContainer: FC = () => {
   const handleProfileMenuClick = () => {
     setProfileToogle();
   };
-
-  useEffect(() => {
-    !auth.identify && setTimer(false);
-    const timerLoad =
-      auth.identify &&
-      setTimeout(() => {
-        setTimer(true);
-      }, 500);
-
-    return () => clearTimeout(timerLoad);
-  }, [auth.identify]);
 
   useEffect(() => {
     getToken().tokens.token
@@ -55,7 +43,7 @@ const HeaderContainer: FC = () => {
             }
           },
         )
-      : dispatch(setDataAuth({ identify: true }));
+      : dispatch(setDataAuth({ identify: false }));
   }, [getToken().tokens.token]);
 
   const handleScroll = () => {
@@ -69,6 +57,11 @@ const HeaderContainer: FC = () => {
     };
   }, []);
 
+  const handleOnClickQuit = () => {
+    deleteAuthToken();
+    setProfileToogle();
+    dispatch(setDataAuth({ identify: false, data: {} }));
+  };
   return (
     <Container className="wrapper_clear">
       <div className={Styles.header__profile}>
@@ -78,11 +71,7 @@ const HeaderContainer: FC = () => {
           }
         >
           <HeaderLogo />
-          {auth.identify ? (
-            <HeaderNav isShowMenu={isShow} scroll={scrollData} />
-          ) : (
-            timer && <SpinnerLoading />
-          )}
+          <HeaderNav isShowMenu={isShow} scroll={scrollData} />
           <HeaderIcon
             isShowMenu={isShow}
             onClickProfile={() => handleProfileMenuClick()}
@@ -97,12 +86,18 @@ const HeaderContainer: FC = () => {
           <ul className={Styles.header__profile_menu_lists}>
             {dataMenu.map((e, index) => {
               return (
-                <li key={index}>
-                  <span></span>
-                  {e.name}
-                </li>
+                <Link url={e.url} download={"false"}>
+                  <li key={index}>
+                    <span>{<e.svg />}</span>
+                    {e.name}
+                  </li>
+                </Link>
               );
             })}
+            <li key={"quit"} onClick={() => handleOnClickQuit()}>
+              <span>{<QuitIcon />}</span>
+              Выход
+            </li>
           </ul>
         </div>
       </div>
@@ -115,5 +110,4 @@ const HeaderContainer: FC = () => {
     </Container>
   );
 };
-
 export { HeaderContainer };

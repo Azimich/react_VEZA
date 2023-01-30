@@ -67,9 +67,14 @@ const useToken = () => {
     deleteLastLoginTime("lastLoginTime");
 
     //if react cookies didn't remove token do it natively;
-    if (getCookie("token") || getCookie("tokenRefresh")) {
+    if (
+      getCookie("token") ||
+      getCookie("tokenRefresh") ||
+      getCookie("lastLoginTime")
+    ) {
       deleteCookie("token");
       deleteCookie("tokenRefresh");
+      deleteCookie("lastLoginTime");
     }
   };
 

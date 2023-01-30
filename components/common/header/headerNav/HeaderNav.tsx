@@ -18,7 +18,7 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
   const [menu] = useState<IMenuState>(useAppSelector(getMenu));
   const auth = useAppSelector(getAuth);
   const router = useRouter();
-
+  console.log("213", auth?.data?.response?.role);
   return (
     <ul
       className={`${Styles.header__menu} ${
@@ -28,7 +28,7 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll }) => {
       {!menu?.hasError ? (
         menu?.response?.map((item) => {
           return (
-            checkedAccessMenu(auth?.data?.response.role, item.onlyAdmin) && (
+            checkedAccessMenu(auth?.data?.response?.role, item.onlyAdmin) && (
               <li key={item.menuId}>
                 <Link
                   url={"/" + item.alias}
