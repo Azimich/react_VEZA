@@ -64,7 +64,7 @@ const WhoWeContainer: FC = () => {
     : [];
 
   const handleOnClickTabs = (e: ITab) => {
-    router.push(aboutPath + e.url);
+    router.push(aboutPath + e.url).then();
   };
 
   const handleOnClickModal = (e: IObject) => {

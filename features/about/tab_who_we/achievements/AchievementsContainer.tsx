@@ -1,6 +1,6 @@
 import Styles from "./Achievements.module.scss";
 import { AchievementsData } from "./mockData";
-import { AchievementsItem } from "./AchievementsItem";
+import { AchievementsItem } from "features/about";
 import { FC } from "react";
 const AchievementsContainer: FC = () => {
   return (
