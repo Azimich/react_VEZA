@@ -29,7 +29,6 @@
     padding: 0 40px;
   }
   &__right_block {
-    //max-width: 50%;
     max-width: 100%;
     margin-bottom: 50px;
   }
@@ -79,30 +78,22 @@
     margin-top: 15px;
     letter-spacing: 0.025em;
     color: color(white);
-
     @include tabletScreen {
       font-weight: 500;
       font-size: 14px;
       margin-top: 15px;
     }
-
     @media (max-width: 1255px) {
       font-size: 12px;
     }
   }
   .card_user_container {
-    //display: grid;
-    //grid-template-columns: repeat(auto-fit, minmax(80px, 80px));
-    //gap: 14px;
-    //max-width: 50%;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(105px, 90px));
-    grid-gap: 10px;
-    max-width: 100%;
-    order: 2;
-    justify-content: inherit;
-    li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    .card_user_item {
       background: color(white);
       display: flex;
       justify-content: center;
@@ -110,60 +101,61 @@
       flex-direction: column;
       border-radius: 8px;
       overflow: hidden;
+      padding: 10px;
       transition: all 0.3s ease;
       transform: scale(1);
       &:hover {
-        transform: scale(1.2);
-        box-shadow: 0 0 28.2692px rgba(255, 255, 255, 0.8);
+        img {
+          transform: scale(1.1);
+          box-shadow: 0 0 28.2692px rgba(255, 255, 255, 0.8);
+        }
       }
-      //&_img {
-      //  border-radius: 50%;
-      //  overflow: hidden;
-      //  box-shadow: 0 0 3px rgb(0 0 0 / 25%);
-      //  img {
-      //    transition: all 0.3s ease;
-      //  }
-      //}
-      //&_details {
-      //  display: none;
-      //  h4 {
-      //    font-weight: 500;
-      //    font-size: 15px;
-      //    line-height: 17px;
-      //    text-align: center;
-      //    color: #414141;
-      //    margin-bottom: 20px;
-      //    position: relative;
-      //    &:after {
-      //      content: "";
-      //      width: 88px;
-      //      padding: 1px;
-      //      background: color(green);
-      //      border-radius: 10px;
-      //      margin: 0 auto;
-      //      position: absolute;
-      //      bottom: -10px;
-      //      left: 0;
-      //      right: 0;
-      //    }
-      //  }
-      //  p {
-      //    font-weight: 400;
-      //    font-size: 12px;
-      //    line-height: 14px;
-      //    text-align: center;
-      //    color: #7C7C7C;
-      //    display: -webkit-box;
-      //    height: 48px;
-      //    -webkit-line-clamp: 4;
-      //    -webkit-box-orient: vertical;
-      //    overflow: hidden;
-      //  }
-      //}
+      &_img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 3px rgb(0 0 0 / 25%);
+        margin-bottom: 20px;
+        img {
+          transition: all 0.3s ease;
+        }
+      }
+      &_details {
+        h4 {
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 17px;
+          text-align: center;
+          color: #414141;
+          margin-bottom: 20px;
+          position: relative;
+          &:after {
+            content: "";
+            width: 88px;
+            padding: 1px;
+            background: color(green);
+            border-radius: 10px;
+            margin: 0 auto;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+          }
+        }
+        p {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14px;
+          text-align: center;
+          color: #7C7C7C;
+          display: -webkit-box;
+          height: 48px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
     }
   }
-  .card_user {
-
-  }
-
 }

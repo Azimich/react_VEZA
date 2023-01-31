@@ -9,35 +9,27 @@
       &_slide {
         position: relative;
         max-height: 800px;
-
         @media (max-width: 1530px) {
           max-height: 700px;
         }
-
         @media (max-width: 1400px) {
           max-height: 650px;
         }
-
         @media (max-width: 1240px) {
           max-height: 600px;
         }
-
         @media (max-width: 830px) {
           max-height: 520px;
         }
-
         @media (max-width: 610px) {
           max-height: 450px;
         }
-
         @media (max-width: 500px) {
           max-height: 380px;
         }
-
         @media (max-width: 450px) {
           max-height: 340px;
         }
-
         @media (max-width: 400px) {
           max-height: 280px;
         }
@@ -59,37 +51,30 @@
       @media (max-width: 1800px) {
         left: 13%;
       }
-
       @media (max-width: 1700px) {
         left: 10%;
       }
-
       @media (max-width: 1600px) {
         left: 8%;
       }
-
       @media (max-width: 1500px) {
         left: 6%;
       }
-
       @media (max-width: 1100px) {
         top: 16%;
         left: 5%;
         padding: 25px 20px;
         border-radius: 20px;
       }
-
       @media (max-width: 600px) {
         right: 5%;
       }
-
       @media (max-width: 500px) {
         top: 12%;
         left: 3%;
         right: 3%;
         padding: 15px;
       }
-
       &_title {
         font-size: 30px;
         font-weight: bold;
@@ -103,17 +88,14 @@
           max-width: 370px;
           letter-spacing: 0.010em;
         }
-
         @media (max-width: 1100px) {
           font-size: 40px;
           max-width: 490px;
         }
-
         @media (max-width: 600px) {
           font-size: 20px;
           max-width: 210px;
         }
-
         @media (max-width: 400px) {
           font-size: 20px;
           max-width: 210px;
@@ -137,12 +119,10 @@
           max-width: 400px;
           padding: 5px 0 35px 0;
         }
-
         @media (max-width: 1100px) {
           font-size: 18px;
           padding: 5px 0 35px 0;
         }
-
         @include phoneScreen {
           font-size: 14px;
           padding: 5px 0 20px;
@@ -170,12 +150,10 @@
           box-shadow: 0 0 123px rgba(22, 131, 8, 0.6);
           cursor: pointer;
         }
-
         @media (max-width: 1100px) {
           padding: 15px 50px;
           width: 250px;
         }
-
         @include phoneScreen {
           font-size: 16px;
           padding: 6px 20px;
@@ -194,7 +172,6 @@
         height: 100%;
         object-fit: cover;
       }
-
       &_info_box {
         position: absolute;
         top: 30%;
@@ -205,11 +182,9 @@
         right: 0;
         z-index: 2 !important;
       }
-
       &_info {
         text-align: center;
       }
-
       &_title_video {
         font-size: 100px;
         text-align: center;
@@ -217,7 +192,6 @@
         text-transform: uppercase;
         letter-spacing: 5px;
         margin-bottom: 20px;
-
         @include ipadScreen {
           font-size: 60px;
           margin-bottom: 12px;
@@ -225,20 +199,17 @@
       }
 
       &_text_video {
+        position: relative;
         color: color(white);
         font-size: 18px;
         letter-spacing: 5px;
         line-height: 145%;
         text-align: center;
-
         @include ipadScreen {
           font-size: 16px;
           letter-spacing: 1px;
         }
       }
-
-      position: relative;
-
       &:after {
         content: '';
         position: absolute;
@@ -264,31 +235,24 @@
         @media (max-width: 1530px) {
           height: 600px;
         }
-
         @media (max-width: 1400px) {
           height: 550px;
         }
-
         @media (max-width: 1240px) {
           height: 500px;
         }
-
         @media (max-width: 830px) {
           height: 420px;
         }
-
         @media (max-width: 610px) {
           height: 350px;
         }
-
         @media (max-width: 500px) {
           height: 280px;
         }
-
         @media (max-width: 450px) {
           height: 240px;
         }
-
         @media (max-width: 400px) {
           height: 210px;
         }
@@ -297,7 +261,6 @@
       &_img {
         max-width: 1390px;
         margin: 0 auto;
-
         img {
           border-radius: 15px;
           object-fit: cover;
@@ -306,31 +269,24 @@
           @media (max-width: 1530px) {
             height: 600px;
           }
-
           @media (max-width: 1400px) {
             height: 550px;
           }
-
           @media (max-width: 1240px) {
             height: 500px;
           }
-
           @media (max-width: 830px) {
             height: 420px;
           }
-
           @media (max-width: 610px) {
             height: 350px;
           }
-
           @media (max-width: 500px) {
             height: 280px;
           }
-
           @media (max-width: 450px) {
             height: 240px;
           }
-
           @media (max-width: 400px) {
             height: 210px;
           }
@@ -347,17 +303,14 @@
         line-height: 128%;
         letter-spacing: 0.025em;
         color: color(white);
-
         @media (max-width: 1100px) {
           font-size: 40px;
           max-width: 490px;
         }
-
         @media (max-width: 600px) {
           font-size: 28px;
           max-width: 350px;
         }
-
         @media (max-width: 400px) {
           font-size: 25px;
           max-width: 350px;
@@ -373,12 +326,10 @@
         color: color(white);
         max-width: 500px;
         padding: 5px 0 50px 0;
-
         @media (max-width: 1100px) {
           font-size: 18px;
           padding: 5px 0 35px 0;
         }
-
         @media (max-width: 600px) {
           font-size: 16px;
           padding: 5px 0 26px 0;
@@ -402,19 +353,16 @@
         text-shadow: 4px 3px 6px rgba(0, 0, 0, 0.31);
         border-radius: 10px;
         transition: all 0.3s ease-in;
-
         &:hover {
           background: #33953A;
           border-color: #33953A;
           box-shadow: 0 0 123px rgba(22, 131, 8, 0.6);
           cursor: pointer;
         }
-
         @media (max-width: 1100px) {
           padding: 15px 50px;
           width: 250px;
         }
-
         @media (max-width: 600px) {
           font-size: 16px;
           padding: 13px 50px;
@@ -429,34 +377,27 @@
       backdrop-filter: blur(20px);
       padding: 40px 30px;
       border-radius: 20px;
-
       @media (max-width: 1800px) {
         left: 13%;
       }
-
       @media (max-width: 1700px) {
         left: 10%;
       }
-
       @media (max-width: 1600px) {
         left: 8%;
       }
-
       @media (max-width: 1500px) {
         left: 6%;
       }
-
       @media (max-width: 1100px) {
         top: 16%;
         left: 5%;
         padding: 25px 20px;
         border-radius: 20px;
       }
-
       @media (max-width: 600px) {
         right: 5%;
       }
-
       @media (max-width: 500px) {
         top: 12%;
       }
@@ -494,7 +435,6 @@
         text-transform: uppercase;
         letter-spacing: 5px;
         margin-bottom: 20px;
-
         @include ipadScreen {
           font-size: 60px;
           margin-bottom: 12px;
@@ -513,7 +453,6 @@
           letter-spacing: 1px;
         }
       }
-
       position: relative;
 
       &:after {
