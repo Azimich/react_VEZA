@@ -117,8 +117,13 @@
   },
   "dependencies": {
     "@jest/globals": "^29.3.1",
+    "@react-pdf-viewer/core": "^3.11.0",
+    "@react-pdf-viewer/default-layout": "^3.11.0",
+    "@react-pdf-viewer/page-navigation": "^3.11.0",
+    "@react-pdf-viewer/thumbnail": "^3.11.0",
     "@testing-library/dom": "^8.19.0",
     "next": "^12.3.1",
+    "pdfjs-dist": "^3.2.146",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.11.0",
