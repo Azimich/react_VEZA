@@ -7,7 +7,6 @@ import { resourcesPath } from "utils/bootstrap";
 const QuestionnairesItem: FC<IQuestionnaires> = ({
   title,
   subtitle,
-  image,
   alias,
 }) => {
   return (
@@ -15,9 +14,6 @@ const QuestionnairesItem: FC<IQuestionnaires> = ({
       url={resourcesPath + "questionnaires/" + alias}
       classLink={Styles.questionnaires}
     >
-      <div className={Styles.questionnaires__img__block}>
-        <img src={"/images/" + image} alt={title} />
-      </div>
       <div className={Styles.questionnaires__info}>
         <h3>{title}</h3>
         <p>{subtitle}</p>
