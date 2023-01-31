@@ -1,0 +1,30 @@
+.toolbar {
+  position: relative;
+  background-color: #eeeeee;
+  .toolbar_container {
+    padding: 4px;
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    margin: 0 auto;
+    background-color: #eeeeee;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: flex-start;
+    bottom: 100px;
+    max-width: fit-content;
+    gap: 5px;
+    .btn_style{
+      padding: 0;
+    }
+    .btn_input{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn_arrow_next{
+      padding: 0;
+
+    }
+  }
+}
