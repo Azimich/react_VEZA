@@ -54,7 +54,7 @@ const PdfViewer: React.FC<MagazineExampleProps> = ({ fileUrl }) => {
               top: "50%",
               left: "1rem",
               transform: "translate(0, -100%) rotate(-90deg)",
-              zIndex: "1",
+              zIndex: 1,
             }}
           >
             <MinimalButton onClick={jumpToPreviousPage}>
@@ -74,7 +74,7 @@ const PdfViewer: React.FC<MagazineExampleProps> = ({ fileUrl }) => {
               top: "50%",
               right: "1rem",
               transform: "translate(0, -100%) rotate(-90deg)",
-              zIndex: "1",
+              zIndex: 1,
             }}
           >
             <MinimalButton onClick={jumpToNextPage}>
