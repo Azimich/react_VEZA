@@ -17,6 +17,9 @@ interface ISSRHome {
 interface INewsResponse extends Omit<IResponse, "response"> {
   response: INewsDataItem;
 }
+interface IBannerItem extends Omit<IResponse, "response"> {
+  response: IBannerItem[];
+}
 interface IIndustriesResponse extends Omit<IResponse, "response"> {
   response: [];
 }

@@ -3,7 +3,13 @@ import Styles from "./About.module.scss";
 import { ProgressBar } from "components/progressbar/ProgressBarContainer";
 import { useIsInViewport } from "store/hooks/useIsInViewPort";
 import { IAboutUsData } from "features/home/about/AboutUs";
-import { levieCheliky } from "features/home/about/MockData";
+import { AboutItems } from "features/home/about/AboutItem";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 
 interface IAboutUsSSR {
   response: IAboutUsData;
@@ -17,16 +23,6 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
         <div className={Styles.about__elem_box}>
           <h2>О нас</h2>
           <div className={Styles.about_block}>
-            <ul className={Styles.card_user_container}>
-              {levieCheliky.map((items, index) => {
-                console.log("images", items);
-                return (
-                  <li key={index}>
-                    <img src={items.img} alt={"#"} />
-                  </li>
-                );
-              })}
-            </ul>
             <div className={Styles.about__right_block}>
               <p className={Styles.about__text}>{response.description}</p>
               <div
@@ -53,6 +49,43 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                 })}
               </div>
             </div>
+            <ul className={Styles.card_user_container}>
+              <Swiper
+                slidesPerView={6}
+                spaceBetween={10}
+                autoplay={true}
+                loop={true}
+                pagination={true}
+                breakpoints={{
+                  "@0.00": {
+                    slidesPerView: 1,
+                    spaceBetween: 40,
+                  },
+                  "@0.75": {
+                    slidesPerView: 3,
+                    spaceBetween: 5,
+                  },
+                  "@1.00": {
+                    slidesPerView: 4,
+                    spaceBetween: 8,
+                  },
+                  "@1.50": {
+                    slidesPerView: 6,
+                    spaceBetween: 10,
+                  },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+              >
+                {response.employeeDtos.map((items, index) => {
+                  return (
+                    <SwiperSlide>
+                      <AboutItems key={index} {...items} />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </ul>
           </div>
         </div>
       </div>
