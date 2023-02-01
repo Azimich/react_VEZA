@@ -26,32 +26,73 @@
     justify-content: space-between;
     border-radius: 10px;
     background-color: rgb(245, 245, 245);
-    cursor: pointer;
     position: relative;
-    transition: all .3s;
+    transition: all .3s ease;
     overflow: hidden;
     box-shadow: 0 0 4px rgb(33 33 33 / 21%);
-
-    a {
-      position: absolute;
-      border: 1px solid color(white);
-      margin-top: 10px;
-      margin-left: 10px;
-      border-radius: 50%;
-      padding: 5px ;
-      background-color: color(white);
+    &:hover {
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.15);
     }
 
-    &:hover {
-      box-shadow: 0 0 30px rgba(20, 20, 20, 0.2);
-      transform: translateY(-2px);
-      transition: all 0.3s;
-
-      p {
-        color: #F89A00;
+    .disabled_active {
+      a {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: color(white);
+        font-size: 16px;
+        background-color: color(green);
+        padding: 7.5px 30px;
+        transition: all .3s ease;
+        &:hover {
+          background: color(green);
+          color: color(white);
+          path {
+            fill: #fff;
+          }
+        }
+        span {
+          svg {
+            width: 18px;
+            transition: all .2s ease;
+          }
+          path {
+            fill: white;
+            transition: all .2s ease;
+          }
+        }
       }
     }
-
+    .disabled {
+      a {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: color(white);
+        font-size: 16px;
+        background-color: grey;
+        padding: 7.5px 30px;
+        pointer-events: none;
+        span {
+          svg {
+            width: 18px;
+            transition: all .2s ease;
+          }
+          path {
+            fill: white;
+            transition: all .2s ease;
+          }
+        }
+      }
+    }
     &__calendar {
       display: flex;
       align-items: center;

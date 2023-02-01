@@ -7,6 +7,9 @@ interface ILink {
   classLink?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
   download?: string;
+  onClick?: (event: Event) => void;
+  disabled?: boolean;
+  className?: string;
 }
 
 const LinkContainer: FC<ILink> = ({

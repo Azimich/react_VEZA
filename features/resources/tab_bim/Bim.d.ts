@@ -10,6 +10,7 @@ interface IBim {
   title?: string;
   updated?: string;
   showDownload?: boolean;
+  onClick?: () => void;
 }
 
 interface ICatalog {
