@@ -2,40 +2,34 @@ import { Container } from "components/common/container";
 import Styles from "./Catalog.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
-import { catalogData } from "../mockData";
-import { CatalogItem } from "./CatalogItem";
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { ICatalog } from "../tab_bim/Bim";
+import React, { useEffect, useState } from "react";
+import { ICatalogResponse } from "../tab_bim/Bim";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { handleOnClickTabs } from "../helper";
 import { useRouter } from "next/router";
 import { Button } from "components/button";
+import { useGetCatalog } from "service/list/getCatalog";
+import { Link } from "components/link";
+import { CatalogItem } from "features/resources/tab_catalog/CatalogItem";
 
 const CatalogContainer = () => {
   const router = useRouter();
+  const { getCatalog } = useGetCatalog();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
-  const [inputValue, setInputValue] = useState<string>();
-  const [filteredData, setFilteredData] = useState<ICatalog[]>(catalogData);
-  const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-  console.log(handleOnChangeSearch);
+  const [catalogData, setCatalogData] = useState<ICatalogResponse>(undefined);
 
+  useEffect(() => {
+    getCatalog().then((data) => {
+      setCatalogData(data);
+    });
+  }, []);
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
   }, [dataBreadResources]);
 
-  useEffect(() => {
-    setFilteredData(
-      inputValue?.length > 0
-        ? catalogData.filter((e) => {
-            return e.title.toLowerCase().includes(inputValue.toLowerCase());
-          })
-        : catalogData,
-    );
-  }, [inputValue]);
+  console.log("catalogData", catalogData);
 
   return (
     <Container className={"wrapper_clear"}>
@@ -52,12 +46,17 @@ const CatalogContainer = () => {
       </div>
       <div className={Styles.catalog_title}>
         <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
-        <Button type={"button"} children={"Скачать все"} />
+        <Link url={catalogData && catalogData.response.url} download={"true"}>
+          <Button
+            type={"button"}
+            children={catalogData && catalogData.response.title}
+          />
+        </Link>
       </div>
       <div className={Styles.catalog_box}>
-        {filteredData &&
-          filteredData.map((e) => {
-            return <CatalogItem {...e} key={e.id} />;
+        {catalogData &&
+          catalogData.response.catalogues.map((e) => {
+            return <CatalogItem {...e} key={e.url} />;
           })}
       </div>
     </Container>

@@ -4,6 +4,7 @@ import Styles from "../Certificates.module.scss";
 import { CalendarIcon } from "components/icons";
 import { Link } from "components/link";
 import { Button } from "components/button";
+import { onButtonClick } from "utils/helpers";
 
 const CertificatItem: FC<ICertificates> = ({
   documentURL,
@@ -12,17 +13,6 @@ const CertificatItem: FC<ICertificates> = ({
   images,
   kind,
 }) => {
-  const onButtonClick = (url: RequestInfo | URL, title: string) => {
-    fetch(url).then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        const alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = title + ".pdf";
-        alink.click();
-      });
-    });
-  };
   return (
     <div className={Styles.sertificates__page__items__card}>
       <div className={Styles.sertificates__page__items__card__img}>

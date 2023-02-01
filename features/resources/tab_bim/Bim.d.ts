@@ -13,12 +13,22 @@ interface IBim {
   onClick?: () => void;
 }
 
+interface ICatalogsItem {
+  imageUrl?: string;
+  title: string;
+  update: string;
+  url: string;
+}
+
 interface ICatalog {
-  id: number;
-  title?: string;
-  image?: string;
-  download_url?: string;
   alias?: string;
+  catalogues: ICatalogsItem[];
+  seoDescription?: string;
+  seoKeyword?: string;
+  seoMetaH1?: string;
+  seoTitle?: string;
+  title?: string;
+  url?: string;
 }
 
 interface ICertificates {
@@ -50,6 +60,10 @@ interface ICertResponseArray extends Omit<IResponse, "response"> {
   response: ICertificates[];
 }
 
+interface ICatalogResponse extends Omit<IResponse, "response"> {
+  response: ICatalog;
+}
+
 interface IQuestionsResponseArray extends Omit<IResponse, "response"> {
   response: IQuestions[];
 }
@@ -72,4 +86,6 @@ export {
   IQuestionsResponseArray,
   IBimResponseArray,
   ICertResponseArray,
+  ICatalogResponse,
+  ICatalogsItem,
 };

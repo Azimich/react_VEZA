@@ -1,84 +1,4 @@
-import { ICatalog, IQuestionnaires } from "./tab_bim/Bim";
-
-const catalogData: ICatalog[] = [
-  {
-    id: 1,
-    title: "Центральные кондиционеры ВЕРОСА",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran1",
-  },
-  {
-    id: 2,
-    title: "Шкаф систем автоматического управления ШСАУ ВЕРСА 100",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran2",
-  },
-  {
-    id: 3,
-    title: "Кондиционеры компактные панельные Airmate®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran3",
-  },
-  {
-    id: 4,
-    title: "Прецизионные кондиционеры АКП",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran4",
-  },
-  {
-    id: 5,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-  {
-    id: 6,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-  {
-    id: 7,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-  {
-    id: 8,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-  {
-    id: 9,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-  {
-    id: 10,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-  {
-    id: 11,
-    title: "Приточно-вытяжные установки для бассейнов АКВАРИС®",
-    image: "/images/vran-1.jpg",
-    download_url: "/download/res.pdf",
-    alias: "vran5",
-  },
-];
+import { IQuestionnaires } from "./tab_bim/Bim";
 
 const questionnairesData: IQuestionnaires[] = [
   {
@@ -203,4 +123,4 @@ const questionnairesData: IQuestionnaires[] = [
   },
 ];
 
-export { catalogData, questionnairesData };
+export { questionnairesData };
