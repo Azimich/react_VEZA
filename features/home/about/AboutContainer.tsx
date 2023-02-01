@@ -6,10 +6,8 @@ import { IAboutUsData } from "features/home/about/AboutUs";
 import { AboutItems } from "features/home/about/AboutItem";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/scrollbar";
+import { Autoplay, Pagination } from "swiper";
+import { levieCheliky } from "features/home/about/MockData";
 
 interface IAboutUsSSR {
   response: IAboutUsData;
@@ -51,8 +49,9 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
             </div>
             <ul className={Styles.card_user_container}>
               <Swiper
+                modules={[Pagination, Autoplay]}
                 slidesPerView={6}
-                spaceBetween={10}
+                spaceBetween={23}
                 autoplay={true}
                 loop={true}
                 pagination={true}
@@ -71,16 +70,25 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   },
                   "@1.50": {
                     slidesPerView: 6,
-                    spaceBetween: 10,
+                    spaceBetween: 23,
                   },
                 }}
-                modules={[Pagination]}
-                className="mySwiper"
               >
-                {response.employeeDtos.map((items, index) => {
+                {/*{response.employeeDtos.map((items, index) => {*/}
+                {/*  return (*/}
+                {/*    <SwiperSlide>*/}
+                {/*      <AboutItems key={index} {...items} />*/}
+                {/*    </SwiperSlide>*/}
+                {/*  );*/}
+                {levieCheliky.map((items, index) => {
                   return (
-                    <SwiperSlide>
-                      <AboutItems key={index} {...items} />
+                    <SwiperSlide key={index}>
+                      <AboutItems
+                        title={""}
+                        description={""}
+                        images={undefined}
+                        {...items}
+                      />
                     </SwiperSlide>
                   );
                 })}
