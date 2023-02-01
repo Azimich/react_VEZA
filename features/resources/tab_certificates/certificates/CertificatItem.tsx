@@ -16,7 +16,7 @@ const CertificatItem: FC<ICertificates> = ({
   return (
     <div className={Styles.sertificates__page__items__card}>
       <div className={Styles.sertificates__page__items__card__img}>
-        <Link url={documentURL} target={"_blank"}>
+        <Link url={"/pdfviewer?document=" + documentURL}>
           <img src={images.pc} alt={title} />
         </Link>
       </div>
