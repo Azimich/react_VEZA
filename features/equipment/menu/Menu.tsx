@@ -2,11 +2,11 @@ import Styles from "../Equipment.module.scss";
 import { CategoryIcon } from "components/icons";
 import { MenuItem } from "./MenuItem";
 import { breadcrumbsData } from "./mockData";
-import { ICategoriesItem } from "../Equipment";
 import { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getData, getParents } from "utils/helpers";
 import { equipmentPath } from "utils/bootstrap";
+import { ICategoriesItem } from "features/equipment/Equipment.d";
 
 interface IMenu {
   categories: ICategoriesItem[];
