@@ -47,7 +47,6 @@
         font-size: 16px;
         background-color: color(green);
         padding: 7.5px 30px;
-        transition: all .3s ease;
         &:hover {
           background: color(green);
           color: color(white);
@@ -79,16 +78,14 @@
         color: color(white);
         font-size: 16px;
         background-color: grey;
-        padding: 7.5px 30px;
+        padding: 12px 29px;
         pointer-events: none;
         span {
           svg {
             width: 18px;
-            transition: all .2s ease;
           }
           path {
             fill: white;
-            transition: all .2s ease;
           }
         }
       }

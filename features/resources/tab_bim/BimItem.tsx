@@ -3,6 +3,8 @@ import { FC, useState } from "react";
 import { IBim } from "./Bim";
 import Styles from "./Bim.module.scss";
 import { Link } from "components/link";
+import { onButtonClick } from "utils/helpers";
+import { SpinnerButton } from "components/spinners";
 
 const BimItem: FC<IBim> = ({
   title,
@@ -15,8 +17,14 @@ const BimItem: FC<IBim> = ({
   // console.log(`${year.getDate()}-${year.getMonth() + 1}-${year.getFullYear()}`);
 
   const [download, setDownload] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const handleDisabled = () => {
     setDownload(false);
+    setIsLoading(true);
+    onButtonClick(setupUrl, title).then(() => {
+      setDownload(true);
+      setIsLoading(false);
+    });
   };
 
   return (
@@ -30,9 +38,7 @@ const BimItem: FC<IBim> = ({
         >
           <Link url={setupUrl} download={"true"}>
             Скачать
-            <span>
-              <DownloadIcon />
-            </span>
+            <span>{isLoading ? <SpinnerButton /> : <DownloadIcon />}</span>
           </Link>
         </div>
       }

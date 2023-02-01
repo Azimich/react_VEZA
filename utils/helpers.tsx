@@ -57,7 +57,7 @@ const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
 };
 
 const onButtonClick = (url: string | URL, title: string) => {
-  fetch(url).then((response) => {
+  return fetch(url).then((response) => {
     response.blob().then((blob) => {
       const fileURL = window.URL.createObjectURL(blob);
       const alink = document.createElement("a");
