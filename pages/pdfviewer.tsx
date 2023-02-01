@@ -3,7 +3,6 @@ import { wrapper } from "store/store";
 import { PdfViewer } from "features/resources/tab_certificates/certificates/PdfViewer";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
-
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
@@ -14,6 +13,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const Profile = () => <PdfViewer fileUrl={"/ex.pdf"} />;
+const Profile = () => <PdfViewer />;
 
 export default Profile;
