@@ -51,7 +51,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
               <Swiper
                 modules={[Pagination, Autoplay]}
                 slidesPerView={6}
-                spaceBetween={10}
+                spaceBetween={23}
                 autoplay={true}
                 loop={true}
                 pagination={true}
@@ -70,7 +70,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   },
                   "@1.50": {
                     slidesPerView: 6,
-                    spaceBetween: 10,
+                    spaceBetween: 23,
                   },
                 }}
               >

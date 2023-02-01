@@ -7,7 +7,6 @@ import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
-// import {Textarea} from "components/textarea";
 
 const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
@@ -32,12 +31,7 @@ const FormNews: FC = () => {
           optionsData={[]}
           defaultValue={{}}
         />
-        <div
-          // onClick={()=> {
-          //   return document.querySelector(".added_file").click();
-          // }}
-          className={Styles.added_news_banner}
-        >
+        <div className={Styles.added_news_banner}>
           <div className={Styles.added_input}>
             <label className={Styles.added_label}>
               <span className={Styles.added_label_span}>
@@ -61,12 +55,14 @@ const FormNews: FC = () => {
               value={value}
               onChange={handleOnchange.bind(this)}
             />
-            {setValue ? "" : <Button children={"Добавить"} type={"button"} />}
+            {setValue ? (
+              <Button children={"Добавить"} type={"button"} />
+            ) : (
+              <Button children={"Добавить"} type={"button"} />
+            )}
           </div>
           <div className={Styles.textarea_block}>
-            {/*<Textarea*/}
-            {/*  children={"Введите заголовок"}*/}
-            {/*/>*/}
+            <textarea name={"text"} placeholder={"Добавить описание"} />
           </div>
         </div>
       </div>
