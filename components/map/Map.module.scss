@@ -28,10 +28,11 @@
 
 .company__map_svg {
   width: 100%;
-  margin: 0 auto 40px;
+
   display: flex;
   justify-content: center;
-  height: 700px;
+  margin-top: -100px;
+  //height: 700px;
 
   a {
     cursor: pointer;
@@ -240,7 +241,7 @@
   left: 0;
   top: 5px;
   z-index: 1;
-
+margin-top: 100px;
   &_title {
     font-weight: 400;
     color: #9c9c9c;
