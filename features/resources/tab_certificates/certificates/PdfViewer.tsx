@@ -27,7 +27,6 @@ const PdfViewer: React.FC = () => {
   const [pdfUrl, setPdfUrl] = useState<string>(undefined);
   const pageNavigationPluginInstance = pageNavigationPlugin();
   const { jumpToNextPage, jumpToPreviousPage } = pageNavigationPluginInstance;
-  console.log("123", jumpToPreviousPage);
   const thumbnailPluginInstance = thumbnailPlugin();
   const { Thumbnails } = thumbnailPluginInstance;
 
@@ -46,9 +45,10 @@ const PdfViewer: React.FC = () => {
         key // change to event.key to key to use the above variable
       ) {
         case "ArrowLeft":
+          jumpToPreviousPage();
           break;
         case "ArrowRight":
-          jumpToNextPage;
+          jumpToNextPage();
           break;
         case "ArrowUp":
           // Up pressed
