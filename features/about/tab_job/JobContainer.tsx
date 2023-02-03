@@ -157,7 +157,7 @@ const JobContainer: FC = () => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0
         ? selectedCheckBox.filter((item) => item.id !== e.id)
-        : [...selectedCheckBox, e],
+        : [e],
     );
   };
 
@@ -222,6 +222,7 @@ const JobContainer: FC = () => {
               <SideBar
                 onChange={(e: ITab) => handleSideBarClick(e)}
                 tabsSocialData={sideBarData}
+                selectedCheckBox={selectedCheckBox}
               />
             }
           />

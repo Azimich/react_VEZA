@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { ITab } from "components/tabs/Tabs";
 
 interface ICheckBox {
   title?: string;
@@ -7,6 +8,7 @@ interface ICheckBox {
   onClick?: () => void;
   name: string;
   id: string;
+  selectedCheckBox?: ITab[];
 }
 
 export { ICheckBox };
