@@ -36,28 +36,22 @@ const PdfViewer: React.FC = () => {
     router.query.document && setPdfUrl(router.query.document as string);
   }, [router.isReady]);
 
-  useEffect(() => {
-    document.addEventListener("keydown", function (event) {
-      event.preventDefault();
-      const key = event.key;
+  const keys = (event: KeyboardEvent) => {
+    event.preventDefault();
+    const key = event.key;
+    switch (key) {
+      case "ArrowLeft":
+        jumpToPreviousPage();
+        break;
+      case "ArrowRight":
+        jumpToNextPage();
+        break;
+    }
+  };
 
-      switch (
-        key // change to event.key to key to use the above variable
-      ) {
-        case "ArrowLeft":
-          jumpToPreviousPage();
-          break;
-        case "ArrowRight":
-          jumpToNextPage();
-          break;
-        case "ArrowUp":
-          // Up pressed
-          break;
-        case "ArrowDown":
-          // Down pressed
-          break;
-      }
-    });
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => keys(event));
+    return document.removeEventListener("keydown", keys);
   });
 
   return (
