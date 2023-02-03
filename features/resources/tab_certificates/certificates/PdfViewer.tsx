@@ -26,7 +26,8 @@ const PdfViewer: React.FC = () => {
   const router = useRouter();
   const [pdfUrl, setPdfUrl] = useState<string>(undefined);
   const pageNavigationPluginInstance = pageNavigationPlugin();
-
+  const { jumpToNextPage, jumpToPreviousPage } = pageNavigationPluginInstance;
+  console.log("123", jumpToPreviousPage);
   const thumbnailPluginInstance = thumbnailPlugin();
   const { Thumbnails } = thumbnailPluginInstance;
 
@@ -35,6 +36,30 @@ const PdfViewer: React.FC = () => {
   useEffect(() => {
     router.query.document && setPdfUrl(router.query.document as string);
   }, [router.isReady]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", function (event) {
+      event.preventDefault();
+      const key = event.key;
+
+      switch (
+        key // change to event.key to key to use the above variable
+      ) {
+        case "ArrowLeft":
+          break;
+        case "ArrowRight":
+          jumpToNextPage;
+          break;
+        case "ArrowUp":
+          // Up pressed
+          break;
+        case "ArrowDown":
+          // Down pressed
+          break;
+      }
+    });
+  });
+
   return (
     <>
       {pdfUrl && (
