@@ -86,7 +86,7 @@ const HeaderContainer: FC = () => {
           <ul className={Styles.header__profile_menu_lists}>
             {dataMenu.map((e, index) => {
               return (
-                <Link key={index} url={e.url} download={"false"}>
+                <Link url={e.url} download={"false"} key={index}>
                   <li>
                     <span>{<e.svg />}</span>
                     {e.name}
