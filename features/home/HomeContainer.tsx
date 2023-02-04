@@ -24,10 +24,8 @@ const HomeContainer: FC<ISSRHome> = ({
 }) => {
   const convert = (
     data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
-    show_text = false,
   ) => {
     return data?.response.map((e): ISlideItem => {
-      e.show_text = show_text;
       return {
         alt: e.title,
         block_description: e.show_text || false,
@@ -44,7 +42,7 @@ const HomeContainer: FC<ISSRHome> = ({
       };
     });
   };
-
+  console.log("indexBanner", indexBanner);
   return (
     <>
       <SliderContainer

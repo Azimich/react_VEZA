@@ -5,7 +5,6 @@ import { Container } from "components/common/container";
 import { INewsDataItem, INewsResponseArray } from "features/news/News";
 
 const NewsContainer: FC<INewsResponseArray> = ({ response }) => {
-  console.log("4444", response);
   return (
     <Container>
       <div className={`${Styles.news_container}`}>

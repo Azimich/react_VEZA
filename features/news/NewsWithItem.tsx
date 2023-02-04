@@ -7,8 +7,9 @@ import { newsPath } from "utils/bootstrap";
 
 const NewsWithItem: FC<INewsDataItem> = ({
   newsName,
-  secondDescription,
+
   alias,
+  shortDescription,
   imageModel,
   statistics,
 }) => {
@@ -25,7 +26,7 @@ const NewsWithItem: FC<INewsDataItem> = ({
         <div>
           <h4 className={Styles.news_container_item_right_title}>{newsName}</h4>
           <div className={Styles.news_container_item_right_desc}>
-            {secondDescription}
+            {shortDescription}
           </div>
         </div>
         <Button
