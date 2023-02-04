@@ -76,7 +76,7 @@ const HomeContainer: FC<ISSRHome> = ({
         )}
         <Separator title={"Отрасли"} />
         <SliderContainer
-          items={convert(indexIndustries, true)}
+          items={convert(indexIndustries)}
           dots={true}
           autoplay={false}
           theme={"industries"}
