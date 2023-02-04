@@ -163,6 +163,10 @@
           letter-spacing: 0.04em;
         }
       }
+      &_allign{
+        display: flex;
+        justify-content: center;
+      }
     }
 
     &__slide_video {
