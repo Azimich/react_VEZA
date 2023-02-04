@@ -60,13 +60,14 @@ const SlideItem: FC<ISlideItem> = ({
             <p className={Styles[`${theme}_banner__right_element_text`]}>
               {description}
             </p>
-
-            <Button theme={themeButton} size={size} link={url} color={color}>
-              <span>
-                <p>Подробнее</p>
-                {color === "link" && <ArrowRightIcon />}
-              </span>
-            </Button>
+            <div className={Styles[`${theme}_banner__right_element_allign`]}>
+              <Button theme={themeButton} size={size} link={url} color={color}>
+                <span>
+                  <p>Подробнее</p>
+                  {color === "link" && <ArrowRightIcon />}
+                </span>
+              </Button>
+            </div>
           </div>
         )}
       </div>
