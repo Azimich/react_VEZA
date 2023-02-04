@@ -46,7 +46,7 @@ const HomeContainer: FC<ISSRHome> = ({
   return (
     <>
       <SliderContainer
-        autoplay={true}
+        autoplay={false}
         items={convert(indexBanner)}
         theme={"home"}
         dots={true}
