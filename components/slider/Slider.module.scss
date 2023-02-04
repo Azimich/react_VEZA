@@ -77,12 +77,14 @@
       }
       &_title {
         font-size: 30px;
-        font-weight: bold;
+
         text-transform: uppercase;
         max-width: 540px;
         line-height: 128%;
         letter-spacing: 0.025em;
         color: color(white);
+        text-align: center;
+        font-weight: 300;
         @include tabletScreen {
           font-size: 35px;
           max-width: 370px;
