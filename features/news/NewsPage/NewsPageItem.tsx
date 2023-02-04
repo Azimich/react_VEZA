@@ -7,8 +7,10 @@ import { Link } from "components/link";
 
 const NewsPageItem: FC<INewsDataItem> = ({
   firstDescription,
+  secondDescription,
   imageModel,
   statistics,
+  title,
   keywords,
   newsName,
   videoUrl,
@@ -44,8 +46,8 @@ const NewsPageItem: FC<INewsDataItem> = ({
           <video src={videoUrl} autoPlay={true} controls={true}></video>
         </div>
         <div className={Styles.news__active__info__right}>
-          <h2>{newsName}</h2>
-          <p>{firstDescription}</p>
+          <h2>{title}</h2>
+          <p>{secondDescription}</p>
         </div>
       </div>
     </div>

@@ -13,7 +13,6 @@ import { indexIndustries } from "service/list/servers/indexIndustries";
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
-    console.log("await indexIndustries()", await indexIndustries());
     return {
       props: {
         newsData: await newsList(1, 4),
@@ -27,6 +26,8 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const Home = (props: ISSRHome) => <HomeContainer {...props} />;
+const Home = (props: ISSRHome) => {
+  return <HomeContainer {...props} />;
+};
 
 export default Home;

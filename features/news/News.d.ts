@@ -7,11 +7,11 @@ interface ISSRNews {
 }
 
 interface ISSRHome {
-  newsData: INewsResponseArray;
+  indexAboutUS: IAboutUsResponse;
   indexBanner: IBannerResponseArray;
   indexCategories: ICategoriesResponseArray;
-  indexAboutUS: IAboutUsResponse;
   indexIndustries: IIndustriesResponse;
+  newsData: INewsResponseArray;
 }
 
 interface INewsResponse extends Omit<IResponse, "response"> {
