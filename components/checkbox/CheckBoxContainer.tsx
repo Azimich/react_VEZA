@@ -14,7 +14,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
-    selectedCheckBox.filter((e) => e.id === Number(id)).length > 0
+    selectedCheckBox?.filter((e) => e.id === Number(id)).length > 0
       ? setIsChecked(true)
       : setIsChecked(false);
   }, [selectedCheckBox]);
