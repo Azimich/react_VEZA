@@ -6,7 +6,6 @@
   justify-content: center;
   margin: 40px auto 0;
 }
-
 .certificates__items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
@@ -140,5 +139,45 @@ display: contents;
       align-items: center;
       gap: 10px;
     }
+  }
+}
+
+//Стили, для кнопки скачать
+.disabled_active {
+  border-radius: 10px;
+  width: 220px;
+  &:hover {
+    background: color(green);
+    color: color(white);
+    path {
+      fill: #fff;
+    }
+  }
+  button{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: none !important;
+  }
+  span {
+    svg {
+      width: 18px;
+    }
+    path {
+      fill: white;
+    }
+  }
+}
+.disabled {
+  cursor: not-allowed;
+  border-radius: 10px;
+  width: 220px;
+  button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: grey !important;
+    cursor: not-allowed !important;
+    transition: none !important;
   }
 }
