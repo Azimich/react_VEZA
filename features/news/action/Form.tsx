@@ -48,13 +48,16 @@ const FormNews: FC = () => {
         </div>
         <div className={Styles.added_news_todo_container}>
           <div className={Styles.input_block}>
-            <Input
-              name={"todo"}
-              id={"todo_id"}
-              title={"Введите заголовок"}
-              value={value}
-              onChange={handleOnchange.bind(this)}
-            />
+            <div className={Styles.input}>
+              <Input
+                name={"todo"}
+                id={"todo_id"}
+                title={"Введите заголовок"}
+                value={value}
+                onChange={handleOnchange.bind(this)}
+                className={Styles.input_width_full}
+              />
+            </div>
             <Button children={"Добавить"} type={"button"} />
           </div>
           <div className={Styles.textarea_block}>
@@ -63,35 +66,43 @@ const FormNews: FC = () => {
         </div>
         <div className={Styles.added_news_todo_container}>
           <div className={Styles.input_block}>
-            <Input
-              name={"todo"}
-              id={"todo_id"}
-              title={"Введите название оснавных пунктов"}
-              value={value}
-              onChange={handleOnchange.bind(this)}
-              className={Styles.input_block_input}
-            />
-            <Button children={"Добавить"} type={"button"} />
-          </div>
-          <div className={Styles.input_block}>
-            <Input
-              name={"todo"}
-              id={"todo_id"}
-              title={"Добавить ключевые пункты"}
-              value={value}
-              onChange={handleOnchange.bind(this)}
-            />
-            <Button children={"Добавить"} type={"button"} />
-          </div>
-          <div className={Styles.added_news_todo_container}>
-            <div className={Styles.input_block}>
+            <div className={Styles.input}>
               <Input
                 name={"todo"}
                 id={"todo_id"}
                 title={"Введите заголовок"}
                 value={value}
                 onChange={handleOnchange.bind(this)}
+                className={Styles.input_width_full}
               />
+            </div>
+            <Button children={"Добавить"} type={"button"} />
+          </div>
+          <div className={Styles.input_block}>
+            <div className={Styles.input}>
+              <Input
+                name={"todo"}
+                id={"todo_id"}
+                title={"Введите заголовок"}
+                value={value}
+                onChange={handleOnchange.bind(this)}
+                className={Styles.input_width_full}
+              />
+            </div>
+            <Button children={"Добавить"} type={"button"} />
+          </div>
+          <div className={Styles.added_news_todo_container}>
+            <div className={Styles.input_block}>
+              <div className={Styles.input}>
+                <Input
+                  name={"todo"}
+                  id={"todo_id"}
+                  title={"Введите заголовок"}
+                  value={value}
+                  onChange={handleOnchange.bind(this)}
+                  className={Styles.input_width_full}
+                />
+              </div>
               <Button children={"Добавить"} type={"button"} />
             </div>
             <div className={Styles.textarea_block}>

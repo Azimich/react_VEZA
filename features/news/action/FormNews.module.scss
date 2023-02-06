@@ -44,8 +44,8 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      &_input {
-        width: 100%;
+      .input {
+        width: 100% !important;
       }
       button {
         width: 130px;

@@ -10,15 +10,15 @@ interface IAboutItem {
   desc: string;
 }
 
-const AboutItems: FC<IAboutItem> = ({ title, img, desc }) => {
+const AboutItems: FC<IAboutItem> = ({ title, description, images }) => {
   return (
     <div className={Styles.card_user_item}>
       <div className={Styles.card_user_item_img}>
-        <img src={img} alt={title} />
+        <img src={images.pc} alt={title} />
       </div>
       <div className={Styles.card_user_item_details}>
         <h4 className={Styles.title}>{title}</h4>
-        <p className={Styles.info}>{desc}</p>
+        <p className={Styles.info}>{description}</p>
       </div>
     </div>
   );
