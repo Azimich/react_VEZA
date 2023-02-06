@@ -7,6 +7,8 @@ import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
 
 const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
@@ -46,7 +48,9 @@ const FormNews: FC = () => {
             </label>
           </div>
         </div>
-        <div className={Styles.added_news_todo_container}>
+        <div
+          className={`${Styles.added_news_todo_container} ${Styles.margin_bottom}`}
+        >
           <div className={Styles.input_block}>
             <div className={Styles.input}>
               <Input
@@ -78,7 +82,7 @@ const FormNews: FC = () => {
             </div>
             <Button children={"Добавить"} type={"button"} />
           </div>
-          <div className={Styles.input_block}>
+          <div className={`${Styles.input_block} ${Styles.margin_bottom}`}>
             <div className={Styles.input}>
               <Input
                 name={"todo"}
@@ -109,6 +113,84 @@ const FormNews: FC = () => {
               <textarea name={"text"} placeholder={"Добавить описание"} />
             </div>
           </div>
+        </div>
+        <div className={Styles.added_news_banner}>
+          <div className={Styles.added_input}>
+            <label className={Styles.added_label}>
+              <span className={Styles.added_label_span}>
+                <Input
+                  accept={"image/*"}
+                  type={"file"}
+                  id={"added"}
+                  name={"added"}
+                  className={Styles.added_file}
+                />
+              </span>
+            </label>
+          </div>
+        </div>
+        <div className={`${Styles.margin_bottom}`}>
+          <Swiper
+            effect={"cards"}
+            grabCursor={true}
+            modules={[EffectCards, Pagination, Navigation, Autoplay]}
+            className="mySwiper"
+          >
+            <SwiperSlide className="mySwiper_slide">
+              <div className={Styles.added_news_banner}>
+                <div className={Styles.added_input}>
+                  <label className={Styles.added_label}>
+                    <span className={Styles.added_label_span}>
+                      <Input
+                        accept={"image/*"}
+                        type={"file"}
+                        id={"added"}
+                        name={"added"}
+                        className={Styles.added_file}
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="mySwiper_slide">
+              <div className={Styles.added_news_banner}>
+                <div className={Styles.added_input}>
+                  <label className={Styles.added_label}>
+                    <span className={Styles.added_label_span}>
+                      <Input
+                        accept={"image/*"}
+                        type={"file"}
+                        id={"added"}
+                        name={"added"}
+                        className={Styles.added_file}
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="mySwiper_slide">
+              <div className={Styles.added_news_banner}>
+                <div className={Styles.added_input}>
+                  <label className={Styles.added_label}>
+                    <span className={Styles.added_label_span}>
+                      <Input
+                        accept={"image/*"}
+                        type={"file"}
+                        id={"added"}
+                        name={"added"}
+                        className={Styles.added_file}
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+        <div className={Styles.button}>
+          <Button children={"Сохранить"} />
         </div>
       </div>
     </Container>
