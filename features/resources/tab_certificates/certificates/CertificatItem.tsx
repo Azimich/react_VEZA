@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { ICertificates } from "features/resources/tab_bim/Bim";
 import Styles from "../Certificates.module.scss";
-import { CalendarIcon } from "components/icons";
+import { CalendarIcon, DownloadIcon } from "components/icons";
 import { Link } from "components/link";
 import { Button } from "components/button";
 import { onButtonClick } from "utils/helpers";
+import { SpinnerButton } from "components/spinners";
 
 const CertificatItem: FC<ICertificates> = ({
   documentURL,
@@ -13,6 +14,18 @@ const CertificatItem: FC<ICertificates> = ({
   images,
   kind,
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [download, setDownload] = useState(true);
+
+  const handleDownload = () => {
+    setIsLoading(true);
+    setDownload(false);
+    onButtonClick(documentURL, title).then(() => {
+      setIsLoading(false);
+      setDownload(true);
+    });
+  };
+
   return (
     <div className={Styles.sertificates__page__items__card}>
       <div className={Styles.sertificates__page__items__card__img}>
@@ -31,9 +44,17 @@ const CertificatItem: FC<ICertificates> = ({
             {description}
           </p>
         </div>
-        <Button onClick={() => onButtonClick(documentURL, title)}>
-          Скачать PDF
-        </Button>
+        <div
+          onClick={handleDownload}
+          className={
+            download ? `${Styles.disabled_active}` : `${Styles.disabled}`
+          }
+        >
+          <Button>
+            Скачать PDF
+            <span>{isLoading ? <SpinnerButton /> : <DownloadIcon />}</span>
+          </Button>
+        </div>
       </div>
     </div>
   );
