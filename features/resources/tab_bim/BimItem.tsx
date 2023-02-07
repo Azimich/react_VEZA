@@ -13,7 +13,7 @@ const BimItem: FC<IBim> = ({
   updated,
   setupUrl,
 }) => {
-  const year = new Date(updated);
+  const dataUpdate = new Date(updated);
   // console.log(`${year.getDate()}-${year.getMonth() + 1}-${year.getFullYear()}`);
 
   const [download, setDownload] = useState(true);
@@ -52,9 +52,11 @@ const BimItem: FC<IBim> = ({
       <ul className={Styles.bim__items__item__calendar}>
         <CalendarIcon />
         <li>
-          {`${year.getDate()}.${
-            year.getMonth() + 1 < 10 ? "01" : "01"
-          }.${year.getFullYear()}`}
+          {`${dataUpdate.getDate()}.${
+            dataUpdate.getMonth() + 1 < 10
+              ? "0" + (dataUpdate.getMonth() + 1)
+              : dataUpdate.getMonth() + 1
+          }.${dataUpdate.getFullYear()}`}
         </li>
       </ul>
     </div>

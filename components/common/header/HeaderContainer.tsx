@@ -62,6 +62,7 @@ const HeaderContainer: FC = () => {
     setProfileToogle();
     dispatch(setDataAuth({ identify: false, data: {} }));
   };
+
   return (
     <Container className="wrapper_clear">
       <div className={Styles.header__profile}>
@@ -71,7 +72,11 @@ const HeaderContainer: FC = () => {
           }
         >
           <HeaderLogo />
-          <HeaderNav isShowMenu={isShow} scroll={scrollData} />
+          <HeaderNav
+            isShowMenu={isShow}
+            scroll={scrollData}
+            isShow={() => toggle()}
+          />
           <HeaderIcon
             isShowMenu={isShow}
             onClickProfile={() => handleProfileMenuClick()}

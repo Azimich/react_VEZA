@@ -60,10 +60,6 @@ const JobContainer: FC = () => {
   const mapState = useAppSelector(getMap);
 
   useEffect(() => {
-    /**
-     * Получаем данные о городах и добавляем в стеайт
-     * который потом выводим в options
-     **/
     getListCities().then((data) => {
       !data.hasError && setCities(data.response);
     });
@@ -196,7 +192,7 @@ const JobContainer: FC = () => {
   };
 
   ///TODO: Геолокацию доделать когда в вакансиях будут города
-
+  console.log("jobs", jobs);
   return (
     <>
       {isLoading ? (
@@ -257,7 +253,7 @@ const JobContainer: FC = () => {
                   Вакансии в Вашем регионе отсутствуют
                 </MessageItem>
               )
-            ) : jobs.customErrorCode === 4404 ? (
+            ) : jobs.customErrorCode === 4011 ? (
               <MessageItem type={"attention"} className={Styles.no_vacancies}>
                 <h2>Вакансии в Вашем регионе отсутствуют</h2>
                 <p>

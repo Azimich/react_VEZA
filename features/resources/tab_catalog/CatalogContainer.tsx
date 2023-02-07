@@ -55,8 +55,8 @@ const CatalogContainer = () => {
       </div>
       <div className={Styles.catalog_box}>
         {catalogData &&
-          catalogData.response.catalogues.map((e) => {
-            return <CatalogItem {...e} key={e.url} />;
+          catalogData.response.catalogues.map((e, i) => {
+            return <CatalogItem {...e} key={i} />;
           })}
       </div>
     </Container>
