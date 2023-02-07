@@ -38,12 +38,17 @@
     }
   }
   &_todo_container {
+    margin-bottom: 50px;
     .input_block {
       margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
+      gap: 20px;
+      .input {
+        width: 100% !important;
+      }
       button {
-        width: 100px;
+        width: 130px;
       }
     }
     .textarea_block {

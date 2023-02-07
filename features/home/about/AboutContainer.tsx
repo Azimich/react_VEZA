@@ -7,7 +7,6 @@ import { AboutItems } from "features/home/about/AboutItem";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import { levieCheliky } from "features/home/about/MockData";
 
 interface IAboutUsSSR {
   response: IAboutUsData;
@@ -80,10 +79,13 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                 {/*      <AboutItems key={index} {...items} />*/}
                 {/*    </SwiperSlide>*/}
                 {/*  );*/}
-                {levieCheliky.map((items, index) => {
+                {response.employeeDtos.map((items, index) => {
+                  console.log();
                   return (
                     <SwiperSlide key={index}>
                       <AboutItems
+                        img={""}
+                        desc={""}
                         title={""}
                         description={""}
                         images={undefined}

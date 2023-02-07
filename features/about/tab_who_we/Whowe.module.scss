@@ -3,6 +3,8 @@
 
 .whowe_container {
   margin: 40px auto 70px;
+  position: relative;
+  z-index: 2;
   @include ipadScreen {
     margin: 40px auto;
   }

@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .swiper {
   width: 100%;
@@ -7,8 +7,6 @@
   .swiper-pagination {
     margin: 15px auto 0;
     width: fit-content !important;
-
-
     .swiper-pagination-bullet {
       width: 15px;
       height: 15px;
