@@ -19,9 +19,10 @@ const LinkContainer: FC<ILink> = ({
   target,
   download = "",
 }) => {
+  const downloader = download ? { download: download } : {};
   return (
     <Link href={url} as={url}>
-      <a className={classLink} target={target} download={download}>
+      <a className={classLink} target={target} {...downloader}>
         {children}
       </a>
     </Link>

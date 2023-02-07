@@ -44,8 +44,8 @@ const CertificatesContainer = () => {
         />
       </div>
       <div className={Styles.certificates__items}>
-        {certificatesData?.response.map((item) => (
-          <CertificateItem key={item.id} {...item} />
+        {certificatesData?.response.map((item, index) => (
+          <CertificateItem key={index} {...item} />
         ))}
       </div>
     </Container>
