@@ -73,24 +73,10 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   },
                 }}
               >
-                {/*{response.employeeDtos.map((items, index) => {*/}
-                {/*  return (*/}
-                {/*    <SwiperSlide>*/}
-                {/*      <AboutItems key={index} {...items} />*/}
-                {/*    </SwiperSlide>*/}
-                {/*  );*/}
                 {response.employeeDtos.map((items, index) => {
-                  console.log();
                   return (
                     <SwiperSlide key={index}>
-                      <AboutItems
-                        img={""}
-                        desc={""}
-                        title={""}
-                        description={""}
-                        images={undefined}
-                        {...items}
-                      />
+                      <AboutItems img={""} desc={""} {...items} />
                     </SwiperSlide>
                   );
                 })}

@@ -1,37 +1,61 @@
-@import "styles/variables";
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .pagination_container {
   display: flex;
   list-style-type: none;
-  margin-top: 24px;
-  column-gap: 15px;
+  column-gap: 10px;
   justify-content: center;
-  margin-bottom: 90px;
-
+  margin: 50px 0;
+  @media (max-width: 450px){
+    margin: 40px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .round_buttons {
+    display: flex;
+    gap: 10px
+  }
   .pagination_item {
     cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 50%;
     font-size: 16px;
     font-style: normal;
     font-weight: normal;
     padding: 8px 12px;
-    background-color: rgba(99, 99, 99, 0.337);
+    background-color: rgb(207 207 207 / 40%);
     color: color(black);
     transition: all 0.3s;
-      -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Chrome/Safari/Opera */
     -khtml-user-select: none; /* Konqueror */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
+    &:hover {
+      .right {
+        color: color(white);
+      }
+      .left {
+        color: color(white);
+      }
+    }
+    @include phoneScreen {
+      .right,
+      .left {
+        font-size: 14px;
+      }
+    }
     /* Non-prefixed version, currently
-                           not supported by any browser */
+    not supported by any browser */
     &.width {
-      width: auto;
+      width: 100px;
+      border-radius: 20px !important;
     }
 
     &.dots:hover {
@@ -52,9 +76,9 @@
     }
 
     .left {
-      padding: 0 16px 0 32px;
-      color:#FFF;
-
+      color: color(dark);
+      transition: all 0.3s ease;
+      border-radius: 20px;
       &::before {
         transform: rotate(-135deg) translate(-50%);
         position: absolute;
@@ -72,8 +96,9 @@
     }
 
     .right {
-      padding: 0 32px 0 16px;
-color:#FFF;
+      color: color(dark);
+      transition: all 0.3s ease;
+      border-radius: 20px;
       &::after {
         transform: rotate(45deg);
         position: absolute;
@@ -92,7 +117,6 @@ color:#FFF;
     &.disabled {
       pointer-events: none;
       display: none;
-
       .arrow::before {
         border-right: 0.12em solid rgba(0, 0, 0, 0.43);
         border-top: 0.12em solid rgba(0, 0, 0, 0.43);
