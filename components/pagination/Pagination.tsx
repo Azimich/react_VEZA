@@ -52,31 +52,33 @@ const Pagination = (props: IPagination) => {
       >
         <div className={`${Styles.arrow} ${Styles.left}`}>Назад</div>
       </li>
-      {paginationRange &&
-        paginationRange.map((pageNumber, i) => {
-          if (pageNumber === DOTS) {
+      <div className={Styles.round_buttons}>
+        {paginationRange &&
+          paginationRange.map((pageNumber, i) => {
+            if (pageNumber === DOTS) {
+              return (
+                <li
+                  className={`${Styles.pagination_item} ${Styles.dots}`}
+                  key={i}
+                >
+                  &#8230;
+                </li>
+              );
+            }
+
             return (
               <li
-                className={`${Styles.pagination_item} ${Styles.dots}`}
                 key={i}
+                className={`${Styles.pagination_item} ${
+                  pageNumber === currentPage ? Styles.active : ""
+                }`}
+                onClick={() => onPageChange(pageNumber)}
               >
-                &#8230;
+                {pageNumber}
               </li>
             );
-          }
-
-          return (
-            <li
-              key={i}
-              className={`${Styles.pagination_item} ${
-                pageNumber === currentPage ? Styles.active : ""
-              }`}
-              onClick={() => onPageChange(pageNumber)}
-            >
-              {pageNumber}
-            </li>
-          );
-        })}
+          })}
+      </div>
       <li
         className={`${Styles.pagination_item} ${Styles.width} ${
           currentPage === lastPage ? Styles.disabled : ""
