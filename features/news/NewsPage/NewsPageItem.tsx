@@ -3,7 +3,6 @@ import { FC } from "react";
 import { INewsDataItem } from "../News";
 import Styles from "../News.module.scss";
 import { EyeIcon } from "components/icons";
-import { Link } from "components/link";
 
 const NewsPageItem: FC<INewsDataItem> = ({
   firstDescription,
@@ -12,6 +11,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
   statistics,
   title,
   keywords,
+  seoKeywords,
   newsName,
   videoUrl,
 }) => {
@@ -31,14 +31,10 @@ const NewsPageItem: FC<INewsDataItem> = ({
         </div>
 
         <div className={Styles.news__active__keyword}>
-          <h2>Ключевые пункты</h2>
+          <h2>{seoKeywords}</h2>
           <div className={Styles.news__active__keyword__paragraph}>
-            {keywords?.map((value, index) => {
-              return (
-                <Link url={value.url} key={index}>
-                  <span>{value.keywords}</span>
-                </Link>
-              );
+            {keywords?.map((value) => {
+              return <span>{value.keywords}</span>;
             })}
           </div>
         </div>
