@@ -40,7 +40,9 @@ const CertCatalogContainer = () => {
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.sertificates__page__items}>
         {certificatesData &&
-          certificatesData.response.map((item) => <CertificatItem {...item} />)}
+          certificatesData.response.map((item, index) => {
+            return <CertificatItem key={index} {...item} />;
+          })}
       </div>
     </Container>
   );
