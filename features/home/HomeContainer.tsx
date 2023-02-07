@@ -24,11 +24,12 @@ const HomeContainer: FC<ISSRHome> = ({
 }) => {
   const convert = (
     data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
+    isShowText = false,
   ) => {
     return data?.response.map((e): ISlideItem => {
       return {
         alt: e.title,
-        block_description: e.show_text || false,
+        block_description: e.show_text !== undefined ? e.show_text : isShowText,
         description: e.description,
         images: {
           pc: e?.images?.wide ? e?.images?.wide : e?.images?.pc,
@@ -42,7 +43,6 @@ const HomeContainer: FC<ISSRHome> = ({
       };
     });
   };
-  console.log("indexBanner", indexBanner);
   return (
     <>
       <SliderContainer
@@ -76,7 +76,7 @@ const HomeContainer: FC<ISSRHome> = ({
         )}
         <Separator title={"Отрасли"} />
         <SliderContainer
-          items={convert(indexIndustries)}
+          items={convert(indexIndustries, true)}
           dots={true}
           autoplay={false}
           theme={"industries"}
