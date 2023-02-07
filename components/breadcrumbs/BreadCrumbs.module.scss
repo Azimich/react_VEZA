@@ -11,13 +11,15 @@
     margin-top: 80px;
     @include phoneScreen {
       margin-top: 50px;
-      flex-direction: column;
+      flex-direction: row;
       gap: 8px;
     }
+
     li {
       align-items: center;
       display: flex;
       color: color(bredcrumbs_no_link);
+
       a {
         color: color(bredcrumbs);
         font-size: 14px;
@@ -28,13 +30,16 @@
         @include phoneScreen {
           font-size: 12px;
         }
+
         &:hover {
           color: color(bredcrumbs_hover);
+
           &::after {
             width: 100%;
             background-color: color(bredcrumbs_hover);
           }
         }
+
         &::after {
           content: "";
           display: block;
@@ -47,13 +52,16 @@
           transition: width 0.3s;
         }
       }
+
       span {
         padding: 0 8px;
+
         svg {
           width: 10px;
           height: 10px;
           position: relative;
           top: 1px;
+
           path {
             fill: color(bredcrumbs);
           }
