@@ -2,7 +2,7 @@
 @import 'styles/variables.scss';
 
 .added_news {
-  margin: 40px 0;
+  margin: 40px 0 130px 0;
   &_banner {
     margin: 50px 0;
     background: #f1f1f1;
@@ -70,4 +70,12 @@
       }
     }
   }
+  .margin_bottom {
+    margin-bottom: 50px;
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+  }
 }
+

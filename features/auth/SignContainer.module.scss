@@ -413,4 +413,31 @@
   }
 }
 
+//Форма Профиля
+.profile__form__item {
+  background: #f3f3f3;
+  border-radius: 10px;
+  margin: 40px auto 130px;
+  padding: 50px;
+  @include phoneScreen {
+    padding: 40px 30px;
+  }
+  h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #898989;
+    font-weight: 400;
+  }
+}
+.profile_box_field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 45px;
+  column-gap: 45px;
+  margin-bottom: 30px;
+  @include phoneScreen {
+    display: block;
+  }
+}
+
 

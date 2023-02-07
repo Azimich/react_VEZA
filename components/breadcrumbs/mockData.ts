@@ -60,6 +60,16 @@ const dataBreadResources: IBreadCrumbs[] = [
     alias: process.env.NEXT_PUBLIC_APP_URL + resourcesPath,
   },
 ];
+const dataBreadProfile: IBreadCrumbs[] = [
+  {
+    title: "Главная",
+    alias: "/",
+  },
+  {
+    title: "Профиле",
+    alias: process.env.NEXT_PUBLIC_APP_URL + resourcesPath,
+  },
+];
 
 export {
   dataBreadNews,
@@ -67,6 +77,7 @@ export {
   dataBreadAbout,
   dataBreadResources,
   dataBreadContacts,
+  dataBreadProfile,
 };
 
 export class factoryPath {}
