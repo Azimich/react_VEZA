@@ -34,16 +34,14 @@ const CertificatItem: FC<ICertificates> = ({
         </Link>
       </div>
       <div className={Styles.separ}>
-        <div>
-          <Link url={documentURL} target={"_blank"} classLink={Styles.sil}>
-            <h2>{kind}</h2>
-          </Link>
-          <h3>{title}</h3>
-          <p>
-            <CalendarIcon />
-            {description}
-          </p>
-        </div>
+        <Link url={documentURL} target={"_blank"} classLink={Styles.sil}>
+          <h2>{kind}</h2>
+        </Link>
+        <h3>{title}</h3>
+        <p>
+          <CalendarIcon />
+          {description}
+        </p>
         <div
           onClick={handleDownload}
           className={
