@@ -4,6 +4,10 @@ import { ValidationAuth } from "features/auth/formsData/ValidationsShemas";
 import Styles from "features/auth/SignContainer.module.scss";
 import { fieldsDataProfile } from "features/auth/formsData/FieledsData";
 import { Input } from "components/input";
+import React, { useEffect, useState } from "react";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { dataBreadProfile } from "components/breadcrumbs/mockData";
+import { Button } from "components/button";
 
 const ProfileContainer = () => {
   const formik: FormikValues = useFormik({
@@ -20,16 +24,24 @@ const ProfileContainer = () => {
     },
   });
 
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadProfile);
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs]);
+  }, [dataBreadProfile]);
+
   return (
     <Container className={"wrapper"}>
+      <BreadCrumbs data={breadCrumbs} />
       <form
         onSubmit={formik.handleSubmit}
-        className={Styles.authorization__form__item}
+        className={Styles.profile__form__item}
       >
         <div className={Styles.authorization__form__item__title}>
           <h1>Основная информация</h1>
         </div>
-        <div className={Styles.box_field}>
+        <div className={Styles.profile_box_field}>
           {fieldsDataProfile.length > 0 &&
             fieldsDataProfile.map((item) => {
               return (
@@ -64,6 +76,7 @@ const ProfileContainer = () => {
               );
             })}
         </div>
+        <Button children="Сохранить" />
       </form>
     </Container>
   );

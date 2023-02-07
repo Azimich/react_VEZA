@@ -78,7 +78,25 @@ const fieldsDataProfile: IFieledsData[] = [
   },
   {
     name: "email",
-    title: "Телефон",
+    title: "Почта",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "company",
+    title: "Компания",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "address",
+    title: "Адрес",
+    filter: /[ ]/g,
+    size: 0,
+  },
+  {
+    name: "status",
+    title: "Должность",
     filter: /[ ]/g,
     size: 0,
   },
