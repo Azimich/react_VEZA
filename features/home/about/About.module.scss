@@ -62,7 +62,9 @@
     justify-content: space-between;
     max-width: 1000px;
     margin: 0 auto;
-    //@include
+    @include phoneScreen {
+      justify-content: space-evenly;
+    }
   }
   &__progress {
     text-align: center;
