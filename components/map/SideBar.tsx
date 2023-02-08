@@ -14,7 +14,6 @@ const SideBar: FC<ISideBarData> = ({
   onChange,
   selectedCheckBox,
 }) => {
-  console.log("12321", tabsSocialData);
   return (
     <div className={Styles.side_bar}>
       <div className={Styles.side_bar_title}>Наши референсы</div>

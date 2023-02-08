@@ -192,7 +192,7 @@ const JobContainer: FC = () => {
   };
 
   ///TODO: Геолокацию доделать когда в вакансиях будут города
-  console.log("jobs", jobs);
+  // console.log("jobs", jobs);
   return (
     <>
       {isLoading ? (
@@ -255,11 +255,7 @@ const JobContainer: FC = () => {
               )
             ) : jobs.customErrorCode === 4011 ? (
               <MessageItem type={"attention"} className={Styles.no_vacancies}>
-                <h2>Вакансии в Вашем регионе отсутствуют</h2>
-                <p>
-                  Попробуйте выбрать другой регион, чтобы найти подходящие вам
-                  вакансии
-                </p>
+                <img src="/images/job.svg" alt={"title"} />
               </MessageItem>
             ) : (
               <ConnectError type={"text"} />
