@@ -21,7 +21,6 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
 
   useEffect(() => {
     if (countColumn !== 2) {
-      console.log("device", device);
       device === "mobile" &&
         setNewsImg(
           <img
