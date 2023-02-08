@@ -38,7 +38,7 @@ const NewsItem: FC<INewsItemProps> = ({ className, props, countColumn }) => {
       device === "desktop" &&
         setNewsImg(
           <img
-            src={props.imageModel.horizontal.pc}
+            src={props.imageModel.vertical.pc}
             alt={props.shortDescription}
           />,
         );

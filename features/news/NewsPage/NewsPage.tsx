@@ -6,7 +6,6 @@ import { NewsPageItem } from "features/news";
 import { ISSRNews } from "features/news/News";
 
 const NewsPage: FC<ISSRNews> = ({ newsData }) => {
-  console.log("newsData", newsData);
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: newsData?.response?.newsName }]);

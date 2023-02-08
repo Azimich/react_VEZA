@@ -121,13 +121,14 @@ const SalesOfficeContainer: FC = () => {
   const handleOnClickSelect = (e: IOptionItem) => {
     setSelectedCity(e);
   };
-
+  console.log("selectedCity", selectedCity);
   useEffect(() => {
     selectedCity &&
       getManagers(selectedCity.value).then((data) => {
         dispatch(setManagers({ managers: data }));
       });
   }, [selectedCity]);
+
   useEffect(() => {
     router.query.alias &&
       getResponsibleCityAlias(router.query.alias as string).then((data) => {
@@ -143,6 +144,7 @@ const SalesOfficeContainer: FC = () => {
         );
       });
   }, [router.query, cities]);
+
   return (
     <>
       {isLoading ? (
