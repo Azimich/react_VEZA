@@ -40,7 +40,6 @@ const WhoWeContainer: FC = () => {
 
   useEffect(() => {
     getListPlantsOffices().then((data) => {
-      console.log("12321", data);
       setListPlants(data.response);
       setIsLoading(false);
     });
@@ -92,11 +91,7 @@ const WhoWeContainer: FC = () => {
                 size={"small300"}
               />
             </div>
-
-            <div>
-              <Map formOutPut={FormOutPut} />
-            </div>
-
+            <Map formOutPut={FormOutPut} />
             <WhoWeAbout />
             <div className={Styles.whowe_container_history_svg}>
               <span className={Styles.whowe_container_history_svg_pc}>
