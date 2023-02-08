@@ -17,7 +17,7 @@ const SlideItem: FC<ISlideItem> = ({
   color = "white",
   block_description = false,
   title = "",
-  description = "",
+  // description = "",
   code,
   url = "",
   size = "medium",
@@ -57,9 +57,9 @@ const SlideItem: FC<ISlideItem> = ({
             <h1 className={Styles[`${theme}_banner__right_element_title`]}>
               {title}
             </h1>
-            <p className={Styles[`${theme}_banner__right_element_text`]}>
-              {description}
-            </p>
+            {/*<p className={Styles[`${theme}_banner__right_element_text`]}>*/}
+            {/*  {description}*/}
+            {/*</p>*/}
             <div className={Styles[`${theme}_banner__right_element_allign`]}>
               <Button theme={themeButton} size={size} link={url} color={color}>
                 <span>

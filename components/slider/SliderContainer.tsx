@@ -77,8 +77,8 @@ const SliderContainer: FC<ISliderProps> = ({
         grabCursor={true}
         breakpoints={breakpoints}
         centeredSlides={centeredSlides}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => {}}
+        onSwiper={() => {}}
       >
         {items.map((e: ISlideItem, i) => {
           return (

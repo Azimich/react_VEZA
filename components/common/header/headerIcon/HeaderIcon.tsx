@@ -44,7 +44,7 @@ const HeaderIcon: FC<IHeaderMenu> = ({
   useEffect(() => {
     isMobile ? setMobile(true) : setMobile(false);
   }, [isMobile]);
-  console.log("123", auth, Boolean(checkEmptyObject(auth?.data)));
+  // console.log("123", auth, Boolean(checkEmptyObject(auth?.data)));
   return (
     <>
       <div className={Styles.header__icon__box}>
