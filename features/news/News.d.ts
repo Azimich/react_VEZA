@@ -17,6 +17,7 @@ interface ISSRHome {
 interface INewsResponse extends Omit<IResponse, "response"> {
   response: INewsDataItem;
 }
+
 /*interface IBannerItem extends Omit<IResponse, "response"> {
   response: IBannerItem[];
 }*/
@@ -35,6 +36,7 @@ interface IBannerResponseArray extends Omit<IResponse, "response"> {
 interface IBannerResponseArray extends Omit<IResponse, "response"> {
   response: IBannerItem[];
 }
+
 interface INewsDataItem {
   newsId: number;
   newsName: string;
@@ -52,7 +54,9 @@ interface INewsDataItem {
   imageModel: {
     vertical?: IImageModelItem;
     horizontal?: IImageModelItem;
-    images?: IImageModelItem;
+    /*    images?: IImageModelItem;*/
+    pageGalleryImages?: IImageModelItemArray;
+    pageTopImage?: IImageModelItem;
   };
 }
 
@@ -81,7 +85,11 @@ interface IImageModelItem {
   ipad?: string;
   mobile?: string;
 }
-
+interface IImageModelItemArray {
+  pc?: string[];
+  ipad?: string[];
+  mobile?: string[];
+}
 interface IKeyWord {
   keyWordsId: number;
   keywords: string;

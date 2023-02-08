@@ -19,7 +19,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
     <div className={Styles.news__active}>
       <div className={Styles.news__active__container}>
         <div className={Styles.news__active__img}>
-          <img src={imageModel?.images?.pc} alt="news" />
+          <img src={imageModel?.pageTopImage?.pc} alt="news" />
           <span className={Styles.view_count}>
             <EyeIcon />
             <p>{statistics?.statisticsTotal}</p>
@@ -43,12 +43,32 @@ const NewsPageItem: FC<INewsDataItem> = ({
             })}
           </div>
         </div>
-        <div className={Styles.news__active__video}>
-          <video src={videoUrl} autoPlay={true} controls={true}></video>
-        </div>
+        {videoUrl && (
+          <div className={Styles.news__active__video}>
+            <video src={videoUrl} autoPlay={true} controls={true}></video>
+          </div>
+        )}
         <div className={Styles.news__active__info__right}>
           <h2>{title}</h2>
-          <p>{secondDescription}</p>
+          <ul>
+            {secondDescription &&
+              secondDescription.split("|").map((e, i) => {
+                return <li key={i}>{e}</li>;
+              })}
+          </ul>
+          {imageModel?.pageGalleryImages?.pc.length > 0 && (
+            <div className={Styles.gallery}>
+              <ul>
+                {imageModel?.pageGalleryImages?.pc.map((e, i) => {
+                  return (
+                    <li key={i}>
+                      <img src={e} alt={e} />
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
