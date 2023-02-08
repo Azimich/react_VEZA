@@ -9,7 +9,9 @@
       &_slide {
         position: relative;
         max-height: 800px;
-        margin: 35px 0 0 0;
+        @include ipadScreen {
+          margin: 35px 0 0 0;
+        }
         //@media (max-width: 1530px) {
         //  max-height: 700px;
         //}

@@ -123,6 +123,12 @@
         overflow: hidden;
         box-shadow: 0 0 3px rgb(0 0 0 / 25%);
         margin-bottom: 20px;
+        @include phoneScreen {
+          height: 280px;
+        }
+        @media (max-width: 450px) {
+          height: 300px;
+        }
         img {
           transition: all 0.3s ease;
           object-fit: cover;
