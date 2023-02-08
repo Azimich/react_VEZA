@@ -247,11 +247,11 @@
         color: color(white);
         padding: 10px 12px 10px 12px;
         border-radius: 0 0 6px 0;
+        gap: 10px;
 
         svg {
           width: 18px;
           height: 18px;
-          margin-right: 5%; 
           path {
             fill: #fff;
           }

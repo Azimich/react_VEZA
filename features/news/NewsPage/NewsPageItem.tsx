@@ -27,7 +27,12 @@ const NewsPageItem: FC<INewsDataItem> = ({
         </div>
         <div className={Styles.news__active__title}>
           <h1>{newsName}</h1>
-          <p>{firstDescription}</p>
+          <div>
+            {firstDescription &&
+              firstDescription.split("|").map((e, i) => {
+                return <p key={i}>{e}</p>;
+              })}
+          </div>
         </div>
 
         <div className={Styles.news__active__keyword}>
