@@ -11,6 +11,8 @@ const NewsPage: FC<ISSRNews> = ({ newsData }) => {
     setBreadCrumbs([...breadCrumbs, { title: newsData?.response?.newsName }]);
   }, [dataBreadNews]);
 
+  console.log("1232", newsData);
+
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />
