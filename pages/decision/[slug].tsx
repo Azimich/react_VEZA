@@ -42,7 +42,6 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 );
 
 const DecisionPageServer = (props: { data: IDecisionObjectResponse }) => {
-  console.log("213", props);
   return <DecisionPage {...props} />;
 };
 

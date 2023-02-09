@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
     return {
       props: {
-        newsData: await newsList(1, 4),
+        newsData: await newsList(1, 6),
         indexBanner: await IndexBanner(),
         indexCategories: await indexCategories(),
         indexAboutUS: await indexAboutUS(),

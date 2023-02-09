@@ -19,7 +19,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
     <div className={Styles.news__active}>
       <div className={Styles.news__active__container}>
         <div className={Styles.news__active__img}>
-          <img src={imageModel?.pageTopImage?.pc} alt="news" />
+          <img src={imageModel?.pageTopImage?.pc} alt={newsName} />
           <span className={Styles.view_count}>
             <EyeIcon />
             <p>{statistics?.statisticsTotal}</p>

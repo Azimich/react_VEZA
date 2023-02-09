@@ -9,11 +9,9 @@ import { ConnectError } from "components/connect_error";
 
 const DecisionContainer: FC<ISSRDecisionArray> = ({ decision }) => {
   useEffect(() => {
-    //        document.getElementById("_next")&&document.getElementById("_next").animate({ scrollTop: 0 })
     document.getElementById("main") &&
       document.getElementById("main").animate({ scrollTop: 0 });
   }, []);
-  console.log("decision", decision);
   return (
     <Container className="wrapper">
       <BreadCrumbs data={dataBreadDecision} />

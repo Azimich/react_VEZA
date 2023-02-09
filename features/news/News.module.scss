@@ -536,12 +536,13 @@
         border-left: 3px solid color(green);
         padding-left: 15px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 25px;
         line-height: 145%;
+        width: 60%;
         letter-spacing: 0.025em;
         color: color(green);
-        margin-bottom: 8px;
+        margin-bottom: 30px;
       }
 
       p {
@@ -558,17 +559,18 @@
 
     &__keyword {
       padding-top: 50px;
+      width: 60%;
 
       h2 {
         border-left: 3px solid color(green);
         padding-left: 15px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 25px;
         line-height: 145%;
         letter-spacing: 0.025em;
         color: color(green);
-        margin-bottom: 8px;
+        margin-bottom: 30px;
       }
 
       &__paragraph {
@@ -608,8 +610,8 @@
     &__info {
       &__right {
         h2 {
-          border-right: 3px solid color(green);
-          padding-right: 15px;
+          border-left: 3px solid color(green);
+          padding-left: 15px;
           font-style: normal;
           font-weight: 400;
           font-size: 25px;
@@ -619,8 +621,8 @@
           margin-bottom: 8px;
           margin-top: 68px;
           display: flex;
-          justify-content: flex-end;
-          text-align: right;
+          text-align: left;
+          width: 60%;
         }
 
         ul {
@@ -628,7 +630,7 @@
           font-weight: 400;
           font-size: 16px;
           line-height: 160%;
-          text-align: right;
+          text-align: left;
           letter-spacing: 0.025em;
           margin: 30px 0;
           color: color(dark);

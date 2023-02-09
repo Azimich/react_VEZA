@@ -8,15 +8,8 @@ const NewsContainer: FC<INewsResponseArray> = ({ response }) => {
   return (
     <Container>
       <div className={`${Styles.news_container}`}>
-        {response?.map((e: INewsDataItem, i: number) => {
-          return (
-            <NewsItem
-              countColumn={i + 1}
-              className={`col${i + 1}`}
-              props={e}
-              key={e.newsId}
-            />
-          );
+        {response?.map((e: INewsDataItem) => {
+          return <NewsItem props={e} key={e.newsId} />;
         })}
       </div>
     </Container>
