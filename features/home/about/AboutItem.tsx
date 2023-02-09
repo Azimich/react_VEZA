@@ -4,10 +4,8 @@ import { IImages } from "types/response";
 
 interface IAboutItem {
   title: string;
-  description: string;
-  images: IImages;
-  img: string;
-  desc: string;
+  description?: string;
+  images?: IImages;
 }
 
 const AboutItems: FC<IAboutItem> = ({ title, description, images }) => {

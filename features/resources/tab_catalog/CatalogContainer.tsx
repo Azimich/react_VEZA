@@ -29,8 +29,6 @@ const CatalogContainer = () => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
   }, [dataBreadResources]);
 
-  console.log("catalogData", catalogData);
-
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />

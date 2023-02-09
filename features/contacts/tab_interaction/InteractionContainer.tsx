@@ -34,7 +34,6 @@ const InteractionContainer = () => {
   };
 
   useEffect(() => {
-    console.log("11", router.query.page);
     listSalesData(Number(router.query.page) || 1, 8).then(
       (data: IInteractionResponse) => {
         setPagination(data?.response.offices?.page);

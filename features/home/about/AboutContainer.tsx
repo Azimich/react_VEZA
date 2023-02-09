@@ -48,7 +48,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   })}
                 </div>
               </div>
-              <ul className={Styles.card_user_container}>
+              <div className={Styles.card_user_container}>
                 <Swiper
                   modules={[Pagination, Autoplay]}
                   slidesPerView={6}
@@ -78,12 +78,12 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   {response.employeeDtos.map((items, index) => {
                     return (
                       <SwiperSlide key={index}>
-                        <AboutItems img={""} desc={""} {...items} />
+                        <AboutItems {...items} />
                       </SwiperSlide>
                     );
                   })}
                 </Swiper>
-              </ul>
+              </div>
             </div>
           </div>
         </Container>
@@ -91,5 +91,4 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
     </div>
   );
 };
-
 export { AboutContainer };

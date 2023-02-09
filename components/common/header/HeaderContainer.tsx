@@ -5,7 +5,9 @@ import { HeaderLogo } from "./HeaderLogo/HeaderLogo";
 import { HeaderNav } from "./headerNav/HeaderNav";
 import { HeaderIcon } from "./headerIcon/HeaderIcon";
 import { useModal } from "components/modal";
+/*
 import { useScrollStop } from "store/hooks/useScrollStop";
+*/
 import { IAuthResponse } from "features/auth/Auth";
 import { useAppDispatch } from "store/hooks";
 import { useAuth } from "service/auth/auth";
@@ -23,7 +25,7 @@ const HeaderContainer: FC = () => {
 
   const { checkAuth } = useAuth();
   const { getToken, deleteAuthToken } = useToken();
-  useScrollStop(isShow);
+  /*useScrollStop(isShow);*/
 
   const handleHamburgerOnClick = () => {
     toggle();
