@@ -70,7 +70,7 @@
 
       @include ipadScreen {
         flex-direction: row;
-        border-radius: 20px 20px 0 0;
+        border-radius: 20px;
       }
 
       @include phoneScreen {
@@ -112,20 +112,15 @@
         row-gap: 20px;
         background-color: color(green);
         flex: 1;
-
+        box-sizing: border-box;
+        width: 100%;
         @media (max-width: 1200px) {
           padding: 15px;
         }
-
-        @include ipadScreen {
-          width: 50%;
-        }
-
         @include phoneScreen {
           width: 100%;
           box-sizing: border-box;
         }
-
         @include SEScreen {
           padding: 10px;
           row-gap: 0;
@@ -136,12 +131,25 @@
           margin-bottom: 10px;
         }
 
-        p {
+        .description {
           color: color(white);
           line-height: 150%;
-
-          + button {
-            span {
+          @include ipadScreen {
+            color: color(white);
+            line-height: 150%;
+            font-weight: normal;
+            display: -webkit-box;
+            height: 112px;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            padding: 10px 10px 20px 10px;
+          }
+        }
+        button {
+          span {
+            color: color(white);
+            p {
               color: color(white);
             }
           }
@@ -179,7 +187,9 @@
 
       &:nth-of-type(1) {
         border-radius: 20px 0 0 0;
-
+        @include ipadScreen {
+          border-radius: 20px;
+        }
         .counter {
           &_icon {
             position: absolute;
@@ -205,7 +215,9 @@
       }
       &:nth-of-type(2) {
         border-radius: 0;
-
+        @include ipadScreen {
+          border-radius: 20px;
+        }
         .counter {
           &_icon {
             position: absolute;
@@ -257,7 +269,9 @@
       }
       &:nth-of-type(4) {
         border-radius: 0 0 0 20px;
-
+        @include ipadScreen {
+          border-radius: 20px;
+        }
         .counter {
           &_icon {
             position: absolute;
@@ -283,7 +297,9 @@
       }
       &:nth-of-type(6) {
         border-radius: 0 0 20px 0;
-
+        @include ipadScreen {
+          border-radius: 20px;
+        }
         .counter {
           &_icon {
             position: absolute;

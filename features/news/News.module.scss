@@ -506,8 +506,9 @@
 
     img {
       margin-top: 60px;
-      /*      max-height: 610px;
-            object-fit: fill;*/
+      @include phoneScreen {
+        margin-top: 30px;
+      }
     }
 
     .view_count {
@@ -543,6 +544,10 @@
         letter-spacing: 0.025em;
         color: color(green);
         margin-bottom: 30px;
+        @include phoneScreen {
+          width: 100%;
+          margin-bottom: 10px;
+        }
       }
 
       p {
@@ -552,7 +557,6 @@
         line-height: 160%;
         letter-spacing: 0.025em;
         color: color(text);
-        padding-left: 18px;
         margin-bottom: 15px;
       }
     }
@@ -560,7 +564,11 @@
     &__keyword {
       padding-top: 50px;
       width: 60%;
-
+      @include phoneScreen {
+        width: 100%;
+        margin-bottom: 10px;
+        padding-top: 20px;
+      }
       h2 {
         border-left: 3px solid color(green);
         padding-left: 15px;
@@ -571,100 +579,119 @@
         letter-spacing: 0.025em;
         color: color(green);
         margin-bottom: 30px;
+        @include phoneScreen {
+          line-height: 125%;
+          font-size: 20px;
+          margin-bottom: 18px;
+        }
       }
 
       &__paragraph {
         display: flex;
         flex-direction: column;
         row-gap: 20px;
-        margin-bottom: 80px;
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 145%;
-        margin-left: 20px;
-
-        a {
-          width: fit-content;
-
-          span {
-            padding-bottom: 5px;
-            border-bottom: 1px solid color(dark);
-            color: color(dark);
-
-            &:hover {
-              color: color(text-hover);
-              border-bottom: 1px solid color(text-hover);
-            }
-          }
-        }
-      }
-    }
-
-    &__video {
-      video {
-        width: 100%;
-      }
-    }
-
-    &__info {
-      &__right {
-        h2 {
-          border-left: 3px solid color(green);
-          padding-left: 15px;
-          font-style: normal;
-          font-weight: 400;
-          font-size: 25px;
-          line-height: 145%;
-          letter-spacing: 0.025em;
-          color: color(green);
-          margin-bottom: 8px;
-          margin-top: 68px;
+        @include phoneScreen {
           display: flex;
-          text-align: left;
-          width: 60%;
-        }
-
-        ul {
+          flex-direction: column;
+          row-gap: 10px;
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
-          line-height: 160%;
-          text-align: left;
-          letter-spacing: 0.025em;
-          margin: 30px 0;
-          color: color(dark);
+          line-height: 145%;
+        }
+    a {
+      width: fit-content;
 
-          li {
-            margin-bottom: 5px;
-          }
+      span {
+        padding-bottom: 5px;
+        border-bottom: 1px solid color(dark);
+        color: color(dark);
+
+        &:hover {
+          color: color(text-hover);
+          border-bottom: 1px solid color(text-hover);
         }
       }
     }
   }
 }
 
+&__video {
+  video {
+    width: 100%;
+  }
+}
+
+&__info {
+  &__right {
+    h2 {
+      border-left: 3px solid color(green);
+      padding-left: 15px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 145%;
+      letter-spacing: 0.025em;
+      color: color(green);
+      margin-bottom: 8px;
+      margin-top: 68px;
+      display: flex;
+      text-align: left;
+      width: 60%;
+      @include phoneScreen {
+        width: 100%;
+        line-height: 125%;
+        font-size: 20px;
+        margin: 30px 0 0 0;
+      }
+    }
+
+    ul {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      text-align: left;
+      letter-spacing: 0.025em;
+      margin: 30px 0;
+      color: color(dark);
+      @include phoneScreen {
+        margin: 10px 0 0 0;
+      }
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+}
+}
+
 .add_button {
-  display: flex;
-  justify-content: flex-end;
+display: flex;
+justify-content: flex-end;
 }
 
 .gallery {
-  display: flex;
-  justify-content: center;
+display: flex;
+justify-content: center;
 
-  ul {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
+ul {
+display: grid;
+width: 100%;
+grid-template-columns: 1fr 1fr 1fr;
+flex-direction: row;
+justify-content: center;
+gap: 20px;
 
-    img {
-      width: 100%;
-      margin: 0;
-      border-radius: 20px;
-    }
-  }
+img {
+  width: 100%;
+  margin: 0;
+  border-radius: 20px;
+}
+}
 }
