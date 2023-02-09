@@ -501,7 +501,9 @@ const SecondForm = () => {
           <div
             className={`${Styles.second_form_right_radio} ${Styles.right_border}`}
           >
-            <div className={Styles.second_form_radios_wrapp}>
+            <div
+              className={`${Styles.second_form_radios_wrapp} ${Styles.phone_screen_column}`}
+            >
               <CheckboxWithLabel
                 name={"police_id"}
                 id={"police_id"}
