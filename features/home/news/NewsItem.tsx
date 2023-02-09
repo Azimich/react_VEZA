@@ -60,7 +60,7 @@ const NewsItem: FC<INewsItemProps> = ({ props }) => {
       <div className={Styles.news__item_info}>
         <div>
           <h2>{props.newsName}</h2>
-          <p>{props.shortDescription}</p>
+          <p className={Styles.description}>{props.shortDescription}</p>
         </div>
         <Button
           link={newsPath + props.alias}
