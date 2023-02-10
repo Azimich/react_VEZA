@@ -41,21 +41,4 @@ const dataSupportSubjectSelect: IOptionItem[] = [
   { value: "evef", label: "Vivamus elementum semper nisi" },
 ];
 
-const dataSupportCountrySelect: IOptionItem[] = [
-  { value: "RF", label: "Россия" },
-  { value: "BL", label: "Белорусия" },
-  { value: "KZ", label: "Казахстан" },
-  { value: "UZ", label: "Узбекистан" },
-];
-
-const dataSupportCitySelect: IOptionItem[] = [
-  { value: "MSK", label: "Моска" },
-  { value: "PET", label: "Санкт-Петербург" },
-];
-
-export {
-  supportData,
-  dataSupportCitySelect,
-  dataSupportCountrySelect,
-  dataSupportSubjectSelect,
-};
+export { supportData, dataSupportSubjectSelect };

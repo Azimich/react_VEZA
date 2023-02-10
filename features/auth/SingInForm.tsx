@@ -50,8 +50,8 @@ const SingInForm: FC = () => {
             setAuthToken(
               data?.response?.accessToken,
               data?.response?.refreshToken,
+              values.forgot,
             );
-            //router.push("/").then();
             router.back();
           }
         },
@@ -127,14 +127,14 @@ const SingInForm: FC = () => {
         >
           <ul
             className={`${
-              formik.errors?.private_police && formik.touched?.private_police
+              formik.errors?.forgot && formik.touched?.forgot
                 ? Styles.authorization__form__item__input_error
                 : Styles.authorization__form__item__input
             }`}
           >
             <CheckboxWithLabel
-              name={"private_police"}
-              id={"private_police_id"}
+              name={"forgot"}
+              id={"forgot"}
               title={"Запомнить меня"}
               onChangeData={(e) => {
                 formik.handleChange(e);
@@ -143,12 +143,12 @@ const SingInForm: FC = () => {
 
             <div
               className={`${
-                formik.errors?.private_police && formik.touched?.private_police
+                formik.errors?.forgot && formik.touched?.forgot
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <li>{formik.errors?.private_police}</li>
+              <li>{formik.errors?.forgot}</li>
             </div>
           </ul>
           <Link href={"/auth/forgot"}>Забыл пароль?</Link>

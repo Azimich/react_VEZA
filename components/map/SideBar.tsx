@@ -24,7 +24,9 @@ const SideBar: FC<ISideBarData> = ({
             title={e.title}
             id={String(e.id)}
             key={e.id}
-            selectedCheckBox={selectedCheckBox}
+            isSelected={
+              selectedCheckBox.filter((d) => d.id === e.id).length > 0
+            }
             onChangeData={() => onChange(e)}
             classCheck={Styles.side_bar_checkbox}
           />
