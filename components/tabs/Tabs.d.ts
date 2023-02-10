@@ -11,6 +11,7 @@ interface ITab {
   tabsActive?: number;
   onClick?: (e: ITab) => void;
   access?: boolean;
+  default?: boolean;
 }
 
 interface ITabsProps {
