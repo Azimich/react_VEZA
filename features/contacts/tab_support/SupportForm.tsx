@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from "react";
+import React, { ChangeEvent, FC } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "./Support.module.scss";
 import { Input } from "components/input";
@@ -11,9 +11,6 @@ import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
 
 const SupportForm: FC = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
-  console.log("selectedFilesName", selectedFilesName);
   const formik: FormikValues = useFormik({
     initialValues: {
       firstName: "",
@@ -29,7 +26,7 @@ const SupportForm: FC = () => {
     },
     validationSchema: ValidationSchema(),
     onSubmit: () => {
-      console.log("");
+      console.log("666");
     },
   });
 
@@ -49,42 +46,6 @@ const SupportForm: FC = () => {
         : target,
     );
   };
-
-  //Инпут для добавления файла
-  /*  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFiles(Array.from(e.target.files));
-  };*/
-
-  const handleDeleteClick = (
-    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
-    index: number,
-  ) => {
-    e.preventDefault();
-    setSelectedFiles(
-      selectedFiles.filter((e) => {
-        return e.lastModified != index;
-      }),
-    );
-  };
-
-  useEffect(() => {
-    const el: ReactNode = (
-      <ul className={Styles.input_names}>
-        {selectedFiles.length > 0 &&
-          selectedFiles.map((file) => {
-            return (
-              <li key={file.lastModified}>
-                <p>{file.name}</p>
-                <span
-                  onClick={(e) => handleDeleteClick(e, file.lastModified)}
-                ></span>
-              </li>
-            );
-          })}
-      </ul>
-    );
-    setSelectedFilesName(el);
-  }, [selectedFiles]);
 
   return (
     <div className={Styles.support__form}>

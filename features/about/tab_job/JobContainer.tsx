@@ -38,7 +38,9 @@ import { SpinnerLoading } from "components/spinners";
 
 const JobContainer: FC = () => {
   const [sideBarData] = useState(tabsJobData);
-  const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>([]);
+  const [selectedCheckBox, setSelectedCheckBox] = useState<ITab[]>(
+    sideBarData.filter((e) => e.default),
+  );
   const [vacanciesData, setVacanciesData] = useState<IVacanciesResponseArray>();
   const [selectedReferenceData, setSelectedReferenceData] = useState<IObject[]>(
     [],
@@ -60,15 +62,21 @@ const JobContainer: FC = () => {
   const mapState = useAppSelector(getMap);
 
   useEffect(() => {
-    getListCities().then((data) => {
-      !data.hasError && setCities(data.response);
-    });
-
     getVacancies().then((data) => {
       setVacanciesData(data);
     });
     setIsLoading(false);
   }, []);
+
+  useEffect(() => {
+    const office = selectedCheckBox.filter((e) => {
+      return e.url === "office";
+    });
+
+    getListCities(office.length > 0).then((data) => {
+      !data.hasError && setCities(data.response);
+    });
+  }, [selectedCheckBox]);
 
   useEffect(() => {
     const res = cities
@@ -152,7 +160,7 @@ const JobContainer: FC = () => {
   const handleSideBarClick = (e: ITab) => {
     setSelectedCheckBox(
       selectedCheckBox.filter((item) => item.id === e.id).length > 0
-        ? selectedCheckBox.filter((item) => item.id !== e.id)
+        ? selectedCheckBox.filter((item) => item.id === e.id)
         : [e],
     );
   };
@@ -192,7 +200,6 @@ const JobContainer: FC = () => {
   };
 
   ///TODO: Геолокацию доделать когда в вакансиях будут города
-  // console.log("jobs", jobs);
   return (
     <>
       {isLoading ? (
