@@ -2,16 +2,19 @@ import { Button } from "components/button";
 import React from "react";
 import Styles from "./Support.module.scss";
 import { FC } from "react";
-import { ISupport } from "./Support";
+import { ITelegramItem } from "./Support";
 
-const SupportGroups: FC<ISupport> = ({ title, subtitle, description }) => {
+const SupportGroups: FC<ITelegramItem> = ({
+  title,
+  description,
+  channelUrl,
+}) => {
   return (
     <div className={Styles.group__items}>
       <div className={Styles.group__item}>
         <h2>{title}</h2>
-        <h4>{subtitle}</h4>
         <p>{description}</p>
-        <Button children={"Перейти"} />
+        <Button children={"Перейти"} link={channelUrl} />
       </div>
     </div>
   );

@@ -298,13 +298,11 @@
 //Теплеграм каналы
 .group__items {
   margin-bottom: 20px;
-
   .group__item {
     background-color: #f3f3f3;
     padding: 20px;
     border-radius: 10px;
     transition: all 0.3s ease 0s;
-
     &:hover {
       box-shadow: 0 5px 30px rgba(20, 20, 20, 0.3);
       transform: translateY(-3px);
@@ -314,7 +312,6 @@
     button {
       width: 150px;
     }
-
     h2 {
       font-size: 18px;
       text-transform: uppercase;
@@ -322,13 +319,6 @@
       color: color(dark);
       font-weight: 500;
     }
-
-    h4 {
-      font-weight: 500;
-      color: color(dark);
-      margin-bottom: 8px;
-    }
-
     p {
       margin-bottom: 12px;
       font-size: 14px;
