@@ -8,16 +8,32 @@ import { tabsContactsData } from "../mockData";
 import { SupportForm } from "./SupportForm";
 import { TitleTabs } from "components/title_tabs";
 import { SupportGroups } from "features/contacts";
-import { supportData } from "../tab_support/mockData";
 import { Separator } from "components/separator";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import React, { useEffect, useState } from "react";
 import { dataBreadContacts } from "components/breadcrumbs/mockData";
+import { useGetTelegram } from "service/list/getTelegram";
+import {
+  ITelegramItem,
+  ITelegramResponse,
+} from "features/contacts/tab_support/Support";
+// import {useGetSubjected} from "service/list/getSubject";
 
 const SupportContainer = () => {
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
+  // eslint-disable-next-line no-undef
+  const [telegram, setTelegram] = useState<ITelegramItem[]>([]);
+  const { getTelegramData } = useGetTelegram();
+  // const [subject, setSubject] = useState();
+  // const { getSubjectData } = useGetSubjected();
+
+  useEffect(() => {
+    getTelegramData().then((data: ITelegramResponse) => {
+      data && !data.hasError && setTelegram(data.response);
+    });
+  }, []);
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Техническая поддержка" }]);
@@ -50,7 +66,7 @@ const SupportContainer = () => {
       <SupportForm />
       <Separator title={"Наши телеграм каналы"} />
       <div className={Styles.telegram__group__container}>
-        {supportData.map((item, i) => {
+        {telegram.map((item, i) => {
           return <SupportGroups key={i} {...item} />;
         })}
       </div>
