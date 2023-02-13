@@ -708,6 +708,7 @@
         gap: 25px;
         @include phoneScreen {
           gap: 12px;
+          display: grid;
         }
       }
     }
@@ -1063,24 +1064,46 @@
 
 //Шестая форма
 .sixth_form {
+  &_left_flex_element {
+    @include ipadScreen {
+      width: 100%;
+    }
+  }
   &_radios {
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 10px;
     border-bottom: 1px solid #bebebe;
+    @include phoneScreen {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
   }
   &_flex {
     display: flex;
     align-items: flex-start;
     border-bottom: 1px solid #bebebe;
+    @include ipadScreen {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
     &_left {
       width: 50%;
       padding: 20px 15px;
+      @include phoneScreen {
+        width: 100%;
+        box-sizing: border-box;
+      }
       &_block {
         display: flex;
         flex-direction: column;
         gap: 25px;
+        @include ipadScreen {
+          width: 100%;
+        }
         p {
           margin-bottom: 8px;
         }
@@ -1091,6 +1114,10 @@
     border-left: 1px solid #bebebe;
     padding: 20px;
     width: 50%;
+    @include phoneScreen {
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
   &_img_2 {
     display: flex;
@@ -1100,6 +1127,9 @@
     div {
       width: 80%;
       margin: 0 auto;
+      @include phoneScreen {
+        width: 100%;
+      }
     }
   }
   &_img_3 {
@@ -1111,6 +1141,9 @@
     div {
       width: 50%;
       margin: 0 auto;
+      @include phoneScreen {
+        width: 100%;
+      }
       img {
         width: 100%;
       }
@@ -1129,6 +1162,12 @@
     margin: 0 auto;
     gap: 20px;
     width: 70%;
+    @include phoneScreen {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
   }
   &_bottom_images {
     display: flex;
@@ -1137,6 +1176,9 @@
     margin: 0 auto;
     gap: 20px;
     width: 70%;
+    @include phoneScreen {
+      width: 100%;
+    }
   }
   &_flex_inputs {
     padding: 20px 15px;
@@ -1145,8 +1187,15 @@
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: space-between;
+    box-sizing: border-box;
+    @include ipadScreen {
+      gap: 20px;
+    }
     &_block {
       width: 17%;
+      @media (max-width: 1200px) {
+        width: 100%;
+      }
       label {
         width: 100%;
       }

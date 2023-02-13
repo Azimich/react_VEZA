@@ -43,11 +43,9 @@
         padding: 10px 12px 10px 12px;
         border-radius: 0;
         gap: 10px;
-
         svg {
           width: 18px;
           height: 18px;
-
           path {
             fill: #fff;
           }
@@ -61,7 +59,7 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-
+      transition: all 0.3s ease;
       @include tabletScreen {
         display: flex;
         align-items: center;
@@ -80,7 +78,6 @@
       &_img {
         position: relative;
         height: 300px;
-
         img {
           object-fit: fill;
           //object-fit: cover;
@@ -177,8 +174,8 @@
       }
 
       &:hover {
-        box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
-        transition: all 0.5s;
+        box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
         button {
           padding-left: 20px;
         }
@@ -229,11 +226,9 @@
             padding: 10px 12px 10px 12px;
             border-radius: 0;
             gap: 10px;
-
             svg {
               width: 18px;
               height: 18px;
-
               path {
                 fill: #fff;
               }
@@ -243,7 +238,9 @@
       }
       &:nth-of-type(3) {
         border-radius: 0 20px 0 0;
-
+        @include ipadScreen {
+          border-radius: 20px;
+        }
         .counter {
           &_icon {
             position: absolute;
@@ -255,11 +252,9 @@
             padding: 10px 12px 10px 12px;
             border-radius: 0;
             gap: 10px;
-
             svg {
               width: 18px;
               height: 18px;
-
               path {
                 fill: #fff;
               }

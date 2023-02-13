@@ -17,24 +17,20 @@ import {
   ITelegramItem,
   ITelegramResponse,
 } from "features/contacts/tab_support/Support";
-// import {useGetSubjected} from "service/list/getSubject";
 
 const SupportContainer = () => {
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadContacts);
-  // eslint-disable-next-line no-undef
   const [telegram, setTelegram] = useState<ITelegramItem[]>([]);
   const { getTelegramData } = useGetTelegram();
-  // const [subject, setSubject] = useState();
-  // const { getSubjectData } = useGetSubjected();
 
+  //Данные по ТГ группам
   useEffect(() => {
     getTelegramData().then((data: ITelegramResponse) => {
       data && !data.hasError && setTelegram(data.response);
     });
   }, []);
-
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Техническая поддержка" }]);
   }, [dataBreadContacts]);
