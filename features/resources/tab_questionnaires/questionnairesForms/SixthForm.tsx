@@ -319,7 +319,7 @@ const SixthForm = () => {
           </div>
           <div className={Styles.sixth_form_left_flex_element}>
             <p className={Styles.p}>Температура на входе в теплообменник</p>
-            <div>
+            <div className={Styles.phone_screen_column}>
               <div className={Styles.input}>
                 <LayoutInput
                   name={"email"}
@@ -333,7 +333,7 @@ const SixthForm = () => {
           </div>
           <div className={Styles.sixth_form_left_flex_element}>
             <p className={Styles.p}>Температура на выходе из теплообменника</p>
-            <div>
+            <div className={Styles.width__full}>
               <div className={Styles.input}>
                 <LayoutInput
                   name={"email"}

@@ -1,4 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
+import React, {
+  ChangeEventHandler,
+  FC,
+  SyntheticEvent,
+  useEffect,
+  useState,
+} from "react";
 
 import Styles from "./FormNews.module.scss";
 import { Container } from "components/common/container";
@@ -14,7 +20,9 @@ const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
   const [value, setValue] = useState("");
 
-  const handleOnchange = (event: any) => {
+  const handleOnchange: ChangeEventHandler<HTMLInputElement> = (
+    event: SyntheticEvent<HTMLInputElement>,
+  ): void => {
     setValue(event.target.value);
     console.log(value);
   };

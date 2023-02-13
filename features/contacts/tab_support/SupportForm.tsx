@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { FormikValues, useFormik } from "formik";
 import Styles from "./Support.module.scss";
 import { Input } from "components/input";
@@ -9,6 +9,11 @@ import { SelectContainer } from "components/select/SelectContainer";
 import { dataSupportSubjectSelect } from "./mockData";
 import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
+import {
+  ISubjectItem,
+  ISubjectResponse,
+} from "features/contacts/tab_support/Support";
+import { useGetSubjected } from "service/list/getSubject";
 
 const SupportForm: FC = () => {
   const formik: FormikValues = useFormik({
@@ -30,6 +35,16 @@ const SupportForm: FC = () => {
     },
   });
 
+  const [subject, setSubject] = useState<ISubjectItem[]>([]);
+  const { getSubjectData } = useGetSubjected();
+
+  //Данные по теме в селекте
+  useEffect(() => {
+    getSubjectData().then((data: ISubjectResponse) => {
+      data && !data.hasError && setSubject(data.response);
+      setSubject(data.response);
+    });
+  }, []);
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
@@ -63,7 +78,9 @@ const SupportForm: FC = () => {
           >
             <SelectContainer
               instanceId={"Select_support"}
-              optionsData={dataSupportSubjectSelect}
+              optionsData={subject.map((items) => {
+                return { value: items.alias, label: items.title };
+              })}
               name={"service"}
               placeholder={"Выберите тему сообщения"}
               onChange={(e) => {
