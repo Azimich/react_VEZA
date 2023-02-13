@@ -41,8 +41,9 @@ const SupportForm: FC = () => {
   //Данные по теме в селекте
   useEffect(() => {
     getSubjectData().then((data: ISubjectResponse) => {
+      console.log("213", data);
       data && !data.hasError && setSubject(data.response);
-      setSubject(data.response);
+      setSubject(data?.response);
     });
   }, []);
   const handleFilterOnChange = (
@@ -78,7 +79,7 @@ const SupportForm: FC = () => {
           >
             <SelectContainer
               instanceId={"Select_support"}
-              optionsData={subject.map((items) => {
+              optionsData={subject?.map((items) => {
                 return { value: items.alias, label: items.title };
               })}
               name={"service"}

@@ -1,10 +1,4 @@
-import React, {
-  ChangeEventHandler,
-  FC,
-  SyntheticEvent,
-  useEffect,
-  useState,
-} from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import Styles from "./FormNews.module.scss";
 import { Container } from "components/common/container";
@@ -18,11 +12,9 @@ import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
 
 const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
 
-  const handleOnchange: ChangeEventHandler<HTMLInputElement> = (
-    event: SyntheticEvent<HTMLInputElement>,
-  ): void => {
+  const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
     console.log(value);
   };
@@ -66,7 +58,7 @@ const FormNews: FC = () => {
                 id={"todo_id"}
                 title={"Введите заголовок"}
                 value={value}
-                onChange={handleOnchange.bind(this)}
+                onChange={handleOnchange}
                 className={Styles.input_width_full}
               />
             </div>
