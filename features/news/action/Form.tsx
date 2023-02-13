@@ -16,7 +16,6 @@ const FormNews: FC = () => {
 
   const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
-    console.log(value);
   };
 
   useEffect(() => {
