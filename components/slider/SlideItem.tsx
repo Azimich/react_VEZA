@@ -5,7 +5,7 @@ import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "../button";
 import { ArrowRightIcon } from "../icons";
 import { Link } from "components/link";
-import { equipmentPath } from "utils/bootstrap";
+import { decisionPath, equipmentPath } from "utils/bootstrap";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -18,6 +18,7 @@ const SlideItem: FC<ISlideItem> = ({
   block_description = false,
   title = "",
   description = "",
+  pathDecision = false,
   code,
   url = "",
   size = "medium",
@@ -75,7 +76,6 @@ const SlideItem: FC<ISlideItem> = ({
       </div>
     );
   };
-
   const Video = () => {
     return (
       <div
@@ -129,7 +129,7 @@ const SlideItem: FC<ISlideItem> = ({
   switch (typeSlider) {
     case "img":
       return url ? (
-        <Link url={equipmentPath + url}>
+        <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
           <Img />
         </Link>
       ) : (
