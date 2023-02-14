@@ -18,13 +18,22 @@ interface ITelegramItem {
   channelUrl: string;
   status: number;
 }
+
 interface ISubjectResponse extends Omit<IResponse, "response"> {
   response: ISubjectItem[];
 }
 
 interface ISubjectItem {
-  title: string;
-  alias: string;
+  alias?: string;
+  firstName?: string;
+  secondName?: string;
+  email?: string;
+  phone?: string;
+  position?: string;
+  orderNumber?: string;
+  inn?: number;
+  text?: string;
+  title?: string;
 }
 
 interface IFieldData {
@@ -33,6 +42,7 @@ interface IFieldData {
   filter: RegExp;
   size: number;
 }
+
 export {
   ISupport,
   IFieldData,

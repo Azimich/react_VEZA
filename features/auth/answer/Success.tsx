@@ -25,7 +25,7 @@ const Success: FC<IErrorResponse> = (props) => {
 
   useEffect(() => {
     setAuthToken(props.response.accessToken, props.response.refreshToken);
-  });
+  }, []);
 
   return (
     <div className={Styles.block_error}>

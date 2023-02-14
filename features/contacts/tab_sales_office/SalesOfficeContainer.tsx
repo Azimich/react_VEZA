@@ -79,13 +79,19 @@ const SalesOfficeContainer: FC = () => {
   useEffect(() => {
     const res = cities?.response
       ?.filter((e) => {
-        return e.isDefaultCity;
+        return e.isDefaultOfficeCity;
       })
       .map((data) => {
-        return { value: data.alias, label: data.city };
+        return {
+          value: data.alias,
+          label: data.city,
+          address: data.address,
+          latitude: data.latitude,
+          longitude: data.longitude,
+        };
       })
       ?.shift();
-
+    console.log("213", res);
     !router.query.alias && setSelectedCity(res);
   }, [cities]);
 
@@ -121,7 +127,7 @@ const SalesOfficeContainer: FC = () => {
   const handleOnClickSelect = (e: IOptionItem) => {
     setSelectedCity(e);
   };
-  console.log("selectedCity", selectedCity);
+
   useEffect(() => {
     selectedCity &&
       getManagers(selectedCity.value).then((data) => {
@@ -138,7 +144,14 @@ const SalesOfficeContainer: FC = () => {
         setSelectedCity(
           currentcity
             ?.map((e) => {
-              return { value: e.alias, label: e.city };
+              console.log("eee", e);
+              return {
+                value: e.alias,
+                label: e.city,
+                address: e.address,
+                latitude: e.latitude,
+                longitude: e.longitude,
+              };
             })
             .shift(),
         );
@@ -191,9 +204,10 @@ const SalesOfficeContainer: FC = () => {
               <SeparatorContainer title={"Филиалы"} />
               <p className={Styles.styles_map}>
                 <MapIcon />
-                {process.env.NEXT_PUBLIC_ADDRESS}
+                {selectedCity?.address}
               </p>
-              <YandexMap />
+              {console.log("----", selectedCity)}
+              <YandexMap {...selectedCity} />
             </div>
           </div>
           <Modal

@@ -6,8 +6,7 @@ const useGetSubjected = () => {
 
   const getSubjectData = () => {
     return request(
-      process.env.NEXT_PUBLIC_APP_FETCH +
-        "/api/Common/api/v1/common/get_subject_list",
+      process.env.NEXT_PUBLIC_APP_FETCH + "/api/v1/common/get_subject_list",
       "GET",
       null,
       headers,
