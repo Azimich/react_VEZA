@@ -29,6 +29,9 @@ const SearchContainer: FC<ICitiesOption> = ({
                 value: e.alias,
                 label: e.city,
                 districtFiasId: e.districtFiasId,
+                address: e.city + ", " + e.address,
+                latitude: e.latitude,
+                longitude: e.longitude,
               };
             })}
             defaultValue={selectedCity}

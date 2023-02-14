@@ -19,7 +19,6 @@ const ValidationSchema = () => {
       .min(6, "Минимум 6 символов!")
       .max(50, "Максимум 50 символов!")
       .required("Заполните телефон!"),
-    company_inn: Yup.string().required("Укажите ИНН компании!"),
     order: Yup.string().max(10, "Максимум 10 символов!"),
     /*.required("Укажите номер заказа!"),*/
     post: Yup.string()

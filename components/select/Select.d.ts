@@ -17,6 +17,9 @@ interface IOptionItem {
   label?: string;
   code?: string;
   name?: string;
+  address?: string;
+  latitude?: string;
+  longitude?: string;
 }
 
 export { IOptionSetting, IOptionItem };

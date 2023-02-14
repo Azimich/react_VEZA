@@ -39,9 +39,12 @@ interface ICitiesResponseArray extends Omit<IResponse, "response"> {
 interface ICities {
   alias: string;
   city: string;
+  address?: string;
   district: string;
-  isDefaultCity?: boolean;
+  isDefaultOfficeCity?: boolean;
   districtFiasId?: string;
+  latitude: string;
+  longitude: string;
 }
 
 interface IManagers {
