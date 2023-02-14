@@ -8,23 +8,22 @@
   @media (max-width: 1200px) {
     position: absolute;
     right: 0;
-    top: 100%;
+    top: 99%;
     background: rgba(255, 255, 255, 0.99);
     flex-direction: column;
     padding: 20px 0 100% 0;
     width: 100%;
     transform: translateX(100%);
-    transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease;
     z-index: 1;
   }
   &.active {
     transform: translateX(0);
   }
   &.active_small {
-    top: 95px;
     display: flex;
     transform: translateX(0%);
-    transition: transform 0.2s ease-in;
+    transition: transform 0.2s ease;
   }
   li {
     margin: 0 15px;

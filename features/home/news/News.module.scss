@@ -14,11 +14,7 @@
   @include phoneScreen {
     display: flex;
     flex-direction: column;
-  }
-
-  @include SEScreen {
-    display: flex;
-    flex-direction: column;
+    gap: 12px;
   }
 
   button {
