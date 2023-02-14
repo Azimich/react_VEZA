@@ -136,6 +136,7 @@
     gap: 25px;
     padding: 20px 15px;
     border-bottom: 1px solid #bebebe;
+    box-sizing: border-box;
     @include ipadScreen {
       flex-direction: column;
       justify-content: flex-start;
@@ -199,6 +200,9 @@
   }
   &_textarea {
     padding: 20px 10px;
+    @include phoneScreen {
+      padding: 10px 0;
+    }
     textarea {
       color: color(dark);
       box-sizing: border-box;
@@ -1217,18 +1221,36 @@
     gap: 20px;
     padding: 10px;
     border-bottom: 1px solid #bebebe;
+    @include phoneScreen {
+      flex-direction: column;
+      gap: 5px;
+    }
   }
   &_middle_blocks {
     display: flex;
     border-bottom: 1px solid #bebebe;
+    @include phoneScreen {
+     flex-direction: column;
+    }
     &_left {
       width: 50%;
       border-right: 1px solid #bebebe;
       padding: 20px 15px;
+      box-sizing: border-box;
+      @include phoneScreen {
+        width: 100%;
+        padding: 10px;
+        border: none;
+      }
     }
     &_right {
       width: 50%;
       padding: 20px 15px;
+      box-sizing: border-box;
+      @include phoneScreen {
+        width: 100%;
+        padding: 10px;
+      }
     }
   }
   .radios_middle_bottom_checkbox {
@@ -1241,6 +1263,11 @@
     flex-direction: column;
     gap: 20px;
     width: 40%;
+    box-sizing: border-box;
+    @include ipadScreen {
+      width: 100%;
+      padding: 0;
+    }
   }
   .middle_checkbox_column {
     gap: 0;
@@ -1256,26 +1283,45 @@
     display: flex;
     justify-content: center;
     padding: 10px;
+    @include phoneScreen {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
   .input {
     margin: 12px 0;
     width: 70%;
+    @include ipadScreen {
+      width: 100%;
+      padding: 0;
+    }
   }
   .right_flex {
     border-left: 1px solid #bebebe;
     display: flex;
     align-items: flex-start;
     gap: 0;
+    @include ipadScreen {
+      border: none;
+      flex-direction: column;
+    }
   }
   &_middle {
     width: 50%;
     padding: 20px 15px;
+    @include ipadScreen {
+      width: 100%;
+      padding: 0;
+    }
   }
   &_middle_content {
     display: flex;
     flex-direction: column;
     gap: 20px;
     border-right: 1px solid #bebebe;
+    @include ipadScreen {
+      border: none;
+    }
     label {
       margin-bottom: 0;
     }
@@ -1283,6 +1329,10 @@
   &_last {
     width: 50%;
     padding: 20px 15px;
+    @include ipadScreen {
+      padding: 10px;
+      width: 100%;
+    }
   }
   &_title {
     margin-bottom: 20px;
@@ -1296,6 +1346,10 @@
     flex-direction: column;
     margin: 8px 0;
     gap: 10px;
+    box-sizing: border-box;
+    @include ipadScreen {
+      width: 100%;
+    }
     p {
       line-height: 135%;
     }
@@ -1305,9 +1359,17 @@
     align-items: flex-end;
     padding: 0 15px;
     margin-bottom: 12px;
+    @include ipadScreen {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 0;
+    }
   }
   &_checkboxes {
     margin-bottom: 20px;
+    @include ipadScreen {
+      margin-bottom: 10px;
+    }
     p {
       margin-bottom: 15px;
     }
@@ -1323,12 +1385,22 @@
   &_exchanger {
     display: flex;
     border-bottom: 1px solid #bebebe;
+    @include ipadScreen {
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 0;
+      border: none;
+    }
     &_first_block {
       width: 16%;
       padding: 20px 15px;
       display: flex;
       align-items: center;
       justify-content: center;
+      @include ipadScreen {
+        width: 100%;
+        padding: 10px;
+      }
     }
   }
   .input_and_title {
@@ -1337,8 +1409,18 @@
     flex-direction: column;
     gap: 5px;
   }
+  .radios {
+    @include ipadScreen {
+      width: 100%;
+      padding: 10px;
+    }
+  }
   &_first {
     padding: 20px 15px;
+    @include ipadScreen {
+      width: 100%;
+      padding: 10px;
+    }
   }
   &_last {
     label {
@@ -1348,6 +1430,9 @@
   }
   &_columns_block_last {
     padding: 20px 15px;
+    @include ipadScreen {
+      padding: 10px;
+    }
     .checkbox_wrapp {
       display: flex;
       align-items: self-end;
@@ -1372,6 +1457,11 @@
     justify-content: center;
     gap: 20px;
     padding: 10px;
+    @include phoneScreen {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
   }
   &_left_block {
     h3 {
@@ -1380,15 +1470,39 @@
   }
   &_columns_block_last {
     padding: 20px 15px;
+    @include phoneScreen {
+      padding: 10px 10px 0 10px;
+    }
     p {
       margin-bottom: 16px;
     }
   }
   .input_width {
     width: 50%;
+    @include ipadScreen {
+      width: 100%;
+    }
   }
   &_button {
     padding: 20px 0 0 0;
+  }
+}
+
+.textarea_block {
+  @include phoneScreen {
+    padding: 10px;
+  }
+}
+
+.width_block {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.width_full {
+  @include phoneScreen {
+    width: 100%;
   }
 }
 
@@ -1399,6 +1513,11 @@
     justify-content: center;
     gap: 20px;
     padding: 10px;
+    @include phoneScreen {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
   }
   .border_title {
     border-top: 1px solid #bebebe;
@@ -1407,12 +1526,25 @@
     display: flex;
     gap: 20px;
     padding: 20px 15px;
+    @include phoneScreen {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px;
+    }
   }
   &_inputs_grid {
     padding: 20px 15px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    @include phoneScreen {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 10px;
+    }
     &_row {
       p {
         color: color(dark);
@@ -1442,11 +1574,20 @@
     align-items: baseline;
     gap: 20px;
     margin-bottom: 25px;
+    @include phoneScreen {
+      flex-direction: column;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
   }
   &_schemes_images_block {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 20px;
+    @include phoneScreen {
+      flex-direction: column;
+      display: flex;
+    }
     &_img {
       display: flex;
       justify-content: center;
@@ -1459,6 +1600,10 @@
     img {
       width: auto;
       height: 150px;
+      @include phoneScreen {
+        width: 200px;
+        height: auto;
+      }
     }
   }
   .one_radio_and_input {
@@ -1468,9 +1613,17 @@
     display: flex;
     align-items: center;
     gap: 50px;
+    @include phoneScreen {
+      align-items: flex-start;
+      gap: 20px;
+      flex-direction: column;
+    }
   }
   .right_block_first_item {
     width: 20%;
+    @include phoneScreen {
+      width: 100%;
+    }
   }
   .kanal {
     margin-bottom: 15px;
@@ -1491,6 +1644,9 @@
     justify-content: center;
     gap: 20px;
     padding: 10px;
+    @include phoneScreen {
+      gap: 5px;
+    }
   }
   .border_title {
     border-top: 1px solid #bebebe;
@@ -1508,6 +1664,10 @@
   &_top_first {
     .middle_block {
       align-items: self-end;
+      @include phoneScreen {
+        align-items: flex-start;
+        gap: 5px;
+      }
     }
   }
   .inputs_row {
@@ -1515,7 +1675,6 @@
     align-items: baseline;
     gap: 20px;
     margin-bottom: 25px;
-
   }
 }
 
@@ -1614,26 +1773,3 @@
     gap: 20px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

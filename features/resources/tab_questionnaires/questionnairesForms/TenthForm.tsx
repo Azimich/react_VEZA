@@ -464,7 +464,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>I подогрев</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <p className={Styles.p}>Воздух:</p>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
@@ -497,7 +497,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>II подогрев</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <p className={Styles.p}>Воздух:</p>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
@@ -580,7 +580,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>I подогрев</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <div className={Styles.inputs_row}>
                   <LayoutInput name={""} id={""} title={"tн = oC"} value={""} />
                   <LayoutInput name={""} id={""} title={"tк = %"} value={""} />
@@ -599,7 +599,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>II подогрев</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
                     name={""}
@@ -695,7 +695,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>на теплообменниках</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
                     name={"email"}
@@ -748,7 +748,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>пластинчатый</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <p>Параметры воздуха</p>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
@@ -774,7 +774,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>роторный</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <p>Параметры воздуха</p>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
@@ -807,7 +807,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>блок-камера орошения</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <p>Параметры воздуха</p>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
@@ -855,7 +855,7 @@ const TenthForm = () => {
               <div className={Styles.right_block_first_item}>
                 <p>блок сотового увлажнения</p>
               </div>
-              <div>
+              <div className={Styles.width_block}>
                 <div className={Styles.inputs_row}>
                   <LayoutInput
                     name={""}
@@ -972,7 +972,7 @@ const TenthForm = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className={Styles.textarea_block}>
           <div className={Styles.third_form_textarea}>
             <textarea placeholder="Дополнительные сведения" />
           </div>

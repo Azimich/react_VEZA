@@ -325,7 +325,7 @@ const NinthForm = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className={Styles.textarea_block}>
           <div className={Styles.third_form_textarea}>
             <textarea placeholder="Дополнительные требования заказчика" />
           </div>

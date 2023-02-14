@@ -141,9 +141,7 @@ const EighthForm = () => {
               <LayoutInput
                 name={"email"}
                 id={"email_id"}
-                title={
-                  "Обогрев воздухозаборного клапана с приводом (указать ток А, напряжение питания В)"
-                }
+                title={"Обогрев воздухозаборного клапана"}
                 className={Styles.input__item}
                 value={""}
               />
@@ -199,9 +197,7 @@ const EighthForm = () => {
               <LayoutInput
                 name={"email"}
                 id={"email_id"}
-                title={
-                  "Обогрев воздухозаборного клапана с приводом (указать ток А, напряжение питания В)"
-                }
+                title={"Обогрев воздухозаборного клапана"}
                 className={Styles.input__item}
                 value={""}
               />
@@ -219,24 +215,18 @@ const EighthForm = () => {
               <LayoutInput
                 name={"email"}
                 id={"email_id"}
-                title={
-                  "Обогрев воздухозаборного клапана с приводом (указать ток А, напряжение питания В)"
-                }
+                title={"Обогрев воздухозаборного клапана"}
                 className={Styles.input__item}
                 value={""}
               />
             </div>
-            <RadioBoxContainer
-              title={"Датчик-реле давление (контроль «порогового» значения)"}
-            />
+            <RadioBoxContainer title={"Датчик-реле давление"} />
             <RadioBoxContainer title={"Датчик давление (0-10 В)"} />
             <div className={Styles.input}>
               <LayoutInput
                 name={"email"}
                 id={"email_id"}
-                title={
-                  "Обогрев воздухозаборного клапана с приводом (указать ток А, напряжение питания В)"
-                }
+                title={"Обогрев воздухозаборного клапана"}
                 className={Styles.input__item}
                 value={""}
               />
@@ -824,7 +814,7 @@ const EighthForm = () => {
               <div className={Styles.eighth_form_title}>
                 <p>Пластинчатый</p>
               </div>
-              <div>
+              <div className={Styles.radios}>
                 <RadioBoxContainer
                   title={"Защита от обмерзания по температуре"}
                 />
@@ -1073,7 +1063,7 @@ const EighthForm = () => {
         >
           <p>Дополнительные требования к шкафу САУ</p>
         </div>
-        <div>
+        <div className={Styles.textarea_block}>
           <div className={Styles.third_form_textarea}>
             <textarea placeholder="" />
           </div>
