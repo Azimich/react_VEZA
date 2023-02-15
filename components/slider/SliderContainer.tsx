@@ -27,6 +27,7 @@ const SliderContainer: FC<ISliderProps> = ({
   effectSlide = "slide",
   spaceBetween = 0,
   slidesPerView = 1,
+  pathDecision = false,
   loop = true,
   OnClick,
   navigations = false,
@@ -87,6 +88,7 @@ const SliderContainer: FC<ISliderProps> = ({
                 images={e.images}
                 link_slider={e.link_slider}
                 code={e.code}
+                pathDecision={pathDecision}
                 typeSlider={e.typeSlider}
                 theme={theme}
                 activePage={activePage}

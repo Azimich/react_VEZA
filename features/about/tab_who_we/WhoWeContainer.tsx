@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { aboutPath } from "utils/bootstrap";
 import Styles from "./Whowe.module.scss";
 import { Achievements, WhoWeAbout } from "../index";
-import { FactoryIcon, HistoryIcon, HistoryMobileIcon } from "components/icons";
+import { FactoryIcon } from "components/icons";
 import { Separator } from "components/separator";
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Modal, useModal } from "components/modal";
@@ -95,10 +95,7 @@ const WhoWeContainer: FC = () => {
             <WhoWeAbout />
             <div className={Styles.whowe_container_history_svg}>
               <span className={Styles.whowe_container_history_svg_pc}>
-                <HistoryIcon />
-              </span>
-              <span className={Styles.whowe_container_history_svg_mobile}>
-                <HistoryMobileIcon />
+                <img src="/images/timeline.webp" alt="История завода" />
               </span>
             </div>
             <div className={Styles.whowe_container_video}>

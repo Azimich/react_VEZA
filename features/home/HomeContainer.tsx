@@ -82,6 +82,7 @@ const HomeContainer: FC<ISSRHome> = ({
           theme={"industries"}
           themeButton={"industries"}
           size={"medium"}
+          pathDecision={true}
           navigations={true}
           effectSlide={"cards"}
           color={"link"}
