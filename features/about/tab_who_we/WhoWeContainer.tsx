@@ -5,9 +5,9 @@ import { tabsAboutData } from "../../contacts/mockData";
 import { useRouter } from "next/router";
 import { aboutPath } from "utils/bootstrap";
 import Styles from "./Whowe.module.scss";
-import { Achievements, WhoWeAbout } from "../index";
+import { WhoWeAbout } from "../index";
 import { FactoryIcon } from "components/icons";
-import { Separator } from "components/separator";
+/*import { Separator } from "components/separator";*/
 import React, { FC, ReactNode, useEffect, useState } from "react";
 import { Modal, useModal } from "components/modal";
 import { IObject, IResponsePlants } from "components/map/Map";
@@ -98,7 +98,7 @@ const WhoWeContainer: FC = () => {
                 <img src="/images/timeline.webp" alt="История завода" />
               </span>
             </div>
-            <div className={Styles.whowe_container_video}>
+            {/*            <div className={Styles.whowe_container_video}>
               <iframe
                 width="560"
                 height="315"
@@ -110,7 +110,7 @@ const WhoWeContainer: FC = () => {
               ></iframe>
             </div>
             <Separator title={"Наши достижения"} />
-            <Achievements />
+            <Achievements />*/}
             <Modal
               isShow={isShow}
               hide={toggle}

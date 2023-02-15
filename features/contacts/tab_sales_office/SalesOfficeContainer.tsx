@@ -91,9 +91,9 @@ const SalesOfficeContainer: FC = () => {
         };
       })
       ?.shift();
-    console.log("213", res);
+    console.log("2", res, router.query.alias);
     !router.query.alias && setSelectedCity(res);
-  }, [cities]);
+  }, [router.query.alias, cities]);
 
   const components: IComponents = {
     tab_director: Director,
@@ -141,10 +141,12 @@ const SalesOfficeContainer: FC = () => {
         const currentcity = cities?.response?.filter(
           (e) => e.alias === data.response,
         );
+
+        console.log("++++", cities, currentcity, data);
+
         setSelectedCity(
           currentcity
             ?.map((e) => {
-              console.log("eee", e);
               return {
                 value: e.alias,
                 label: e.city,
@@ -156,7 +158,7 @@ const SalesOfficeContainer: FC = () => {
             .shift(),
         );
       });
-  }, [router.query, cities]);
+  }, [cities]);
 
   return (
     <>
