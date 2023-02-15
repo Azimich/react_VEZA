@@ -1,4 +1,4 @@
-import { IResponse } from "../../../types/response";
+import { IResponse } from "types/response";
 
 interface IJob {
   city: string;
@@ -42,6 +42,7 @@ interface ICities {
   address?: string;
   district: string;
   isDefaultOfficeCity?: boolean;
+  isDefaultPlantCity?: boolean;
   districtFiasId?: string;
   latitude: string;
   longitude: string;

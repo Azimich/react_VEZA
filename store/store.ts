@@ -1,7 +1,6 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
 import contactsSlice from "../features/contacts/ContactsSlice";
-import factorySlice from "../features/factory/FactorySlice";
 import menuSlice from "../store/slice/MenuSlice";
 import authSlice from "../features/auth/AuthSlice";
 import mapSlice from "components/map/MapSlice";
@@ -10,7 +9,6 @@ const makeStore = () =>
   configureStore({
     reducer: {
       [contactsSlice.name]: contactsSlice.reducer,
-      [factorySlice.name]: factorySlice.reducer,
       [menuSlice.name]: menuSlice.reducer,
       [mapSlice.name]: mapSlice.reducer,
       [authSlice.name]: authSlice.reducer,
