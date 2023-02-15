@@ -14,14 +14,14 @@ import { IMapData, IObject } from "components/map/Map";
 import { ObjectItem } from "../ObjectItem";
 import { SideBar } from "components/map/SideBar";
 import { Modal, useModal } from "components/modal";
-import { ModalFormJob } from "features/about";
+import { ModalFormJob } from "features/about/tab_job/jobModal/ModalFormJob";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadAbout } from "components/breadcrumbs/mockData";
 import { useGetListCities, useGetVacancies } from "service/list";
 import { IOptionItem } from "components/select/Select";
 import { useGetJobCity } from "service/item/getJob";
 import {
-  IJob,
+  ICities,
   IJobsResponseArray,
   IVacancies,
   IVacanciesResponseArray,
@@ -46,7 +46,7 @@ const JobContainer: FC = () => {
     [],
   );
   const [isLoading, setIsLoading] = useState(true);
-  const [cities, setCities] = useState<IJob[]>();
+  const [cities, setCities] = useState<ICities[]>();
   const [selectedCities, setSelectedCities] = useState<IOptionItem>(undefined);
   const [jobs, setJobs] = useState<IJobsResponseArray>();
   const [breadCrumbs, setBreadCrumbs] =
@@ -79,9 +79,15 @@ const JobContainer: FC = () => {
   }, [selectedCheckBox]);
 
   useEffect(() => {
+    const office = selectedCheckBox.filter((e) => {
+      return e.url === "office";
+    });
+
+    console.log("cities", cities);
+
     const res = cities
       ?.filter((e) => {
-        return e.isDefaultCity;
+        return office.length > 0 ? e.isDefaultOfficeCity : e.isDefaultPlantCity;
       })
       .map((data) => {
         return { value: data.alias, label: data.city };
