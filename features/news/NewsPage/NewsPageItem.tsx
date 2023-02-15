@@ -3,7 +3,6 @@ import { FC } from "react";
 import { INewsDataItem } from "../News";
 import Styles from "../News.module.scss";
 import { EyeIcon } from "components/icons";
-import { Container } from "components/common/container";
 
 const NewsPageItem: FC<INewsDataItem> = ({
   firstDescription,
@@ -17,7 +16,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
   videoUrl,
 }) => {
   return (
-    <Container className={"wrapper_clear"}>
+    <>
       <div className={Styles.news__active}>
         <div className={Styles.news__active__container}>
           <div className={Styles.news__active__img}>
@@ -38,7 +37,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
           </div>
 
           <div className={Styles.news__active__keyword}>
-            <h2>{seoKeywords}</h2>
+            <h2>{seoKeywords && seoKeywords}</h2>
             <div className={Styles.news__active__keyword__paragraph}>
               {keywords?.map((value) => {
                 return <span>{value.keywords}</span>;
@@ -63,9 +62,9 @@ const NewsPageItem: FC<INewsDataItem> = ({
                 <ul>
                   {imageModel?.pageGalleryImages?.pc.map((e, i) => {
                     return (
-                      <li key={i}>
+                      <div key={i}>
                         <img src={e} alt={e} />
-                      </li>
+                      </div>
                     );
                   })}
                 </ul>
@@ -74,7 +73,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
           </div>
         </div>
       </div>
-    </Container>
+    </>
   );
 };
 

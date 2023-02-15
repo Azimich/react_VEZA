@@ -9,13 +9,7 @@
   margin-top: 40px;
   margin-bottom: 130px;
   @include ipadScreen {
-    padding: 0 10px;
-    margin-bottom: 80px;
-  }
-
-  @include phoneScreen {
-    padding: 0 10px;
-    margin-bottom: 50px;
+    margin: 20px auto 80px;
   }
   
   img {
@@ -42,22 +36,29 @@
         font-weight: 500;
         font-size: 25px;
         line-height: 120%;
-        letter-spacing: 1px;
         padding: 20px 20px 0 20px;
+        @include ipadScreen {
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 115%;
+          padding: 20px 10px 0 10px;
+        }
       }
 
       &_description {
         font-weight: 400;
         font-size: 16px;
         line-height: 135%;
-        letter-spacing: .025em;
-        color: #ddd;
+        color: color(white);
         padding: 10px 20px 3px 20px;
         display: -webkit-box;
         -webkit-line-clamp: 9;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+        @include ipadScreen {
+          padding: 10px 10px 0 10px;
+        }
       }
     }
   }

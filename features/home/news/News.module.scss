@@ -37,8 +37,11 @@
         background: color(green);
         color: color(white);
         padding: 10px 12px 10px 12px;
-        border-radius: 0;
+        border-radius: 0 0 20px 0;
         gap: 10px;
+        @include phoneScreen {
+          border-radius: 20px 0 20px 0;
+        }
         svg {
           width: 18px;
           height: 18px;
@@ -122,6 +125,11 @@
         h2 {
           color: color(white);
           margin-bottom: 10px;
+          @include phoneScreen {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 0;
+          }
         }
 
         .description {
@@ -136,7 +144,7 @@
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            padding: 10px 10px 20px 10px;
+            padding: 10px 10px 20px 0;
           }
         }
         button {
@@ -220,8 +228,11 @@
             background: color(green);
             color: color(white);
             padding: 10px 12px 10px 12px;
-            border-radius: 0;
+            border-radius: 0 0 20px 0;
             gap: 10px;
+            @include phoneScreen {
+              border-radius: 20px 0 20px 0;
+            }
             svg {
               width: 18px;
               height: 18px;
@@ -246,8 +257,11 @@
             background: color(green);
             color: color(white);
             padding: 10px 12px 10px 12px;
-            border-radius: 0;
+            border-radius: 0 0 20px 0;
             gap: 10px;
+            @include phoneScreen {
+              border-radius: 20px 0 20px 0;
+            }
             svg {
               width: 18px;
               height: 18px;
@@ -272,7 +286,7 @@
             background: color(green);
             color: color(white);
             padding: 10px 12px 10px 12px;
-            border-radius: 0;
+            border-radius: 20px 0 20px 0;
             gap: 10px;
 
             svg {
@@ -300,9 +314,11 @@
             background: color(green);
             color: color(white);
             padding: 10px 12px 10px 12px;
-            border-radius: 0;
+            border-radius: 0 0 20px 0;
             gap: 10px;
-
+            @include phoneScreen {
+              border-radius: 20px 0 20px 0;
+            }
             svg {
               width: 18px;
               height: 18px;

@@ -5,7 +5,6 @@ import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
 import { QuestionsItem } from "./QuestionsItem";
 import { IQuestions, IQuestionsResponseArray } from "../tab_bim/Bim";
-import { Separator } from "components/separator";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { handleOnClickTabs } from "../helper";
@@ -46,7 +45,7 @@ const QuestionsContainer: FC<IQuestions> = () => {
         />
       </div>
       <div className={Styles.title}>
-        <Separator title={"Часто задаваемые вопросы"} />
+        <h1>Часто задаваемые вопросы</h1>
         <p>Здесь вы сможете найти ответы на часто задаваемые вопросы</p>
       </div>
       {isLoading ? (

@@ -2,14 +2,14 @@
 @import 'styles/variables.scss';
 
 .questionnaires__container {
-  margin: 40px auto 150px;
+  margin: 40px auto 130px;
 }
 .questionnaires {
   display: flex;
   background-color: color(white);
   box-shadow: 0 3px 30px rgba(0, 0, 0, 0.06);
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   gap: 12px;
   overflow: hidden;
   transition: all .3s;
