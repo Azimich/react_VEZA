@@ -1,9 +1,9 @@
 import { IObject } from "components/map/Map";
 import React, { FC } from "react";
 import Styles from "components/map/Map.module.scss";
-import { ArrowRightWithOutCircle } from "components/icons";
+/*import { ArrowRightWithOutCircle } from "components/icons";
 import { factoryPath } from "utils/bootstrap";
-import { Link } from "components/link";
+import { Link } from "components/link";*/
 
 const ModalFormFactory: FC<IObject> = (e) => {
   return (
@@ -30,9 +30,9 @@ const ModalFormFactory: FC<IObject> = (e) => {
           <span>{e.object.email}</span>
         </p>
       </div>
-      <Link url={factoryPath + e.alias} classLink={Styles.factory_button}>
+      {/*      <Link url={factoryPath + e.alias} classLink={Styles.factory_button}>
         История завода <ArrowRightWithOutCircle />
-      </Link>
+      </Link>*/}
     </>
   );
 };

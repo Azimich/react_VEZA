@@ -20,7 +20,7 @@ const OwnObjectItem: FC<IObjects> = ({
           <p className={Styles.title}>{title}</p>
           <p className={Styles.address}>{address}</p>
           <p className={Styles.sub__title}>{titleDelivery}</p>
-          {categories.map((data, i) => {
+          {categories?.map((data, i) => {
             return <p key={i}>{data.title}</p>;
           })}
         </span>
