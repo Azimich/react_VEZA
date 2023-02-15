@@ -26,6 +26,7 @@ const SlideItem: FC<ISlideItem> = ({
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
 
+  console.log("url", url);
   const Img = () => {
     return (
       <div

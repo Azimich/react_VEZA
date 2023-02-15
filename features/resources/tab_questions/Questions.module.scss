@@ -26,12 +26,22 @@
 }
 
 .title {
-  margin: 0 0 30px 0;
+  margin: 30px 0 30px 0;
   @include ipadScreen {
     margin: 50px 0 20px 0;
     padding: 0 10px;
   }
-
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 35px;
+    margin-bottom: 12px;
+    line-height: 145%;
+    color: color(dark);
+    @include phoneScreen {
+      font-size: 25px;
+    }
+  }
   p {
     text-align: center;
     margin: -6px 0 0 0;
