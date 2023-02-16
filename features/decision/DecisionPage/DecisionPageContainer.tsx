@@ -17,7 +17,6 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
   const { decision, objects, equipment } = data;
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);
-  console.log("data", data);
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: decision?.response?.title }]);
   }, [dataBreadDecision]);

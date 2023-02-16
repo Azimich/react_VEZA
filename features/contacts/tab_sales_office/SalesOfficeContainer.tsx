@@ -49,7 +49,7 @@ const SalesOfficeContainer: FC = () => {
   }>({
     slug: "managers",
     activeTab: 2,
-    desc: "Наши менеджеры",
+    desc: "Офис продаж",
   });
   const [ListOffices, setListOffices] = useState<IResponsePlants>({
     offices: {
@@ -91,7 +91,6 @@ const SalesOfficeContainer: FC = () => {
         };
       })
       ?.shift();
-    console.log("2", res, router.query.alias);
     !router.query.alias && setSelectedCity(res);
   }, [router.query.alias, cities]);
 
@@ -141,8 +140,6 @@ const SalesOfficeContainer: FC = () => {
         const currentcity = cities?.response?.filter(
           (e) => e.alias === data.response,
         );
-
-        console.log("++++", cities, currentcity, data);
 
         setSelectedCity(
           currentcity
@@ -208,7 +205,6 @@ const SalesOfficeContainer: FC = () => {
                 <MapIcon />
                 {selectedCity?.address}
               </p>
-              {console.log("----", selectedCity)}
               <YandexMap {...selectedCity} />
             </div>
           </div>

@@ -6,7 +6,6 @@ import { SalesOfficeItem } from "./SalesOfficeItem";
 
 const SecretaryContainer = () => {
   const managers = useAppSelector(getManagers);
-  console.log("112", managers);
   return (
     <div className={Styles.director}>
       <div className={Styles.director__items}>

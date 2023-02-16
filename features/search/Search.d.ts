@@ -1,11 +1,19 @@
+import { IResponse } from "../../types/response";
+
 interface ISearch {
   q: string;
 }
-interface ISearchData {
-  id: number;
-  title: string;
-  desc: string;
+
+interface ISearchResponse extends Omit<IResponse, "response"> {
+  response: ISearchItem[];
+}
+
+interface ISearchItem {
+  entityType: number;
+  resultAlias: string;
+  searchCriteria: string;
+  searchResult: string;
   onClick?: (inputValue: string) => void;
 }
 
-export { ISearch, ISearchData };
+export { ISearch, ISearchItem, ISearchResponse };
