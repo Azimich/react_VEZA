@@ -83,8 +83,6 @@ const JobContainer: FC = () => {
       return e.url === "office";
     });
 
-    console.log("cities", cities);
-
     const res = cities
       ?.filter((e) => {
         return office.length > 0 ? e.isDefaultOfficeCity : e.isDefaultPlantCity;

@@ -22,7 +22,6 @@ const Confirm = () => {
     router.query.token &&
       Confirm(router.query.token as string, router.query.login as string).then(
         (data) => {
-          console.log("data", data);
           data?.hasError
             ? setContext(<Error {...data} />)
             : setContext(<Success {...data} />);

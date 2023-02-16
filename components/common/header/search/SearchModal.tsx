@@ -6,24 +6,22 @@ import { Input } from "components/input/InputContainer";
 import { SearchInputIcon } from "components/icons/includes/SearchInputIcon";
 import { CloseIcon } from "components/icons";
 import { SearchItem } from "features/search/SearchItem";
-import { searchData } from "components/common/header/search/mockData";
-import { ISearchData } from "features/search/Search";
+import { ISearchResponse } from "features/search/Search";
+import { useSearch } from "service/list/search";
 
 const SearchModal: FC<{ onClick: (inputValue: string) => void }> = ({
   onClick,
 }) => {
   const [inputValue, setInputValue] = React.useState<string>("");
-  const [filteredData, setFilteredData] = React.useState<ISearchData[]>([]);
+  const [filteredData, setFilteredData] = React.useState<ISearchResponse>();
+  const { search } = useSearch();
 
-  const handleOnChangeSearch = (event: any) => {
-    event.target.value
-      ? setFilteredData(
-          searchData.filter((e) =>
-            e.title.toLowerCase().includes(event.target.value.toLowerCase()),
-          ),
-        )
-      : setFilteredData([]);
+  const handleOnChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    event.target.value.length > 3 &&
+      search(event.target.value).then((data) => {
+        setFilteredData(data);
+      });
   };
 
   return (
@@ -53,12 +51,12 @@ const SearchModal: FC<{ onClick: (inputValue: string) => void }> = ({
             )}
           </div>
         </div>
-        {inputValue.length !== 0 && filteredData.length > 0
-          ? filteredData.map((e) => {
-              return <SearchItem {...e} key={e.id} />;
+        {inputValue.length !== 0 && filteredData?.response.length > 0
+          ? filteredData.response.map((e) => {
+              return <SearchItem {...e} key={e.resultAlias} />;
             })
           : inputValue.length !== 0 && <h2>Ничего не найдено</h2>}
-        {filteredData.length > 5 && (
+        {filteredData?.response.length > 5 && (
           <Button
             children={"Показать ещё"}
             onClick={() => onClick(inputValue)}

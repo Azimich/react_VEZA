@@ -24,21 +24,21 @@ const tabsSalesData: ITab[] = [
     title: "Руководители",
     url: "director",
     tabsActive: 1,
-    desc: "Наши руководители",
+    desc: "Руководители",
   },
   {
     id: 2,
     title: "Менеджеры",
     url: "managers",
     tabsActive: 2,
-    desc: "Наши менеджеры",
+    desc: "Офис продаж",
   },
   {
     id: 3,
     title: "Техническая поддержка",
     url: "tsupport",
     tabsActive: 3,
-    desc: "Наша техническая поддержка",
+    desc: "Техническая поддержка",
   },
 ];
 const tabsContactsData: ITab[] = [

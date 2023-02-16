@@ -22,6 +22,8 @@
 {
   border-bottom: 1px solid color(border);
   padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
   &:last-child{
     border: none;
   }
