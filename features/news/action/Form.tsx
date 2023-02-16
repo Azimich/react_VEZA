@@ -12,10 +12,24 @@ import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
 
 const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
-  const [value, setValue] = useState<string>("");
+  const [inputList, setInputList] = useState([]);
+  const [input, setInput] = useState("");
 
-  const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setValue(event.target.value);
+  const handleOnChange = (event: any) => {
+    setInput(event.target.value);
+  };
+
+  const handleAddTodo = (todo: string) => {
+    const newTodo = {
+      id: Math.random(),
+      todo: todo,
+    };
+    setInputList([...inputList, newTodo]);
+    // setInput('')
+  };
+  const handleTodoDeleted = (id: number) => {
+    const newList = inputList.filter((todos) => todos.id !== id);
+    setInputList(newList);
   };
 
   useEffect(() => {
@@ -47,149 +61,117 @@ const FormNews: FC = () => {
             </label>
           </div>
         </div>
+
         <div
           className={`${Styles.added_news_todo_container} ${Styles.margin_bottom}`}
         >
-          <div className={Styles.input_block}>
-            <div className={Styles.input}>
-              <Input
-                name={"todo"}
-                id={"todo_id"}
-                title={"Введите заголовок"}
-                value={value}
-                onChange={handleOnchange}
-                className={Styles.input_width_full}
-              />
-            </div>
-            <Button children={"Добавить"} type={"button"} />
+          <div className={Styles.add_input}>
+            <Button
+              children={"Добавить поле"}
+              onClick={() => handleAddTodo(input)}
+            />
           </div>
-          <div className={Styles.textarea_block}>
-            <textarea name={"text"} placeholder={"Добавить описание"} />
-          </div>
-        </div>
-        <div className={Styles.added_news_todo_container}>
-          <div className={Styles.input_block}>
-            <div className={Styles.input}>
-              <Input
-                name={"todo"}
-                id={"todo_id"}
-                title={"Введите заголовок"}
-                value={value}
-                onChange={handleOnchange.bind(this)}
-                className={Styles.input_width_full}
-              />
-            </div>
-            <Button children={"Добавить"} type={"button"} />
-          </div>
-          <div className={`${Styles.input_block} ${Styles.margin_bottom}`}>
-            <div className={Styles.input}>
-              <Input
-                name={"todo"}
-                id={"todo_id"}
-                title={"Введите заголовок"}
-                value={value}
-                onChange={handleOnchange.bind(this)}
-                className={Styles.input_width_full}
-              />
-            </div>
-            <Button children={"Добавить"} type={"button"} />
-          </div>
-          <div className={Styles.added_news_todo_container}>
-            <div className={Styles.input_block}>
-              <div className={Styles.input}>
-                <Input
-                  name={"todo"}
-                  id={"todo_id"}
-                  title={"Введите заголовок"}
-                  value={value}
-                  onChange={handleOnchange.bind(this)}
-                  className={Styles.input_width_full}
-                />
-              </div>
-              <Button children={"Добавить"} type={"button"} />
-            </div>
-            <div className={Styles.textarea_block}>
-              <textarea name={"text"} placeholder={"Добавить описание"} />
-            </div>
-          </div>
-        </div>
-        <div className={Styles.added_news_banner}>
-          <div className={Styles.added_input}>
-            <label className={Styles.added_label}>
-              <span className={Styles.added_label_span}>
-                <Input
-                  accept={"image/*"}
-                  type={"file"}
-                  id={"added"}
-                  name={"added"}
-                  className={Styles.added_file}
-                />
-              </span>
-            </label>
-          </div>
-        </div>
-        <div className={`${Styles.margin_bottom}`}>
-          <Swiper
-            effect={"cards"}
-            grabCursor={true}
-            modules={[EffectCards, Pagination, Navigation, Autoplay]}
-            className="mySwiper"
-          >
-            <SwiperSlide className="mySwiper_slide">
-              <div className={Styles.added_news_banner}>
-                <div className={Styles.added_input}>
-                  <label className={Styles.added_label}>
-                    <span className={Styles.added_label_span}>
-                      <Input
-                        accept={"image/*"}
-                        type={"file"}
-                        id={"added"}
-                        name={"added"}
-                        className={Styles.added_file}
-                      />
-                    </span>
-                  </label>
+          <ul>
+            {inputList.map((todos) => (
+              <li key={todos.id}>
+                {/*{todos.todo}*/}
+                <div className={Styles.input_list}>
+                  <div className={Styles.input_div}>
+                    <Input
+                      id={todos.id}
+                      value={input}
+                      onChange={handleOnChange}
+                      placeholder={"Введите зогаловок"}
+                      type={"text"}
+                    />
+                  </div>
+                  <Button
+                    onClick={() => handleTodoDeleted(todos.id)}
+                    children={"X"}
+                  />
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="mySwiper_slide">
-              <div className={Styles.added_news_banner}>
-                <div className={Styles.added_input}>
-                  <label className={Styles.added_label}>
-                    <span className={Styles.added_label_span}>
-                      <Input
-                        accept={"image/*"}
-                        type={"file"}
-                        id={"added"}
-                        name={"added"}
-                        className={Styles.added_file}
-                      />
-                    </span>
-                  </label>
+              </li>
+            ))}
+          </ul>
+
+          <div className={Styles.added_news_banner}>
+            <div className={Styles.added_input}>
+              <label className={Styles.added_label}>
+                <span className={Styles.added_label_span}>
+                  <Input
+                    accept={"image/*"}
+                    type={"file"}
+                    id={"added"}
+                    name={"added"}
+                    className={Styles.added_file}
+                  />
+                </span>
+              </label>
+            </div>
+          </div>
+          <div className={`${Styles.margin_bottom}`}>
+            <Swiper
+              effect={"cards"}
+              grabCursor={true}
+              modules={[EffectCards, Pagination, Navigation, Autoplay]}
+              className="mySwiper"
+            >
+              <SwiperSlide className="mySwiper_slide">
+                <div className={Styles.added_news_banner}>
+                  <div className={Styles.added_input}>
+                    <label className={Styles.added_label}>
+                      <span className={Styles.added_label_span}>
+                        <Input
+                          accept={"image/*"}
+                          type={"file"}
+                          id={"added"}
+                          name={"added"}
+                          className={Styles.added_file}
+                        />
+                      </span>
+                    </label>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="mySwiper_slide">
-              <div className={Styles.added_news_banner}>
-                <div className={Styles.added_input}>
-                  <label className={Styles.added_label}>
-                    <span className={Styles.added_label_span}>
-                      <Input
-                        accept={"image/*"}
-                        type={"file"}
-                        id={"added"}
-                        name={"added"}
-                        className={Styles.added_file}
-                      />
-                    </span>
-                  </label>
+              </SwiperSlide>
+              <SwiperSlide className="mySwiper_slide">
+                <div className={Styles.added_news_banner}>
+                  <div className={Styles.added_input}>
+                    <label className={Styles.added_label}>
+                      <span className={Styles.added_label_span}>
+                        <Input
+                          accept={"image/*"}
+                          type={"file"}
+                          id={"added"}
+                          name={"added"}
+                          className={Styles.added_file}
+                        />
+                      </span>
+                    </label>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-        <div className={Styles.button}>
-          <Button children={"Сохранить"} />
+              </SwiperSlide>
+              <SwiperSlide className="mySwiper_slide">
+                <div className={Styles.added_news_banner}>
+                  <div className={Styles.added_input}>
+                    <label className={Styles.added_label}>
+                      <span className={Styles.added_label_span}>
+                        <Input
+                          accept={"image/*"}
+                          type={"file"}
+                          id={"added"}
+                          name={"added"}
+                          className={Styles.added_file}
+                        />
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div className={Styles.button}>
+            <Button children={"Сохранить"} />
+          </div>
         </div>
       </div>
     </Container>

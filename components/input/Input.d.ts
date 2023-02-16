@@ -10,7 +10,7 @@ interface IInput {
   type?: "text" | "password" | "file" | "checkbox" | "date" | "number";
   id: string;
   multi?: boolean;
-  name: string;
+  name?: string;
   className?: string;
   value?: string;
   filesname?: ReactNode;
