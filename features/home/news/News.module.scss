@@ -273,7 +273,7 @@
         }
       }
       &:nth-of-type(4) {
-        border-radius: 0 0 0 20px;
+        border-radius: 20px 0 0 20px;
         @include ipadScreen {
           border-radius: 20px;
         }
