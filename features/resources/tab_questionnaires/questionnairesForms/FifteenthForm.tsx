@@ -216,7 +216,7 @@ const FifteenthForm = () => {
             />
           </div>
         </div>
-        <div>
+        <div className={Styles.textarea_block}>
           <div className={Styles.fifteenth_form_textarea}>
             <textarea placeholder="Дополнительные сведения" />
           </div>
