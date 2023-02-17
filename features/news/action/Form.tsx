@@ -2,34 +2,53 @@ import React, { FC, useEffect, useState } from "react";
 
 import Styles from "./FormNews.module.scss";
 import { Container } from "components/common/container";
-import { SelectContainer } from "components/select/SelectContainer";
 import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
+/*import {FormikValues, useFormik} from "formik";
+import {ValidationJob} from "features/auth/formsData/ValidationsShemas";*/
 
 const FormNews: FC = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
-  const [inputList, setInputList] = useState([]);
-  const [input, setInput] = useState("");
+  const [inputFields, setInputFields] = useState([""]);
 
-  const handleOnChange = (event: any) => {
-    setInput(event.target.value);
+  /*    const formik: FormikValues = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            phone: "",
+            forgot: false,
+            private_police: false,
+        },
+        validationSchema: ValidationJob(),
+        onSubmit: () => {
+            console.log("");
+        },
+    });*/
+
+  const addFields = () => {
+    setInputFields([...inputFields, ""]);
+  };
+  const deleteFields = (index: number) => {
+    if (inputFields.length < 2) {
+      return;
+    } else {
+      const data = [...inputFields];
+      data.splice(index, 1);
+      setInputFields(data);
+    }
   };
 
-  const handleAddTodo = (todo: string) => {
-    const newTodo = {
-      id: Math.random(),
-      todo: todo,
-    };
-    setInputList([...inputList, newTodo]);
-    // setInput('')
-  };
-  const handleTodoDeleted = (id: number) => {
-    const newList = inputList.filter((todos) => todos.id !== id);
-    setInputList(newList);
+  const handleFormChange = (
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const data = [...inputFields];
+    data[index] = event.target.value;
+    setInputFields(data);
   };
 
   useEffect(() => {
@@ -40,12 +59,13 @@ const FormNews: FC = () => {
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.added_news}>
-        <SelectContainer
-          instanceId={"Select_search"}
-          onChange={() => {}}
-          optionsData={[]}
-          defaultValue={{}}
-        />
+        {/*                <SelectContainer
+                    instanceId={"Select_search"}
+                    onChange={() => {
+                    }}
+                    optionsData={[]}
+                    defaultValue={{}}
+                />*/}
         <div className={Styles.added_news_banner}>
           <div className={Styles.added_input}>
             <label className={Styles.added_label}>
@@ -61,34 +81,44 @@ const FormNews: FC = () => {
             </label>
           </div>
         </div>
+        <div>
+          <Input
+            id={"title_block"}
+            name={"title_block"}
+            placeholder={"Заголовок"}
+            value={""}
+          />
+        </div>
+        <textarea></textarea>
+        <div>
+          <Input
+            id={"title_block"}
+            name={"title_block"}
+            placeholder={"Заголовок"}
+            value={""}
+          />
+        </div>
 
         <div
-          className={`${Styles.added_news_todo_container} ${Styles.margin_bottom}`}
+          className={`${Styles.added_news_container} ${Styles.margin_bottom}`}
         >
           <div className={Styles.add_input}>
-            <Button
-              children={"Добавить поле"}
-              onClick={() => handleAddTodo(input)}
-            />
+            <Button children={"Добавить поле"} onClick={() => addFields()} />
           </div>
           <ul>
-            {inputList.map((todos) => (
-              <li key={todos.id}>
-                {/*{todos.todo}*/}
+            {inputFields.map((input, index) => (
+              <li key={index}>
                 <div className={Styles.input_list}>
                   <div className={Styles.input_div}>
                     <Input
-                      id={todos.id}
+                      id={index.toString()}
                       value={input}
-                      onChange={handleOnChange}
-                      placeholder={"Введите зогаловок"}
+                      onChange={(event) => handleFormChange(index, event)}
+                      placeholder={""}
                       type={"text"}
                     />
                   </div>
-                  <Button
-                    onClick={() => handleTodoDeleted(todos.id)}
-                    children={"X"}
-                  />
+                  <Button onClick={() => deleteFields(index)} children={"-"} />
                 </div>
               </li>
             ))}
