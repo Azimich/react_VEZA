@@ -5,7 +5,6 @@ import { ICatalogEquipmentData, ICategoriesItem } from "../Equipment";
 
 const Catalog: FC<{ data: ICategoriesItem[] }> = ({ data }) => {
   const [dataCategory] = useState<ICatalogEquipmentData>();
-
   return (
     <>
       <div className={Styles.equipment__container_catalog}>
