@@ -1,11 +1,15 @@
 import Styles from "./Slider.module.scss";
 import { ISlideItem } from "./Slider.d";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "../button";
 import { ArrowRightIcon } from "../icons";
 import { Link } from "components/link";
 import { decisionPath, equipmentPath } from "utils/bootstrap";
+import { Modal, useModal } from "components/modal";
+import { Editor } from "components/editor_pen";
+import { ModalBannerAdded } from "features/home/bannerModal/ModalBannerAdded";
+import { ModalBannerEdit } from "features/home/bannerModal/ModalBannerEdit";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -23,9 +27,11 @@ const SlideItem: FC<ISlideItem> = ({
   url = "",
   size = "medium",
   OnClick,
+  isEdit = true,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
+  const { isShow, toggle } = useModal();
 
   const Img = () => {
     return (
@@ -72,6 +78,38 @@ const SlideItem: FC<ISlideItem> = ({
               </Button>
             </div>
           </div>
+        )}
+
+        {/*Иконка для редактирования баннера*/}
+        {isEdit && (
+          <>
+            <div className={Styles.banner_editor} onClick={toggle}>
+              <Editor />
+            </div>
+            <Modal
+              isShow={isShow}
+              hide={toggle}
+              modalContent={<ModalBannerEdit />}
+              theme={"full_modal"}
+              bgModal={"white"}
+            />
+          </>
+        )}
+
+        {/*Иконка для добавления баннера*/}
+        {isEdit && (
+          <>
+            <div className={Styles.banner_added} onClick={toggle}>
+              <Button children={"Добавить баннер"} />
+            </div>
+            <Modal
+              isShow={isShow}
+              hide={toggle}
+              modalContent={<ModalBannerAdded />}
+              theme={"full_modal"}
+              bgModal={"white"}
+            />
+          </>
         )}
       </div>
     );
@@ -126,6 +164,7 @@ const SlideItem: FC<ISlideItem> = ({
   useEffect(() => {
     isWindow && setHasWindow(true);
   }, [isWindow]);
+
   switch (typeSlider) {
     case "img":
       return url ? (

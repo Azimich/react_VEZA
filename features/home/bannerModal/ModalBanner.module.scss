@@ -1,0 +1,81 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.banner_modal_container {
+  margin-top: 30px;
+}
+.banner_modal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(500px,10fr));
+  gap: 20px;
+  &_item {
+    border-radius: 10px;
+    overflow: hidden;
+    background: color(white);
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.07);
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    .information {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .edit_modal {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      label {
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+//Модал для добавления баннеров
+.banner_modal_added {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(800px, 10fr));
+  gap: 20px;
+  margin-bottom: 50px;
+  .added_banner {
+    background: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+  }
+  .added_input {
+    position: relative;
+    background-color: #009247;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 7vw;
+    width: 7vw;
+  }
+  .added_label {
+    background-image: url('/images/add.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    display: block;
+    width: 70%;
+    height: 70%;
+    cursor: pointer;
+    z-index: 2;
+    &_span {
+      display: none;
+    }
+  }
+  .added_label_span {
+
+  }
+}

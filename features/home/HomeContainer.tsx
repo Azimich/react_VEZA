@@ -43,6 +43,7 @@ const HomeContainer: FC<ISSRHome> = ({
       };
     });
   };
+
   return (
     <>
       <SliderContainer
@@ -50,6 +51,7 @@ const HomeContainer: FC<ISSRHome> = ({
         items={convert(indexBanner)}
         theme={"home"}
         dots={true}
+        isEdit={true}
       />
       {!indexAboutUS?.hasError ? (
         <AboutContainer {...indexAboutUS} />
@@ -96,4 +98,5 @@ const HomeContainer: FC<ISSRHome> = ({
     </>
   );
 };
+
 export { HomeContainer };

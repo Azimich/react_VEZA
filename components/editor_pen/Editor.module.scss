@@ -1,0 +1,30 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.edit_icon {
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  background: color(white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    background: color(green);
+    svg {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+  svg {
+    width: 18px;
+    height: 18px;
+    path {
+      fill: #212121;
+    }
+  }
+}
