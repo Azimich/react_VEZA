@@ -37,3 +37,4 @@ export { DownloadIcon } from "./includes/DownloadIcon";
 export { UsersIcon } from "./includes/UsersIcon";
 export { QuitIcon } from "./includes/QuitIcon";
 export { ChartIcon } from "./includes/ChartIcon";
+export { PenIcon } from "./includes/PenIcon";

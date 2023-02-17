@@ -33,6 +33,7 @@ const SliderContainer: FC<ISliderProps> = ({
   navigations = false,
   breakpoints,
   centeredSlides = false,
+  isEdit = false,
 }) => {
   const pagination = {
     clickable: true,
@@ -85,6 +86,7 @@ const SliderContainer: FC<ISliderProps> = ({
           return (
             <SwiperSlide key={i}>
               <SlideItem
+                isEdit={isEdit}
                 images={e.images}
                 link_slider={e.link_slider}
                 code={e.code}
