@@ -1,29 +1,23 @@
 import React, { FC } from "react";
-import { ISearch } from "features/search/Search";
+import { ISearch, ISearchResponse } from "features/search/Search";
 import { Container } from "components/common/container";
-
+import { SearchItem } from "features/search/SearchItem";
 import Styles from "components/common/header/search/SearchModal.module.scss";
 import { Input } from "components/input/InputContainer";
-import { useRouter } from "next/router";
+import { useSearch } from "service/list/search";
 
 const SearchContainer: FC<ISearch> = () => {
-  const router = useRouter();
-  const [inputValue, setInputValue] = React.useState<string>(
-    router.query.q as string,
-  );
-  /*const [filteredData] = React.useState<[]>([]);*/
-  /*  useEffect(() => {
-        inputValue
-          ? setFilteredData(
-              searchData.filter((e) =>
-                e.title.toLowerCase().includes(inputValue.toLowerCase()),
-              ),
-            )
-          : setFilteredData([]);
-      }, [inputValue]);*/
-  const handleOnChangeSearch = (event: any) => {
+  const [inputValue, setInputValue] = React.useState<string>("");
+  const [filteredData, setFilteredData] = React.useState<ISearchResponse>();
+  const { search } = useSearch();
+  const handleOnChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    event.target.value.length > 3 &&
+      search(event.target.value, -1).then((data) => {
+        setFilteredData(data);
+      });
   };
+
   return (
     <Container className={"wrapper"}>
       <div className={Styles.search__items__input}>
@@ -37,12 +31,11 @@ const SearchContainer: FC<ISearch> = () => {
           className={Styles.input_field}
         />
       </div>
-      {/*            {inputValue.length !== 0 && filteredData.length > 0
-                ? filteredData.map((e) => {
-                    return <SearchItem {...e} key={e.id}/>;
-                })
-                : inputValue.length !== 0 && <h2>Ничего не найдено</h2>}
-            <Pagination currentPage={1} totalPageCount={100} pageSize={10}/>*/}
+      {inputValue.length !== 0 && filteredData?.response.length > 0
+        ? filteredData?.response.map((e) => {
+            return <SearchItem {...e} key={e.resultAlias} />;
+          })
+        : inputValue.length !== 0 && <h2>Ничего не найдено</h2>}
     </Container>
   );
 };
