@@ -32,7 +32,7 @@ const HomeContainer: FC<ISSRHome> = ({
         block_description: e.show_text !== undefined ? e.show_text : isShowText,
         description: e.description,
         images: {
-          pc: e?.images?.wide ? e?.images?.wide : e?.images?.pc,
+          pc: e?.images?.pc,
           ipad: e?.images?.ipad,
           mobile: e?.images?.mobile,
         },
