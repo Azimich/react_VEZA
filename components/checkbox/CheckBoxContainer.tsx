@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Styles from "./CheckBox.module.scss";
 import { ICheckBox } from "./CheckBox";
 
@@ -7,10 +7,13 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   classCheck = "",
   name = "checkbox",
   onChangeData,
-  isSelected,
   id,
   ...attrs
 }) => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const handleOnClick = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <div className={Styles.checkbox_container}>
       <label
@@ -22,8 +25,9 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
           data-testid={"check-box"}
           id={String(id)}
           type="checkbox"
-          checked={isSelected}
-          onChange={(e) => onChangeData(e)}
+          checked={isChecked}
+          onChange={() => onChangeData(isChecked)}
+          onClick={() => handleOnClick()}
           name={name}
         />
         {title}

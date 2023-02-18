@@ -126,7 +126,7 @@
       padding: 0 0 0 0;
       height: 100vh;
       .modal_content {
-        height: 100vh;
+        height: auto;
       }
 
       @include ipadScreen {

@@ -32,85 +32,62 @@ const SlideItem: FC<ISlideItem> = ({
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
   const { isShow, toggle } = useModal();
+  const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
 
   const Img = () => {
     return (
-      <div
-        className={`${Styles[`${theme}_banner__slider_slide`]}`}
-        key={Math.random() * 10}
-      >
-        <div className={Styles[`${theme}_banner__slider_img`]}>
-          {hasWindow && isDesktop && (
-            <img
-              src={typeof images === "object" ? images.pc : images}
-              alt={alt}
-            />
-          )}
-          {hasWindow && isTablet && (
-            <img
-              src={typeof images === "object" ? images.ipad : images}
-              alt={alt}
-            />
-          )}
-          {hasWindow && isMobile && (
-            <img
-              src={typeof images === "object" ? images.mobile : images}
-              alt={alt}
-            />
+      <div>
+        <div
+          className={`${Styles[`${theme}_banner__slider_slide`]}`}
+          key={Math.random() * 10}
+        >
+          <div className={Styles[`${theme}_banner__slider_img`]}>
+            {hasWindow && isDesktop && (
+              <img
+                src={typeof images === "object" ? images.pc : images}
+                alt={alt}
+              />
+            )}
+            {hasWindow && isTablet && (
+              <img
+                src={typeof images === "object" ? images.ipad : images}
+                alt={alt}
+              />
+            )}
+            {hasWindow && isMobile && (
+              <img
+                src={typeof images === "object" ? images.mobile : images}
+                alt={alt}
+              />
+            )}
+          </div>
+          {block_description && (
+            <div className={Styles[`${theme}_banner__right_element`]}>
+              <h1 className={Styles[`${theme}_banner__right_element_title`]}>
+                {title}
+              </h1>
+              {description && (
+                <p className={Styles[`${theme}_banner__right_element_text`]}>
+                  {description}
+                </p>
+              )}
+              <div className={Styles[`${theme}_banner__right_element_allign`]}>
+                <Button
+                  theme={themeButton}
+                  size={size}
+                  link={url}
+                  color={color}
+                >
+                  <span>
+                    <p>Подробнее</p>
+                    {color === "link" && <ArrowRightIcon />}
+                  </span>
+                </Button>
+              </div>
+            </div>
           )}
         </div>
-        {block_description && (
-          <div className={Styles[`${theme}_banner__right_element`]}>
-            <h1 className={Styles[`${theme}_banner__right_element_title`]}>
-              {title}
-            </h1>
-            {description && (
-              <p className={Styles[`${theme}_banner__right_element_text`]}>
-                {description}
-              </p>
-            )}
-            <div className={Styles[`${theme}_banner__right_element_allign`]}>
-              <Button theme={themeButton} size={size} link={url} color={color}>
-                <span>
-                  <p>Подробнее</p>
-                  {color === "link" && <ArrowRightIcon />}
-                </span>
-              </Button>
-            </div>
-          </div>
-        )}
-
         {/*Иконка для редактирования баннера*/}
-        {isEdit && (
-          <>
-            <div className={Styles.banner_editor} onClick={toggle}>
-              <Editor />
-            </div>
-            <Modal
-              isShow={isShow}
-              hide={toggle}
-              modalContent={<ModalBannerEdit />}
-              theme={"full_modal"}
-              bgModal={"white"}
-            />
-          </>
-        )}
-
-        {/*Иконка для добавления баннера*/}
-        {isEdit && (
-          <>
-            <div className={Styles.banner_added} onClick={toggle}>
-              <Button children={"Добавить баннер"} />
-            </div>
-            <Modal
-              isShow={isShow}
-              hide={toggle}
-              modalContent={<ModalBannerAdded />}
-              theme={"full_modal"}
-              bgModal={"white"}
-            />
-          </>
-        )}
       </div>
     );
   };
@@ -168,9 +145,40 @@ const SlideItem: FC<ISlideItem> = ({
   switch (typeSlider) {
     case "img":
       return url ? (
-        <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
-          <Img />
-        </Link>
+        <div>
+          <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
+            <Img />
+          </Link>
+          {isEdit && (
+            <>
+              <div className={Styles.banner_editor} onClick={toggle}>
+                <Editor />
+              </div>
+              <Modal
+                isShow={isShow}
+                hide={toggle}
+                modalContent={<ModalBannerEdit />}
+                theme={"full_modal"}
+                bgModal={"white"}
+              />
+            </>
+          )}
+          {/*Иконка для добавления баннера*/}
+          {isEdit && (
+            <>
+              <div className={Styles.banner_added} onClick={toggleAdd}>
+                <Button children={"Добавить баннер"} />
+              </div>
+              <Modal
+                isShow={isShowAdd}
+                hide={toggleAdd}
+                modalContent={<ModalBannerAdded />}
+                theme={"full_modal"}
+                bgModal={"white"}
+              />
+            </>
+          )}
+        </div>
       ) : (
         <Img />
       );
