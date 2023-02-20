@@ -3,15 +3,15 @@ import { IFieledsData } from "./Forms";
 //для формы авторизации
 const fieldsDataJob: IFieledsData[] = [
   {
-    name: "firstName",
+    name: "name",
     title: "Имя *",
-    filter: /g/g,
+    filter: / /g,
     size: 0,
   },
   {
     name: "email",
     title: "Почта *",
-    filter: /g/g,
+    filter: / /g,
     size: 0,
   },
   {

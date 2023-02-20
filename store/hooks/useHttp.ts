@@ -18,7 +18,6 @@ const useHttp = () => {
       try {
         const response = await fetch(url, { method, body, headers });
         const data = await response.json();
-        console.log("----");
         if (!response.ok) {
           setError(data.message);
         }
@@ -26,7 +25,6 @@ const useHttp = () => {
 
         return data;
       } catch (e) {
-        console.log("----", e);
         setLoading(false);
         setError(e.message);
       }

@@ -12,10 +12,7 @@ const headers = {
   accept: "text/plain",
   "Content-Type": "application/json",
 };
-const headers_files = {
-  "Content-Type": "multipart/form-data",
-  Accept: "*/*",
-};
+const headers_files = {};
 
 export {
   equipmentPath,

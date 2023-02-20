@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "components/button";
 import { Input } from "components/input/InputContainer";
 import Styles from "./ModalJob.module.scss";
@@ -7,41 +7,45 @@ import { FormikValues, useFormik } from "formik";
 import { ChangeEvent } from "react";
 import { ValidationJob } from "features/auth/formsData/ValidationsShemas";
 import { fieldsDataJob } from "features/auth/formsData/FieledsData";
+import { useAddVacancy } from "service/item/addVacancy";
 
 const ModalFormJob = () => {
+  const { addVacancy } = useAddVacancy();
+  const [isSending, setIsSending] = useState<boolean>(false);
   const formik: FormikValues = useFormik({
     initialValues: {
       name: "",
       email: "",
       phone: "",
-      forgot: false,
       private_police: false,
     },
     validationSchema: ValidationJob(),
-    onSubmit: () => {
-      console.log("");
+    onSubmit: (values) => {
+      addVacancy(values).then((data) => {
+        data.response && setIsSending(true);
+      });
     },
   });
 
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
-  console.log("selectedFilesName", selectedFilesName);
+  /*  const [selectedFiles, setSelectedFiles] = useState([]);
+      const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
+      console.log("selectedFilesName", selectedFilesName);*/
   //Инпут для добавления файла
   /*  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedFiles(Array.from(e.target.files));
-  };*/
+      setSelectedFiles(Array.from(e.target.files));
+    };*/
 
-  const handleDeleteClick = (
-    e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
-    index: number,
-  ) => {
-    e.preventDefault();
-    setSelectedFiles(
-      selectedFiles.filter((e) => {
-        return e.lastModified != index;
-      }),
-    );
-  };
+  /*  const handleDeleteClick = (
+        e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+        index: number,
+      ) => {
+        e.preventDefault();
+        setSelectedFiles(
+          selectedFiles.filter((e) => {
+            return e.lastModified != index;
+          }),
+        );
+      };*/
 
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
@@ -60,76 +64,80 @@ const ModalFormJob = () => {
     );
   };
 
-  useEffect(() => {
-    const el: ReactNode = (
-      <ul className={Styles.input_names}>
-        {selectedFiles.length > 0 &&
-          selectedFiles.map((file) => {
-            return (
-              <li key={file.lastModified}>
-                <p>{file.name}</p>
-                <span
-                  onClick={(e) => handleDeleteClick(e, file.lastModified)}
-                ></span>
-              </li>
-            );
-          })}
-      </ul>
-    );
-    setSelectedFilesName(el);
-  }, [selectedFiles]);
+  /*  useEffect(() => {
+        const el: ReactNode = (
+          <ul className={Styles.input_names}>
+            {selectedFiles.length > 0 &&
+              selectedFiles.map((file) => {
+                return (
+                  <li key={file.lastModified}>
+                    <p>{file.name}</p>
+                    <span
+                      onClick={(e) => handleDeleteClick(e, file.lastModified)}
+                    ></span>
+                  </li>
+                );
+              })}
+          </ul>
+        );
+        setSelectedFilesName(el);
+      }, [selectedFiles]);*/
 
   return (
     <div className={Styles.job__modal}>
-      <form className={Styles.job__modal__items} onSubmit={formik.handleSubmit}>
-        <div className={Styles.job__modal__items__title}>
-          <h2>Оформить заявку</h2>
-          <p>
-            Хотите стать частью нашей команды? Или нашли ваканcию, которая вам
-            подходит? Оставьте Ваши данные и мы обязательно свяжемся с Вами!
-          </p>
-        </div>
-        <div className={Styles.box_field}>
-          {fieldsDataJob.length > 0 &&
-            fieldsDataJob.map((item) => {
-              return (
-                <div
-                  key={item.name}
-                  className={`${
-                    formik.errors[item.name] && formik.touched[item.name]
-                      ? Styles.job__modal__item__input_error
-                      : Styles.job__modal__item__input
-                  }`}
-                >
-                  <Input
-                    name={item.name}
-                    id={item.name + "_id"}
-                    title={item.title}
-                    className={Styles.input__item}
-                    onChange={(e) =>
-                      handleFilterOnChange(e, item.filter, item.name)
-                    }
-                    onBlur={formik.handleBlur}
-                    value={formik.values[item.name]}
-                  />
+      {!isSending ? (
+        <form
+          className={Styles.job__modal__items}
+          onSubmit={formik.handleSubmit}
+        >
+          <div className={Styles.job__modal__items__title}>
+            <h2>Оформить заявку</h2>
+            <p>
+              Хотите стать частью нашей команды? Или нашли ваканcию, которая вам
+              подходит? Оставьте Ваши данные и мы обязательно свяжемся с Вами!
+            </p>
+          </div>
+          <div className={Styles.box_field}>
+            {fieldsDataJob.length > 0 &&
+              fieldsDataJob.map((item) => {
+                return (
                   <div
+                    key={item.name}
                     className={`${
                       formik.errors[item.name] && formik.touched[item.name]
-                        ? Styles.overflow__auto
-                        : Styles.overflow
+                        ? Styles.job__modal__item__input_error
+                        : Styles.job__modal__item__input
                     }`}
                   >
-                    <span>{formik.errors[item.name]}</span>
+                    <Input
+                      name={item.name}
+                      id={item.name + "_id"}
+                      title={item.title}
+                      className={Styles.input__item}
+                      onChange={(e) =>
+                        handleFilterOnChange(e, item.filter, item.name)
+                      }
+                      onBlur={formik.handleBlur}
+                      value={formik.values[item.name]}
+                    />
+                    <div
+                      className={`${
+                        formik.errors[item.name] && formik.touched[item.name]
+                          ? Styles.overflow__auto
+                          : Styles.overflow
+                      }`}
+                    >
+                      <span>{formik.errors[item.name]}</span>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-        </div>
-        <div className={Styles.job__modal__items__input}>
-          {/*          <textarea placeholder={"Другое описание"} />*/}
-        </div>
-        <div className={Styles.job__modal__added__file}>
-          {/*          <Input
+                );
+              })}
+          </div>
+          <div className={Styles.job__modal__items__input}>
+            {/*          <textarea placeholder={"Другое описание"} />*/}
+          </div>
+          <div className={Styles.job__modal__added__file}>
+            {/*          <Input
             name={"files"}
             title={"Прикрепить"}
             type={"file"}
@@ -139,42 +147,48 @@ const ModalFormJob = () => {
               handleInputFileOnChange(e)
             }
           />*/}
-        </div>
-        <div
-          className={`${Styles.job__modal__items__textarea} ${Styles.no_padding} ${Styles.checkbox__auth}`}
-        >
-          <ul
-            className={`${
-              formik.errors?.private_police && formik.touched?.private_police
-                ? Styles.job__modal__item__input_error
-                : Styles.job__modal__item__input
-            }`}
+          </div>
+          <div
+            className={`${Styles.job__modal__items__textarea} ${Styles.no_padding} ${Styles.checkbox__auth}`}
           >
-            <div className={Styles.modal_job}>
-              <CheckboxWithLabel
-                name={"private_police"}
-                id={"private_police_id"}
-                title={"Согласие на обработку персональных данных с условиями"}
-                onChangeData={(e) => {
-                  formik.handleChange(e);
-                }}
-              />
-            </div>
-            <div
+            <ul
               className={`${
                 formik.errors?.private_police && formik.touched?.private_police
-                  ? Styles.overflow__auto
-                  : Styles.overflow
+                  ? Styles.job__modal__item__input_error
+                  : Styles.job__modal__item__input
               }`}
             >
-              <li>{formik.errors?.private_police}</li>
-            </div>
-          </ul>
-        </div>
-        <div className={Styles.job__modal__item__answer}>
-          <Button type={"submit"} children={"Отправить"} theme={"banner"} />
-        </div>
-      </form>
+              <div className={Styles.modal_job}>
+                <CheckboxWithLabel
+                  name={"private_police"}
+                  id={"private_police_id"}
+                  title={
+                    "Согласие на обработку персональных данных с условиями"
+                  }
+                  onChangeData={(e) => {
+                    formik.setFieldValue("private_police", !e);
+                  }}
+                />
+              </div>
+              <div
+                className={`${
+                  formik.errors?.private_police &&
+                  formik.touched?.private_police
+                    ? Styles.overflow__auto
+                    : Styles.overflow
+                }`}
+              >
+                <li>{formik.errors?.private_police}</li>
+              </div>
+            </ul>
+          </div>
+          <div className={Styles.job__modal__item__answer}>
+            <Button type={"submit"} children={"Отправить"} theme={"banner"} />
+          </div>
+        </form>
+      ) : (
+        <div>С вами свяжутся</div>
+      )}
     </div>
   );
 };

@@ -30,10 +30,9 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
       const fd = new FormData();
       console.log("values", values);
       /*            fd.append('title', values.title);
-                        fd.append('alias', values.alias);*/
+                              fd.append('alias', values.alias);*/
       fd.append("image", values.image);
-
-      getAddTopBanner(fd, values).then((data) => {
+      getAddTopBanner(fd).then((data) => {
         console.log("data", data);
       });
     },
@@ -56,10 +55,7 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
                         name={"added"}
                         className={Styles.added_file}
                         onChange={(event) => {
-                          formik.setFieldValue(
-                            "image",
-                            event.currentTarget.files[0],
-                          );
+                          formik.setFieldValue("image", event.target.files[0]);
                         }}
                       />
                     </span>
