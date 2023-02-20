@@ -91,7 +91,7 @@ const HomeContainer: FC<ISSRHome> = ({
         />
         <Separator
           title={"Выполнить подбор необходимого оборудования?"}
-          classNameProps={Styles.bottom__separator}
+          classNameProps={`${Styles.bottom__separator}`}
         />
         <SelectionContainer />
       </Container>

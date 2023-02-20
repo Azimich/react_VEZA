@@ -176,3 +176,10 @@
     }
   }
 }
+.bottom__separator {
+  h2 {
+    @include phoneScreen {
+      font-size: 18px !important;
+    }
+  }
+}

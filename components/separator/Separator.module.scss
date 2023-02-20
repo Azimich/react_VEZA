@@ -5,7 +5,7 @@
   margin: 100px 0 30px 0;
   text-align: center;
   @include ipadScreen {
-    margin: 50px 0 4% 0;
+    margin: 50px 0 2% 0;
   }
 
   .separator_title {
@@ -16,12 +16,8 @@
     text-transform: uppercase;
     color: color(dark);
     @include phoneScreen {
-      font-size: 30px;
-      line-height: 145%;
-    }
-
-    @media (max-width: 400px) {
       font-size: 25px;
+      line-height: 140%;
     }
   }
 }

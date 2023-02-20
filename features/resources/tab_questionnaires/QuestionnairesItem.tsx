@@ -15,8 +15,8 @@ const QuestionnairesItem: FC<IQuestionnaires> = ({
       classLink={Styles.questionnaires}
     >
       <div className={Styles.questionnaires__info}>
-        <h3>{title}</h3>
-        <p>{subtitle}</p>
+        <h3>{subtitle}</h3>
+        <p>{title}</p>
       </div>
     </Link>
   );

@@ -51,7 +51,7 @@ const tabsResourcesData: ITab[] = [
   { id: 1, title: "BIM", url: "bim", access: false },
   { id: 2, title: "Каталоги", url: "catalog", access: false },
   { id: 3, title: "Вопросы", url: "questions", access: false },
-  { id: 4, title: "Серетификаты", url: "certificates", access: false },
+  { id: 4, title: "Сертификаты", url: "certificates", access: false },
   { id: 5, title: "Опросные листы", url: "questionnaires", access: false },
   { id: 6, title: "Документация", url: "doc", access: true },
   { id: 7, title: "Обучение", url: "training", access: true },

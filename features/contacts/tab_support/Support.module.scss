@@ -128,7 +128,6 @@
             display: flex;
             transition: all 0.3s;
             position: relative;
-
             &:after {
               content: "";
               background-image: url('../../../public/images/close.svg');
@@ -151,13 +150,11 @@
         position: absolute;
         left: 100%;
         cursor: pointer;
-
         span {
           display: flex;
           align-items: center;
           gap: 10px;
           font-size: 14px;
-
           svg {
             margin-left: 12px;
           }
@@ -189,7 +186,6 @@
       font-weight: 400;
       color: #ff0000;
       padding: 11px 12px;
-
       svg {
         width: 20px;
         height: 20px;

@@ -49,6 +49,7 @@
         border-radius: 10px 0 0 10px;
         overflow: hidden;
         @include ipadScreen {
+          padding: 20px 10px 20px 20px;
           order: 1;
           border-radius: 0 0 10px 10px;
           gap: 20px;

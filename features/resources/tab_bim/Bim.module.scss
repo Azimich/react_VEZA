@@ -17,7 +17,6 @@
   }
 
   @include phoneScreen {
-    margin-bottom: 50px;
     justify-content: center;
   }
 
@@ -149,4 +148,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 60px;
+  @include phoneScreen {
+    margin-bottom: 30px;
+  }
 }
