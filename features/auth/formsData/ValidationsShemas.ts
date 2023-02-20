@@ -2,7 +2,7 @@ import * as Yup from "yup";
 
 const ValidationJob = () => {
   return Yup.object({
-    rstName: Yup.string()
+    name: Yup.string()
       .min(2, "Минимум 2 символа!")
       .max(50, "Максимум 50 символов!")
       .required("Обязательно для заполнения!"),

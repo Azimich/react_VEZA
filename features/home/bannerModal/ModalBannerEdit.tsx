@@ -1,11 +1,11 @@
 import React, { FC } from "react";
+import { ModalForm } from "features/home/bannerModal/ModalForm";
 /*import Styles from "./ModalBanner.module.scss";
 import {Button} from "components/button";
 import {LayoutInput} from "components/input";
 
 import {Editor} from "components/editor_pen";
 import {Textarea} from "components/textarea/Index";*/
-import { ModalForm } from "features/home/bannerModal/ModalForm";
 
 const ModalBannerEdit: FC = () => {
   /*    const [inputValue, setInputValue] = useState("");
