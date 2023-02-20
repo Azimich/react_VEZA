@@ -21,9 +21,12 @@
       margin-bottom: 7%;
     }
 
+    @include phoneScreen {
+      margin-bottom: 10%;
+    }
+
     ul {
       background: #8B9C88;
-
       li {
         display: flex;
         justify-content: space-between;
@@ -75,6 +78,11 @@
       font-size: 40px;
       text-transform: uppercase;
       position: relative;
+      color: color(dark);
+      @include phoneScreen {
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
     }
 
     &_banner {
@@ -107,7 +115,10 @@
       gap: 30px;
       margin-bottom: 3%;
       @include phoneScreen {
-        gap: 14px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
       }
 
       &_a {

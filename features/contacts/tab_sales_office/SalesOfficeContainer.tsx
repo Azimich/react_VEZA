@@ -176,9 +176,7 @@ const SalesOfficeContainer: FC = () => {
               size={"max"}
             />
           </div>
-          <div>
-            <Map formOutPut={FormOutPut} />
-          </div>
+          <Map formOutPut={FormOutPut} />
           <div className={Styles.sales_office_container_items}>
             <div className={Styles.separator__title__container}>
               <SeparatorContainer title={data.desc} />
@@ -199,14 +197,12 @@ const SalesOfficeContainer: FC = () => {
             >
               {React.createElement(components[`tab_${data.slug}`])}
             </Tabs>
-            <div>
-              <SeparatorContainer title={"Филиалы"} />
-              <p className={Styles.styles_map}>
-                <MapIcon />
-                {selectedCity?.address}
-              </p>
-              <YandexMap {...selectedCity} />
-            </div>
+            <SeparatorContainer title={"Филиалы"} />
+            <p className={Styles.styles_map}>
+              <MapIcon />
+              {selectedCity?.address}
+            </p>
+            <YandexMap {...selectedCity} />
           </div>
           <Modal
             isShow={isShow}

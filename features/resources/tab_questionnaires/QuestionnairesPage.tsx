@@ -59,7 +59,7 @@ const QuestionnairesPage: FC = () => {
     };
     return React.createElement(components[`${router.query.alias}`]);
   };
-  console.log("23213", rend());
+
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />

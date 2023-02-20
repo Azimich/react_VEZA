@@ -6,6 +6,9 @@
   display: flex;
   justify-content: center;
   margin: 40px auto 80px;
+  @include phoneScreen {
+    margin: 30px auto 30px;
+  }
 }
 
 .sales_office_container_items {
@@ -26,7 +29,7 @@
 .yandex__map {
   height: 500px;
   width: 100%;
-
+  margin-bottom: 80px;
   [class*="copyrights-pane"] {
     display: none !important;
   }
