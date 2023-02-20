@@ -22,19 +22,18 @@ const BimContainer = () => {
     useState<IBreadCrumbs[]>(dataBreadResources);
   const { getBimData } = useGetBim();
   const [bimData, setBimData] = useState<IBim[]>([]);
-
   const auth = useAppSelector(getAuth);
+  const { isShow, toggle } = useModal();
 
   useEffect(() => {
     getBimData().then((data: IBimResponseArray) => {
       !data.hasError && setBimData(data.response);
     });
   }, []);
+
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "BIM" }]);
   }, [dataBreadResources]);
-
-  const { isShow, toggle } = useModal();
 
   return (
     <Container className={"wrapper_clear"}>

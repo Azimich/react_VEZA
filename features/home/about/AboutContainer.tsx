@@ -22,6 +22,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
       return '<span class="' + className + '">' + "</span>";
     },
   };
+
   return (
     <div className={Styles.about}>
       <div className={Styles.about__container}>
@@ -60,7 +61,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   modules={[Pagination, Autoplay]}
                   slidesPerView={6}
                   spaceBetween={23}
-                  autoplay={false}
+                  autoplay={true}
                   loop={true}
                   pagination={pagination}
                   breakpoints={{

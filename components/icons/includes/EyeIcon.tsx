@@ -3,11 +3,12 @@ import React, { FC } from "react";
 const EyeIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       viewBox="0 0 30 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="eye_icon"
       {...props}
     >
       <path
