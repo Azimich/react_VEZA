@@ -15,6 +15,13 @@ interface IAboutUsSSR {
 
 const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
   const ref1 = useRef(null);
+  const pagination = {
+    clickable: true,
+    dynamicBullets: true,
+    renderBullet: function (index: number, className: string) {
+      return '<span class="' + className + '">' + "</span>";
+    },
+  };
   return (
     <div className={Styles.about}>
       <div className={Styles.about__container}>
@@ -53,9 +60,9 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   modules={[Pagination, Autoplay]}
                   slidesPerView={6}
                   spaceBetween={23}
-                  autoplay={true}
+                  autoplay={false}
                   loop={true}
-                  pagination={true}
+                  pagination={pagination}
                   breakpoints={{
                     "@0.00": {
                       slidesPerView: 1,
