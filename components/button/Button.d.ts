@@ -9,4 +9,5 @@ export interface ButtonI {
   theme?: "banner" | "news" | "industries";
   color?: "white" | "green" | "link";
   link?: string;
+  className?: string;
 }

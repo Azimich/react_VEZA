@@ -461,7 +461,7 @@
   &_slide {
     position: relative;
     height: 100%;
-    max-width: 950px;
+    max-width: 1280px;
     margin: 0 auto;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -548,7 +548,6 @@
     font-weight: 300;
     font-size: 15px;
     line-height: 145%;
-    letter-spacing: 0.02em;
     color: color(white);
     max-width: 500px;
     -webkit-line-clamp: 4;
@@ -560,6 +559,7 @@
     text-overflow: ellipsis;
     @include phoneScreen {
       height: 220px;
+      line-height: 125%;
     }
   }
 }

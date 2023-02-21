@@ -29,7 +29,6 @@ const SingInForm: FC = () => {
       setTimeout(() => {
         setTimer(true);
       }, 500);
-
     return () => clearTimeout(timerLoad);
   }, [loading]);
 

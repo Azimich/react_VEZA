@@ -28,6 +28,7 @@ const CertCatalogContainer = () => {
     ]);
     setBreadCrumbs((prevData) => [...prevData, { title: "Сертификаты" }]);
   }, [dataBreadResources]);
+
   useEffect(() => {
     getCertificatesItem(router.query.alias as string).then(
       (data: ICertResponseArray) => {
@@ -35,6 +36,7 @@ const CertCatalogContainer = () => {
       },
     );
   }, []);
+
   return (
     <Container className={"wrapper_clear no_padding"}>
       <BreadCrumbs data={breadCrumbs} />

@@ -10,6 +10,7 @@ const EighthForm = () => {
   const handleOnchangeCheckbox = () => {
     console.log("Клик");
   };
+
   return (
     <div className={Styles.eighth_form}>
       <div className={Styles.eighth_form_top_title}>

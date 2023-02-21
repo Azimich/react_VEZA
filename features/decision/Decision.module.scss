@@ -23,7 +23,7 @@
     position: relative;
     &_way_box {
       position: absolute;
-      background: #0000002b;
+      background: #00000080;
       backdrop-filter: blur(6px);
       border-radius: 20px;
       width: 100%;
@@ -31,18 +31,16 @@
       overflow: hidden;
       top: 0;
       box-sizing: border-box;
-      padding: 10px;
+      padding: 15px;
       &_title {
         color: color(white);
         font-weight: 500;
         font-size: 25px;
         line-height: 120%;
-        padding: 20px 20px 0 20px;
         @include ipadScreen {
           font-weight: 500;
           font-size: 22px;
           line-height: 115%;
-          padding: 20px 10px 0 10px;
         }
       }
 
@@ -51,14 +49,13 @@
         font-size: 16px;
         line-height: 145%;
         color: color(white);
-        padding: 10px 20px 3px 20px;
         display: -webkit-box;
         -webkit-line-clamp: 9;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
         @include ipadScreen {
-          padding: 10px 10px 0 10px;
+
         }
       }
     }

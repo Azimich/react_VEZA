@@ -8,12 +8,12 @@ import { CalendarIcon, DownloadIcon } from "components/icons";
 
 const CatalogItem: FC<ICatalogsItem> = ({ title, imageUrl, url, update }) => {
   const handleUpdate = new Date(update);
-  console.log(
-    "----",
-    `${handleUpdate.getDate()}-${
-      handleUpdate.getMonth() + 1
-    }-${handleUpdate.getFullYear()}`,
-  );
+  // console.log(
+  //   "----",
+  //   `${handleUpdate.getDate()}-${
+  //     handleUpdate.getMonth() + 1
+  //   }-${handleUpdate.getFullYear()}`,
+  // );
 
   const [download, setDownload] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
