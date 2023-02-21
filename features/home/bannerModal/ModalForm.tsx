@@ -28,9 +28,6 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
     }),
     onSubmit: (values) => {
       const fd = new FormData();
-      console.log("values", values);
-      /*            fd.append('title', values.title);
-                              fd.append('alias', values.alias);*/
       fd.append("image", values.image);
       getAddTopBanner(fd).then((data) => {
         console.log("data", data);

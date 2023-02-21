@@ -1,11 +1,13 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-.catalog_container{
+.catalog_container {
   display: flex;
   justify-content: center;
   margin: 40px auto;
+
 }
+
 .catalog_title {
   display: flex;
   justify-content: space-between;
@@ -34,34 +36,41 @@
       color: #6f81a5;
     }
   }
-  .input_field{
-    + label{
+
+  .input_field {
+    + label {
       transform: translateY(-30px) scale(1) !important;
     }
+
     padding: 10px 10px 10px 35px;
     border-radius: 5px;
     border: 1px solid #9494949c;
     width: 100%;
     min-width: 300px;
     transition: none;
+
     &:-webkit-autofill {
       & + label {
         transform: translateY(0px) scale(1);
       }
     }
-    &:focus{
-    border: 1px solid color(green)
+
+    &:focus {
+      border: 1px solid color(green)
     }
   }
+
   svg {
     width: 22px;
     height: 22px;
-    path{
+
+    path {
       fill: gray;
     }
   }
 }
-.catalog_box{
+
+.catalog_box {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -71,7 +80,8 @@
     flex-direction: column;
     margin: 20px 0 80px 0;
   }
-  .box_item{
+
+  .box_item {
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -95,15 +105,21 @@
       width: 28%;
       display: flex;
       align-items: baseline;
+
       @include phoneScreen {
         width: 100%;
       }
 
       img {
         object-fit: cover;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        pointer-events: none;
+
       }
     }
-    
+
     &__info {
       width: 100%;
       padding: 10px 0;
@@ -114,7 +130,7 @@
         padding: 20px 0 0 0;
       }
 
-      &_title{
+      &_title {
         p {
           font-weight: 400;
           font-size: 18px;
@@ -134,6 +150,7 @@
         }
       }
     }
+
     &__info_update {
       position: absolute;
       right: 0;
@@ -147,52 +164,63 @@
         position: static;
       }
     }
+
     &__item_button {
       display: flex;
       align-items: center;
-      @media (max-width: 1200px){
+      @media (max-width: 1200px) {
         margin-bottom: 20px;
       }
       @include phoneScreen {
         justify-content: center;
       }
+
       button {
         padding: 8px 22px;
         height: 36px;
         width: auto;
         font-size: 14px;
       }
+
       p {
         margin: 0 10px;
         color: gray;
       }
+
       .disabled_active {
         border-radius: 10px;
+
         &:hover {
           background: color(green);
           color: color(white);
+
           path {
             fill: #fff;
           }
         }
-        button{
+
+        button {
           display: flex;
           align-items: center;
           gap: 12px;
           transition: none !important;
         }
+
         span {
           svg {
             width: 18px;
           }
+
           path {
             fill: white;
           }
         }
       }
+
       .disabled {
         cursor: not-allowed;
         border-radius: 10px;
+
         button {
           display: flex;
           align-items: center;
