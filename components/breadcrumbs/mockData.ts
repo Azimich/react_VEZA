@@ -4,6 +4,7 @@ import {
   decisionPath,
   newsPath,
   resourcesPath,
+  equipmentPath,
 } from "utils/bootstrap";
 
 const dataBreadNews: IBreadCrumbs[] = [
@@ -14,6 +15,17 @@ const dataBreadNews: IBreadCrumbs[] = [
   {
     title: "Новости",
     alias: process.env.NEXT_PUBLIC_APP_URL + newsPath,
+  },
+];
+
+const dataBreadEquipment: IBreadCrumbs[] = [
+  {
+    title: "Главная",
+    alias: "/",
+  },
+  {
+    title: "Продукция",
+    alias: process.env.NEXT_PUBLIC_APP_URL + equipmentPath,
   },
 ];
 
@@ -72,6 +84,7 @@ const dataBreadProfile: IBreadCrumbs[] = [
 ];
 
 export {
+  dataBreadEquipment,
   dataBreadNews,
   dataBreadDecision,
   dataBreadAbout,
