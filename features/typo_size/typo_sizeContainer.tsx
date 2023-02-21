@@ -17,7 +17,7 @@ import {
   TypoSizeDescription,
   TypoSizeCalculates,
 } from "./index";
-/*import {Menu} from "features/equipment/menu/Menu";*/
+import { Menu } from "features/equipment/menu/Menu";
 
 interface IType_sizeProps {
   dataCat: ICategoriesItem[];
@@ -25,8 +25,14 @@ interface IType_sizeProps {
   alias: string;
 }
 
-const typo_sizeContainer: FC = () => {
+const typo_sizeContainer: FC<IType_sizeProps> = ({
+  dataCat,
+  categories,
+  alias,
+}) => {
+  console.log("dataCat", dataCat, categories, alias);
   const [activeTab, setActiveTabs] = useState(1);
+
   const handleOnClick = (e: ITab) => {
     setActiveTabs(e.id);
   };
@@ -39,9 +45,9 @@ const typo_sizeContainer: FC = () => {
   };
 
   return (
-    <Container className={"wrapper"}>
+    <Container className={"wrapper_clear"}>
       <div className={Styles.typo_size_container}>
-        {/*<Menu categories={categories?.response} data={dataCat} alias={alias}/>*/}
+        <Menu categories={categories?.response} data={dataCat} alias={alias} />
         <div className={Styles.typo_size_container_right}>
           <Tabs
             props={tabsTypoSizeData}

@@ -10,9 +10,7 @@ const SelectionContainer = () => {
       </div>
       <div className={Styles.selectionButton}>
         <Link url={"auth/singin"}>
-          <Button size={"medium"} theme={"banner"}>
-            Расчитать
-          </Button>
+          <Button size={"medium"} theme={"banner"} children={"Рассчитать"} />
         </Link>
       </div>
     </>

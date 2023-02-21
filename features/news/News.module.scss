@@ -554,7 +554,6 @@
       }
 
       p {
-        font-style: normal;
         font-weight: 400;
         font-size: 16px;
         line-height: 145%;
@@ -580,8 +579,7 @@
         font-style: normal;
         font-weight: 400;
         font-size: 25px;
-        line-height: 145%;
-        letter-spacing: 0.025em;
+        line-height: 130%;
         color: color(green);
         margin-bottom: 30px;
         @include phoneScreen {

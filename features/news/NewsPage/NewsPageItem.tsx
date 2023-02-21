@@ -22,7 +22,6 @@ const NewsPageItem: FC<INewsDataItem> = ({
   const [newsImg, setNewsImg] = useState<ReactNode>();
 
   useEffect(() => {
-    console.log("device11", device);
     if (device === "mobile") {
       console.log("device", device);
       setNewsImg(<img src={imageModel.pageTopImage.mobile} alt={newsName} />);
