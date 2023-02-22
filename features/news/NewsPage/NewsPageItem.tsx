@@ -68,11 +68,18 @@ const NewsPageItem: FC<INewsDataItem> = ({
             })}
           </div>
         </div>
-        {videoUrl && (
+        {/*        {videoUrl && (
           <div className={Styles.news__active__video}>
             <video src={videoUrl} autoPlay={true} controls={true}></video>
           </div>
-        )}
+        )}*/}
+        <iframe
+          src={videoUrl}
+          width="100%"
+          height={"640px"}
+          frameBorder={"1"}
+          allowFullScreen
+        ></iframe>
         <div className={Styles.news__active__info__right}>
           <h2>{title}</h2>
           <ul>

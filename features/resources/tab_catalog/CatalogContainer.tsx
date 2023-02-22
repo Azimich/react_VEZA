@@ -11,9 +11,10 @@ import { useRouter } from "next/router";
 import { Button } from "components/button";
 import { useGetCatalog } from "service/list/getCatalog";
 import { CatalogItem } from "features/resources/tab_catalog/CatalogItem";
-import { onButtonClick } from "utils/helpers";
-import { SpinnerButton } from "components/spinners";
-import { DownloadIcon } from "components/icons";
+/*import {onButtonClick} from "utils/helpers";*/
+/*import {SpinnerButton} from "components/spinners";
+import {DownloadIcon} from "components/icons";*/
+import { Link } from "components/link";
 
 const CatalogContainer = () => {
   const router = useRouter();
@@ -21,19 +22,18 @@ const CatalogContainer = () => {
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
   const [catalogData, setCatalogData] = useState<ICatalogResponse>(undefined);
-  const [download, setDownload] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  /*    const [download, setDownload] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-  const handleDisabled = (url: string, title: string) => {
-    setDownload(false);
-    setIsLoading(true);
-    console.log("ДО СКАЧИВАНИЯ", url, title);
-    onButtonClick(url, title).then(() => {
-      setDownload(true);
-      setIsLoading(false);
-      console.log("ПОСЛЕ СКАЧИВАНИЯ", catalogData.response.url, title);
-    });
-  };
+    const handleDisabled = (url: string, title: string) => {
+        setDownload(false);
+        setIsLoading(true);
+        onButtonClick(url, title).then(() => {
+            setDownload(true);
+            setIsLoading(false);
+            console.log("ПОСЛЕ СКАЧИВАНИЯ", catalogData.response.url, title);
+        });
+    };*/
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
@@ -60,22 +60,12 @@ const CatalogContainer = () => {
       </div>
       <div className={Styles.catalog_title}>
         <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
-        <div
-          onClick={() =>
-            handleDisabled(
-              catalogData && catalogData.response.url,
-              "Каталоги_все",
-            )
-          }
-          className={
-            download ? `${Styles.disabled_active}` : `${Styles.disabled}`
-          }
-        >
-          <Button type={"button"}>
-            {catalogData && catalogData.response.title}
-            <span>{isLoading ? <SpinnerButton /> : <DownloadIcon />}</span>
-          </Button>
-        </div>
+        <Link url={catalogData && catalogData.response.url} download={"true"}>
+          <Button
+            type={"button"}
+            children={catalogData && catalogData.response.title}
+          />
+        </Link>
       </div>
       <div className={Styles.catalog_box}>
         {catalogData &&
