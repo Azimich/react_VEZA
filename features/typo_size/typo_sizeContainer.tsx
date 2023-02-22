@@ -20,9 +20,9 @@ import {
 import { Menu } from "features/equipment/menu/Menu";
 
 interface IType_sizeProps {
-  dataCat: ICategoriesItem[];
-  categories: ICategoriesResponseArray;
-  alias: string;
+  dataCat?: ICategoriesItem[];
+  categories?: ICategoriesResponseArray;
+  alias?: string;
 }
 
 const typo_sizeContainer: FC<IType_sizeProps> = ({

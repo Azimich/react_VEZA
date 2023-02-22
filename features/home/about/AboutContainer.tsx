@@ -67,14 +67,18 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   breakpoints={{
                     "@0.00": {
                       slidesPerView: 1,
-                      spaceBetween: 20,
+                      spaceBetween: 10,
+                    },
+                    "@0.50": {
+                      slidesPerView: 2,
+                      spaceBetween: 10,
                     },
                     "@0.75": {
-                      slidesPerView: 2,
+                      slidesPerView: 3,
                       spaceBetween: 5,
                     },
                     "@1.00": {
-                      slidesPerView: 2,
+                      slidesPerView: 4,
                       spaceBetween: 8,
                     },
                     "@1.50": {

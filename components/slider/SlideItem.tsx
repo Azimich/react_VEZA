@@ -34,9 +34,11 @@ const SlideItem: FC<ISlideItem> = ({
   const { isShow, toggle } = useModal();
   const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
 
+  console.log("images", images);
+
   const Img = () => {
     return (
-      <div>
+      <>
         <div
           className={`${Styles[`${theme}_banner__slider_slide`]}`}
           key={Math.random() * 10}
@@ -87,8 +89,7 @@ const SlideItem: FC<ISlideItem> = ({
             </div>
           )}
         </div>
-        {/*Иконка для редактирования баннера*/}
-      </div>
+      </>
     );
   };
   const Video = () => {
