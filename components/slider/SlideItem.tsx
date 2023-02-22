@@ -36,8 +36,6 @@ const SlideItem: FC<ISlideItem> = ({
   const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
   const auth = useAppSelector(getAuth);
 
-  console.log("auth", auth);
-
   const Img = () => {
     return (
       <>
