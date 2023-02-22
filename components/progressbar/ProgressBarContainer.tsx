@@ -36,7 +36,7 @@ const ProgressBar = (props: {
     !isView && setProgress(0);
     const loadingTimeout = setTimeout(() => {
       progress < progressLabel && isView && setProgress(progress + 1);
-    }, loadingDuration / 400);
+    }, loadingDuration / (progressLabel * 2.3));
 
     return () => {
       clearTimeout(loadingTimeout);
