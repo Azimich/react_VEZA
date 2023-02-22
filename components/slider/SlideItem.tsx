@@ -68,11 +68,9 @@ const SlideItem: FC<ISlideItem> = ({
               <h1 className={Styles[`${theme}_banner__right_element_title`]}>
                 {title}
               </h1>
-              {description && (
-                <p className={Styles[`${theme}_banner__right_element_text`]}>
-                  {description}
-                </p>
-              )}
+              <p className={Styles[`${theme}_banner__right_element_text`]}>
+                {description && description}
+              </p>
               <div className={Styles[`${theme}_banner__right_element_allign`]}>
                 <Button
                   theme={themeButton}

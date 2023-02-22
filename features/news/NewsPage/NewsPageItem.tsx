@@ -77,7 +77,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
           src={videoUrl}
           width="100%"
           height={"640px"}
-          frameBorder={"1"}
+          frameBorder={"0"}
           allowFullScreen
         ></iframe>
         <div className={Styles.news__active__info__right}>
