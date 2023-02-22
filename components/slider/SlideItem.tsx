@@ -15,6 +15,7 @@ import { getAuth } from "features/auth/AuthSlice";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
+  isEdit,
   typeSlider = "img",
   theme = "home",
   themeButton = "banner",
@@ -23,7 +24,7 @@ const SlideItem: FC<ISlideItem> = ({
   color = "white",
   block_description = false,
   title = "",
-  /*  description = "",*/
+  description = "",
   pathDecision = false,
   code,
   url = "",
@@ -35,7 +36,6 @@ const SlideItem: FC<ISlideItem> = ({
   const { isShow, toggle } = useModal();
   const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
   const auth = useAppSelector(getAuth);
-
   const Img = () => {
     return (
       <>
@@ -69,7 +69,7 @@ const SlideItem: FC<ISlideItem> = ({
                 {title}
               </h1>
               <p className={Styles[`${theme}_banner__right_element_text`]}>
-                {/*{description && description}*/}
+                {description && description}
               </p>
               <div className={Styles[`${theme}_banner__right_element_allign`]}>
                 <Button
@@ -148,7 +148,7 @@ const SlideItem: FC<ISlideItem> = ({
           <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
             <Img />
           </Link>
-          {auth.identify && auth.data.response.role === 1 && (
+          {isEdit && auth.identify && auth.data.response.role === 1 && (
             <>
               <div className={Styles.banner_editor} onClick={toggle}>
                 <Editor />
@@ -163,7 +163,7 @@ const SlideItem: FC<ISlideItem> = ({
             </>
           )}
           {/*Иконка для добавления баннера*/}
-          {auth.identify && auth.data.response.role === 1 && (
+          {isEdit && auth.identify && auth.data.response.role === 1 && (
             <>
               <div className={Styles.banner_added} onClick={toggleAdd}>
                 <Button children={"Добавить баннер"} />
