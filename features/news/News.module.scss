@@ -637,13 +637,13 @@
       font-weight: 400;
       font-size: 25px;
       line-height: 145%;
-      letter-spacing: 0.025em;
       color: color(green);
       margin-bottom: 8px;
       margin-top: 40px;
       display: flex;
       text-align: left;
       width: 60%;
+      box-sizing: border-box;
       @include phoneScreen {
         border-left: 2px solid color(green);
         width: 100%;
