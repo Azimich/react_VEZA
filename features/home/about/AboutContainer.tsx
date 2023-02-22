@@ -70,14 +70,22 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                       spaceBetween: 10,
                     },
                     "@0.50": {
-                      slidesPerView: 2,
+                      slidesPerView: 1,
                       spaceBetween: 10,
                     },
                     "@0.75": {
-                      slidesPerView: 3,
+                      slidesPerView: 2,
                       spaceBetween: 5,
                     },
+                    "@0.90": {
+                      slidesPerView: 3,
+                      spaceBetween: 8,
+                    },
                     "@1.00": {
+                      slidesPerView: 3,
+                      spaceBetween: 8,
+                    },
+                    "@1.20": {
                       slidesPerView: 4,
                       spaceBetween: 8,
                     },
