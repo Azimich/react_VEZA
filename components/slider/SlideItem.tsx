@@ -10,6 +10,8 @@ import { Modal, useModal } from "components/modal";
 import { Editor } from "components/editor_pen";
 import { ModalBannerAdded } from "features/home/bannerModal/ModalBannerAdded";
 import { ModalBannerEdit } from "features/home/bannerModal/ModalBannerEdit";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -21,20 +23,18 @@ const SlideItem: FC<ISlideItem> = ({
   color = "white",
   block_description = false,
   title = "",
-  description = "",
+  /*  description = "",*/
   pathDecision = false,
   code,
   url = "",
   size = "medium",
   OnClick,
-  isEdit = true,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
   const { isShow, toggle } = useModal();
   const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
-
-  console.log("images", images);
+  const auth = useAppSelector(getAuth);
 
   const Img = () => {
     return (
@@ -69,7 +69,7 @@ const SlideItem: FC<ISlideItem> = ({
                 {title}
               </h1>
               <p className={Styles[`${theme}_banner__right_element_text`]}>
-                {description && description}
+                {/*{description && description}*/}
               </p>
               <div className={Styles[`${theme}_banner__right_element_allign`]}>
                 <Button
@@ -148,7 +148,7 @@ const SlideItem: FC<ISlideItem> = ({
           <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
             <Img />
           </Link>
-          {isEdit && (
+          {auth.identify && auth.data.response.role === 1 && (
             <>
               <div className={Styles.banner_editor} onClick={toggle}>
                 <Editor />
@@ -163,7 +163,7 @@ const SlideItem: FC<ISlideItem> = ({
             </>
           )}
           {/*Иконка для добавления баннера*/}
-          {isEdit && (
+          {auth.identify && auth.data.response.role === 1 && (
             <>
               <div className={Styles.banner_added} onClick={toggleAdd}>
                 <Button children={"Добавить баннер"} />
