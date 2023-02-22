@@ -65,7 +65,7 @@ const HomeContainer: FC<ISSRHome> = ({
         <SliderContainer
           items={convert(indexCategories)}
           dots={true}
-          autoplay={true}
+          autoplay={false}
           spaceBetween={10}
           theme={"homecategory"}
         />
