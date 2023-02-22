@@ -45,9 +45,7 @@
         padding: 25px 20px;
         border-radius: 20px;
       }
-      @include ipadScreen {
-        display: none;
-      }
+
       &_title {
         font-size: 35px;
         text-transform: uppercase;
@@ -56,6 +54,10 @@
         letter-spacing: 0.025em;
         color: color(white);
         font-weight: 400;
+        @include ipadScreen {
+          max-width: 250px;
+          font-size: 22px;
+        }
       }
 
   &_text {
