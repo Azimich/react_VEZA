@@ -7,7 +7,6 @@ interface IAboutItem {
   description?: string;
   images?: IImages;
 }
-
 const AboutItems: FC<IAboutItem> = ({ title, description, images }) => {
   return (
     <div className={Styles.card_user_item}>

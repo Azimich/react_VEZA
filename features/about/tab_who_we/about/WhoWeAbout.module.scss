@@ -9,10 +9,7 @@
   img{
     margin: 0 auto;
     object-fit: cover;
-    height: 600px;
-    @include ipadScreen {
-      height: 300px;
-    }
+    height: auto;
   }
 
   &_about{
@@ -30,7 +27,7 @@
     }
     @include ipadScreen {
       border-radius: 10px;
-      margin: -130px auto 30px;
+      margin: -60px auto 30px;
       max-width: 80%;
     }
 
