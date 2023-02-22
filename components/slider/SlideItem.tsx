@@ -10,6 +10,8 @@ import { Modal, useModal } from "components/modal";
 import { Editor } from "components/editor_pen";
 import { ModalBannerAdded } from "features/home/bannerModal/ModalBannerAdded";
 import { ModalBannerEdit } from "features/home/bannerModal/ModalBannerEdit";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
 
 const SlideItem: FC<ISlideItem> = ({
   images,
@@ -27,14 +29,14 @@ const SlideItem: FC<ISlideItem> = ({
   url = "",
   size = "medium",
   OnClick,
-  isEdit = true,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
   const { isShow, toggle } = useModal();
   const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
+  const auth = useAppSelector(getAuth);
 
-  console.log("images", images);
+  console.log("auth", auth);
 
   const Img = () => {
     return (
@@ -148,7 +150,7 @@ const SlideItem: FC<ISlideItem> = ({
           <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
             <Img />
           </Link>
-          {isEdit && (
+          {auth.identify && auth.data.response.role === 1 && (
             <>
               <div className={Styles.banner_editor} onClick={toggle}>
                 <Editor />
@@ -163,7 +165,7 @@ const SlideItem: FC<ISlideItem> = ({
             </>
           )}
           {/*Иконка для добавления баннера*/}
-          {isEdit && (
+          {auth.identify && auth.data.response.role === 1 && (
             <>
               <div className={Styles.banner_added} onClick={toggleAdd}>
                 <Button children={"Добавить баннер"} />
