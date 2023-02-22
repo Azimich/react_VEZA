@@ -35,7 +35,7 @@ const dataBreadDecision: IBreadCrumbs[] = [
     alias: "/",
   },
   {
-    title: "Решения",
+    title: "Решение",
     alias: process.env.NEXT_PUBLIC_APP_URL + decisionPath,
   },
 ];
