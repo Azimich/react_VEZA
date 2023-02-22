@@ -78,7 +78,7 @@ const dataBreadProfile: IBreadCrumbs[] = [
     alias: "/",
   },
   {
-    title: "Профиле",
+    title: "Профиль",
     alias: process.env.NEXT_PUBLIC_APP_URL + resourcesPath,
   },
 ];
