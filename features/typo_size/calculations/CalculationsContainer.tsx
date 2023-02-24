@@ -1,9 +1,10 @@
 import Styles from "./Calculations.module.scss";
+import { InDevelopmentContainer } from "components/inDevelopment/InDevelopmentContainer";
 
 const CalculationsContainer = () => {
   return (
     <div className={Styles.calculations_container}>
-      <img src="/images/dev.jpg" alt="В разработке" />
+      <InDevelopmentContainer />
     </div>
   );
 };

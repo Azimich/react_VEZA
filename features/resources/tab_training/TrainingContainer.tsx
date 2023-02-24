@@ -27,7 +27,7 @@ const TrainingContainer = () => {
           onClick={(e) => {
             handleOnClickTabs(e, router);
           }}
-          activeTab={6}
+          activeTab={7}
           size={"max"}
         />
       </div>

@@ -16,13 +16,14 @@ const QuestionsContainer: FC<IQuestions> = () => {
   const [questionsData, setQuestionsData] = useState<IQuestions[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { getQuestions } = useQuestions();
+
   useEffect(() => {
     getQuestions().then((data: IQuestionsResponseArray) => {
       !data.hasError && setQuestionsData(data.response);
     });
     setIsLoading(false);
   }, []);
-  console.log("questionsData", questionsData);
+
   const router = useRouter();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);

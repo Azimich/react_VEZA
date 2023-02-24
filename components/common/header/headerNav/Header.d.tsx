@@ -1,4 +1,4 @@
-import { IResponse } from "../../../../types/response";
+import { IResponse } from "types/response";
 
 interface IMenuData {
   menuId?: number;
