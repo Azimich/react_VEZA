@@ -110,7 +110,7 @@
 
     &_product {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 340px));
+      grid-template-columns: repeat(auto-fit, minmax(340px));
       grid-gap: 15px;
       gap: 15px;
       margin-bottom: 10%;
