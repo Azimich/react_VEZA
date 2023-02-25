@@ -1,10 +1,11 @@
 import React from "react";
 import Styles from "./Training.module.scss";
+import { InDevelopmentContainer } from "components/inDevelopment/InDevelopmentContainer";
 
 const TraningItem = () => {
   return (
-    <div className={Styles.traning__item}>
-      <img src="/images/dev.jpg" alt="dev" />
+    <div className={Styles.training_container}>
+      <InDevelopmentContainer />
     </div>
   );
 };

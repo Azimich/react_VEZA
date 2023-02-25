@@ -19,6 +19,7 @@ const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll, isShow }) => {
   const [menu] = useState<IMenuState>(useAppSelector(getMenu));
   const auth = useAppSelector(getAuth);
   const router = useRouter();
+
   return (
     <ul
       className={`${Styles.header__menu} ${

@@ -1,0 +1,65 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.development {
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  @include phoneScreen {
+    height: 350px;
+    margin: 20% auto;
+  }
+  &__info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    @include phoneScreen {
+      width: 70%;
+    }
+    h1 {
+      width: 100%;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 50px;
+      line-height: 140%;
+      text-align: center;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: color(white);
+      margin-bottom: 50px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid color(white);
+      @media (max-width: 1200px) {
+        font-size: 40px;
+        border-bottom: 1px solid color(white);
+      }
+      @include ipadScreen {
+        margin-bottom: 30px;
+        font-size: 30px;
+      }
+    }
+    button {
+      width: 250px;
+      height: 52px;
+      background: transparent !important;
+      color: color(white);
+      border: 1px solid color(white);
+      margin: 0 auto;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 0.03em;
+      &:hover {
+        background: color(green) !important;
+        border-color: color(green);
+      }
+      @include ipadScreen {
+        width: 180px;
+        height: 42px;
+        font-size: 15px;
+      }
+    }
+  }
+}

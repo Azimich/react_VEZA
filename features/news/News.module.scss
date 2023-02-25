@@ -54,6 +54,9 @@
           border-radius: 0 0 10px 10px;
           gap: 20px;
         }
+        @include phoneScreen {
+          padding: 12px;
+        }
       }
 
       .news_container_item_image {
@@ -179,6 +182,9 @@
       object-fit: cover;
       @include ipadScreen {
         border-radius: 10px 10px 0 0;
+      }
+      @media (max-width: 450px) {
+        object-fit: fill;
       }
     }
 
@@ -548,8 +554,11 @@
         color: color(green);
         margin-bottom: 30px;
         @include phoneScreen {
-          width: 100%;
-          margin-bottom: 10px;
+          line-height: 125%;
+          margin-bottom: 15px;
+          border-left: 2px solid color(green);
+          padding-left: 10px;
+          font-size: 20px;
         }
       }
 
@@ -584,8 +593,10 @@
         margin-bottom: 30px;
         @include phoneScreen {
           line-height: 125%;
-          font-size: 20px;
-          margin-bottom: 18px;
+          font-size: 18px;
+          margin-bottom: 15px;
+          border-left: 2px solid color(green);
+          padding-left: 10px;
         }
       }
 

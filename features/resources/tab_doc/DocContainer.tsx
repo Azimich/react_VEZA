@@ -27,7 +27,7 @@ const DocContainer = () => {
           onClick={(e) => {
             handleOnClickTabs(e, router);
           }}
-          activeTab={5}
+          activeTab={6}
           size={"max"}
         />
       </div>
