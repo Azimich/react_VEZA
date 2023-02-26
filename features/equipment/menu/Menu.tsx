@@ -38,7 +38,9 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
         resData.push({
           title: breadcrumbsData[i]?.title,
           alias:
-            i === 0 ? "/equipment" : equipmentPath + bySortLevel[i - 1]?.alias,
+            i === 0
+              ? "/produktsiya"
+              : equipmentPath + bySortLevel[i - 1]?.alias,
           back: true,
           level: i,
         });

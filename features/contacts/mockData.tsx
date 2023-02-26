@@ -6,13 +6,13 @@ const tabsAuthData: ITab[] = [
 ];
 
 const tabsAboutData: ITab[] = [
-  { id: 1, title: "Кто мы", url: "whowe" },
-  { id: 3, title: "Вакансии", url: "job" },
+  { id: 1, title: "Кто мы", url: "kto_my" },
+  { id: 3, title: "Вакансии", url: "vakansii" },
 ];
 const tabsSocialData: ITab[] = [
-  { id: 1, title: "Комерческие", url: "commercial", tabsActive: 1 },
-  { id: 2, title: "Социальные", url: "social", tabsActive: 2 },
-  { id: 3, title: "Промышленные", url: "industrial", tabsActive: 3 },
+  { id: 1, title: "Комерческие", url: "komercheskie", tabsActive: 1 },
+  { id: 2, title: "Социальные", url: "cotsialnye", tabsActive: 2 },
+  { id: 3, title: "Промышленные", url: "promyshlennye", tabsActive: 3 },
 ];
 const tabsJobData: ITab[] = [
   { id: 1, title: "Предприятия", url: "plant", tabsActive: 1, default: false },
@@ -42,19 +42,19 @@ const tabsSalesData: ITab[] = [
   },
 ];
 const tabsContactsData: ITab[] = [
-  { id: 1, title: "Офис Продаж", url: "sale_office" },
-  { id: 2, title: "Общие контакты", url: "interaction" },
-  { id: 3, title: "Техническая поддержка", url: "support" },
+  { id: 1, title: "Офис Продаж", url: "ofis_Prodazh" },
+  { id: 2, title: "Общие контакты", url: "obshchie_kontakty" },
+  { id: 3, title: "Техническая поддержка", url: "tekhnicheskaya_podderzhka" },
 ];
 
 const tabsResourcesData: ITab[] = [
   { id: 1, title: "BIM", url: "bim", access: false },
-  { id: 2, title: "Каталоги", url: "catalog", access: false },
-  { id: 3, title: "Вопросы", url: "questions", access: false },
-  { id: 4, title: "Сертификаты", url: "certificates", access: false },
-  { id: 5, title: "Опросные листы", url: "questionnaires", access: false },
-  { id: 6, title: "Документация", url: "doc", access: true },
-  { id: 7, title: "Обучение", url: "training", access: true },
+  { id: 2, title: "Каталоги", url: "katalogi", access: false },
+  { id: 3, title: "Вопросы", url: "voprosy", access: false },
+  { id: 4, title: "Сертификаты", url: "sertifikaty", access: false },
+  { id: 5, title: "Опросные листы", url: "oprosnye_listy", access: false },
+  { id: 6, title: "Документация", url: "dokumentatsiya", access: true },
+  { id: 7, title: "Обучение", url: "obuchenie", access: true },
 ];
 
 const tabsTypoSizeData: ITab[] = [

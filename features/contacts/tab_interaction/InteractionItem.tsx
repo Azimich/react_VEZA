@@ -1,8 +1,8 @@
-import { Interaction } from "./Interaction";
+import { IInteraction } from "./Interaction";
 import { FC } from "react";
 import Styles from "./Interaction.module.scss";
 
-const InteractionItem: FC<Interaction> = ({
+const InteractionItem: FC<IInteraction> = ({
   logistic_tel,
   secretary_tel,
   service_tel,
@@ -12,55 +12,55 @@ const InteractionItem: FC<Interaction> = ({
     <li className={Styles.interaction_items_item}>
       <h2>{object.name}</h2>
       <div className={Styles.interaction_items_item_box}>
-        <p>
+        <div>
           Севис:
           <span>
-            {service_tel.map((e) => {
+            {service_tel.map((e: string, i) => {
               return (
-                <span>
+                <span key={i}>
                   <a href={"tel:" + e}>{e}</a>
                 </span>
               );
             })}
           </span>
-        </p>
-        <p>
+        </div>
+        <div>
           Логистика:
           <span>
-            {logistic_tel.map((e) => {
+            {logistic_tel.map((e: string, i) => {
               return (
-                <span>
+                <span key={i}>
                   <a href={"tel:" + e}>{e}</a>
                 </span>
               );
             })}
           </span>
-        </p>
+        </div>
 
         {secretary_tel && (
-          <p>
+          <div>
             Секритариат:
             <p>
-              {secretary_tel?.map((e) => {
+              {secretary_tel?.map((e: string, i) => {
                 return (
-                  <span>
+                  <span key={i}>
                     <a href={"tel:" + e}>{e}</a>
                   </span>
                 );
               })}
             </p>
-          </p>
+          </div>
         )}
 
-        <p>
+        <div>
           Почта:
           <span>
             <a href={"email:" + object.email}>{object.email}</a>
           </span>
-        </p>
-        <p>
+        </div>
+        <div>
           Адрес:<span>{object.address}</span>
-        </p>
+        </div>
       </div>
     </li>
   );

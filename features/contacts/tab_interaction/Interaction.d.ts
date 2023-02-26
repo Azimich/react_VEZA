@@ -1,7 +1,7 @@
-import { IPage } from "../../../types/response";
+import { IResponse } from "types/response";
 import { IObjectItem } from "components/map/Map";
 
-interface Interaction {
+interface IInteraction {
   address: string;
   email: string;
   id: number;
@@ -12,17 +12,24 @@ interface Interaction {
   object: IObjectItem;
 }
 
-interface IInteractionResponse {
-  response: {
-    offices: {
-      page: IPage;
-      errorMessage: "" | null;
-      systemErrorMessage: string | null;
-      hasError: boolean;
-      response?: Interaction[];
-    };
-    plants: Interaction[];
-  };
+interface IInterationDirector {
+  title: string;
+  description: string;
+  imageUrl: string;
+  mail: string;
+  phone: string;
+  orderPosition: 1;
 }
 
-export { Interaction, IInteractionResponse };
+interface IInteractionResponseOffices extends Omit<IResponse, "response"> {
+  response: IInteraction[];
+}
+interface IInteractionResponseDirector extends Omit<IResponse, "response"> {
+  response: IInterationDirector[];
+}
+export {
+  IInteraction,
+  IInterationDirector,
+  IInteractionResponseDirector,
+  IInteractionResponseOffices,
+};

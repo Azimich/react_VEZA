@@ -17,6 +17,7 @@ import Styles from "./News.module.scss";
 
 const NewsContainer: FC<ISSRHome> = ({ newsData }) => {
   const router = useRouter();
+
   const { getNewsData } = useGetNews();
   const [newsDataState, setNewsDataState] = useState<INewsDataItem[]>(
     newsData.response,
@@ -36,11 +37,11 @@ const NewsContainer: FC<ISSRHome> = ({ newsData }) => {
       <BreadCrumbs data={dataBreadNews} />
       {auth.identify && auth.data?.response.role === 1 && (
         <div className={Styles.add_button}>
-          <Button link={"/admin/news/add"}>Добавить новость</Button>
+          <Button link={"/admin/novosti/add"}>Добавить новость</Button>
         </div>
       )}
       {!newsData.hasError ? (
-        newsDataState.map((e) => {
+        newsDataState?.map((e) => {
           return <NewsWithItem {...e} key={e.newsId} />;
         })
       ) : (

@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Styles from "./QuestionnairesContainer.module.scss";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
-import { IQuestionSSR } from "pages/resources/questionnaires/[alias]";
+import { IQuestionSSR } from "pages/resursy/questionnaires/[alias]";
 import { questionnairesData } from "features/resources/mockData";
 import { IQuestionnaires } from "features/resources/tab_bim/Bim";
 import { checkEmptyObject } from "utils/helpers";
