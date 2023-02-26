@@ -6,7 +6,7 @@ import {
 import React, { FC, useState } from "react";
 import Styles from "./typo_size.module.scss";
 /*
-import { Menu } from "../equipment/menu/Menu";
+import { Menu } from "../produktsiya/menu/Menu";
 */
 import { Tabs } from "components/tabs";
 import { IComponents, ITab } from "components/tabs/Tabs";

@@ -7,7 +7,7 @@ const useGetSertificates = () => {
   const getSertificates = () => {
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +
-        "/api/v1/equipment/get_certificate_categories",
+        "/api/v1/produktsiya/get_certificate_categories",
       "GET",
       null,
       headers,

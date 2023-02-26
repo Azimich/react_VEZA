@@ -63,8 +63,8 @@ const NewsPageItem: FC<INewsDataItem> = ({
         <div className={Styles.news__active__keyword}>
           <h2>{seoKeywords && seoKeywords}</h2>
           <div className={Styles.news__active__keyword__paragraph}>
-            {keywords?.map((value) => {
-              return <span>{value.keywords}</span>;
+            {keywords?.map((value, i) => {
+              return <span key={i}>{value.keywords}</span>;
             })}
           </div>
         </div>
@@ -73,13 +73,16 @@ const NewsPageItem: FC<INewsDataItem> = ({
             <video src={videoUrl} autoPlay={true} controls={true}></video>
           </div>
         )}*/}
-        <iframe
-          src={videoUrl}
-          width="100%"
-          height={"640px"}
-          frameBorder={"0"}
-          allowFullScreen
-        ></iframe>
+        {videoUrl && (
+          <iframe
+            src={videoUrl}
+            width="100%"
+            height={"640px"}
+            frameBorder={"0"}
+            allowFullScreen
+          ></iframe>
+        )}
+
         <div className={Styles.news__active__info__right}>
           <h2>{title}</h2>
           <ul>

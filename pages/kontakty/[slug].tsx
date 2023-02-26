@@ -1,26 +1,23 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { wrapper } from "store/store";
-import { Job, WhoWe } from "features/about";
 import React from "react";
 import { IComponents } from "components/tabs/Tabs";
-import { mapListServer, menuListServer } from "service/index";
+import { Interaction, SalesOffice, Support } from "../../features/contacts";
 import { fetchMenu } from "store/slice/MenuSlice";
-import { tabsAboutData } from "features/contacts/mockData";
+import { mapListServer, menuListServer } from "service/index";
 import { fetchMap } from "components/map/MapSlice";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: tabsAboutData.map((e) => {
-      return { params: { slug: e.url } };
-    }) as [],
+    paths: [],
     fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
-    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     store.dispatch(fetchMap({ mapState: { ...(await mapListServer()) } }));
+    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
 
     const { params } = context;
     return {
@@ -30,12 +27,13 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const ContactsSSR = (props: { slug: string }) => {
+const ContactsSlugSSR = (props: { slug: string }) => {
   const components: IComponents = {
-    tab_whowe: WhoWe,
-    tab_job: Job,
+    tab_ofis_Prodazh: SalesOffice,
+    tab_obshchie_kontakty: Interaction,
+    tab_tekhnicheskaya_podderzhka: Support,
   };
   return React.createElement(components[`tab_${props.slug}`]);
 };
 
-export default ContactsSSR;
+export default ContactsSlugSSR;

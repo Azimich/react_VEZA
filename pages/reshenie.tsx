@@ -18,8 +18,8 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const Decision = (props: { decision: IDecisionResponseArray }) => (
+const Reshenie = (props: { decision: IDecisionResponseArray }) => (
   <DecisionContainer {...props} />
 );
 
-export default Decision;
+export default Reshenie;

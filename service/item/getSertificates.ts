@@ -6,7 +6,7 @@ const useGetCertificatesItem = () => {
   const getCertificatesItem = (url = "") => {
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +
-        "/api/v1/equipment/get_certificates/" +
+        "/api/v1/produktsiya/get_certificates/" +
         url,
       "GET",
     );
