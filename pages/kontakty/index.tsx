@@ -5,7 +5,7 @@ function RedirectPage() {
   const router = useRouter();
   // Make sure we're in the browser
   if (typeof window !== "undefined") {
-    router.push(contactsPath + "sale_office").then();
+    router.push(contactsPath + "ofis_Prodazh").then();
     return;
   }
 }
@@ -18,7 +18,7 @@ RedirectPage.getInitialProps = (ctx: {
 }) => {
   // We check for ctx.res to make sure we're on the server.
   if (ctx.res) {
-    ctx.res.writeHead(302, { Location: contactsPath + "sale_office" });
+    ctx.res.writeHead(302, { Location: contactsPath + "ofis_Prodazh" });
     ctx.res.end();
   }
   return { data: "" };
