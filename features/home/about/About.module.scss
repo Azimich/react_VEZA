@@ -141,12 +141,20 @@
         h4 {
           font-weight: 400;
           font-size: 16px;
-          line-height: 17px;
-          text-align: center;
-          color: #414141;
-          margin-bottom: 16px;
+          //line-height: 17px;
+          //text-align: center;
+          //color: #414141;
+          margin-bottom: 6px;
           position: relative;
-          text-transform: unset;
+          //text-transform: unset;
+          line-height: 20px;
+          text-align: center;
+          color: #7C7C7C;
+          display: -webkit-box;
+          height: 55px;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
           &:after {
             content: "";
             width: 88px;
@@ -155,7 +163,7 @@
             border-radius: 10px;
             margin: 0 auto;
             position: absolute;
-            bottom: -10px;
+            bottom: 5px;
             left: 0;
             right: 0;
           }
