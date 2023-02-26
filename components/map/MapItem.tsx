@@ -23,4 +23,5 @@ const MapItem: FC<IMapData> = (props) => {
     </Link>
   );
 };
+
 export { MapItem };
