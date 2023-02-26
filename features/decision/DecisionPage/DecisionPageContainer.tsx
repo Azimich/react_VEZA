@@ -6,7 +6,7 @@ import { Container } from "components/common/container";
 
 import { Separator } from "components/separator";
 import { OwnObject } from "components/own_object";
-import { Equipment } from "components/equipment";
+/*import {Equipment} from "components/equipment";*/
 import { dataBreadDecision } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { DecisionPageItem } from "features/decision/DecisionPage/DecisionPageItem";
@@ -14,7 +14,11 @@ import { DecisionPageItem } from "features/decision/DecisionPage/DecisionPageIte
 const DecisionPageContainer: FC<ISSRDecision> = ({
   data = { decision: {}, objects: {}, equipment: {} },
 }) => {
-  const { decision, objects, equipment } = data;
+  const { decision, objects } = data;
+  /*    const {decision, objects, equipment} = data;*/
+
+  console.log("data", data);
+
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);
   useEffect(() => {
@@ -29,7 +33,7 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
       <OwnObject props={objects?.response} />
       <Separator title={"оборудование"} />
       <div className={Styles.equipment__block}>
-        <Equipment props={equipment?.response} />
+        {/* <Equipment props={equipment?.response}/>*/}
       </div>
     </Container>
   );
