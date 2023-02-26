@@ -63,7 +63,7 @@ const InteractionContainer = () => {
         }
       />
       <div className={Styles.separator__container__title}>
-        <SeparatorContainer title={"Наши отделы продаж"} />
+        <SeparatorContainer title={"Отделы продаж"} />
       </div>
       <ul className={Styles.interaction_items}>
         {sales ? (
@@ -87,7 +87,7 @@ const InteractionContainer = () => {
       />
 
       <div className={Styles.separator__container__title}>
-        <SeparatorContainer title={"Наши филиалы"} />
+        <SeparatorContainer title={"Заводы"} />
       </div>
 
       <ul className={Styles.interaction_items}>
