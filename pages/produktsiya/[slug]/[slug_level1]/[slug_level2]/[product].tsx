@@ -23,7 +23,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async (context) => {
     const { params } = context;
-    store.dispatch(fetchMenu({ menuState: { ...(await menuListServer()) } }));
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
     const result: ICategoriesResponseArray = await menuCategory();
     const product_data = await productItem(params.product as string);

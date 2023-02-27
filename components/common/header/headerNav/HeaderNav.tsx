@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { IMenuState } from "./Header.d";
 import Styles from "./HeaderNav.module.scss";
 import { useAppSelector } from "store/hooks/useAppSelector";
@@ -16,9 +16,14 @@ interface IHeaderNav {
 }
 
 const HeaderNav: FC<IHeaderNav> = ({ isShowMenu, scroll, isShow }) => {
-  const [menu] = useState<IMenuState>(useAppSelector(getMenu));
+  const menuData = useAppSelector(getMenu);
+  const [menu, setMenu] = useState<IMenuState>();
   const auth = useAppSelector(getAuth);
   const router = useRouter();
+
+  useEffect(() => {
+    menuData && setMenu(menuData);
+  }, [menuData]);
 
   return (
     <ul

@@ -30,7 +30,7 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details }) => {
       </div>
       <div className={Styles.utp__container__bottom}>
         <p className={Styles.utp__container__botto__text}>
-          {details &&
+          {details[0]?.description &&
             details[0].description.split("|").map((d) => {
               return <p>{d}</p>;
             })}
