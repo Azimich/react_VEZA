@@ -34,6 +34,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
         data: getData(result.response, params.slug as string)[0].subCategories,
         categories: result,
         alias: params.slug,
+        products: getData(result.response, params.slug as string)[0].equipment,
       },
       revalidate: 10,
     };
@@ -44,11 +45,13 @@ const equipment = (props: {
   data: ICategoriesItem[];
   categories: ICategoriesResponseArray;
   alias: string;
+  products?: [];
 }) => (
   <EquipmentContainer
     data={props.data}
     categories={props.categories}
     alias={props.alias}
+    products={props.products}
   />
 );
 

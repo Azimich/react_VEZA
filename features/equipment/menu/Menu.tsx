@@ -35,6 +35,7 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
         const bySortLevel = parentsData.slice(0);
         bySortLevel.sort((a, b) => a.level - b.level);
 
+        console.log("-+++", i);
         resData.push({
           title: breadcrumbsData[i]?.title,
           alias:
