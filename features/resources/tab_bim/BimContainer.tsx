@@ -6,7 +6,6 @@ import { tabsResourcesData } from "../../contacts/mockData";
 import { BimItem } from "./";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
-import { ModalBim } from "./bimModal/ModalBim";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadResources } from "components/breadcrumbs/mockData";
 import { handleOnClickTabs } from "../helper";
@@ -61,7 +60,7 @@ const BimContainer = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
-        modalContent={<ModalBim />}
+        modalContent={<div />}
         theme={"modal"}
         bgModal={"black"}
       />
