@@ -1,8 +1,6 @@
 import { Button } from "components/button";
-import { CheckboxWithLabel } from "components/checkbox";
 import React, { useEffect, useState } from "react";
 import { FC } from "react";
-import { modalBiData } from "./MockData";
 import Styles from "./ModalBim.module.scss";
 import { useGetBimModal } from "service/list/getBimModal";
 import {
@@ -15,9 +13,9 @@ const ModalBim: FC<IModalBIMGroups[]> = () => {
   const [bimLists, setBimLists] = useState<IModalBIMItem[]>();
   const { getBimModal } = useGetBimModal();
 
-  const handleOnClickCheckbox = () => {
-    console.log("Клик");
-  };
+  // const handleOnClickCheckbox = () => {
+  //   console.log("Клик");
+  // };
 
   //Данные по БИМ МОДАЛКИ
   useEffect(() => {
@@ -35,19 +33,19 @@ const ModalBim: FC<IModalBIMGroups[]> = () => {
         <div className={Styles.bim__modal__download}>
           <div className={Styles.bim__modal__download__items}>
             <ul className={Styles.bim__modal__download__items__block}>
-              {modalBiData.map((e) => {
-                return (
-                  <li key={e.id}>
-                    <CheckboxWithLabel
-                      id={String(e.id)}
-                      name={"tab_bim" + e.id}
-                      title={e.title}
-                      onClick={() => handleOnClickCheckbox()}
-                      onChangeData={() => handleOnClickCheckbox()}
-                    />
-                  </li>
-                );
-              })}
+              {/*{modalBiData.map((e) => {*/}
+              {/*  return (*/}
+              {/*    <li key={e.id}>*/}
+              {/*      <CheckboxWithLabel*/}
+              {/*        id={String(e.id)}*/}
+              {/*        name={"tab_bim" + e.id}*/}
+              {/*        title={e.title}*/}
+              {/*        onClick={() => handleOnClickCheckbox()}*/}
+              {/*        onChangeData={() => handleOnClickCheckbox()}*/}
+              {/*      />*/}
+              {/*    </li>*/}
+              {/*  );*/}
+              {/*})}*/}
             </ul>
           </div>
           <Button children={"Скачать"} />

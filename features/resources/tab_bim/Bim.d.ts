@@ -79,15 +79,15 @@ interface IQuestionnaires {
 
 // Данные по модалке
 interface IModalBIMGroups {
-  bimModelGroupId: number;
-  title: string;
-  modelGroups: IModelGroups[];
+  bimModelGroupId?: number;
+  title?: string;
+  modelGroups?: IModelGroups[];
 }
 
 interface IModelGroups {
-  bimModelGroupId: number;
-  title: string;
-  modelDocuments: IModalBIMItem[];
+  bimModelGroupId?: number;
+  title?: string;
+  modelDocuments?: IModalBIMItem[];
 }
 
 interface IModalBIMItem {
