@@ -3,8 +3,6 @@
 
 .development {
   margin: 0 auto;
-  //overflow: hidden;
-  //border-radius: 20px;
   position: relative;
   @include phoneScreen {
     height: 350px;

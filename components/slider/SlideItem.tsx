@@ -24,6 +24,7 @@ const SlideItem: FC<ISlideItem> = ({
   block_description = false,
   title = "",
   description = "",
+  shortDescription = "",
   //pathDecision = false,
   code,
   url = "",
@@ -49,7 +50,7 @@ const SlideItem: FC<ISlideItem> = ({
                 {title}
               </h1>
               <p className={Styles[`${theme}_banner__right_element_text`]}>
-                {description && description}
+                {description && shortDescription}
               </p>
               <Button theme={themeButton} size={size} link={url} color={color}>
                 <span>

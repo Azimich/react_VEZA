@@ -70,6 +70,7 @@ interface IBannerItem {
   slideNumber?: number;
   show_text?: boolean;
   images?: IImages;
+  shortDescription?: string;
 }
 
 interface IStatics {
