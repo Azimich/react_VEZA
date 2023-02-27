@@ -86,6 +86,7 @@ const HomeContainer: FC<ISSRHome> = ({
           size={"medium"}
           pathDecision={true}
           navigations={true}
+          spaceBetween={5}
           // effectSlide={"cards"}
           color={"link"}
         />

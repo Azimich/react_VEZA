@@ -35,6 +35,7 @@ const SlideItem: FC<ISlideItem> = ({
   const { isShow, toggle } = useModal();
   const { isShow: isShowAdd, toggle: toggleAdd } = useModal();
   const auth = useAppSelector(getAuth);
+
   const Img = () => {
     return (
       <>
@@ -42,6 +43,22 @@ const SlideItem: FC<ISlideItem> = ({
           className={`${Styles[`${theme}_banner__slider_slide`]}`}
           key={Math.random() * 10}
         >
+          {block_description && (
+            <div className={Styles[`${theme}_banner__right_element`]}>
+              <h1 className={Styles[`${theme}_banner__right_element_title`]}>
+                {title}
+              </h1>
+              <p className={Styles[`${theme}_banner__right_element_text`]}>
+                {description && description}
+              </p>
+              <Button theme={themeButton} size={size} link={url} color={color}>
+                <span>
+                  <p>Подробнее</p>
+                  {color === "link" && <ArrowRightIcon />}
+                </span>
+              </Button>
+            </div>
+          )}
           <div className={Styles[`${theme}_banner__slider_img`]}>
             {hasWindow && isDesktop && (
               <img
@@ -62,29 +79,6 @@ const SlideItem: FC<ISlideItem> = ({
               />
             )}
           </div>
-          {block_description && (
-            <div className={Styles[`${theme}_banner__right_element`]}>
-              <h1 className={Styles[`${theme}_banner__right_element_title`]}>
-                {title}
-              </h1>
-              <p className={Styles[`${theme}_banner__right_element_text`]}>
-                {description && description}
-              </p>
-              <div className={Styles[`${theme}_banner__right_element_allign`]}>
-                <Button
-                  theme={themeButton}
-                  size={size}
-                  link={url}
-                  color={color}
-                >
-                  <span>
-                    <p>Подробнее</p>
-                    {color === "link" && <ArrowRightIcon />}
-                  </span>
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </>
     );
