@@ -2,10 +2,11 @@ import Styles from "./InDevelopmentContainer.module.scss";
 import React from "react";
 import { Link } from "components/link";
 import { Button } from "components/button";
+import { Container } from "components/common/container";
 
 const InDevelopmentContainer = () => {
   return (
-    <>
+    <Container className="wrapper_clear">
       <div className={Styles.development}>
         <img src={"/images/dev.jpg"} alt={"development"} />
         <div className={Styles.development__info}>
@@ -17,7 +18,7 @@ const InDevelopmentContainer = () => {
           </Link>
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 

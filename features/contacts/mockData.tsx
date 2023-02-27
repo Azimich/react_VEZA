@@ -52,7 +52,7 @@ const tabsResourcesData: ITab[] = [
   { id: 2, title: "Каталоги", url: "katalogi", access: false },
   { id: 3, title: "Вопросы", url: "voprosy", access: false },
   { id: 4, title: "Сертификаты", url: "sertifikaty", access: false },
-  { id: 5, title: "Опросные листы", url: "oprosnye_listy", access: false },
+  // { id: 5, title: "Опросные листы", url: "oprosnye_listy", access: false },
   { id: 6, title: "Документация", url: "dokumentatsiya", access: true },
   { id: 7, title: "Обучение", url: "obuchenie", access: true },
 ];
