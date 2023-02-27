@@ -1,4 +1,3 @@
-import { ISlideItem } from "components/slider/Slider.d";
 import { IImages, IResponse } from "types/response";
 import { IBannerItem } from "features/news/News";
 
@@ -14,23 +13,13 @@ interface ICatalogEquipmentData {
   level?: number;
 }
 
-interface ICatalogData {
-  typo_size_id?: number;
-  title?: string;
-  imgSlider?: ISlideItem[];
-  image?: string;
-  id: number;
-  cat_id: number;
-  alias: string;
-}
-
 interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
   response: ICategoriesItem[];
 }
 
 interface ICategoriesItem extends IBannerItem {
   alias: string;
-  images?: IImages[];
+  images?: IImages[] | IImages;
   level: number;
   parentAlias?: string;
   seo?: string;
@@ -40,9 +29,4 @@ interface ICategoriesItem extends IBannerItem {
   subCategories?: ICategoriesItem[];
 }
 
-export {
-  ICatalogEquipmentData,
-  ICategoriesItem,
-  ICatalogData,
-  ICategoriesResponseArray,
-};
+export { ICatalogEquipmentData, ICategoriesItem, ICategoriesResponseArray };

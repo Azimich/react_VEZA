@@ -24,7 +24,6 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
   }, [data]);
 
   useEffect(() => {
-    console.log("alias", alias);
     if (alias) {
       const resData: ICategoriesItem[] = [];
       for (let i = 0; i < getData(categories, alias)[0]?.level; i++) {
@@ -41,7 +40,9 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
           alias:
             i === 0
               ? "/produktsiya"
-              : equipmentPath + bySortLevel[i - 1]?.alias,
+              : equipmentPath +
+                (i === 2 ? bySortLevel[i - 2]?.alias + "/" : "") +
+                bySortLevel[i - 1]?.alias,
           back: true,
           level: i,
         });
@@ -49,19 +50,28 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
 
       const bySortId = resData.slice(0);
       bySortId.sort((a, b) => a.level - b.level);
-
+      const makePath =
+        equipmentPath +
+        (router.query.slug ? "" + router.query.slug + "/" : "") +
+        (router.query.slug_level1 ? router.query.slug_level1 + "/" : "") +
+        (router.query.slug_level2 ? router.query.slug_level2 + "/" : "");
       setMenu(
         bySortId.concat(
           getData(categories, alias)[0]?.subCategories?.map((e) => {
-            return { ...e, alias: router.asPath + "/" + e.alias };
+            return { ...e, alias: makePath + e.alias };
           }),
         ),
       );
     } else {
+      const makePath =
+        equipmentPath +
+        (router.query.slug ? "" + router.query.slug + "/" : "") +
+        (router.query.slug_level1 ? router.query.slug_level1 + "/" : "") +
+        (router.query.slug_level2 ? router.query.slug_level2 + "/" : "");
       categories?.length > 0 &&
         setMenu(
           categories?.map((e) => {
-            return { ...e, alias: router.asPath + "/" + e.alias };
+            return { ...e, alias: makePath + e.alias };
           }),
         );
     }

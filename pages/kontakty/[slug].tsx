@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
 
 const ContactsSlugSSR = (props: { slug: string }) => {
   const components: IComponents = {
-    tab_ofis_Prodazh: SalesOffice,
+    tab_ofis_prodazh: SalesOffice,
     tab_obshchie_kontakty: Interaction,
     tab_tekhnicheskaya_podderzhka: Support,
   };

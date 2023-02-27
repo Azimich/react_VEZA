@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const MapItem: FC<IMapData> = (props) => {
   return (
-    <Link href={"/kontakty/sale_office?alias=" + props.alias}>
+    <Link href={"/kontakty/ofis_prodazh?alias=" + props.alias}>
       <a
         className={`${Styles[props.country]} ${
           props.currentClass && props.currentClass === props.className

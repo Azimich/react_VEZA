@@ -14,6 +14,7 @@ import {
 import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
 import { ICategoriesResponseArray } from "features/equipment/Equipment";
+import { IImages } from "../../types/response";
 
 const HomeContainer: FC<ISSRHome> = ({
   newsData,
@@ -43,6 +44,7 @@ const HomeContainer: FC<ISSRHome> = ({
       };
     });
   };
+
   const convertCat = (data: ICategoriesResponseArray, isShowText = false) => {
     return data?.response.map((e): ISlideItem => {
       return {
@@ -50,9 +52,9 @@ const HomeContainer: FC<ISSRHome> = ({
         block_description: e.show_text !== undefined ? e.show_text : isShowText,
         description: e.description,
         images: {
-          pc: e?.images[0]?.pc,
-          ipad: e?.images[0]?.ipad,
-          mobile: e?.images[0]?.mobile,
+          pc: (e?.images as IImages).pc,
+          ipad: (e?.images as IImages).ipad,
+          mobile: (e?.images as IImages).mobile,
         },
         link_slider: false,
         title: e.title,
