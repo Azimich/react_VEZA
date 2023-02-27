@@ -8,6 +8,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   name = "checkbox",
   onChangeData,
   id,
+  isSelected,
   ...attrs
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
@@ -25,7 +26,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
           data-testid={"check-box"}
           id={String(id)}
           type="checkbox"
-          checked={isChecked}
+          checked={isSelected}
           onChange={() => onChangeData(isChecked)}
           onClick={() => handleOnClick()}
           name={name}

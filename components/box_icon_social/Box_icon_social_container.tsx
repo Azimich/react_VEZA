@@ -7,6 +7,7 @@ const Box_icon_social_container = () => {
       <div className={Styles.banner__icon_box}>
         <a
           href={process.env.NEXT_PUBLIC_TELEGA}
+          target={"_blank"}
           className={`${Styles.banner__icon} ${Styles.telega}`}
         >
           <TelegaIcon />

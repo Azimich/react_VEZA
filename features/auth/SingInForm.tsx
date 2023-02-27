@@ -136,7 +136,7 @@ const SingInForm: FC = () => {
               id={"forgot"}
               title={"Запомнить меня"}
               onChangeData={(e) => {
-                formik.handleChange(e);
+                formik.setFieldValue("forgot", e);
               }}
             />
 
