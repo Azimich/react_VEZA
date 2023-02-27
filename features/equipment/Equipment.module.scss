@@ -10,7 +10,9 @@
   @media (max-width: 1270px) {
     display: block;
   }
-
+.content_box{
+  max-width: 1140px;
+}
   &_menu {
     border-radius: 10px;
     height: max-content;
