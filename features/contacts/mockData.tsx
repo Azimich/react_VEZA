@@ -42,7 +42,7 @@ const tabsSalesData: ITab[] = [
   },
 ];
 const tabsContactsData: ITab[] = [
-  { id: 1, title: "Офис Продаж", url: "ofis_Prodazh" },
+  { id: 1, title: "Офис Продаж", url: "ofis_prodazh" },
   { id: 2, title: "Общие контакты", url: "obshchie_kontakty" },
   { id: 3, title: "Техническая поддержка", url: "tekhnicheskaya_podderzhka" },
 ];

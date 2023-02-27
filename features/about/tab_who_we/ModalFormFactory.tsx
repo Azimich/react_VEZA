@@ -12,7 +12,7 @@ const ModalFormFactory: FC<IObject> = (e) => {
         <p className={Styles.factory_info_services}>
           Площадь производства
           <span>
-            {e.object.production_area} км<sup>2</sup>
+            {e.object.production_area} м<sup>2</sup>
           </span>
         </p>
         <p className={Styles.factory_info_services}>
