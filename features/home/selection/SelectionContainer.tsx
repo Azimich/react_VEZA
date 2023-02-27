@@ -9,7 +9,7 @@ const SelectionContainer = () => {
         Оформление бланка-заказа осуществляется через программу расчета
       </div>
       <div className={Styles.selectionButton}>
-        <Link url={"auth/singin"}>
+        <Link url={"/develop"}>
           <Button size={"medium"} theme={"banner"} children={"Рассчитать"} />
         </Link>
       </div>
