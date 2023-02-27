@@ -23,7 +23,7 @@ const HomeContainer: FC<ISSRHome> = ({
   indexIndustries,
 }) => {
   const convert = (
-    data: IBannerResponseArray | ICategoriesResponseArray | IIndustriesResponse,
+    data: IBannerResponseArray | IIndustriesResponse,
     isShowText = false,
   ) => {
     return data?.response.map((e): ISlideItem => {
@@ -35,6 +35,24 @@ const HomeContainer: FC<ISSRHome> = ({
           pc: e?.images?.pc,
           ipad: e?.images?.ipad,
           mobile: e?.images?.mobile,
+        },
+        link_slider: false,
+        title: e.title,
+        typeSlider: "img",
+        url: e.alias,
+      };
+    });
+  };
+  const convertCat = (data: ICategoriesResponseArray, isShowText = false) => {
+    return data?.response.map((e): ISlideItem => {
+      return {
+        alt: e.title,
+        block_description: e.show_text !== undefined ? e.show_text : isShowText,
+        description: e.description,
+        images: {
+          pc: e?.images[0]?.pc,
+          ipad: e?.images[0]?.ipad,
+          mobile: e?.images[0]?.mobile,
         },
         link_slider: false,
         title: e.title,
@@ -63,7 +81,7 @@ const HomeContainer: FC<ISSRHome> = ({
           <Separator title={"Категория продукции"} />
         </div>
         <SliderContainer
-          items={convert(indexCategories)}
+          items={convertCat(indexCategories)}
           dots={true}
           autoplay={false}
           spaceBetween={10}
