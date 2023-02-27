@@ -17,8 +17,6 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
   const { decision, objects, equipment } = data;
   /*    const {decision, objects, equipment} = data;*/
 
-  console.log("data", data);
-
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);
   useEffect(() => {
@@ -33,7 +31,10 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
       <OwnObject props={objects?.response} />
       <Separator title={"оборудование"} />
       <div className={Styles.equipment__block}>
-        <Equipment props={equipment?.response} />
+        <Equipment
+          props={equipment?.response}
+          alias={decision.response.alias}
+        />
       </div>
     </Container>
   );

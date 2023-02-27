@@ -1,5 +1,7 @@
 import { ICatalogEquipmentData } from "features/equipment";
 import { ICategoriesItem } from "features/equipment/Equipment";
+import { equipmentPath } from "utils/bootstrap";
+import { useRouter } from "next/router";
 
 const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   const resData = [];
@@ -48,24 +50,6 @@ const getData = (
 
   return resData;
 };
-const getDataEquipment = (
-  obj: ICategoriesItem[],
-  url: string,
-  parentAlias?: string,
-  resData: ICategoriesItem[] = [],
-) => {
-  for (const k in obj) {
-    if (obj[k].alias === url) {
-      resData.push(obj[k]);
-    }
-
-    if (obj[k].subCategories && obj[k].subCategories.length > 0) {
-      getData(obj[k].subCategories, url, parentAlias, resData);
-    }
-  }
-
-  return resData;
-};
 
 const checkEmptyObject = (obj: {}) => {
   return Object.keys(obj).length === 0;
@@ -73,6 +57,16 @@ const checkEmptyObject = (obj: {}) => {
 
 const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
   return !((role === 0 || role === undefined) && onlyAdmin);
+};
+
+const makePath = () => {
+  const router = useRouter();
+  return (
+    equipmentPath +
+    (router.query.slug ? "" + router.query.slug + "/" : "") +
+    (router.query.slug_level1 ? router.query.slug_level1 + "/" : "") +
+    (router.query.slug_level2 ? router.query.slug_level2 + "/" : "")
+  );
 };
 
 const onButtonClick = (url: string | URL, title: string) => {
@@ -94,5 +88,5 @@ export {
   checkEmptyObject,
   checkedAccessMenu,
   onButtonClick,
-  getDataEquipment,
+  makePath,
 };

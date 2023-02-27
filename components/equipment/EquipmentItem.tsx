@@ -2,11 +2,18 @@ import { FC } from "react";
 import Styles from "./Equipment.module.scss";
 import { Link } from "../link";
 import { IEquipment } from "features/decision/Decision";
+import { equipmentPath } from "utils/bootstrap";
 
-const EquipmentItem: FC<IEquipment> = ({ imageUrl, alias, title }) => {
+const EquipmentItem: FC<IEquipment> = ({
+  imageUrl,
+  alias,
+  title,
+  aliasOtr,
+}) => {
+  console.log("+++", aliasOtr, alias);
   return (
     <div className={Styles.equipment_container_item}>
-      <Link url={alias}>
+      <Link url={equipmentPath + alias + "?otrasl=" + aliasOtr}>
         <img src={imageUrl} alt={title} />
       </Link>
     </div>
