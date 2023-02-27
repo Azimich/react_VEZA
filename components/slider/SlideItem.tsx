@@ -5,7 +5,6 @@ import { isMobile, isTablet, isDesktop } from "react-device-detect";
 import { Button } from "../button";
 import { ArrowRightIcon } from "../icons";
 import { Link } from "components/link";
-import { decisionPath, equipmentPath } from "utils/bootstrap";
 import { Modal, useModal } from "components/modal";
 import { Editor } from "components/editor_pen";
 import { ModalBannerAdded } from "features/home/bannerModal/ModalBannerAdded";
@@ -25,7 +24,7 @@ const SlideItem: FC<ISlideItem> = ({
   block_description = false,
   title = "",
   description = "",
-  pathDecision = false,
+  //pathDecision = false,
   code,
   url = "",
   size = "medium",
@@ -145,7 +144,7 @@ const SlideItem: FC<ISlideItem> = ({
     case "img":
       return url ? (
         <div>
-          <Link url={(pathDecision ? decisionPath : equipmentPath) + url}>
+          <Link url={url}>
             <Img />
           </Link>
           {isEdit && auth.identify && auth.data.response.role === 1 && (
