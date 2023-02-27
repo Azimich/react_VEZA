@@ -77,6 +77,30 @@ interface IQuestionnaires {
   parent?: number;
 }
 
+// Данные по модалке
+interface IModalBIMGroups {
+  bimModelGroupId: number;
+  title: string;
+  modelGroups: IModelGroups[];
+}
+
+interface IModelGroups {
+  bimModelGroupId: number;
+  title: string;
+  modelDocuments: IModalBIMItem[];
+}
+
+interface IModalBIMItem {
+  bimModelDocumentId?: number;
+  title?: string;
+  documentUrl?: string;
+  status?: number;
+}
+
+interface IBIMModalResponse extends Omit<IResponse, "response"> {
+  response: IModalBIMGroups[];
+}
+
 export {
   IBim,
   ICatalog,
@@ -88,4 +112,7 @@ export {
   ICertResponseArray,
   ICatalogResponse,
   ICatalogsItem,
+  IModalBIMItem,
+  IBIMModalResponse,
+  IModalBIMGroups,
 };

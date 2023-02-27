@@ -173,6 +173,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
     gap: 20px;
+    margin-bottom: 130px;
+    @include phoneScreen {
+      margin-bottom: 50px;
+    }
     h2 {
       font-size: 16px;
       font-weight: 400;

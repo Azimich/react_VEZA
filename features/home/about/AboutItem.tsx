@@ -14,8 +14,12 @@ const AboutItems: FC<IAboutItem> = ({ title, description, images }) => {
         <img src={images.pc} alt={title} />
       </div>
       <div className={Styles.card_user_item_details}>
-        <h4 className={Styles.title}>{title}</h4>
-        <p className={Styles.info}>{description}</p>
+        <div className={Styles.title}>
+          {title.split(" ").map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+        <span className={Styles.info}>{description}</span>
       </div>
     </div>
   );
