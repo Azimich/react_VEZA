@@ -10,13 +10,15 @@ import {
   ICategoriesResponseArray,
 } from "features/equipment/Equipment";
 import { getData } from "utils/helpers";
+import { equipmentPath } from "utils/bootstrap";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  /*    const slug = CatalogData.map((e) => {
-          return {params: {slug: e.alias}};
-      });*/
+  const result: ICategoriesResponseArray = await menuCategory();
+  const slug = result.response.map((e) => {
+    return { params: { slug: equipmentPath + e.alias } };
+  });
   return {
-    paths: [],
+    paths: slug,
     fallback: true,
   };
 };
