@@ -15,7 +15,7 @@ const DecisionContainer: FC<ISSRDecisionArray> = ({ decision }) => {
   return (
     <Container className="wrapper">
       <BreadCrumbs data={dataBreadDecision} />
-      <div className={Styles.decision__container}>
+      <div className={`${Styles.decision__container} ${Styles.angry_grid}`}>
         {!decision?.hasError ? (
           decision?.response?.map((e) => {
             return <DecisionItem {...e} key={e.industryId} />;

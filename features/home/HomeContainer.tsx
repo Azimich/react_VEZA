@@ -32,6 +32,7 @@ const HomeContainer: FC<ISSRHome> = ({
         alt: e.title,
         block_description: e.show_text !== undefined ? e.show_text : isShowText,
         description: e.description,
+        shortDescription: e.shortDescription,
         images: {
           pc: e?.images?.pc,
           ipad: e?.images?.ipad,
@@ -106,6 +107,7 @@ const HomeContainer: FC<ISSRHome> = ({
           size={"medium"}
           pathDecision={true}
           navigations={true}
+          spaceBetween={5}
           // effectSlide={"cards"}
           color={"link"}
         />

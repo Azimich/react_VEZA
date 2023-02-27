@@ -2,7 +2,7 @@ import { GetStaticProps } from "next";
 import { wrapper } from "store/store";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
-import { InDevelopmentContainer } from "components/inDevelopment/InDevelopmentContainer";
+import { DevelopContainer } from "features/typo_size/develop/DevelopContainer";
 
 export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   (store) => async () => {
@@ -14,5 +14,5 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
   },
 );
 
-const InDevelopment = () => <InDevelopmentContainer />;
+const InDevelopment = () => <DevelopContainer />;
 export default InDevelopment;

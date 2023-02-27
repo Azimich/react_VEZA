@@ -14,7 +14,7 @@ const NewsPageItem: FC<INewsDataItem> = ({
   keywords,
   seoKeywords,
   newsName,
-  videoUrl,
+  // videoUrl,
 }) => {
   const [device, setDevice] = useState<"mobile" | "tablet" | "desktop">(
     "desktop",
@@ -73,15 +73,15 @@ const NewsPageItem: FC<INewsDataItem> = ({
             <video src={videoUrl} autoPlay={true} controls={true}></video>
           </div>
         )}*/}
-        {videoUrl && (
-          <iframe
-            src={videoUrl}
-            width="100%"
-            height={"640px"}
-            frameBorder={"0"}
-            allowFullScreen
-          ></iframe>
-        )}
+        {/*{videoUrl && (*/}
+        {/*  <iframe*/}
+        {/*    src={videoUrl}*/}
+        {/*    width="100%"*/}
+        {/*    height={"640px"}*/}
+        {/*    frameBorder={"0"}*/}
+        {/*    allowFullScreen*/}
+        {/*  ></iframe>*/}
+        {/*)}*/}
 
         <div className={Styles.news__active__info__right}>
           <h2>{title}</h2>

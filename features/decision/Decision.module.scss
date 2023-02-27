@@ -35,13 +35,9 @@
       &_title {
         color: color(white);
         font-weight: 500;
-        font-size: 25px;
+        font-size: 20px;
         line-height: 120%;
-        @include ipadScreen {
-          font-weight: 500;
-          font-size: 22px;
-          line-height: 115%;
-        }
+        margin-bottom: 10px;
       }
 
       &_description {

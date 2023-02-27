@@ -101,6 +101,7 @@ const SliderContainer: FC<ISliderProps> = ({
                 block_description={e.block_description}
                 title={e.title}
                 description={e.description}
+                shortDescription={e.shortDescription}
                 url={e.url}
                 OnClick={(code: string) => OnClick(code)}
               />
