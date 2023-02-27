@@ -13,8 +13,8 @@ import { getData } from "utils/helpers";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   /*    const slug = CatalogData.map((e) => {
-        return {params: {slug: e.alias}};
-    });*/
+          return {params: {slug: e.alias}};
+      });*/
   return {
     paths: [],
     fallback: true,

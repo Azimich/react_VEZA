@@ -48,6 +48,25 @@ const getData = (
 
   return resData;
 };
+const getDataEquipment = (
+  obj: ICategoriesItem[],
+  url: string,
+  parentAlias?: string,
+  resData: ICategoriesItem[] = [],
+) => {
+  for (const k in obj) {
+    if (obj[k].alias === url) {
+      resData.push(obj[k]);
+    }
+
+    if (obj[k].subCategories && obj[k].subCategories.length > 0) {
+      getData(obj[k].subCategories, url, parentAlias, resData);
+    }
+  }
+
+  return resData;
+};
+
 const checkEmptyObject = (obj: {}) => {
   return Object.keys(obj).length === 0;
 };
@@ -75,4 +94,5 @@ export {
   checkEmptyObject,
   checkedAccessMenu,
   onButtonClick,
+  getDataEquipment,
 };

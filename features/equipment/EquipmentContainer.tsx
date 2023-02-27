@@ -11,9 +11,15 @@ interface IProps {
   data?: ICategoriesItem[];
   categories?: ICategoriesResponseArray;
   alias?: string;
+  products?: [];
 }
 
-const EquipmentContainer: FC<IProps> = ({ data, categories, alias }) => {
+const EquipmentContainer: FC<IProps> = ({
+  data,
+  categories,
+  alias,
+  products = [],
+}) => {
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadEquipment);
 
@@ -28,7 +34,7 @@ const EquipmentContainer: FC<IProps> = ({ data, categories, alias }) => {
         {categories?.response && (
           <Menu categories={categories?.response} data={data} alias={alias} />
         )}
-        <Catalog data={data} />
+        <Catalog data={products.length > 0 ? products : data} />
       </div>
     </Container>
   );

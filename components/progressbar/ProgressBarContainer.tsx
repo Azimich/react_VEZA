@@ -31,7 +31,6 @@ const ProgressBar = (props: {
 
   const [progress, setProgress] = useState(0);
   const loadingDuration = progressLabel > 1000 ? 1000 : 500; // 3 seconds
-  console.log("progressLabel", progressLabel);
   useEffect(() => {
     !isView && setProgress(0);
     const loadingTimeout = setTimeout(() => {
