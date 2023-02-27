@@ -67,6 +67,7 @@ interface ISlideItem {
   block_description?: boolean;
   title?: string;
   description?: string;
+  shortDescription?: string;
   url?: string;
   OnClick?: (code: string) => void;
   url_banner?: string;
