@@ -15,7 +15,6 @@
   &_item{
     overflow: hidden;
     border-radius: 12px;
-    height: 267px;
     &:hover img{
       transform: scale(1.1);
 
@@ -23,7 +22,7 @@
 
     img {
       width:100%;
-      object-fit: cover;
+      object-fit: fill;
       transition: all 0.3s;
     }
   }

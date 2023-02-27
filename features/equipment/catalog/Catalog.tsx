@@ -9,7 +9,7 @@ const Catalog: FC<{ data: ICategoriesItem[] }> = ({ data }) => {
   const [dataCategory] = useState<ICatalogEquipmentData>();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadEquipment);
-
+  console.log("data", data);
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
   }, [dataBreadEquipment]);
