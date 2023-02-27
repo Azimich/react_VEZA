@@ -61,7 +61,7 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   modules={[Pagination, Autoplay]}
                   slidesPerView={6}
                   spaceBetween={23}
-                  autoplay={true}
+                  autoplay={false}
                   loop={true}
                   pagination={pagination}
                   breakpoints={{

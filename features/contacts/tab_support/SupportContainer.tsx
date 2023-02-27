@@ -25,15 +25,16 @@ const SupportContainer = () => {
   const [telegram, setTelegram] = useState<ITelegramItem[]>([]);
   const { getTelegramData } = useGetTelegram();
 
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Техническая поддержка" }]);
+  }, [dataBreadContacts]);
+
   //Данные по ТГ группам
   useEffect(() => {
     getTelegramData().then((data: ITelegramResponse) => {
       data && !data.hasError && setTelegram(data.response);
     });
   }, []);
-  useEffect(() => {
-    setBreadCrumbs([...breadCrumbs, { title: "Техническая поддержка" }]);
-  }, [dataBreadContacts]);
 
   const handleOnClickTabs = (e: ITab) => {
     router.push(contactsPath + e.url).then();

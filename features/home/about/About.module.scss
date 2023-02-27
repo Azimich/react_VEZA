@@ -125,7 +125,7 @@
         height: 220px;
         overflow: hidden;
         box-shadow: 0 0 3px rgb(0 0 0 / 25%);
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         @include ipadScreen {
           height: 340px;
         }
@@ -138,21 +138,16 @@
         }
       }
       &_details {
-        h4 {
-          font-weight: 400;
-          font-size: 16px;
-          color: #414141;
-          margin-bottom: 6px;
+        .title {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 5px;
           position: relative;
-          line-height: 20px;
-          text-align: center;
-          display: -webkit-box;
-          height: 55px;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          @include phoneScreen {
-            height: 35px;
+          width: 90%;
+          margin: 0 auto 18px;
+          &:last-child:nth-child(2n+1) {
+            grid-column: span 2;
           }
           &:after {
             content: "";
@@ -162,19 +157,24 @@
             border-radius: 10px;
             margin: 0 auto;
             position: absolute;
-            bottom: 5px;
+            bottom: -10px;
             left: 0;
             right: 0;
           }
+          p {
+            color: color(dark);
+            font-size: 16px;
+            text-align: center;
+          }
         }
-        p {
+        span {
           font-weight: 400;
           font-size: 12px;
           line-height: 14px;
           text-align: center;
           color: #7C7C7C;
           display: -webkit-box;
-          height: 35px;
+          height: 28px;
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
           overflow: hidden;
