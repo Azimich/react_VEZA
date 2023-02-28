@@ -14,10 +14,9 @@ const BimItem: FC<IBim> = ({
   setupUrl,
 }) => {
   const dataUpdate = new Date(updated);
-  // console.log(`${year.getDate()}-${year.getMonth() + 1}-${year.getFullYear()}`);
-
   const [download, setDownload] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleDisabled = () => {
     setDownload(false);
     setIsLoading(true);

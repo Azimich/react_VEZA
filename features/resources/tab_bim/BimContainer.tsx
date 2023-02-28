@@ -3,7 +3,7 @@ import { Container } from "components/common/container";
 import Styles from "./Bim.module.scss";
 import { Tabs } from "components/tabs";
 import { tabsResourcesData } from "../../contacts/mockData";
-import { BimItem } from "./";
+import { BimItem, ModalBim } from "./";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
@@ -60,9 +60,9 @@ const BimContainer = () => {
       <Modal
         isShow={isShow}
         hide={toggle}
-        modalContent={<div />}
-        theme={"modal"}
-        bgModal={"black"}
+        modalContent={<ModalBim />}
+        theme={"full_modal"}
+        bgModal={"white"}
       />
 
       <div className={Styles.bim__items}>

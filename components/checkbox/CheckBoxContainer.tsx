@@ -14,6 +14,7 @@ const CheckboxWithLabel: FC<ICheckBox> = ({
   const handleOnClick = () => {
     setIsChecked(!isChecked);
   };
+
   return (
     <div className={Styles.checkbox_container}>
       <label

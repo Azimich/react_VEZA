@@ -115,4 +115,5 @@ export {
   IModalBIMItem,
   IBIMModalResponse,
   IModalBIMGroups,
+  IModelGroups,
 };

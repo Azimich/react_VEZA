@@ -1,10 +1,22 @@
-@import '../../../../styles/mixins.scss';
-@import '../../../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .bim__modal {
   padding: 5%;
+  width: 35%;
+  margin: 0 auto;
   @include phoneScreen {
     padding: 5% 0 0 0;
+    width: 100%;
+  }
+
+  .radios_block {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgb(33 33 33 / 21%);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 
   &__title {
@@ -21,9 +33,14 @@
   }
 
   &__items {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    ul {
+      display: flex;
+      gap: 15px;
+    }
   }
 
   &__download {
@@ -35,8 +52,9 @@
     &__items {
       display: flex;
       align-items: flex-start;
+      flex-direction: column;
       margin-bottom: 5%;
-      gap: 100px;
+      gap: 20px;
   
       &__block {  
         li {
