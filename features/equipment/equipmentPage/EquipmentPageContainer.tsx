@@ -1,5 +1,5 @@
 import { Container } from "components/common/container";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { ICategoriesItem, ICategoriesResponseArray } from "../Equipment";
 
 import { Menu } from "../menu/Menu";
@@ -10,6 +10,7 @@ import { Separator } from "components/separator";
 /*import {Equipment} from "components/equipment";*/
 import { IEquipmentResponse } from "features/equipment/equipmentPage/Equipment";
 import { ISlideItem } from "components/slider/Slider.d";
+import { useGetAddEquip } from "service/list/getAddEquip";
 /*import {IBannerResponseArray, IIndustriesResponse} from "features/news/News";*/
 /*
 import {ISlideItem} from "components/slider/Slider.d";
@@ -22,7 +23,7 @@ const EquipmentPageContainer: FC<{
   alias_active?: string;
   product: IEquipmentResponse;
 }> = ({ data, categories, alias, product }) => {
-  console.log("product", product);
+  const { getAddEquip } = useGetAddEquip();
   const convert = (data: IEquipmentResponse) => {
     return data?.response.images.map((e): ISlideItem => {
       return {
@@ -39,6 +40,12 @@ const EquipmentPageContainer: FC<{
       };
     });
   };
+
+  useEffect(() => {
+    getAddEquip(product?.response?.alias).then((res) => {
+      console.log("asd", res);
+    });
+  }, []);
 
   return (
     <Container className={"wrapper"}>

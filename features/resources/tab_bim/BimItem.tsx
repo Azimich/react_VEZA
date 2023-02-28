@@ -3,7 +3,6 @@ import { FC, useState } from "react";
 import { IBim } from "./Bim";
 import Styles from "./Bim.module.scss";
 import { Link } from "components/link";
-import { onButtonClick } from "utils/helpers";
 import { SpinnerButton } from "components/spinners";
 
 const BimItem: FC<IBim> = ({
@@ -20,10 +19,10 @@ const BimItem: FC<IBim> = ({
   const handleDisabled = () => {
     setDownload(false);
     setIsLoading(true);
-    onButtonClick(setupUrl, title).then(() => {
+    /*    onButtonClick(setupUrl, title).then(() => {
       setDownload(true);
       setIsLoading(false);
-    });
+    });*/
   };
 
   return (

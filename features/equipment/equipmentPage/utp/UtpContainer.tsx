@@ -5,9 +5,10 @@ import { ModalForm } from "./ModalForm";
 import { FC } from "react";
 import { IEquipmentItem } from "features/equipment/equipmentPage/Equipment";
 
-const content = <ModalForm />;
-const UtpContainer: FC<IEquipmentItem> = ({ advantages, details }) => {
+const UtpContainer: FC<IEquipmentItem> = ({ advantages, details, blocks }) => {
+  const content = <ModalForm props={blocks} />;
   const { isShow, toggle } = useModal();
+  const data = details[0].description;
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
@@ -18,31 +19,27 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details }) => {
             })}
         </div>
         <div className={Styles.utp__container__top__buttons}>
-          <div className={Styles.utp__container__top__calculation}>
-            <p>Выполнить подбор необходимого оборудования</p>
-            <Button children={"Расчёт"} link={"/develop"} />
-          </div>
-          <div className={Styles.utp__container__top__download}>
-            <p>Скачать BIM-модель</p>
-            <Button children={"Скачать"} onClick={toggle} />
+          <div>
+            <div className={Styles.utp__container__top__calculation}>
+              <p>Выполнить подбор необходимого оборудования</p>
+              <Button children={"Расчёт"} link={"/develop"} />
+            </div>
+            <div className={Styles.utp__container__top__download}>
+              <p>Скачать BIM-модель</p>
+              <Button children={"Скачать"} onClick={toggle} />
+            </div>
           </div>
         </div>
       </div>
-      <div className={Styles.utp__container__bottom}>
-        <p className={Styles.utp__container__botto__text}>
-          {details[0]?.description &&
-            details[0].description.split("|").map((d) => {
-              return <p>{d}</p>;
-            })}
-        </p>
-      </div>
+      <div className={Styles.lh} dangerouslySetInnerHTML={{ __html: data }} />
       <Modal
         isShow={isShow}
         hide={toggle}
         modalContent={content}
-        theme={"modal"}
-        bgModal={"black"}
-      />
+        theme={"full_modal"}
+        bgModal={"white"}
+        headerText={"Тип файла"}
+      ></Modal>
     </div>
   );
 };
