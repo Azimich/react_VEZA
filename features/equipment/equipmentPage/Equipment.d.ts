@@ -21,7 +21,6 @@ interface IBlockItem {
   status: number;
   documents: IDocuments[];
 }
-
 interface IDocuments {
   status: number;
   title: string;
@@ -34,4 +33,4 @@ interface IDetailsItem {
   subtitle: string;
 }
 
-export { IEquipmentItem, IEquipmentResponse, IBlockItem };
+export { IEquipmentItem, IEquipmentResponse, IBlockItem, IDocuments };

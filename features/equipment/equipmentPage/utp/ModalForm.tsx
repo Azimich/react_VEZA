@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FC } from "react";
 import { CheckboxWithLabel } from "components/checkbox";
 import Styles from "./Utp.module.scss";
 import { Button } from "components/button";
-import { IBlockItem } from "features/equipment/equipmentPage/Equipment";
+import {
+  IBlockItem,
+  IDocuments,
+} from "features/equipment/equipmentPage/Equipment";
 import { Link } from "components/link";
 import { EyeIcon } from "components/icons";
 
@@ -12,6 +15,18 @@ interface IData {
 }
 
 const ModalForm: FC<IData> = ({ props }) => {
+  const [checked, setChecked] = useState<IDocuments[]>([]);
+
+  console.log("checked", checked);
+  const handleOnChange = (e: IDocuments) => {
+    const check = checked.filter((item) => item.title === e.title);
+    if (check.length === 0) {
+      setChecked([...checked, e]);
+    } else {
+      setChecked(checked.filter((item) => item.title !== e.title));
+    }
+    console.log("checked", e);
+  };
   return (
     <div className={Styles.download}>
       <h2 className={Styles.download__title}>Тип файла</h2>
@@ -26,9 +41,14 @@ const ModalForm: FC<IData> = ({ props }) => {
                     return (
                       <li key={i}>
                         <CheckboxWithLabel
-                          id={String(i)}
+                          id={String(e.title + String(i))}
                           name={"tab_bim_" + i}
                           title={data.title}
+                          onChangeData={() => handleOnChange(data)}
+                          isSelected={
+                            checked.filter((item) => item.title === data.title)
+                              .length > 0
+                          }
                         />
                       </li>
                     );
