@@ -27,6 +27,7 @@ interface IAuthResponse {
 const SingUpForm: FC<IAuthResponse> = () => {
   const [dataResponse, setDataResponse] = useState<IAuthResponse>();
   const { isShow, toggle } = useModal();
+  const { isShow: isShowPolicy, toggle: togglePolicy } = useModal();
   const { postRegister, loading } = useAuth();
   const router = useRouter();
 
@@ -232,16 +233,17 @@ const SingUpForm: FC<IAuthResponse> = () => {
               formik.errors?.private_police && formik.touched?.private_police
                 ? Styles.registration__form__item__input_error
                 : Styles.registration__form__item__input
-            }`}
+            } ${Styles.check_box}`}
           >
             <CheckboxWithLabel
               name={"private_police"}
               id={"private_police_id"}
-              title={"Согласие на обработку персональных данных с условиями"}
+              title={"Согласие на обработку персональных данных"}
               onChangeData={(e) => {
                 formik.setFieldValue("private_police", e);
               }}
             />
+            <span onClick={togglePolicy}>с условиями</span>
             <div
               className={`${
                 formik.errors?.private_police && formik.touched?.private_police
@@ -279,6 +281,14 @@ const SingUpForm: FC<IAuthResponse> = () => {
         theme={"modal"}
         headerText={"Регистрация прошла успешно!"}
         bgModal={"black"}
+      />
+      <Modal
+        isShow={isShowPolicy}
+        hide={togglePolicy}
+        modalContent={<div>111</div>}
+        headerText={"Политика обработки персональных"}
+        theme={"full_modal"}
+        bgModal={"white"}
       />
     </div>
   );
