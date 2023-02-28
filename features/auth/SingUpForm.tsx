@@ -15,6 +15,7 @@ import { useAuth } from "service/auth/auth";
 import { SpinnerButton } from "components/spinners";
 import { Modal, useModal } from "components/modal";
 import { useRouter } from "next/router";
+import { Politics } from "./Politics";
 
 interface IAuthResponse {
   customErrorCode: number;
@@ -251,7 +252,9 @@ const SingUpForm: FC<IAuthResponse> = () => {
                   : Styles.overflow
               }`}
             >
-              <li>{formik.errors?.private_police}</li>
+              <li className={Styles.list__top}>
+                {formik.errors?.private_police}
+              </li>
             </div>
           </ul>
         </div>
@@ -285,8 +288,7 @@ const SingUpForm: FC<IAuthResponse> = () => {
       <Modal
         isShow={isShowPolicy}
         hide={togglePolicy}
-        modalContent={<div>111</div>}
-        headerText={"Политика обработки персональных"}
+        modalContent={<Politics />}
         theme={"full_modal"}
         bgModal={"white"}
       />
