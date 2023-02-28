@@ -7,18 +7,21 @@ const Box_icon_social_container = () => {
       <div className={Styles.banner__icon_box}>
         <a
           href={process.env.NEXT_PUBLIC_TELEGA}
+          target={"_blank"}
           className={`${Styles.banner__icon} ${Styles.telega}`}
         >
           <TelegaIcon />
         </a>
         <a
           href={process.env.NEXT_PUBLIC_VK}
+          target={"_blank"}
           className={`${Styles.banner__icon} ${Styles.vk}`}
         >
           <VkIcon />
         </a>
         <a
           href={process.env.NEXT_PUBLIC_YOUTUBE}
+          target={"_blank"}
           className={`${Styles.banner__icon} ${Styles.ok__ru}`}
         >
           <YouTubeIcon />

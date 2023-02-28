@@ -18,6 +18,10 @@ const SideBar: FC<ISideBarData> = ({
     <div className={Styles.side_bar}>
       <div className={Styles.side_bar_title}>Наши референсы</div>
       {tabsSocialData.map((e) => {
+        console.log(
+          "213",
+          selectedCheckBox.filter((d) => d.id === e.id).length > 0,
+        );
         return (
           <CheckboxWithLabel
             name={e.url}

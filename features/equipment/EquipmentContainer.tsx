@@ -34,7 +34,10 @@ const EquipmentContainer: FC<IProps> = ({
         {categories?.response && (
           <Menu categories={categories?.response} data={data} alias={alias} />
         )}
-        <Catalog data={products.length > 0 ? products : data} />
+        <Catalog
+          data={products.length > 0 ? products : data}
+          categories={categories?.response}
+        />
       </div>
     </Container>
   );

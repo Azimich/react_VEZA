@@ -41,6 +41,7 @@ interface IEquipment {
   alias: string;
   imageUrl: string;
   title: string;
+  aliasOtr: string;
 }
 
 export {

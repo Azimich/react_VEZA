@@ -221,7 +221,7 @@ const SupportForm: FC = () => {
               id={"private_police_id"}
               title={"Согласие на обработку персональных данных с условиями"}
               onChangeData={(e) => {
-                formik.handleChange(e);
+                formik.setFieldValue("private_police", e);
               }}
             />
 
