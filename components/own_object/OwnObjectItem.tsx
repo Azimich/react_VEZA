@@ -11,7 +11,7 @@ const OwnObjectItem: FC<IObjects> = ({
   slidePosition,
 }) => {
   const slide_class = `col${slidePosition}`;
-  console.log("categories", categories);
+
   return (
     <li className={Styles[slide_class]}>
       <img src={imageUrl} alt="Фото" />
