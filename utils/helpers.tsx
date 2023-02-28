@@ -18,18 +18,19 @@ const eachRecursive = (obj: ICatalogEquipmentData[]) => {
 function getParents(
   obj: ICategoriesItem[],
   parentAlias: string,
-  level: number,
+  level?: number,
   parents: ICategoriesItem[] = [],
 ) {
   if (level !== 1) {
     const parent = getData(obj, parentAlias).shift();
     if (parent?.level != 1) {
       parents.push(parent);
-      getParents(obj, parent.parentAlias, parent.level, parents);
+      getParents(obj, parent?.parentAlias, parent?.level, parents);
     } else {
       parents.push(parent);
     }
   }
+
   return parents;
 }
 

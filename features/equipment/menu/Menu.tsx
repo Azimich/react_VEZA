@@ -3,7 +3,6 @@ import { CategoryIcon } from "components/icons";
 import { MenuItem } from "./MenuItem";
 import { breadcrumbsData } from "./mockData";
 import { FC, useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { getData, getParents } from "utils/helpers";
 import { equipmentPath } from "utils/bootstrap";
 import { ICategoriesItem } from "features/equipment/Equipment.d";
@@ -15,7 +14,6 @@ interface IMenu {
 }
 
 const Menu: FC<IMenu> = ({ categories, data, alias }) => {
-  const router = useRouter();
   const [menu, setMenu] = useState<ICategoriesItem[]>([]);
 
   useEffect(() => {
@@ -35,15 +33,16 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
         const bySortLevel = parentsData.slice(0);
         bySortLevel.sort((a, b) => a.level - b.level);
 
-        console.log("-+++", i);
         resData.push({
           title: breadcrumbsData[i]?.title,
           alias:
             i === 0
               ? "/produktsiya"
               : equipmentPath +
-                (i === 2 ? bySortLevel[i - 2]?.alias + "/" : "") +
-                bySortLevel[i - 1]?.alias,
+                getParents(categories, bySortLevel[i - 1]?.alias)
+                  .reverse()
+                  .map((d) => d.alias)
+                  .join("/"),
           back: true,
           level: i,
         });
@@ -51,32 +50,30 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
 
       const bySortId = resData.slice(0);
       bySortId.sort((a, b) => a.level - b.level);
-      const makePath =
-        equipmentPath +
-        (router.query.slug ? "" + router.query.slug + "/" : "") +
-        (router.query.slug_level1 ? router.query.slug_level1 + "/" : "") +
-        (router.query.slug_level2 ? router.query.slug_level2 + "/" : "");
       setMenu(
         bySortId.concat(
           getData(categories, alias)[0]?.subCategories?.map((e) => {
-            return { ...e, alias: makePath + e.alias };
+            return {
+              ...e,
+              alias:
+                equipmentPath +
+                getParents(categories, e.alias)
+                  .reverse()
+                  .map((d) => d.alias)
+                  .join("/"),
+            };
           }),
         ),
       );
     } else {
-      const makePath =
-        equipmentPath +
-        (router.query.slug ? "" + router.query.slug + "/" : "") +
-        (router.query.slug_level1 ? router.query.slug_level1 + "/" : "") +
-        (router.query.slug_level2 ? router.query.slug_level2 + "/" : "");
       categories?.length > 0 &&
         setMenu(
           categories?.map((e) => {
-            return { ...e, alias: makePath + e.alias };
+            return { ...e, alias: equipmentPath + e.alias };
           }),
         );
     }
-  }, [router.query.slug, categories]);
+  }, []);
 
   return (
     <div className={Styles.equipment__container_menu}>

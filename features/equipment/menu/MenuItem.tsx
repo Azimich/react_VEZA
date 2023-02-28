@@ -5,6 +5,7 @@ import { Link } from "components/link";
 import Styles from "../Equipment.module.scss";
 
 const MenuItem: FC<ICategoriesItem> = ({ title = "", alias, back = false }) => {
+  console.log("alias", alias);
   return (
     <>
       {back ? (

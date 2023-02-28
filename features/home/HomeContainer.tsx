@@ -15,6 +15,7 @@ import { ConnectError } from "components/connect_error";
 import { ISlideItem } from "components/slider/Slider.d";
 import { ICategoriesResponseArray } from "features/equipment/Equipment";
 import { IImages } from "../../types/response";
+import { decisionPath, equipmentPath } from "utils/bootstrap";
 
 const HomeContainer: FC<ISSRHome> = ({
   newsData,
@@ -25,6 +26,7 @@ const HomeContainer: FC<ISSRHome> = ({
 }) => {
   const convert = (
     data: IBannerResponseArray | IIndustriesResponse,
+    path = "",
     isShowText = false,
   ) => {
     return data?.response.map((e): ISlideItem => {
@@ -41,12 +43,16 @@ const HomeContainer: FC<ISSRHome> = ({
         link_slider: false,
         title: e.title,
         typeSlider: "img",
-        url: e.alias,
+        url: path + e.alias,
       };
     });
   };
 
-  const convertCat = (data: ICategoriesResponseArray, isShowText = false) => {
+  const convertCat = (
+    data: ICategoriesResponseArray,
+    isShowText = false,
+    path = "",
+  ) => {
     return data?.response.map((e): ISlideItem => {
       return {
         alt: e.title,
@@ -60,7 +66,7 @@ const HomeContainer: FC<ISSRHome> = ({
         link_slider: false,
         title: e.title,
         typeSlider: "img",
-        url: e.alias,
+        url: path + e.alias,
       };
     });
   };
@@ -84,7 +90,7 @@ const HomeContainer: FC<ISSRHome> = ({
           <Separator title={"Категория продукции"} />
         </div>
         <SliderContainer
-          items={convertCat(indexCategories)}
+          items={convertCat(indexCategories, null, equipmentPath)}
           dots={true}
           autoplay={false}
           spaceBetween={10}
@@ -99,7 +105,7 @@ const HomeContainer: FC<ISSRHome> = ({
         )}
         <Separator title={"Отрасли"} />
         <SliderContainer
-          items={convert(indexIndustries, true)}
+          items={convert(indexIndustries, decisionPath, true)}
           dots={true}
           autoplay={false}
           theme={"industries"}

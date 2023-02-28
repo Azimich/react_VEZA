@@ -21,7 +21,7 @@ const LinkContainer: FC<ILink> = ({
 }) => {
   const downloader = download ? { download: download } : {};
   return (
-    <Link href={url} as={url} passHref>
+    <Link href={{ pathname: url }} as={url} passHref>
       <a className={classLink} target={target} {...downloader}>
         {children}
       </a>
