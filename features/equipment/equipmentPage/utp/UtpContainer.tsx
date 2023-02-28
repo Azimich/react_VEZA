@@ -9,6 +9,7 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details, blocks }) => {
   const content = <ModalForm props={blocks} />;
   const { isShow, toggle } = useModal();
   const data = details[0].description;
+
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
@@ -38,8 +39,7 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details, blocks }) => {
         modalContent={content}
         theme={"full_modal"}
         bgModal={"white"}
-        headerText={"Тип файла"}
-      ></Modal>
+      />
     </div>
   );
 };
