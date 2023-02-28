@@ -131,34 +131,99 @@
 
 //Стили для окна БИМ
 .download {
-  display: grid;
-  grid-template-columns: 50% 50%;
-
+  padding: 50px;
+  @include ipadScreen {
+    padding: 0;
+  }
   &__title {
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 28px;
-    color: color(dark);
+    color: color(greeb);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
-
+  &__blocks {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 20px;
+    @include ipadScreen {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
   &__items {
     margin-bottom: 30px;
+    width: 50%;
+    @include ipadScreen {
+      width: 100%;
+      margin-bottom: 0;
+    }
+    .titles {
+      margin-bottom: 30px;
+      .first__title {
+        font-size: 20px;
+        color: color(dark);
+      }
+      ul {
+        margin: 13px 0 0 0;
+      }
+      li {
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        color: color(dark);
+        label {
+          margin: 0 6px 0 0;
+          align-items: flex-start;
+          input {
+            padding: 11px;
+          }
+        }
+      }
+    }
+  }
 
-    li {
+  &__pdf {
+    width: 50%;
+    @include ipadScreen {
+      width: 100%;
+    }
+    &__items {
+      flex-direction: column;
+      display: flex;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        color: #404040;
+        transition: all 0.3s ease;
+        span {
+          width: 95%;
+        }
+        &:hover {
+          background: color(green);
+          box-shadow: 0 0 5px #dadada;
+          color: color(white);
+          path {
+            fill: #fff;
+          }
+        }
+        svg {
+          path {
+            fill: gray;
+          }
+        }
+      }
+    }
+    &__list {
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      transition: all .3s;
+      border-radius: 5px;
       margin-bottom: 12px;
-      cursor: pointer;
-      font-size: 18px;
-      color: color(dark);
-      ul{
-        margin-top: 10px;
-      }
-
-      label {
-        margin: 0 6px 0 0;
-      }
     }
   }
 }

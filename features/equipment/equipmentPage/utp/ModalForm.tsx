@@ -4,23 +4,25 @@ import { CheckboxWithLabel } from "components/checkbox";
 import Styles from "./Utp.module.scss";
 import { Button } from "components/button";
 import { IBlockItem } from "features/equipment/equipmentPage/Equipment";
+import { Link } from "components/link";
+import { EyeIcon } from "components/icons";
 interface IData {
   props: IBlockItem[];
 }
 const ModalForm: FC<IData> = ({ props }) => {
-  console.log("props", props);
   return (
     <div className={Styles.download}>
-      <div>
-        <ul className={Styles.download__items}>
+      <h2 className={Styles.download__title}>Тип файла</h2>
+      <div className={Styles.download__blocks}>
+        <div className={Styles.download__items}>
           {props.map((e, i) => {
             return (
-              <li key={i}>
-                {e.title}
+              <div className={Styles.titles} key={i}>
+                <span className={Styles.first__title}>{e.title}</span>
                 <ul>
                   {e.documents.map((data, i) => {
                     return (
-                      <li>
+                      <li key={i}>
                         <CheckboxWithLabel
                           id={String(i)}
                           name={"tab_bim_" + i}
@@ -30,12 +32,38 @@ const ModalForm: FC<IData> = ({ props }) => {
                     );
                   })}
                 </ul>
-              </li>
+              </div>
             );
           })}
-        </ul>
+        </div>
+        <div className={Styles.download__pdf}>
+          <div className={Styles.download__pdf__items}>
+            {props.map((items) => {
+              return (
+                <>
+                  {items.documents.map((doc, i) => {
+                    const link = doc.url.substr(-3);
+                    return (
+                      <>
+                        {link !== "zip" && (
+                          <Link
+                            url={doc.url}
+                            key={i}
+                            classLink={Styles.download__pdf__list}
+                          >
+                            <span>{doc.title}</span>
+                            <EyeIcon />
+                          </Link>
+                        )}
+                      </>
+                    );
+                  })}
+                </>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <div>123</div>
       <Button children={"Скачать"} />
     </div>
   );
