@@ -4,19 +4,12 @@ import { NewsPage } from "features/news";
 import { GetStaticPaths } from "next";
 import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
-import { newsList } from "service/list/servers/newsList";
 import { newsItem } from "service/item/server/newsItem";
 import { ISSRNews } from "features/news/News";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pathNews = await newsList();
   return {
-    paths:
-      pathNews.Response?.length > 0
-        ? pathNews.Response?.map((e: { Alias: string }) => ({
-            params: { alias: e.Alias },
-          }))
-        : [],
+    paths: [],
     fallback: "blocking",
   };
 };

@@ -6,16 +6,16 @@ import { fetchMenu } from "store/slice/MenuSlice";
 import { menuListServer } from "service/index";
 import { decisionItem } from "service/item/server/decisionItem";
 import { IDecisionObjectResponse } from "features/decision/Decision";
-import { decisionList } from "service/list/servers/decisionList";
+/*import { decisionList } from "service/list/servers/decisionList";*/
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await decisionList().then((data) => data.response);
+  /*  const data = await decisionList().then((data) => data.response);
   const res = data.map((d: { alias: string }) => {
     return { params: { slug: d.alias } };
-  });
+  });*/
 
   return {
-    paths: res,
+    paths: [],
     fallback: "blocking",
   };
 };
