@@ -47,7 +47,7 @@ const EquipmentPageContainer: FC<{
       <div className={Styles.equipment__container}>
         <Menu categories={categories?.response} data={data} alias={alias} />
         <div className={Styles.content_box}>
-          <h1 className={Styles.h1}>{product.response.title}</h1>
+          <h1 className={Styles.product__title}>{product.response.title}</h1>
           {product && (
             <SliderContainer
               items={convert(product)}
