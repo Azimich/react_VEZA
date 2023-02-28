@@ -1,5 +1,5 @@
 import { Container } from "components/common/container";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { ICategoriesItem, ICategoriesResponseArray } from "../Equipment";
 
 import { Menu } from "../menu/Menu";
@@ -7,14 +7,9 @@ import Styles from "../Equipment.module.scss";
 import { SliderContainer } from "components/slider";
 import { UtpContainer } from "./utp/UtpContainer";
 import { Separator } from "components/separator";
-/*import {Equipment} from "components/equipment";*/
 import { IEquipmentResponse } from "features/equipment/equipmentPage/Equipment";
 import { ISlideItem } from "components/slider/Slider.d";
 import { useGetAddEquip } from "service/list/getAddEquip";
-/*import {IBannerResponseArray, IIndustriesResponse} from "features/news/News";*/
-/*
-import {ISlideItem} from "components/slider/Slider.d";
-*/
 
 const EquipmentPageContainer: FC<{
   data: ICategoriesItem[];
@@ -24,6 +19,7 @@ const EquipmentPageContainer: FC<{
   product: IEquipmentResponse;
 }> = ({ data, categories, alias, product }) => {
   const { getAddEquip } = useGetAddEquip();
+  const [additionQ, setAdditionQ] = useState([]);
   const convert = (data: IEquipmentResponse) => {
     return data?.response.images.map((e): ISlideItem => {
       return {
@@ -43,10 +39,9 @@ const EquipmentPageContainer: FC<{
 
   useEffect(() => {
     getAddEquip(product?.response?.alias).then((res) => {
-      console.log("asd", res);
+      setAdditionQ(res.response);
     });
   }, []);
-
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
@@ -66,7 +61,16 @@ const EquipmentPageContainer: FC<{
         </div>
       </div>
       <Separator title={"Дополнительное оборудование"} />
-      {/*            <Equipment props={equipmentData}/>*/}
+      <ul className={Styles.add_obr}>
+        {additionQ.map((e) => {
+          console.log("ee", e);
+          return (
+            <li>
+              <img src={e.images[0].pc} alt="" />
+            </li>
+          );
+        })}
+      </ul>
     </Container>
   );
 };

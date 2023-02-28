@@ -9,12 +9,14 @@ import {
   IModelGroups,
 } from "features/resources/tab_bim/Bim";
 import { CheckboxWithLabel } from "components/checkbox";
+import { useGetFiles } from "service/item/getFiles";
 
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModelGroups[]>();
+  const { getFiles } = useGetFiles();
   const { getBimModal } = useGetBimModal();
   const [selectedGroup, setSelectedGroup] = useState<IModelGroups>(null);
-  const [selectedDownLoad, setSelectedDownload] = useState<IModelGroups>(null);
+  const [selectedDownLoad, setSelectedDownload] = useState<IModalBIMItem>(null);
 
   useEffect(() => {
     getBimModal().then((data) => {
@@ -28,6 +30,24 @@ const ModalBim: FC<IModalBIMGroups> = () => {
   };
   const handleOnClickDownload = (e: IModalBIMItem) => {
     setSelectedDownload(e);
+  };
+
+  const handleDownLoad = () => {
+    getFiles([selectedDownLoad.documentUrl]).then((blob) => {
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", `FileName.zip`);
+
+      // Append to html link element page
+      document.body.appendChild(link);
+
+      // Start download
+      link.click();
+
+      // Clean up and remove the link
+      link.parentNode.removeChild(link);
+    });
   };
   return (
     <div className={Styles.bim__modal}>
@@ -63,7 +83,7 @@ const ModalBim: FC<IModalBIMGroups> = () => {
                   </div>
                 );
               })}
-              <Button children={"Скачать"} />
+              <Button onClick={() => handleDownLoad()} children={"Скачать"} />
             </div>
           </div>
         </div>
