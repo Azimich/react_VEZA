@@ -14,13 +14,17 @@ import { RadioBoxContainer } from "components/radiobox";
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModalBIMItem[]>();
   const { getBimModal } = useGetBimModal();
-  const [result, setResult] = useState<IModalBIMItem[]>();
+  const [result, setResult] = useState<IModalBIMItem[]>(bimLists);
 
   const handleOnClickRadio = (title: string) => {
     const data: IModelGroups = bimLists.filter(
       (item) => item.title === title,
     )[0];
     setResult(data.modelDocuments);
+  };
+
+  const handleClick = () => {
+    console.log("checked");
   };
 
   useEffect(() => {
@@ -54,7 +58,7 @@ const ModalBim: FC<IModalBIMGroups> = () => {
                 return (
                   <div className={Styles.radios_result} key={i}>
                     <RadioBoxContainer
-                      onChangeData={() => handleOnClickRadio(items.title)}
+                      onChangeData={handleClick}
                       id={String(items.bimModelDocumentId)}
                       name={"tab_bim" + items.bimModelDocumentId}
                       title={items.title}
