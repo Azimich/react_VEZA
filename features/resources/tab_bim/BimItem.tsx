@@ -15,6 +15,7 @@ const BimItem: FC<IBim> = ({
   const dataUpdate = new Date(updated);
   const [download, setDownload] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleDisabled = () => {
     setDownload(false);
     setIsLoading(true);

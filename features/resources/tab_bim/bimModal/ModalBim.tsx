@@ -7,22 +7,30 @@ import {
   IBIMModalResponse,
   IModalBIMGroups,
   IModalBIMItem,
+  IModelGroups,
 } from "features/resources/tab_bim/Bim";
+import { RadioBoxContainer } from "components/radiobox";
 
-const ModalBim: FC<IModalBIMGroups[]> = () => {
-  const [bimLists, setBimLists] = useState<IModalBIMItem[]>();
+const ModalBim: FC<IModalBIMGroups> = () => {
+  const [bimLists, setBimLists] = useState<IModelGroups[]>();
   const { getBimModal } = useGetBimModal();
+  const [result, setResult] = useState<IModalBIMItem[]>();
 
-  // const handleOnClickCheckbox = () => {
-  //   console.log("Клик");
-  // };
+  const handleOnClickRadio = (title: string) => {
+    const data: IModelGroups = bimLists.filter(
+      (item) => item.title === title,
+    )[0];
+    setResult(data.modelDocuments);
+  };
 
-  //Данные по БИМ МОДАЛКИ
+  const handleClick = () => {
+    console.log("checked");
+  };
+
   useEffect(() => {
     getBimModal().then((data: IBIMModalResponse) => {
-      data &&
-        !data.hasError &&
-        setBimLists(data.response[0].modelGroups[0].modelDocuments);
+      data && !data.hasError && setBimLists(data.response[0].modelGroups);
+      setResult(data && data.response[0].modelGroups[0].modelDocuments);
     });
   }, []);
 
@@ -33,33 +41,36 @@ const ModalBim: FC<IModalBIMGroups[]> = () => {
         <div className={Styles.bim__modal__download}>
           <div className={Styles.bim__modal__download__items}>
             <ul className={Styles.bim__modal__download__items__block}>
-              {/*{modalBiData.map((e) => {*/}
-              {/*  return (*/}
-              {/*    <li key={e.id}>*/}
-              {/*      <CheckboxWithLabel*/}
-              {/*        id={String(e.id)}*/}
-              {/*        name={"tab_bim" + e.id}*/}
-              {/*        title={e.title}*/}
-              {/*        onClick={() => handleOnClickCheckbox()}*/}
-              {/*        onChangeData={() => handleOnClickCheckbox()}*/}
-              {/*      />*/}
-              {/*    </li>*/}
-              {/*  );*/}
-              {/*})}*/}
+              {bimLists?.map((e, i) => {
+                return (
+                  <li key={i}>
+                    <RadioBoxContainer
+                      onChangeData={() => handleOnClickRadio(e.title)}
+                      id={String(e.bimModelGroupId)}
+                      name={"tab_bim" + e.bimModelGroupId}
+                      title={e.title}
+                    />
+                  </li>
+                );
+              })}
             </ul>
-          </div>
-          <Button children={"Скачать"} />
-        </div>
-      </div>
-      <div>
-        {bimLists?.map((items, i) => {
-          console.log("items", items);
-          return (
-            <div key={i}>
-              <li>{items.title}</li>
+            <div className={Styles.radios_block}>
+              {result?.map((items, i) => {
+                return (
+                  <div className={Styles.radios_result} key={i}>
+                    <RadioBoxContainer
+                      onChangeData={handleClick}
+                      id={String(items.bimModelDocumentId)}
+                      name={"tab_bim" + items.bimModelDocumentId}
+                      title={items.title}
+                    />
+                  </div>
+                );
+              })}
+              <Button children={"Скачать"} />
             </div>
-          );
-        })}
+          </div>
+        </div>
       </div>
     </div>
   );
