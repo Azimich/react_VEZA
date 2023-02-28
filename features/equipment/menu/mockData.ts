@@ -8,13 +8,13 @@ const breadcrumbsData: IbreadcrumbsData[] = [
     parent_id: 0,
   },
   {
-    title: "Тип",
+    title: "Подкатегория",
     id: 2,
     level: 2,
     parent_id: 0,
   },
   {
-    title: "Оборудование",
+    title: "Тип",
     id: 3,
     level: 3,
     parent_id: 0,

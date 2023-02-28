@@ -8,35 +8,41 @@ import {
   IModalBIMItem,
   IModelGroups,
 } from "features/resources/tab_bim/Bim";
-import { RadioBoxContainer } from "components/radiobox";
+import { CheckboxWithLabel } from "components/checkbox";
 
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModelGroups[]>();
   const { getBimModal } = useGetBimModal();
-  const [result] = useState<IModalBIMItem[]>();
+  const [selectedGroup, setSelectedGroup] = useState<IModelGroups>(null);
+  const [selectedDownLoad, setSelectedDownload] = useState<IModelGroups>(null);
 
   useEffect(() => {
     getBimModal().then((data) => {
       setBimLists(data.response[0].modelGroups);
+      setSelectedGroup(data.response[0].modelGroups[0]);
     });
   }, []);
-
+  const handleOnClickRadio = (e: IModelGroups) => {
+    setSelectedGroup(e);
+    setSelectedDownload(null);
+  };
+  const handleOnClickDownload = (e: IModalBIMItem) => {
+    setSelectedDownload(e);
+  };
   return (
     <div className={Styles.bim__modal}>
-      <h2 className={Styles.bim__modal__title}>Тип файла</h2>
       <div className={Styles.bim__modal__items}>
         <div className={Styles.bim__modal__download}>
           <div className={Styles.bim__modal__download__items}>
             <ul className={Styles.bim__modal__download__items__block}>
               {bimLists?.map((e, i) => {
-                console.log("eee", e);
                 return (
                   <li key={i}>
-                    <RadioBoxContainer
-                      //   onChangeData={handleOnClickRadio}
-                      isSelected={false}
+                    <CheckboxWithLabel
+                      onChangeData={() => handleOnClickRadio(e)}
+                      isSelected={selectedGroup.title == e.title}
                       id={String(i)}
-                      name={String(e.bimModelGroupId)}
+                      name={"download"}
                       title={e.title}
                     />
                   </li>
@@ -44,15 +50,16 @@ const ModalBim: FC<IModalBIMGroups> = () => {
               })}
             </ul>
             <div className={Styles.radios_block}>
-              {result?.map((items, i) => {
+              {selectedGroup?.modelDocuments.map((items, i) => {
                 return (
-                  <div className={Styles.radios_result} key={i}>
-                    {/*                                        <RadioBoxContainer
-                                            onChangeData={handleClick}
-                                            id={String(items.bimModelDocumentId)}
-                                            name={"tab_bim" + items.bimModelDocumentId}
-                                            title={items.title}
-                                        />*/}
+                  <div className={Styles.radios_result} key={"_" + i}>
+                    <CheckboxWithLabel
+                      onChangeData={() => handleOnClickDownload(items)}
+                      isSelected={selectedDownLoad?.title === items.title}
+                      id={"_" + i}
+                      name={"tab_bim_"}
+                      title={items.title}
+                    />
                   </div>
                 );
               })}

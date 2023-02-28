@@ -4,7 +4,7 @@ interface IRadioBox {
   checked?: boolean;
   title?: string;
   onChangeData?: () => void;
-  onClick?: () => void;
+  onClick?: (e) => void;
   name?: string;
   id?: string;
 }
