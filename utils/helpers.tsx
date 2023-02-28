@@ -1,7 +1,5 @@
 import { ICatalogEquipmentData } from "features/equipment";
 import { ICategoriesItem } from "features/equipment/Equipment";
-import { equipmentPath } from "utils/bootstrap";
-import { useRouter } from "next/router";
 
 const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   const resData = [];
@@ -60,16 +58,6 @@ const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
   return !((role === 0 || role === undefined) && onlyAdmin);
 };
 
-const makePath = () => {
-  const router = useRouter();
-  return (
-    equipmentPath +
-    (router.query.slug ? "" + router.query.slug + "/" : "") +
-    (router.query.slug_level1 ? router.query.slug_level1 + "/" : "") +
-    (router.query.slug_level2 ? router.query.slug_level2 + "/" : "")
-  );
-};
-
 const onButtonClick = (url: string | URL, title: string) => {
   return fetch(url).then((response) => {
     response.blob().then((blob) => {
@@ -89,5 +77,4 @@ export {
   checkEmptyObject,
   checkedAccessMenu,
   onButtonClick,
-  makePath,
 };
