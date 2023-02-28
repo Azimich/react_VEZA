@@ -368,6 +368,9 @@
     }
   }
 }
+.list__top {
+  position: absolute;
+}
 
 .box_field_registr {
   display: grid;
@@ -490,6 +493,43 @@
   margin-bottom: 30px;
   @include phoneScreen {
     display: block;
+  }
+}
+
+//Политика
+.politics {
+  max-width: 1280px;
+  margin: 0 auto;
+  &__block {
+    margin-bottom: 50px;
+  }
+  &__title {
+    color: color(green);
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 145%;
+    @include phoneScreen {
+      font-size: 20px;
+    }
+  }
+  &__title__second {
+    color: color(green);
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 145%;
+    @include phoneScreen {
+      font-size: 18px;
+    }
+  }
+  &__paragraph {
+    color: color(dark);
+    font-size: 16px;
+    text-align: center;
+    line-height: 145%;
   }
 }
 

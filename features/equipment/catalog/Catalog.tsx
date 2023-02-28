@@ -8,6 +8,7 @@ import { equipmentPath } from "utils/bootstrap";
 import { checkEmptyObject, getParents } from "utils/helpers";
 import { useRouter } from "next/router";
 import { IImages } from "../../../types/response";
+import { InDevelopmentContainer } from "components/inDevelopment/InDevelopmentContainer";
 
 const Catalog: FC<{
   data: ICategoriesItem[];
@@ -30,25 +31,30 @@ const Catalog: FC<{
     const d = e.images as IImages[];
     return d[0].pc !== "";
   });
+  console.log("dataClear", dataClear);
 
   return (
     <div className={Styles.equipment__container_catalog}>
       <h1>{dataCategory ? dataCategory.title : "Каталог продукции"}</h1>
-      <div
-        className={`${Styles.equipment__container_catalog_product} ${
-          free ? Styles.free : ""
-        }`}
-      >
-        {dataClear?.map((e) => {
-          e.aliasPath =
-            equipmentPath +
-            getParents(categories, e.alias)
-              .reverse()
-              .map((d) => d.alias)
-              .join("/");
-          return <CategoryItem key={e.alias} {...e} />;
-        })}
-      </div>
+      {dataClear?.length > 0 ? (
+        <div
+          className={`${Styles.equipment__container_catalog_product} ${
+            free ? Styles.free : ""
+          }`}
+        >
+          {dataClear?.map((e) => {
+            e.aliasPath =
+              equipmentPath +
+              getParents(categories, e.alias)
+                .reverse()
+                .map((d) => d.alias)
+                .join("/");
+            return <CategoryItem key={e.alias} {...e} />;
+          })}
+        </div>
+      ) : (
+        <InDevelopmentContainer />
+      )}
     </div>
   );
 };
