@@ -10,7 +10,6 @@ const EquipmentItem: FC<IEquipment> = ({
   title,
   aliasOtr,
 }) => {
-  console.log("+++", aliasOtr, alias);
   return (
     <div className={Styles.equipment_container_item}>
       <Link url={equipmentPath + alias + "?otrasl=" + aliasOtr}>

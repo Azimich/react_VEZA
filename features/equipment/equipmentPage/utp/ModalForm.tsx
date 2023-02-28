@@ -6,9 +6,11 @@ import { Button } from "components/button";
 import { IBlockItem } from "features/equipment/equipmentPage/Equipment";
 import { Link } from "components/link";
 import { EyeIcon } from "components/icons";
+
 interface IData {
   props: IBlockItem[];
 }
+
 const ModalForm: FC<IData> = ({ props }) => {
   return (
     <div className={Styles.download}>
@@ -45,9 +47,9 @@ const ModalForm: FC<IData> = ({ props }) => {
                     const link = doc.url.substr(-3);
                     return (
                       <>
-                        {link !== "zip" && (
+                        {link !== "zip" && link !== "qpd" && (
                           <Link
-                            url={doc.url}
+                            url={"/pdfviewer?document=" + doc.url}
                             key={i}
                             classLink={Styles.download__pdf__list}
                           >
