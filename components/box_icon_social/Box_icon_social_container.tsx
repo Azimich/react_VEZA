@@ -14,12 +14,14 @@ const Box_icon_social_container = () => {
         </a>
         <a
           href={process.env.NEXT_PUBLIC_VK}
+          target={"_blank"}
           className={`${Styles.banner__icon} ${Styles.vk}`}
         >
           <VkIcon />
         </a>
         <a
           href={process.env.NEXT_PUBLIC_YOUTUBE}
+          target={"_blank"}
           className={`${Styles.banner__icon} ${Styles.ok__ru}`}
         >
           <YouTubeIcon />
