@@ -6,7 +6,6 @@
   grid-template-columns: 270px 1fr;
   column-gap: 30px;
   padding-top: 40px;
-  margin-bottom: 130px;
   @media (max-width: 1270px) {
     display: block;
   }
@@ -124,7 +123,11 @@
         flex-direction: column;
         width: 100%;
       }
-
+      &.free{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px,330px));
+        grid-gap: 15px;
+      }
       &_a {
         overflow: hidden;
         border-radius: 8px;

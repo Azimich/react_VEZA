@@ -4,12 +4,15 @@
 .utp__container {
   position: relative;
   margin-top: 30px;
+
   &__top {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     margin-bottom: 20px;
+    box-sizing: border-box;
     @include ipadScreen {
       flex-direction: column;
     }
@@ -22,6 +25,7 @@
       @include ipadScreen {
         padding: 0 12px;
       }
+
       p {
         line-height: 145%;
         max-width: 230px;
@@ -60,10 +64,11 @@
   }
 
   &__top__list {
-    width: 49%;
+    width: 100%;
     background: #f3f3f3;
     padding: 25px;
     border-radius: 12px;
+    box-sizing: border-box;
     @include ipadScreen {
       width: 100%;
       padding: 25px 0;
@@ -95,8 +100,12 @@
   &__top__buttons {
     padding: 38px 25px;
     border-radius: 12px;
-    width: 49%;
+    width: 100%;
+    height: 100%;
     background: #f3f3f3;
+    box-sizing: border-box;
+    align-items: center;
+    display: grid;
     @include ipadScreen {
       width: 100%;
       padding: 20px 0;
@@ -116,8 +125,15 @@
   }
 }
 
+.lh {
+  line-height: 22px;
+}
+
 //Стили для окна БИМ
 .download {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
   &__title {
     font-style: normal;
     font-weight: 600;
@@ -130,13 +146,16 @@
 
   &__items {
     margin-bottom: 30px;
+
     li {
-      display: flex;
-      align-items: center;
       margin-bottom: 12px;
       cursor: pointer;
       font-size: 18px;
       color: color(dark);
+      ul{
+        margin-top: 10px;
+      }
+
       label {
         margin: 0 6px 0 0;
       }

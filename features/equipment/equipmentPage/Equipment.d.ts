@@ -19,7 +19,13 @@ interface IBlockItem {
   title: string;
   documentCategoryEnum: number;
   status: number;
-  documents: [];
+  documents: IDocuments[];
+}
+
+interface IDocuments {
+  status: number;
+  title: string;
+  url: string;
 }
 
 interface IDetailsItem {
@@ -27,4 +33,5 @@ interface IDetailsItem {
   shortDescription: string;
   subtitle: string;
 }
-export { IEquipmentItem, IEquipmentResponse };
+
+export { IEquipmentItem, IEquipmentResponse, IBlockItem };
