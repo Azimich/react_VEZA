@@ -42,7 +42,7 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details }) => {
         modalContent={content}
         theme={"modal"}
         bgModal={"black"}
-      ></Modal>
+      />
     </div>
   );
 };

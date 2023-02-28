@@ -3,17 +3,15 @@
 
 .bim__modal {
   padding: 5%;
-  width: 35%;
   margin: 0 auto;
+  height: 58vh;
   @include phoneScreen {
     padding: 5% 0 0 0;
     width: 100%;
   }
 
   .radios_block {
-    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 4px rgb(33 33 33 / 21%);
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -26,20 +24,23 @@
     line-height: 28px;
     color: color(dark);
     text-transform: uppercase;
-    margin-bottom: 25px;
     @include phoneScreen {
       margin-bottom: 10px;
     }
   }
 
   &__items {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 50px;
     ul {
       display: flex;
       gap: 15px;
+      background: #fff;
+      box-shadow: 0 0 5px #e5e5e5;
+      padding: 12px;
+      border-radius: 10px;
     }
   }
 

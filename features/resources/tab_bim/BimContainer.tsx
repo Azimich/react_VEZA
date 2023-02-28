@@ -61,8 +61,8 @@ const BimContainer = () => {
         isShow={isShow}
         hide={toggle}
         modalContent={<ModalBim />}
-        theme={"full_modal"}
-        bgModal={"white"}
+        theme={"modal"}
+        bgModal={"black"}
       />
 
       <div className={Styles.bim__items}>

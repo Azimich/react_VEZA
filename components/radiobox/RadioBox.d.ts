@@ -1,8 +1,10 @@
 import { ChangeEvent } from "react";
 
 interface IRadioBox {
+  isSelected?: boolean;
+  type?: string;
+  checked?: boolean;
   title?: string;
-  classCheck?: string;
   onChangeData?: (e: ChangeEvent<HTMLInputElement>) => void;
   onClick?: () => void;
   name?: string;
