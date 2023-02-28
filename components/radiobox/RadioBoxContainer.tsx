@@ -1,26 +1,24 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Styles from "./RadioBox.module.scss";
 import { IRadioBox } from "./RadioBox";
 
 const RadioBoxContainer: FC<IRadioBox> = ({
   title,
   id,
+  onChangeData,
   isSelected,
-  ...attrs
+  name,
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
-  const handleOnClick = () => {
-    setIsChecked(!isChecked);
-  };
-
   return (
-    <label htmlFor={String(id)} {...attrs} className={Styles.radio_label}>
+    <label htmlFor={String(id)} className={Styles.radio_label}>
       <input
         id={String(id)}
         className={Styles.radio_input}
+        name={name}
         type="radio"
         checked={isSelected}
-        onClick={() => handleOnClick()}
+        onChange={onChangeData}
+        value={String(id)}
       />
       <span>{title}</span>
     </label>
