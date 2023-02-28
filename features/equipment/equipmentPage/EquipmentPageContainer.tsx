@@ -6,7 +6,6 @@ import { Menu } from "../menu/Menu";
 import Styles from "../Equipment.module.scss";
 import { SliderContainer } from "components/slider";
 import { UtpContainer } from "./utp/UtpContainer";
-import { Separator } from "components/separator";
 /*import {Equipment} from "components/equipment";*/
 import { IEquipmentResponse } from "features/equipment/equipmentPage/Equipment";
 import { ISlideItem } from "components/slider/Slider.d";
@@ -52,7 +51,7 @@ const EquipmentPageContainer: FC<{
       <div className={Styles.equipment__container}>
         <Menu categories={categories?.response} data={data} alias={alias} />
         <div className={Styles.content_box}>
-          <h1 className={Styles.h1}>{product.response.title}</h1>
+          <h1 className={Styles.product__title}>{product.response.title}</h1>
           {product && (
             <SliderContainer
               items={convert(product)}
@@ -65,7 +64,6 @@ const EquipmentPageContainer: FC<{
           <UtpContainer {...product.response} />
         </div>
       </div>
-      <Separator title={"Дополнительное оборудование"} />
       {/*            <Equipment props={equipmentData}/>*/}
     </Container>
   );
