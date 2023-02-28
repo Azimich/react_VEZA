@@ -82,7 +82,7 @@ const JobContainer: FC = () => {
     const office = selectedCheckBox.filter((e) => {
       return e.url === "office";
     });
-    console.log("selectedCheckBox", selectedCheckBox);
+
     const res = cities
       ?.filter((e) => {
         return office.length > 0 ? e.isDefaultOfficeCity : e.isDefaultPlantCity;

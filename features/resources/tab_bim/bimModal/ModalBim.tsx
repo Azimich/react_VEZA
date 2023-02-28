@@ -9,12 +9,18 @@ import {
   IModelGroups,
 } from "features/resources/tab_bim/Bim";
 import { CheckboxWithLabel } from "components/checkbox";
+/*
+import { useGetFiles } from "service/item/getFiles";
+*/
 
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModelGroups[]>();
+  /*
+  const { getFiles } = useGetFiles();
+*/
   const { getBimModal } = useGetBimModal();
   const [selectedGroup, setSelectedGroup] = useState<IModelGroups>(null);
-  const [selectedDownLoad, setSelectedDownload] = useState<IModelGroups>(null);
+  const [selectedDownLoad, setSelectedDownload] = useState<IModalBIMItem>(null);
 
   useEffect(() => {
     getBimModal().then((data) => {
@@ -28,6 +34,13 @@ const ModalBim: FC<IModalBIMGroups> = () => {
   };
   const handleOnClickDownload = (e: IModalBIMItem) => {
     setSelectedDownload(e);
+  };
+
+  const handleDownLoad = () => {
+    console.log("data", selectedDownLoad);
+    /*    getFiles([selectedDownLoad.documentUrl]).then((data) => {
+
+    });*/
   };
   return (
     <div className={Styles.bim__modal}>
@@ -63,7 +76,7 @@ const ModalBim: FC<IModalBIMGroups> = () => {
                   </div>
                 );
               })}
-              <Button children={"Скачать"} />
+              <Button onClick={() => handleDownLoad()} children={"Скачать"} />
             </div>
           </div>
         </div>
