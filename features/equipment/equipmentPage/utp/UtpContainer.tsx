@@ -41,7 +41,7 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details }) => {
         hide={toggle}
         modalContent={content}
         theme={"modal"}
-        headerText={"Тип файла"}
+        bgModal={"black"}
       ></Modal>
     </div>
   );
