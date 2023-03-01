@@ -18,8 +18,8 @@ import { useGetFiles } from "service/item/getFiles";
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModelGroups[]>();
   /*
-    const { getFiles } = useGetFiles();
-  */
+      const { getFiles } = useGetFiles();
+    */
   const { getBimModal } = useGetBimModal();
   const [selectedGroup, setSelectedGroup] = useState<IModelGroups>(null);
   const [selectedDownLoad, setSelectedDownload] = useState<IModalBIMItem>(null);
@@ -47,8 +47,11 @@ const ModalBim: FC<IModalBIMGroups> = () => {
 
     /*    getFiles([selectedDownLoad.documentUrl]).then((data) => {
 
-        });*/
+            });*/
   };
+
+  console.log("selectedDownLoad?.documentUrl", selectedDownLoad?.documentUrl);
+
   return (
     <div className={Styles.bim__modal}>
       <div className={Styles.bim__modal__items}>
