@@ -58,13 +58,13 @@ const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
   return !((role === 0 || role === undefined) && onlyAdmin);
 };
 
-const onButtonClick = (url: string | URL, title: string) => {
+const onButtonClick = (url: string | URL, title: string, ext = ".pdf") => {
   return fetch(url).then((response) => {
     response.blob().then((blob) => {
       const fileURL = window.URL.createObjectURL(blob);
       const alink = document.createElement("a");
       alink.href = fileURL;
-      alink.download = title + ".pdf";
+      alink.download = title + ext;
       alink.click();
     });
   });
