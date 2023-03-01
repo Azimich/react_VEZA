@@ -96,9 +96,6 @@ const ModalForm: FC<IData> = ({ props }) => {
       </div>
 
       <Button onClick={() => handleOnCLick()}>Скачать</Button>
-      <Link url={checked[0]?.url} download={"true"}>
-        Скачать
-      </Link>
     </div>
   );
 };
