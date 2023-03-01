@@ -172,9 +172,9 @@
       }
       &.free {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 330px));
+        //grid-template-columns: repeat(auto-fit, minmax(200px, 330px));
+        grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
         grid-gap: 15px;
-        //TODO убрать important
        a {
          grid-column: span 1 !important;
        }
