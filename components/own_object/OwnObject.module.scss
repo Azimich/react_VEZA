@@ -47,6 +47,9 @@
     }
 
     .object__slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
       top: 0;
       left: -130%;
@@ -80,6 +83,9 @@
           -moz-transform: translateX(-50%);
           transform: translateX(-50%);
           //background-color: color(white);
+        }
+        p {
+          text-align: center;
         }
 
         .title {

@@ -27,19 +27,17 @@ const BimItem: FC<IBim> = ({
 
   return (
     <div className={Styles.bim__items__item}>
-      {
-        <div
-          onClick={handleDisabled}
-          className={
-            download ? `${Styles.disabled_active}` : `${Styles.disabled}`
-          }
-        >
-          <Link url={setupUrl} download={"true"}>
-            Скачать
-            <span>{isLoading ? <SpinnerButton /> : <DownloadIcon />}</span>
-          </Link>
-        </div>
-      }
+      <div
+        onClick={handleDisabled}
+        className={
+          download ? `${Styles.disabled_active}` : `${Styles.disabled}`
+        }
+      >
+        <Link url={setupUrl} download={"true"}>
+          Скачать
+          <span>{isLoading ? <SpinnerButton /> : <DownloadIcon />}</span>
+        </Link>
+      </div>
       <div className={Styles.bim__items__item__img}>
         <img src={imageUrl} alt={title} />
       </div>

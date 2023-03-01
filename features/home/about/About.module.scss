@@ -126,9 +126,6 @@
         overflow: hidden;
         box-shadow: 0 0 3px rgb(0 0 0 / 25%);
         margin-bottom: 15px;
-        @include ipadScreen {
-          height: 340px;
-        }
         @media (max-width: 450px) {
           height: 100%;
         }
@@ -165,6 +162,9 @@
             color: color(dark);
             font-size: 16px;
             text-align: center;
+            @include  phoneScreen {
+              font-size: 15px;
+            }
           }
         }
         span {
@@ -178,6 +178,10 @@
           -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          @include  phoneScreen {
+            margin-bottom: 5px;
+            padding: 5px;
+          }
         }
       }
     }

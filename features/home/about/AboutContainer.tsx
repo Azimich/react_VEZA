@@ -66,11 +66,11 @@ const AboutContainer: FC<IAboutUsSSR> = ({ response }) => {
                   pagination={pagination}
                   breakpoints={{
                     "@0.00": {
-                      slidesPerView: 1,
-                      spaceBetween: 10,
+                      slidesPerView: 2,
+                      spaceBetween: 5,
                     },
                     "@0.50": {
-                      slidesPerView: 1,
+                      slidesPerView: 2,
                       spaceBetween: 10,
                     },
                     "@0.75": {
