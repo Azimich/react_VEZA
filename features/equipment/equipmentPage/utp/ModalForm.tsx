@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FC } from "react";
 import { CheckboxWithLabel } from "components/checkbox";
 import Styles from "./Utp.module.scss";
-import { Button } from "components/button";
 import {
   IBlockItem,
   IDocuments,
@@ -17,16 +16,15 @@ interface IData {
 const ModalForm: FC<IData> = ({ props }) => {
   const [checked, setChecked] = useState<IDocuments[]>([]);
 
-  console.log("checked", checked);
   const handleOnChange = (e: IDocuments) => {
     const check = checked.filter((item) => item.title === e.title);
     if (check.length === 0) {
-      setChecked([...checked, e]);
-    } else {
+      setChecked([/*...checked,*/ e]);
+    } /* else {
       setChecked(checked.filter((item) => item.title !== e.title));
-    }
-    console.log("checked", e);
+    }*/
   };
+  console.log("123", checked);
   return (
     <div className={Styles.download}>
       <h2 className={Styles.download__title}>Тип файла</h2>
@@ -86,7 +84,10 @@ const ModalForm: FC<IData> = ({ props }) => {
           </div>
         </div>
       </div>
-      <Button children={"Скачать"} />
+
+      <Link url={checked[0]?.url} download={"true"}>
+        Скачать
+      </Link>
     </div>
   );
 };
