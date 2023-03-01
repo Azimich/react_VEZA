@@ -10,7 +10,7 @@ import {
 } from "features/resources/tab_bim/Bim";
 import { CheckboxWithLabel } from "components/checkbox";
 import { onButtonClick } from "utils/helpers";
-import { Link } from "components/link";
+
 /*
 import { useGetFiles } from "service/item/getFiles";
 */
@@ -84,7 +84,7 @@ const ModalBim: FC<IModalBIMGroups> = () => {
                 );
               })}
               <Button onClick={() => handleDownLoad()} children={"Скачать"} />
-              <Link url={selectedDownLoad?.documentUrl}>1123</Link>
+              <span>Выберите файл</span>
             </div>
           </div>
         </div>
