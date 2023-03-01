@@ -5,6 +5,7 @@
   padding: 5%;
   margin: 0 auto;
   height: 58vh;
+  overflow: auto;
   @include phoneScreen {
     padding: 5% 0 0 0;
     width: 100%;
@@ -28,47 +29,54 @@
       margin-bottom: 10px;
     }
   }
+
   //Стили для кнопки СКАЧАТЬ
   .disabled_active {
-    margin: 20px 0 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: color(white) !important;
-    font-size: 16px;
-    background-color: color(green) !important;
-    padding: 7.5px 30px;
-    svg {
-      width: 18px;
-      transition: all .2s ease;
-      path {
-        fill: white !important;
-        transition: all .2s ease;
-      }
-    }
-
-    &:hover {
-      background: color(green);
+    button {
+      margin: 20px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       color: color(white);
-      path {
-        fill: #fff;
+      font-size: 16px;
+      background-color: color(green);
+      padding: 7.5px 30px;
+      &:hover {
+        background: color(green);
+        color: color(white);
+        path {
+          fill: #fff;
+        }
+      }
+      span {
+        svg {
+          width: 18px;
+          transition: all .2s ease;
+          path {
+            fill: #fff !important;
+          }
+        }
       }
     }
   }
   .disabled {
-    margin: 20px 0 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: color(white) !important;
-    font-size: 16px;
-    background-color: grey !important;
-    padding: 12px 29px;
-    cursor: not-allowed;
-    svg {
-      width: 18px;
-      path {
-        fill: white;
+    button {
+      margin: 20px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: color(white);
+      font-size: 16px;
+      background-color: grey;
+      padding: 12px 29px;
+      cursor: not-allowed;
+      span {
+        svg {
+          width: 18px;
+        }
+        path {
+          fill: white;
+        }
       }
     }
   }
@@ -98,12 +106,10 @@
       flex-direction: column;
       margin-bottom: 5%;
       gap: 20px;
-  
-      &__block {  
-        li {
-          label {
-            cursor: pointer
-          }
+      .radios_result {
+        label {
+          cursor: pointer;
+          align-items: flex-start;
         }
       }
     }

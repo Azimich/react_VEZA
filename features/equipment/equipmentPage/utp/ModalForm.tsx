@@ -7,9 +7,10 @@ import {
   IDocuments,
 } from "features/equipment/equipmentPage/Equipment";
 import { Link } from "components/link";
-import { EyeIcon } from "components/icons";
-import { onButtonClick } from "utils/helpers";
+import { DownloadIcon, EyeIcon } from "components/icons";
+import { checkEmptyObject, onButtonClick } from "utils/helpers";
 import { Button } from "components/button";
+import { SpinnerButton } from "components/spinners";
 
 interface IData {
   props: IBlockItem[];
@@ -17,6 +18,10 @@ interface IData {
 
 const ModalForm: FC<IData> = ({ props }) => {
   const [checked, setChecked] = useState<IDocuments[]>([]);
+
+  const [error, setError] = useState(false);
+  const [download, setDownload] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnChange = (e: IDocuments) => {
     const check = checked.filter((item) => item.title === e.title);
@@ -27,13 +32,22 @@ const ModalForm: FC<IData> = ({ props }) => {
     }*/
   };
   const handleOnCLick = () => {
-    onButtonClick(
-      checked[0]?.url,
-      checked[0]?.title,
-      checked[0]?.url.substr(-4),
-    ).then((data) => {
-      console.log("dsfsd", data);
-    });
+    if (checkEmptyObject(checked === null ? [] : checked)) {
+      setError(true);
+    } else {
+      setError(false);
+      setDownload(false);
+      setIsLoading(true);
+      onButtonClick(
+        checked[0]?.url,
+        checked[0]?.title,
+        checked[0]?.url.substr(-4),
+      ).then(() => {
+        setError(false);
+        setDownload(true);
+        setIsLoading(false);
+      });
+    }
   };
   return (
     <div className={Styles.download}>
@@ -94,8 +108,19 @@ const ModalForm: FC<IData> = ({ props }) => {
           </div>
         </div>
       </div>
-
-      <Button onClick={() => handleOnCLick()}>Скачать</Button>
+      <div
+        onClick={handleOnCLick}
+        className={
+          download ? `${Styles.disabled_active}` : `${Styles.disabled}`
+        }
+      >
+        <Button>
+          Скачать
+          {isLoading ? <SpinnerButton /> : <DownloadIcon />}
+        </Button>
+        {error && <span className={Styles.error__span}>Выберите файл</span>}
+      </div>
+      {/*<Button onClick={() => handleOnCLick()}>Скачать</Button>*/}
     </div>
   );
 };

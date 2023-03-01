@@ -13,10 +13,6 @@ import { checkEmptyObject, onButtonClick } from "utils/helpers";
 import { SpinnerButton } from "components/spinners";
 import { DownloadIcon } from "components/icons";
 
-/*
-import { useGetFiles } from "service/item/getFiles";
-*/
-
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModelGroups[]>();
   const { getBimModal } = useGetBimModal();
@@ -52,8 +48,10 @@ const ModalBim: FC<IModalBIMGroups> = () => {
         selectedDownLoad.documentUrl,
         selectedDownLoad.title,
         selectedDownLoad.documentUrl.substr(-4),
-      ).then((data) => {
-        console.log(data);
+      ).then(() => {
+        setError(false);
+        setDownload(true);
+        setIsLoading(false);
       });
     }
   };
@@ -94,18 +92,20 @@ const ModalBim: FC<IModalBIMGroups> = () => {
                   </div>
                 );
               })}
-              <Button
+              <div
                 onClick={() => handleDownLoad()}
                 className={
                   download ? `${Styles.disabled_active}` : `${Styles.disabled}`
                 }
               >
-                Скачать
-                {isLoading ? <SpinnerButton /> : <DownloadIcon />}
-              </Button>
-              {error && (
-                <span className={Styles.error__span}>Выберите файл</span>
-              )}
+                <Button>
+                  Скачать
+                  {isLoading ? <SpinnerButton /> : <DownloadIcon />}
+                </Button>
+                {error && (
+                  <span className={Styles.error__span}>Выберите файл</span>
+                )}
+              </div>
             </div>
           </div>
         </div>
