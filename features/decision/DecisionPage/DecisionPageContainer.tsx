@@ -15,6 +15,7 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
   data = { decision: {}, objects: {}, equipment: {} },
 }) => {
   const { decision, objects, equipment } = data;
+  console.log("data", data);
   /*    const {decision, objects, equipment} = data;*/
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);

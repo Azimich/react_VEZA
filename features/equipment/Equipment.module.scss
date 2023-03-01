@@ -10,6 +10,7 @@
   @media (max-width: 1270px) {
     display: block;
   }
+
   .product__title {
     font-size: 30px;
     color: color(dark);
@@ -17,7 +18,8 @@
       font-size: 20px;
     }
   }
-  .content_box{
+
+  .content_box {
     max-width: 1140px;
     overflow: hidden;
     box-sizing: border-box;
@@ -43,6 +45,7 @@
 
     ul {
       background: #8B9C88;
+
       li {
         display: flex;
         justify-content: space-between;
@@ -52,6 +55,7 @@
         border-bottom: 0.5px solid #b4bdb27d;
         transition: all 0.3s;
         color: white;
+
         span {
           width: 80%;
         }
@@ -80,6 +84,7 @@
       display: flex;
       align-items: center;
       line-height: 57px;
+
       svg {
         margin-right: 8px;
       }
@@ -88,6 +93,7 @@
 
   &_catalog {
     margin: 0 0 130px 0;
+
     h1 {
       margin-bottom: 30px;
       font-size: 40px;
@@ -126,7 +132,7 @@
 
     &_product {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,530px));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 530px));
       grid-gap: 15px;
       gap: 15px;
       margin-bottom: 10%;
@@ -136,24 +142,20 @@
         flex-direction: column;
         width: 100%;
       }
-      &.free{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px,330px));
-        grid-gap: 15px;
-      }
+
+
       &_a {
         overflow: hidden;
         border-radius: 8px;
         transition: all 0.2s;
         position: relative;
         border: 1px solid color(border_category);
+        &:last-child:nth-child(2n+1) {
+          grid-column: span 2;
+        }
         &:hover img {
           object-fit: contain;
           transform: scale(1.1);
-        }
-
-        &:last-child:nth-child(2n+1) {
-          grid-column: span 2;
         }
 
         &:hover {
@@ -165,6 +167,15 @@
           transition: all 0.2s linear;
           border-radius: 8px;
         }
+      }
+      &.free {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 330px));
+        grid-gap: 15px;
+        //TODO убрать important
+       a {
+         grid-column: span 1 !important;
+       }
       }
     }
   }
@@ -187,7 +198,8 @@
   }
 
 }
-.add_obr{
+
+.add_obr {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
