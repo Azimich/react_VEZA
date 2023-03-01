@@ -4,7 +4,6 @@
 .utp__container {
   position: relative;
   margin-top: 30px;
-
   &__top {
     display: grid;
     grid-template-columns: 50% 48%;
@@ -16,6 +15,7 @@
     @include ipadScreen {
       display: flex;
       flex-direction: column;
+      gap: 10px;
     }
 
     &__calculation {
@@ -90,6 +90,7 @@
       line-height: 145%;
       @include ipadScreen {
         padding: 0 0 0 12px;
+        line-height: 140%;
       }
 
       b {
@@ -110,7 +111,7 @@
     display: grid;
     @include ipadScreen {
       width: 100%;
-      padding: 20px 0;
+      padding: 40px 0;
     }
   }
 
@@ -138,15 +139,17 @@
 //Стили для окна БИМ
 .download {
   padding: 50px 150px;
+  margin: 20px 0 50px 0;
   @include ipadScreen {
     padding: 0;
+    margin: 10px 0 50px 0;
   }
   &__title {
     font-style: normal;
     font-weight: 600;
     font-size: 25px;
     line-height: 28px;
-    color: color(greeb);
+    color: color(green);
     text-transform: uppercase;
     margin-bottom: 30px;
   }

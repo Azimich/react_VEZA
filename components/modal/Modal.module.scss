@@ -28,13 +28,12 @@
   &_head {
     display: flex;
     justify-content: space-between;
-    padding: 25px 20px 0 20px;
+    padding: 35px 20px 0 20px;
     &_title{
       font-size: 26px;
       color: color(green);
       text-transform: uppercase;
       font-weight: 500;
-
     }
   }
   &_close {

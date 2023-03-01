@@ -322,6 +322,19 @@
     }
   }
 }
+.button__telegram {
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 168px;
+    height: 42px;
+    background: #009247;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: color(white);
+  }
+}
 
 .box_field {
   display: grid;

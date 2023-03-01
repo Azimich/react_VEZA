@@ -1,8 +1,8 @@
-import { Button } from "components/button";
 import React from "react";
 import Styles from "./Support.module.scss";
 import { FC } from "react";
 import { ITelegramItem } from "./Support";
+import { Link } from "components/link";
 
 const SupportGroups: FC<ITelegramItem> = ({
   title,
@@ -14,7 +14,11 @@ const SupportGroups: FC<ITelegramItem> = ({
       <div className={Styles.group__item}>
         <h2>{title}</h2>
         <p>{description}</p>
-        <Button children={"Перейти"} link={channelUrl} />
+        <div className={Styles.button__telegram}>
+          <Link url={channelUrl} target={"_blank"}>
+            Перейти
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ const ModalBim: FC<IModalBIMGroups> = () => {
     }
   };
 
-  console.log("selectedDownLoad?.documentUrl", selectedDownLoad?.documentUrl);
+  // console.log("selectedDownLoad?.documentUrl", selectedDownLoad?.documentUrl);
 
   return (
     <div className={Styles.bim__modal}>
