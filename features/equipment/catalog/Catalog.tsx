@@ -23,6 +23,8 @@ const Catalog: FC<{
     setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
   }, [dataBreadEquipment]);
 
+  console.log("123", data, categories, router.query);
+
   useEffect(() => {
     checkEmptyObject(router.query) ? setFree(false) : setFree(true);
   }, [router.query]);
@@ -31,7 +33,6 @@ const Catalog: FC<{
     const d = e.images as IImages[];
     return d[0].pc !== "";
   });
-  console.log("dataClear", dataClear);
 
   return (
     <div className={Styles.equipment__container_catalog}>

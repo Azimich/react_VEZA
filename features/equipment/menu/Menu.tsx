@@ -30,7 +30,7 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
           getData(categories, alias)[0]?.parentAlias,
           getData(categories, alias)[0]?.level,
         );
-        console.log("1111", data);
+
         const bySortLevel = parentsData.slice(0);
         bySortLevel.sort((a, b) => a.level - b.level);
         resData.push({
@@ -66,7 +66,6 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
         ),
       );
     } else {
-      console.log("2222", data);
       categories?.length > 0 &&
         setMenu(
           categories?.map((e) => {
