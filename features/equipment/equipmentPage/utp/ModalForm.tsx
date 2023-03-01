@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { FC } from "react";
 import { CheckboxWithLabel } from "components/checkbox";
 import Styles from "./Utp.module.scss";
-import { Button } from "components/button";
 import {
   IBlockItem,
   IDocuments,
 } from "features/equipment/equipmentPage/Equipment";
 import { Link } from "components/link";
 import { EyeIcon } from "components/icons";
+import { onButtonClick } from "utils/helpers";
+import { Button } from "components/button";
 
 interface IData {
   props: IBlockItem[];
@@ -17,15 +18,22 @@ interface IData {
 const ModalForm: FC<IData> = ({ props }) => {
   const [checked, setChecked] = useState<IDocuments[]>([]);
 
-  console.log("checked", checked);
   const handleOnChange = (e: IDocuments) => {
     const check = checked.filter((item) => item.title === e.title);
     if (check.length === 0) {
-      setChecked([...checked, e]);
-    } else {
+      setChecked([/*...checked,*/ e]);
+    } /* else {
       setChecked(checked.filter((item) => item.title !== e.title));
-    }
-    console.log("checked", e);
+    }*/
+  };
+  const handleOnCLick = () => {
+    onButtonClick(
+      checked[0]?.url,
+      checked[0]?.title,
+      checked[0]?.url.substr(-4),
+    ).then((data) => {
+      console.log("dsfsd", data);
+    });
   };
   return (
     <div className={Styles.download}>
@@ -86,7 +94,8 @@ const ModalForm: FC<IData> = ({ props }) => {
           </div>
         </div>
       </div>
-      <Button children={"Скачать"} />
+
+      <Button onClick={() => handleOnCLick()}>Скачать</Button>
     </div>
   );
 };
