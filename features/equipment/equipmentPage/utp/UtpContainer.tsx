@@ -15,8 +15,8 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details, blocks }) => {
       <div className={Styles.utp__container__top}>
         <div className={Styles.utp__container__top__list}>
           {advantages &&
-            advantages.map((d) => {
-              return <p>{d}</p>;
+            advantages.map((d, i) => {
+              return <p key={i}>{d}</p>;
             })}
         </div>
         <div className={Styles.utp__container__top__buttons}>
