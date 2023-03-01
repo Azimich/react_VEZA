@@ -8,6 +8,8 @@ import {
 } from "features/equipment/equipmentPage/Equipment";
 import { Link } from "components/link";
 import { EyeIcon } from "components/icons";
+import { onButtonClick } from "utils/helpers";
+import { Button } from "components/button";
 
 interface IData {
   props: IBlockItem[];
@@ -24,7 +26,15 @@ const ModalForm: FC<IData> = ({ props }) => {
       setChecked(checked.filter((item) => item.title !== e.title));
     }*/
   };
-  console.log("123", checked);
+  const handleOnCLick = () => {
+    onButtonClick(
+      checked[0]?.url,
+      checked[0]?.title,
+      checked[0]?.url.substr(-4),
+    ).then((data) => {
+      console.log("dsfsd", data);
+    });
+  };
   return (
     <div className={Styles.download}>
       <h2 className={Styles.download__title}>Тип файла</h2>
@@ -85,6 +95,7 @@ const ModalForm: FC<IData> = ({ props }) => {
         </div>
       </div>
 
+      <Button onClick={() => handleOnCLick()}>Скачать</Button>
       <Link url={checked[0]?.url} download={"true"}>
         Скачать
       </Link>
