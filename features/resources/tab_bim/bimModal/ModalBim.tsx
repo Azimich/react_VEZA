@@ -9,20 +9,22 @@ import {
   IModelGroups,
 } from "features/resources/tab_bim/Bim";
 import { CheckboxWithLabel } from "components/checkbox";
-import { onButtonClick } from "utils/helpers";
-import { Link } from "components/link";
+import { checkEmptyObject, onButtonClick } from "utils/helpers";
+import { SpinnerButton } from "components/spinners";
+import { DownloadIcon } from "components/icons";
+
 /*
 import { useGetFiles } from "service/item/getFiles";
 */
 
 const ModalBim: FC<IModalBIMGroups> = () => {
   const [bimLists, setBimLists] = useState<IModelGroups[]>();
-  /*
-      const { getFiles } = useGetFiles();
-    */
   const { getBimModal } = useGetBimModal();
   const [selectedGroup, setSelectedGroup] = useState<IModelGroups>(null);
   const [selectedDownLoad, setSelectedDownload] = useState<IModalBIMItem>(null);
+  const [error, setError] = useState(false);
+  const [download, setDownload] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getBimModal().then((data) => {
@@ -30,6 +32,7 @@ const ModalBim: FC<IModalBIMGroups> = () => {
       setSelectedGroup(data.response[0].modelGroups[0]);
     });
   }, []);
+
   const handleOnClickRadio = (e: IModelGroups) => {
     setSelectedGroup(e);
     setSelectedDownload(null);
@@ -39,15 +42,20 @@ const ModalBim: FC<IModalBIMGroups> = () => {
   };
 
   const handleDownLoad = () => {
-    onButtonClick(selectedDownLoad.documentUrl, selectedDownLoad.title).then(
-      (data) => {
+    if (checkEmptyObject(selectedDownLoad === null ? {} : selectedDownLoad)) {
+      setError(true);
+    } else {
+      setError(false);
+      setDownload(false);
+      setIsLoading(true);
+      onButtonClick(
+        selectedDownLoad.documentUrl,
+        selectedDownLoad.title,
+        selectedDownLoad.documentUrl.substr(-4),
+      ).then((data) => {
         console.log(data);
-      },
-    );
-
-    /*    getFiles([selectedDownLoad.documentUrl]).then((data) => {
-
-            });*/
+      });
+    }
   };
 
   console.log("selectedDownLoad?.documentUrl", selectedDownLoad?.documentUrl);
@@ -86,8 +94,18 @@ const ModalBim: FC<IModalBIMGroups> = () => {
                   </div>
                 );
               })}
-              <Button onClick={() => handleDownLoad()} children={"Скачать"} />
-              <Link url={selectedDownLoad?.documentUrl}>1123</Link>
+              <Button
+                onClick={() => handleDownLoad()}
+                className={
+                  download ? `${Styles.disabled_active}` : `${Styles.disabled}`
+                }
+              >
+                Скачать
+                {isLoading ? <SpinnerButton /> : <DownloadIcon />}
+              </Button>
+              {error && (
+                <span className={Styles.error__span}>Выберите файл</span>
+              )}
             </div>
           </div>
         </div>

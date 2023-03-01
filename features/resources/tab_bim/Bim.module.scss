@@ -21,10 +21,7 @@
   }
 
   @media (max-width: 500px) {
-    grid-template-columns: repeat(auto-fit, minmax(360px, 340px));
-  }
-  @media (max-width: 400px) {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
   }
 
   &__item {

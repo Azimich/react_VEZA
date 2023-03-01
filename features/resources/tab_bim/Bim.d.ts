@@ -95,6 +95,8 @@ interface IModalBIMItem {
   title?: string;
   documentUrl?: string;
   status?: number;
+
+  substr(number: number): void;
 }
 
 interface IBIMModalResponse extends Omit<IResponse, "response"> {

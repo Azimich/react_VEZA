@@ -1,7 +1,7 @@
 import Styles from "./Job.module.scss";
 import { IJob } from "./Job";
 import { FC } from "react";
-import { Button } from "components/button";
+import { Link } from "components/link";
 
 const JobItem: FC<IJob> = ({
   title,
@@ -20,10 +20,10 @@ const JobItem: FC<IJob> = ({
         </div>
         <div className={Styles.desc}>{description}</div>
       </div>
-      <div>
-        <Button link={url} theme={"industries"}>
+      <div className={Styles.button__job}>
+        <Link target={"_blank"} url={url}>
           Узнать больше
-        </Button>
+        </Link>
       </div>
     </li>
   );
