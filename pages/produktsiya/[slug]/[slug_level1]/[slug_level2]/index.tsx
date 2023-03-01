@@ -13,8 +13,8 @@ import { getData } from "utils/helpers";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   /*    const slug = CatalogData.map((e) => {
-        return {params: {slug: e.alias}};
-    });*/
+          return {params: {slug: e.alias}};
+      });*/
   return {
     paths: [],
     fallback: true,
@@ -33,6 +33,8 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
           .subCategories,
         categories: result,
         alias: params.slug_level2,
+        products: getData(result.response, params.slug_level2 as string)[0]
+          .equipment,
       },
       revalidate: 10,
     };
@@ -43,11 +45,13 @@ const equipment = (props: {
   data: ICategoriesItem[];
   categories: ICategoriesResponseArray;
   alias: string;
+  products?: [];
 }) => (
   <EquipmentContainer
     data={props.data}
     categories={props.categories}
     alias={props.alias}
+    products={props.products}
   />
 );
 
