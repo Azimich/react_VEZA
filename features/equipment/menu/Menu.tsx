@@ -6,6 +6,7 @@ import { FC, useEffect, useState } from "react";
 import { getData, getParents } from "utils/helpers";
 import { equipmentPath } from "utils/bootstrap";
 import { ICategoriesItem } from "features/equipment/Equipment.d";
+import { useRouter } from "next/router";
 
 interface IMenu {
   categories: ICategoriesItem[];
@@ -15,9 +16,8 @@ interface IMenu {
 
 const Menu: FC<IMenu> = ({ categories, data, alias }) => {
   const [menu, setMenu] = useState<ICategoriesItem[]>([]);
-
+  const router = useRouter();
   useEffect(() => {
-    //categories?.filter((e) => e.level === 0)
     data?.length > 0 && setMenu(data);
   }, [data]);
 
@@ -30,9 +30,9 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
           getData(categories, alias)[0]?.parentAlias,
           getData(categories, alias)[0]?.level,
         );
+        console.log("1111", data);
         const bySortLevel = parentsData.slice(0);
         bySortLevel.sort((a, b) => a.level - b.level);
-
         resData.push({
           title: breadcrumbsData[i]?.title,
           alias:
@@ -66,6 +66,7 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
         ),
       );
     } else {
+      console.log("2222", data);
       categories?.length > 0 &&
         setMenu(
           categories?.map((e) => {
@@ -73,7 +74,7 @@ const Menu: FC<IMenu> = ({ categories, data, alias }) => {
           }),
         );
     }
-  }, []);
+  }, [router.query]);
 
   return (
     <div className={Styles.equipment__container_menu}>

@@ -42,6 +42,7 @@ const EquipmentPageContainer: FC<{
       setAdditionQ(res.response);
     });
   }, []);
+
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
@@ -62,10 +63,9 @@ const EquipmentPageContainer: FC<{
       </div>
       <Separator title={"Дополнительное оборудование"} />
       <ul className={Styles.add_obr}>
-        {additionQ.map((e) => {
-          console.log("ee", e);
+        {additionQ.map((e, i) => {
           return (
-            <li>
+            <li key={i}>
               <img src={e.images[0].pc} alt="" />
             </li>
           );
