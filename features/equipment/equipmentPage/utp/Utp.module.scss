@@ -85,7 +85,7 @@
     }
 
     p {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       color: grey;
       line-height: 145%;
       @include ipadScreen {
@@ -235,4 +235,60 @@
       margin-bottom: 12px;
     }
   }
+}
+
+//Стили для кнопки СКАЧАТЬ
+.disabled_active {
+  button {
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: color(white);
+    font-size: 16px;
+    background-color: color(green);
+    padding: 7.5px 30px;
+    &:hover {
+      background: color(green);
+      color: color(white);
+      path {
+        fill: #fff;
+      }
+    }
+    span {
+      svg {
+        width: 18px;
+        transition: all .2s ease;
+        path {
+          fill: #fff !important;
+        }
+      }
+    }
+  }
+}
+
+.disabled {
+  button {
+    margin: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: color(white);
+    font-size: 16px;
+    background-color: grey !important;
+    padding: 12px 29px;
+    cursor: not-allowed;
+    span {
+      svg {
+        width: 18px;
+      }
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+
+.error__span {
+  color: red;
 }
