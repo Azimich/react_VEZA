@@ -4,9 +4,12 @@
 .WhoweAbout_container{
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 130px auto;
   position: relative;
-  img{
+  @include ipadScreen {
+    margin: 0 auto 80px auto;
+  }
+  img {
     margin: 0 auto;
     object-fit: cover;
     height: auto;

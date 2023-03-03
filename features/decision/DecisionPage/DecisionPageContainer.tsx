@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 
-import Styles from "./DecisionPage.module.scss";
+// import Styles from "./DecisionPage.module.scss";
 import { ISSRDecision } from "../Decision";
 import { Container } from "components/common/container";
 
@@ -15,7 +15,6 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
   data = { decision: {}, objects: {}, equipment: {} },
 }) => {
   const { decision, objects, equipment } = data;
-  console.log("data", data);
   /*    const {decision, objects, equipment} = data;*/
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);
@@ -24,18 +23,13 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
   }, [dataBreadDecision]);
 
   return (
-    <Container className={"wrapper_clear no_padding"}>
+    <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
       <DecisionPageItem {...decision?.response} />
       <Separator title={"Наши объекты"} />
       <OwnObject props={objects?.response} />
       <Separator title={"оборудование"} />
-      <div className={Styles.equipment__block}>
-        <Equipment
-          props={equipment?.response}
-          alias={decision.response.alias}
-        />
-      </div>
+      <Equipment props={equipment?.response} alias={decision.response.alias} />
     </Container>
   );
 };

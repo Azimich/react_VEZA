@@ -15,8 +15,8 @@ const AboutItems: FC<IAboutItem> = ({ title, description, images }) => {
       </div>
       <div className={Styles.card_user_item_details}>
         <div className={Styles.title}>
-          {title.split(" ").map((item) => (
-            <p>{item}</p>
+          {title.split(" ").map((item, index) => (
+            <p key={index}>{item}</p>
           ))}
         </div>
         <span className={Styles.info}>{description}</span>
