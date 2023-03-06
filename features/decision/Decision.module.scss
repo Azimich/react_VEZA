@@ -11,6 +11,10 @@
   @include ipadScreen {
     margin: 20px auto 80px;
   }
+
+  @include phoneScreen {
+    gap: 10px;
+  }
   
   img {
     border-radius: 20px;

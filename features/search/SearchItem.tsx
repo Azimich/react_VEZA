@@ -8,7 +8,7 @@ const SearchItem: FC<ISearchItem> = ({ searchResult }) => {
     <div className={Styles.search__items__info}>
       <h1>{searchResult}</h1>
       <div className={Styles.more}>
-        <Link url={"#"}>Подробнее ...</Link>
+        <Link url={"#"}>Подробнее...</Link>
       </div>
     </div>
   );

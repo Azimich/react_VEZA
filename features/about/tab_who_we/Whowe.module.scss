@@ -2,7 +2,7 @@
 @import 'styles/variables.scss';
 
 .whowe_container {
-  margin: 40px auto 70px;
+  margin: 0 auto;
   position: relative;
   z-index: 2;
   @include ipadScreen {

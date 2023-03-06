@@ -40,14 +40,12 @@
     @media (max-width: 1270px) {
       margin-bottom: 7%;
     }
-
     @include phoneScreen {
       margin-bottom: 10%;
     }
 
     ul {
       background: #8B9C88;
-
       li {
         display: flex;
         justify-content: space-between;
@@ -57,7 +55,6 @@
         border-bottom: 0.5px solid #b4bdb27d;
         transition: all 0.3s;
         color: white;
-
         span {
           width: 80%;
         }
@@ -69,7 +66,6 @@
         &:hover {
           background-color: #748371;
           cursor: pointer;
-
           svg {
             margin-right: -10px;
           }
@@ -86,18 +82,142 @@
       display: flex;
       align-items: center;
       line-height: 57px;
-
       svg {
         margin-right: 8px;
       }
     }
   }
 
+  .search__items {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      flex: 1;
+      @media (max-width: 1100px) {
+        order: 1;
+        margin-bottom: 0;
+      }
+    }
+
+    &__right {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      justify-content: space-between;
+      @media (max-width: 1100px) {
+        order: 0;
+        justify-content: flex-end;
+        width: 100%;
+      }
+
+      @include phoneScreen {
+        flex-direction: column;
+      }
+    }
+
+    &__button {
+      button {
+        width: 180px;
+      }
+    }
+    &__info {
+      padding: 20px;
+      background-color: #f3f3f3;
+      border-radius: 12px;
+      color: color(dark);
+      margin-bottom: 12px;
+      h1 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    &__input {
+      position: relative;
+      width: 100%;
+      .clear {
+        width: 18px;
+        height: 18px;
+        opacity: 0.5;
+        position: absolute;
+        left: auto;
+        top: 13px !important;
+        transition: all 0.3s ease;
+        right: 10px;
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+
+        svg {
+          left: auto;
+          top: 0 !important;
+          transition: all 0.3s;
+          right: 0;
+        }
+      }
+
+      input {
+        padding: 12px 30px 13px 35px !important;
+      }
+
+      svg {
+        position: absolute;
+        left: 8px;
+        top: 9px;
+        width: 19px !important;
+        cursor: pointer;
+      }
+
+      .input_field {
+        padding: 10px 10px 10px 35px;
+        border-radius: 5px;
+        border: 1px solid #9494949c;
+        width: 100%;
+        min-width: 300px;
+        transition: none;
+        &::placeholder {
+          font-size: 16px;
+          letter-spacing: 0;
+        }
+        + label {
+          transform: translateY(-30px) scale(1) !important;
+        }
+        &:-webkit-autofill {
+          & + label {
+            transform: translateY(0px) scale(1);
+          }
+        }
+        &:focus{
+          border-color: color(green);
+        }
+        svg {
+          width: 22px;
+          height: 22px;
+          path{
+            fill: gray;
+          }
+        }
+      }
+    }
+  }
+
   &_catalog {
     margin: 0 0 130px 0;
-
     h1 {
-      margin-bottom: 30px;
       font-size: 40px;
       text-transform: uppercase;
       position: relative;
@@ -134,7 +254,7 @@
 
     &_product {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 530px));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 540px));
       grid-gap: 15px;
       gap: 15px;
       margin-bottom: 10%;

@@ -147,6 +147,9 @@
             overflow: hidden;
             padding: 10px 10px 20px 0;
           }
+          @include phoneScreen {
+            height: auto;
+          }
         }
         button {
           span {
