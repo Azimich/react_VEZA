@@ -43,7 +43,6 @@ const SingUpForm: FC<IAuthResponse> = () => {
         <p className={Styles.text_modal}>
           Для продолжения регистрации необходимо подтвердить свой емайл
         </p>
-
         <Button
           type={"button"}
           size={"max"}
