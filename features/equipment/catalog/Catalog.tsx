@@ -13,6 +13,8 @@ import { Input } from "components/input";
 import { SearchInputIcon } from "components/icons/includes/SearchInputIcon";
 import { CloseIcon } from "components/icons";
 import { Button } from "components/button";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
 
 const Catalog: FC<{
   data: ICategoriesItem[];
@@ -24,6 +26,8 @@ const Catalog: FC<{
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadEquipment);
   const [inputValue, setInputValue] = React.useState<string>("");
+  const auth = useAppSelector(getAuth);
+  console.log("auth", auth);
 
   const handleOnChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -48,28 +52,33 @@ const Catalog: FC<{
     <div className={Styles.equipment__container_catalog}>
       <div className={Styles.search__items}>
         <h1>{dataCategory ? dataCategory.title : "Каталог продукции"}</h1>
-        <div className={Styles.search__items__right}>
-          <div className={Styles.search__items__input}>
-            <Input
-              value={inputValue}
-              type={"text"}
-              onChange={(event) => handleOnChangeSearch(event)}
-              name={"search_catalog"}
-              id={"search_catalog_id"}
-              placeholder={"Поиск"}
-              className={Styles.input_field}
-            />
-            <SearchInputIcon />
-            {inputValue && (
-              <span onClick={() => setInputValue("")} className={Styles.clear}>
-                <CloseIcon />
-              </span>
-            )}
+        {auth.identify && auth.data.response && (
+          <div className={Styles.search__items__right}>
+            <div className={Styles.search__items__input}>
+              <Input
+                value={inputValue}
+                type={"text"}
+                onChange={(event) => handleOnChangeSearch(event)}
+                name={"search_catalog"}
+                id={"search_catalog_id"}
+                placeholder={"Поиск"}
+                className={Styles.input_field}
+              />
+              <SearchInputIcon />
+              {inputValue && (
+                <span
+                  onClick={() => setInputValue("")}
+                  className={Styles.clear}
+                >
+                  <CloseIcon />
+                </span>
+              )}
+            </div>
+            <div className={Styles.search__items__button}>
+              <Button children={"Добавить"} />
+            </div>
           </div>
-          <div className={Styles.search__items__button}>
-            <Button children={"Добавить"} />
-          </div>
-        </div>
+        )}
       </div>
       {dataClear?.length > 0 ? (
         <div
