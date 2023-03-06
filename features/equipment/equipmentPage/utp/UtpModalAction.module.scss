@@ -1,0 +1,17 @@
+.action_container {
+  div {
+    div {
+      border: 1px solid gray;
+      display: flex;
+      flex-direction: column;
+      margin: 5px 0;
+      cursor: grab;
+      height: auto;
+
+      input {
+        border: none;
+        cursor: grab;
+      }
+    }
+  }
+}

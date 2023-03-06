@@ -22,7 +22,7 @@
   }
 
   &.white {
-    background: color(white);
+    background: rgba(255,255,255,0.8);
     backdrop-filter: blur(3px);
   }
   &_head {
@@ -98,6 +98,16 @@
     &__modal {
       width: 450px;
       background: color(white);
+    }
+
+    &__modal_edit_text {
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+      background: color(white);
+      .modal_body{
+        overflow: hidden;
+      }
     }
 
     &__empty_modal {
