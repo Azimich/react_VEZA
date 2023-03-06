@@ -229,7 +229,6 @@ a {
           font-size: 25px;
           font-style: normal;
           line-height: 145%;
-          letter-spacing: 0.025em;
           color: color(dark);
           @include phoneScreen{
             font-weight: 500;
@@ -566,6 +565,8 @@ a {
           border-left: 2px solid color(green);
           padding-left: 10px;
           font-size: 20px;
+          width: 100%;
+          box-sizing: border-box;
         }
       }
 
