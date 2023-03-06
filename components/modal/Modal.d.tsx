@@ -8,6 +8,11 @@ export interface IModalProps {
   headerText?: ReactNode | string;
   bgModal?: "black" | "white";
   typeContent?: "content" | "no_padding_content";
-  theme?: "modal" | "full_modal" | "freedom_modal" | "empty_modal";
+  theme?:
+    | "modal"
+    | "full_modal"
+    | "freedom_modal"
+    | "empty_modal"
+    | "modal_edit_text";
   className?: string;
 }

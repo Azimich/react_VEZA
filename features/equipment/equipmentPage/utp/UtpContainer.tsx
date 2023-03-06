@@ -4,16 +4,25 @@ import { Modal, useModal } from "components/modal";
 import { ModalForm } from "./ModalForm";
 import { FC } from "react";
 import { IEquipmentItem } from "features/equipment/equipmentPage/Equipment";
+/*import {useAppSelector} from "store/hooks";
+import {getAuth} from "features/auth/AuthSlice";*/
+import { ModalFormEdit } from "features/equipment/equipmentPage/utp/ModalFormEdit";
 
-const UtpContainer: FC<IEquipmentItem> = ({ advantages, details, blocks }) => {
-  const content = <ModalForm props={blocks} />;
+const UtpContainer: FC<IEquipmentItem> = (props) => {
+  const { advantages, details, blocks } = props;
+  /*    const auth = useAppSelector(getAuth)*/
   const { isShow, toggle } = useModal();
+  const { isShow: isShowEditAdvertise, toggle: toggleEditAdvertise } =
+    useModal();
   const data = details[0].description;
+  const content = <ModalForm props={blocks} />;
+  const contentEdit = <ModalFormEdit props={advantages} />;
 
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
         <div className={Styles.utp__container__top__list}>
+          <div onClick={toggleEditAdvertise}>***</div>
           {advantages &&
             advantages.map((d, i) => {
               return <p key={i}>{d}</p>;
@@ -33,6 +42,13 @@ const UtpContainer: FC<IEquipmentItem> = ({ advantages, details, blocks }) => {
         </div>
       </div>
       <div className={Styles.lh} dangerouslySetInnerHTML={{ __html: data }} />
+      <Modal
+        isShow={isShowEditAdvertise}
+        hide={toggleEditAdvertise}
+        modalContent={contentEdit}
+        theme={"modal_edit_text"}
+        bgModal={"white"}
+      />
 
       <Modal
         isShow={isShow}
