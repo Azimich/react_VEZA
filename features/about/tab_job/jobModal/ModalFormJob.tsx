@@ -165,7 +165,7 @@ const ModalFormJob = () => {
                 <CheckboxWithLabel
                   name={"private_police"}
                   id={"private_police_id"}
-                  title={"Обработку персональных данных с"}
+                  title={"Обработка персональных данных с"}
                   onChangeData={(e) => {
                     formik.setFieldValue("private_police", !e);
                   }}
