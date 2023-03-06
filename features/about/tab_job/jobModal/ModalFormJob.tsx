@@ -8,10 +8,13 @@ import { ChangeEvent } from "react";
 import { ValidationJob } from "features/auth/formsData/ValidationsShemas";
 import { fieldsDataJob } from "features/auth/formsData/FieledsData";
 import { useAddVacancy } from "service/item/addVacancy";
+import { Modal, useModal } from "components/modal";
+import { Politics } from "features/auth/Politics";
 
 const ModalFormJob = () => {
   const { addVacancy } = useAddVacancy();
   const [isSending, setIsSending] = useState<boolean>(false);
+  const { isShow, toggle } = useModal();
   const formik: FormikValues = useFormik({
     initialValues: {
       name: "",
@@ -162,13 +165,12 @@ const ModalFormJob = () => {
                 <CheckboxWithLabel
                   name={"private_police"}
                   id={"private_police_id"}
-                  title={
-                    "Согласие на обработку персональных данных с условиями"
-                  }
+                  title={"Обработка персональных данных с"}
                   onChangeData={(e) => {
                     formik.setFieldValue("private_police", !e);
                   }}
                 />
+                <span onClick={toggle}>условиями</span>
               </div>
               <div
                 className={`${
@@ -182,6 +184,14 @@ const ModalFormJob = () => {
               </div>
             </ul>
           </div>
+          {/*Форма политика конфиденциальности*/}
+          <Modal
+            isShow={isShow}
+            hide={toggle}
+            modalContent={<Politics />}
+            theme={"full_modal"}
+            bgModal={"white"}
+          />
           <div className={Styles.job__modal__item__answer}>
             <Button type={"submit"} children={"Отправить"} theme={"banner"} />
           </div>

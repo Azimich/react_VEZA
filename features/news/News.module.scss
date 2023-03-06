@@ -1,6 +1,10 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
+.news_item_block {
+  margin: 0 0 130px 0;
+}
+
 a {
   &:nth-child(odd) {
     .news_container_item_right {
@@ -225,13 +229,12 @@ a {
           font-size: 25px;
           font-style: normal;
           line-height: 145%;
-          letter-spacing: 0.025em;
           color: color(dark);
-          @media (max-width: 550px) {
+          @include phoneScreen{
             font-weight: 500;
             font-size: 22px;
             font-style: normal;
-            line-height: 145%;
+            line-height: 130%;
           }
         }
 
@@ -553,7 +556,7 @@ a {
         font-size: 25px;
         line-height: 145%;
         width: 60%;
-        letter-spacing: 0.025em;
+        letter-spacing: 0.010em;
         color: color(green);
         margin-bottom: 30px;
         @include phoneScreen {
@@ -562,6 +565,8 @@ a {
           border-left: 2px solid color(green);
           padding-left: 10px;
           font-size: 20px;
+          width: 100%;
+          box-sizing: border-box;
         }
       }
 
@@ -612,13 +617,8 @@ a {
         font-size: 16px;
         line-height: 145%;
         @include phoneScreen {
-          display: flex;
-          flex-direction: column;
           row-gap: 10px;
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 145%;
+          margin-bottom: 30px;
         }
     a {
       width: fit-content;
@@ -662,7 +662,7 @@ a {
         border-left: 2px solid color(green);
         width: 100%;
         line-height: 125%;
-        font-size: 20px;
+        font-size: 18px;
         margin: 10px 0 20px 0;
       }
     }

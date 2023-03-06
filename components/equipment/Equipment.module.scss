@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
 
 .equipment_container{
   display: grid;
@@ -9,7 +9,7 @@
   @include ipadScreen {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
   &_item{
@@ -17,13 +17,12 @@
     border-radius: 12px;
     &:hover img{
       transform: scale(1.1);
-
     }
 
     img {
       width:100%;
       object-fit: fill;
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
   }
 }

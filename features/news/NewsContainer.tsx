@@ -17,7 +17,6 @@ import Styles from "./News.module.scss";
 
 const NewsContainer: FC<ISSRHome> = ({ newsData }) => {
   const router = useRouter();
-
   const { getNewsData } = useGetNews();
   const [newsDataState, setNewsDataState] = useState<INewsDataItem[]>(
     newsData.response,
@@ -40,13 +39,15 @@ const NewsContainer: FC<ISSRHome> = ({ newsData }) => {
           <Button link={"/admin/novosti/add"}>Добавить новость</Button>
         </div>
       )}
-      {!newsData.hasError ? (
-        newsDataState?.map((e) => {
-          return <NewsWithItem {...e} key={e.newsId} />;
-        })
-      ) : (
-        <ConnectError type={"text"} />
-      )}
+      <div className={Styles.news_item_block}>
+        {!newsData.hasError ? (
+          newsDataState?.map((e) => {
+            return <NewsWithItem {...e} key={e.newsId} />;
+          })
+        ) : (
+          <ConnectError type={"text"} />
+        )}
+      </div>
       {!newsData.hasError && (
         <Pagination
           onPageChange={(page) => {
