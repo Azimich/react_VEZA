@@ -2,6 +2,7 @@ import { ChangeEvent, ReactNode } from "react";
 
 interface IInput {
   title?: string;
+  draggable?: boolean;
   placeholder?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;

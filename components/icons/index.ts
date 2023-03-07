@@ -38,3 +38,4 @@ export { UsersIcon } from "./includes/UsersIcon";
 export { QuitIcon } from "./includes/QuitIcon";
 export { ChartIcon } from "./includes/ChartIcon";
 export { PenIcon } from "./includes/PenIcon";
+export { DragIcon } from "./includes/DragIcon";
