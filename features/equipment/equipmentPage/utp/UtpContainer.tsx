@@ -46,6 +46,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
         isShow={isShowEditAdvertise}
         hide={toggleEditAdvertise}
         modalContent={contentEdit}
+        headerText={"Редактирование"}
         theme={"modal_edit_text"}
         bgModal={"white"}
       />

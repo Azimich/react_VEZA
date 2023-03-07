@@ -4,6 +4,7 @@ import { FC } from "react";
 
 const LayoutInputBase: FC<IInput> = ({
   placeholder = " ",
+  draggable = false,
   hidden = false,
   onChange,
   onBlur,
@@ -28,6 +29,7 @@ const LayoutInputBase: FC<IInput> = ({
         value={value}
         placeholder={placeholder}
         onKeyUp={onKeyUp}
+        draggable={draggable}
       />
       <label htmlFor={id}>{title}</label>
     </div>

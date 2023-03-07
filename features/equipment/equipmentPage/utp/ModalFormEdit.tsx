@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FC } from "react";
 import Styles from "./UtpModalAction.module.scss";
+import { Input } from "components/input";
+import { Button } from "components/button";
 
 interface IData {
   props: string[];
@@ -19,7 +21,7 @@ const ModalFormEdit: FC<IData> = ({ props }) => {
   useEffect(() => {
     setFieldList(
       props.map((e, i) => {
-        return { id: i, order: i, text: e, disabled: true };
+        return { id: i, order: i, text: e, disabled: false };
       }),
     );
   }, []);
@@ -33,9 +35,6 @@ const ModalFormEdit: FC<IData> = ({ props }) => {
 
   function dragLeaveHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
-    console.log("dragLeaveHandler");
-    const style = e.target as HTMLStyleElement;
-    style.style.background = "white";
   }
 
   function dragEndHandler(e: React.DragEvent<HTMLDivElement>) {
@@ -45,40 +44,39 @@ const ModalFormEdit: FC<IData> = ({ props }) => {
 
   function dragOverHandle(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
-    const style = e.target as HTMLStyleElement;
-    style.style.background = "gray";
   }
 
   function dropHandler(e: React.DragEvent<HTMLDivElement>, card: IListItem) {
     e.preventDefault();
+    const currentIndex = fieldList.indexOf(card);
+    const deleteIndex = fieldList.indexOf(currentField);
+    fieldList.splice(currentIndex, 0, currentField);
+    fieldList.splice(
+      deleteIndex < currentIndex ? deleteIndex : deleteIndex + 1,
+      1,
+    );
     setFieldList(
-      fieldList.map((c) => {
-        if (c.id === card.id) {
-          return { ...c, order: currentField.order };
-        }
-        if (c.id === currentField.id) {
-          return { ...c, order: card.order };
-        }
-        return c;
+      fieldList.map((c, i) => {
+        return { ...c, order: i };
       }),
     );
     const style = e.target as HTMLStyleElement;
     style.style.background = "white";
   }
 
-  const sortCards = (a: { order: number }, b: { order: number }) => {
-    if (a.order > b.order) {
-      return 1;
-    } else {
-      return -1;
-    }
+  const handleInputOnChange = (
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const data = [...fieldList];
+    data[index]["text"] = event.target.value;
+    setFieldList(data);
   };
-
   return (
     <div className={Styles.action_container}>
       <div className={Styles.panel}>add</div>
-      <div>
-        {fieldList?.sort(sortCards).map((data, i) => {
+      <div className={Styles.div_box}>
+        {fieldList?.map((data, i) => {
           return (
             <div
               draggable={true}
@@ -89,13 +87,21 @@ const ModalFormEdit: FC<IData> = ({ props }) => {
               onDragOver={(e) => dragOverHandle(e)}
               onDrop={(e) => dropHandler(e, data)}
             >
-              {data?.text}
+              <Input
+                draggable={false}
+                onChange={(event) => handleInputOnChange(i, event)}
+                value={data?.text}
+                id={"adv"}
+              />
             </div>
           );
         })}
       </div>
+      <div className={Styles.block_button}>
+        <Button className={Styles.button_send}>Сохранить</Button>
+        <Button className={Styles.button_send}>Отменить</Button>
+      </div>
     </div>
   );
 };
-
 export { ModalFormEdit };
