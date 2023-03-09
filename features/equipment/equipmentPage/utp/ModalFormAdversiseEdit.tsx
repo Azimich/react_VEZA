@@ -3,28 +3,39 @@ import { FC } from "react";
 import Styles from "./UtpModalAction.module.scss";
 import { Input } from "components/input";
 import { Button } from "components/button";
+import { useAdvertise } from "service/admin/item/putAdvertise";
+import { DeleteIcon } from "components/icons";
 
 interface IData {
-  props: string[];
+  advantages: string[];
+  alias: string;
+  toggle?: () => void;
 }
 
-interface IListItem {
+export interface IListItem {
   id: number;
   order: number;
   text: string;
   disabled: boolean;
 }
 
-const ModalFormEdit: FC<IData> = ({ props }) => {
-  const [fieldList, setFieldList] = useState<IListItem[]>();
+const ModalFormAdvertiseEdit: FC<IData> = ({ advantages, alias, toggle }) => {
+  const [fieldList, setFieldList] = useState<IListItem[]>([]);
   const [currentField, setCurrentField] = useState(null);
+  const { putAdvertise } = useAdvertise();
   useEffect(() => {
     setFieldList(
-      props.map((e, i) => {
+      advantages.map((e, i) => {
         return { id: i, order: i, text: e, disabled: false };
       }),
     );
   }, []);
+
+  const handleOnClick = () => {
+    putAdvertise(fieldList, alias).then(() => {
+      toggle();
+    });
+  };
 
   function dragStartHandler(
     e: React.DragEvent<HTMLDivElement>,
@@ -72,9 +83,36 @@ const ModalFormEdit: FC<IData> = ({ props }) => {
     data[index]["text"] = event.target.value;
     setFieldList(data);
   };
+  const handleOnInputAdd = () => {
+    setFieldList([
+      ...fieldList,
+      {
+        id: fieldList.length,
+        order: fieldList.length,
+        text: "",
+        disabled: false,
+      },
+    ]);
+  };
+  const handleDelete = (data: IListItem) => {
+    const currentIndex = fieldList.indexOf(data);
+    fieldList.splice(currentIndex, 1);
+    setFieldList(
+      fieldList.map((c, i) => {
+        return { ...c, order: i };
+      }),
+    );
+  };
   return (
     <div className={Styles.action_container}>
-      <div className={Styles.panel}>add</div>
+      <div className={Styles.panel}>
+        <Button
+          className={Styles.button_send}
+          onClick={() => handleOnInputAdd()}
+        >
+          Добавить поле
+        </Button>
+      </div>
       <div className={Styles.div_box}>
         {fieldList?.map((data, i) => {
           return (
@@ -93,15 +131,22 @@ const ModalFormEdit: FC<IData> = ({ props }) => {
                 value={data?.text}
                 id={"adv"}
               />
+              <div onClick={() => handleDelete(data)}>
+                <DeleteIcon />
+              </div>
             </div>
           );
         })}
       </div>
       <div className={Styles.block_button}>
-        <Button className={Styles.button_send}>Сохранить</Button>
-        <Button className={Styles.button_send}>Отменить</Button>
+        <Button className={Styles.button_send} onClick={() => handleOnClick()}>
+          Сохранить
+        </Button>
+        <Button className={Styles.button_send} onClick={toggle}>
+          Отменить
+        </Button>
       </div>
     </div>
   );
 };
-export { ModalFormEdit };
+export { ModalFormAdvertiseEdit };
