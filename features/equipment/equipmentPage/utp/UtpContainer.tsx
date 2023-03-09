@@ -2,27 +2,49 @@ import Styles from "./Utp.module.scss";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
 import { ModalForm } from "./ModalForm";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { IEquipmentItem } from "features/equipment/equipmentPage/Equipment";
-/*import {useAppSelector} from "store/hooks";
-import {getAuth} from "features/auth/AuthSlice";*/
-import { ModalFormEdit } from "features/equipment/equipmentPage/utp/ModalFormEdit";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
+import { ModalFormAdvertiseEdit } from "features/equipment/equipmentPage/utp/ModalFormAdversiseEdit";
+import { PencilIcon } from "components/icons";
+import { useGetAdvertise } from "service/admin/list/getAdvertise";
 
 const UtpContainer: FC<IEquipmentItem> = (props) => {
-  const { advantages, details, blocks } = props;
-  /*    const auth = useAppSelector(getAuth)*/
+  const { details, blocks } = props;
+
+  const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
   const { isShow: isShowEditAdvertise, toggle: toggleEditAdvertise } =
     useModal();
   const data = details[0].description;
   const content = <ModalForm props={blocks} />;
-  const contentEdit = <ModalFormEdit props={advantages} />;
+  const [advantages, setAdvantages] = useState<string[]>([]);
+  const { getAdvertise } = useGetAdvertise();
+  useEffect(() => {
+    !isShowEditAdvertise &&
+      getAdvertise(props.alias).then((data) => {
+        setAdvantages(data.response);
+      });
+  }, [isShowEditAdvertise]);
+
+  const contentEdit = (
+    <ModalFormAdvertiseEdit
+      advantages={advantages}
+      toggle={toggleEditAdvertise}
+      alias={props.alias}
+    />
+  );
 
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
         <div className={Styles.utp__container__top__list}>
-          <div onClick={toggleEditAdvertise}>***</div>
+          {auth.identify && auth.data.response.role === 1 && (
+            <div onClick={toggleEditAdvertise} className={Styles.top_list_edit}>
+              <PencilIcon />
+            </div>
+          )}
           {advantages &&
             advantages.map((d, i) => {
               return <p key={i}>{d}</p>;

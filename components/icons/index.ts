@@ -39,3 +39,5 @@ export { QuitIcon } from "./includes/QuitIcon";
 export { ChartIcon } from "./includes/ChartIcon";
 export { PenIcon } from "./includes/PenIcon";
 export { DragIcon } from "./includes/DragIcon";
+export { DeleteIcon } from "./includes/DeleteIcon";
+export { PencilIcon } from "./includes/PencilIcon";
