@@ -55,9 +55,9 @@ const EquipmentPageContainer: FC<{
               theme={"pageProduct"}
               dots={true}
               autoplay={false}
+              isLink={false}
             />
           )}
-          <div></div>
           <UtpContainer {...product.response} />
         </div>
       </div>

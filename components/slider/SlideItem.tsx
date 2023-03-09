@@ -30,6 +30,7 @@ const SlideItem: FC<ISlideItem> = ({
   url = "",
   size = "medium",
   OnClick,
+  isLink = true,
 }) => {
   const [hasWindow, setHasWindow] = useState(false);
   const isWindow = typeof window !== "undefined";
@@ -39,49 +40,47 @@ const SlideItem: FC<ISlideItem> = ({
 
   const Img = () => {
     return (
-      <>
-        <div
-          className={`${Styles[`${theme}_banner__slider_slide`]}`}
-          key={Math.random() * 10}
-        >
-          {block_description && (
-            <div className={Styles[`${theme}_banner__right_element`]}>
-              <h1 className={Styles[`${theme}_banner__right_element_title`]}>
-                {title}
-              </h1>
-              <p className={Styles[`${theme}_banner__right_element_text`]}>
-                {description && shortDescription}
-              </p>
-              <Button theme={themeButton} size={size} link={url} color={color}>
-                <span>
-                  <p>Подробнее</p>
-                  {color === "link" && <ArrowRightIcon />}
-                </span>
-              </Button>
-            </div>
-          )}
-          <div className={Styles[`${theme}_banner__slider_img`]}>
-            {hasWindow && isDesktop && (
-              <img
-                src={typeof images === "object" ? images.pc : images}
-                alt={alt}
-              />
-            )}
-            {hasWindow && isTablet && (
-              <img
-                src={typeof images === "object" ? images.ipad : images}
-                alt={alt}
-              />
-            )}
-            {hasWindow && isMobile && (
-              <img
-                src={typeof images === "object" ? images.mobile : images}
-                alt={alt}
-              />
-            )}
+      <div
+        className={`${Styles[`${theme}_banner__slider_slide`]}`}
+        key={Math.random() * 10}
+      >
+        {block_description && (
+          <div className={Styles[`${theme}_banner__right_element`]}>
+            <h1 className={Styles[`${theme}_banner__right_element_title`]}>
+              {title}
+            </h1>
+            <p className={Styles[`${theme}_banner__right_element_text`]}>
+              {description && shortDescription}
+            </p>
+            <Button theme={themeButton} size={size} link={url} color={color}>
+              <span>
+                <p>Подробнее</p>
+                {color === "link" && <ArrowRightIcon />}
+              </span>
+            </Button>
           </div>
+        )}
+        <div className={Styles[`${theme}_banner__slider_img`]}>
+          {hasWindow && isDesktop && (
+            <img
+              src={typeof images === "object" ? images.pc : images}
+              alt={alt}
+            />
+          )}
+          {hasWindow && isTablet && (
+            <img
+              src={typeof images === "object" ? images.ipad : images}
+              alt={alt}
+            />
+          )}
+          {hasWindow && isMobile && (
+            <img
+              src={typeof images === "object" ? images.mobile : images}
+              alt={alt}
+            />
+          )}
         </div>
-      </>
+      </div>
     );
   };
   const Video = () => {
@@ -111,7 +110,6 @@ const SlideItem: FC<ISlideItem> = ({
       </div>
     );
   };
-
   const Text = () => {
     return (
       <div
@@ -135,9 +133,11 @@ const SlideItem: FC<ISlideItem> = ({
     isWindow && setHasWindow(true);
   }, [isWindow]);
 
+  console.log("sliderURL", url);
+
   switch (typeSlider) {
     case "img":
-      return url ? (
+      return isLink ? (
         <div>
           <Link url={url}>
             <Img />

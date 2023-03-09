@@ -6,6 +6,7 @@ interface ISliderProps {
   navigations?: boolean;
   pathDecision?: boolean;
   isEdit?: boolean;
+  isLink?: boolean;
   theme?:
     | "home"
     | "industries"
@@ -56,6 +57,7 @@ interface ISlideItem {
   activePageDefault?: boolean;
   show_text?: boolean;
   isEdit?: boolean;
+  isLink?: boolean;
   theme?:
     | "home"
     | "industries"
