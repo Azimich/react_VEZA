@@ -73,4 +73,5 @@ const EquipmentPageContainer: FC<{
     </Container>
   );
 };
+
 export { EquipmentPageContainer };

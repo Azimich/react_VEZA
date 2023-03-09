@@ -15,6 +15,8 @@ import { CloseIcon } from "components/icons";
 import { Button } from "components/button";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
+import { Modal, useModal } from "components/modal";
+import { ModalAddProduction } from "features/equipment/catalog/ModalAddProduction";
 
 const Catalog: FC<{
   data: ICategoriesItem[];
@@ -27,7 +29,7 @@ const Catalog: FC<{
     useState<IBreadCrumbs[]>(dataBreadEquipment);
   const [inputValue, setInputValue] = React.useState<string>("");
   const auth = useAppSelector(getAuth);
-  console.log("auth", auth);
+  const { isShow, toggle } = useModal();
 
   const handleOnChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -75,8 +77,16 @@ const Catalog: FC<{
               )}
             </div>
             <div className={Styles.search__items__button}>
-              <Button children={"Добавить"} />
+              <Button onClick={toggle} children={"Добавить"} />
             </div>
+            <Modal
+              isShow={isShow}
+              hide={toggle}
+              headerText={"Добавить продукт"}
+              modalContent={<ModalAddProduction />}
+              theme={"full_modal"}
+              bgModal={"white"}
+            />
           </div>
         )}
       </div>
