@@ -1,13 +1,15 @@
 .action_container {
   .div_box {
-    height: 330px;
+    height: 310px;
+    overflow: auto;
+    margin: 10px 0;
+
     > div {
       border: 1px solid gray;
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr auto;
       margin: 1px 0;
-      padding: 5px ;
-      cursor: grab;
+      padding: 5px;
       height: auto;
 
       input {
@@ -20,9 +22,13 @@
         width: 100%;
         line-height: 14px;
       }
+      svg{
+        cursor: pointer;
+      }
     }
   }
-  .block_button{
+
+  .block_button {
     display: flex;
     flex-direction: row;
     gap: 20px;
