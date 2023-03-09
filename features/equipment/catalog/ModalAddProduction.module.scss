@@ -1,2 +1,99 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
+
+.add_prod {
+  margin: 0 auto;
+  &_banner_items {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  &_banner {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 500px;
+    .added_input {
+      position: relative;
+      background-color: #009247;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      height: 8vw;
+      width: 8vw;
+      .added_label {
+        background-image: url('/images/add.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        display: block;
+        width: 70%;
+        height: 70%;
+        cursor: pointer;
+        z-index: 2;
+        &_span {
+          display: none;
+        }
+      }
+    }
+  }
+  &_info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    &_left,
+    &_right {
+      width: 50%;
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 10px;
+      min-height: 220px;
+    }
+    &_left {
+      button {
+        margin-bottom: 20px;
+      }
+    }
+    &_input {
+      position: relative;
+      margin-bottom: 12px;
+      input {
+        padding-right: 50px;
+      }
+      span {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 35%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        svg {
+          opacity: 0.4;
+          transition: all 0.1s ease;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &_text {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 400px;
+    color: color(dark);
+    border: none;
+  }
+  &_button {
+    margin-top: 30px;
+  }
+}

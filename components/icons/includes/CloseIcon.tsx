@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import Styles from "./StylesIcon.module.scss";
 
-const CloseIcon: FC = (props: React.SVGProps<SVGSVGElement>) => {
+interface ICloseIcon {
+  onClick?: () => void;
+}
+const CloseIcon: FC<ICloseIcon> = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       className={Styles.modal__close}

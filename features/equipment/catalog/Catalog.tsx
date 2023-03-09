@@ -82,7 +82,7 @@ const Catalog: FC<{
             <Modal
               isShow={isShow}
               hide={toggle}
-              headerText={"Добавить продукт"}
+              headerText={"Добавить новую продукцию"}
               modalContent={<ModalAddProduction />}
               theme={"full_modal"}
               bgModal={"white"}
