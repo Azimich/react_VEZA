@@ -1,7 +1,6 @@
 import { Container } from "components/common/container";
 import { FC, useEffect, useState } from "react";
 import { ICategoriesItem, ICategoriesResponseArray } from "../Equipment";
-
 import { Menu } from "../menu/Menu";
 import Styles from "../Equipment.module.scss";
 import { SliderContainer } from "components/slider";
