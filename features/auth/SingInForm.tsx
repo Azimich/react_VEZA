@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { SpinnerButton } from "components/spinners";
 import { useToken } from "store/hooks/useToken";
 
+//SingForm
 const SingInForm: FC = () => {
   const { getLogin, loading, error } = useAuth();
   const [authData, setAuthData] = useState<ISingResponseData>({});
@@ -58,6 +59,7 @@ const SingInForm: FC = () => {
     },
   });
 
+  //handle для изменения инпута
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
     filter: RegExp,
