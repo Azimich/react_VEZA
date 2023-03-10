@@ -31,24 +31,24 @@ const ModalFormJob = () => {
   });
 
   /*  const [selectedFiles, setSelectedFiles] = useState([]);
-      const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
-      console.log("selectedFilesName", selectedFilesName);*/
+        const [selectedFilesName, setSelectedFilesName] = useState<ReactNode>();
+        console.log("selectedFilesName", selectedFilesName);*/
   //Инпут для добавления файла
   /*  const handleInputFileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setSelectedFiles(Array.from(e.target.files));
-    };*/
+        setSelectedFiles(Array.from(e.target.files));
+      };*/
 
   /*  const handleDeleteClick = (
-        e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
-        index: number,
-      ) => {
-        e.preventDefault();
-        setSelectedFiles(
-          selectedFiles.filter((e) => {
-            return e.lastModified != index;
-          }),
-        );
-      };*/
+          e: React.MouseEvent<HTMLSpanElement, MouseEvent>,
+          index: number,
+        ) => {
+          e.preventDefault();
+          setSelectedFiles(
+            selectedFiles.filter((e) => {
+              return e.lastModified != index;
+            }),
+          );
+        };*/
 
   const handleFilterOnChange = (
     e: ChangeEvent<HTMLInputElement>,
@@ -68,23 +68,23 @@ const ModalFormJob = () => {
   };
 
   /*  useEffect(() => {
-        const el: ReactNode = (
-          <ul className={Styles.input_names}>
-            {selectedFiles.length > 0 &&
-              selectedFiles.map((file) => {
-                return (
-                  <li key={file.lastModified}>
-                    <p>{file.name}</p>
-                    <span
-                      onClick={(e) => handleDeleteClick(e, file.lastModified)}
-                    ></span>
-                  </li>
-                );
-              })}
-          </ul>
-        );
-        setSelectedFilesName(el);
-      }, [selectedFiles]);*/
+          const el: ReactNode = (
+            <ul className={Styles.input_names}>
+              {selectedFiles.length > 0 &&
+                selectedFiles.map((file) => {
+                  return (
+                    <li key={file.lastModified}>
+                      <p>{file.name}</p>
+                      <span
+                        onClick={(e) => handleDeleteClick(e, file.lastModified)}
+                      ></span>
+                    </li>
+                  );
+                })}
+            </ul>
+          );
+          setSelectedFilesName(el);
+        }, [selectedFiles]);*/
 
   return (
     <div className={Styles.job__modal}>
