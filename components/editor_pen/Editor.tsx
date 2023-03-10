@@ -4,10 +4,8 @@ import { PenIcon } from "components/icons";
 
 const Editor: FC = () => {
   return (
-    <div className={Styles.edit_icon_container}>
-      <div className={Styles.edit_icon}>
-        <PenIcon />
-      </div>
+    <div className={Styles.edit_icon}>
+      <PenIcon />
     </div>
   );
 };

@@ -133,8 +133,6 @@ const SlideItem: FC<ISlideItem> = ({
     isWindow && setHasWindow(true);
   }, [isWindow]);
 
-  console.log("sliderURL", url);
-
   switch (typeSlider) {
     case "img":
       return isLink ? (

@@ -2,13 +2,14 @@ import Styles from "./Utp.module.scss";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
 import { ModalForm } from "./ModalForm";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { IEquipmentItem } from "features/equipment/equipmentPage/Equipment";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
 import { ModalFormAdvertiseEdit } from "features/equipment/equipmentPage/utp/ModalFormAdversiseEdit";
-import { PencilIcon } from "components/icons";
 import { useGetAdvertise } from "service/admin/list/getAdvertise";
+import { Editor } from "components/editor_pen";
+import { ModalFormDescriptionEdit } from "features/equipment/equipmentPage/utp/ModalFormDescriptionEdit";
 
 const UtpContainer: FC<IEquipmentItem> = (props) => {
   const { details, blocks } = props;
@@ -16,6 +17,8 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
   const { isShow: isShowEditAdvertise, toggle: toggleEditAdvertise } =
+    useModal();
+  const { isShow: isShowDescription, toggle: toggleEditDescription } =
     useModal();
   const data = details[0].description;
   const content = <ModalForm props={blocks} />;
@@ -35,14 +38,20 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
       alias={props.alias}
     />
   );
-
+  const contentEditDescription = (
+    <ModalFormDescriptionEdit
+      description={props.details[0].description}
+      toggle={toggleEditDescription}
+      alias={props.alias}
+    />
+  );
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
         <div className={Styles.utp__container__top__list}>
           {auth.identify && auth.data.response.role === 1 && (
-            <div onClick={toggleEditAdvertise} className={Styles.top_list_edit}>
-              <PencilIcon />
+            <div className={Styles.editor} onClick={toggleEditAdvertise}>
+              <Editor />
             </div>
           )}
           {advantages &&
@@ -63,11 +72,27 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
           </div>
         </div>
       </div>
-      <div className={Styles.lh} dangerouslySetInnerHTML={{ __html: data }} />
+
+      <div className={Styles.block_description}>
+        {auth.identify && auth.data.response.role === 1 && (
+          <div className={Styles.editor} onClick={toggleEditDescription}>
+            <Editor />
+          </div>
+        )}
+        <div className={Styles.lh} dangerouslySetInnerHTML={{ __html: data }} />
+      </div>
       <Modal
         isShow={isShowEditAdvertise}
         hide={toggleEditAdvertise}
         modalContent={contentEdit}
+        headerText={"Редактирование"}
+        theme={"modal_edit_text"}
+        bgModal={"white"}
+      />
+      <Modal
+        isShow={isShowDescription}
+        hide={toggleEditDescription}
+        modalContent={contentEditDescription}
         headerText={"Редактирование"}
         theme={"modal_edit_text"}
         bgModal={"white"}
