@@ -4,9 +4,10 @@
 .add_prod {
   margin: 0 auto;
   &_banner_items {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    gap: 15px;
+    margin-bottom: 30px;
   }
   &_banner {
     background-color: #f1f1f1;
@@ -14,8 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
-    height: 500px;
+    height: 300px;
     .added_input {
       position: relative;
       background-color: #009247;
@@ -23,8 +23,8 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      height: 8vw;
-      width: 8vw;
+      height: 5vw;
+      width: 5vw;
       .added_label {
         background-image: url('/images/add.svg');
         background-repeat: no-repeat;
@@ -51,11 +51,16 @@
       background-color: #f1f1f1;
       padding: 20px;
       border-radius: 10px;
-      min-height: 220px;
+      height: 250px;
+      overflow: hidden;
+      overflow-y: auto;
+      button {
+        width: 130px;
+      }
     }
     &_left {
-      button {
-        margin-bottom: 20px;
+      ul {
+        overflow: auto;
       }
     }
     &_input {
@@ -82,7 +87,6 @@
       }
     }
   }
-
   &_text {
     width: 100%;
     box-sizing: border-box;
@@ -92,8 +96,21 @@
     min-height: 400px;
     color: color(dark);
     border: none;
+    margin-bottom: 20px;
   }
   &_button {
     margin-top: 30px;
+  }
+  &_block {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  }
+  &_second,
+  &_first {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    height: 250px;
   }
 }
