@@ -27,28 +27,49 @@ const Catalog: FC<{
   const [free, setFree] = useState(false);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadEquipment);
-  const [inputValue, setInputValue] = React.useState<string>("");
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
+
+  const [inputValue, setInputValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState([]);
 
   const handleOnChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
-  useEffect(() => {
-    setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
-  }, [dataBreadEquipment]);
+  const filterProduction = searchValue.filter((product) => {
+    return product.title.toLowerCase().includes(inputValue.toLowerCase());
+  });
+  console.log("filterProduction", filterProduction);
+  console.log("data", data);
 
-  console.log("123", data, categories, router.query);
-
-  useEffect(() => {
-    checkEmptyObject(router.query) ? setFree(false) : setFree(true);
-  }, [router.query]);
+  const eachRecursive = (data: ICategoriesItem[]) => {
+    for (const k in data) {
+      if (data[k]?.product) {
+        setSearchValue((prevState) => [...prevState, data[k]]);
+      }
+      if (data[k].subCategories && data[k].subCategories.length > 0) {
+        eachRecursive(data[k].subCategories);
+      }
+    }
+  };
 
   const dataClear = data?.filter((e) => {
     const d = e.images as IImages[];
     return d[0].pc !== "";
   });
+
+  useEffect(() => {
+    data && eachRecursive(data);
+  }, [data]);
+
+  useEffect(() => {
+    setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
+  }, [dataBreadEquipment]);
+
+  useEffect(() => {
+    checkEmptyObject(router.query) ? setFree(false) : setFree(true);
+  }, [router.query]);
 
   return (
     <div className={Styles.equipment__container_catalog}>
@@ -96,14 +117,14 @@ const Catalog: FC<{
             free ? Styles.free : ""
           }`}
         >
-          {dataClear?.map((e) => {
+          {filterProduction.map((e, i) => {
             e.aliasPath =
               equipmentPath +
               getParents(categories, e.alias)
                 .reverse()
                 .map((d) => d.alias)
                 .join("/");
-            return <CategoryItem key={e.alias} {...e} />;
+            return <CategoryItem key={i} {...e} />;
           })}
         </div>
       ) : (

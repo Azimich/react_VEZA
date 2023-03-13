@@ -3,8 +3,15 @@
 
 .added_news {
   margin: 40px 0 130px 0;
+  h1 {
+    font-weight: 400;
+    font-size: 30px;
+    color: #414141;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
   &_banner {
-    margin: 50px 0;
+    margin-bottom: 40px;
     background: #f1f1f1;
     border-radius: 10px;
     display: flex;
@@ -22,7 +29,7 @@
       height: 10vw;
       width: 10vw;
       .added_label {
-        background-image: url('../public/images/add.svg');
+        background-image: url('/images/add.svg');
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 10px;
@@ -70,12 +77,45 @@
       }
     }
   }
+  .textarea {
+    padding: 12px 0;
+    textarea {
+      color: color(dark);
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 10px;
+      width: 100%;
+      min-height: 120px;
+      font-size: 14px;
+      border-radius: 4px;
+      background-color: #FFF;
+      border-color: #cfcfcf;
+      &::placeholder {
+        color: color(dark);
+      }
+    }
+  }
+  .second_level_input {
+    margin-bottom: 20px;
+  }
   .margin_bottom {
     margin-bottom: 50px;
   }
-  .button {
+  .save_buttons {
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    button {
+      &:last-child {
+        background-color: grey;
+        transition: all 0.1s ease;
+        &:active {
+          background-color: #626262;
+        }
+      }
+    }
+  }
+  .add_video {
+    margin: 80px 0 0 0;
   }
   
   //todo

@@ -13,7 +13,6 @@ import { ModalFormDescriptionEdit } from "features/equipment/equipmentPage/utp/M
 
 const UtpContainer: FC<IEquipmentItem> = (props) => {
   const { details, blocks } = props;
-
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
   const { isShow: isShowEditAdvertise, toggle: toggleEditAdvertise } =

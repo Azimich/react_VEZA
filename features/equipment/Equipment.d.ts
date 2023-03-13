@@ -28,6 +28,7 @@ interface ICategoriesItem extends IBannerItem {
   title?: string;
   equipment?: ICategoriesItem[];
   subCategories?: ICategoriesItem[];
+  product?: boolean;
 }
 
 export { ICatalogEquipmentData, ICategoriesItem, ICategoriesResponseArray };

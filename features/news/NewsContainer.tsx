@@ -36,7 +36,7 @@ const NewsContainer: FC<ISSRHome> = ({ newsData }) => {
       <BreadCrumbs data={dataBreadNews} />
       {auth.identify && auth.data?.response.role === 1 && (
         <div className={Styles.add_button}>
-          <Button link={"/admin/novosti/add"}>Добавить новость</Button>
+          <Button link={"/admin/news/add"}>Добавить новость</Button>
         </div>
       )}
       <div className={Styles.news_item_block}>

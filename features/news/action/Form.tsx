@@ -6,28 +6,32 @@ import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
+import { useAddNews } from "service/admin/item/postNews";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
-/*import {FormikValues, useFormik} from "formik";
-import {ValidationJob} from "features/auth/formsData/ValidationsShemas";*/
+// import { FormikValues, useFormik } from "formik";
+// import { ValidationJob } from "features/auth/formsData/ValidationsShemas";
+import { IModalFormData } from "features/equipment/equipmentPage/utp/ModalFormI";
 
-const FormNews: FC = () => {
+const FormNews: FC<IModalFormData> = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
   const [inputFields, setInputFields] = useState([""]);
+  const { postNews } = useAddNews();
+  console.log("postNews", postNews);
 
-  /*    const formik: FormikValues = useFormik({
-        initialValues: {
-            name: "",
-            email: "",
-            phone: "",
-            forgot: false,
-            private_police: false,
-        },
-        validationSchema: ValidationJob(),
-        onSubmit: () => {
-            console.log("");
-        },
-    });*/
+  // const formik: FormikValues = useFormik({
+  //   initialValues: {
+  //     name: "",
+  //     email: "",
+  //     phone: "",
+  //     forgot: false,
+  //     private_police: false,
+  //   },
+  //   validationSchema: ValidationJob(),
+  //   onSubmit: () => {
+  //     console.log("");
+  //     },
+  // });
 
   const addFields = () => {
     setInputFields([...inputFields, ""]);
@@ -66,6 +70,7 @@ const FormNews: FC = () => {
                     optionsData={[]}
                     defaultValue={{}}
                 />*/}
+        <h1>Добавить баннер</h1>
         <div className={Styles.added_news_banner}>
           <div className={Styles.added_input}>
             <label className={Styles.added_label}>
@@ -89,8 +94,10 @@ const FormNews: FC = () => {
             value={""}
           />
         </div>
-        <textarea></textarea>
-        <div>
+        <div className={Styles.textarea}>
+          <textarea placeholder="Введите описание" />
+        </div>
+        <div className={Styles.second_level_input}>
           <Input
             id={"title_block"}
             name={"title_block"}
@@ -123,85 +130,28 @@ const FormNews: FC = () => {
               </li>
             ))}
           </ul>
-
-          <div className={Styles.added_news_banner}>
-            <div className={Styles.added_input}>
-              <label className={Styles.added_label}>
-                <span className={Styles.added_label_span}>
-                  <Input
-                    accept={"image/*"}
-                    type={"file"}
-                    id={"added"}
-                    name={"added"}
-                    className={Styles.added_file}
-                  />
-                </span>
-              </label>
+          <div className={Styles.add_video}>
+            <h1>Добавить видео</h1>
+            <div className={Styles.added_news_banner}>
+              <div className={Styles.added_input}>
+                <label className={Styles.added_label}>
+                  <span className={Styles.added_label_span}>
+                    <Input
+                      accept={"image/*"}
+                      type={"file"}
+                      id={"added"}
+                      name={"added"}
+                      className={Styles.added_file}
+                    />
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
-          {/*<div className={`${Styles.margin_bottom}`}>*/}
-          {/*  <Swiper*/}
-          {/*    effect={"cards"}*/}
-          {/*    grabCursor={true}*/}
-          {/*    modules={[EffectCards, Pagination, Navigation, Autoplay]}*/}
-          {/*    className="mySwiper"*/}
-          {/*  >*/}
-          {/*    <SwiperSlide className="mySwiper_slide">*/}
-          {/*      <div className={Styles.added_news_banner}>*/}
-          {/*        <div className={Styles.added_input}>*/}
-          {/*          <label className={Styles.added_label}>*/}
-          {/*            <span className={Styles.added_label_span}>*/}
-          {/*              <Input*/}
-          {/*                accept={"image/*"}*/}
-          {/*                type={"file"}*/}
-          {/*                id={"added"}*/}
-          {/*                name={"added"}*/}
-          {/*                className={Styles.added_file}*/}
-          {/*              />*/}
-          {/*            </span>*/}
-          {/*          </label>*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*    </SwiperSlide>*/}
-          {/*    <SwiperSlide className="mySwiper_slide">*/}
-          {/*      <div className={Styles.added_news_banner}>*/}
-          {/*        <div className={Styles.added_input}>*/}
-          {/*          <label className={Styles.added_label}>*/}
-          {/*            <span className={Styles.added_label_span}>*/}
-          {/*              <Input*/}
-          {/*                accept={"image/*"}*/}
-          {/*                type={"file"}*/}
-          {/*                id={"added"}*/}
-          {/*                name={"added"}*/}
-          {/*                className={Styles.added_file}*/}
-          {/*              />*/}
-          {/*            </span>*/}
-          {/*          </label>*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*    </SwiperSlide>*/}
-          {/*    <SwiperSlide className="mySwiper_slide">*/}
-          {/*      <div className={Styles.added_news_banner}>*/}
-          {/*        <div className={Styles.added_input}>*/}
-          {/*          <label className={Styles.added_label}>*/}
-          {/*            <span className={Styles.added_label_span}>*/}
-          {/*              <Input*/}
-          {/*                accept={"image/*"}*/}
-          {/*                type={"file"}*/}
-          {/*                id={"added"}*/}
-          {/*                name={"added"}*/}
-          {/*                className={Styles.added_file}*/}
-          {/*              />*/}
-          {/*            </span>*/}
-          {/*          </label>*/}
-          {/*        </div>*/}
-          {/*      </div>*/}
-          {/*    </SwiperSlide>*/}
-          {/*  </Swiper>*/}
-          {/*</div>*/}
-          {/*<div className={Styles.button}>*/}
-          {/*  <Button children={"Сохранить"} />*/}
-          {/*</div>*/}
+        </div>
+        <div className={Styles.save_buttons}>
+          <Button children="Сохранить" theme={"news"} />
+          <Button children="Отменить" theme={"news"} />
         </div>
       </div>
     </Container>

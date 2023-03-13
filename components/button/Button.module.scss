@@ -23,10 +23,13 @@
   height: 42px;
   background: #009247;
   border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   color: #FFF;
   &:hover {
     background-color: #096709;
+  }
+  &:active {
+    background-color: #044804;
   }
 }
 
@@ -155,17 +158,17 @@
 }
 
 .industries{
-  div{
+  div {
     display: grid;
     grid-template-columns: max-content max-content;
     align-items: center;
     color: white;
-    svg{
+    svg {
       width: 22px;
       height: 22px;
       transition: all 0.3s ease;
 
-      path{
+      path {
         fill: white;
       }
     }

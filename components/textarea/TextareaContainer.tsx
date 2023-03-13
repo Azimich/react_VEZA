@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import Styles from "./Textarea.module.scss";
 import { ITextarea } from "./Textarea";
 
