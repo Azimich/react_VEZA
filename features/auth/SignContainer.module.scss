@@ -52,14 +52,12 @@
 
   &__item__input {
     font-size: 12px;
-
     .overflow {
       margin-top: 5px;
       transition: all 0.3s;
       height: 23px;
       opacity: 0;
       transform: translateY(-10px);
-
       span {
         margin: 0 0 0 10px;
       }

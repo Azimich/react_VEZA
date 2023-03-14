@@ -36,6 +36,13 @@ const ValidationAuth = () => {
   });
 };
 
+const ValidationNews = () => {
+  return Yup.object({
+    title_block: Yup.string().required("Обязательно для заполнения!"),
+    title_block_2: Yup.string().required("Обязательно для заполнения!"),
+  });
+};
+
 const ValidationRegister = () => {
   return Yup.object({
     name: Yup.string()
@@ -80,4 +87,4 @@ const ValidationRegister = () => {
   });
 };
 
-export { ValidationAuth, ValidationRegister, ValidationJob };
+export { ValidationAuth, ValidationRegister, ValidationJob, ValidationNews };
