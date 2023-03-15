@@ -12,6 +12,7 @@ import { useGetAddEquip } from "service/list/getAddEquip";
 import { Editor } from "components/editor_pen";
 import { Modal, useModal } from "components/modal";
 import { ModalFormAdditionQ } from "features/equipment/equipmentPage/utp/ModalFormAdditionQ";
+import { ModalFormGallery } from "features/equipment/equipmentPage/utp/ModalFormGallery";
 
 const EquipmentPageContainer: FC<{
   data: ICategoriesItem[];
@@ -39,6 +40,7 @@ const EquipmentPageContainer: FC<{
     });
   };
   const { isShow: isShowAdditionQ, toggle: toggleEditAdditionQ } = useModal();
+  const { isShow: isShowGallery, toggle: toggleEditGallery } = useModal();
 
   useEffect(() => {
     !isShowAdditionQ &&
@@ -51,6 +53,9 @@ const EquipmentPageContainer: FC<{
     <ModalFormAdditionQ toggle={toggleEditAdditionQ} alias={alias_active} />
   );
 
+  const contentEditGallery = (
+    <ModalFormGallery toggle={toggleEditAdditionQ} product={product} />
+  );
   return (
     <Container className={"wrapper"}>
       <div className={Styles.equipment__container}>
@@ -58,13 +63,20 @@ const EquipmentPageContainer: FC<{
         <div className={Styles.content_box}>
           <h1 className={Styles.product__title}>{product.response.title}</h1>
           {product && (
-            <SliderContainer
-              items={convert(product)}
-              theme={"pageProduct"}
-              dots={true}
-              autoplay={false}
-              isLink={false}
-            />
+            <>
+              <SliderContainer
+                items={convert(product)}
+                theme={"pageProduct"}
+                dots={true}
+                autoplay={false}
+                isLink={false}
+              />
+              <div className={Styles.div_box_edit_gallery}>
+                <div className={Styles.editor} onClick={toggleEditGallery}>
+                  <Editor />
+                </div>
+              </div>
+            </>
           )}
           <UtpContainer {...product.response} />
         </div>
@@ -77,7 +89,6 @@ const EquipmentPageContainer: FC<{
       </div>
       <ul className={Styles.add_obr}>
         {additionQ.map((e, i) => {
-          console.log("e", e);
           return (
             <li key={i}>
               <img src={e.images[0].pc} alt={e.alias} />
@@ -86,10 +97,18 @@ const EquipmentPageContainer: FC<{
         })}
       </ul>
       <Modal
+        isShow={isShowGallery}
+        hide={toggleEditGallery}
+        modalContent={contentEditGallery}
+        headerText={"Редактирование галлереи"}
+        theme={"modal_edit_text_1200"}
+        bgModal={"white"}
+      />
+      <Modal
         isShow={isShowAdditionQ}
         hide={toggleEditAdditionQ}
         modalContent={contentEditAdditionQ}
-        headerText={"Редактирование"}
+        headerText={"Редактирование дополнительного оборудования"}
         theme={"modal_edit_text_1200"}
         bgModal={"white"}
       />

@@ -363,3 +363,13 @@
     top: 5px;
   }
 }
+.div_box_edit_gallery {
+  position: relative;
+
+  > div {
+    position: absolute;
+    right: 5px;
+    top: -80px;
+    z-index: 1000;
+  }
+}
