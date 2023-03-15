@@ -2,28 +2,32 @@ import React, { FC, useState } from "react";
 
 import Styles from "./Decision.module.scss";
 import { Input } from "components/input";
-// import TextareaContainer from "components/textarea/TextareaContainer";
 import { Button } from "components/button";
-import { RichText } from "components/RichTextEdit/RichTextEditContainer";
+import { usePutDescription } from "service/admin/item/putDescription";
+import { CloseIcon } from "components/icons";
+import TextareaContainer from "components/textarea/TextareaContainer";
 
-interface IDATA {
+interface IData {
   toggle?: () => void;
   desc?: string;
   alias?: string;
   shortDescription?: string;
 }
 
-const AdminModal: FC<IDATA> = ({ desc, alias }) => {
+const AdminModal: FC<IData> = ({ alias, toggle }) => {
+  const { putDescription } = usePutDescription();
+
   const [descriptionEdit, setDescriptionEdit] = useState<string>();
   console.log("ddddddd", descriptionEdit, alias);
-  const handleInputOnChange = (e: { target: { getContent: () => string } }) => {
-    console.log("getContent", e.target.getContent());
-    setDescriptionEdit(e.target.getContent());
+  const handleInputOnChange = () => {
+    setDescriptionEdit("");
   };
 
   const handleOnClickSave = () => {
-    console.log("save");
-    // toggle()
+    putDescription(alias, descriptionEdit).then((data: any) => {
+      toggle();
+      console.log("data", data);
+    });
   };
 
   return (
@@ -44,13 +48,21 @@ const AdminModal: FC<IDATA> = ({ desc, alias }) => {
             </label>
           </div>
         </div>
-        <div className={Styles.add_input}>
-          <RichText
-            description={desc}
-            onChange={(e: { target: { getContent: () => string } }) =>
-              handleInputOnChange(e)
-            }
-          />
+        <div className={Styles.add_input_block}>
+          <div className={Styles.add_input}>
+            <Input
+              name={"additional[]"}
+              id={""}
+              value={""}
+              onChange={handleInputOnChange}
+              placeholder={"Название отрасли"}
+              type={"text"}
+            />
+            <span onClick={() => {}}>
+              <CloseIcon />
+            </span>
+          </div>
+          <TextareaContainer placeholder={"Введите описание"} />
         </div>
       </div>
       <Button

@@ -101,6 +101,7 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
                   formik.setFieldValue("alias", e.target.value);
                 }}
               />
+
               <CheckboxWithLabel
                 name={"showText"}
                 id={"showtext"}
@@ -117,4 +118,5 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
     </form>
   );
 };
+
 export { ModalForm };
