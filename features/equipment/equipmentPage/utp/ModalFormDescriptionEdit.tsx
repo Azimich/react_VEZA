@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import Styles from "./UtpModalAction.module.scss";
 import { Button } from "components/button";
 import { RichText } from "components/RichTextEdit/RichTextEditContainer";
+import { usePutDescription } from "service/admin/item/putDescription";
 
 interface IData {
   description: string;
@@ -16,13 +17,17 @@ const ModalFormDescriptionEdit: FC<IData> = ({
   toggle,
 }) => {
   const [descriptionEdit, setDescriptionEdit] = useState<string>();
-  console.log("descriptionEdit", descriptionEdit, alias);
+
+  const { putDescription } = usePutDescription();
 
   const handleInputOnChange = (e: { target: { getContent: () => string } }) => {
     setDescriptionEdit(e.target.getContent());
   };
   const handleOnClickSave = () => {
-    console.log("save");
+    putDescription(alias, descriptionEdit).then((data: any) => {
+      toggle();
+      console.log("data", data);
+    });
   };
 
   return (

@@ -10,19 +10,23 @@ import { ModalFormAdvertiseEdit } from "features/equipment/equipmentPage/utp/Mod
 import { useGetAdvertise } from "service/admin/list/getAdvertise";
 import { Editor } from "components/editor_pen";
 import { ModalFormDescriptionEdit } from "features/equipment/equipmentPage/utp/ModalFormDescriptionEdit";
+import { useGetDescription } from "service/admin/list/getDescription";
 
 const UtpContainer: FC<IEquipmentItem> = (props) => {
-  const { details, blocks } = props;
+  const { blocks } = props;
+
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
   const { isShow: isShowEditAdvertise, toggle: toggleEditAdvertise } =
     useModal();
   const { isShow: isShowDescription, toggle: toggleEditDescription } =
     useModal();
-  const data = details[0].description;
   const content = <ModalForm props={blocks} />;
   const [advantages, setAdvantages] = useState<string[]>([]);
+  const [description, setDescription] = useState<string>(null);
   const { getAdvertise } = useGetAdvertise();
+
+  const { getDescription } = useGetDescription();
 
   useEffect(() => {
     !isShowEditAdvertise &&
@@ -30,6 +34,13 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
         setAdvantages(data.response);
       });
   }, [isShowEditAdvertise]);
+
+  useEffect(() => {
+    !isShowDescription &&
+      getDescription(props.alias).then((data) => {
+        setDescription(data.response.description);
+      });
+  }, [isShowDescription]);
 
   const contentEdit = (
     <ModalFormAdvertiseEdit
@@ -41,7 +52,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
 
   const contentEditDescription = (
     <ModalFormDescriptionEdit
-      description={props.details[0].description}
+      description={description}
       toggle={toggleEditDescription}
       alias={props.alias}
     />
@@ -81,7 +92,10 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
             <Editor />
           </div>
         )}
-        <div className={Styles.lh} dangerouslySetInnerHTML={{ __html: data }} />
+        <div
+          className={Styles.lh}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       </div>
 
       <Modal
