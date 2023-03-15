@@ -6,13 +6,9 @@ import { ITextarea } from "./Textarea";
 const TextareaContainer: FC<ITextarea> = ({ placeholder, onChange, name }) => {
   return (
     <div className={Styles.textarea__container}>
-      <textarea
-        placeholder={placeholder}
-        onChange={onChange}
-        name={name}
-      ></textarea>
+      <textarea placeholder={placeholder} onChange={onChange} name={name} />
     </div>
   );
 };
 
-export { TextareaContainer };
+export default TextareaContainer;

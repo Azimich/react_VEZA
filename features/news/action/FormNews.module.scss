@@ -169,10 +169,25 @@
   }
   .input_list {
     display: flex;
+    align-items: flex-end;
     gap: 5px;
     margin-bottom: 10px;
-    button {
-      width: 50px !important;
+    position: relative;
+    span {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 35%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      svg {
+        opacity: 0.4;
+        transition: all 0.1s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
   .input_div {

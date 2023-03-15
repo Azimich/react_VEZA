@@ -23,6 +23,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
   const content = <ModalForm props={blocks} />;
   const [advantages, setAdvantages] = useState<string[]>([]);
   const { getAdvertise } = useGetAdvertise();
+
   useEffect(() => {
     !isShowEditAdvertise &&
       getAdvertise(props.alias).then((data) => {
@@ -37,6 +38,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
       alias={props.alias}
     />
   );
+
   const contentEditDescription = (
     <ModalFormDescriptionEdit
       description={props.details[0].description}
@@ -44,6 +46,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
       alias={props.alias}
     />
   );
+
   return (
     <div className={Styles.utp__container}>
       <div className={Styles.utp__container__top}>
@@ -80,6 +83,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
         )}
         <div className={Styles.lh} dangerouslySetInnerHTML={{ __html: data }} />
       </div>
+
       <Modal
         isShow={isShowEditAdvertise}
         hide={toggleEditAdvertise}
@@ -96,7 +100,6 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
         theme={"modal_edit_text"}
         bgModal={"white"}
       />
-
       <Modal
         isShow={isShow}
         hide={toggle}

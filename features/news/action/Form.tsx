@@ -10,6 +10,7 @@ import { Button } from "components/button";
 import { FormikValues, useFormik } from "formik";
 import { ValidationNews } from "features/auth/formsData/ValidationsShemas";
 import { IModalFormData } from "features/equipment/equipmentPage/utp/ModalFormI";
+import { DeleteIcon } from "components/icons";
 
 const FormNews: FC<IModalFormData> = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
@@ -158,29 +159,31 @@ const FormNews: FC<IModalFormData> = () => {
                       type={"text"}
                     />
                   </div>
-                  <Button onClick={() => deleteFields(index)} children={"-"} />
+                  <span onClick={() => deleteFields(index)}>
+                    <DeleteIcon />
+                  </span>
                 </div>
               </li>
             ))}
           </ul>
-          {/*<div className={Styles.add_video}>*/}
-          {/*  <h1>Добавить видео</h1>*/}
-          {/*  <div className={Styles.added_news_banner}>*/}
-          {/*    <div className={Styles.added_input}>*/}
-          {/*      <label className={Styles.added_label}>*/}
-          {/*        <span className={Styles.added_label_span}>*/}
-          {/*          <Input*/}
-          {/*            accept={"image/*"}*/}
-          {/*            type={"file"}*/}
-          {/*            id={"added"}*/}
-          {/*            name={"added"}*/}
-          {/*            className={Styles.added_file}*/}
-          {/*          />*/}
-          {/*        </span>*/}
-          {/*      </label>*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
+          <div className={Styles.add_video}>
+            <h1>Добавить видео</h1>
+            <div className={Styles.added_news_banner}>
+              <div className={Styles.added_input}>
+                <label className={Styles.added_label}>
+                  <span className={Styles.added_label_span}>
+                    <Input
+                      accept={"image/*"}
+                      type={"file"}
+                      id={"added"}
+                      name={"added"}
+                      className={Styles.added_file}
+                    />
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
         <div className={Styles.save_buttons}>
           <Button type={"submit"} children="Сохранить" theme={"news"} />

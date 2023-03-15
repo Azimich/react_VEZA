@@ -29,7 +29,6 @@ const Catalog: FC<{
     useState<IBreadCrumbs[]>(dataBreadEquipment);
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
-
   const [inputValue, setInputValue] = useState<string>("");
   const [searchValue, setSearchValue] = useState([]);
 

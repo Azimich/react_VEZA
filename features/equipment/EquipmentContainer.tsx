@@ -22,10 +22,11 @@ const EquipmentContainer: FC<IProps> = ({
 }) => {
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadEquipment);
-  console.log("products", products);
+
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
   }, [dataBreadEquipment]);
+
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
