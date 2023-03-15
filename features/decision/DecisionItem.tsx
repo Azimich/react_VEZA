@@ -11,11 +11,7 @@ const DecisionItem: FC<IDecisionData> = (props) => {
   const { isShow, toggle } = useModal();
 
   const contentEditDescription = (
-    <AdminModal
-      shortDescription={props.shortDescription}
-      toggle={toggle}
-      alias={props.alias}
-    />
+    <AdminModal toggle={toggle} alias={props.alias} />
   );
 
   return (

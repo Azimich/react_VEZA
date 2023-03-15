@@ -2,10 +2,11 @@ import React from "react";
 
 interface ITextarea {
   title?: string;
+  value?: string;
   placeholder?: string;
   name?: string;
   id?: number;
-  onChange?: (e) => void;
+  onChange?: () => void;
   children?: string | React.ReactElement | React.ReactNode;
 }
 
