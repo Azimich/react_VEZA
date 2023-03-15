@@ -1,3 +1,6 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
 .action_container {
   .div_box {
     height: 310px;
@@ -37,6 +40,10 @@
     gap: 10px;
     grid-template-columns: 1fr 50px 1fr;
 
+    .block_tree {
+      overflow-y: scroll;
+    }
+
     .block_action_button {
       display: flex;
       align-items: center;
@@ -45,30 +52,7 @@
       gap: 20px;
     }
 
-    .block_tree {
-      overflow: auto;
-      ul{
-        li{
-          cursor: pointer;
-          display: block;
-        }
-      }
 
-    }
-
-    .block_selected {
-      border: none;
-
-      .selected_option {
-        height: 100%;
-        width: 100%;
-        border: none;
-
-        option {
-          cursor: pointer;
-        }
-      }
-    }
   }
 
   .block_button {
@@ -77,5 +61,10 @@
     flex-direction: row;
     gap: 20px;
     bottom: 0;
+    p{
+      display: flex;
+      align-items: center;
+      color: color(selected);
+    }
   }
 }

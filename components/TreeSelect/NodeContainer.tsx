@@ -6,7 +6,8 @@ interface ITreeMenuProps {
   data: IAddition[];
   listOpenNodes?: number[];
   listChecked?: IAddition[];
-  actionClick?: (e: IAddition) => void;
+  actionClick?: (e: React.MouseEvent<HTMLSpanElement>, d: IAddition) => void;
+  actionDoubleClick?: () => void;
   children?: boolean;
   lvl?: number;
 }
@@ -16,10 +17,10 @@ const NodeContainer: FC<ITreeMenuProps> = ({
   listOpenNodes = [],
   listChecked,
   actionClick = () => {},
+  actionDoubleClick = () => {},
   children = false,
   lvl = 0,
 }) => {
-  console.log("listChecked", listChecked);
   return (
     <ul
       className={`${children ? Styles.level_children : ""} ${
@@ -37,11 +38,17 @@ const NodeContainer: FC<ITreeMenuProps> = ({
             >
               <div className={Styles.block_li_data}>
                 {listOpenNodes.includes(e.id) ? (
-                  <span onClick={() => actionClick(e)}>
+                  <span
+                    onClick={(event) => actionClick(event, e)}
+                    onDoubleClick={() => actionDoubleClick()}
+                  >
                     {!e.product ? "-" : ""} {e.title}
                   </span>
                 ) : (
-                  <span onClick={() => actionClick(e)}>
+                  <span
+                    onClick={(event) => actionClick(event, e)}
+                    onDoubleClick={() => actionDoubleClick()}
+                  >
                     {!e.product ? "+" : ""} {e.title}
                   </span>
                 )}
@@ -51,7 +58,8 @@ const NodeContainer: FC<ITreeMenuProps> = ({
                   data={e.items}
                   listOpenNodes={listOpenNodes}
                   listChecked={listChecked}
-                  actionClick={(e) => actionClick(e)}
+                  actionClick={(e, d) => actionClick(e, d)}
+                  actionDoubleClick={() => actionDoubleClick()}
                   children={true}
                   lvl={lvl + 1}
                 />

@@ -5,6 +5,7 @@ import { Button } from "components/button";
 import { useGetAddition } from "service/admin/list/getAddition";
 import { SelectedContainer } from "components/TreeSelect/SelectedContainer";
 import { NodeContainer } from "components/TreeSelect/NodeContainer";
+import { usePutAdditional } from "service/admin/item/putAdditional";
 
 interface IData {
   alias: string;
@@ -23,6 +24,7 @@ export interface IAddition {
 
 const TreeContainer: FC<IData> = ({ toggle, alias }) => {
   const { getAddition } = useGetAddition();
+  const { putAdditional } = usePutAdditional();
   const [listAdditionTree, setListAdditionTree] = useState<IAddition[]>([]);
   const [listAdditionSelected, setListAdditionSelected] = useState<IAddition[]>(
     [],
@@ -51,16 +53,23 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
   };
 
   useEffect(() => {
+    setListAdditionSelected([]);
     eachRecursive(listAdditionTree);
   }, [listAdditionTree]);
 
-  const handleOnClick = (e: IAddition) => {
-    if (!e.product) {
-      listOpenNode.includes(e.id)
-        ? setListOpenNode(listOpenNode.filter((d) => d !== e.id))
-        : setListOpenNode((prevState) => [...prevState, e.id]);
+  const handleOnClick = (
+    e: React.MouseEvent<HTMLSpanElement>,
+    data: IAddition,
+  ) => {
+    e.stopPropagation();
+    if (!data.product) {
+      listOpenNode.includes(data.id)
+        ? setListOpenNode(listOpenNode.filter((d) => d !== data.id))
+        : setListOpenNode((prevState) => [...prevState, data.id]);
+    } else if (e.ctrlKey) {
+      setListTreeProduct((prevState) => [...prevState, data]);
     } else {
-      setListTreeProduct((prevState) => [...prevState, e]);
+      setListTreeProduct([data]);
     }
   };
 
@@ -83,6 +92,19 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
       ),
     );
   };
+  const handleOnClickSelectedPlus = () => {
+    listTreeProduct.map((e) => {
+      if (!listAdditionSelected.includes(e)) {
+        setListAdditionSelected([...listAdditionSelected, ...listTreeProduct]);
+      }
+    });
+  };
+
+  const handleOnClickSave = () => {
+    putAdditional(listAdditionSelected, alias).then(() => {
+      toggle();
+    });
+  };
   return (
     <div className={Styles.action_container}>
       <div className={Styles.box_context}>
@@ -90,15 +112,20 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
           <NodeContainer
             data={listAdditionTree}
             actionClick={handleOnClick}
+            actionDoubleClick={handleOnClickSelectedPlus}
             listChecked={listTreeProduct}
             listOpenNodes={listOpenNode}
           />
         </div>
 
         <div className={Styles.block_action_button}>
-          <Button theme={"banner"} size={"max"} color={"green"}>
-            {" "}
-            {`>`}{" "}
+          <Button
+            theme={"banner"}
+            size={"max"}
+            color={"green"}
+            onClick={() => handleOnClickSelectedPlus()}
+          >
+            {`>`}
           </Button>
           <Button
             theme={"banner"}
@@ -106,8 +133,7 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
             color={"green"}
             onClick={() => handleOnClickSelectedMinus()}
           >
-            {" "}
-            {`<`}{" "}
+            {`<`}
           </Button>
         </div>
 
@@ -120,12 +146,16 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
         </div>
       </div>
       <div className={Styles.block_button}>
-        <Button className={Styles.button_send} onClick={() => {}}>
+        <Button
+          className={Styles.button_send}
+          onClick={() => handleOnClickSave()}
+        >
           Сохранить
         </Button>
         <Button className={Styles.button_send} onClick={toggle}>
           Отменить
         </Button>
+        <p>!!! Чтобы выделить несколько записей удерживайте CTRL</p>
       </div>
     </div>
   );

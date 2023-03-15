@@ -1,4 +1,4 @@
-import Styles from "features/equipment/equipmentPage/utp/UtpModalAction.module.scss";
+import Styles from "./Tree.module.scss";
 import React, { FC } from "react";
 import { IAddition } from "components/TreeSelect/TreeContainer";
 

@@ -18,6 +18,7 @@ interface IData {
 }
 
 const ModalForm: FC<IData> = ({ props }) => {
+  console.log("eee", props);
   const [checked, setChecked] = useState<IDocuments[]>([]);
 
   const [error, setError] = useState(false);
@@ -50,6 +51,7 @@ const ModalForm: FC<IData> = ({ props }) => {
       });
     }
   };
+
   return (
     <div className={Styles.download}>
       <h2 className={Styles.download__title}>Тип файла</h2>

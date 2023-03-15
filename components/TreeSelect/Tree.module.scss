@@ -9,9 +9,9 @@
       color: color("black");
 
       &.product {
-        padding: 3px;
         display: flex;
         align-items: center;
+        padding: 3px;
 
         :hover {
           background-color: color(border);
@@ -20,7 +20,8 @@
         &.active {
           background-color: color(selected);
           color: color(white);
-          &:hover{
+
+          &:hover {
             .block_li_data, span {
               background-color: color(selected);
               color: color(white);
@@ -30,9 +31,45 @@
       }
     }
 
-    .block_li_data {
-      margin-bottom: 8px;
 
+  }
+
+  .block_li_data {
+    width: 100%;
+
+    span {
+      padding: 3px;
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+}
+
+.selected_option {
+  height: 100%;
+  width: 100%;
+  border: none;
+
+  option {
+    cursor: pointer;
+    border: none;
+    padding: 3px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+      background-color: color(border);
     }
   }
 }

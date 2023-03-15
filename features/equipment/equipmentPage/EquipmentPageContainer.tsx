@@ -41,10 +41,11 @@ const EquipmentPageContainer: FC<{
   const { isShow: isShowAdditionQ, toggle: toggleEditAdditionQ } = useModal();
 
   useEffect(() => {
-    getAddEquip(product?.response?.alias).then((res) => {
-      setAdditionQ(res.response);
-    });
-  }, []);
+    !isShowAdditionQ &&
+      getAddEquip(product?.response?.alias).then((res) => {
+        setAdditionQ(res.response);
+      });
+  }, [isShowAdditionQ]);
 
   const contentEditAdditionQ = (
     <ModalFormAdditionQ toggle={toggleEditAdditionQ} alias={alias_active} />
@@ -76,9 +77,10 @@ const EquipmentPageContainer: FC<{
       </div>
       <ul className={Styles.add_obr}>
         {additionQ.map((e, i) => {
+          console.log("e", e);
           return (
             <li key={i}>
-              <img src={e.images[0].pc} alt="-" />
+              <img src={e.images[0].pc} alt={e.alias} />
             </li>
           );
         })}
