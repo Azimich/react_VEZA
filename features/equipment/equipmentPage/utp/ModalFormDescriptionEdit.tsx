@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { FC } from "react";
+import React, { FC, useState } from "react";
+
 import Styles from "./UtpModalAction.module.scss";
 import { Button } from "components/button";
 import { RichText } from "components/RichTextEdit/RichTextEditContainer";
@@ -17,16 +17,19 @@ const ModalFormDescriptionEdit: FC<IData> = ({
   toggle,
 }) => {
   const [descriptionEdit, setDescriptionEdit] = useState<string>();
+
   const { putDescription } = usePutDescription();
+
   const handleInputOnChange = (e: { target: { getContent: () => string } }) => {
     setDescriptionEdit(e.target.getContent());
   };
   const handleOnClickSave = () => {
-    putDescription(alias, descriptionEdit).then((data) => {
+    putDescription(alias, descriptionEdit).then((data: any) => {
       toggle();
       console.log("data", data);
     });
   };
+
   return (
     <div className={Styles.action_container}>
       <RichText
@@ -49,4 +52,5 @@ const ModalFormDescriptionEdit: FC<IData> = ({
     </div>
   );
 };
+
 export { ModalFormDescriptionEdit };

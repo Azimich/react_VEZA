@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { useRouter } from "next/router";
 
 import { ButtonI } from "./Button.d";
-
 import Styles from "./Button.module.scss";
 
 const Button: FC<ButtonI> = ({

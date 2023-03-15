@@ -24,7 +24,9 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
   const [advantages, setAdvantages] = useState<string[]>([]);
   const [description, setDescription] = useState<string>(null);
   const { getAdvertise } = useGetAdvertise();
+
   const { getDescription } = useGetDescription();
+
   useEffect(() => {
     !isShowEditAdvertise &&
       getAdvertise(props.alias).then((data) => {
@@ -94,6 +96,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
           dangerouslySetInnerHTML={{ __html: description }}
         />
       </div>
+
       <Modal
         isShow={isShowEditAdvertise}
         hide={toggleEditAdvertise}
@@ -110,7 +113,6 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
         theme={"modal_edit_text"}
         bgModal={"white"}
       />
-
       <Modal
         isShow={isShow}
         hide={toggle}

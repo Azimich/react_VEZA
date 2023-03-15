@@ -78,7 +78,7 @@ const EquipmentPageContainer: FC<{
         {additionQ.map((e, i) => {
           return (
             <li key={i}>
-              <img src={e.images[0].pc} alt="" />
+              <img src={e.images[0].pc} alt="-" />
             </li>
           );
         })}
@@ -94,4 +94,5 @@ const EquipmentPageContainer: FC<{
     </Container>
   );
 };
+
 export { EquipmentPageContainer };

@@ -23,6 +23,7 @@ const ModalFormAdvertiseEdit: FC<IData> = ({ advantages, alias, toggle }) => {
   const [fieldList, setFieldList] = useState<IListItem[]>([]);
   const [currentField, setCurrentField] = useState(null);
   const { putAdvertise } = useAdvertise();
+
   useEffect(() => {
     setFieldList(
       advantages.map((e, i) => {

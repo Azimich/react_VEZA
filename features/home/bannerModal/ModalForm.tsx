@@ -1,13 +1,13 @@
 import Styles from "features/home/bannerModal/ModalBanner.module.scss";
 import { Editor } from "components/editor_pen";
 import { Input, LayoutInput } from "components/input";
-import { Textarea } from "components/textarea/Index";
 import { Button } from "components/button";
 import React, { FC } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { CheckboxWithLabel } from "components/checkbox";
 import { useAddTopBanner } from "service/item/addTopBanner";
+import TextareaContainer from "components/textarea/TextareaContainer";
 
 interface ITopBanner {
   type: "add" | "edit";
@@ -84,7 +84,7 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
                 }}
               />
 
-              <Textarea
+              <TextareaContainer
                 name={"description"}
                 placeholder={"Введите описаение"}
                 onChange={(e) => {

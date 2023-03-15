@@ -6,28 +6,29 @@ import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation, EffectCards } from "swiper";
-/*import {FormikValues, useFormik} from "formik";
-import {ValidationJob} from "features/auth/formsData/ValidationsShemas";*/
+// import { useAddNews } from "service/admin/item/postNews";
+import { FormikValues, useFormik } from "formik";
+import { ValidationNews } from "features/auth/formsData/ValidationsShemas";
+import { IModalFormData } from "features/equipment/equipmentPage/utp/ModalFormI";
+import { DeleteIcon } from "components/icons";
 
-const FormNews: FC = () => {
+const FormNews: FC<IModalFormData> = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
   const [inputFields, setInputFields] = useState([""]);
+  // const { postNews } = useAddNews();
 
-  /*    const formik: FormikValues = useFormik({
-        initialValues: {
-            name: "",
-            email: "",
-            phone: "",
-            forgot: false,
-            private_police: false,
-        },
-        validationSchema: ValidationJob(),
-        onSubmit: () => {
-            console.log("");
-        },
-    });*/
+  const formik: FormikValues = useFormik({
+    initialValues: {
+      name: "",
+      title_block: "",
+      forgot: false,
+      private_police: false,
+    },
+    validationSchema: ValidationNews(),
+    onSubmit: (values) => {
+      console.log("values", values);
+    },
+  });
 
   const addFields = () => {
     setInputFields([...inputFields, ""]);
@@ -66,6 +67,7 @@ const FormNews: FC = () => {
                     optionsData={[]}
                     defaultValue={{}}
                 />*/}
+        <h1>Добавить баннер</h1>
         <div className={Styles.added_news_banner}>
           <div className={Styles.added_input}>
             <label className={Styles.added_label}>
@@ -81,23 +83,61 @@ const FormNews: FC = () => {
             </label>
           </div>
         </div>
-        <div>
-          <Input
-            id={"title_block"}
-            name={"title_block"}
-            placeholder={"Заголовок"}
-            value={""}
-          />
-        </div>
-        <textarea></textarea>
-        <div>
-          <Input
-            id={"title_block"}
-            name={"title_block"}
-            placeholder={"Заголовок"}
-            value={""}
-          />
-        </div>
+
+        <form onSubmit={formik.handleSubmit} className={Styles.add__form__item}>
+          <div
+            className={`${
+              formik.errors["title_block"] && formik.touched["title_block"]
+                ? Styles.add__form__item__input_error
+                : Styles.add__form__item__input
+            }`}
+          >
+            <Input
+              id={"title_block"}
+              name={"title_block"}
+              placeholder={"Заголовок"}
+              value={""}
+            />
+            <div
+              className={`${
+                formik.errors["title_block"] && formik.touched["title_block"]
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <span>{formik.errors["title_block"]}</span>
+            </div>
+          </div>
+
+          <div className={Styles.textarea}>
+            <textarea placeholder="Введите описание" />
+          </div>
+
+          <div
+            className={`${
+              formik.errors["title_block_2"] && formik.touched["title_block_2"]
+                ? Styles.add__form__item__input_error
+                : Styles.add__form__item__input
+            }`}
+          >
+            <Input
+              id={"title_block_2"}
+              name={"title_block_2"}
+              placeholder={"Заголовок 2"}
+              value={""}
+            />
+            <div
+              className={`${
+                formik.errors["title_block_2"] &&
+                formik.touched["title_block_2"]
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <span>{formik.errors["title_block_2"]}</span>
+            </div>
+          </div>
+        </form>
 
         <div
           className={`${Styles.added_news_container} ${Styles.margin_bottom}`}
@@ -111,6 +151,7 @@ const FormNews: FC = () => {
                 <div className={Styles.input_list}>
                   <div className={Styles.input_div}>
                     <Input
+                      name={"additional[]"}
                       id={index.toString()}
                       value={input}
                       onChange={(event) => handleFormChange(index, event)}
@@ -118,90 +159,35 @@ const FormNews: FC = () => {
                       type={"text"}
                     />
                   </div>
-                  <Button onClick={() => deleteFields(index)} children={"-"} />
+                  <span onClick={() => deleteFields(index)}>
+                    <DeleteIcon />
+                  </span>
                 </div>
               </li>
             ))}
           </ul>
-
-          <div className={Styles.added_news_banner}>
-            <div className={Styles.added_input}>
-              <label className={Styles.added_label}>
-                <span className={Styles.added_label_span}>
-                  <Input
-                    accept={"image/*"}
-                    type={"file"}
-                    id={"added"}
-                    name={"added"}
-                    className={Styles.added_file}
-                  />
-                </span>
-              </label>
+          <div className={Styles.add_video}>
+            <h1>Добавить видео</h1>
+            <div className={Styles.added_news_banner}>
+              <div className={Styles.added_input}>
+                <label className={Styles.added_label}>
+                  <span className={Styles.added_label_span}>
+                    <Input
+                      accept={"image/*"}
+                      type={"file"}
+                      id={"added"}
+                      name={"added"}
+                      className={Styles.added_file}
+                    />
+                  </span>
+                </label>
+              </div>
             </div>
           </div>
-          <div className={`${Styles.margin_bottom}`}>
-            <Swiper
-              effect={"cards"}
-              grabCursor={true}
-              modules={[EffectCards, Pagination, Navigation, Autoplay]}
-              className="mySwiper"
-            >
-              <SwiperSlide className="mySwiper_slide">
-                <div className={Styles.added_news_banner}>
-                  <div className={Styles.added_input}>
-                    <label className={Styles.added_label}>
-                      <span className={Styles.added_label_span}>
-                        <Input
-                          accept={"image/*"}
-                          type={"file"}
-                          id={"added"}
-                          name={"added"}
-                          className={Styles.added_file}
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="mySwiper_slide">
-                <div className={Styles.added_news_banner}>
-                  <div className={Styles.added_input}>
-                    <label className={Styles.added_label}>
-                      <span className={Styles.added_label_span}>
-                        <Input
-                          accept={"image/*"}
-                          type={"file"}
-                          id={"added"}
-                          name={"added"}
-                          className={Styles.added_file}
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide className="mySwiper_slide">
-                <div className={Styles.added_news_banner}>
-                  <div className={Styles.added_input}>
-                    <label className={Styles.added_label}>
-                      <span className={Styles.added_label_span}>
-                        <Input
-                          accept={"image/*"}
-                          type={"file"}
-                          id={"added"}
-                          name={"added"}
-                          className={Styles.added_file}
-                        />
-                      </span>
-                    </label>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-          <div className={Styles.button}>
-            <Button children={"Сохранить"} />
-          </div>
+        </div>
+        <div className={Styles.save_buttons}>
+          <Button type={"submit"} children="Сохранить" theme={"news"} />
+          <Button children="Отменить" theme={"news"} />
         </div>
       </div>
     </Container>

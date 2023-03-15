@@ -4,6 +4,7 @@ interface IProps {
   description: string;
   onChange: (data: { [p: string]: any }) => void;
 }
+
 const RichText: FC<IProps> = ({ description, onChange }) => {
   return (
     <Editor

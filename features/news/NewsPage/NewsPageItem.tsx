@@ -23,7 +23,6 @@ const NewsPageItem: FC<INewsDataItem> = ({
 
   useEffect(() => {
     if (device === "mobile") {
-      console.log("device", device);
       setNewsImg(<img src={imageModel.pageTopImage.mobile} alt={newsName} />);
     }
     if (device === "tablet") {
