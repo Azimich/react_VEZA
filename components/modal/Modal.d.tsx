@@ -13,6 +13,7 @@ export interface IModalProps {
     | "full_modal"
     | "freedom_modal"
     | "empty_modal"
-    | "modal_edit_text";
+    | "modal_edit_text"
+    | "modal_edit_text_1200";
   className?: string;
 }

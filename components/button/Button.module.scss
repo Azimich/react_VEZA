@@ -19,12 +19,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 168px;
+  width: 100%;
   height: 42px;
   background: #009247;
   border-radius: 5px;
   transition: all 0.3s ease;
   color: #FFF;
+
   &:hover {
     background-color: #096709;
   }
@@ -55,7 +56,7 @@
     border: 1.5px solid #fff;
     letter-spacing: 0.04em;
   }
-  
+
   &:hover {
     background: #33953A;
     border-color: #33953A;
@@ -122,7 +123,6 @@
   }
 
   &__max {
-    @extend %maxSize;
 
     &_green {
       @extend %colorGreen;
@@ -154,28 +154,32 @@
   }
 }
 
-.industries{
-  div{
+.industries {
+  div {
     display: grid;
     grid-template-columns: max-content max-content;
     align-items: center;
     color: white;
-    svg{
+
+    svg {
       width: 22px;
       height: 22px;
       transition: all 0.3s ease;
 
-      path{
+      path {
         fill: white;
       }
     }
-    &:hover svg{
+
+    &:hover svg {
       transform: translateX(5px);
     }
+
     span {
       padding: 10px
     }
   }
+
   &__medium {
     &_green {
       @extend %colorGreen;
@@ -276,6 +280,7 @@
   }
 
   text-align: left;
+
   &__medium {
     //@extend %mediumSize;
 

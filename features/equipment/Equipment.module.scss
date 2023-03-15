@@ -46,6 +46,7 @@
 
     ul {
       background: #8B9C88;
+
       li {
         display: flex;
         justify-content: space-between;
@@ -55,6 +56,7 @@
         border-bottom: 0.5px solid #b4bdb27d;
         transition: all 0.3s;
         color: white;
+
         span {
           width: 80%;
         }
@@ -66,6 +68,7 @@
         &:hover {
           background-color: #748371;
           cursor: pointer;
+
           svg {
             margin-right: -10px;
           }
@@ -82,6 +85,7 @@
       display: flex;
       align-items: center;
       line-height: 57px;
+
       svg {
         margin-right: 8px;
       }
@@ -100,6 +104,7 @@
       gap: 40px;
       margin-bottom: 20px;
     }
+
     h1 {
       flex: 1;
       @media (max-width: 1100px) {
@@ -129,12 +134,14 @@
         width: 180px;
       }
     }
+
     &__info {
       padding: 20px;
       background-color: #f3f3f3;
       border-radius: 12px;
       color: color(dark);
       margin-bottom: 12px;
+
       h1 {
         font-size: 18px;
         margin-bottom: 12px;
@@ -148,6 +155,7 @@
     &__input {
       position: relative;
       width: 100%;
+
       .clear {
         width: 18px;
         height: 18px;
@@ -157,6 +165,7 @@
         top: 13px !important;
         transition: all 0.3s ease;
         right: 10px;
+
         &:hover {
           opacity: 1;
           cursor: pointer;
@@ -189,25 +198,31 @@
         width: 100%;
         min-width: 300px;
         transition: none;
+
         &::placeholder {
           font-size: 16px;
           letter-spacing: 0;
         }
+
         + label {
           transform: translateY(-30px) scale(1) !important;
         }
+
         &:-webkit-autofill {
           & + label {
             transform: translateY(0px) scale(1);
           }
         }
-        &:focus{
+
+        &:focus {
           border-color: color(green);
         }
+
         svg {
           width: 22px;
           height: 22px;
-          path{
+
+          path {
             fill: gray;
           }
         }
@@ -217,6 +232,7 @@
 
   &_catalog {
     margin: 0 0 130px 0;
+
     h1 {
       font-size: 40px;
       text-transform: uppercase;
@@ -272,9 +288,11 @@
         transition: all 0.2s;
         position: relative;
         border: 1px solid color(border_category);
+
         &:last-child:nth-child(2n+1) {
           grid-column: span 2;
         }
+
         &:hover img {
           object-fit: contain;
           transform: scale(1.1);
@@ -290,14 +308,16 @@
           border-radius: 8px;
         }
       }
+
       &.free {
         display: grid;
         //grid-template-columns: repeat(auto-fit, minmax(200px, 330px));
         grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
         grid-gap: 15px;
-       a {
-         grid-column: span 1 !important;
-       }
+
+        a {
+          grid-column: span 1 !important;
+        }
       }
     }
   }
@@ -312,6 +332,7 @@
     padding: 16px;
     transition: all 0.3s;
     cursor: pointer;
+
     svg {
       margin-right: 12px;
 
@@ -329,5 +350,15 @@
   @include phoneScreen {
     margin: 20px 0 80px 0;
     gap: 8px;
+  }
+}
+
+.div_box_edit {
+  position: relative;
+
+  > div {
+    position: absolute;
+    right: 5px;
+    top: 5px;
   }
 }

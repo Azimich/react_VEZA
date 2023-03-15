@@ -1,0 +1,38 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.block_container {
+  &.level_children {
+    margin-left: 16px;
+
+    li {
+      color: color("black");
+
+      &.product {
+        padding: 3px;
+        display: flex;
+        align-items: center;
+
+        :hover {
+          background-color: color(border);
+        }
+
+        &.active {
+          background-color: color(selected);
+          color: color(white);
+          &:hover{
+            .block_li_data, span {
+              background-color: color(selected);
+              color: color(white);
+            }
+          }
+        }
+      }
+    }
+
+    .block_li_data {
+      margin-bottom: 8px;
+
+    }
+  }
+}

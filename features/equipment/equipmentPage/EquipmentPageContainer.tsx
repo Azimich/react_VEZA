@@ -1,5 +1,5 @@
 import { Container } from "components/common/container";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { ICategoriesItem, ICategoriesResponseArray } from "../Equipment";
 import { Menu } from "../menu/Menu";
 import Styles from "../Equipment.module.scss";
@@ -9,6 +9,9 @@ import { Separator } from "components/separator";
 import { IEquipmentResponse } from "features/equipment/equipmentPage/Equipment";
 import { ISlideItem } from "components/slider/Slider.d";
 import { useGetAddEquip } from "service/list/getAddEquip";
+import { Editor } from "components/editor_pen";
+import { Modal, useModal } from "components/modal";
+import { ModalFormAdditionQ } from "features/equipment/equipmentPage/utp/ModalFormAdditionQ";
 
 const EquipmentPageContainer: FC<{
   data: ICategoriesItem[];
@@ -16,7 +19,7 @@ const EquipmentPageContainer: FC<{
   alias: string;
   alias_active?: string;
   product: IEquipmentResponse;
-}> = ({ data, categories, alias, product }) => {
+}> = ({ data, categories, alias, alias_active, product }) => {
   const { getAddEquip } = useGetAddEquip();
   const [additionQ, setAdditionQ] = useState([]);
   const convert = (data: IEquipmentResponse) => {
@@ -35,12 +38,17 @@ const EquipmentPageContainer: FC<{
       };
     });
   };
+  const { isShow: isShowAdditionQ, toggle: toggleEditAdditionQ } = useModal();
 
   useEffect(() => {
     getAddEquip(product?.response?.alias).then((res) => {
       setAdditionQ(res.response);
     });
   }, []);
+
+  const contentEditAdditionQ = (
+    <ModalFormAdditionQ toggle={toggleEditAdditionQ} alias={alias_active} />
+  );
 
   return (
     <Container className={"wrapper"}>
@@ -61,6 +69,11 @@ const EquipmentPageContainer: FC<{
         </div>
       </div>
       <Separator title={"Дополнительное оборудование"} />
+      <div className={Styles.div_box_edit}>
+        <div className={Styles.editor} onClick={toggleEditAdditionQ}>
+          <Editor />
+        </div>
+      </div>
       <ul className={Styles.add_obr}>
         {additionQ.map((e, i) => {
           return (
@@ -70,6 +83,14 @@ const EquipmentPageContainer: FC<{
           );
         })}
       </ul>
+      <Modal
+        isShow={isShowAdditionQ}
+        hide={toggleEditAdditionQ}
+        modalContent={contentEditAdditionQ}
+        headerText={"Редактирование"}
+        theme={"modal_edit_text_1200"}
+        bgModal={"white"}
+      />
     </Container>
   );
 };
