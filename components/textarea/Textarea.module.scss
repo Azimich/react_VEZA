@@ -16,5 +16,8 @@
     &::placeholder {
       font-size: 14px;
     }
+    &:focus {
+      border: 1px solid color(green);
+    }
   }
 }

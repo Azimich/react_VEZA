@@ -63,8 +63,8 @@
       bottom: -8px;
       width: 0;
       height: 2px;
-      background-color: color(dark);
-      transition: width 0.3s;
+      background-color: color(green);
+      transition: width 0.3s ease;
       @media (max-width: 1200px) {
         display: none;
       }
@@ -80,7 +80,7 @@
         bottom: -8px;
         height: 2px;
         background-color: color(green);
-        transition: width 0.3s;
+        transition: width 0.3s ease;
       }
     }
     &:hover {
@@ -94,7 +94,7 @@
         bottom: -8px;
         height: 2px;
         background-color: color(green);
-        transition: width 0.3s;
+        transition: width 0.3s ease;
         @media (max-width: 1200px) {
           display: none;
         }
