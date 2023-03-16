@@ -27,7 +27,7 @@ const NodeContainer: FC<ITreeMenuProps> = ({
         Styles.block_container
       } `}
     >
-      {data.length > 0 &&
+      {data?.length > 0 &&
         data.map((e, i) => {
           return (
             <li

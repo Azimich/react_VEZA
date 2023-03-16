@@ -1,12 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import Styles from "./ModalAddProduction.module.scss";
 import { Input } from "components/input";
 import { Button } from "components/button";
-import { DeleteIcon } from "components/icons";
+import { AddIcon, CloseIcon, DeleteIcon } from "components/icons";
+import { RichText } from "components/RichTextEdit/RichTextEditContainer";
+import { Tree } from "components/TreeSelect";
 
 const ModalAddProduction: FC = () => {
   const [inputFields, setInputFields] = useState([""]);
-
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [richText, setRichText] = useState(undefined);
+  console.log("richText", richText);
   const addFields = () => {
     setInputFields([...inputFields, ""]);
   };
@@ -29,26 +33,65 @@ const ModalAddProduction: FC = () => {
     data[index] = event.target.value;
     setInputFields(data);
   };
+  const handleOnChangeFiles = (event: ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.files || event.target.files.length === 0) {
+      return;
+    } else {
+      for (let i = 0; i < event.target.files.length; i++) {
+        setSelectedFiles((prevState) => [...prevState, event.target.files[i]]);
+      }
+    }
+  };
+
+  const handleOnClickDelete = (id: number) => {
+    setSelectedFiles(selectedFiles.filter((e, i) => i !== id));
+  };
+  const handleOnChangeRich = (e: { target: { getContent: () => string } }) => {
+    setRichText(e.target.getContent());
+  };
+
+  const handleOnChangeTree = (data: any) => {
+    console.log("data", data);
+  };
 
   return (
     <div className={Styles.add_prod}>
+      <h2>Добавить фото в галерею</h2>
       <div className={Styles.add_prod_banner_items}>
-        <div className={Styles.add_prod_banner}>
+        {selectedFiles.map((file, i) => {
+          return (
+            <div className={Styles.cell_gallery} key={i}>
+              <img src={URL.createObjectURL(file)} alt={file.name} />
+              <span
+                className={Styles.delete_icon}
+                onClick={() => handleOnClickDelete(i)}
+              >
+                <CloseIcon />
+              </span>
+            </div>
+          );
+        })}
+        <label className={Styles.add_prod_banner} htmlFor={"added"}>
           <div className={Styles.added_input}>
-            <label className={Styles.added_label}>
+            <div className={Styles.added_label}>
+              <AddIcon />
               <span className={Styles.added_label_span}>
                 <Input
                   accept={"image/*"}
                   type={"file"}
                   id={"added"}
                   name={"added"}
+                  onChange={(event) => {
+                    handleOnChangeFiles(event);
+                  }}
                   className={Styles.added_file}
                 />
               </span>
-            </label>
+            </div>
           </div>
-        </div>
+        </label>
       </div>
+      <h2>Добавление преимуществ</h2>
       <div className={Styles.add_prod_info}>
         <div className={Styles.add_prod_info_left}>
           <Button children={"Добавить"} onClick={() => addFields()} />
@@ -69,17 +112,20 @@ const ModalAddProduction: FC = () => {
             ))}
           </ul>
         </div>
-        <div className={Styles.add_prod_info_right}>
-          <Button children={"Добавить"} />
-        </div>
+        <div className={Styles.add_prod_info_right}>В разработке</div>
       </div>
-      <textarea
-        className={Styles.add_prod_text}
-        placeholder={"Введите описание"}
-      />
+      <div className={Styles.block_desc}>
+        <h2>Описание продукции</h2>
+        <RichText
+          description={""}
+          onChange={(e: { target: { getContent: () => string } }) =>
+            handleOnChangeRich(e)
+          }
+        />
+      </div>
+      <h2>Выберите дополнительное оборудование</h2>
       <div className={Styles.add_prod_block}>
-        <div className={Styles.add_prod_first}>first</div>
-        <div className={Styles.add_prod_second}>second</div>
+        <Tree alias={"-"} onChange={handleOnChangeTree} buttonIsShow={false} />
       </div>
       <div className={Styles.add_prod_button}>
         <Button children={"Сохранить"} />
