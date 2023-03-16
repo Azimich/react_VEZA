@@ -41,9 +41,7 @@ const ModalFormGallery: FC<IData> = ({ toggle, product }) => {
     setSelectedFile(selectedFile.filter((e, i) => i !== id));
   };
   const handleOnClickSave = () => {
-    postGalleryProduct(selectedFile, product.response.alias).then((data) => {
-      console.log("data", data);
-    });
+    postGalleryProduct(selectedFile, product.response.alias).then(() => {});
   };
   return (
     <>

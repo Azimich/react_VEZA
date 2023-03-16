@@ -10,6 +10,8 @@ import { usePutAdditional } from "service/admin/item/putAdditional";
 interface IData {
   alias: string;
   toggle?: () => void;
+  onChange?: (data: IAddition[]) => void;
+  buttonIsShow?: boolean;
 }
 
 export interface IAddition {
@@ -22,7 +24,12 @@ export interface IAddition {
   items?: IAddition[];
 }
 
-const TreeContainer: FC<IData> = ({ toggle, alias }) => {
+const TreeContainer: FC<IData> = ({
+  toggle,
+  alias,
+  buttonIsShow = true,
+  onChange = () => {},
+}) => {
   const { getAddition } = useGetAddition();
   const { putAdditional } = usePutAdditional();
   const [listAdditionTree, setListAdditionTree] = useState<IAddition[]>([]);
@@ -38,7 +45,7 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
 
   useEffect(() => {
     getAddition(alias).then((data) => {
-      setListAdditionTree(data.response);
+      setListAdditionTree(data?.response);
     });
   }, []);
   const eachRecursive = (obj: IAddition[]) => {
@@ -56,6 +63,10 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
     setListAdditionSelected([]);
     eachRecursive(listAdditionTree);
   }, [listAdditionTree]);
+
+  useEffect(() => {
+    listAdditionSelected.length > 0 && onChange(listAdditionSelected);
+  }, [listAdditionSelected]);
 
   const handleOnClick = (
     e: React.MouseEvent<HTMLSpanElement>,
@@ -145,18 +156,20 @@ const TreeContainer: FC<IData> = ({ toggle, alias }) => {
           />
         </div>
       </div>
-      <div className={Styles.block_button}>
-        <Button
-          className={Styles.button_send}
-          onClick={() => handleOnClickSave()}
-        >
-          Сохранить
-        </Button>
-        <Button className={Styles.button_send} onClick={toggle}>
-          Отменить
-        </Button>
-        <p>!!! Чтобы выделить несколько записей удерживайте CTRL</p>
-      </div>
+      {buttonIsShow && (
+        <div className={Styles.block_button}>
+          <Button
+            className={Styles.button_send}
+            onClick={() => handleOnClickSave()}
+          >
+            Сохранить
+          </Button>
+          <Button className={Styles.button_send} onClick={toggle}>
+            Отменить
+          </Button>
+          <p>!!! Чтобы выделить несколько записей удерживайте CTRL</p>
+        </div>
+      )}
     </div>
   );
 };

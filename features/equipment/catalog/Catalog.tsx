@@ -39,8 +39,6 @@ const Catalog: FC<{
   const filterProduction = searchValue.filter((product) => {
     return product.title.toLowerCase().includes(inputValue.toLowerCase());
   });
-  console.log("filterProduction", filterProduction);
-  console.log("data", data);
 
   const eachRecursive = (data: ICategoriesItem[]) => {
     for (const k in data) {
