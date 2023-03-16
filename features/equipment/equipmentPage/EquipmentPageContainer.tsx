@@ -54,7 +54,7 @@ const EquipmentPageContainer: FC<{
   );
 
   const contentEditGallery = (
-    <ModalFormGallery toggle={toggleEditAdditionQ} product={product} />
+    <ModalFormGallery toggle={toggleEditGallery} product={product} />
   );
   return (
     <Container className={"wrapper"}>
@@ -101,7 +101,7 @@ const EquipmentPageContainer: FC<{
         hide={toggleEditGallery}
         modalContent={contentEditGallery}
         headerText={"Редактирование галлереи"}
-        theme={"modal_edit_text_1200"}
+        theme={"modal_edit_text"}
         bgModal={"white"}
       />
       <Modal
