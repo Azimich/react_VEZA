@@ -1,7 +1,7 @@
 import { ChangeEvent, ReactNode } from "react";
 
 interface IInput {
-  ref?: func;
+  cols?: number;
   title?: string;
   draggable?: boolean;
   placeholder?: string;

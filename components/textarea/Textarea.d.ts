@@ -5,8 +5,8 @@ interface ITextarea {
   value?: string;
   placeholder?: string;
   name?: string;
-  id?: number;
-  onChange?: () => void;
+  id?: string;
+  onChange?: (event: ChangeEventHandler<HTMLTextAreaElement>) => void;
   children?: string | React.ReactElement | React.ReactNode;
 }
 
