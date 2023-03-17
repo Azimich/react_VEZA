@@ -8,7 +8,6 @@ import { useScrollStop } from "store/hooks/useScrollStop";
 export const Modal: FC<IModalProps> = ({
   isShow,
   hide,
-
   modalContent,
   headerText = "",
   theme = "modal",

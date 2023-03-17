@@ -2,10 +2,11 @@ import React from "react";
 
 interface ITextarea {
   title?: string;
+  value?: string;
   placeholder?: string;
   name?: string;
-  id?: number;
-  onChange?: (e) => void;
+  id?: string;
+  onChange?: (event: ChangeEventHandler<HTMLTextAreaElement>) => void;
   children?: string | React.ReactElement | React.ReactNode;
 }
 

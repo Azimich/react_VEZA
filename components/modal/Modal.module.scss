@@ -39,14 +39,15 @@
   &_close {
     cursor: pointer;
     &:hover{
-
-        svg {
-          path {
-            fill:color(green);
-          }
+      svg {
+        path {
+          fill:color(green);
         }
+      }
     }
       svg {
+        height: 25px;
+        width: 25px;
         path {
          fill: color(gray);
         }
