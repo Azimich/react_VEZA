@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import Styles from "features/decision/Decision.module.scss";
 import { Input } from "components/input";
 import { CloseIcon } from "components/icons";
-// import TextareaContainer from "components/textarea/TextareaContainer";
+import TextareaContainer from "components/textarea/TextareaContainer";
 import { Button } from "components/button";
 
 interface IData {
@@ -12,9 +12,11 @@ interface IData {
   title?: string;
   imageUrl?: string;
 }
-const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
-  const [file, setFile] = useState(null);
 
+const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
+  const [selectedImage, setSelectedImage] = useState();
+  const [postTitle, setPostTitle] = useState(title);
+  const [postDesc, setPostDesc] = useState(description);
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -30,46 +32,57 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
     },
   });
 
-  const [inputValue, setInputValue] = useState(formik.values["title"]);
-
-  const fileHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    formik.setFieldValue("imageUrl", imageUrl);
-    setFile(e.target.files[0]);
+  const handlePostTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPostTitle(e.target.value);
+    formik.setFieldValue("title", title);
+  };
+  const handlePostDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPostDesc(e.target.value);
+    formik.setFieldValue("description", description);
   };
 
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    formik.setFieldValue("title", title);
+  const imageChange = (e: any) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+      formik.setFieldValue("image", imageUrl);
+    }
   };
 
   useEffect(() => {
     formik.setFieldValue("title", title);
     formik.setFieldValue("description", description);
-    formik.setFieldValue("imageUrl", imageUrl);
+    formik.setFieldValue("image", imageUrl);
   }, [imageUrl, description, title]);
 
   return (
     <>
       <form className={Styles.add_info} onSubmit={formik.handleSubmit}>
         <div className={Styles.add_info_banner}>
-          <img
-            className={Styles.image}
-            src={file ? URL.createObjectURL(file) : null}
-            alt={file ? file.name : null}
-          />
-          {file && (
-            <div className={Styles.delete_img} onClick={() => setFile(null)}>
+          {selectedImage && (
+            <div
+              className={Styles.delete_img}
+              onClick={() => setSelectedImage(null)}
+            >
               <CloseIcon />
             </div>
           )}
+
           <label className={Styles.added_input_label} htmlFor={"file"}>
+            {selectedImage && (
+              <img
+                className={Styles.image}
+                src={URL.createObjectURL(selectedImage)}
+                alt={selectedImage}
+              />
+            )}
             <div className={Styles.added_input}>
               <div className={Styles.added_label}>
                 <span className={Styles.added_label_span}>
                   <Input
-                    onChange={fileHandler}
+                    onChange={imageChange}
                     accept={"image/*"}
                     type={"file"}
+                    value={formik.values["image"]}
                     id={"file"}
                     name={"added"}
                     className={Styles.added_file}
@@ -79,46 +92,33 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
             </div>
           </label>
         </div>
+
         <div className={Styles.add_input_block}>
           <div className={Styles.add_input_block_left}>
             <div className={Styles.add_input}>
               <Input
                 name={"additional[]"}
                 id={"additional[]"}
-                value={inputValue}
-                onChange={handleChangeInput}
+                value={postTitle}
+                onChange={handlePostTitleChange}
                 placeholder={"Название отрасли"}
                 type={"text"}
               />
-              {formik.setFieldValue && (
-                <span onClick={() => {}}>
+              {postTitle && (
+                <span onClick={() => setPostTitle("")}>
                   <CloseIcon />
                 </span>
               )}
             </div>
-            <div className={Styles.add_textarea}>
-              <Input
-                name={"additional[]"}
-                id={"additional[]"}
-                value={formik.values["description"]}
-                onChange={() => {
-                  formik.setFieldValue("description", description);
-                }}
-                placeholder={"Название отрасли"}
-                type={"text"}
-                cols={40}
-              />
-            </div>
-            {/*<TextareaContainer*/}
-            {/*  value={formik.values["description"]}*/}
-            {/*  onChange={() => {formik.setFieldValue("description", description)}}*/}
-            {/*  id={"description_"}*/}
-            {/*  name={"description_"}*/}
-            {/*  placeholder={"Введите описаение"}*/}
-            {/*>*/}
-            {/*  <div>{description}</div>*/}
-            {/*</TextareaContainer>*/}
-            {/*<div>{description}</div>*/}
+            <TextareaContainer
+              value={postDesc}
+              onChange={handlePostDescChange}
+              id={"description_"}
+              name={"description_"}
+              placeholder={"Введите описаение"}
+            >
+              {description}
+            </TextareaContainer>
           </div>
           <Button children={"Сохранить"} type={"submit"} />
         </div>
