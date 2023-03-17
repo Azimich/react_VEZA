@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import Styles from "features/decision/Decision.module.scss";
 import { Input } from "components/input";
 import { CloseIcon } from "components/icons";
-import TextareaContainer from "components/textarea/TextareaContainer";
+// import TextareaContainer from "components/textarea/TextareaContainer";
 import { Button } from "components/button";
 
 interface IData {
@@ -29,9 +29,17 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
       console.log("values", values);
     },
   });
+
+  const [inputValue, setInputValue] = useState(formik.values["title"]);
+
   const fileHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     formik.setFieldValue("imageUrl", imageUrl);
     setFile(e.target.files[0]);
+  };
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    formik.setFieldValue("title", title);
   };
 
   useEffect(() => {
@@ -77,10 +85,8 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
               <Input
                 name={"additional[]"}
                 id={"additional[]"}
-                value={formik.values["title"]}
-                onChange={() => {
-                  formik.setFieldValue("title", title);
-                }}
+                value={inputValue}
+                onChange={handleChangeInput}
                 placeholder={"Название отрасли"}
                 type={"text"}
               />
@@ -90,26 +96,29 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
                 </span>
               )}
             </div>
-            {/*<div className={Styles.add_textarea}>*/}
-            {/*  <Input*/}
-            {/*    name={"additional[]"}*/}
-            {/*    id={"additional[]"}*/}
-            {/*    value={formik.values["description"]}*/}
-            {/*    onChange={(e) => {formik.setFieldValue("description", description)}}*/}
-            {/*    placeholder={"Название отрасли"}*/}
-            {/*    type={"text"}*/}
-            {/*    cols={40}*/}
-            {/*  />*/}
-            {/*</div>*/}
-            <TextareaContainer
-              value={formik.values["description"]}
-              onChange={() => {
-                formik.setFieldValue("description", description);
-              }}
-              id={"description_"}
-              name={"description_"}
-              placeholder={"Введите описаение"}
-            />
+            <div className={Styles.add_textarea}>
+              <Input
+                name={"additional[]"}
+                id={"additional[]"}
+                value={formik.values["description"]}
+                onChange={() => {
+                  formik.setFieldValue("description", description);
+                }}
+                placeholder={"Название отрасли"}
+                type={"text"}
+                cols={40}
+              />
+            </div>
+            {/*<TextareaContainer*/}
+            {/*  value={formik.values["description"]}*/}
+            {/*  onChange={() => {formik.setFieldValue("description", description)}}*/}
+            {/*  id={"description_"}*/}
+            {/*  name={"description_"}*/}
+            {/*  placeholder={"Введите описаение"}*/}
+            {/*>*/}
+            {/*  <div>{description}</div>*/}
+            {/*</TextareaContainer>*/}
+            {/*<div>{description}</div>*/}
           </div>
           <Button children={"Сохранить"} type={"submit"} />
         </div>
