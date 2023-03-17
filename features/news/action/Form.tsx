@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import * as Yup from "yup";
 
 import Styles from "./FormNews.module.scss";
 import { Container } from "components/common/container";
@@ -6,41 +7,60 @@ import { Input } from "components/input";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadNews } from "components/breadcrumbs/mockData";
 import { Button } from "components/button";
-// import { useAddNews } from "service/admin/item/postNews";
 import { FormikValues, useFormik } from "formik";
-import { ValidationNews } from "features/auth/formsData/ValidationsShemas";
 import { IModalFormData } from "features/equipment/equipmentPage/utp/ModalFormI";
 import { CloseIcon, DeleteIcon } from "components/icons";
+import TextareaContainer from "components/textarea/TextareaContainer";
 
 const FormNews: FC<IModalFormData> = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
   const [inputFields, setInputFields] = useState([""]);
   const [selectedImage, setSelectedImage] = useState();
+  const [selectedVideo, setSelectedVideo] = useState();
+  const [titleValue, setTitleValue] = useState("");
+  const [titleSecondValue, setTitleSecondValue] = useState("");
 
   const formik: FormikValues = useFormik({
     initialValues: {
       name: "",
-      title_block: "",
-      forgot: false,
-      private_police: false,
+      title: "",
+      title_2: "",
+      description: "",
+      image: "",
     },
-    validationSchema: ValidationNews(),
+    validationSchema: Yup.object({
+      title: Yup.string().required("Обязательно для заполнения!"),
+      title_2: Yup.string().required("Обязательно для заполнения!"),
+      description: Yup.string().required("Обязательно для заполнения!"),
+    }),
     onSubmit: (values) => {
       console.log("values", values);
     },
   });
 
+  const changeTitleFirst = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitleValue(e.target.value);
+    formik.setFieldValue("title");
+  };
+  const changeTitleSecond = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitleSecondValue(e.target.value);
+    formik.setFieldValue("title_2");
+  };
   const imageChange = (e: any) => {
     if (e.target.files && e.target.files.length > 0) {
       setSelectedImage(e.target.files[0]);
       formik.setFieldValue("image");
     }
   };
-
+  const videoChange = (e: any) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedVideo(e.target.files[0]);
+      formik.setFieldValue("video");
+    }
+  };
   const addFields = () => {
     setInputFields([...inputFields, ""]);
   };
-
   const deleteFields = (index: number) => {
     if (inputFields.length < 2) {
       return;
@@ -50,7 +70,6 @@ const FormNews: FC<IModalFormData> = () => {
       setInputFields(data);
     }
   };
-
   const handleFormChange = (
     index: number,
     event: React.ChangeEvent<HTMLInputElement>,
@@ -69,22 +88,7 @@ const FormNews: FC<IModalFormData> = () => {
       <BreadCrumbs data={breadCrumbs} />
       <form onSubmit={formik.handleSubmit} className={Styles.added_news}>
         <h1>Добавить баннер</h1>
-        {/*<div className={Styles.added_news_banner}>*/}
-        {/*  <div className={Styles.added_input}>*/}
-        {/*    <label className={Styles.added_label}>*/}
-        {/*      <span className={Styles.added_label_span}>*/}
-        {/*        <Input*/}
-        {/*          accept={"image/*"}*/}
-        {/*          type={"file"}*/}
-        {/*          id={"added"}*/}
-        {/*          name={"added"}*/}
-        {/*          className={Styles.added_file}*/}
-        {/*        />*/}
-        {/*      </span>*/}
-        {/*    </label>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-        <div className={Styles.add_info_banner}>
+        <div className={Styles.added_news_banner}>
           {selectedImage && (
             <div
               className={Styles.delete_img}
@@ -122,54 +126,78 @@ const FormNews: FC<IModalFormData> = () => {
         <div className={Styles.add__form__item}>
           <div
             className={`${
-              formik.errors["title_block"] && formik.touched["title_block"]
+              formik.errors["title"] && formik.touched["title"]
                 ? Styles.add__form__item__input_error
                 : Styles.add__form__item__input
             }`}
           >
             <Input
-              id={"title_block"}
-              name={"title_block"}
+              id={"title"}
+              name={"title"}
               placeholder={"Заголовок"}
-              value={""}
+              value={titleValue}
+              onChange={changeTitleFirst}
             />
             <div
               className={`${
-                formik.errors["title_block"] && formik.touched["title_block"]
+                formik.errors["title"] && formik.touched["title"]
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <span>{formik.errors["title_block"]}</span>
+              <span>{formik.errors["title"]}</span>
             </div>
-          </div>
-
-          <div className={Styles.textarea}>
-            <textarea placeholder="Введите описание" />
           </div>
 
           <div
             className={`${
-              formik.errors["title_block_2"] && formik.touched["title_block_2"]
+              formik.errors["description"] && formik.touched["description"]
+                ? Styles.add__form__item__input_error
+                : Styles.add__form__item__input
+            }`}
+          >
+            <TextareaContainer
+              value={formik.setFieldValue["description"]}
+              onChange={(e) => {
+                formik.setFieldValue("description", e.target.value);
+              }}
+              id={"description_"}
+              name={"description_"}
+              placeholder={"Введите описаение"}
+            ></TextareaContainer>
+            <div
+              className={`${
+                formik.errors["description"] && formik.touched["description"]
+                  ? Styles.overflow__auto
+                  : Styles.overflow
+              }`}
+            >
+              <span>{formik.errors["description"]}</span>
+            </div>
+          </div>
+
+          <div
+            className={`${
+              formik.errors["title_2"] && formik.touched["title_2"]
                 ? Styles.add__form__item__input_error
                 : Styles.add__form__item__input
             }`}
           >
             <Input
-              id={"title_block_2"}
-              name={"title_block_2"}
+              id={"title_2"}
+              name={"title_2"}
               placeholder={"Заголовок 2"}
-              value={""}
+              value={titleSecondValue}
+              onChange={changeTitleSecond}
             />
             <div
               className={`${
-                formik.errors["title_block_2"] &&
-                formik.touched["title_block_2"]
+                formik.errors["title_2"] && formik.touched["title_2"]
                   ? Styles.overflow__auto
                   : Styles.overflow
               }`}
             >
-              <span>{formik.errors["title_block_2"]}</span>
+              <span>{formik.errors["title_2"]}</span>
             </div>
           </div>
         </div>
@@ -203,24 +231,43 @@ const FormNews: FC<IModalFormData> = () => {
           <div className={Styles.add_video}>
             <h1>Добавить видео</h1>
             <div className={Styles.added_news_banner}>
-              <div className={Styles.added_input}>
-                <label className={Styles.added_label}>
-                  <span className={Styles.added_label_span}>
-                    <Input
-                      accept={"image/*"}
-                      type={"file"}
-                      id={"added"}
-                      name={"added"}
-                      className={Styles.added_file}
-                    />
-                  </span>
-                </label>
-              </div>
+              {selectedVideo && (
+                <div
+                  className={Styles.delete_img}
+                  onClick={() => setSelectedVideo(null)}
+                >
+                  <CloseIcon />
+                </div>
+              )}
+              <label className={Styles.added_input_label} htmlFor={"videos"}>
+                {selectedVideo && (
+                  <img
+                    className={Styles.image}
+                    src={URL.createObjectURL(selectedVideo)}
+                    alt={selectedVideo}
+                  />
+                )}
+                <div className={Styles.added_input}>
+                  <div className={Styles.added_label}>
+                    <span className={Styles.added_label_span}>
+                      <Input
+                        onChange={videoChange}
+                        accept={"video/*"}
+                        type={"file"}
+                        value={formik.values["video"]}
+                        id={"videos"}
+                        name={"added"}
+                        className={Styles.added_file}
+                      />
+                    </span>
+                  </div>
+                </div>
+              </label>
             </div>
           </div>
         </div>
         <div className={Styles.save_buttons}>
-          <Button type={"submit"} children="Сохранить" theme={"news"} />
+          <Button children="Сохранить" type={"submit"} />
           <Button children="Отменить" theme={"news"} />
         </div>
       </form>

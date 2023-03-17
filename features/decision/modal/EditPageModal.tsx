@@ -36,6 +36,7 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
     setPostTitle(e.target.value);
     formik.setFieldValue("title", title);
   };
+
   const handlePostDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPostDesc(e.target.value);
     formik.setFieldValue("description", description);
@@ -55,75 +56,72 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
   }, [imageUrl, description, title]);
 
   return (
-    <>
-      <form className={Styles.add_info} onSubmit={formik.handleSubmit}>
-        <div className={Styles.add_info_banner}>
-          {selectedImage && (
-            <div
-              className={Styles.delete_img}
-              onClick={() => setSelectedImage(null)}
-            >
-              <CloseIcon />
-            </div>
-          )}
-
-          <label className={Styles.added_input_label} htmlFor={"file"}>
-            {selectedImage && (
-              <img
-                className={Styles.image}
-                src={URL.createObjectURL(selectedImage)}
-                alt={selectedImage}
-              />
-            )}
-            <div className={Styles.added_input}>
-              <div className={Styles.added_label}>
-                <span className={Styles.added_label_span}>
-                  <Input
-                    onChange={imageChange}
-                    accept={"image/*"}
-                    type={"file"}
-                    value={formik.values["image"]}
-                    id={"file"}
-                    name={"added"}
-                    className={Styles.added_file}
-                  />
-                </span>
-              </div>
-            </div>
-          </label>
-        </div>
-
-        <div className={Styles.add_input_block}>
-          <div className={Styles.add_input_block_left}>
-            <div className={Styles.add_input}>
-              <Input
-                name={"additional[]"}
-                id={"additional[]"}
-                value={postTitle}
-                onChange={handlePostTitleChange}
-                placeholder={"Название отрасли"}
-                type={"text"}
-              />
-              {postTitle && (
-                <span onClick={() => setPostTitle("")}>
-                  <CloseIcon />
-                </span>
-              )}
-            </div>
-            <TextareaContainer
-              value={postDesc}
-              onChange={handlePostDescChange}
-              id={"description_"}
-              name={"description_"}
-              placeholder={"Введите описаение"}
-            >
-              {description}
-            </TextareaContainer>
+    <form className={Styles.add_info} onSubmit={formik.handleSubmit}>
+      <div className={Styles.add_info_banner}>
+        {selectedImage && (
+          <div
+            className={Styles.delete_img}
+            onClick={() => setSelectedImage(null)}
+          >
+            <CloseIcon />
           </div>
-          <Button children={"Сохранить"} type={"submit"} />
+        )}
+
+        <label className={Styles.added_input_label} htmlFor={"file"}>
+          {selectedImage && (
+            <img
+              className={Styles.image}
+              src={URL.createObjectURL(selectedImage)}
+              alt={selectedImage}
+            />
+          )}
+          <div className={Styles.added_input}>
+            <div className={Styles.added_label}>
+              <span className={Styles.added_label_span}>
+                <Input
+                  onChange={imageChange}
+                  accept={"image/*"}
+                  type={"file"}
+                  value={formik.values["image"]}
+                  id={"file"}
+                  name={"added"}
+                  className={Styles.added_file}
+                />
+              </span>
+            </div>
+          </div>
+        </label>
+      </div>
+      <div className={Styles.add_input_block}>
+        <div className={Styles.add_input_block_left}>
+          <div className={Styles.add_input}>
+            <Input
+              name={"additional[]"}
+              id={"additional[]"}
+              value={postTitle}
+              onChange={handlePostTitleChange}
+              placeholder={"Название отрасли"}
+              type={"text"}
+            />
+            {postTitle && (
+              <span onClick={() => setPostTitle("")}>
+                <CloseIcon />
+              </span>
+            )}
+          </div>
+          <TextareaContainer
+            value={postDesc}
+            onChange={handlePostDescChange}
+            id={"description_"}
+            name={"description_"}
+            placeholder={"Введите описаение"}
+          >
+            {description}
+          </TextareaContainer>
         </div>
-      </form>
-    </>
+        <Button children={"Сохранить"} type={"submit"} />
+      </div>
+    </form>
   );
 };
 
