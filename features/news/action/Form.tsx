@@ -10,12 +10,12 @@ import { Button } from "components/button";
 import { FormikValues, useFormik } from "formik";
 import { ValidationNews } from "features/auth/formsData/ValidationsShemas";
 import { IModalFormData } from "features/equipment/equipmentPage/utp/ModalFormI";
-import { DeleteIcon } from "components/icons";
+import { CloseIcon, DeleteIcon } from "components/icons";
 
 const FormNews: FC<IModalFormData> = () => {
   const [breadCrumbs, setBreadCrumbs] = useState<IBreadCrumbs[]>(dataBreadNews);
   const [inputFields, setInputFields] = useState([""]);
-  // const { postNews } = useAddNews();
+  const [selectedImage, setSelectedImage] = useState();
 
   const formik: FormikValues = useFormik({
     initialValues: {
@@ -30,9 +30,17 @@ const FormNews: FC<IModalFormData> = () => {
     },
   });
 
+  const imageChange = (e: any) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+      formik.setFieldValue("image");
+    }
+  };
+
   const addFields = () => {
     setInputFields([...inputFields, ""]);
   };
+
   const deleteFields = (index: number) => {
     if (inputFields.length < 2) {
       return;
@@ -59,32 +67,59 @@ const FormNews: FC<IModalFormData> = () => {
   return (
     <Container className={"wrapper_clear"}>
       <BreadCrumbs data={breadCrumbs} />
-      <div className={Styles.added_news}>
-        {/*                <SelectContainer
-                    instanceId={"Select_search"}
-                    onChange={() => {
-                    }}
-                    optionsData={[]}
-                    defaultValue={{}}
-                />*/}
+      <form onSubmit={formik.handleSubmit} className={Styles.added_news}>
         <h1>Добавить баннер</h1>
-        <div className={Styles.added_news_banner}>
-          <div className={Styles.added_input}>
-            <label className={Styles.added_label}>
-              <span className={Styles.added_label_span}>
-                <Input
-                  accept={"image/*"}
-                  type={"file"}
-                  id={"added"}
-                  name={"added"}
-                  className={Styles.added_file}
-                />
-              </span>
-            </label>
-          </div>
-        </div>
+        {/*<div className={Styles.added_news_banner}>*/}
+        {/*  <div className={Styles.added_input}>*/}
+        {/*    <label className={Styles.added_label}>*/}
+        {/*      <span className={Styles.added_label_span}>*/}
+        {/*        <Input*/}
+        {/*          accept={"image/*"}*/}
+        {/*          type={"file"}*/}
+        {/*          id={"added"}*/}
+        {/*          name={"added"}*/}
+        {/*          className={Styles.added_file}*/}
+        {/*        />*/}
+        {/*      </span>*/}
+        {/*    </label>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        <div className={Styles.add_info_banner}>
+          {selectedImage && (
+            <div
+              className={Styles.delete_img}
+              onClick={() => setSelectedImage(null)}
+            >
+              <CloseIcon />
+            </div>
+          )}
 
-        <form onSubmit={formik.handleSubmit} className={Styles.add__form__item}>
+          <label className={Styles.added_input_label} htmlFor={"file"}>
+            {selectedImage && (
+              <img
+                className={Styles.image}
+                src={URL.createObjectURL(selectedImage)}
+                alt={selectedImage}
+              />
+            )}
+            <div className={Styles.added_input}>
+              <div className={Styles.added_label}>
+                <span className={Styles.added_label_span}>
+                  <Input
+                    onChange={imageChange}
+                    accept={"image/*"}
+                    type={"file"}
+                    value={formik.values["image"]}
+                    id={"file"}
+                    name={"added"}
+                    className={Styles.added_file}
+                  />
+                </span>
+              </div>
+            </div>
+          </label>
+        </div>
+        <div className={Styles.add__form__item}>
           <div
             className={`${
               formik.errors["title_block"] && formik.touched["title_block"]
@@ -137,8 +172,7 @@ const FormNews: FC<IModalFormData> = () => {
               <span>{formik.errors["title_block_2"]}</span>
             </div>
           </div>
-        </form>
-
+        </div>
         <div
           className={`${Styles.added_news_container} ${Styles.margin_bottom}`}
         >
@@ -189,7 +223,7 @@ const FormNews: FC<IModalFormData> = () => {
           <Button type={"submit"} children="Сохранить" theme={"news"} />
           <Button children="Отменить" theme={"news"} />
         </div>
-      </div>
+      </form>
     </Container>
   );
 };
