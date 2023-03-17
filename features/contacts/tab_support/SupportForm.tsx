@@ -4,7 +4,6 @@ import Styles from "./Support.module.scss";
 import { Input } from "components/input";
 import { CheckboxWithLabel } from "components/checkbox";
 import { Button } from "components/button";
-import { TextareaContainer } from "components/textarea/TextareaContainer";
 import { SelectContainer } from "components/select/SelectContainer";
 import { ValidationSchema } from "./ValidationSchema";
 import { fieldsData } from "features/contacts/tab_support/FieldsData";
@@ -16,6 +15,7 @@ import { useGetSubjected } from "service/list/getSubject";
 import { usePostSubject } from "service/item/postSubject";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
+import TextareaContainer from "components/textarea/TextareaContainer";
 
 const SupportForm: FC = () => {
   const formik: FormikValues = useFormik({

@@ -14,7 +14,6 @@ import { useGetDescription } from "service/admin/list/getDescription";
 
 const UtpContainer: FC<IEquipmentItem> = (props) => {
   const { blocks } = props;
-
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
   const { isShow: isShowEditAdvertise, toggle: toggleEditAdvertise } =

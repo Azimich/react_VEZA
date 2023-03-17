@@ -26,10 +26,17 @@ export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
     store.dispatch(fetchMenu({ menuState: await menuListServer() }));
     const result: ICategoriesResponseArray = await menuCategory();
     const product_data = await productItem(params.product as string);
+    const getD = getData(result.response, params.slug_level2 as string)[0]
+      ?.subCategories;
+
+    if (!getD) {
+      return {
+        notFound: true,
+      };
+    }
     return {
       props: {
-        data: getData(result.response, params.slug_level2 as string)[0]
-          .subCategories,
+        data: getD,
         categories: result,
         alias: params.slug_level2,
         alias_active: params.product,
@@ -52,6 +59,7 @@ const productServer = (props: {
       data={props.data}
       categories={props.categories}
       alias={props.alias}
+      alias_active={props.alias_active}
       product={props.product}
     />
   );
