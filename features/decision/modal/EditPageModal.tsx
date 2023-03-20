@@ -1,22 +1,38 @@
 import React, { FC, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+
 import Styles from "features/decision/Decision.module.scss";
 import { Input } from "components/input";
 import { CloseIcon } from "components/icons";
 import TextareaContainer from "components/textarea/TextareaContainer";
 import { Button } from "components/button";
+import { usePutDecision } from "service/admin/item/putDecision";
 
 interface IData {
   description?: string;
   title?: string;
   imageUrl?: string;
+  toggle?: () => void;
+  alias?: string;
+  shortDescription?: string;
+  seo?: string;
+  image?: any;
 }
 
-const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
+const EditPageModal: FC<IData> = ({
+  title,
+  description,
+  toggle,
+  alias,
+  shortDescription,
+  seo,
+  image,
+}) => {
   const [selectedImage, setSelectedImage] = useState();
   const [postTitle, setPostTitle] = useState(title);
   const [postDesc, setPostDesc] = useState(description);
+  const { putDecision } = usePutDecision();
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -36,24 +52,36 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
     setPostTitle(e.target.value);
     formik.setFieldValue("title", title);
   };
-
   const handlePostDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPostDesc(e.target.value);
     formik.setFieldValue("description", description);
   };
-
   const imageChange = (e: any) => {
     if (e.target.files && e.target.files.length > 0) {
       setSelectedImage(e.target.files[0]);
-      formik.setFieldValue("image", imageUrl);
+      formik.setFieldValue("image", image);
     }
+  };
+  const onClickSave = () => {
+    putDecision(
+      title,
+      description,
+      toggle,
+      alias,
+      shortDescription,
+      seo,
+      image,
+    ).then((data: any) => {
+      toggle();
+      console.log("items", data);
+    });
   };
 
   useEffect(() => {
     formik.setFieldValue("title", title);
     formik.setFieldValue("description", description);
-    formik.setFieldValue("image", imageUrl);
-  }, [imageUrl, description, title]);
+    formik.setFieldValue("image", image);
+  }, [image, description, title]);
 
   return (
     <form className={Styles.add_info} onSubmit={formik.handleSubmit}>
@@ -119,7 +147,11 @@ const EditPageModal: FC<IData> = ({ title, description, imageUrl }) => {
             {description}
           </TextareaContainer>
         </div>
-        <Button children={"Сохранить"} type={"submit"} />
+        <Button
+          onClick={() => onClickSave()}
+          children={"Сохранить"}
+          type={"submit"}
+        />
       </div>
     </form>
   );
