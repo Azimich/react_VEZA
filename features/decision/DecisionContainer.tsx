@@ -10,9 +10,12 @@ import { ConnectError } from "components/connect_error";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
 import { AdminAddModal } from "features/decision/modal/AdminAddModal";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
 
 const DecisionContainer: FC<ISSRDecisionArray> = ({ decision }) => {
   const { isShow, toggle } = useModal();
+  const auth = useAppSelector(getAuth);
 
   useEffect(() => {
     document.getElementById("main") &&
@@ -22,9 +25,12 @@ const DecisionContainer: FC<ISSRDecisionArray> = ({ decision }) => {
   return (
     <Container className="wrapper">
       <BreadCrumbs data={dataBreadDecision} />
-      <div className={Styles.button}>
-        <Button children={"Добавить"} onClick={toggle} />
-      </div>
+      {auth.identify && auth.data.response && (
+        <div className={Styles.button}>
+          <Button children={"Добавить отрасль"} onClick={toggle} />
+        </div>
+      )}
+
       <div className={`${Styles.decision__container} ${Styles.angry_grid}`}>
         {!decision?.hasError ? (
           decision?.response?.map((e) => {

@@ -4,6 +4,8 @@ import { IDecisionData } from "../Decision";
 import { Modal, useModal } from "components/modal";
 import { EditPageModal } from "features/decision/modal/EditPageModal";
 import { Editor } from "components/editor_pen";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
 
 const DecisionPageItem: FC<IDecisionData> = ({
   description,
@@ -11,12 +13,14 @@ const DecisionPageItem: FC<IDecisionData> = ({
   imageUrl,
 }) => {
   const { isShow, toggle } = useModal();
+  const auth = useAppSelector(getAuth);
 
   const contentModal = (
     <EditPageModal
       description={description}
       title={title}
       imageUrl={imageUrl}
+      toggle={toggle}
     />
   );
 
@@ -30,9 +34,11 @@ const DecisionPageItem: FC<IDecisionData> = ({
           <h1>{title}</h1>
           <p>{description}</p>
         </div>
-        <span className={Styles.button_editor} onClick={toggle}>
-          <Editor />
-        </span>
+        {auth.identify && auth.data.response && (
+          <span className={Styles.button_editor} onClick={toggle}>
+            <Editor />
+          </span>
+        )}
       </div>
       <Modal
         isShow={isShow}
