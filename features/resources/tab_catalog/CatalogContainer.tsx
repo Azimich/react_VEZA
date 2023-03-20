@@ -11,33 +11,26 @@ import { useRouter } from "next/router";
 import { Button } from "components/button";
 import { useGetCatalog } from "service/list/getCatalog";
 import { CatalogItem } from "features/resources/tab_catalog/CatalogItem";
-/*import {onButtonClick} from "utils/helpers";*/
-/*import {SpinnerButton} from "components/spinners";
-import {DownloadIcon} from "components/icons";*/
 import { Link } from "components/link";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
+import { Modal, useModal } from "components/modal";
+import { ModalForm } from "features/resources/tab_catalog/ModalForm";
 
 const CatalogContainer = () => {
   const router = useRouter();
   const { getCatalog } = useGetCatalog();
+  const auth = useAppSelector(getAuth);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
   const [catalogData, setCatalogData] = useState<ICatalogResponse>(undefined);
-  /*    const [download, setDownload] = useState(true);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const handleDisabled = (url: string, title: string) => {
-        setDownload(false);
-        setIsLoading(true);
-        onButtonClick(url, title).then(() => {
-            setDownload(true);
-            setIsLoading(false);
-            console.log("ПОСЛЕ СКАЧИВАНИЯ", catalogData.response.url, title);
-        });
-    };*/
+  const { isShow, toggle } = useModal();
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
   }, [dataBreadResources]);
+
+  const contentAdd = <ModalForm toggle={toggle} />;
 
   useEffect(() => {
     getCatalog().then((data) => {
@@ -67,12 +60,27 @@ const CatalogContainer = () => {
           />
         </Link>
       </div>
+      {auth.identify && (
+        <Button
+          type={"button"}
+          children={"добавить каталог"}
+          onClick={() => toggle()}
+        />
+      )}
       <div className={Styles.catalog_box}>
         {catalogData &&
           catalogData.response.catalogues.map((e, i) => {
             return <CatalogItem {...e} key={i} />;
           })}
       </div>
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={contentAdd}
+        headerText={"Добавление каталога"}
+        theme={"modal_edit_text"}
+        bgModal={"white"}
+      />
     </Container>
   );
 };
