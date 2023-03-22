@@ -4,10 +4,21 @@ import Styles from "./Catalog.module.scss";
 import { Button } from "components/button";
 import { onButtonClick } from "utils/helpers";
 import { SpinnerButton } from "components/spinners";
-import { CalendarIcon, DownloadIcon } from "components/icons";
+import { ArchiveIcon, CalendarIcon, DownloadIcon } from "components/icons";
+import { useDeleteCatalog } from "service/item/deleteCatalog";
 
-const CatalogItem: FC<ICatalogsItem> = ({ title, imageUrl, url, update }) => {
+const CatalogItem: FC<ICatalogsItem> = ({
+  onChange,
+  id,
+  archived,
+  auth,
+  title,
+  imageUrl,
+  url,
+  update,
+}) => {
   const handleUpdate = new Date(update);
+  const { deleteCatalog } = useDeleteCatalog();
 
   const [download, setDownload] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -19,15 +30,28 @@ const CatalogItem: FC<ICatalogsItem> = ({ title, imageUrl, url, update }) => {
       setIsLoading(false);
     });
   };
-
+  const handleOnClickArchive = (e: number) => {
+    deleteCatalog(e).then((data) => {
+      data.response && onChange();
+    });
+  };
   return (
-    <div className={Styles.box_item}>
+    <div className={`${Styles.box_item} ${archived ? Styles.archived : ""}`}>
       <div className={Styles.box_item__images}>
         <img src={imageUrl} alt={title} />
       </div>
       <div className={Styles.box_item__info}>
         <div className={Styles.box_item__info_title}>
           <p>{title}</p>
+          {auth.identify && (
+            <span
+              onClick={() => {
+                handleOnClickArchive(id);
+              }}
+            >
+              <ArchiveIcon />
+            </span>
+          )}
         </div>
         <div className={Styles.box_item__item_button}>
           <div
