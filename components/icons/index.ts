@@ -43,4 +43,4 @@ export { DeleteIcon } from "./includes/DeleteIcon";
 export { PencilIcon } from "./includes/PencilIcon";
 export { CheckIcon } from "./includes/CheckIcon";
 export { AddIcon } from "./includes/AddIcon";
-export { ArchiveIcon } from "./includes/ArchiveIcon";
+export { ClearIcon } from "./includes/ClearIcon";

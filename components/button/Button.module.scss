@@ -97,7 +97,6 @@
     &_white {
       @extend %colorWhite;
       @include largeSize;
-
     }
 
     &_link {
@@ -165,7 +164,6 @@
       width: 22px;
       height: 22px;
       transition: all 0.3s ease;
-
       path {
         fill: white;
       }
@@ -300,7 +298,6 @@
   }
 
   &__large {
-
     &_green {
       @extend %colorGreen;
       @include largeSize;

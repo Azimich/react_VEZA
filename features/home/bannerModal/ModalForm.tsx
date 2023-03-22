@@ -59,7 +59,6 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
                   </label>
                 </div>
               </div>
-              <div></div>
             </div>
           ) : (
             <div className={Styles.banner_modal_item}>
@@ -88,7 +87,7 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
                 name={"description"}
                 placeholder={"Введите описаение"}
                 onChange={(e) => {
-                  formik.setFieldValue("description", e.target.value);
+                  return formik.setFieldValue("description", e.target.value);
                 }}
               />
 
@@ -104,7 +103,7 @@ const ModalForm: FC<ITopBanner> = ({ type }) => {
 
               <CheckboxWithLabel
                 name={"showText"}
-                id={"showtext"}
+                id={"showText"}
                 title={"Показывать описание"}
                 onChangeData={(e) => {
                   formik.setFieldValue("showText", !e);

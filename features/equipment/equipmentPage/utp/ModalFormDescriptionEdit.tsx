@@ -17,7 +17,6 @@ const ModalFormDescriptionEdit: FC<IData> = ({
   toggle,
 }) => {
   const [descriptionEdit, setDescriptionEdit] = useState<string>();
-
   const { putDescription } = usePutDescription();
 
   const handleInputOnChange = (e: { target: { getContent: () => string } }) => {
