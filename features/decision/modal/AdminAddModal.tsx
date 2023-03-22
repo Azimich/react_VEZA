@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import Styles from "../Decision.module.scss";
 import { Input } from "components/input";
 import { Button } from "components/button";
-import { CloseIcon } from "components/icons";
+import { ClearIcon, CloseIcon } from "components/icons";
 import TextareaContainer from "components/textarea/TextareaContainer";
 import { useFormik } from "formik";
 
@@ -17,7 +17,8 @@ interface IData {
 }
 
 const AdminAddModal: FC<IData> = () => {
-  const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState<string>();
+  const [postTitle, setPostTitle] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -34,62 +35,68 @@ const AdminAddModal: FC<IData> = () => {
     },
   });
 
-  const fileHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFile(e.target.files[0]);
-    formik.setFieldValue("image", event.target);
+  const imageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.files) return;
+    setPreview(URL.createObjectURL(event.target.files[0]));
+    formik.setFieldValue("image", event.target.value);
+  };
+
+  const handlePostTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPostTitle(e.target.value);
+    formik.setFieldValue("title", e.target.value);
   };
 
   return (
-    <>
-      <form className={Styles.add_info} onSubmit={formik.handleSubmit}>
-        <div className={Styles.add_input_block}>
-          <div className={Styles.add_input_block_left}>
-            <div className={Styles.add_input}>
-              <Input
-                name={"additional[]"}
-                id={"additional[]"}
-                value={formik.values["title"]}
-                onChange={(e) => {
-                  formik.setFieldValue("title", e.target.value);
-                }}
-                placeholder={"Название отрасли"}
-                type={"text"}
-              />
-              {formik.setFieldValue && (
-                <span onClick={() => {}}>
-                  <CloseIcon />
-                </span>
-              )}
-            </div>
-            <TextareaContainer
-              onChange={(e) => {
-                formik.setFieldValue("description", e.target.value);
-              }}
-              name={"description"}
-              placeholder={"Введите описаение"}
+    <form className={Styles.add_info} onSubmit={formik.handleSubmit}>
+      <div className={Styles.add_input_block}>
+        <div className={Styles.add_input_block_left}>
+          <div className={Styles.add_input_cont}>
+            <Input
+              name={"additional[]"}
+              id={"additional[]"}
+              value={postTitle}
+              onChange={handlePostTitleChange}
+              placeholder={"Название отрасли"}
+              type={"text"}
             />
+            {postTitle && (
+              <div
+                className={Styles.icon_clear}
+                onClick={() => setPostTitle("")}
+              >
+                <CloseIcon />
+              </div>
+            )}
           </div>
-          <Button children={"Сохранить"} type={"submit"} />
-        </div>
-        <div className={Styles.add_info_banner}>
-          <img
-            className={Styles.image}
-            src={file ? URL.createObjectURL(file) : null}
-            alt={file ? file.name : null}
+          <TextareaContainer
+            className={Styles.add_textarea}
+            onChange={(e) => {
+              formik.setFieldValue("description", e.target.value);
+            }}
+            name={"description"}
+            placeholder={"Введите описаение"}
           />
-          {file && (
-            <div className={Styles.delete_img} onClick={() => setFile(null)}>
-              <CloseIcon />
-            </div>
-          )}
+        </div>
+        <Button children={"Сохранить"} type={"submit"} />
+      </div>
+      {preview ? (
+        <div className={`${Styles.add_info_banner} ${Styles.preview}`}>
+          <img className={Styles.image} src={preview} alt={preview} />
+          <div className={Styles.delete_img} onClick={() => setPreview(null)}>
+            <ClearIcon />
+          </div>
+        </div>
+      ) : (
+        <div className={Styles.add_info_banner}>
           <label className={Styles.added_input_label} htmlFor={"file"}>
             <div className={Styles.added_input}>
               <div className={Styles.added_label}>
                 <span className={Styles.added_label_span}>
                   <Input
-                    onChange={fileHandler}
+                    onChange={imageChange}
                     accept={"image/*"}
                     type={"file"}
+                    value={formik.values["image"]}
                     id={"file"}
                     name={"added"}
                     className={Styles.added_file}
@@ -99,8 +106,8 @@ const AdminAddModal: FC<IData> = () => {
             </div>
           </label>
         </div>
-      </form>
-    </>
+      )}
+    </form>
   );
 };
 

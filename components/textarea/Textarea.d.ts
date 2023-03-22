@@ -6,6 +6,7 @@ interface ITextarea {
   placeholder?: string;
   name?: string;
   id?: string;
+  className?: string;
   maxLength?: string | React.HTMLTextAreaElement;
   onChange?: (event: ChangeEventHandler<HTMLTextAreaElement>) => void;
   children?: string | React.ReactElement | React.ReactNode;

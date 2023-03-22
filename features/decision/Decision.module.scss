@@ -11,15 +11,12 @@
   @include ipadScreen {
     margin: 20px auto 80px;
   }
-
   @include phoneScreen {
     gap: 10px;
   }
-  
   img {
     border-radius: 20px;
   }
-
   &_item {
     filter: drop-shadow(0 -5px 1px rgba(255, 255, 255, .5));
     border-radius: 20px;
@@ -63,25 +60,18 @@
     }
   }
 }
-
 .add_info {
   display: flex;
   align-items: flex-start;
   gap: 20px;
   margin: 30px 0 0 0;
 }
-
-.preview {
-  padding: 225px 0 !important;
-}
-
 .add_info_banner {
   background-color: #f1f1f1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 190px 0;
-  //height: 450px;
+  height: 465px;
   overflow: hidden;
   width: 50%;
   position: relative;
@@ -104,7 +94,7 @@
     width: 100%;
     height: 100%;
     z-index: 3;
-    object-fit: fill;
+    object-fit: cover;
   }
   .added_input {
     position: relative;
@@ -131,95 +121,110 @@
     }
   }
 }
-
 .button {
   display: flex;
   justify-content: flex-end;
 }
-
 .add_input_block {
   width: 50%;
   &_left {
-    margin-bottom: 35px;
     width: 100%;
-    .add_textarea {
-      box-sizing: border-box;
-      input {
-        border: 1px solid #bcbdc0;
-        padding: 10px;
-        box-sizing: border-box;
-        width: 100%;
-      }
-    }
-  }
-
-  .add_input {
-    margin-bottom: 10px;
     position: relative;
-    input {
-      border: 1px solid #d2d2d2;
-      padding: 10px;
-      border-radius: 5px;
-      &:focus {
-        border: 1px solid color(green);
+    .add_input_cont {
+      margin-bottom: 12px;
+      .icon_clear {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 4%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        svg {
+          opacity: 0.4;
+          transition: all 0.1s ease;
+          &:hover {
+            opacity: 1;
+          }
+        }
       }
-    }
-    span {
-      cursor: pointer;
-      position: absolute;
-      right: 10px;
-      top: 35%;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      svg {
-        opacity: 0.4;
-        transition: all 0.1s ease;
-        &:hover {
-          opacity: 1;
+      input {
+        border: 1px solid #d2d2d2;
+        padding: 10px;
+        border-radius: 5px;
+        &:focus {
+          border: 1px solid color(green);
         }
       }
     }
-  }
-  .short_description {
-    margin-bottom: 10px;
-    textarea {
-      min-height: 95px !important;
+    .add_textarea {
+      box-sizing: border-box;
+      margin-bottom: 30px;
     }
+  }
+
+  .short_description {
+    min-height: 95px !important;
   }
   textarea {
     min-height: 295px !important;
   }
 }
-
-.add_input_meta {
-  margin-bottom: 30px;
-  &_input {
+.add__form__item__input {
+  position: relative;
+  input {
+    border: 1px solid #d2d2d2;
+    padding: 10px;
+    border-radius: 5px;
+    &:focus {
+      border: 1px solid color(green);
+    }
+  }
+  .icon_clear {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 22%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    svg {
+      opacity: 0.4;
+      transition: all 0.1s ease;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .overflow {
+    margin-top: 5px;
+    transition: all 0.3s;
+    height: 15px;
+    opacity: 0;
+    transform: translateY(-10px);
+    span {
+      margin: 0 0 0 10px;
+    }
+  }
+  &_error {
+    color: color(error);
+    border-radius: 8px;
+    font-size: 12px;
     position: relative;
+    .overflow__auto {
+      margin-top: 5px;
+      opacity: 1;
+      transition: all 0.3s;
+      transform: translateY(0px);
+      height: 15px;
+    }
     input {
       border: 1px solid #d2d2d2;
       padding: 10px;
       border-radius: 5px;
-      margin-bottom: 10px;
-      &:focus {
-        border: 1px solid color(green);
-      }
-    }
-    span {
-      cursor: pointer;
-      position: absolute;
-      right: 10px;
-      top: 32%;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      svg {
-        opacity: 0.4;
-        transition: all 0.1s ease;
-        &:hover {
-          opacity: 1;
-        }
-      }
     }
   }
+}
+.add_input_meta {
+  margin-bottom: 30px;
 }

@@ -15,11 +15,6 @@ const usePutDecision = () => {
     seoDescription: string,
     seoKeyword: string,
   ) => {
-    // const req = {
-    //   alias: alias,
-    //   description: description,
-    //   shortDescription: shortDescription,
-    // };
     const fd = new FormData();
     fd.append("alias", alias);
     fd.append("title", title);
@@ -29,13 +24,14 @@ const usePutDecision = () => {
     fd.append("seoMetaH1", seoMetaH1);
     fd.append("seoDescription", seoDescription);
     fd.append("seoKeyword", seoKeyword);
-    fd.append("imageUrl", imageUrl);
+    // fd.append("imageUrl", imageUrl);
 
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +
         "/api/v1/administrator/put_industry_info",
       "PUT",
       fd,
+      {},
     );
   };
 
