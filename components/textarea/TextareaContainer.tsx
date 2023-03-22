@@ -9,6 +9,7 @@ const TextareaContainer: FC<ITextarea> = ({
   name,
   children,
   value,
+  maxLength,
 }) => {
   return (
     <div className={Styles.textarea__container}>
@@ -17,6 +18,7 @@ const TextareaContainer: FC<ITextarea> = ({
         onChange={onChange}
         name={name}
         value={value}
+        maxLength={maxLength}
       >
         {children}
       </textarea>

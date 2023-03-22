@@ -7,6 +7,12 @@ interface IDecisionData {
   title: string;
   alias: string;
   imageUrl: string;
+  seoTitle?: string;
+  seoMetaH1?: string;
+  seoDescription?: string;
+  seoKeyword?: string;
+  image?;
+  any;
 }
 
 interface IDecisionResponse extends Omit<IResponse, "response"> {

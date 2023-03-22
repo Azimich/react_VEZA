@@ -11,6 +11,11 @@ const DecisionPageItem: FC<IDecisionData> = ({
   description,
   title,
   imageUrl,
+  shortDescription,
+  seoTitle,
+  seoMetaH1,
+  seoDescription,
+  seoKeyword,
 }) => {
   const { isShow, toggle } = useModal();
   const auth = useAppSelector(getAuth);
@@ -18,8 +23,13 @@ const DecisionPageItem: FC<IDecisionData> = ({
   const contentModal = (
     <EditPageModal
       description={description}
+      shortDescription={shortDescription}
       title={title}
       imageUrl={imageUrl}
+      seoTitle={seoTitle}
+      seoMetaH1={seoMetaH1}
+      seoDescription={seoDescription}
+      seoKeyword={seoKeyword}
       toggle={toggle}
     />
   );
