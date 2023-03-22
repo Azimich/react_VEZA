@@ -1,4 +1,5 @@
 import { IResponse } from "types/response";
+import { IAuthState } from "features/auth/Auth";
 
 interface IBim {
   bim?: string;
@@ -14,10 +15,14 @@ interface IBim {
 }
 
 interface ICatalogsItem {
+  id?: number;
+  archived?: boolean;
   imageUrl?: string;
   title: string;
   update: string;
   url: string;
+  auth?: IAuthState;
+  onChange: () => void;
 }
 
 interface ICatalog {

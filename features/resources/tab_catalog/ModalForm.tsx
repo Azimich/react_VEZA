@@ -8,9 +8,10 @@ import { usePostCatalog } from "service/admin/item/postCatalog";
 
 interface IData {
   toggle?: () => void;
+  onChange?: () => void;
 }
 
-const ModalForm: FC<IData> = ({ toggle }) => {
+const ModalForm: FC<IData> = ({ toggle, onChange }) => {
   const [selectedFilesIcon, setSelectedFilesIcon] = useState([]);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [inputValue, setInputValue] = useState(undefined);
@@ -21,8 +22,9 @@ const ModalForm: FC<IData> = ({ toggle }) => {
     fd.append("file", selectedFiles[0]);
     fd.append("title", inputValue);
 
-    postCatalog(fd).then((data) => {
-      console.log("data", data);
+    postCatalog(fd).then(() => {
+      onChange();
+      toggle();
     });
   };
   const handleOnClickDelete = (type: string) => {

@@ -20,6 +20,7 @@ import { ModalForm } from "features/resources/tab_catalog/ModalForm";
 const CatalogContainer = () => {
   const router = useRouter();
   const { getCatalog } = useGetCatalog();
+  const [refreshPage, setRefreshPage] = useState<boolean>(true);
   const auth = useAppSelector(getAuth);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
@@ -30,13 +31,17 @@ const CatalogContainer = () => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
   }, [dataBreadResources]);
 
-  const contentAdd = <ModalForm toggle={toggle} />;
-
+  const handleOnChange = () => {
+    setRefreshPage(true);
+  };
   useEffect(() => {
-    getCatalog().then((data) => {
-      setCatalogData(data);
-    });
-  }, []);
+    refreshPage &&
+      getCatalog().then((data) => {
+        setRefreshPage(false);
+        setCatalogData(data);
+      });
+  }, [refreshPage]);
+  const contentAdd = <ModalForm toggle={toggle} onChange={handleOnChange} />;
 
   return (
     <Container className={"wrapper_clear"}>
@@ -70,7 +75,23 @@ const CatalogContainer = () => {
       <div className={Styles.catalog_box}>
         {catalogData &&
           catalogData.response.catalogues.map((e, i) => {
-            return <CatalogItem {...e} key={i} />;
+            return !e.archived ? (
+              <CatalogItem
+                onChange={handleOnChange}
+                {...e}
+                auth={auth}
+                key={i}
+              />
+            ) : (
+              auth.identify && (
+                <CatalogItem
+                  {...e}
+                  auth={auth}
+                  key={i}
+                  onChange={handleOnChange}
+                />
+              )
+            );
           })}
       </div>
       <Modal

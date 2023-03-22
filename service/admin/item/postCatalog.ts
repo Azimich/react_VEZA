@@ -9,12 +9,8 @@ const usePostCatalog = () => {
         "/api/v1/administrator/create_catalogue",
       "POST",
       fd,
-      {
-        "Content-Type": "multipart/form-data",
-        Accept: "application/json, application/xml, text/plain, text/html, *.*",
-      },
+      {},
     );
-    console.log("+++", await result);
     return result;
   };
 
