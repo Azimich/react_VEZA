@@ -9,8 +9,11 @@ const usePutDecision = () => {
     toggle: () => void,
     shortDescription: string,
     title: string,
-    seo: string,
-    image: any,
+    imageUrl: any,
+    seoTitle: string,
+    seoMetaH1: string,
+    seoDescription: string,
+    seoKeyword: string,
   ) => {
     // const req = {
     //   alias: alias,
@@ -22,8 +25,11 @@ const usePutDecision = () => {
     fd.append("title", title);
     fd.append("description", description);
     fd.append("shortDescription", shortDescription);
-    fd.append("seo", seo);
-    fd.append("image", image);
+    fd.append("seoTitle", seoTitle);
+    fd.append("seoMetaH1", seoMetaH1);
+    fd.append("seoDescription", seoDescription);
+    fd.append("seoKeyword", seoKeyword);
+    fd.append("imageUrl", imageUrl);
 
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +

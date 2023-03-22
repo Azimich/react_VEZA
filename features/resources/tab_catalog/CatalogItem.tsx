@@ -41,9 +41,7 @@ const CatalogItem: FC<ICatalogsItem> = ({ title, imageUrl, url, update }) => {
               <span>{isLoading ? <SpinnerButton /> : <DownloadIcon />}</span>
             </Button>
           </div>
-
           <p>.PDF</p>
-
           <Button
             type={"button"}
             theme={"banner"}

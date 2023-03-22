@@ -15,9 +15,9 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
   data = { decision: {}, objects: {}, equipment: {} },
 }) => {
   const { decision, objects, equipment } = data;
-  /*    const {decision, objects, equipment} = data;*/
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadDecision);
+
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: decision?.response?.title }]);
   }, [dataBreadDecision]);
@@ -28,7 +28,7 @@ const DecisionPageContainer: FC<ISSRDecision> = ({
       <DecisionPageItem {...decision?.response} />
       <Separator title={"Наши объекты"} />
       <OwnObject props={objects?.response} />
-      <Separator title={"оборудование"} />
+      <Separator title={"Оборудование"} />
       <Equipment props={equipment?.response} alias={decision.response.alias} />
     </Container>
   );
