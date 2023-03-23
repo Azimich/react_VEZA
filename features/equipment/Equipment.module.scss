@@ -289,6 +289,33 @@
         position: relative;
         border: 1px solid color(border_category);
 
+        span {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 1px solid color(green);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: color(green);
+            transition: all 0.3s;
+
+            svg {
+              transition: all 0.3s;
+              path {
+                fill: color(white)
+              }
+            }
+          }
+        }
+
         &:last-child:nth-child(2n+1) {
           grid-column: span 2;
         }
@@ -363,6 +390,7 @@
     top: 5px;
   }
 }
+
 .div_box_edit_gallery {
   position: relative;
 
