@@ -9,7 +9,7 @@ import { ISSRDecisionArray } from "features/decision/Decision";
 import { ConnectError } from "components/connect_error";
 import { Button } from "components/button";
 import { Modal, useModal } from "components/modal";
-import { AdminAddModal } from "features/decision/modal/AdminAddModal";
+import { AddIndustryCategory } from "features/decision/modal/AddIndustryCategory";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
 
@@ -42,7 +42,7 @@ const DecisionContainer: FC<ISSRDecisionArray> = ({ decision }) => {
       </div>
 
       <Modal
-        modalContent={<AdminAddModal />}
+        modalContent={<AddIndustryCategory />}
         isShow={isShow}
         hide={toggle}
         headerText={"Редактирование"}

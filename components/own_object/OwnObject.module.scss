@@ -2,6 +2,7 @@
 @import 'styles/variables.scss';
 
 .container{
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -117,6 +118,20 @@
           font-size: 14px;
         }
       }
+    }
+  }
+}
+
+.position {
+  position: relative;
+  .button_editor {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    border: 1px solid #9d9d9d;
+    border-radius: 50%;
+    &:hover {
+      border-color: transparent;
     }
   }
 }

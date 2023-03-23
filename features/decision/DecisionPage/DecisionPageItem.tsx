@@ -1,8 +1,9 @@
 import { FC } from "react";
+
 import Styles from "./DecisionPage.module.scss";
 import { IDecisionData } from "../Decision";
 import { Modal, useModal } from "components/modal";
-import { EditPageModal } from "features/decision/modal/EditPageModal";
+import { EditIndustry } from "features/decision/modal/EditIndustry";
 import { Editor } from "components/editor_pen";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
@@ -21,7 +22,7 @@ const DecisionPageItem: FC<IDecisionData> = ({
   const auth = useAppSelector(getAuth);
 
   const contentModal = (
-    <EditPageModal
+    <EditIndustry
       description={description}
       shortDescription={shortDescription}
       title={title}
@@ -50,6 +51,7 @@ const DecisionPageItem: FC<IDecisionData> = ({
           </span>
         )}
       </div>
+      {/*Модалка для редактирования верхнего блока*/}
       <Modal
         isShow={isShow}
         hide={toggle}

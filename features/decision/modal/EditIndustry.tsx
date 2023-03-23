@@ -10,7 +10,7 @@ import { Button } from "components/button";
 import { usePutDecision } from "service/admin/item/putDecision";
 import { IEditModal } from "features/decision/DecisionPage/Decision";
 
-const EditPageModal: FC<IEditModal> = ({
+const EditIndustry: FC<IEditModal> = ({
   title,
   description,
   toggle,
@@ -22,6 +22,7 @@ const EditPageModal: FC<IEditModal> = ({
   imageUrl,
   seoTitle,
 }) => {
+  console.log("alias", alias);
   const [preview, setPreview] = useState<string>(imageUrl);
   const [postTitle, setPostTitle] = useState(title);
   const [postDesc, setPostDesc] = useState(description);
@@ -47,10 +48,10 @@ const EditPageModal: FC<IEditModal> = ({
       title: Yup.string().required("Обязательно для заполнения!"),
       description: Yup.string().required("Обязательно для заполнения!"),
       shortDescription: Yup.string().required("Обязательно для заполнения!"),
+      image: Yup.string().required("Обязательно для заполнения!"),
       seoMetaH1: Yup.string().required("Обязательно для заполнения!"),
       seoDescription: Yup.string().required("Обязательно для заполнения!"),
       seoKeyword: Yup.string().required("Обязательно для заполнения!"),
-      seoTitle: Yup.string().required("Обязательно для заполнения!"),
     }),
     onSubmit: (values) => {
       console.log("values", values);
@@ -103,19 +104,20 @@ const EditPageModal: FC<IEditModal> = ({
   };
 
   const onClickSave = () => {
+    const _imageUrl = preview.indexOf("blob") > -1 ? preview : imageUrl;
     putDecision(
-      title,
+      alias,
       description,
       toggle,
-      alias,
       shortDescription,
-      imageUrl,
+      title,
       seoTitle,
       seoMetaH1,
-      seoKeyword,
       seoDescription,
+      seoKeyword,
+      _imageUrl,
     ).then((data: any) => {
-      toggle();
+      // toggle();
       console.log("items", data);
     });
   };
@@ -173,110 +175,224 @@ const EditPageModal: FC<IEditModal> = ({
         )}
         <div className={Styles.add_input_block}>
           <div className={Styles.add_input_block_left}>
-            <div className={Styles.add_input}>
+            <div
+              className={`${
+                formik.errors["title"] && formik.touched["title"]
+                  ? Styles.add__form__item__input_error
+                  : Styles.add__form__item__input
+              }`}
+            >
               <Input
-                name={"additional[]"}
-                id={"additional[]"}
+                name={"title"}
+                id={"title"}
                 value={postTitle}
                 onChange={handlePostTitleChange}
                 placeholder={"Название отрасли"}
                 type={"text"}
               />
               {postTitle && (
-                <span onClick={() => setPostTitle("")}>
+                <div
+                  className={Styles.icon_clear}
+                  onClick={() => setPostTitle("")}
+                >
                   <CloseIcon />
-                </span>
+                </div>
               )}
+              <div
+                className={`${
+                  formik.errors["title"] && formik.touched["title"]
+                    ? Styles.overflow__auto
+                    : Styles.overflow
+                }`}
+              >
+                <span>{formik.errors["title"]}</span>
+              </div>
             </div>
-            <div className={Styles.short_description}>
+            <div
+              className={`${
+                formik.errors["shortDescription"] &&
+                formik.touched["shortDescription"]
+                  ? Styles.add__form__item__input_error
+                  : Styles.add__form__item__input
+              }`}
+            >
               <TextareaContainer
                 value={postShortDesc}
                 onChange={handlePostShortDescChange}
                 id={"shortDescription"}
                 name={"shortDescription"}
                 placeholder={"Введите описание"}
+                className={Styles.short_description}
               >
                 {shortDescription}
               </TextareaContainer>
+              <div
+                className={`${
+                  formik.errors["shortDescription"] &&
+                  formik.touched["shortDescription"]
+                    ? Styles.overflow__auto
+                    : Styles.overflow
+                }`}
+              >
+                <span>{formik.errors["shortDescription"]}</span>
+              </div>
             </div>
-            <TextareaContainer
-              value={postDesc}
-              onChange={handlePostDescChange}
-              id={"description_"}
-              name={"description_"}
-              placeholder={"Введите описание"}
+            <div
+              className={`${
+                formik.errors["description"] && formik.touched["description"]
+                  ? Styles.add__form__item__input_error
+                  : Styles.add__form__item__input
+              }`}
             >
-              {description}
-            </TextareaContainer>
+              <TextareaContainer
+                value={postDesc}
+                onChange={handlePostDescChange}
+                id={"description"}
+                name={"description"}
+                placeholder={"Введите описание"}
+              >
+                {description}
+              </TextareaContainer>
+              <div
+                className={`${
+                  formik.errors["description"] && formik.touched["description"]
+                    ? Styles.overflow__auto
+                    : Styles.overflow
+                }`}
+              >
+                <span>{formik.errors["description"]}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div className={Styles.add_input_meta}>
-        <div className={Styles.add_input_meta_input}>
+        <div
+          className={`${
+            formik.errors["seoMetaH1"] && formik.touched["seoMetaH1"]
+              ? Styles.add__form__item__input_error
+              : Styles.add__form__item__input
+          }`}
+        >
           <Input
-            name={"seo_h1"}
-            id={"seo_h1"}
+            name={"seoMetaH1"}
+            id={"seoMetaH1"}
             value={seoH1}
             onChange={handlePostSeoH1Change}
             placeholder={"SEO meta-H1"}
             type={"text"}
           />
           {seoH1 && (
-            <span onClick={() => setSeoH1("")}>
+            <div className={Styles.icon_clear} onClick={() => setSeoH1("")}>
               <CloseIcon />
-            </span>
+            </div>
           )}
+          <div
+            className={`${
+              formik.errors["seoMetaH1"] && formik.touched["seoMetaH1"]
+                ? Styles.overflow__auto
+                : Styles.overflow
+            }`}
+          >
+            <span>{formik.errors["seoMetaH1"]}</span>
+          </div>
         </div>
-        <div className={Styles.add_input_meta_input}>
+        <div
+          className={`${
+            formik.errors["seoTitle"] && formik.touched["seoTitle"]
+              ? Styles.add__form__item__input_error
+              : Styles.add__form__item__input
+          }`}
+        >
           <Input
-            name={"seo_title"}
-            id={"seo_title"}
+            name={"seoTitle"}
+            id={"seoTitle"}
             value={seoTitlePost}
             onChange={handlePostSeoTitleChange}
             placeholder={"SEO title"}
             type={"text"}
           />
           {seoTitlePost && (
-            <span onClick={() => setSeoTitle("")}>
+            <div className={Styles.icon_clear} onClick={() => setSeoTitle("")}>
               <CloseIcon />
-            </span>
+            </div>
           )}
+          <div
+            className={`${
+              formik.errors["seoTitle"] && formik.touched["seoTitle"]
+                ? Styles.overflow__auto
+                : Styles.overflow
+            }`}
+          >
+            <span>{formik.errors["seoTitle"]}</span>
+          </div>
         </div>
-        <div className={Styles.add_input_meta_input}>
+        <div
+          className={`${
+            formik.errors["seoKeyword"] && formik.touched["seoKeyword"]
+              ? Styles.add__form__item__input_error
+              : Styles.add__form__item__input
+          }`}
+        >
           <Input
-            name={"seo_keywords"}
-            id={"seo_keywords"}
+            name={"seoKeyword"}
+            id={"seoKeyword"}
             value={seoKeywords}
             onChange={handlePostSeoKeywordsChange}
             placeholder={"SEO keywords"}
             type={"text"}
           />
           {seoKeywords && (
-            <span onClick={() => setSeoKeywords("")}>
+            <div
+              className={Styles.icon_clear}
+              onClick={() => setSeoKeywords("")}
+            >
               <CloseIcon />
-            </span>
+            </div>
           )}
+          <div
+            className={`${
+              formik.errors["seoKeyword"] && formik.touched["seoKeyword"]
+                ? Styles.overflow__auto
+                : Styles.overflow
+            }`}
+          >
+            <span>{formik.errors["seoKeyword"]}</span>
+          </div>
         </div>
-        <div className={Styles.short_description}>
+        <div
+          className={`${
+            formik.errors["seoDescription"] && formik.touched["seoDescription"]
+              ? Styles.add__form__item__input_error
+              : Styles.add__form__item__input
+          }`}
+        >
           <TextareaContainer
-            name={"seo_desc"}
-            id={"seo_desc"}
+            name={"seoDescription"}
+            id={"seoDescription"}
             value={seoDesc}
             onChange={handlePostSeoDescChange}
             placeholder={"SEO description"}
             maxLength="250"
+            className={Styles.short_description}
           >
             {seoDescription}
           </TextareaContainer>
+          <div
+            className={`${
+              formik.errors["seoDescription"] &&
+              formik.touched["seoDescription"]
+                ? Styles.overflow__auto
+                : Styles.overflow
+            }`}
+          >
+            <span>{formik.errors["seoDescription"]}</span>
+          </div>
         </div>
       </div>
-      <Button
-        onClick={() => onClickSave()}
-        children={"Сохранить"}
-        type={"submit"}
-      />
+      <Button onClick={() => onClickSave()} children={"Сохранить"} />
     </form>
   );
 };
 
-export { EditPageModal };
+export { EditIndustry };
