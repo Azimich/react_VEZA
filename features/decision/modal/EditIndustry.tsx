@@ -22,7 +22,6 @@ const EditIndustry: FC<IEditModal> = ({
   imageUrl,
   seoTitle,
 }) => {
-  console.log("alias", alias);
   const [preview, setPreview] = useState<string>(imageUrl);
   const [postTitle, setPostTitle] = useState(title);
   const [postDesc, setPostDesc] = useState(description);
@@ -38,7 +37,7 @@ const EditIndustry: FC<IEditModal> = ({
       title: "",
       description: "",
       shortDescription: "",
-      image: "",
+      imageUrl: "",
       seoMetaH1: "",
       seoDescription: "",
       seoKeyword: "",
@@ -48,98 +47,96 @@ const EditIndustry: FC<IEditModal> = ({
       title: Yup.string().required("Обязательно для заполнения!"),
       description: Yup.string().required("Обязательно для заполнения!"),
       shortDescription: Yup.string().required("Обязательно для заполнения!"),
-      image: Yup.string().required("Обязательно для заполнения!"),
+      imageUrl: Yup.string().required("Обязательно для заполнения!"),
       seoMetaH1: Yup.string().required("Обязательно для заполнения!"),
       seoDescription: Yup.string().required("Обязательно для заполнения!"),
       seoKeyword: Yup.string().required("Обязательно для заполнения!"),
     }),
     onSubmit: (values) => {
+      const _imageUrl =
+        preview.indexOf("blob") > -1 ? preview : values.imageUrl;
+      putDecision(
+        alias,
+        values.description,
+        toggle,
+        values.shortDescription,
+        values.title,
+        values.seoTitle,
+        values.seoMetaH1,
+        values.seoDescription,
+        values.seoKeyword,
+        _imageUrl,
+      ).then((data: any) => {
+        toggle();
+        console.log("items", data);
+      });
       console.log("values", values);
     },
   });
 
   const handlePostTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPostTitle(e.target.value);
-    formik.setFieldValue("title", title);
+    formik.setFieldValue("title", postTitle);
   };
 
   const handlePostDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPostDesc(e.target.value);
-    formik.setFieldValue("description", description);
+    formik.setFieldValue("description", postDesc);
   };
 
   const handlePostShortDescChange = (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setPostShortDesc(e.target.value);
-    formik.setFieldValue("shortDescription", shortDescription);
+    formik.setFieldValue("shortDescription", postShortDesc);
   };
 
   const handlePostSeoH1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSeoH1(e.target.value);
-    formik.setFieldValue("seoMetaH1", seoMetaH1);
+    formik.setFieldValue("seoMetaH1", seoH1);
   };
 
   const handlePostSeoTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSeoTitle(e.target.value);
-    formik.setFieldValue("seoTitle", seoTitle);
+    formik.setFieldValue("seoTitle", seoTitlePost);
   };
 
   const handlePostSeoDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSeoDesc(e.target.value);
-    formik.setFieldValue("seoDescription", seoDescription);
+    formik.setFieldValue("seoDescription", seoDesc);
   };
 
   const handlePostSeoKeywordsChange = (
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setSeoKeywords(e.target.value);
-    formik.setFieldValue("seoKeyword", seoKeyword);
+    formik.setFieldValue("seoKeyword", seoKeywords);
   };
 
   const imageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
     setPreview(URL.createObjectURL(event.target.files[0]));
-    formik.setFieldValue("image", imageUrl);
-  };
-
-  const onClickSave = () => {
-    const _imageUrl = preview.indexOf("blob") > -1 ? preview : imageUrl;
-    putDecision(
-      alias,
-      description,
-      toggle,
-      shortDescription,
-      title,
-      seoTitle,
-      seoMetaH1,
-      seoDescription,
-      seoKeyword,
-      _imageUrl,
-    ).then((data: any) => {
-      // toggle();
-      console.log("items", data);
-    });
+    formik.setFieldValue("image", preview);
   };
 
   useEffect(() => {
-    formik.setFieldValue("title", title);
-    formik.setFieldValue("description", description);
-    formik.setFieldValue("shortDescription", shortDescription);
-    formik.setFieldValue("imageUrl", imageUrl);
-    formik.setFieldValue("seoMetaH1", seoMetaH1);
-    formik.setFieldValue("seoTitle", seoTitle);
-    formik.setFieldValue("seoDescription", seoDescription);
-    formik.setFieldValue("seoKeyword", seoKeyword);
+    formik.setFieldValue("title", postTitle);
+    formik.setFieldValue("description", postDesc);
+    formik.setFieldValue("shortDescription", postShortDesc);
+    formik.setFieldValue("imageUrl", preview);
+    formik.setFieldValue("seoMetaH1", seoH1);
+    formik.setFieldValue("seoTitle", seoTitlePost);
+    formik.setFieldValue("seoDescription", seoDesc);
+    formik.setFieldValue("seoKeyword", seoKeywords);
   }, [
-    imageUrl,
-    description,
-    shortDescription,
-    title,
-    seoMetaH1,
-    seoTitle,
-    seoDescription,
-    seoKeyword,
+    postTitle,
+    postDesc,
+    postShortDesc,
+    preview,
+    seoH1,
+    seoTitlePost,
+    seoDesc,
+    seoKeywords,
   ]);
 
   return (
@@ -162,7 +159,7 @@ const EditIndustry: FC<IEditModal> = ({
                       onChange={imageChange}
                       accept={"image/*"}
                       type={"file"}
-                      value={formik.values["image"]}
+                      value={formik.values["imageUrl"]}
                       id={"file"}
                       name={"added"}
                       className={Styles.added_file}
@@ -390,7 +387,7 @@ const EditIndustry: FC<IEditModal> = ({
           </div>
         </div>
       </div>
-      <Button onClick={() => onClickSave()} children={"Сохранить"} />
+      <Button children={"Сохранить"} type={"submit"} />
     </form>
   );
 };
