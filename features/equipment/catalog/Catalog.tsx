@@ -60,6 +60,10 @@ const Catalog: FC<{
     data && eachRecursive(data);
   }, [data]);
 
+  const handleOnChange = (alias: string) => {
+    console.log("alias", alias);
+  };
+
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
   }, [dataBreadEquipment]);
@@ -115,13 +119,20 @@ const Catalog: FC<{
           }`}
         >
           {filterProduction.map((e, i) => {
+            console.log("eee", e);
             e.aliasPath =
               equipmentPath +
               getParents(categories, e.alias)
                 .reverse()
                 .map((d) => d.alias)
                 .join("/");
-            return <CategoryItem key={i} {...e} />;
+            return (
+              <CategoryItem
+                key={i}
+                {...e}
+                onChange={(e) => handleOnChange(e)}
+              />
+            );
           })}
         </div>
       ) : (
