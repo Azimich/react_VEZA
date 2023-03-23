@@ -7,7 +7,6 @@ import { Input } from "components/input";
 import { CloseIcon } from "components/icons";
 import TextareaContainer from "components/textarea/TextareaContainer";
 import { Button } from "components/button";
-import { usePutDecision } from "service/admin/item/putDecision";
 
 interface IData {
   description?: string;
@@ -19,19 +18,10 @@ interface IData {
   seo?: string;
 }
 
-const ModalNewsEdit: FC<IData> = ({
-  title,
-  description,
-  toggle,
-  alias,
-  shortDescription,
-  image,
-  seo,
-}) => {
+const ModalNewsEdit: FC<IData> = ({ title, description, image }) => {
   const [postTitle, setPostTitle] = useState(title);
   const [selectedImage, setSelectedImage] = useState();
   const [postDesc, setPostDesc] = useState(description);
-  const { putDecision } = usePutDecision();
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -60,20 +50,6 @@ const ModalNewsEdit: FC<IData> = ({
       setSelectedImage(e.target.files[0]);
       formik.setFieldValue("image", image);
     }
-  };
-  const onClickSave = () => {
-    putDecision(
-      title,
-      description,
-      toggle,
-      alias,
-      shortDescription,
-      seo,
-      image,
-    ).then((data: any) => {
-      toggle();
-      console.log("items", data);
-    });
   };
 
   useEffect(() => {
@@ -146,11 +122,7 @@ const ModalNewsEdit: FC<IData> = ({
             {description}
           </TextareaContainer>
         </div>
-        <Button
-          onClick={() => onClickSave()}
-          children={"Сохранить"}
-          type={"submit"}
-        />
+        <Button onClick={() => {}} children={"Сохранить"} type={"submit"} />
       </div>
     </form>
   );

@@ -10,7 +10,7 @@ import { Button } from "components/button";
 import { usePutDecision } from "service/admin/item/putDecision";
 import { IEditModal } from "features/decision/DecisionPage/Decision";
 
-const EditPageModal: FC<IEditModal> = ({
+const EditIndustry: FC<IEditModal> = ({
   title,
   description,
   toggle,
@@ -22,7 +22,8 @@ const EditPageModal: FC<IEditModal> = ({
   imageUrl,
   seoTitle,
 }) => {
-  const [preview, setPreview] = useState<string>();
+  console.log("alias", alias);
+  const [preview, setPreview] = useState<string>(imageUrl);
   const [postTitle, setPostTitle] = useState(title);
   const [postDesc, setPostDesc] = useState(description);
   const [postShortDesc, setPostShortDesc] = useState(shortDescription);
@@ -53,7 +54,7 @@ const EditPageModal: FC<IEditModal> = ({
       seoKeyword: Yup.string().required("Обязательно для заполнения!"),
     }),
     onSubmit: (values) => {
-      console.log("Значения полей", values);
+      console.log("values", values);
     },
   });
 
@@ -103,19 +104,20 @@ const EditPageModal: FC<IEditModal> = ({
   };
 
   const onClickSave = () => {
+    const _imageUrl = preview.indexOf("blob") > -1 ? preview : imageUrl;
     putDecision(
-      title,
+      alias,
       description,
       toggle,
-      alias,
       shortDescription,
-      imageUrl,
+      title,
       seoTitle,
       seoMetaH1,
-      seoKeyword,
       seoDescription,
+      seoKeyword,
+      _imageUrl,
     ).then((data: any) => {
-      toggle();
+      // toggle();
       console.log("items", data);
     });
   };
@@ -124,13 +126,13 @@ const EditPageModal: FC<IEditModal> = ({
     formik.setFieldValue("title", title);
     formik.setFieldValue("description", description);
     formik.setFieldValue("shortDescription", shortDescription);
-    // formik.setFieldValue("imageUrl", imageUrl);
+    formik.setFieldValue("imageUrl", imageUrl);
     formik.setFieldValue("seoMetaH1", seoMetaH1);
     formik.setFieldValue("seoTitle", seoTitle);
     formik.setFieldValue("seoDescription", seoDescription);
     formik.setFieldValue("seoKeyword", seoKeyword);
   }, [
-    // imageUrl,
+    imageUrl,
     description,
     shortDescription,
     title,
@@ -141,9 +143,7 @@ const EditPageModal: FC<IEditModal> = ({
   ]);
 
   return (
-    <form
-    // onSubmit={formik.handleSubmit}
-    >
+    <form onSubmit={formik.handleSubmit}>
       <div className={Styles.add_info}>
         {preview ? (
           <div className={`${Styles.add_info_banner} ${Styles.preview}`}>
@@ -395,4 +395,4 @@ const EditPageModal: FC<IEditModal> = ({
   );
 };
 
-export { EditPageModal };
+export { EditIndustry };

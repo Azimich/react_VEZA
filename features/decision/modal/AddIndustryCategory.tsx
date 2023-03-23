@@ -16,7 +16,7 @@ interface IData {
   alias?: string;
 }
 
-const AdminAddModal: FC<IData> = () => {
+const AddIndustryCategory: FC<IData> = () => {
   const [preview, setPreview] = useState<string>();
   const [postTitle, setPostTitle] = useState("");
 
@@ -111,4 +111,4 @@ const AdminAddModal: FC<IData> = () => {
   );
 };
 
-export { AdminAddModal };
+export { AddIndustryCategory };
