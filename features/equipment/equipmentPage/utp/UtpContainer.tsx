@@ -37,7 +37,7 @@ const UtpContainer: FC<IEquipmentItem> = (props) => {
   useEffect(() => {
     !isShowDescription &&
       getDescription(props.alias).then((data) => {
-        setDescription(data.response.description);
+        setDescription(data.response?.description);
       });
   }, [isShowDescription]);
 

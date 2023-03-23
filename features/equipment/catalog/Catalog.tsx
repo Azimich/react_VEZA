@@ -17,6 +17,7 @@ import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
 import { Modal, useModal } from "components/modal";
 import { ModalAddProduction } from "features/equipment/catalog/ModalAddProduction";
+import { useDeleteProduct } from "service/admin/item/deleteProduct";
 
 const Catalog: FC<{
   data: ICategoriesItem[];
@@ -24,6 +25,7 @@ const Catalog: FC<{
 }> = ({ data, categories }) => {
   const router = useRouter();
   const [dataCategory] = useState<ICatalogEquipmentData>();
+  const [dataList, setDataList] = useState<ICategoriesItem[]>();
   const [free, setFree] = useState(false);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadEquipment);
@@ -31,10 +33,14 @@ const Catalog: FC<{
   const { isShow, toggle } = useModal();
   const [inputValue, setInputValue] = useState<string>("");
   const [searchValue, setSearchValue] = useState([]);
-
+  const { deleteProduct } = useDeleteProduct();
   const handleOnChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
+
+  useEffect(() => {
+    data?.length > 0 && setDataList(data);
+  }, data);
 
   const filterProduction = searchValue.filter((product) => {
     return product.title.toLowerCase().includes(inputValue.toLowerCase());
@@ -61,8 +67,21 @@ const Catalog: FC<{
   }, [data]);
 
   const handleOnChange = (alias: string) => {
-    console.log("alias", alias);
+    deleteProduct(alias).then(() => {});
+    setDataList(
+      dataList.map((e) => {
+        if (e.alias === alias) {
+          e.archived = !e.archived;
+        }
+        return e;
+      }),
+    );
   };
+
+  console.log(
+    "getData(result.response, params.slug as string)[0].equipment,",
+    data,
+  );
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталог продукции" }]);
@@ -119,7 +138,6 @@ const Catalog: FC<{
           }`}
         >
           {filterProduction.map((e, i) => {
-            console.log("eee", e);
             e.aliasPath =
               equipmentPath +
               getParents(categories, e.alias)
