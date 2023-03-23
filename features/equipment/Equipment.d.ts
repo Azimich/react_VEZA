@@ -19,6 +19,7 @@ interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
 
 interface ICategoriesItem extends IBannerItem {
   alias: string;
+  archived?: boolean;
   aliasPath?: string;
   images?: IImages[] | IImages;
   level: number;

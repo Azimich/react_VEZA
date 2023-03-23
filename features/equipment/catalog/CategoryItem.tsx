@@ -10,6 +10,7 @@ import { getAuth } from "features/auth/AuthSlice";
 
 const CategoryItem: FC<ICategoriesItem> = ({
   onChange,
+  archived,
   alias,
   images,
   title,
@@ -21,9 +22,12 @@ const CategoryItem: FC<ICategoriesItem> = ({
   const handleOnClickArchive = (alias: string) => {
     onChange(alias);
   };
-
   return (
-    <div className={Styles.equipment__container_catalog_product_a}>
+    <div
+      className={`${Styles.equipment__container_catalog_product_a} ${
+        archived ? Styles.archived : ""
+      }`}
+    >
       <Link url={aliasPath}>
         {isMobile && <img src={img[0]?.mobile} alt={title} />}
         {isTablet && <img src={img[0]?.ipad} alt={title} />}

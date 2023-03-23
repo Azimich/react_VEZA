@@ -287,7 +287,12 @@
         border-radius: 8px;
         transition: all 0.2s;
         position: relative;
+        min-height: 300px;
         border: 1px solid color(border_category);
+
+        &.archived {
+          opacity: 0.2;
+        }
 
         span {
           position: absolute;
@@ -309,6 +314,7 @@
 
             svg {
               transition: all 0.3s;
+
               path {
                 fill: color(white)
               }
@@ -321,7 +327,7 @@
         }
 
         &:hover img {
-          object-fit: contain;
+          object-fit: cover;
           transform: scale(1.1);
         }
 
@@ -339,7 +345,7 @@
       &.free {
         display: grid;
         //grid-template-columns: repeat(auto-fit, minmax(200px, 330px));
-        grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(262px, 353px));
         grid-gap: 15px;
 
         a {
