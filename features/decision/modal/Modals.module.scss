@@ -4,7 +4,6 @@
 
 .edit__object {
   display: flex;
-  //flex-direction: column;
   gap: 12px;
   margin: 20px 0;
   .add__image {
@@ -65,11 +64,10 @@
       }
     }
   }
-  .inputs__block {
+  .add_input_block {
     width: 100%;
-    .add__form__item__input {
-      position: relative;
-      margin-bottom: 12px;
+    margin-bottom: 12px;
+    &_left {
       input {
         border: 1px solid #d2d2d2;
         padding: 10px;
@@ -82,7 +80,7 @@
         cursor: pointer;
         position: absolute;
         right: 10px;
-        top: 30%;
+        top: 20%;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -94,51 +92,87 @@
           }
         }
       }
-      .overflow {
-        margin-top: 5px;
-        transition: all 0.3s;
-        height: 15px;
-        opacity: 0;
-        transform: translateY(-10px);
-        span {
-          margin: 0 0 0 10px;
-        }
-      }
-      &_error {
-        color: color(error);
-        border-radius: 8px;
-        font-size: 12px;
+      .add__form__item__input {
         position: relative;
-        margin-bottom: 12px;
-        .overflow__auto {
+        .overflow {
           margin-top: 5px;
-          opacity: 1;
           transition: all 0.3s;
-          transform: translateY(0px);
-          height: 15px;
+          height: 23px;
+          opacity: 0;
+          transform: translateY(-10px);
+          span {
+            margin: 0 0 0 10px;
+          }
         }
-        input {
-          border: 1px solid #d2d2d2;
-          padding: 10px;
-          border-radius: 5px;
-        }
-        .icon_clear {
-          cursor: pointer;
-          position: absolute;
-          right: 10px;
-          top: 30%;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          svg {
-            opacity: 0.4;
-            transition: all 0.1s ease;
-            &:hover {
-              opacity: 1;
+        &_error {
+          color: color(error);
+          border-radius: 8px;
+          font-size: 12px;
+          position: relative;
+          margin-bottom: 12px;
+          .overflow__auto {
+            margin-top: 5px;
+            opacity: 1;
+            transition: all 0.3s;
+            transform: translateY(0px);
+            height: 23px;
+          }
+          input {
+            border: 1px solid #d2d2d2;
+            padding: 10px;
+            border-radius: 5px;
+            &:focus {
+              border: 1px solid color(green);
+            }
+          }
+          .icon_clear {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 20%;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            svg {
+              opacity: 0.4;
+              transition: all 0.1s ease;
+
+              &:hover {
+                opacity: 1;
+              }
             }
           }
         }
       }
     }
+
   }
+
+
+
+  //      input {
+  //        border: 1px solid #d2d2d2;
+  //        padding: 10px;
+  //        border-radius: 5px;
+  //      }
+  //      .icon_clear {
+  //        cursor: pointer;
+  //        position: absolute;
+  //        right: 10px;
+  //        top: 30%;
+  //        display: flex;
+  //        align-items: center;
+  //        gap: 8px;
+  //        svg {
+  //          opacity: 0.4;
+  //          transition: all 0.1s ease;
+  //          &:hover {
+  //            opacity: 1;
+  //          }
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
 }

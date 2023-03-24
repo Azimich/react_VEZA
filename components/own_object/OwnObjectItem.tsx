@@ -14,6 +14,7 @@ const OwnObjectItem: FC<IObjects> = ({
   categories,
   address,
   slidePosition,
+  industryObjectId,
 }) => {
   const slide_class = `col${slidePosition}`;
   const { isShow, toggle } = useModal();
@@ -26,6 +27,8 @@ const OwnObjectItem: FC<IObjects> = ({
       categories={[]}
       address={address}
       toggle={toggle}
+      slidePosition={slidePosition}
+      industryObjectId={industryObjectId}
     />
   );
 

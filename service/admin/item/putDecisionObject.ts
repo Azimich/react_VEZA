@@ -9,6 +9,8 @@ const usePutDecisionObject = () => {
     alias: string | string[],
     title: string,
     imageUrl: any,
+    industryObjectId: number | any,
+    slidePosition?: number | any,
   ) => {
     const fd = new FormData();
     fd.append("title", title);
@@ -17,6 +19,8 @@ const usePutDecisionObject = () => {
     fd.append("alias", alias);
     const blob = await fetch(imageUrl).then((response) => response.blob());
     fd.append("image", blob);
+    fd.append("objectId", industryObjectId);
+    fd.append("slidePosition", slidePosition);
 
     return request(
       process.env.NEXT_PUBLIC_APP_FETCH +

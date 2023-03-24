@@ -1,9 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 
-// import Styles from "./DecisionPage.module.scss";
 import { ISSRDecision } from "../Decision";
 import { Container } from "components/common/container";
-
 import { Separator } from "components/separator";
 import { OwnObject } from "components/own_object";
 import { Equipment } from "components/equipment";
