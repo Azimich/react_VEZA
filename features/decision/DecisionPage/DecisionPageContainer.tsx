@@ -10,10 +10,6 @@ import { Equipment } from "components/equipment";
 import { dataBreadDecision } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { DecisionPageItem } from "features/decision/DecisionPage/DecisionPageItem";
-// import Styles from "components/own_object/OwnObject.module.scss";
-// import {Editor} from "components/editor_pen";
-// import {Modal} from "components/modal";
-// import {EditObjectIndustry} from "features/decision/modal/EditObjectIndustry";
 
 const DecisionPageContainer: FC<ISSRDecision> = ({
   data = { decision: {}, objects: {}, equipment: {} },

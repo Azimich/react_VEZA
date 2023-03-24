@@ -25,6 +25,16 @@
     padding: 0;
   }
 
+  .button_editor {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
   li {
     border-radius: 10px;
     position: relative;
@@ -122,16 +132,3 @@
   }
 }
 
-.position {
-  position: relative;
-  .button_editor {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    border: 1px solid #9d9d9d;
-    border-radius: 50%;
-    &:hover {
-      border-color: transparent;
-    }
-  }
-}
