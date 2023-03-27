@@ -11,14 +11,18 @@ import { useRouter } from "next/router";
 import { Button } from "components/button";
 import { useGetCatalog } from "service/list/getCatalog";
 import { CatalogItem } from "features/resources/tab_catalog/CatalogItem";
-/*import {onButtonClick} from "utils/helpers";*/
-/*import {SpinnerButton} from "components/spinners";
-import {DownloadIcon} from "components/icons";*/
 import { Link } from "components/link";
+import { useAppSelector } from "store/hooks";
+import { getAuth } from "features/auth/AuthSlice";
+import { Modal, useModal } from "components/modal";
+import { EditSeoModal } from "features/resources/tab_catalog/EditSeoModal";
+import { Helmet } from "react-helmet";
 
 const CatalogContainer = () => {
   const router = useRouter();
+  const auth = useAppSelector(getAuth);
   const { getCatalog } = useGetCatalog();
+  const { isShow, toggle } = useModal();
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
   const [catalogData, setCatalogData] = useState<ICatalogResponse>(undefined);
@@ -45,8 +49,20 @@ const CatalogContainer = () => {
     });
   }, []);
 
+  const contentModal = (
+    <EditSeoModal catalogData={catalogData} toggle={toggle} />
+  );
+
   return (
     <Container className={"wrapper_clear"}>
+      <Helmet>
+        <meta
+          name="description"
+          content={catalogData?.response?.seoDescription}
+        />
+        <meta name="keywords" content={catalogData?.response?.seoKeyword} />
+        <title>{catalogData?.response?.seoTitle}</title>
+      </Helmet>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.catalog_container}>
         <Tabs
@@ -60,18 +76,31 @@ const CatalogContainer = () => {
       </div>
       <div className={Styles.catalog_title}>
         <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
-        <Link url={catalogData && catalogData.response.url} download={"true"}>
-          <Button
-            type={"button"}
-            children={catalogData && catalogData.response.title}
-          />
-        </Link>
+        <div className={Styles.buttons}>
+          {auth.identify && auth.data.response && (
+            <Button onClick={toggle} children={"Редактирование"} />
+          )}
+          <Link url={catalogData && catalogData.response.url} download={"true"}>
+            <Button
+              type={"button"}
+              children={catalogData && catalogData.response.title}
+            />
+          </Link>
+        </div>
       </div>
       <div className={Styles.catalog_box}>
         {catalogData &&
           catalogData.response.catalogues.map((e, i) => {
             return <CatalogItem {...e} key={i} />;
           })}
+        <Modal
+          isShow={isShow}
+          hide={toggle}
+          modalContent={contentModal}
+          headerText={"Редактирование"}
+          bgModal={"black"}
+          theme={"modal_edit_text_1200"}
+        />
       </div>
     </Container>
   );
