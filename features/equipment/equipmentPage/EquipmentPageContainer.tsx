@@ -13,6 +13,9 @@ import { Editor } from "components/editor_pen";
 import { Modal, useModal } from "components/modal";
 import { ModalFormAdditionQ } from "features/equipment/equipmentPage/utp/ModalFormAdditionQ";
 import { ModalFormGallery } from "features/equipment/equipmentPage/utp/ModalFormGallery";
+import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
+import { dataBreadEquipment } from "components/breadcrumbs/mockData";
+import { getData, getParents } from "utils/helpers";
 
 const EquipmentPageContainer: FC<{
   data: ICategoriesItem[];
@@ -41,6 +44,33 @@ const EquipmentPageContainer: FC<{
   };
   const { isShow: isShowAdditionQ, toggle: toggleEditAdditionQ } = useModal();
   const { isShow: isShowGallery, toggle: toggleEditGallery } = useModal();
+  const [breadCrumbs] = useState<IBreadCrumbs[]>(dataBreadEquipment);
+
+  useEffect(() => {
+    //   setBreadCrumbs([...breadCrumbs, {title: "Каталог продукции"}]);
+    const parentsData = getParents(
+      categories.response,
+      getData(categories.response, alias_active)[0]?.parentAlias,
+      getData(categories.response, alias_active)[0]?.level,
+    )
+      .reverse()
+      .map((e) => {
+        return { title: e.title, alias: e.alias };
+      });
+
+    for (const k in parentsData) {
+      console.log("parentsData", parentsData[k]);
+    }
+    console.log("123", parentsData);
+    /*        const res = parentsData.map(e => {
+                    const curData = getData(categories.response, e.alias as string)[0]
+                    setBreadCrumbs(prevData => [...prevData, {
+                        title: curData.title,
+                        alias: process.env.NEXT_PUBLIC_APP_URL + equipmentPath
+                    }]);
+                })*/
+    // return setBreadCrumbs([])
+  }, [categories]);
 
   useEffect(() => {
     !isShowAdditionQ &&
@@ -58,6 +88,7 @@ const EquipmentPageContainer: FC<{
   );
   return (
     <Container className={"wrapper"}>
+      <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.equipment__container}>
         <Menu categories={categories?.response} data={data} alias={alias} />
         <div className={Styles.content_box}>

@@ -13,37 +13,41 @@
   @include ipadScreen {
     flex-direction: column;
   }
-  .buttons {
-    display: flex;
-    gap: 10px;
-  }
+
   .disabled_active {
     border-radius: 10px;
+
     &:hover {
       background: color(green);
       color: color(white);
+
       path {
         fill: #fff;
       }
     }
-    button{
+
+    button {
       display: flex;
       align-items: center;
       gap: 12px;
       transition: none !important;
     }
+
     span {
       svg {
         width: 18px;
       }
+
       path {
         fill: white;
       }
     }
   }
+
   .disabled {
     cursor: not-allowed;
     border-radius: 10px;
+
     button {
       display: flex;
       align-items: center;
@@ -53,6 +57,7 @@
       transition: none !important;
     }
   }
+
   h1 {
     text-align: left;
     text-transform: uppercase;
@@ -66,6 +71,7 @@
       text-align: center;
     }
   }
+
   &:focus-within {
     label {
       transform: translateY(-30px) scale(1);
@@ -135,6 +141,11 @@
       gap: 0;
     }
 
+    &.archived {
+      border: 1px solid color(grey);
+      opacity: 0.2;
+    }
+
     &__images {
       height: 100%;
       width: 28%;
@@ -166,6 +177,9 @@
       }
 
       &_title {
+        display: flex;
+        justify-content: space-between;
+
         p {
           font-weight: 400;
           font-size: 18px;
@@ -181,6 +195,38 @@
           height: 78px;
           @include phoneScreen {
             text-align: center;
+          }
+        }
+
+        span {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
+          border: 1px solid color(green);
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s;
+
+          svg {
+            path {
+              fill: color(dark);
+            }
+          }
+
+          &:hover {
+            transition: all 0.3s;
+            background-color: color(green);
+
+            svg {
+              path {
+                fill: color(white)
+              }
+            }
           }
         }
       }

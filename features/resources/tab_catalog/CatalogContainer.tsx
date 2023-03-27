@@ -15,39 +15,34 @@ import { Link } from "components/link";
 import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
 import { Modal, useModal } from "components/modal";
-import { EditSeoModal } from "features/resources/tab_catalog/EditSeoModal";
-import { Helmet } from "react-helmet";
+import { ModalForm } from "features/resources/tab_catalog/ModalForm";
 
 const CatalogContainer = () => {
   const router = useRouter();
   const auth = useAppSelector(getAuth);
   const { getCatalog } = useGetCatalog();
-  const { isShow, toggle } = useModal();
+  const [refreshPage, setRefreshPage] = useState<boolean>(true);
+  const auth = useAppSelector(getAuth);
   const [breadCrumbs, setBreadCrumbs] =
     useState<IBreadCrumbs[]>(dataBreadResources);
   const [catalogData, setCatalogData] = useState<ICatalogResponse>(undefined);
-  /*    const [download, setDownload] = useState(true);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const handleDisabled = (url: string, title: string) => {
-        setDownload(false);
-        setIsLoading(true);
-        onButtonClick(url, title).then(() => {
-            setDownload(true);
-            setIsLoading(false);
-            console.log("ПОСЛЕ СКАЧИВАНИЯ", catalogData.response.url, title);
-        });
-    };*/
+  const { isShow, toggle } = useModal();
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
   }, [dataBreadResources]);
 
+  const handleOnChange = () => {
+    setRefreshPage(true);
+  };
   useEffect(() => {
-    getCatalog().then((data) => {
-      setCatalogData(data);
-    });
-  }, []);
+    refreshPage &&
+      getCatalog().then((data) => {
+        setRefreshPage(false);
+        setCatalogData(data);
+      });
+  }, [refreshPage]);
+  const contentAdd = <ModalForm toggle={toggle} onChange={handleOnChange} />;
 
   const contentModal = (
     <EditSeoModal catalogData={catalogData} toggle={toggle} />
@@ -88,10 +83,33 @@ const CatalogContainer = () => {
           </Link>
         </div>
       </div>
+      {auth.identify && (
+        <Button
+          type={"button"}
+          children={"добавить каталог"}
+          onClick={() => toggle()}
+        />
+      )}
       <div className={Styles.catalog_box}>
         {catalogData &&
           catalogData.response.catalogues.map((e, i) => {
-            return <CatalogItem {...e} key={i} />;
+            return !e.archived ? (
+              <CatalogItem
+                onChange={handleOnChange}
+                {...e}
+                auth={auth}
+                key={i}
+              />
+            ) : (
+              auth.identify && (
+                <CatalogItem
+                  {...e}
+                  auth={auth}
+                  key={i}
+                  onChange={handleOnChange}
+                />
+              )
+            );
           })}
         <Modal
           isShow={isShow}
@@ -102,6 +120,14 @@ const CatalogContainer = () => {
           theme={"modal_edit_text_1200"}
         />
       </div>
+      <Modal
+        isShow={isShow}
+        hide={toggle}
+        modalContent={contentAdd}
+        headerText={"Добавление каталога"}
+        theme={"modal_edit_text"}
+        bgModal={"white"}
+      />
     </Container>
   );
 };

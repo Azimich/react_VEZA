@@ -19,6 +19,7 @@ interface ICategoriesResponseArray extends Omit<IResponse, "response"> {
 
 interface ICategoriesItem extends IBannerItem {
   alias: string;
+  archived?: boolean;
   aliasPath?: string;
   images?: IImages[] | IImages;
   level: number;
@@ -29,6 +30,7 @@ interface ICategoriesItem extends IBannerItem {
   equipment?: ICategoriesItem[];
   subCategories?: ICategoriesItem[];
   product?: boolean;
+  onChange?: (alias: string) => void;
 }
 
 export { ICatalogEquipmentData, ICategoriesItem, ICategoriesResponseArray };
