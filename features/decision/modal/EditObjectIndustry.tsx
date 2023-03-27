@@ -235,7 +235,7 @@ const EditObjectIndustry: FC<IObject> = ({
           </div>
         </div>
       </div>
-      <Button children={"Сохранить"} type={"submit"} />
+      <Button children={"Сохранить"} type={"submit"} onClick={toggle} />
     </form>
   );
 };

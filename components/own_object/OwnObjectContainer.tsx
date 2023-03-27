@@ -16,7 +16,7 @@ const OwnObjectContainer: FC<IObjectRes> = ({ props }) => {
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
 
-  const AddObjectModal = <AddObject />;
+  const AddObjectModal = <AddObject toggle={toggle} />;
 
   return (
     <>

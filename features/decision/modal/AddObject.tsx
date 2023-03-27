@@ -8,7 +8,11 @@ import { Button } from "components/button";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 
-const AddObject: FC = () => {
+interface IAddModal {
+  toggle: () => void;
+}
+
+const AddObject: FC<IAddModal> = ({ toggle }) => {
   const router = useRouter();
   const [imageValue, setImageValue] = useState("");
   const [postTitle, setPostTitle] = useState("");
@@ -187,7 +191,7 @@ const AddObject: FC = () => {
           </div>
         </div>
       </div>
-      <Button children={"Сохранить"} type={"submit"} />
+      <Button children={"Сохранить"} type={"submit"} onClick={toggle} />
     </form>
   );
 };
