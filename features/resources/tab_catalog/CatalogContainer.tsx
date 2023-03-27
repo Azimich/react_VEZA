@@ -16,10 +16,11 @@ import { useAppSelector } from "store/hooks";
 import { getAuth } from "features/auth/AuthSlice";
 import { Modal, useModal } from "components/modal";
 import { ModalForm } from "features/resources/tab_catalog/ModalForm";
+import { EditSeoModal } from "features/resources/tab_catalog/EditSeoModal";
+import { Helmet } from "react-helmet";
 
 const CatalogContainer = () => {
   const router = useRouter();
-  const auth = useAppSelector(getAuth);
   const { getCatalog } = useGetCatalog();
   const [refreshPage, setRefreshPage] = useState<boolean>(true);
   const auth = useAppSelector(getAuth);
