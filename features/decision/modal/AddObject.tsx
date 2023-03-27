@@ -1,46 +1,29 @@
-import React, { FC, useEffect, useState } from "react";
 import * as Yup from "yup";
+import React, { FC, useState } from "react";
 
+import Styles from "./Modals.module.scss";
 import { ClearIcon, CloseIcon } from "components/icons";
 import { Input } from "components/input";
-import { useFormik } from "formik";
-import Styles from "./Modals.module.scss";
 import { Button } from "components/button";
-import { usePutDecisionObject } from "service/admin/item/putDecisionObject";
 import { useRouter } from "next/router";
+import { useFormik } from "formik";
 
-interface IObject {
-  title: string;
-  imageUrl: string;
-  categories: [];
-  address: string;
-  toggle?: () => void;
-  industryObjectId: number;
-  slidePosition?: number;
+interface IAddModal {
+  toggle: () => void;
 }
 
-const EditObjectIndustry: FC<IObject> = ({
-  title,
-  imageUrl,
-  address,
-  toggle,
-  industryObjectId,
-  slidePosition,
-}) => {
+const AddObject: FC<IAddModal> = ({ toggle }) => {
   const router = useRouter();
-  const [imageValue, setImageValue] = useState(imageUrl);
-  const [postTitle, setPostTitle] = useState(title);
-  const [postAddress, setPostAddress] = useState(address);
-  const [postSlidePosition, setPostSlidePosition] = useState(slidePosition);
-  const { putDecisionObject } = usePutDecisionObject();
-
+  const [imageValue, setImageValue] = useState("");
+  const [postTitle, setPostTitle] = useState("");
+  const [postAddress, setPostAddress] = useState("");
+  const [postSlidePosition, setPostSlidePosition] = useState(0);
   const formik = useFormik({
     initialValues: {
-      address: "",
       alias: router.query.slug,
       title: "",
       imageUrl: "",
-      industryObjectId: 0,
+      address: "",
       slidePosition: 0,
     },
     validationSchema: Yup.object({
@@ -50,21 +33,7 @@ const EditObjectIndustry: FC<IObject> = ({
       slidePosition: Yup.string().required("Обязательно для заполнения!"),
     }),
     onSubmit: (values) => {
-      const _imageUrl =
-        imageValue.indexOf("blob") > -1 ? imageValue : values.imageUrl;
       console.log("values", values);
-      putDecisionObject(
-        toggle,
-        values.address,
-        router.query.slug,
-        values.title,
-        _imageUrl,
-        industryObjectId,
-        values.slidePosition,
-      ).then((data: any) => {
-        toggle();
-        console.log("items", data);
-      });
     },
   });
 
@@ -75,7 +44,7 @@ const EditObjectIndustry: FC<IObject> = ({
   };
   const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPostTitle(event.target.value);
-    formik.setFieldValue("seoTitle", postTitle);
+    formik.setFieldValue("title", postTitle);
   };
   const handleChangeAddress = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPostAddress(event.target.value);
@@ -88,54 +57,41 @@ const EditObjectIndustry: FC<IObject> = ({
     formik.setFieldValue("slidePosition", postSlidePosition);
   };
 
-  useEffect(() => {
-    formik.setFieldValue("title", postTitle);
-    formik.setFieldValue("address", postAddress);
-    formik.setFieldValue("imageUrl", imageValue);
-    formik.setFieldValue("slidePosition", postSlidePosition);
-  }, [postTitle, postAddress, imageValue, postSlidePosition]);
-
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className={Styles.edit__object}>
         <div className={Styles.add__image}>
-          <>
-            {imageValue ? (
-              <div className={`${Styles.add_info_banner} ${Styles.preview}`}>
-                <img
-                  className={Styles.image}
-                  src={imageValue}
-                  alt={imageValue}
-                />
-                <div
-                  className={Styles.delete_img}
-                  onClick={() => setImageValue(null)}
-                >
-                  <ClearIcon />
-                </div>
+          {imageValue ? (
+            <div className={`${Styles.add_info_banner} ${Styles.preview}`}>
+              <img className={Styles.image} src={imageValue} alt={imageValue} />
+              <div
+                className={Styles.delete_img}
+                onClick={() => setImageValue(null)}
+              >
+                <ClearIcon />
               </div>
-            ) : (
-              <div className={Styles.add_info_banner}>
-                <label className={Styles.added_input_label} htmlFor={"file"}>
-                  <div className={Styles.added_input}>
-                    <div className={Styles.added_label}>
-                      <span className={Styles.added_label_span}>
-                        <Input
-                          onChange={handleAddImage}
-                          accept={"image/*"}
-                          type={"file"}
-                          value={formik.values["imageUrl"]}
-                          id={"file"}
-                          name={"added"}
-                          className={Styles.added_file}
-                        />
-                      </span>
-                    </div>
+            </div>
+          ) : (
+            <div className={Styles.add_info_banner}>
+              <label className={Styles.added_input_label} htmlFor={"file"}>
+                <div className={Styles.added_input}>
+                  <div className={Styles.added_label}>
+                    <span className={Styles.added_label_span}>
+                      <Input
+                        onChange={handleAddImage}
+                        accept={"image/*"}
+                        type={"file"}
+                        value={formik.values["imageUrl"]}
+                        id={"file"}
+                        name={"image"}
+                        className={Styles.added_file}
+                      />
+                    </span>
                   </div>
-                </label>
-              </div>
-            )}
-          </>
+                </div>
+              </label>
+            </div>
+          )}
         </div>
         <div className={Styles.add_input_block}>
           <div className={Styles.add_input_block_left}>
@@ -240,4 +196,4 @@ const EditObjectIndustry: FC<IObject> = ({
   );
 };
 
-export { EditObjectIndustry };
+export { AddObject };

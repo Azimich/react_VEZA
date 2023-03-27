@@ -1,19 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 
-// import Styles from "./DecisionPage.module.scss";
 import { ISSRDecision } from "../Decision";
 import { Container } from "components/common/container";
-
 import { Separator } from "components/separator";
 import { OwnObject } from "components/own_object";
 import { Equipment } from "components/equipment";
 import { dataBreadDecision } from "components/breadcrumbs/mockData";
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { DecisionPageItem } from "features/decision/DecisionPage/DecisionPageItem";
-// import Styles from "components/own_object/OwnObject.module.scss";
-// import {Editor} from "components/editor_pen";
-// import {Modal} from "components/modal";
-// import {EditObjectIndustry} from "features/decision/modal/EditObjectIndustry";
 
 const DecisionPageContainer: FC<ISSRDecision> = ({
   data = { decision: {}, objects: {}, equipment: {} },

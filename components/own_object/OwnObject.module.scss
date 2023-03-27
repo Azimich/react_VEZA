@@ -1,13 +1,12 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
-.container{
+.container {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 20px 20px;
-  padding: 0 10px;
   grid-template-areas:
     "col1 col2 col3"
     "col4 col5 col5";
@@ -23,6 +22,16 @@
     flex-direction: column;
     gap: 10px;
     padding: 0;
+  }
+
+  .button_editor {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    &:hover {
+      border-color: transparent;
+    }
   }
 
   li {
@@ -121,17 +130,9 @@
     }
   }
 }
-
-.position {
-  position: relative;
-  .button_editor {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    border: 1px solid #9d9d9d;
-    border-radius: 50%;
-    &:hover {
-      border-color: transparent;
-    }
-  }
+.add__obj__button {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
+

@@ -1,0 +1,170 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+
+.edit__object {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+  .add__image {
+    width: 100%;
+    margin-bottom: 20px;
+    .add_info_banner {
+      background-color: #f1f1f1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 55vh;
+      overflow: hidden;
+      position: relative;
+      .delete_img {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 4;
+      }
+      .added_input_label {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        object-fit: cover;
+      }
+      .added_input {
+        position: relative;
+        background-color: #009247;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        height: 5vw;
+        width: 5vw;
+        .added_label {
+          background-image: url('/images/add.svg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 10px;
+          display: block;
+          width: 70%;
+          height: 70%;
+          cursor: pointer;
+          z-index: 2;
+          &_span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .add_input_block {
+    width: 100%;
+    &_left {
+      input {
+        border: 1px solid #d2d2d2;
+        padding: 10px 25px 10px 10px;
+        border-radius: 5px;
+        &:focus {
+          border: 1px solid color(green);
+        }
+      }
+      .icon_clear {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 20%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        svg {
+          opacity: 0.4;
+          transition: all 0.1s ease;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      .add__form__item__input {
+        position: relative;
+        .overflow {
+          transition: all 0.3s;
+          height: 20px;
+          opacity: 0;
+          transform: translateY(-10px);
+          span {
+            margin: 0 0 0 10px;
+          }
+        }
+        &_error {
+          color: color(error);
+          font-size: 12px;
+          position: relative;
+          .overflow__auto {
+            opacity: 1;
+            transition: all 0.3s;
+            transform: translateY(0px);
+            height: 20px;
+          }
+          input {
+            border: 1px solid #d2d2d2;
+            padding: 10px 20px 10px 10px;
+            border-radius: 5px;
+            &:focus {
+              border: 1px solid color(green);
+            }
+          }
+          .icon_clear {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 20%;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            svg {
+              opacity: 0.4;
+              transition: all 0.1s ease;
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  //      input {
+  //        border: 1px solid #d2d2d2;
+  //        padding: 10px;
+  //        border-radius: 5px;
+  //      }
+  //      .icon_clear {
+  //        cursor: pointer;
+  //        position: absolute;
+  //        right: 10px;
+  //        top: 30%;
+  //        display: flex;
+  //        align-items: center;
+  //        gap: 8px;
+  //        svg {
+  //          opacity: 0.4;
+  //          transition: all 0.1s ease;
+  //          &:hover {
+  //            opacity: 1;
+  //          }
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+}
