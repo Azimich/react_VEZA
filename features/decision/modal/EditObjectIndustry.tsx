@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-// import * as Yup from "yup";
+import * as Yup from "yup";
 
 import { ClearIcon, CloseIcon } from "components/icons";
 import { Input } from "components/input";
@@ -43,11 +43,12 @@ const EditObjectIndustry: FC<IObject> = ({
       industryObjectId: 0,
       slidePosition: 0,
     },
-    // validationSchema: Yup.object({
-    //   title: Yup.string().required("Обязательно для заполнения!"),
-    //   imageUrl: Yup.string().required("Обязательно для заполнения!"),
-    //   address: Yup.string().required("Обязательно для заполнения!"),
-    // }),
+    validationSchema: Yup.object({
+      title: Yup.string().required("Обязательно для заполнения!"),
+      imageUrl: Yup.string().required("Обязательно для заполнения!"),
+      address: Yup.string().required("Обязательно для заполнения!"),
+      slidePosition: Yup.string().required("Обязательно для заполнения!"),
+    }),
     onSubmit: (values) => {
       const _imageUrl =
         imageValue.indexOf("blob") > -1 ? imageValue : values.imageUrl;
@@ -61,7 +62,7 @@ const EditObjectIndustry: FC<IObject> = ({
         industryObjectId,
         values.slidePosition,
       ).then((data: any) => {
-        // toggle();
+        toggle();
         console.log("items", data);
       });
     },

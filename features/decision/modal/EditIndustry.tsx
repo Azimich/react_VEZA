@@ -49,6 +49,7 @@ const EditIndustry: FC<IEditModal> = ({
       shortDescription: Yup.string().required("Обязательно для заполнения!"),
       imageUrl: Yup.string().required("Обязательно для заполнения!"),
       seoMetaH1: Yup.string().required("Обязательно для заполнения!"),
+      seoTitle: Yup.string().required("Обязательно для заполнения!"),
       seoDescription: Yup.string().required("Обязательно для заполнения!"),
       seoKeyword: Yup.string().required("Обязательно для заполнения!"),
     }),

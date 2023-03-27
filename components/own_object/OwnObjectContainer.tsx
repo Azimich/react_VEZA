@@ -13,7 +13,6 @@ interface IObjectRes {
   props: IObjects[];
 }
 const OwnObjectContainer: FC<IObjectRes> = ({ props }) => {
-  console.log(props);
   const auth = useAppSelector(getAuth);
   const { isShow, toggle } = useModal();
 
@@ -28,8 +27,8 @@ const OwnObjectContainer: FC<IObjectRes> = ({ props }) => {
       </div>
       <ul className={Styles.container}>
         {props?.length > 0 ? (
-          props?.map((e) => {
-            return <OwnObjectItem {...e} key={e.slidePosition} />;
+          props?.map((e, i) => {
+            return <OwnObjectItem {...e} key={i} />;
           })
         ) : (
           <ConnectError type={"text"} />
