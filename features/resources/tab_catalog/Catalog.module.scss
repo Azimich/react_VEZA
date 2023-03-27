@@ -5,9 +5,7 @@
   display: flex;
   justify-content: center;
   margin: 40px auto;
-
 }
-
 .catalog_title {
   display: flex;
   justify-content: space-between;
@@ -113,7 +111,6 @@
     }
   }
 }
-
 .catalog_box {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -317,6 +314,83 @@
     }
   }
 }
+
+.catalog__seo {
+  &__inputs {
+    input {
+      border: 1px solid #d2d2d2;
+      padding: 10px 25px 10px 10px;
+      border-radius: 5px;
+      &:focus {
+        border-color: color(green);
+      }
+    }
+    .icon_clear {
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 20%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      svg {
+        opacity: 0.4;
+        transition: all 0.1s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    .add__form__item__input {
+      position: relative;
+      .overflow {
+        transition: all 0.3s;
+        height: 20px;
+        opacity: 0;
+        transform: translateY(-10px);
+        span {
+          margin: 0 0 0 10px;
+        }
+      }
+      &_error {
+        color: color(error);
+        font-size: 12px;
+        position: relative;
+        .overflow__auto {
+          opacity: 1;
+          transition: all 0.3s;
+          transform: translateY(0px);
+          height: 20px;
+        }
+        input {
+          border: 1px solid #d2d2d2;
+          padding: 10px 20px 10px 10px;
+          border-radius: 5px;
+          &:focus {
+            border: 1px solid color(green);
+          }
+        }
+        .icon_clear {
+          cursor: pointer;
+          position: absolute;
+          right: 10px;
+          top: 20%;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          svg {
+            opacity: 0.4;
+            transition: all 0.1s ease;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 //.active {
 //  display: flex;

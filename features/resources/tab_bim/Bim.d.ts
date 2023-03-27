@@ -36,6 +36,17 @@ interface ICatalog {
   url?: string;
 }
 
+interface ISEOModal {
+  toggle: () => void;
+  seoTitle?: string;
+  seoMetaH1?: string;
+  seoDescription?: string;
+  seoKeyword?: string;
+  catalogData: {
+    response: any;
+  };
+}
+
 interface ICertificates {
   id?: number;
   images?: {
@@ -111,6 +122,7 @@ interface IBIMModalResponse extends Omit<IResponse, "response"> {
 export {
   IBim,
   ICatalog,
+  ISEOModal,
   ICertificates,
   IQuestions,
   IQuestionnaires,

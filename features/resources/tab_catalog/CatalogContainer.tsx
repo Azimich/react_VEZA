@@ -19,6 +19,7 @@ import { ModalForm } from "features/resources/tab_catalog/ModalForm";
 
 const CatalogContainer = () => {
   const router = useRouter();
+  const auth = useAppSelector(getAuth);
   const { getCatalog } = useGetCatalog();
   const [refreshPage, setRefreshPage] = useState<boolean>(true);
   const auth = useAppSelector(getAuth);
@@ -43,8 +44,20 @@ const CatalogContainer = () => {
   }, [refreshPage]);
   const contentAdd = <ModalForm toggle={toggle} onChange={handleOnChange} />;
 
+  const contentModal = (
+    <EditSeoModal catalogData={catalogData} toggle={toggle} />
+  );
+
   return (
     <Container className={"wrapper_clear"}>
+      <Helmet>
+        <meta
+          name="description"
+          content={catalogData?.response?.seoDescription}
+        />
+        <meta name="keywords" content={catalogData?.response?.seoKeyword} />
+        <title>{catalogData?.response?.seoTitle}</title>
+      </Helmet>
       <BreadCrumbs data={breadCrumbs} />
       <div className={Styles.catalog_container}>
         <Tabs
@@ -58,12 +71,17 @@ const CatalogContainer = () => {
       </div>
       <div className={Styles.catalog_title}>
         <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
-        <Link url={catalogData && catalogData.response.url} download={"true"}>
-          <Button
-            type={"button"}
-            children={catalogData && catalogData.response.title}
-          />
-        </Link>
+        <div className={Styles.buttons}>
+          {auth.identify && auth.data.response && (
+            <Button onClick={toggle} children={"Редактирование"} />
+          )}
+          <Link url={catalogData && catalogData.response.url} download={"true"}>
+            <Button
+              type={"button"}
+              children={catalogData && catalogData.response.title}
+            />
+          </Link>
+        </div>
       </div>
       {auth.identify && (
         <Button
@@ -93,6 +111,14 @@ const CatalogContainer = () => {
               )
             );
           })}
+        <Modal
+          isShow={isShow}
+          hide={toggle}
+          modalContent={contentModal}
+          headerText={"Редактирование"}
+          bgModal={"black"}
+          theme={"modal_edit_text_1200"}
+        />
       </div>
       <Modal
         isShow={isShow}
