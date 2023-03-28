@@ -1,5 +1,6 @@
 import { ICatalogEquipmentData } from "features/equipment";
 import { ICategoriesItem } from "features/equipment/Equipment";
+import { ICategory } from "features/equipment/equipmentPage/utp/ModalFormCategory";
 
 const eachRecursive = (obj: ICatalogEquipmentData[]) => {
   const resData = [];
@@ -28,7 +29,24 @@ function getParents(
       parents.push(parent);
     }
   }
+  return parents;
+}
 
+function getParentsItems(
+  obj: ICategory[],
+  parentAlias: string,
+  level?: number,
+  parents: ICategory[] = [],
+) {
+  if (level !== 1) {
+    const parent = getDataItems(obj, parentAlias).shift();
+    if (parent?.level != 1) {
+      parents.push(parent);
+      getParentsItems(obj, parent?.parentAlias, parent?.level, parents);
+    } else {
+      parents.push(parent);
+    }
+  }
   return parents;
 }
 
@@ -46,12 +64,28 @@ const getData = (
       getData(obj[k].subCategories, url, parentAlias, resData);
     }
   }
+  return resData;
+};
 
+const getDataItems = (
+  obj: ICategory[],
+  url: string,
+  resData: ICategory[] = [],
+) => {
+  for (const k in obj) {
+    console.log("obj[k]", obj[k].alias, url);
+    if (obj[k].alias === url) {
+      resData.push(obj[k]);
+    }
+    if (obj[k].items && obj[k].items.length > 0) {
+      getDataItems(obj[k].items, url, resData);
+    }
+  }
   return resData;
 };
 
 const checkEmptyObject = (obj: {}) => {
-  return Object.keys(obj).length === 0;
+  return obj !== undefined ? Object.keys(obj).length === 0 : true;
 };
 
 const checkedAccessMenu = (role: number, onlyAdmin: boolean) => {
@@ -72,7 +106,9 @@ const onButtonClick = (url: string | URL, title: string, ext = ".pdf") => {
 
 export {
   eachRecursive,
+  getParentsItems,
   getData,
+  getDataItems,
   getParents,
   checkEmptyObject,
   checkedAccessMenu,

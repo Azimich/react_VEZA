@@ -1,6 +1,6 @@
 import React from "react";
 import { FC } from "react";
-import { Tree } from "components/TreeSelect";
+import { Tree } from "components/tree_select_product";
 
 interface IData {
   alias: string;

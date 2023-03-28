@@ -3,8 +3,8 @@ import { FC } from "react";
 import Styles from "../../features/equipment/equipmentPage/utp/UtpModalAction.module.scss";
 import { Button } from "components/button";
 import { useGetAddition } from "service/admin/list/getAddition";
-import { SelectedContainer } from "components/TreeSelect/SelectedContainer";
-import { NodeContainer } from "components/TreeSelect/NodeContainer";
+import { SelectedContainer } from "components/tree_select_product/SelectedContainer";
+import { NodeContainer } from "components/tree_select_product/NodeContainer";
 import { usePutAdditional } from "service/admin/item/putAdditional";
 
 interface IData {

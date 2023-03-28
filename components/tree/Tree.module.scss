@@ -1,0 +1,65 @@
+@import 'styles/mixins.scss';
+@import 'styles/variables.scss';
+
+.block_tree {
+  overflow-y: auto;
+  border: 1px solid color(border);
+  width: 100%;
+  max-height: 340px;
+  height: 340px;
+  padding: 10px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                   supported by Chrome, Edge, Opera and Firefox */
+  box-sizing: border-box;
+
+  ul {
+    padding: 3px 0;
+
+    &.level_children {
+      margin-left: 15px;
+
+      .active {
+        background-color: color(selected);
+        color: color(white);
+
+        span {
+          &:hover {
+            background-color: color(selected);
+            color: color(white);
+          }
+        }
+      }
+
+      .hover_row {
+        padding: 3px 03px 3px;
+        display: block;
+
+        &:hover {
+          background-color: color(border);
+        }
+      }
+    }
+
+    li {
+      cursor: pointer;
+    }
+  }
+
+}
+
+.block_button {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+
+  .loading {
+    display: flex;
+    gap: 10px;
+  }
+}

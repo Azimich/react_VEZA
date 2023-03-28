@@ -4,7 +4,7 @@ import { Input } from "components/input";
 import { Button } from "components/button";
 import { AddIcon, CloseIcon, DeleteIcon } from "components/icons";
 import { RichText } from "components/RichTextEdit/RichTextEditContainer";
-import { Tree } from "components/TreeSelect";
+import { Tree } from "components/tree_select_product";
 
 const ModalAddProduction: FC = () => {
   const [inputFields, setInputFields] = useState([""]);

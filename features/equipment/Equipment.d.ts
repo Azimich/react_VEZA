@@ -22,7 +22,7 @@ interface ICategoriesItem extends IBannerItem {
   archived?: boolean;
   aliasPath?: string;
   images?: IImages[] | IImages;
-  level: number;
+  level?: number;
   parentAlias?: string;
   seo?: string;
   back?: boolean;
