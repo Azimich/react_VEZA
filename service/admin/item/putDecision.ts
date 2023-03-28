@@ -24,7 +24,6 @@ const usePutDecision = () => {
     fd.append("seoMetaH1", seoMetaH1);
     fd.append("seoDescription", seoDescription);
     fd.append("seoKeyword", seoKeyword);
-    // fd.append("imageUrl", imageUrl);
     const blob = await fetch(imageUrl).then((response) => response.blob());
     fd.append("image", blob);
 
