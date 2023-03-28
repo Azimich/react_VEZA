@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { FC } from "react";
 import Styles from "./ModalForm.module.scss";
 import { Input } from "components/input";
-import { AddIcon, CloseIcon } from "components/icons";
+import { AddIcon, ClearIcon, CloseIcon } from "components/icons";
 import { Button } from "components/button";
 import { usePostCatalog } from "service/admin/item/postCatalog";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 interface IData {
   toggle?: () => void;
@@ -16,17 +18,35 @@ const ModalForm: FC<IData> = ({ toggle, onChange }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [inputValue, setInputValue] = useState(undefined);
   const { postCatalog } = usePostCatalog();
-  const handleOnClickSave = () => {
-    const fd = new FormData();
-    fd.append("icon", selectedFilesIcon[0]);
-    fd.append("file", selectedFiles[0]);
-    fd.append("title", inputValue);
-
-    postCatalog(fd).then(() => {
-      onChange();
-      toggle();
-    });
-  };
+  const formik = useFormik({
+    initialValues: {
+      added: "",
+    },
+    validationSchema: Yup.object({
+      added: Yup.string().required("Обязательно для заполнения!"),
+    }),
+    onSubmit: (values) => {
+      const fd = new FormData();
+      fd.append("icon", selectedFilesIcon[0]);
+      fd.append("file", selectedFiles[0]);
+      fd.append("title", inputValue);
+      postCatalog(fd).then(() => {
+        onChange();
+        toggle();
+      });
+      console.log("values", values);
+    },
+  });
+  // const handleOnClickSave = () => {
+  //   const fd = new FormData();
+  //   fd.append("icon", selectedFilesIcon[0]);
+  //   fd.append("file", selectedFiles[0]);
+  //   fd.append("title", inputValue);
+  //   postCatalog(fd).then(() => {
+  //     onChange();
+  //     toggle();
+  //   });
+  // };
   const handleOnClickDelete = (type: string) => {
     if (type === "icon") {
       setSelectedFilesIcon([]);
@@ -35,8 +55,13 @@ const ModalForm: FC<IData> = ({ toggle, onChange }) => {
     }
   };
 
+  const handlePostTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    formik.setFieldValue("added", inputValue);
+  };
+
   return (
-    <div className={Styles.div_container}>
+    <form onSubmit={formik.handleSubmit} className={Styles.div_container}>
       <h2>Иконка</h2>
       <div className={Styles.box_gallery_container}>
         {selectedFilesIcon.length > 0 && (
@@ -55,7 +80,7 @@ const ModalForm: FC<IData> = ({ toggle, onChange }) => {
               className={Styles.delete_icon}
               onClick={() => handleOnClickDelete("icon")}
             >
-              <CloseIcon />
+              <ClearIcon />
             </span>
           </div>
         )}
@@ -97,7 +122,7 @@ const ModalForm: FC<IData> = ({ toggle, onChange }) => {
               className={Styles.delete_icon}
               onClick={() => handleOnClickDelete("file")}
             >
-              <CloseIcon />
+              <ClearIcon />
             </span>
           </div>
         )}
@@ -120,29 +145,50 @@ const ModalForm: FC<IData> = ({ toggle, onChange }) => {
           </div>
         </label>
       </div>
-      <div>
-        <Input
-          type={"text"}
-          id={"added"}
-          name={"added"}
-          placeholder={"Название каталога"}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          // className={Styles.added_file}
-        />
+      <div className={Styles.validation__inputs}>
+        <div
+          className={`${
+            formik.errors["added"] && formik.touched["added"]
+              ? Styles.validation__inputs__input_error
+              : Styles.validation__inputs__input
+          }`}
+        >
+          <Input
+            name={"added"}
+            id={"added"}
+            value={inputValue}
+            onChange={handlePostTitleChange}
+            placeholder={"Название каталога"}
+            type={"text"}
+          />
+          {inputValue && (
+            <div
+              className={Styles.icon_clear}
+              onClick={() => setInputValue("")}
+            >
+              <CloseIcon />
+            </div>
+          )}
+          <div
+            className={`${
+              formik.errors["added"] && formik.touched["added"]
+                ? Styles.overflow__auto
+                : Styles.overflow
+            }`}
+          >
+            <span>{formik.errors["added"]}</span>
+          </div>
+        </div>
       </div>
       <div className={Styles.block_button}>
-        <Button
-          className={Styles.button_send}
-          onClick={() => handleOnClickSave()}
-        >
+        <Button className={Styles.button_send} type={"submit"}>
           Сохранить
         </Button>
         <Button className={Styles.button_send} onClick={toggle}>
           Отменить
         </Button>
       </div>
-    </div>
+    </form>
   );
 };
 

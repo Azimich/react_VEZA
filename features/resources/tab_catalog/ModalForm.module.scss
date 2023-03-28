@@ -4,7 +4,7 @@
 .div_container {
   .box_gallery_container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: max-content;
     flex-wrap: wrap;
     gap: 10px;
@@ -12,87 +12,71 @@
     align-items: flex-start;
 
     .cell_gallery {
-      height: 100px;
-      width: 146px;
+      height: 103px;
       position: relative;
-      overflow: hidden;
       display: flex;
-      align-items: center;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(20, 20, 20, 0.5);
-
-      .delete_icon {
-        position: absolute;
-        cursor: pointer;
-        top: 5px;
-        right: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        background-color: color(white);
-        box-shadow: 0 0 10px rgba(20, 20, 20, 0.5);
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        border: 1px solid;
-        object-fit: cover;
-      }
-    }
-
-    .add_info_banner {
-      background-color: #f1f1f1;
       border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+  .delete_icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 4;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .add_info_banner {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 146px;
+    cursor: pointer;
+
+    .added_input {
+      position: relative;
+      background-color: #009247;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100px;
-      width: 146px;
-      cursor: pointer;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
 
-      .added_input {
-        position: relative;
-        background-color: #009247;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        height: 50px;
-        width: 50px;
-
-        .added_label {
-
-          background-repeat: no-repeat;
-          background-size: cover;
-          border-radius: 10px;
-          display: block;
+      .added_label {
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px;
+        display: block;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 2;
+        svg {
           width: 40px;
           height: 40px;
-          cursor: pointer;
-          z-index: 2;
+        }
 
-          svg {
-            width: 40px;
-            height: 40px;
-          }
-
-          &_span {
-            display: none;
-          }
+        &_span {
+          display: none;
         }
       }
     }
   }
 
   .block_button {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
-    gap: 20px;
-    justify-content: center;
+    gap: 10px;
   }
 
   h2 {
@@ -104,4 +88,80 @@
   .added_file {
     border: 1px solid red;
   }
+
+  .validation__inputs {
+    &__input {
+      position: relative;
+      .overflow {
+        transition: all 0.3s;
+        height: 20px;
+        opacity: 0;
+        transform: translateY(-10px);
+        span {
+          margin: 0 0 0 10px;
+        }
+      }
+      &_error {
+        color: color(error);
+        font-size: 12px;
+        position: relative;
+        .overflow__auto {
+          opacity: 1;
+          transition: all 0.3s;
+          transform: translateY(0px);
+          height: 20px;
+        }
+        input {
+          border: 1px solid #d2d2d2;
+          padding: 10px 20px 10px 10px;
+          border-radius: 5px;
+          &:focus {
+            border: 1px solid color(green);
+          }
+        }
+        .icon_clear {
+          cursor: pointer;
+          position: absolute;
+          right: 10px;
+          top: 20%;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          svg {
+            opacity: 0.4;
+            transition: all 0.1s ease;
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    input {
+      border: 1px solid #d2d2d2;
+      padding: 10px 25px 10px 10px;
+      border-radius: 5px;
+      &:focus {
+        border: 1px solid color(green);
+      }
+    }
+    .icon_clear {
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 22%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      svg {
+        opacity: 0.4;
+        transition: all 0.1s ease;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
+
+

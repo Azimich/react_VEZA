@@ -127,8 +127,8 @@ const CatalogContainer = () => {
         hide={toggle}
         modalContent={contentAdd}
         headerText={"Добавление каталога"}
-        theme={"modal_edit_text"}
-        bgModal={"white"}
+        theme={"modal_edit_text_1200"}
+        bgModal={"black"}
       />
     </Container>
   );
