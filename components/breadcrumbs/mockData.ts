@@ -24,7 +24,7 @@ const dataBreadEquipment: IBreadCrumbs[] = [
     alias: "/",
   },
   {
-    title: "Продукция",
+    title: "Каталог продукции",
     alias: process.env.NEXT_PUBLIC_APP_URL + equipmentPath,
   },
 ];

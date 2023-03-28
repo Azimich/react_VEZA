@@ -1,6 +1,6 @@
 import Styles from "./Tree.module.scss";
 import React, { FC } from "react";
-import { IAddition } from "components/TreeSelect/TreeContainer";
+import { IAddition } from "components/tree_select_product/TreeContainer";
 
 interface ISelected {
   listAdditionSelected: IAddition[];

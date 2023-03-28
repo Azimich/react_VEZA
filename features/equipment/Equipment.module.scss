@@ -1,6 +1,11 @@
 @import 'styles/mixins.scss';
 @import 'styles/variables.scss';
 
+.breadCrumbs_container{
+  display: flex;
+  align-items: flex-end;
+}
+
 .equipment__container {
   display: grid;
   grid-template-columns: 270px 1fr;
@@ -323,7 +328,7 @@
         }
 
         &:last-child:nth-child(2n+1) {
-          grid-column: span 2;
+         // grid-column: span 2;
         }
 
         &:hover img {

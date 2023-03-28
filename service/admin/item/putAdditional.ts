@@ -1,5 +1,5 @@
 import useHttp from "store/hooks/useHttp";
-import { IAddition } from "components/TreeSelect/TreeContainer";
+import { IAddition } from "components/tree_select_product/TreeContainer";
 
 const usePutAdditional = () => {
   const { request, loading, error } = useHttp();

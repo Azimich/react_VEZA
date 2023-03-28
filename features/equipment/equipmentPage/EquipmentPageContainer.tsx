@@ -16,6 +16,9 @@ import { ModalFormGallery } from "features/equipment/equipmentPage/utp/ModalForm
 import { BreadCrumbs, IBreadCrumbs } from "components/breadcrumbs";
 import { dataBreadEquipment } from "components/breadcrumbs/mockData";
 import { getData, getParents } from "utils/helpers";
+import { equipmentPath } from "utils/bootstrap";
+import { ICategory } from "features/equipment/equipmentPage/utp/ModalFormCategory";
+import { useGetCategories } from "service/admin/list/getCategories";
 
 const EquipmentPageContainer: FC<{
   data: ICategoriesItem[];
@@ -26,6 +29,8 @@ const EquipmentPageContainer: FC<{
 }> = ({ data, categories, alias, alias_active, product }) => {
   const { getAddEquip } = useGetAddEquip();
   const [additionQ, setAdditionQ] = useState([]);
+  const [categoriesData, setCategoriesData] = useState<ICategory[]>([]);
+  const { getCategories } = useGetCategories();
   const convert = (data: IEquipmentResponse) => {
     return data?.response.images.map((e): ISlideItem => {
       return {
@@ -44,33 +49,45 @@ const EquipmentPageContainer: FC<{
   };
   const { isShow: isShowAdditionQ, toggle: toggleEditAdditionQ } = useModal();
   const { isShow: isShowGallery, toggle: toggleEditGallery } = useModal();
-  const [breadCrumbs] = useState<IBreadCrumbs[]>(dataBreadEquipment);
+  const { isShow: isShowEditCategory, toggle: toggleEditCategory } = useModal();
+  const [breadCrumbs, setBreadCrumbs] =
+    useState<IBreadCrumbs[]>(dataBreadEquipment);
+
+  useEffect(() => {
+    getCategories(alias_active).then((data) => {
+      setCategoriesData(data.response);
+    });
+  }, []);
 
   useEffect(() => {
     //   setBreadCrumbs([...breadCrumbs, {title: "Каталог продукции"}]);
-    const parentsData = getParents(
-      categories.response,
-      getData(categories.response, alias_active)[0]?.parentAlias,
-      getData(categories.response, alias_active)[0]?.level,
-    )
-      .reverse()
-      .map((e) => {
-        return { title: e.title, alias: e.alias };
+    if (!isShowEditCategory && categoriesData.length > 0) {
+      setBreadCrumbs(dataBreadEquipment);
+      const parentsData = getParents(
+        categories.response,
+        getData(categories.response, alias_active)[0]?.parentAlias,
+        getData(categories.response, alias_active)[0]?.level,
+      )
+        .reverse()
+        .map((e, index, array) => {
+          let curAlias = "";
+          if (index > 0) {
+            for (let i = 0; i <= index; i++) {
+              curAlias += array[i].alias + (i != index ? "/" : "");
+            }
+          } else {
+            curAlias = e.alias;
+          }
+          return {
+            title: e.title,
+            alias: process.env.NEXT_PUBLIC_APP_URL + equipmentPath + curAlias,
+          };
+        });
+      parentsData.map((e) => {
+        setBreadCrumbs((prevData) => [...prevData, e]);
       });
-
-    for (const k in parentsData) {
-      console.log("parentsData", parentsData[k]);
     }
-    console.log("123", parentsData);
-    /*        const res = parentsData.map(e => {
-                    const curData = getData(categories.response, e.alias as string)[0]
-                    setBreadCrumbs(prevData => [...prevData, {
-                        title: curData.title,
-                        alias: process.env.NEXT_PUBLIC_APP_URL + equipmentPath
-                    }]);
-                })*/
-    // return setBreadCrumbs([])
-  }, [categories]);
+  }, [isShowEditCategory, categoriesData]);
 
   useEffect(() => {
     !isShowAdditionQ &&
@@ -82,13 +99,21 @@ const EquipmentPageContainer: FC<{
   const contentEditAdditionQ = (
     <ModalFormAdditionQ toggle={toggleEditAdditionQ} alias={alias_active} />
   );
+  const contentEditCategory = (
+    <ModalFormCategory toggle={toggleEditCategory} alias={alias_active} />
+  );
 
   const contentEditGallery = (
     <ModalFormGallery toggle={toggleEditGallery} product={product} />
   );
   return (
     <Container className={"wrapper"}>
-      <BreadCrumbs data={breadCrumbs} />
+      <div className={Styles.breadCrumbs_container}>
+        <BreadCrumbs data={breadCrumbs} />
+        <div className={Styles.editor} onClick={toggleEditCategory}>
+          <Editor />
+        </div>
+      </div>
       <div className={Styles.equipment__container}>
         <Menu categories={categories?.response} data={data} alias={alias} />
         <div className={Styles.content_box}>
@@ -141,6 +166,14 @@ const EquipmentPageContainer: FC<{
         modalContent={contentEditAdditionQ}
         headerText={"Редактирование дополнительного оборудования"}
         theme={"modal_edit_text_1200"}
+        bgModal={"white"}
+      />
+      <Modal
+        isShow={isShowEditCategory}
+        hide={toggleEditCategory}
+        modalContent={contentEditCategory}
+        headerText={"Редактирование категории"}
+        theme={"modal_edit_text"}
         bgModal={"white"}
       />
     </Container>
