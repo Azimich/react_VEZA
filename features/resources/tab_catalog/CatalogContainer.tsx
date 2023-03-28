@@ -28,6 +28,7 @@ const CatalogContainer = () => {
     useState<IBreadCrumbs[]>(dataBreadResources);
   const [catalogData, setCatalogData] = useState<ICatalogResponse>(undefined);
   const { isShow, toggle } = useModal();
+  const { isShow: isShowEdit, toggle: toggleEdit } = useModal();
 
   useEffect(() => {
     setBreadCrumbs([...breadCrumbs, { title: "Каталоги" }]);
@@ -46,7 +47,7 @@ const CatalogContainer = () => {
   const contentAdd = <ModalForm toggle={toggle} onChange={handleOnChange} />;
 
   const contentModal = (
-    <EditSeoModal catalogData={catalogData} toggle={toggle} />
+    <EditSeoModal catalogData={catalogData} toggle={toggleEdit} />
   );
 
   return (
@@ -74,7 +75,7 @@ const CatalogContainer = () => {
         <h1 className={Styles.h1}>Каталоги оборудования ВЕЗА</h1>
         <div className={Styles.buttons}>
           {auth.identify && auth.data.response && (
-            <Button onClick={toggle} children={"Редактирование"} />
+            <Button onClick={toggleEdit} children={"Редактирование"} />
           )}
           <Link url={catalogData && catalogData.response.url} download={"true"}>
             <Button
@@ -113,8 +114,8 @@ const CatalogContainer = () => {
             );
           })}
         <Modal
-          isShow={isShow}
-          hide={toggle}
+          isShow={isShowEdit}
+          hide={toggleEdit}
           modalContent={contentModal}
           headerText={"Редактирование"}
           bgModal={"black"}
